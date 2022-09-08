@@ -1,4 +1,6 @@
-### PSSVG
+<div align='center'>
+<img src='Assets/PSSVG.svg' />
+</div>
 
 PowerShell tools for SVG.
 
