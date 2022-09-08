@@ -26,7 +26,10 @@ The following elements are supported:
     [PSCustomObject]@{
         Table = Get-Command -Module PSSVG -Name SVG.* -CommandType Function |
             .Element {
-                $_.ScriptBlock.Attributes | Where-Object Key -eq 'SVG.ElementName' | Select-Object -ExpandProperty Value
+                $cmd = $_
+                $docLink = "docs/$($_.Name).md"
+                $elementName = $_.ScriptBlock.Attributes | Where-Object Key -eq 'SVG.ElementName' | Select-Object -ExpandProperty Value
+                "[$elementName]($docLink)"
             } .Function {
                 "[$($_.Name)]($($_.Name).ps1)"
             } .Aliases {
