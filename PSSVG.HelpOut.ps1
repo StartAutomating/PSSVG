@@ -8,5 +8,5 @@ if ($PSSVGLoaded) {
     "::error:: PSSVG not loaded" |Out-Host
 }
 if ($PSSVGLoaded) {
-    Save-MarkdownHelp -Module $PSSVGLoaded.Name -PassThru
+    Save-MarkdownHelp -Module $PSSVGLoaded.Name -PassThru -SkipCommandType Alias
 }
