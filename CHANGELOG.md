@@ -1,4 +1,4 @@
-## 0.1
+### 0.1
 * Initial Release of PSSVG, including:
   * A command for every SVG element (fixes #1)
   * Lots of examples (fixes #2)
