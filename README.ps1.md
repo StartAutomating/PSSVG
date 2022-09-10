@@ -36,7 +36,8 @@ The following elements are supported:
                 "[$($_.Name)]($($_.Name).ps1)"
             } .Aliases {
                 $cmd = $_
-                @(Get-Alias | Where-Object { $_.ResolvedCommand.Name -eq $cmd.Name } | Select-Object -ExpandProperty Name) -join ' '
+                $aliases = @(Get-Alias | Where-Object { $_.ResolvedCommand.Name -eq $cmd.Name } | Select-Object -ExpandProperty Name) -join ' '
+                [Web.HttpUtility]::HTMLEncode($aliases)
             }            
     }
 }
