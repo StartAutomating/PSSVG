@@ -15,6 +15,7 @@ SVG's `<a>` element is a container, which means you can create a link around tex
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.a](https://pssvg.start-automating.com/SVG.a)
 * [https://developer.mozilla.org/en-US/web/svg/element/a/](https://developer.mozilla.org/en-US/web/svg/element/a/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
