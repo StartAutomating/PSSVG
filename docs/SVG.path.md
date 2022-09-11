@@ -13,6 +13,7 @@ The **`<path>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.path](https://pssvg.start-automating.com/SVG.path)
 * [https://developer.mozilla.org/en-US/web/svg/element/path/](https://developer.mozilla.org/en-US/web/svg/element/path/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
