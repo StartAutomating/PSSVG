@@ -13,6 +13,7 @@ The **`<filter>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.filter](https://pssvg.start-automating.com/SVG.filter)
 * [https://developer.mozilla.org/en-US/web/svg/element/filter/](https://developer.mozilla.org/en-US/web/svg/element/filter/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
