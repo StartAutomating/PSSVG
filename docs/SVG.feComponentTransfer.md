@@ -15,6 +15,7 @@ The calculations are performed on non-premultiplied color values. The colors are
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feComponentTransfer](https://pssvg.start-automating.com/SVG.feComponentTransfer)
 * [https://developer.mozilla.org/en-US/web/svg/element/fecomponenttransfer/](https://developer.mozilla.org/en-US/web/svg/element/fecomponenttransfer/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
