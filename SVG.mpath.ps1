@@ -8,6 +8,8 @@ function SVG.mpath {
     https://pssvg.start-automating.com/SVG.mpath
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/mpath/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'mpath')]
 [CmdletBinding(PositionalBinding=$false)]

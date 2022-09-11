@@ -8,6 +8,8 @@ function SVG.feMergeNode {
     https://pssvg.start-automating.com/SVG.feMergeNode
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/femergenode/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feMergeNode')]
 [CmdletBinding(PositionalBinding=$false)]

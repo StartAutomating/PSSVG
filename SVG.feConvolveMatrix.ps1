@@ -48,6 +48,8 @@ function SVG.feConvolveMatrix {
     https://pssvg.start-automating.com/SVG.feConvolveMatrix
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/feconvolvematrix/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feConvolveMatrix')]
 [CmdletBinding(PositionalBinding=$false)]

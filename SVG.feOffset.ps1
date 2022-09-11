@@ -8,6 +8,8 @@ function SVG.feOffset {
     https://pssvg.start-automating.com/SVG.feOffset
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/feoffset/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feOffset')]
 [CmdletBinding(PositionalBinding=$false)]

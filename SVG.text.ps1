@@ -61,6 +61,8 @@ function SVG.text {
     https://pssvg.start-automating.com/SVG.text
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/text/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'text')]
 [CmdletBinding(PositionalBinding=$false)]

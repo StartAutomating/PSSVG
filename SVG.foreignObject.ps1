@@ -8,6 +8,8 @@ function SVG.foreignObject {
     https://pssvg.start-automating.com/SVG.foreignObject
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/foreignobject/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'foreignObject')]
 [CmdletBinding(PositionalBinding=$false)]

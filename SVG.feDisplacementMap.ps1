@@ -14,6 +14,8 @@ function SVG.feDisplacementMap {
     https://pssvg.start-automating.com/SVG.feDisplacementMap
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fedisplacementmap/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDisplacementMap')]
 [CmdletBinding(PositionalBinding=$false)]

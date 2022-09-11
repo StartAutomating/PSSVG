@@ -110,6 +110,8 @@ function SVG.circle {
     https://pssvg.start-automating.com/SVG.circle
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/circle/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'circle')]
 [CmdletBinding(PositionalBinding=$false)]

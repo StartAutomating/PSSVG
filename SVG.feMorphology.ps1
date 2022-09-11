@@ -8,6 +8,8 @@ function SVG.feMorphology {
     https://pssvg.start-automating.com/SVG.feMorphology
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/femorphology/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feMorphology')]
 [CmdletBinding(PositionalBinding=$false)]

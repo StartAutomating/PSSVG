@@ -8,6 +8,8 @@ function SVG.feDistantLight {
     https://pssvg.start-automating.com/SVG.feDistantLight
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fedistantlight/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDistantLight')]
 [CmdletBinding(PositionalBinding=$false)]

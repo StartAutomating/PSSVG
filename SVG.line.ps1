@@ -8,6 +8,8 @@ function SVG.line {
     https://pssvg.start-automating.com/SVG.line
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/line/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'line')]
 [CmdletBinding(PositionalBinding=$false)]

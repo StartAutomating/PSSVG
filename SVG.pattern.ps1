@@ -10,6 +10,8 @@ function SVG.pattern {
     https://pssvg.start-automating.com/SVG.pattern
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/pattern/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'pattern')]
 [CmdletBinding(PositionalBinding=$false)]

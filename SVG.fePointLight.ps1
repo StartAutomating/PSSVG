@@ -8,6 +8,8 @@ function SVG.fePointLight {
     https://pssvg.start-automating.com/SVG.fePointLight
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fepointlight/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'fePointLight')]
 [CmdletBinding(PositionalBinding=$false)]

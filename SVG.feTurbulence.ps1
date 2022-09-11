@@ -8,6 +8,8 @@ function SVG.feTurbulence {
     https://pssvg.start-automating.com/SVG.feTurbulence
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/feturbulence/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feTurbulence')]
 [CmdletBinding(PositionalBinding=$false)]

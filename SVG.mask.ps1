@@ -8,6 +8,8 @@ function SVG.mask {
     https://pssvg.start-automating.com/SVG.mask
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/mask/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'mask')]
 [CmdletBinding(PositionalBinding=$false)]

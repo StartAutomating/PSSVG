@@ -67,6 +67,8 @@ function SVG.animateTransform {
     https://pssvg.start-automating.com/SVG.animateTransform
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/animatetransform/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animateTransform')]
 [CmdletBinding(PositionalBinding=$false)]

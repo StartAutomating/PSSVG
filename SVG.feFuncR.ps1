@@ -8,6 +8,8 @@ function SVG.feFuncR {
     https://pssvg.start-automating.com/SVG.feFuncR
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fefuncr/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feFuncR')]
 [CmdletBinding(PositionalBinding=$false)]

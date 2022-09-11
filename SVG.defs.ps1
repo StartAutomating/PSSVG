@@ -58,6 +58,8 @@ function SVG.defs {
     https://pssvg.start-automating.com/SVG.defs
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/defs/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'defs')]
 [CmdletBinding(PositionalBinding=$false)]

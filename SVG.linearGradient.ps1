@@ -32,6 +32,8 @@ function SVG.linearGradient {
     https://pssvg.start-automating.com/SVG.linearGradient
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/lineargradient/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'linearGradient')]
 [CmdletBinding(PositionalBinding=$false)]

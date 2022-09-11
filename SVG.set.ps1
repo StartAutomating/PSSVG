@@ -12,6 +12,8 @@ function SVG.set {
     https://pssvg.start-automating.com/SVG.set
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/set/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'set')]
 [CmdletBinding(PositionalBinding=$false)]

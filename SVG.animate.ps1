@@ -297,6 +297,8 @@ function SVG.animate {
     https://pssvg.start-automating.com/SVG.animate
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/animate/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animate')]
 [CmdletBinding(PositionalBinding=$false)]

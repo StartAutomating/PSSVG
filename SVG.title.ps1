@@ -12,6 +12,8 @@ function SVG.title {
     https://pssvg.start-automating.com/SVG.title
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/title/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'title')]
 [CmdletBinding(PositionalBinding=$false)]

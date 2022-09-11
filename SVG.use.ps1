@@ -8,6 +8,8 @@ function SVG.use {
     https://pssvg.start-automating.com/SVG.use
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/use/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'use')]
 [CmdletBinding(PositionalBinding=$false)]

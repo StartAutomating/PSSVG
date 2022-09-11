@@ -8,6 +8,8 @@ function SVG.feBlend {
     https://pssvg.start-automating.com/SVG.feBlend
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/feblend/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feBlend')]
 [CmdletBinding(PositionalBinding=$false)]

@@ -83,6 +83,8 @@ function SVG.rect {
     https://pssvg.start-automating.com/SVG.rect
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/rect/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'rect')]
 [CmdletBinding(PositionalBinding=$false)]

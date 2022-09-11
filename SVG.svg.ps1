@@ -10,6 +10,8 @@ function SVG.svg {
     https://pssvg.start-automating.com/SVG.svg
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/svg/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'svg')]
 [CmdletBinding(PositionalBinding=$false)]

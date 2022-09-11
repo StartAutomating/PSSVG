@@ -10,6 +10,8 @@ function SVG.clipPath {
     https://pssvg.start-automating.com/SVG.clipPath
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/clippath/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'clipPath')]
 [CmdletBinding(PositionalBinding=$false)]

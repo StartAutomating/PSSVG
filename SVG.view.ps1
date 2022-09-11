@@ -8,6 +8,8 @@ function SVG.view {
     https://pssvg.start-automating.com/SVG.view
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/view/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'view')]
 [CmdletBinding(PositionalBinding=$false)]

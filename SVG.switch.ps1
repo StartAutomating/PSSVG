@@ -12,6 +12,8 @@ function SVG.switch {
     https://pssvg.start-automating.com/SVG.switch
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/switch/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'switch')]
 [CmdletBinding(PositionalBinding=$false)]

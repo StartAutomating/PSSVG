@@ -10,6 +10,8 @@ function SVG.feDiffuseLighting {
     https://pssvg.start-automating.com/SVG.feDiffuseLighting
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fediffuselighting/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDiffuseLighting')]
 [CmdletBinding(PositionalBinding=$false)]

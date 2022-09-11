@@ -10,6 +10,8 @@ function SVG.style {
     https://pssvg.start-automating.com/SVG.style
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/style/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'style')]
 [CmdletBinding(PositionalBinding=$false)]

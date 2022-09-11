@@ -10,6 +10,8 @@ function SVG.feSpecularLighting {
     https://pssvg.start-automating.com/SVG.feSpecularLighting
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fespecularlighting/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feSpecularLighting')]
 [CmdletBinding(PositionalBinding=$false)]

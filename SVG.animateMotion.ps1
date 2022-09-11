@@ -10,6 +10,8 @@ function SVG.animateMotion {
     https://pssvg.start-automating.com/SVG.animateMotion
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/animatemotion/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animateMotion')]
 [CmdletBinding(PositionalBinding=$false)]

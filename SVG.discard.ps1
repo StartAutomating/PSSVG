@@ -10,6 +10,8 @@ function SVG.discard {
     https://pssvg.start-automating.com/SVG.discard
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/discard/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'discard')]
 [CmdletBinding(PositionalBinding=$false)]

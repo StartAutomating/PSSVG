@@ -8,6 +8,8 @@ function SVG.feFlood {
     https://pssvg.start-automating.com/SVG.feFlood
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/feflood/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feFlood')]
 [CmdletBinding(PositionalBinding=$false)]

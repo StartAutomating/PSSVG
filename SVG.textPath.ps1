@@ -8,6 +8,8 @@ function SVG.textPath {
     https://pssvg.start-automating.com/SVG.textPath
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/textpath/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'textPath')]
 [CmdletBinding(PositionalBinding=$false)]

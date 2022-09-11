@@ -104,6 +104,8 @@ function SVG.stop {
     https://pssvg.start-automating.com/SVG.stop
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/stop/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'stop')]
 [CmdletBinding(PositionalBinding=$false)]

@@ -10,6 +10,8 @@ function SVG.marker {
     https://pssvg.start-automating.com/SVG.marker
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/marker/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'marker')]
 [CmdletBinding(PositionalBinding=$false)]

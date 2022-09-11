@@ -8,6 +8,8 @@ function SVG.feGaussianBlur {
     https://pssvg.start-automating.com/SVG.feGaussianBlur
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fegaussianblur/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feGaussianBlur')]
 [CmdletBinding(PositionalBinding=$false)]

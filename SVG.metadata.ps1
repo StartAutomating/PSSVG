@@ -8,6 +8,8 @@ function SVG.metadata {
     https://pssvg.start-automating.com/SVG.metadata
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/metadata/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'metadata')]
 [CmdletBinding(PositionalBinding=$false)]

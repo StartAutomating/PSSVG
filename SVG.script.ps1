@@ -10,6 +10,8 @@ function SVG.script {
     https://pssvg.start-automating.com/SVG.script
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/script/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'script')]
 [CmdletBinding(PositionalBinding=$false)]

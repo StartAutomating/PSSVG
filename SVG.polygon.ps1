@@ -10,6 +10,8 @@ function SVG.polygon {
     https://pssvg.start-automating.com/SVG.polygon
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/polygon/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'polygon')]
 [CmdletBinding(PositionalBinding=$false)]

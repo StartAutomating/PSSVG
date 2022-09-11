@@ -14,6 +14,8 @@ function SVG.image {
     https://pssvg.start-automating.com/SVG.image
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/image/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'image')]
 [CmdletBinding(PositionalBinding=$false)]

@@ -10,6 +10,8 @@ function SVG.feComposite {
     https://pssvg.start-automating.com/SVG.feComposite
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fecomposite/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feComposite')]
 [CmdletBinding(PositionalBinding=$false)]

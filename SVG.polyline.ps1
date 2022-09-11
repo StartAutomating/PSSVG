@@ -8,6 +8,8 @@ function SVG.polyline {
     https://pssvg.start-automating.com/SVG.polyline
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/polyline/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'polyline')]
 [CmdletBinding(PositionalBinding=$false)]

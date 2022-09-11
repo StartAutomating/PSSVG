@@ -58,6 +58,8 @@ function SVG.feColorMatrix {
     https://pssvg.start-automating.com/SVG.feColorMatrix
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fecolormatrix/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feColorMatrix')]
 [CmdletBinding(PositionalBinding=$false)]

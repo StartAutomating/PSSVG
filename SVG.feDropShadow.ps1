@@ -10,6 +10,8 @@ function SVG.feDropShadow {
     https://pssvg.start-automating.com/SVG.feDropShadow
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fedropshadow/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDropShadow')]
 [CmdletBinding(PositionalBinding=$false)]

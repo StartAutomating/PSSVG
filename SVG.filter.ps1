@@ -8,6 +8,8 @@ function SVG.filter {
     https://pssvg.start-automating.com/SVG.filter
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/filter/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'filter')]
 [CmdletBinding(PositionalBinding=$false)]

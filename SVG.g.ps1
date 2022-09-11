@@ -21,6 +21,8 @@ function SVG.g {
     https://pssvg.start-automating.com/SVG.g
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/g/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'g')]
 [CmdletBinding(PositionalBinding=$false)]

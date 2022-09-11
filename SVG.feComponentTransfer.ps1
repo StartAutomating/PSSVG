@@ -10,6 +10,8 @@ function SVG.feComponentTransfer {
     https://pssvg.start-automating.com/SVG.feComponentTransfer
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fecomponenttransfer/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feComponentTransfer')]
 [CmdletBinding(PositionalBinding=$false)]

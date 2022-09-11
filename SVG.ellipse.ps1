@@ -46,6 +46,8 @@ function SVG.ellipse {
     https://pssvg.start-automating.com/SVG.ellipse
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/ellipse/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'ellipse')]
 [CmdletBinding(PositionalBinding=$false)]

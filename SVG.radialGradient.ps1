@@ -34,6 +34,8 @@ function SVG.radialGradient {
     https://pssvg.start-automating.com/SVG.radialGradient
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/radialgradient/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'radialGradient')]
 [CmdletBinding(PositionalBinding=$false)]

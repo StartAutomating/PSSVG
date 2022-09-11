@@ -8,6 +8,8 @@ function SVG.tspan {
     https://pssvg.start-automating.com/SVG.tspan
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/tspan/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'tspan')]
 [CmdletBinding(PositionalBinding=$false)]

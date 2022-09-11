@@ -67,6 +67,8 @@ function SVG.path {
     https://pssvg.start-automating.com/SVG.path
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/path/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'path')]
 [CmdletBinding(PositionalBinding=$false)]

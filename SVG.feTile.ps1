@@ -8,6 +8,8 @@ function SVG.feTile {
     https://pssvg.start-automating.com/SVG.feTile
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/fetile/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feTile')]
 [CmdletBinding(PositionalBinding=$false)]

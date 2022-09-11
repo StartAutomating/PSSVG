@@ -12,6 +12,8 @@ function SVG.desc {
     https://pssvg.start-automating.com/SVG.desc
 .Link
     https://developer.mozilla.org/en-US/web/svg/element/desc/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'desc')]
 [CmdletBinding(PositionalBinding=$false)]
