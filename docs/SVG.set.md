@@ -17,6 +17,7 @@ It supports all attribute types, including those that cannot reasonably be inter
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.set](https://pssvg.start-automating.com/SVG.set)
 * [https://developer.mozilla.org/en-US/web/svg/element/set/](https://developer.mozilla.org/en-US/web/svg/element/set/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
