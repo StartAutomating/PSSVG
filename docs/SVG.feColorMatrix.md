@@ -63,6 +63,7 @@ In it, every new value is exactly 1 times its old value, with nothing else added
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feColorMatrix](https://pssvg.start-automating.com/SVG.feColorMatrix)
 * [https://developer.mozilla.org/en-US/web/svg/element/fecolormatrix/](https://developer.mozilla.org/en-US/web/svg/element/fecolormatrix/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
