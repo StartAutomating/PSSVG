@@ -15,6 +15,7 @@ The SVG **`<animateMotion>`** element provides a way to define how an element mo
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.animateMotion](https://pssvg.start-automating.com/SVG.animateMotion)
 * [https://developer.mozilla.org/en-US/web/svg/element/animatemotion/](https://developer.mozilla.org/en-US/web/svg/element/animatemotion/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
