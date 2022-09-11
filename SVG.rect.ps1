@@ -37,8 +37,6 @@ function SVG.rect {
         )
     ) -ViewBox 0, 0, 100, 150
 .Example
-    #require -Module PSSVG
-    
     $colors = @('red','green','blue')
     =<svg> @(
         foreach ($n in 1..10) {
@@ -53,8 +51,6 @@ function SVG.rect {
         }
     )
 .Example
-    #require -Module PSSVG
-    
     $colors = @('red','green','blue')
     =<svg> @(
         foreach ($n in 1..10) {

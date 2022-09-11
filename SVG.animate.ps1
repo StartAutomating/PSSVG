@@ -148,8 +148,6 @@ function SVG.animate {
         =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -ViewBox '0 0 100 100'
 .Example
-    #require -Module PSSVG
-    
     $colors = @('red','green','blue')
     =<svg> @(
         foreach ($n in 1..10) {
@@ -164,8 +162,6 @@ function SVG.animate {
         }
     )
 .Example
-    #require -Module PSSVG
-    
     $colors = @('red','green','blue')
     =<svg> @(
         foreach ($n in 1..10) {

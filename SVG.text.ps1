@@ -41,14 +41,10 @@ function SVG.text {
         }
     )
 .Example
-    #require -Module PSSVG
-    
     =<svg> (
         =<svg.text> -X 0 -Y 48 -Fontsize 48 "Hello World"
     )
 .Example
-    #require -Module PS2D
-    
     $longText = dir | Out-String
     $longTextLines = @($longText -split '(?>\r\n|\n)')
     $fontSize = 14
