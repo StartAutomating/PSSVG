@@ -13,6 +13,7 @@ The **`<line>`** element is an SVG basic shape used to create a line connecting 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.line](https://pssvg.start-automating.com/SVG.line)
 * [https://developer.mozilla.org/en-US/web/svg/element/line/](https://developer.mozilla.org/en-US/web/svg/element/line/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
