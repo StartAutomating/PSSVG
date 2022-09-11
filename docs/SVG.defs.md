@@ -15,6 +15,7 @@ Graphical objects can be referenced from anywhere, however, defining these objec
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.defs](https://pssvg.start-automating.com/SVG.defs)
 * [https://developer.mozilla.org/en-US/web/svg/element/defs/](https://developer.mozilla.org/en-US/web/svg/element/defs/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
