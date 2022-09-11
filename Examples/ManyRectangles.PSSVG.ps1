@@ -1,5 +1,4 @@
-
-#require -Module PSSVG
+#requires -Module PSSVG
 
 $colors = @('red','green','blue')
 =<svg> @(
