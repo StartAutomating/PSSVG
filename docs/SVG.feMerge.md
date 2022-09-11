@@ -13,6 +13,7 @@ The **`<feMerge>`** SVG element allows filter effects to be applied concurrently
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feMerge](https://pssvg.start-automating.com/SVG.feMerge)
 * [https://developer.mozilla.org/en-US/web/svg/element/femerge/](https://developer.mozilla.org/en-US/web/svg/element/femerge/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
