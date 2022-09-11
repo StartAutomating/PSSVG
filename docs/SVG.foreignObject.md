@@ -13,6 +13,7 @@ The **`<foreignObject>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.foreignObject](https://pssvg.start-automating.com/SVG.foreignObject)
 * [https://developer.mozilla.org/en-US/web/svg/element/foreignobject/](https://developer.mozilla.org/en-US/web/svg/element/foreignobject/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
