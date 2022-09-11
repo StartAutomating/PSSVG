@@ -13,6 +13,7 @@ The `feMergeNode` takes the result of another filter to be processed by its pare
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feMergeNode](https://pssvg.start-automating.com/SVG.feMergeNode)
 * [https://developer.mozilla.org/en-US/web/svg/element/femergenode/](https://developer.mozilla.org/en-US/web/svg/element/femergenode/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
