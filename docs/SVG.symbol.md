@@ -15,6 +15,7 @@ The use of `<symbol>` elements for graphics that are used multiple times in the 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.symbol](https://pssvg.start-automating.com/SVG.symbol)
 * [https://developer.mozilla.org/en-US/web/svg/element/symbol/](https://developer.mozilla.org/en-US/web/svg/element/symbol/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
