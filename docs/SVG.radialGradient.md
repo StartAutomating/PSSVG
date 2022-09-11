@@ -15,6 +15,7 @@ The **`<radialGradient>`** element lets authors define radial gradients that can
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.radialGradient](https://pssvg.start-automating.com/SVG.radialGradient)
 * [https://developer.mozilla.org/en-US/web/svg/element/radialgradient/](https://developer.mozilla.org/en-US/web/svg/element/radialgradient/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
