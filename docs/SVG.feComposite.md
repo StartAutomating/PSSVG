@@ -13,6 +13,7 @@ The **`<feComposite>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feComposite](https://pssvg.start-automating.com/SVG.feComposite)
 * [https://developer.mozilla.org/en-US/web/svg/element/fecomposite/](https://developer.mozilla.org/en-US/web/svg/element/fecomposite/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
