@@ -15,6 +15,7 @@ If text is included in SVG not inside of a `<text>` element, it is not rendered.
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.text](https://pssvg.start-automating.com/SVG.text)
 * [https://developer.mozilla.org/en-US/web/svg/element/text/](https://developer.mozilla.org/en-US/web/svg/element/text/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
