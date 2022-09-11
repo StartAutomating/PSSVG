@@ -13,6 +13,7 @@ The **`<fePointLight>`** filter primitive defines a light source which allows to
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.fePointLight](https://pssvg.start-automating.com/SVG.fePointLight)
 * [https://developer.mozilla.org/en-US/web/svg/element/fepointlight/](https://developer.mozilla.org/en-US/web/svg/element/fepointlight/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
