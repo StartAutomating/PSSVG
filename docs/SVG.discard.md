@@ -15,6 +15,7 @@ The `<discard>` element may occur wherever the `animate` element may.
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.discard](https://pssvg.start-automating.com/SVG.discard)
 * [https://developer.mozilla.org/en-US/web/svg/element/discard/](https://developer.mozilla.org/en-US/web/svg/element/discard/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
