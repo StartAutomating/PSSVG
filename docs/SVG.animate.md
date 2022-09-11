@@ -183,8 +183,6 @@ $fadeinSteps = @(foreach ($n in 0..10) {
 
 #### EXAMPLE 10
 ```PowerShell
-#require -Module PSSVG
-```
 $colors = @('red','green','blue')
 =<svg> @(
     foreach ($n in 1..10) {
@@ -198,10 +196,10 @@ $colors = @('red','green','blue')
         )
     }
 )
+```
+
 #### EXAMPLE 11
 ```PowerShell
-#require -Module PSSVG
-```
 $colors = @('red','green','blue')
 =<svg> @(
     foreach ($n in 1..10) {
@@ -215,6 +213,8 @@ $colors = @('red','green','blue')
         )
     }
 )
+```
+
 #### EXAMPLE 12
 ```PowerShell
 -Content @(
