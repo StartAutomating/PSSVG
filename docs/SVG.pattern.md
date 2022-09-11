@@ -15,6 +15,7 @@ The `<pattern>` is referenced by the `fill` and/or `stroke` attributes on other 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.pattern](https://pssvg.start-automating.com/SVG.pattern)
 * [https://developer.mozilla.org/en-US/web/svg/element/pattern/](https://developer.mozilla.org/en-US/web/svg/element/pattern/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
