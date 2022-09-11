@@ -13,6 +13,7 @@ The **`<linearGradient>`** element lets authors define linear gradients to apply
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.linearGradient](https://pssvg.start-automating.com/SVG.linearGradient)
 * [https://developer.mozilla.org/en-US/web/svg/element/lineargradient/](https://developer.mozilla.org/en-US/web/svg/element/lineargradient/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
