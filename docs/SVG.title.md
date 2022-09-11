@@ -17,6 +17,7 @@ Text in a `<title>` element is not rendered as part of the graphic, but browsers
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.title](https://pssvg.start-automating.com/SVG.title)
 * [https://developer.mozilla.org/en-US/web/svg/element/title/](https://developer.mozilla.org/en-US/web/svg/element/title/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
