@@ -19,6 +19,7 @@ where `P(x,y)` is the input image, `in`, and `P'(x,y)` is the destination. `XC(x
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feDisplacementMap](https://pssvg.start-automating.com/SVG.feDisplacementMap)
 * [https://developer.mozilla.org/en-US/web/svg/element/fedisplacementmap/](https://developer.mozilla.org/en-US/web/svg/element/fedisplacementmap/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
