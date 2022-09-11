@@ -13,6 +13,7 @@ The **`<feGaussianBlur>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SV
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feGaussianBlur](https://pssvg.start-automating.com/SVG.feGaussianBlur)
 * [https://developer.mozilla.org/en-US/web/svg/element/fegaussianblur/](https://developer.mozilla.org/en-US/web/svg/element/fegaussianblur/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
