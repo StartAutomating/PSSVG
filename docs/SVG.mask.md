@@ -13,6 +13,7 @@ The **`<mask>`** element defines an alpha mask for compositing the current objec
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.mask](https://pssvg.start-automating.com/SVG.mask)
 * [https://developer.mozilla.org/en-US/web/svg/element/mask/](https://developer.mozilla.org/en-US/web/svg/element/mask/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
