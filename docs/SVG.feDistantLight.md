@@ -7,8 +7,12 @@ Creates SVG feDistantLight elements
 ---
 ### Description
 
-The **`<feDistantLight>`** filter primitive defines a distant light source that can be used within a lighting filter primitive: feDiffuseLighting or feSpecularLighting.
+The **`<feDistantLight>`** filter primitive defines a distant light source that can be used within a lighting filter primitive: `feDiffuseLighting` or `feSpecularLighting`.
 
+---
+### Related Links
+* [https://pssvg.start-automating.com/SVG.feDistantLight](https://pssvg.start-automating.com/SVG.feDistantLight)
+* [https://developer.mozilla.org/en-US/web/svg/element/fedistantlight/](https://developer.mozilla.org/en-US/web/svg/element/fedistantlight/)
 ---
 ### Parameters
 #### **Content**
@@ -17,21 +21,47 @@ The Contents of the feDistantLight element
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |1      |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: 1
+
+> **PipelineInput**:true (ByPropertyName)
+---
+#### **Data**
+
+A dictionary containing data.  This data will be embedded in data- attributes.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Azimuth**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Elevation**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Id**
 
@@ -41,9 +71,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Lang**
 
@@ -57,9 +91,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Tabindex**
 
@@ -69,9 +107,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlBase**
 
@@ -81,9 +123,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlLang**
 
@@ -97,9 +143,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlSpace**
 
@@ -120,13 +170,17 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 ### Syntax
 ```PowerShell
-SVG.feDistantLight [[-Content] <Object>] [-Azimuth <Object>] [-Elevation <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.feDistantLight [[-Content] <Object>] [-Data <IDictionary>] [-Azimuth <Object>] [-Elevation <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
 ---
 
