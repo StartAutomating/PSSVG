@@ -13,6 +13,7 @@ A view is a defined way to view the image, like a zoom level or a detail view.
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.view](https://pssvg.start-automating.com/SVG.view)
 * [https://developer.mozilla.org/en-US/web/svg/element/view/](https://developer.mozilla.org/en-US/web/svg/element/view/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
