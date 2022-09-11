@@ -15,6 +15,7 @@ The SVG `script` element allows to add scripts to an SVG document.
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.script](https://pssvg.start-automating.com/SVG.script)
 * [https://developer.mozilla.org/en-US/web/svg/element/script/](https://developer.mozilla.org/en-US/web/svg/element/script/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
