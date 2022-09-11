@@ -13,6 +13,7 @@ The **`<rect>`** element is a [basic SVG shape](https://developer.mozilla.org/en
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.rect](https://pssvg.start-automating.com/SVG.rect)
 * [https://developer.mozilla.org/en-US/web/svg/element/rect/](https://developer.mozilla.org/en-US/web/svg/element/rect/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
