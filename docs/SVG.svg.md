@@ -15,6 +15,7 @@ The `svg` element is a container that defines a new coordinate system and [viewp
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.svg](https://pssvg.start-automating.com/SVG.svg)
 * [https://developer.mozilla.org/en-US/web/svg/element/svg/](https://developer.mozilla.org/en-US/web/svg/element/svg/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
