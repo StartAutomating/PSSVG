@@ -15,6 +15,7 @@ This filter primitive produces an image which contains the specular reflection p
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feSpecularLighting](https://pssvg.start-automating.com/SVG.feSpecularLighting)
 * [https://developer.mozilla.org/en-US/web/svg/element/fespecularlighting/](https://developer.mozilla.org/en-US/web/svg/element/fespecularlighting/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
