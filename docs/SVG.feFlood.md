@@ -13,6 +13,7 @@ The **`<feFlood>`** SVG filter primitive fills the filter subregion with the col
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feFlood](https://pssvg.start-automating.com/SVG.feFlood)
 * [https://developer.mozilla.org/en-US/web/svg/element/feflood/](https://developer.mozilla.org/en-US/web/svg/element/feflood/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
