@@ -142,7 +142,7 @@ function ImportSvgAttribute {
         Write-Verbose "Did not get content for $elementOrSetName"
         return
     }
-    $replaceMDNContent = "\{\{\s{0,}(?>$(@('Glossary', 'domxref', 'HTTPMethod', 'htmlelement','svgelement', 'svgattr','htmlattrxref','cssxref')  -join '|'))\(" + 
+    $replaceMDNContent = "\{\{\s{0,}(?>$(@('Glossary', 'domxref', 'HTTPMethod', 'htmlelement','svgelement', 'svgattr','htmlattrxref','cssxref')  -join '|')[^\)]{0,})\(" + 
         '["''](?<s>[^"'']+)["'']\)\s{0,}\}\}'
     
     $start, $end = 0, 0
@@ -157,7 +157,11 @@ function ImportSvgAttribute {
         if ($svgRefIndex -ge 0 -and -not $elementDescription -and $heading.Index -ge $svgRefIndex) {
             $svgRefIndex += + "{{SVGRef}}".Length
             $elementDescription = 
-                $elementMarkdown.Substring($svgRefIndex, $heading.Index - $svgRefIndex) -replace $replaceMDNContent, '${s}'
+                $elementMarkdown.Substring($svgRefIndex, $heading.Index - $svgRefIndex) -replace $replaceMDNContent, '`${s}`' | 
+                ?<Markdown_Link> -ReplaceEvaluator {
+                    param($match)
+                    "[$($match.Groups["Text"])](https://developer.mozilla.org$($match.Groups['Uri']))"
+                }                
         }
         if ($headingName -eq 'Example') {
             $exampleStart = $heading.Groups["HeadingName"].Index
@@ -477,12 +481,30 @@ foreach ($svgElement in $svgElements.elements.psobject.properties) {
 }
 
 
+$examplesRoot = Join-Path $PSScriptRoot Examples
+
+
 foreach ($elementKV in $svgElementData.GetEnumerator()) {
+    $docsLink = "https://pssvg.start-automating.com/SVG.$($elementKV.Key)"
+    $mdnLink  = "https://developer.mozilla.org/" + (@($elementKV.Value.SourceUri -split 'files/')[1] -replace 'en-us', 'en-US' -replace 'index.md$')
     if (-not $elementKV.Value) { continue }
+
     $newPipeScriptSplat = @{
         Synopsis    = "Creates SVG $($elementKV.Key) elements"
         Description = $elementKV.Value.Description.Trim()
+        Link = $docsLink, $mdnLink
     }
+    $relevantExampleFiles = Get-ChildItem -Filter *.ps1 -Path $examplesRoot |
+        Select-String "\<svg.$($elementKv.Key)\>" | 
+        Select-Object -ExpandProperty Path
+    if ($relevantExampleFiles) {        
+        $newPipeScriptSplat.Example = @(
+            foreach ($exampleFile in $relevantExampleFiles) {
+                ((Get-Content -Raw $exampleFile) -replace '\#requires -Module PSSVG' -replace '\s-OutputPath(?:.|\s){0,}?(?=\z|$)').Trim()
+            }
+        )        
+    }
+
 
     if ($newPipeScriptSplat.Description -match 'The table below') {
         $newPipeScriptSplat.Description = @($newPipeScriptSplat.Description -split "The table below")[0]
@@ -506,7 +528,14 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             "[Alias('InputObject','Text', 'InnerText', 'Contents')]"
             '$Content'
         )        
-    }    
+    }
+    
+    $parameters['Data'] = @(
+        "# A dictionary containing data.  This data will be embedded in data- attributes."
+        "[Collections.IDictionary]"
+        "[Parameter(ValueFromPipelineByPropertyName)]"
+        '$Data'
+    )
     
     foreach ($attrName in $elementKV.Value.AttributeNames) {
         $paramName = [regex]::Replace($attrName, '\W(?<w>\w+)', {
@@ -529,8 +558,11 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
 
             foreach ($line in $attrHelp -split '(?>\r\n|\n)') {
                 $line = $line.Trim()
-                if ($line) {
-                    $line = $line | ?<Markdown_Link> -Replace '${Text}'
+                if ($line) {                 
+                    $line = $line | ?<Markdown_Link> -ReplaceEvaluator {
+                        param($match)
+                        "[$($match.Groups["Text"])](https://developer.mozilla.org$($match.Groups['Uri']))"
+                    }                
                 }
                                 
                 "# " + $line
@@ -586,68 +618,24 @@ $OutputPath
             }
         }
         if (-not $elementName) { return }
-        
-        # If we had an input object, create a copy
-        if ($inputObject) {
-            $inputObject = [PSObject]::new($inputObject)
-        }
-        # (this way, we can take off any properties that were provided by name)
-        
-        if ($paramCopy['Style'] -and $paramCopy['Style'] -isnot [string]) {
-            if ($paramCopy['Style'] -is [Collections.IDictionary]) {
-                $paramCopy['Style'] = 
-                    @(foreach ($kv in $paramCopy['Style'].GetEnumerator()) {
-                        "$($kv.Key):$($kv.Value)"
-                    }) -join ';'                
-            }
-            else {
-                $paramCopy['Style'] = @(foreach ($prop in $paramCopy['Style'].psobject.properties) {
-                    "$($prop.Name):$($kv.Value)"
-                }) -join ';'
-            }
+
+        $writeSvgSplat = @{
+            ElementName = $elementName
+            Attribute   = $paramCopy                
         }
 
-        $elementText = "<$elementName "
-        :nextParameter foreach ($kv in $paramCopy.GetEnumerator()) {
-            foreach ($attr in $myCmd.Parameters[$kv.Key].Attributes) {
-                if ($attr.Key -eq 'SVG.AttributeName') {
-                    if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
-                        $inputObject.psobject.properties.Remove($attr.Key)
-                    }
-                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
-                }
-            }            
+        if ($content) {
+            $writeSvgSplat.Content = $content
+        }
+        if ($OutputPath) {
+            $writeSvgSplat.OutputPath = $OutputPath
         }
 
-        if ($elementName -eq 'svg') {
-            $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
+        if ($data) {
+            $writeSvgSplat.Data = $data
         }
 
-        $elementText = $elementText -replace '\s{0,1}$'
-
-        if (-not $content) {
-            $elementText += " />"
-        } else {
-            $isCData = $false
-            foreach ($attr in $myCmd.Parameters.Content.Attributes) {
-                if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
-                    $isCData = $true
-                }
-            }
-            if ($isCData) {
-                $escapedContent = [Security.SecurityElement]::Escape("$content")
-                $elementText += ">" + "$escapedContent" + "</$elementName>"
-            } else {
-                $elementText += ">" + "$Content" + "</$elementName>"
-            }                    
-        }
-
-        if ($elementName -eq 'svg' -and $OutputPath) {
-            $elementText | Set-Content -Path $OutputPath
-            Get-Item $OutputPath
-        } else {        
-            $elementText
-        }
+        Write-SVG @writeSvgSplat
     }
 
     if (-not $parameters) { continue }
