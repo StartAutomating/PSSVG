@@ -1,4 +1,4 @@
-#require -Module PS2D
+#requires -Module PSSVG
 
 $longText = dir | Out-String
 $longTextLines = @($longText -split '(?>\r\n|\n)')

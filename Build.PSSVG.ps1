@@ -4,11 +4,11 @@
 
 <#
 .SYNOPSIS
-    Generates PS2D
+    Generates PSSVG
 .DESCRIPTION
-    Generates PS2D, a module for creating 2d images with PowerShell.
+    Generates PSSVG, a module for creating 2d images with PowerShell.
 
-    PS2D allows you to create Scalable Vector Graphics using PowerShell commands.
+    PSSVG allows you to create Scalable Vector Graphics using PowerShell commands.
 
     To make these commands, we will read the Markdown source for the Mozilla Developer Network's documentation on SVG.
 .NOTES
