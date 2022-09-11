@@ -13,6 +13,7 @@ The **`<mpath>`** sub-element for the `animateMotion` element provides the abili
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.mpath](https://pssvg.start-automating.com/SVG.mpath)
 * [https://developer.mozilla.org/en-US/web/svg/element/mpath/](https://developer.mozilla.org/en-US/web/svg/element/mpath/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
