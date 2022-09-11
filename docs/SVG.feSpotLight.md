@@ -14,6 +14,7 @@ It is used within a lighting filter primitive: `feDiffuseLighting` or `feSpecula
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feSpotLight](https://pssvg.start-automating.com/SVG.feSpotLight)
 * [https://developer.mozilla.org/en-US/web/svg/element/fespotlight/](https://developer.mozilla.org/en-US/web/svg/element/fespotlight/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
