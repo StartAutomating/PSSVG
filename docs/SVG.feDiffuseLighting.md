@@ -15,6 +15,7 @@ The light map produced by this filter primitive can be combined with a texture i
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feDiffuseLighting](https://pssvg.start-automating.com/SVG.feDiffuseLighting)
 * [https://developer.mozilla.org/en-US/web/svg/element/fediffuselighting/](https://developer.mozilla.org/en-US/web/svg/element/fediffuselighting/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
