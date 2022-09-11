@@ -13,6 +13,7 @@ The **`<feDistantLight>`** filter primitive defines a distant light source that 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feDistantLight](https://pssvg.start-automating.com/SVG.feDistantLight)
 * [https://developer.mozilla.org/en-US/web/svg/element/fedistantlight/](https://developer.mozilla.org/en-US/web/svg/element/fedistantlight/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
