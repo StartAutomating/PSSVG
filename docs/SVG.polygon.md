@@ -15,6 +15,7 @@ For open shapes, see the `polyline` element.
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.polygon](https://pssvg.start-automating.com/SVG.polygon)
 * [https://developer.mozilla.org/en-US/web/svg/element/polygon/](https://developer.mozilla.org/en-US/web/svg/element/polygon/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
