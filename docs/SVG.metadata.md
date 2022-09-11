@@ -13,6 +13,7 @@ The **`<metadata>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) ele
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.metadata](https://pssvg.start-automating.com/SVG.metadata)
 * [https://developer.mozilla.org/en-US/web/svg/element/metadata/](https://developer.mozilla.org/en-US/web/svg/element/metadata/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
