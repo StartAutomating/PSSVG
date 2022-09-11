@@ -17,6 +17,7 @@ Other direct children will be bypassed and therefore not rendered. If a child el
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.switch](https://pssvg.start-automating.com/SVG.switch)
 * [https://developer.mozilla.org/en-US/web/svg/element/switch/](https://developer.mozilla.org/en-US/web/svg/element/switch/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
