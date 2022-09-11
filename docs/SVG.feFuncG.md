@@ -13,6 +13,7 @@ The **`<feFuncG>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filt
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feFuncG](https://pssvg.start-automating.com/SVG.feFuncG)
 * [https://developer.mozilla.org/en-US/web/svg/element/fefuncg/](https://developer.mozilla.org/en-US/web/svg/element/fefuncg/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
