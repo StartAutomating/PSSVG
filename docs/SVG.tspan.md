@@ -13,6 +13,7 @@ The SVG **`<tspan>`** element defines a subtext within a `text` element or anoth
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.tspan](https://pssvg.start-automating.com/SVG.tspan)
 * [https://developer.mozilla.org/en-US/web/svg/element/tspan/](https://developer.mozilla.org/en-US/web/svg/element/tspan/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
