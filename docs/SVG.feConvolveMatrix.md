@@ -53,6 +53,7 @@ Let's focus on the color value at the second row and second column of the image 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feConvolveMatrix](https://pssvg.start-automating.com/SVG.feConvolveMatrix)
 * [https://developer.mozilla.org/en-US/web/svg/element/feconvolvematrix/](https://developer.mozilla.org/en-US/web/svg/element/feconvolvematrix/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
