@@ -13,6 +13,7 @@ The **`<use>`** element takes nodes from within the SVG document, and duplicates
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.use](https://pssvg.start-automating.com/SVG.use)
 * [https://developer.mozilla.org/en-US/web/svg/element/use/](https://developer.mozilla.org/en-US/web/svg/element/use/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
