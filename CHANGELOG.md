@@ -1,3 +1,11 @@
+### 0.2
+* All SVG. commands now support -Data attributes (Fixes #12)
+* Improved Command Help
+  * Linking to docs and MDN (Get-Help SVG.a -Online) (Fixes #15)
+  * Adding .Examples (Fixes #18)  
+* Adding Write-SVG (Fixes #14)
+---
+
 ### 0.1
 * Initial Release of PSSVG, including:
   * A command for every SVG element (fixes #1)
