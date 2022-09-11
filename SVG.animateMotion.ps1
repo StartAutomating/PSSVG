@@ -5,7 +5,13 @@ function SVG.animateMotion {
 .Description
     The SVG **`<animateMotion>`** element provides a way to define how an element moves along a motion path.
     
-    > **Note:** To reuse an existing path, it will be necessary to use an mpath element inside the `<animateMotion>` element instead of the path attribute.
+    > **Note:** To reuse an existing path, it will be necessary to use an `mpath` element inside the `<animateMotion>` element instead of the `path` attribute.
+.Link
+    https://pssvg.start-automating.com/SVG.animateMotion
+.Link
+    https://developer.mozilla.org/en-US/web/svg/element/animatemotion/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animateMotion')]
 [CmdletBinding(PositionalBinding=$false)]
@@ -14,6 +20,10 @@ param(
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
+# A dictionary containing data.  This data will be embedded in data- attributes.
+[Collections.IDictionary]
+[Parameter(ValueFromPipelineByPropertyName)]
+$Data,
 # This attribute indicate, in the range \[0,1], how far is the object along the path for each keyTimes associated values.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','keyPoints')]
@@ -34,7 +44,7 @@ $Path,
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $Rotate,
-# The **`href`** attribute defines a link to a resource as a reference URL. The exact meaning of that link depends on the context of each element using it.
+# The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
 # 
 # > **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id x="5" y="5" />`.
 # 
@@ -65,7 +75,7 @@ $AttributeType,
 $AttributeName,
 # The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 # 
-# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in "Evaluation of begin and end time lists". Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -175,7 +185,7 @@ $Values,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}} [ ; {{cssxref("number")}} ]* ;?')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $KeyTimes,
-# The **`keySplines`** attribute defines a set of Bézier curve control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
+# The **`keySplines`** attribute defines a set of [Bézier curve](https://developer.mozilla.org/en-US/docs/Glossary/Bezier_curve) control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
 # 
 # This attribute is ignored unless the calcMode attribute is set to `spline`.
 # 
@@ -305,7 +315,7 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlSpace,
-# « SVG Attribute reference home
+# « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
 # Assigns a class name or set of class names to an element. You may assign the same class name or names to any number of elements, however, multiple class names must be separated by whitespace characters.
 # 
@@ -322,7 +332,7 @@ $XmlSpace,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition): The class attribute')]
 $Class,
-# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to the `style` attribute in HTML.
+# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 # 
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -346,68 +356,24 @@ process {
             }
         }
         if (-not $elementName) { return }
-        
-        # If we had an input object, create a copy
-        if ($inputObject) {
-            $inputObject = [PSObject]::new($inputObject)
-        }
-        # (this way, we can take off any properties that were provided by name)
-        
-        if ($paramCopy['Style'] -and $paramCopy['Style'] -isnot [string]) {
-            if ($paramCopy['Style'] -is [Collections.IDictionary]) {
-                $paramCopy['Style'] = 
-                    @(foreach ($kv in $paramCopy['Style'].GetEnumerator()) {
-                        "$($kv.Key):$($kv.Value)"
-                    }) -join ';'                
-            }
-            else {
-                $paramCopy['Style'] = @(foreach ($prop in $paramCopy['Style'].psobject.properties) {
-                    "$($prop.Name):$($kv.Value)"
-                }) -join ';'
-            }
+
+        $writeSvgSplat = @{
+            ElementName = $elementName
+            Attribute   = $paramCopy                
         }
 
-        $elementText = "<$elementName "
-        :nextParameter foreach ($kv in $paramCopy.GetEnumerator()) {
-            foreach ($attr in $myCmd.Parameters[$kv.Key].Attributes) {
-                if ($attr.Key -eq 'SVG.AttributeName') {
-                    if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
-                        $inputObject.psobject.properties.Remove($attr.Key)
-                    }
-                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
-                }
-            }            
+        if ($content) {
+            $writeSvgSplat.Content = $content
+        }
+        if ($OutputPath) {
+            $writeSvgSplat.OutputPath = $OutputPath
         }
 
-        if ($elementName -eq 'svg') {
-            $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
+        if ($data) {
+            $writeSvgSplat.Data = $data
         }
 
-        $elementText = $elementText -replace '\s{0,1}$'
-
-        if (-not $content) {
-            $elementText += " />"
-        } else {
-            $isCData = $false
-            foreach ($attr in $myCmd.Parameters.Content.Attributes) {
-                if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
-                    $isCData = $true
-                }
-            }
-            if ($isCData) {
-                $escapedContent = [Security.SecurityElement]::Escape("$content")
-                $elementText += ">" + "$escapedContent" + "</$elementName>"
-            } else {
-                $elementText += ">" + "$Content" + "</$elementName>"
-            }                    
-        }
-
-        if ($elementName -eq 'svg' -and $OutputPath) {
-            $elementText | Set-Content -Path $OutputPath
-            Get-Item $OutputPath
-        } else {        
-            $elementText
-        }
+        Write-SVG @writeSvgSplat
     
 }
 

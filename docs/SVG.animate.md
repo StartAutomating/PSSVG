@@ -10,6 +10,352 @@ Creates SVG animate elements
 The SVG **`<animate>`** element provides a way to animate an attribute of an element over time.
 
 ---
+### Related Links
+* [https://pssvg.start-automating.com/SVG.animate](https://pssvg.start-automating.com/SVG.animate)
+* [https://developer.mozilla.org/en-US/web/svg/element/animate/](https://developer.mozilla.org/en-US/web/svg/element/animate/)
+* [Write-SVG](Write-SVG.md)
+---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+$original = @"
+<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+  <rect width="10" height="10">
+    <animate attributeName="rx" values="0;5;0" dur="10s" repeatCount="indefinite" />
+  </rect>
+</svg>
+"@
+```
+=<svg> -ViewBox 0,0,10,10 (
+    =<svg.rect> -Width 10 -Height 10 (
+        =<svg.animate> -AttributeName rx -Values "0;5;0" -Dur "10s" -RepeatCount indefinite
+    )
+)
+#### EXAMPLE 2
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 3
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 4
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 5
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 6
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 7
+```PowerShell
+$fadeinSteps = @(foreach ($n in 0..10) {
+    [double]($n * 10) / 100
+}) -join ';'
+=<svg> -ViewBox 0,0,100,100 -Content (
+    =<svg.g> -Content @(
+        =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Hello World"
+```
+=<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s'
+    )
+)
+#### EXAMPLE 8
+```PowerShell
+-Content @(
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+            )
+            =<svg.stop> -Offset '95%' -Stopcolor red @(
+                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            )
+        )
+    )
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
+```
+
+#### EXAMPLE 9
+```PowerShell
+-Content @(
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+            )
+            =<svg.stop> -Offset '95%' -Stopcolor red @(
+                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            )
+        )
+    )
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
+```
+
+#### EXAMPLE 10
+```PowerShell
+$colors = @('red','green','blue')
+=<svg> @(
+    foreach ($n in 1..10) {
+        $n10 = $n * 10
+        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+            fill   = $colors[$n % $colors.Length]
+            stroke = $colors[($n + 1) % $colors.Length]
+        } @(
+            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+        )
+    }
+)
+```
+
+#### EXAMPLE 11
+```PowerShell
+$colors = @('red','green','blue')
+=<svg> @(
+    foreach ($n in 1..10) {
+        $n10 = $n * 10
+        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+            fill   = $colors[$n % $colors.Length]
+            stroke = $colors[($n + 1) % $colors.Length]
+        } @(
+            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+        )
+    }
+)
+```
+
+#### EXAMPLE 12
+```PowerShell
+-Content @(
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+            )
+            =<svg.stop> -Offset '95%' -Stopcolor red @(
+                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            )
+        )
+    )
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
+```
+
+#### EXAMPLE 13
+```PowerShell
+-Content @(
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+            )
+            =<svg.stop> -Offset '95%' -Stopcolor red @(
+                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            )
+        )
+    )
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
+```
+
+#### EXAMPLE 14
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 15
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 16
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 17
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 18
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = '2s'
+        RepeatCount='indefinite'
+    }
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    )
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    )
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+---
 ### Parameters
 #### **Content**
 
@@ -17,21 +363,43 @@ The Contents of the animate element
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |1      |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: 1
+
+> **PipelineInput**:true (ByPropertyName)
+---
+#### **Data**
+
+A dictionary containing data.  This data will be embedded in data- attributes.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Href**
 
-The **`href`** attribute defines a link to a resource as a reference URL. The exact meaning of that link depends on the context of each element using it.
+The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
 
 > **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id x="5" y="5" />`.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **AttributeType**
 
@@ -47,9 +415,13 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **AttributeName**
 
@@ -57,21 +429,29 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Begin**
 
 The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 
-The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in "Evaluation of begin and end time lists". Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Dur**
 
@@ -79,9 +459,13 @@ The **`dur`** attribute indicates the simple duration of an animation.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **End**
 
@@ -89,9 +473,13 @@ The **`end`** attribute defines an end value for the animation that can constrai
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Min**
 
@@ -99,9 +487,13 @@ The **`min`** attribute specifies the minimum value of the active animation dura
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Max**
 
@@ -109,9 +501,13 @@ The **`max`** attribute specifies the maximum value of the active animation dura
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Restart**
 
@@ -127,9 +523,13 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **RepeatCount**
 
@@ -137,9 +537,13 @@ The **`repeatCount`** attribute indicates the number of times an animation will 
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **RepeatDur**
 
@@ -147,9 +551,13 @@ The **`repeatDur`** attribute specifies the total duration for repeating an anim
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Fill**
 
@@ -157,9 +565,13 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **CalcMode**
 
@@ -178,9 +590,13 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Values**
 
@@ -188,9 +604,13 @@ The `values` attribute has different meanings, depending upon the context where 
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **KeyTimes**
 
@@ -200,13 +620,17 @@ Each time in the list corresponds to a value in the values attribute list, and d
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **KeySplines**
 
-The **`keySplines`** attribute defines a set of Bézier curve control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
+The **`keySplines`** attribute defines a set of [Bézier curve](https://developer.mozilla.org/en-US/docs/Glossary/Bezier_curve) control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
 
 This attribute is ignored unless the calcMode attribute is set to `spline`.
 
@@ -214,9 +638,13 @@ If there are any errors in the keySplines specification (bad values, too many or
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **From**
 
@@ -226,9 +654,13 @@ When used with the to attribute, the animation will change the modified attribut
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **To**
 
@@ -238,9 +670,13 @@ The value of the attribute will change between the from attribute value and this
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **By**
 
@@ -250,9 +686,13 @@ The starting value for the attribute is either indicated by specifying it as val
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Additive**
 
@@ -269,9 +709,13 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Accumulate**
 
@@ -288,9 +732,13 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Id**
 
@@ -300,9 +748,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Lang**
 
@@ -316,9 +768,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Tabindex**
 
@@ -328,9 +784,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlBase**
 
@@ -340,9 +800,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlLang**
 
@@ -356,9 +820,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlSpace**
 
@@ -379,13 +847,17 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Class**
 
-« SVG Attribute reference home
+« [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 
 Assigns a class name or set of class names to an element. You may assign the same class name or names to any number of elements, however, multiple class names must be separated by whitespace characters.
 
@@ -398,25 +870,33 @@ You can use this class to style SVG content using CSS.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Style**
 
-The **`style`** attribute allows to style an element using CSS declarations. It functions identically to the `style` attribute in HTML.
+The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 
 You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 ### Syntax
 ```PowerShell
-SVG.animate [[-Content] <Object>] [-Href <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-From <Object>] [-To <Object>] [-By <Object>] [-Additive <Object>] [-Accumulate <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.animate [[-Content] <Object>] [-Data <IDictionary>] [-Href <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-From <Object>] [-To <Object>] [-By <Object>] [-Additive <Object>] [-Accumulate <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
 ---
 

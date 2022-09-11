@@ -5,7 +5,13 @@ function SVG.style {
 .Description
     The SVG **`<style>`** element allows style sheets to be embedded directly within SVG content.
     
-    > **Note:** SVG's `style` element has the same attributes as the corresponding element in HTML (see HTML's style element).
+    > **Note:** SVG's `style` element has the same attributes as the corresponding element in HTML (see HTML's `style` element).
+.Link
+    https://pssvg.start-automating.com/SVG.style
+.Link
+    https://developer.mozilla.org/en-US/web/svg/element/style/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'style')]
 [CmdletBinding(PositionalBinding=$false)]
@@ -14,6 +20,10 @@ param(
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
+# A dictionary containing data.  This data will be embedded in data- attributes.
+[Collections.IDictionary]
+[Parameter(ValueFromPipelineByPropertyName)]
+$Data,
 # This attribute defines type of the style sheet language to use as a media type string.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','type')]
@@ -30,7 +40,7 @@ $Type,
 [Reflection.AssemblyMetaData('SVG.Default value', 'all')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $Media,
-# This attribute the title of the style sheet which can be used to switch between alternate style sheets.
+# This attribute the title of the style sheet which can be used to switch between [alternate style sheets](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','title')]
 $Title,
@@ -99,7 +109,7 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlSpace,
-# « SVG Attribute reference home
+# « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
 # Assigns a class name or set of class names to an element. You may assign the same class name or names to any number of elements, however, multiple class names must be separated by whitespace characters.
 # 
@@ -116,7 +126,7 @@ $XmlSpace,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition): The class attribute')]
 $Class,
-# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to the `style` attribute in HTML.
+# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 # 
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -140,68 +150,24 @@ process {
             }
         }
         if (-not $elementName) { return }
-        
-        # If we had an input object, create a copy
-        if ($inputObject) {
-            $inputObject = [PSObject]::new($inputObject)
-        }
-        # (this way, we can take off any properties that were provided by name)
-        
-        if ($paramCopy['Style'] -and $paramCopy['Style'] -isnot [string]) {
-            if ($paramCopy['Style'] -is [Collections.IDictionary]) {
-                $paramCopy['Style'] = 
-                    @(foreach ($kv in $paramCopy['Style'].GetEnumerator()) {
-                        "$($kv.Key):$($kv.Value)"
-                    }) -join ';'                
-            }
-            else {
-                $paramCopy['Style'] = @(foreach ($prop in $paramCopy['Style'].psobject.properties) {
-                    "$($prop.Name):$($kv.Value)"
-                }) -join ';'
-            }
+
+        $writeSvgSplat = @{
+            ElementName = $elementName
+            Attribute   = $paramCopy                
         }
 
-        $elementText = "<$elementName "
-        :nextParameter foreach ($kv in $paramCopy.GetEnumerator()) {
-            foreach ($attr in $myCmd.Parameters[$kv.Key].Attributes) {
-                if ($attr.Key -eq 'SVG.AttributeName') {
-                    if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
-                        $inputObject.psobject.properties.Remove($attr.Key)
-                    }
-                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
-                }
-            }            
+        if ($content) {
+            $writeSvgSplat.Content = $content
+        }
+        if ($OutputPath) {
+            $writeSvgSplat.OutputPath = $OutputPath
         }
 
-        if ($elementName -eq 'svg') {
-            $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
+        if ($data) {
+            $writeSvgSplat.Data = $data
         }
 
-        $elementText = $elementText -replace '\s{0,1}$'
-
-        if (-not $content) {
-            $elementText += " />"
-        } else {
-            $isCData = $false
-            foreach ($attr in $myCmd.Parameters.Content.Attributes) {
-                if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
-                    $isCData = $true
-                }
-            }
-            if ($isCData) {
-                $escapedContent = [Security.SecurityElement]::Escape("$content")
-                $elementText += ">" + "$escapedContent" + "</$elementName>"
-            } else {
-                $elementText += ">" + "$Content" + "</$elementName>"
-            }                    
-        }
-
-        if ($elementName -eq 'svg' -and $OutputPath) {
-            $elementText | Set-Content -Path $OutputPath
-            Get-Item $OutputPath
-        } else {        
-            $elementText
-        }
+        Write-SVG @writeSvgSplat
     
 }
 

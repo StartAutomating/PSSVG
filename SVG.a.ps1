@@ -3,9 +3,38 @@ function SVG.a {
 .Synopsis
     Creates SVG a elements
 .Description
-    The **\<a>** SVG element creates a hyperlink to other web pages, files, locations in the same page, email addresses, or any other URL. It is very similar to HTML's a element.
+    The **\<a>** SVG element creates a hyperlink to other web pages, files, locations in the same page, email addresses, or any other URL. It is very similar to HTML's `a` element.
     
     SVG's `<a>` element is a container, which means you can create a link around text (like in HTML) but also around any shape.
+.Example
+    $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
+    $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
+    $fileListLines = @($fileListText -split '(?>\r\n|\n)')
+    
+    $fontSize = 14
+    
+    =<svg> @(
+        $ln = 0
+        foreach ($line in $fileListLines) {
+            $ln++
+            $href =
+                if ($ln -le 2) {
+                    "."
+                } else {
+                    $file = $fileList[$ln - 3]
+                    $file.Name
+                }
+            =<svg.a> -href $href (
+                =<svg.text> -X 0 -Y ($ln * $fontSize) -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace
+            )
+        }
+    )
+.Link
+    https://pssvg.start-automating.com/SVG.a
+.Link
+    https://developer.mozilla.org/en-US/web/svg/element/a/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'a')]
 [CmdletBinding(PositionalBinding=$false)]
@@ -14,6 +43,10 @@ param(
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
+# A dictionary containing data.  This data will be embedded in data- attributes.
+[Collections.IDictionary]
+[Parameter(ValueFromPipelineByPropertyName)]
+$Data,
 # Instructs browsers to download a URL instead of navigating to it, so the user will be prompted to save it as a local file.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','download')]
@@ -32,7 +65,7 @@ $Hreflang,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','ping')]
 $Ping,
-# Which referrer to send when fetching the URL.
+# Which [referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) to send when fetching the URL.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','referrerpolicy')]
 $Referrerpolicy,
@@ -127,7 +160,7 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlSpace,
-# « SVG Attribute reference home
+# « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
 # Assigns a class name or set of class names to an element. You may assign the same class name or names to any number of elements, however, multiple class names must be separated by whitespace characters.
 # 
@@ -144,7 +177,7 @@ $XmlSpace,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition): The class attribute')]
 $Class,
-# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to the `style` attribute in HTML.
+# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 # 
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -192,7 +225,7 @@ $AlignmentBaseline,
 # 
 # > **Note:** As a presentation attribute `baseline-shift` can be used as a CSS property.
 # 
-# > **Note:** This property is going to be deprecated and authors are advised to use `vertical-align` instead.
+# > **Note:** This property is going to be deprecated and authors are advised to use [`vertical-align`](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) instead.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -225,7 +258,7 @@ $Clip,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref(''url'')}} | [ {{cssxref(''basic-shape'')}} || <geometry-box> ] | none')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $ClipPath,
-# « SVG Attribute reference home
+# « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
 # The `clip-rule` attribute only applies to graphics elements that are contained within a clipPath element. The `clip-rule` attribute basically works as the fill-rule attribute, except that it applies to clipPath definitions.
 # 
@@ -261,7 +294,7 @@ $ClipPath,
 $ClipRule,
 # The **`color`** attribute is used to provide a potential indirect value, `currentcolor`, for the fill, stroke, stop-color, flood-color, and lighting-color attributes.
 # 
-# > **Note:** As a presentation attribute, `color` can be used as a CSS property. See CSS color for further information.
+# > **Note:** As a presentation attribute, `color` can be used as a CSS property. See [CSS color](https://developer.mozilla.org/en-US/docs/Web/CSS/color) for further information.
 # 
 # As a presentation attribute, it can be applied to any element, but as noted above, it has no direct effect on SVG elements.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -319,11 +352,11 @@ $ColorInterpolationFilters,
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $ColorProfile,
-# SVG Attribute reference home
+# [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
 # The `cursor` attribute specifies the mouse cursor displayed when the mouse pointer is over an element.
 # 
-# This attribute behaves exactly like the {{ cssxref("cursor","CSS cursor") }} property except that if the browser supports the cursor element, you should be able to use it with the \<funciri> notation.
+# This attribute behaves exactly like the {{ cssxref("cursor","CSS cursor") }} property except that if the browser supports the cursor element, you should be able to use it with the [\<funciri>](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#funciri) notation.
 # 
 # As a presentation attribute, it also can be used as a property directly inside a CSS stylesheet, see {{ cssxref("cursor","CSS cursor") }} for further information.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -359,7 +392,7 @@ $Direction,
 # 
 # - If `display` is set to `none` on a tspan, tref, or altGlyph element, then the text string is ignored for the purposes of text layout.
 # - Regarding events, if `display` is set to `none`, the element receives no events.
-# - The geometry of a graphics element with `display` set to `none` is not included in bounding box and clipping paths calculations.
+# - The geometry of a [graphics element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#graphics_elements) with `display` set to `none` is not included in bounding box and clipping paths calculations.
 # 
 # The `display` attribute only affects the direct rendering of a given element, whereas it does not prevent elements from being referenced by other elements. For example, setting it to `none` on a path element will prevent that element from getting rendered directly onto the canvas, but the path element can still be referenced by a textPath element; furthermore, its geometry will be used in text-on-a-path processing even if the path has a `display` value of `none`.
 # 
@@ -444,7 +477,7 @@ $FillRule,
 # 
 # > **Note:** As a presentation attribute, `filter` can be used as a CSS property. See {{cssxref("filter", "CSS filter")}} for further information.
 # 
-# As a presentation attribute, it can be applied to any element but it only has effect on container elements without the defs element, all graphics elements and the use element.
+# As a presentation attribute, it can be applied to any element but it only has effect on [container elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#container_elements) without the defs element, all [graphics elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#graphics_elements) and the use element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','filter')]
 [Reflection.AssemblyMetaData('SVG.Value', 'none|<filter-function-list>')]
@@ -636,9 +669,9 @@ $LetterSpacing,
 [Reflection.AssemblyMetaData('SVG.Default value', 'white')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $LightingColor,
-# The **`marker-end`** attribute defines the arrowhead or polymarker that will be drawn at the final vertex of the given shape.
+# The **`marker-end`** attribute defines the arrowhead or polymarker that will be drawn at the final vertex of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
 # 
-# For all shape elements, except polyline and path, the last vertex is the same as the first vertex. In this case, if the value of marker-start and `marker-end` are both not `none`, then two markers will be rendered on that final vertex. For `<path>` elements, for each closed subpath, the last vertex is the same as the first vertex. `marker-end` is only rendered on the final vertex of the path data.
+# For all shape elements, except polyline and path, the last vertex is the same as the first vertex. In this case, if the value of marker-start and `marker-end` are both not `none`, then two markers will be rendered on that final vertex. For `<path>` elements, for each closed subpath, the last vertex is the same as the first vertex. `marker-end` is only rendered on the final vertex of the [path data](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands).
 # 
 # > **Note:** As a presentation attribute, `marker-end` can be used as a CSS property.
 # 
@@ -648,9 +681,9 @@ $LightingColor,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
 $MarkerEnd,
-# The **`marker-mid`** attribute defines the arrowhead or polymarker that will be drawn at all interior vertices of the given shape.
+# The **`marker-mid`** attribute defines the arrowhead or polymarker that will be drawn at all interior vertices of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
 # 
-# The marker is rendered on every vertex other than the first and last vertices of the path data.
+# The marker is rendered on every vertex other than the first and last vertices of the [path data](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands).
 # 
 # > **Note:** As a presentation attribute, `marker-mid` can be used as a CSS property.
 # 
@@ -660,9 +693,9 @@ $MarkerEnd,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
 $MarkerMid,
-# The **`marker-start`** attribute defines the arrowhead or polymarker that will be drawn at the first vertex of the given shape.
+# The **`marker-start`** attribute defines the arrowhead or polymarker that will be drawn at the first vertex of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
 # 
-# For all shape elements, except polyline and path, the last vertex is the same as the first vertex. In this case, if the value of `marker-start` and marker-end are both not `none`, then two markers will be rendered on that final vertex. For `<path>` elements, for each closed subpath, the last vertex is the same as the first vertex. `marker-start` is only rendered on the first vertex of the path data.
+# For all shape elements, except polyline and path, the last vertex is the same as the first vertex. In this case, if the value of `marker-start` and marker-end are both not `none`, then two markers will be rendered on that final vertex. For `<path>` elements, for each closed subpath, the last vertex is the same as the first vertex. `marker-start` is only rendered on the first vertex of the [path data](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands).
 # 
 # > **Note:** As a presentation attribute, `marker-start` can be used as a CSS property.
 # 
@@ -912,7 +945,7 @@ $Transform,
 $TransformOrigin,
 # The **`unicode-bidi`** attribute specifies how the accumulation of the background image is managed.
 # 
-# > **Note:** As a presentation attribute, `unicode-bidi` can be used as a CSS property. See the CSS `unicode-bidi` property for more information.
+# > **Note:** As a presentation attribute, `unicode-bidi` can be used as a CSS property. See the [CSS `unicode-bidi`](https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi) property for more information.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -992,68 +1025,24 @@ process {
             }
         }
         if (-not $elementName) { return }
-        
-        # If we had an input object, create a copy
-        if ($inputObject) {
-            $inputObject = [PSObject]::new($inputObject)
-        }
-        # (this way, we can take off any properties that were provided by name)
-        
-        if ($paramCopy['Style'] -and $paramCopy['Style'] -isnot [string]) {
-            if ($paramCopy['Style'] -is [Collections.IDictionary]) {
-                $paramCopy['Style'] = 
-                    @(foreach ($kv in $paramCopy['Style'].GetEnumerator()) {
-                        "$($kv.Key):$($kv.Value)"
-                    }) -join ';'                
-            }
-            else {
-                $paramCopy['Style'] = @(foreach ($prop in $paramCopy['Style'].psobject.properties) {
-                    "$($prop.Name):$($kv.Value)"
-                }) -join ';'
-            }
+
+        $writeSvgSplat = @{
+            ElementName = $elementName
+            Attribute   = $paramCopy                
         }
 
-        $elementText = "<$elementName "
-        :nextParameter foreach ($kv in $paramCopy.GetEnumerator()) {
-            foreach ($attr in $myCmd.Parameters[$kv.Key].Attributes) {
-                if ($attr.Key -eq 'SVG.AttributeName') {
-                    if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
-                        $inputObject.psobject.properties.Remove($attr.Key)
-                    }
-                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
-                }
-            }            
+        if ($content) {
+            $writeSvgSplat.Content = $content
+        }
+        if ($OutputPath) {
+            $writeSvgSplat.OutputPath = $OutputPath
         }
 
-        if ($elementName -eq 'svg') {
-            $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
+        if ($data) {
+            $writeSvgSplat.Data = $data
         }
 
-        $elementText = $elementText -replace '\s{0,1}$'
-
-        if (-not $content) {
-            $elementText += " />"
-        } else {
-            $isCData = $false
-            foreach ($attr in $myCmd.Parameters.Content.Attributes) {
-                if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
-                    $isCData = $true
-                }
-            }
-            if ($isCData) {
-                $escapedContent = [Security.SecurityElement]::Escape("$content")
-                $elementText += ">" + "$escapedContent" + "</$elementName>"
-            } else {
-                $elementText += ">" + "$Content" + "</$elementName>"
-            }                    
-        }
-
-        if ($elementName -eq 'svg' -and $OutputPath) {
-            $elementText | Set-Content -Path $OutputPath
-            Get-Item $OutputPath
-        } else {        
-            $elementText
-        }
+        Write-SVG @writeSvgSplat
     
 }
 

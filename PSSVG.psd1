@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.1'
+    ModuleVersion     = '0.2'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022 Start-Automating'
@@ -13,6 +13,12 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
+### 0.2
+* Improved Command Help
+  * Linking to docs and MDN (Get-Help SVG.a -Online) (Fixes #15)
+  * Adding .Examples (Fixes #18)
+* Adding Write-SVG (Fixed #14)
+---
 ### 0.1
 * Initial Release of PSSVG, including:
   * A command for every SVG element (fixes #1)

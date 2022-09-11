@@ -1,4 +1,4 @@
-#require -Module PSSVG
+#requires -Module PSSVG
 
 =<svg> -ViewBox 0,0,200,200 @(
     =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5

@@ -4,6 +4,71 @@ function SVG.animateTransform {
     Creates SVG animateTransform elements
 .Description
     The `animateTransform` element animates a transformation attribute on its target element, thereby allowing animations to control translation, scaling, rotation, and/or skewing.
+.Example
+    function svgspinningspiral
+    {
+        param(
+        [Parameter(ValueFromPipelineByPropertyName)]
+        [Uint32]
+        $NumSteps = 1000,
+    
+        [Parameter(ValueFromPipelineByPropertyName)]
+        [double]
+        $Theta = [MATH]::pi * 50,
+    
+        [Parameter(ValueFromPipelineByPropertyName)]
+        [Double]
+        $Alpha = 200,
+    
+        [Timespan]
+        $RotateEvery = '00:00:10'
+        )
+    
+        process {
+            $Margin  = $Alpha * 1.25
+            $width = $margin * 2
+            $height = $margin * 2
+    
+            $svgPath = @()
+            $svgPath += "M $margin $margin"
+    
+    
+            foreach ($n in 0..$numSteps) {
+                $t = ($theta/$numSteps) * $n
+                $a = ($alpha/$numSteps) * $n
+                $px = $margin+($a*[Math]::Cos($t))
+                $py = $margin+($a*[Math]::Sin($t))
+                $svgPath += "L $px $py"
+            }
+    
+            =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke black -Content @(
+                if ($RotateEvery.TotalSeconds) {
+                    =<svg.animatetransform> -AttributeName transform -From "0 $margin $margin"  -To "360 $margin $margin" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+                }
+            )
+        }
+    }
+    
+    
+    
+    
+    
+    @(foreach ($n in 15, 636, 741, 901) {
+        New-Object PSObject -Property @{
+            Theta = [MATH]::PI * $n
+            N =  $n
+        }
+    }) | ForEach-Object {
+        $n = $_.N
+        =<svg> -content (
+            $_ | svgspinningspiral
+        )
+.Link
+    https://pssvg.start-automating.com/SVG.animateTransform
+.Link
+    https://developer.mozilla.org/en-US/web/svg/element/animatetransform/
+.Link
+    Write-SVG
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animateTransform')]
 [CmdletBinding(PositionalBinding=$false)]
@@ -12,6 +77,10 @@ param(
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
+# A dictionary containing data.  This data will be embedded in data- attributes.
+[Collections.IDictionary]
+[Parameter(ValueFromPipelineByPropertyName)]
+$Data,
 # The **`by`** attribute specifies a relative offset value for an attribute that will be modified during an animation.
 # 
 # The starting value for the attribute is either indicated by specifying it as value for the attribute given in the attributeName or the from attribute.
@@ -140,7 +209,7 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlSpace,
-# The **`xlink:href`** attribute defines a reference to a resource as a reference IRI. The exact meaning of that link depends on the context of each element using it.
+# The **`xlink:href`** attribute defines a reference to a resource as a reference [IRI](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#iri). The exact meaning of that link depends on the context of each element using it.
 # 
 # > **Note:** SVG 2 removed the need for the `xlink` namespace, so instead of `xlink:href` you should use href. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
 # 
@@ -161,7 +230,7 @@ $XlinkHref,
 [Reflection.AssemblyMetaData('SVG.Default value', 'simple')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XlinkType,
-# The **`xlink:arcrole`** attribute specifies a contextual role for the element and corresponds to the RDF Primer notion of a property.
+# The **`xlink:arcrole`** attribute specifies a contextual role for the element and corresponds to the [RDF Primer](https://developer.mozilla.orghttps://www.w3.org/TR/rdf-primer/) notion of a property.
 # 
 # This contextual role can differ from the meaning of the resource when taken outside the context of this particular arc. For example, a resource might generically represent a "person," but in the context of a particular arc it might have the role of "mother" and in the context of a different arc it might have the role of "daughter."
 # 
@@ -217,7 +286,7 @@ $AttributeType,
 $AttributeName,
 # The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 # 
-# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in "Evaluation of begin and end time lists". Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -327,7 +396,7 @@ $Values,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}} [ ; {{cssxref("number")}} ]* ;?')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $KeyTimes,
-# The **`keySplines`** attribute defines a set of Bézier curve control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
+# The **`keySplines`** attribute defines a set of [Bézier curve](https://developer.mozilla.org/en-US/docs/Glossary/Bezier_curve) control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
 # 
 # This attribute is ignored unless the calcMode attribute is set to `spline`.
 # 
@@ -378,68 +447,24 @@ process {
             }
         }
         if (-not $elementName) { return }
-        
-        # If we had an input object, create a copy
-        if ($inputObject) {
-            $inputObject = [PSObject]::new($inputObject)
-        }
-        # (this way, we can take off any properties that were provided by name)
-        
-        if ($paramCopy['Style'] -and $paramCopy['Style'] -isnot [string]) {
-            if ($paramCopy['Style'] -is [Collections.IDictionary]) {
-                $paramCopy['Style'] = 
-                    @(foreach ($kv in $paramCopy['Style'].GetEnumerator()) {
-                        "$($kv.Key):$($kv.Value)"
-                    }) -join ';'                
-            }
-            else {
-                $paramCopy['Style'] = @(foreach ($prop in $paramCopy['Style'].psobject.properties) {
-                    "$($prop.Name):$($kv.Value)"
-                }) -join ';'
-            }
+
+        $writeSvgSplat = @{
+            ElementName = $elementName
+            Attribute   = $paramCopy                
         }
 
-        $elementText = "<$elementName "
-        :nextParameter foreach ($kv in $paramCopy.GetEnumerator()) {
-            foreach ($attr in $myCmd.Parameters[$kv.Key].Attributes) {
-                if ($attr.Key -eq 'SVG.AttributeName') {
-                    if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
-                        $inputObject.psobject.properties.Remove($attr.Key)
-                    }
-                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
-                }
-            }            
+        if ($content) {
+            $writeSvgSplat.Content = $content
+        }
+        if ($OutputPath) {
+            $writeSvgSplat.OutputPath = $OutputPath
         }
 
-        if ($elementName -eq 'svg') {
-            $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
+        if ($data) {
+            $writeSvgSplat.Data = $data
         }
 
-        $elementText = $elementText -replace '\s{0,1}$'
-
-        if (-not $content) {
-            $elementText += " />"
-        } else {
-            $isCData = $false
-            foreach ($attr in $myCmd.Parameters.Content.Attributes) {
-                if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
-                    $isCData = $true
-                }
-            }
-            if ($isCData) {
-                $escapedContent = [Security.SecurityElement]::Escape("$content")
-                $elementText += ">" + "$escapedContent" + "</$elementName>"
-            } else {
-                $elementText += ">" + "$Content" + "</$elementName>"
-            }                    
-        }
-
-        if ($elementName -eq 'svg' -and $OutputPath) {
-            $elementText | Set-Content -Path $OutputPath
-            Get-Item $OutputPath
-        } else {        
-            $elementText
-        }
+        Write-SVG @writeSvgSplat
     
 }
 
