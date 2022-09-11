@@ -53,8 +53,6 @@ $original = @"
 
 #### EXAMPLE 3
 ```PowerShell
-#require -Module PSSVG
-```
 $colors = @('red','green','blue')
 =<svg> @(
     foreach ($n in 1..10) {
@@ -68,10 +66,10 @@ $colors = @('red','green','blue')
         )
     }
 )
+```
+
 #### EXAMPLE 4
 ```PowerShell
-#require -Module PSSVG
-```
 $colors = @('red','green','blue')
 =<svg> @(
     foreach ($n in 1..10) {
@@ -82,6 +80,8 @@ $colors = @('red','green','blue')
         }
     }
 )
+```
+
 #### EXAMPLE 5
 ```PowerShell
 @(
