@@ -55,19 +55,17 @@ $fontSize = 14
 )
 #### EXAMPLE 3
 ```PowerShell
-#require -Module PSSVG
-```
-=<svg> (
+(
     =<svg.text> -X 0 -Y 48 -Fontsize 48 "Hello World"
 )
+```
+
 #### EXAMPLE 4
 ```PowerShell
-#require -Module PS2D
-```
 $longText = dir | Out-String
 $longTextLines = @($longText -split '(?>\r\n|\n)')
 $fontSize = 14
-
+```
 =<svg> @(
     $ln = 0
     foreach ($line in $longTextLines) {
