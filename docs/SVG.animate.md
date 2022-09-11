@@ -13,6 +13,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.animate](https://pssvg.start-automating.com/SVG.animate)
 * [https://developer.mozilla.org/en-US/web/svg/element/animate/](https://developer.mozilla.org/en-US/web/svg/element/animate/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
