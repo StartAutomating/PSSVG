@@ -13,6 +13,7 @@ The **`<feOffset>`** SVG filter primitive allows to offset the input image. The 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feOffset](https://pssvg.start-automating.com/SVG.feOffset)
 * [https://developer.mozilla.org/en-US/web/svg/element/feoffset/](https://developer.mozilla.org/en-US/web/svg/element/feoffset/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
