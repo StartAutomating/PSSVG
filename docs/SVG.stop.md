@@ -13,6 +13,7 @@ The SVG **`<stop>`** element defines a color and its position to use on a gradie
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.stop](https://pssvg.start-automating.com/SVG.stop)
 * [https://developer.mozilla.org/en-US/web/svg/element/stop/](https://developer.mozilla.org/en-US/web/svg/element/stop/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Examples
 #### EXAMPLE 1
