@@ -13,6 +13,7 @@ To render text along the shape of a `path`, enclose the text in a **`<textPath>`
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.textPath](https://pssvg.start-automating.com/SVG.textPath)
 * [https://developer.mozilla.org/en-US/web/svg/element/textpath/](https://developer.mozilla.org/en-US/web/svg/element/textpath/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
