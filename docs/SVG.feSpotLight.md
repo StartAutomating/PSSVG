@@ -7,9 +7,13 @@ Creates SVG feSpotLight elements
 ---
 ### Description
 
-The **`<feSpotLight>`** [SVG](/en-US/docs/Web/SVG) filter primitive defines a light source that can be used to create a spotlight effect.
-It is used within a lighting filter primitive: feDiffuseLighting or feSpecularLighting.
+The **`<feSpotLight>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filter primitive defines a light source that can be used to create a spotlight effect.
+It is used within a lighting filter primitive: `feDiffuseLighting` or `feSpecularLighting`.
 
+---
+### Related Links
+* [https://pssvg.start-automating.com/SVG.feSpotLight](https://pssvg.start-automating.com/SVG.feSpotLight)
+* [https://developer.mozilla.org/en-US/web/svg/element/fespotlight/](https://developer.mozilla.org/en-US/web/svg/element/fespotlight/)
 ---
 ### Parameters
 #### **Content**
@@ -18,57 +22,107 @@ The Contents of the feSpotLight element
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |1      |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: 1
+
+> **PipelineInput**:true (ByPropertyName)
+---
+#### **Data**
+
+A dictionary containing data.  This data will be embedded in data- attributes.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **X**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Y**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Z**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **PointsAtX**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **PointsAtY**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **PointsAtZ**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **SpecularExponent**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **LimitingConeAngle**
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Id**
 
@@ -78,9 +132,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Lang**
 
@@ -94,9 +152,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **Tabindex**
 
@@ -106,9 +168,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlBase**
 
@@ -118,9 +184,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlLang**
 
@@ -134,9 +204,13 @@ You can use this attribute with any SVG element.
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 #### **XmlSpace**
 
@@ -157,13 +231,17 @@ Valid Values:
 
 
 
-|Type          |Requried|Postion|PipelineInput        |
-|--------------|--------|-------|---------------------|
-|```[Object]```|false   |named  |true (ByPropertyName)|
+> **Type**: ```[Object]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
 ---
 ### Syntax
 ```PowerShell
-SVG.feSpotLight [[-Content] <Object>] [-X <Object>] [-Y <Object>] [-Z <Object>] [-PointsAtX <Object>] [-PointsAtY <Object>] [-PointsAtZ <Object>] [-SpecularExponent <Object>] [-LimitingConeAngle <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.feSpotLight [[-Content] <Object>] [-Data <IDictionary>] [-X <Object>] [-Y <Object>] [-Z <Object>] [-PointsAtX <Object>] [-PointsAtY <Object>] [-PointsAtZ <Object>] [-SpecularExponent <Object>] [-LimitingConeAngle <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
 ---
 
