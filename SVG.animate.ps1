@@ -4,6 +4,303 @@ function SVG.animate {
     Creates SVG animate elements
 .Description
     The SVG **`<animate>`** element provides a way to animate an attribute of an element over time.
+.Example
+    $original = @"
+    <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+      <rect width="10" height="10">
+        <animate attributeName="rx" values="0;5;0" dur="10s" repeatCount="indefinite" />
+      </rect>
+    </svg>
+    "@
+    
+    =<svg> -ViewBox 0,0,10,10 (
+        =<svg.rect> -Width 10 -Height 10 (
+            =<svg.animate> -AttributeName rx -Values "0;5;0" -Dur "10s" -RepeatCount indefinite
+        )
+    )
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    $fadeinSteps = @(foreach ($n in 0..10) {
+        [double]($n * 10) / 100
+    }) -join ';'
+    =<svg> -ViewBox 0,0,100,100 -Content (
+        =<svg.g> -Content @(
+            =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Hello World"
+    
+            =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s'
+        )
+    )
+.Example
+    =<svg> -Content @(
+        =<svg.defs> @(
+            =<svg.LinearGradient> -Id myGradient -Content @(
+                =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                    =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+                )
+                =<svg.stop> -Offset '95%' -Stopcolor red @(
+                    =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+                )
+            )
+        )
+        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+    ) -ViewBox '0 0 100 100'
+.Example
+    =<svg> -Content @(
+        =<svg.defs> @(
+            =<svg.LinearGradient> -Id myGradient -Content @(
+                =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                    =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+                )
+                =<svg.stop> -Offset '95%' -Stopcolor red @(
+                    =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+                )
+            )
+        )
+        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+    ) -ViewBox '0 0 100 100'
+.Example
+    #require -Module PSSVG
+    
+    $colors = @('red','green','blue')
+    =<svg> @(
+        foreach ($n in 1..10) {
+            $n10 = $n * 10
+            =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+                fill   = $colors[$n % $colors.Length]
+                stroke = $colors[($n + 1) % $colors.Length]
+            } @(
+                =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+                =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+            )
+        }
+    )
+.Example
+    #require -Module PSSVG
+    
+    $colors = @('red','green','blue')
+    =<svg> @(
+        foreach ($n in 1..10) {
+            $n10 = $n * 10
+            =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+                fill   = $colors[$n % $colors.Length]
+                stroke = $colors[($n + 1) % $colors.Length]
+            } @(
+                =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+                =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+            )
+        }
+    )
+.Example
+    =<svg> -Content @(
+        =<svg.defs> @(
+            =<svg.radialGradient> -Id myGradient -Content @(
+                =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                    =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+                )
+                =<svg.stop> -Offset '95%' -Stopcolor red @(
+                    =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+                )
+            )
+        )
+        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+    ) -ViewBox '0 0 100 100'
+.Example
+    =<svg> -Content @(
+        =<svg.defs> @(
+            =<svg.radialGradient> -Id myGradient -Content @(
+                =<svg.stop> -Offset '10%' -Stopcolor gold @(
+                    =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+                )
+                =<svg.stop> -Offset '95%' -Stopcolor red @(
+                    =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+                )
+            )
+        )
+        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+    ) -ViewBox '0 0 100 100'
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Example
+    =<svg> @(
+        $animationSettings = @{
+            Dur = '2s'
+            RepeatCount='indefinite'
+        }
+        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
+            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        )
+        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        )
+        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        )
+    ) -ViewBox 0, 0, 100, 150
+.Link
+    https://pssvg.start-automating.com/SVG.animate
+.Link
+    https://developer.mozilla.org/en-US/web/svg/element/animate/
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animate')]
 [CmdletBinding(PositionalBinding=$false)]
@@ -12,7 +309,11 @@ param(
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
-# The **`href`** attribute defines a link to a resource as a reference URL. The exact meaning of that link depends on the context of each element using it.
+# A dictionary containing data.  This data will be embedded in data- attributes.
+[Collections.IDictionary]
+[Parameter(ValueFromPipelineByPropertyName)]
+$Data,
+# The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
 # 
 # > **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id x="5" y="5" />`.
 # 
@@ -43,7 +344,7 @@ $AttributeType,
 $AttributeName,
 # The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 # 
-# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in "Evaluation of begin and end time lists". Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -153,7 +454,7 @@ $Values,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}} [ ; {{cssxref("number")}} ]* ;?')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $KeyTimes,
-# The **`keySplines`** attribute defines a set of Bézier curve control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
+# The **`keySplines`** attribute defines a set of [Bézier curve](https://developer.mozilla.org/en-US/docs/Glossary/Bezier_curve) control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
 # 
 # This attribute is ignored unless the calcMode attribute is set to `spline`.
 # 
@@ -283,7 +584,7 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlSpace,
-# « SVG Attribute reference home
+# « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
 # Assigns a class name or set of class names to an element. You may assign the same class name or names to any number of elements, however, multiple class names must be separated by whitespace characters.
 # 
@@ -300,7 +601,7 @@ $XmlSpace,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition): The class attribute')]
 $Class,
-# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to the `style` attribute in HTML.
+# The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 # 
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -324,68 +625,24 @@ process {
             }
         }
         if (-not $elementName) { return }
-        
-        # If we had an input object, create a copy
-        if ($inputObject) {
-            $inputObject = [PSObject]::new($inputObject)
-        }
-        # (this way, we can take off any properties that were provided by name)
-        
-        if ($paramCopy['Style'] -and $paramCopy['Style'] -isnot [string]) {
-            if ($paramCopy['Style'] -is [Collections.IDictionary]) {
-                $paramCopy['Style'] = 
-                    @(foreach ($kv in $paramCopy['Style'].GetEnumerator()) {
-                        "$($kv.Key):$($kv.Value)"
-                    }) -join ';'                
-            }
-            else {
-                $paramCopy['Style'] = @(foreach ($prop in $paramCopy['Style'].psobject.properties) {
-                    "$($prop.Name):$($kv.Value)"
-                }) -join ';'
-            }
+
+        $writeSvgSplat = @{
+            ElementName = $elementName
+            Attribute   = $paramCopy                
         }
 
-        $elementText = "<$elementName "
-        :nextParameter foreach ($kv in $paramCopy.GetEnumerator()) {
-            foreach ($attr in $myCmd.Parameters[$kv.Key].Attributes) {
-                if ($attr.Key -eq 'SVG.AttributeName') {
-                    if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
-                        $inputObject.psobject.properties.Remove($attr.Key)
-                    }
-                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
-                }
-            }            
+        if ($content) {
+            $writeSvgSplat.Content = $content
+        }
+        if ($OutputPath) {
+            $writeSvgSplat.OutputPath = $OutputPath
         }
 
-        if ($elementName -eq 'svg') {
-            $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
+        if ($data) {
+            $writeSvgSplat.Data = $data
         }
 
-        $elementText = $elementText -replace '\s{0,1}$'
-
-        if (-not $content) {
-            $elementText += " />"
-        } else {
-            $isCData = $false
-            foreach ($attr in $myCmd.Parameters.Content.Attributes) {
-                if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
-                    $isCData = $true
-                }
-            }
-            if ($isCData) {
-                $escapedContent = [Security.SecurityElement]::Escape("$content")
-                $elementText += ">" + "$escapedContent" + "</$elementName>"
-            } else {
-                $elementText += ">" + "$Content" + "</$elementName>"
-            }                    
-        }
-
-        if ($elementName -eq 'svg' -and $OutputPath) {
-            $elementText | Set-Content -Path $OutputPath
-            Get-Item $OutputPath
-        } else {        
-            $elementText
-        }
+        Write-SVG @writeSvgSplat
     
 }
 
