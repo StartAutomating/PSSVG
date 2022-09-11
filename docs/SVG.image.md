@@ -19,6 +19,7 @@ SVG files displayed with `<image>` are [treated as an image](https://developer.m
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.image](https://pssvg.start-automating.com/SVG.image)
 * [https://developer.mozilla.org/en-US/web/svg/element/image/](https://developer.mozilla.org/en-US/web/svg/element/image/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
