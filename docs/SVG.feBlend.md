@@ -13,6 +13,7 @@ The **`<feBlend>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filt
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feBlend](https://pssvg.start-automating.com/SVG.feBlend)
 * [https://developer.mozilla.org/en-US/web/svg/element/feblend/](https://developer.mozilla.org/en-US/web/svg/element/feblend/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
