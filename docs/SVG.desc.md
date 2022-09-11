@@ -17,6 +17,7 @@ The hidden text of a `<desc>` element can also be concatenated with the visible 
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.desc](https://pssvg.start-automating.com/SVG.desc)
 * [https://developer.mozilla.org/en-US/web/svg/element/desc/](https://developer.mozilla.org/en-US/web/svg/element/desc/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
