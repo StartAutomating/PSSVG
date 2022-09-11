@@ -15,6 +15,7 @@ The SVG **`<style>`** element allows style sheets to be embedded directly within
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.style](https://pssvg.start-automating.com/SVG.style)
 * [https://developer.mozilla.org/en-US/web/svg/element/style/](https://developer.mozilla.org/en-US/web/svg/element/style/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
