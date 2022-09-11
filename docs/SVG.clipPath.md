@@ -15,6 +15,7 @@ A clipping path restricts the region to which paint can be applied. Conceptually
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.clipPath](https://pssvg.start-automating.com/SVG.clipPath)
 * [https://developer.mozilla.org/en-US/web/svg/element/clippath/](https://developer.mozilla.org/en-US/web/svg/element/clippath/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
