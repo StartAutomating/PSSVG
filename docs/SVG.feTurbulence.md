@@ -13,6 +13,7 @@ The **`<feTurbulence>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feTurbulence](https://pssvg.start-automating.com/SVG.feTurbulence)
 * [https://developer.mozilla.org/en-US/web/svg/element/feturbulence/](https://developer.mozilla.org/en-US/web/svg/element/feturbulence/)
+* [Write-SVG](Write-SVG.md)
 ---
 ### Parameters
 #### **Content**
