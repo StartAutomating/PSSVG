@@ -27,6 +27,77 @@ The `animateTransform` element animates a transformation attribute on its target
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
+$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
+=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
+    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
+    =&lt;svg.circle&gt; -r 5 -Fill red (
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+    )
+    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    )
+)
+```
+
+#### EXAMPLE 2
+```PowerShell
+-ViewBox 0, 0, 250, 200 -Content @(
+    =&lt;svg.defs&gt; (
+        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
+                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+            ) -Fill &#39;#4488ff&#39;
+        )
+    )
+    =&lt;svg.circle&gt; -cx 50 -cy 100 -r 50 -Fill &#39;url(#star)&#39;
+    =&lt;svg.circle&gt; -cx 180 -cy 100 -r 50 -Fill &#39;none&#39; -StrokeWidth 20 -Stroke &#39;url(#star)&#39; -Content @(
+        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 180 100&quot;  -To &quot;360 180 100&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    )
+)
+```
+
+#### EXAMPLE 3
+```PowerShell
+-ViewBox 0, 0, 250, 200 -Content @(
+    =&lt;svg.defs&gt; (
+        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
+                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+            ) -Fill &#39;#4488ff&#39;
+        )
+    )
+    =&lt;svg.circle&gt; -cx 50 -cy 100 -r 50 -Fill &#39;url(#star)&#39;
+    =&lt;svg.circle&gt; -cx 180 -cy 100 -r 50 -Fill &#39;none&#39; -StrokeWidth 20 -Stroke &#39;url(#star)&#39; -Content @(
+        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 180 100&quot;  -To &quot;360 180 100&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    )
+)
+```
+
+#### EXAMPLE 4
+```PowerShell
+-ViewBox 0, 0, 100, 100 -Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
+                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate -
+            ) -Fill white
+        )
+        =&lt;svg.mask&gt; (
+            =&lt;svg.circle&gt; -Fill &#39;url(#star)&#39; -r 50 -cx 50 -cy 50
+        ) -Id myMask
+        =&lt;svg.radialGradient&gt; @(
+            =&lt;svg.stop&gt; -Offset &#39;25%&#39; -StopColor &#39;red&#39;
+            =&lt;svg.stop&gt; -Offset &#39;50%&#39; -StopColor &#39;green&#39;
+            =&lt;svg.stop&gt; -Offset &#39;75%&#39; -StopColor &#39;blue&#39;
+        ) -id myGradient
+    )
+    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill &#39;url(#myGradient)&#39; -Mask &#39;url(#myMask)&#39;
+)
+```
+
+#### EXAMPLE 5
+```PowerShell
 function svgspinningspiral
 {
     param(
@@ -63,7 +134,7 @@ function svgspinningspiral
             $svgPath += "L $px $py"
         }
 
-        =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke black -Content @(
+        =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke '#4488ff' -Content @(
             if ($RotateEvery.TotalSeconds) {
                 =<svg.animatetransform> -AttributeName transform -From "0 $margin $margin"  -To "360 $margin $margin" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
             }
@@ -84,7 +155,7 @@ function svgspinningspiral
     $n = $_.N
     =<svg> -content (
         $_ | svgspinningspiral
-    )
+    ) -ViewBox 0,0,500,500
 ---
 ### Parameters
 #### **Content**
@@ -348,7 +419,7 @@ You can use this attribute with any SVG element.
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 
-> **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 
 This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 
