@@ -3,12 +3,10 @@
 =<svg> -Content @(
     =<svg.defs> @(
         =<svg.radialGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor gold @(
-                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+            =<svg.stop> -Offset '1%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =<svg.stop> -Offset '95%' -Stopcolor red @(
-                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
-            )
+            =<svg.stop> -Offset '100%' -Stopcolor red
         )
     )
     =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35    
