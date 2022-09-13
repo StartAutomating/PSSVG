@@ -12,4 +12,4 @@
     =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
         =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
-) -OutputPath .\PatternAnimation.svg
+) -OutputPath (Join-Path $PSScriptRoot PatternAnimation.svg)
