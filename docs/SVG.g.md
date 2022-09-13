@@ -33,7 +33,8 @@ Transformations applied to the `<g>` element are performed on its child elements
     =&lt;svg.g&gt; -Content @(
         =&lt;svg.text&gt; -Y &quot;50%&quot; -X &quot;50%&quot; -DominantBaseline middle -TextAnchor middle -Text &quot;Fading in&quot; -Fill &#39;#4488ff&#39;
 ```
-=<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s'
+# If you only want to fade in once, remove the -RepeatCount
+        =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
     )
 )
 ---
