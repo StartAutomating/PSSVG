@@ -211,9 +211,7 @@ The SVG **`<stop>`** element defines a color and its position to use on a gradie
             =&lt;svg.stop&gt; -Offset &#39;1%&#39; -Stopcolor gold @(
                 =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red @(
-                # =&lt;svg.animate&gt; -AttributeName offset -Values &#39;99;50;99&#39; -Dur 5s -RepeatCount indefinite
-            )
+            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red
         )
     )
     =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
@@ -228,9 +226,7 @@ The SVG **`<stop>`** element defines a color and its position to use on a gradie
             =&lt;svg.stop&gt; -Offset &#39;1%&#39; -Stopcolor gold @(
                 =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red @(
-                # =&lt;svg.animate&gt; -AttributeName offset -Values &#39;99;50;99&#39; -Dur 5s -RepeatCount indefinite
-            )
+            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red
         )
     )
     =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
