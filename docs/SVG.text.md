@@ -33,10 +33,18 @@ If text is included in SVG not inside of a `<text>` element, it is not rendered.
     =&lt;svg.g&gt; -Content @(
         =&lt;svg.text&gt; -Y &quot;50%&quot; -X &quot;50%&quot; -DominantBaseline middle -TextAnchor middle -Text &quot;Fading in&quot; -Fill &#39;#4488ff&#39;
 ```
-=<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s'
+# If you only want to fade in once, remove the -RepeatCount
+        =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
     )
 )
 #### EXAMPLE 2
+```PowerShell
+(
+    =&lt;svg.text&gt; -X 50% -Y 50% -Fontsize 36 &quot;Hello World&quot; -DominantBaseline middle -TextAnchor middle -Fill &#39;#4488ff&#39;
+) -ViewBox 0,0, 200, 100
+```
+
+#### EXAMPLE 3
 ```PowerShell
 $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
 $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
@@ -69,36 +77,7 @@ $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
     }
     )
 )
-#### EXAMPLE 3
-```PowerShell
-(
-    =&lt;svg.text&gt; -X 50% -Y 50% -Fontsize 36 &quot;Hello World&quot; -DominantBaseline middle -TextAnchor middle -Fill &#39;#4488ff&#39;
-) -ViewBox 0,0, 200, 100
-```
-
 #### EXAMPLE 4
-```PowerShell
-$longText = dir | Out-String
-$longTextLines = @($longText -split &#39;(?&gt;\r\n|\n)&#39;)
-$fontSize = 14
-$lineSpacing = 1.2
-```
-$ln = 0
-$maxLineLength =0
-$goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
-
-=<svg> @(
-    $ln = 0
-    foreach ($line in $longTextLines) {
-        $ln++
-        if ($line.Length -gt $maxLineLength) {
-            $maxLineLength = $line.Length
-        }
-        =<svg.text> -X 0 -Y ($ln * $fontSize * $lineSpacing) -Fontsize $fontSize $longTextLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
-    }
-
-) -ViewBox "0 0 $(($maxLineLength * $fontSize)/$goldenRatio) $($ln * $fontSize * 1.2)"
-#### EXAMPLE 5
 ```PowerShell
 @(
     =&lt;svg.symbol&gt; -content (

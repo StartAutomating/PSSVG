@@ -36,27 +36,6 @@ The **`<rect>`** element is a [basic SVG shape](https://developer.mozilla.org/en
 
 #### EXAMPLE 2
 ```PowerShell
-@(
-    $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
-    }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
-    )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
-    )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
-    )
-) -ViewBox 0, 0, 100, 150
-```
-
-#### EXAMPLE 3
-```PowerShell
 $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 =&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
     =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
@@ -70,7 +49,7 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 )
 ```
 
-#### EXAMPLE 4
+#### EXAMPLE 3
 ```PowerShell
 -Content @(
     =&lt;svg.defs&gt; @(
@@ -87,20 +66,7 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 ) -ViewBox &#39;0 0 100 100&#39;
 ```
 
-#### EXAMPLE 5
-```PowerShell
--Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -Values &#39;1;0;1&#39; -RepeatCount &#39;indefinite&#39;
-        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-```
-)
-    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
-) -viewbox 0,0,100,100
-#### EXAMPLE 6
+#### EXAMPLE 4
 ```PowerShell
 $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 =&lt;svg&gt; @(
@@ -117,7 +83,7 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 )
 ```
 
-#### EXAMPLE 7
+#### EXAMPLE 5
 ```PowerShell
 $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 =&lt;svg&gt; @(
@@ -131,7 +97,20 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 )
 ```
 
-#### EXAMPLE 8
+#### EXAMPLE 6
+```PowerShell
+-Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -Values &#39;1;0;1&#39; -RepeatCount &#39;indefinite&#39;
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 7
 ```PowerShell
 @(
     =&lt;svg.defs&gt; @(
@@ -145,7 +124,7 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 ) -ViewBox 0,0,50,50
 ```
 
-#### EXAMPLE 9
+#### EXAMPLE 8
 ```PowerShell
 @(
     =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39;
@@ -154,7 +133,7 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 ) -ViewBox 0, 0, 100, 200
 ```
 
-#### EXAMPLE 10
+#### EXAMPLE 9
 ```PowerShell
 -Content @(
     =&lt;svg.defs&gt; @(
