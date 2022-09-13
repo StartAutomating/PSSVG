@@ -104,9 +104,7 @@ function SVG.defs {
                 =<svg.stop> -Offset '1%' -Stopcolor gold @(
                     =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
                 )
-                =<svg.stop> -Offset '100%' -Stopcolor red @(
-                    # =<svg.animate> -AttributeName offset -Values '99;50;99' -Dur 5s -RepeatCount indefinite
-                )
+                =<svg.stop> -Offset '100%' -Stopcolor red
             )
         )
         =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35

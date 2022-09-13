@@ -11,24 +11,6 @@ function SVG.rect {
         ) -Fill '#4488ff'
     )
 .Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
-        }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
-        )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
-        )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
-.Example
     $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
     =<svg> -viewBox "0 0 200 100" @(
         =<svg.path> -d $path -Fill none -Stroke lightgrey
@@ -55,19 +37,6 @@ function SVG.rect {
         =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
     ) -ViewBox '0 0 100 100'
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.LinearGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '10%' -Stopcolor gold
-                =<svg.stop> -Offset '95%' -Stopcolor red
-                =<svg.animate> -AttributeName y2 -Dur "3s" -Values '1;0;1' -RepeatCount 'indefinite'
-            ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-    
-    
-        )
-        =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
-    ) -viewbox 0,0,100,100
-.Example
     $colors = @('red','green','blue')
     =<svg> @(
         foreach ($n in 1..10) {
@@ -92,6 +61,19 @@ function SVG.rect {
             }
         }
     )
+.Example
+    =<svg> -Content @(
+        =<svg.defs> @(
+            =<svg.LinearGradient> -Id myGradient -Content @(
+                =<svg.stop> -Offset '10%' -Stopcolor gold
+                =<svg.stop> -Offset '95%' -Stopcolor red
+                =<svg.animate> -AttributeName y2 -Dur "3s" -Values '1;0;1' -RepeatCount 'indefinite'
+            ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+    
+    
+        )
+        =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+    ) -viewbox 0,0,100,100
 .Example
     =<svg> @(
         =<svg.defs> @(

@@ -11,115 +11,12 @@ function SVG.animate {
         ) -Fill '#4488ff'
     )
 .Example
-    =<svg> -Content @(
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
-            =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
-            =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
-        ) -Stroke orange
-    )  -ViewBox 0,0,100,100
-.Example
-    =<svg> -Content @(
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
-            =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
-            =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
-        ) -Stroke orange
-    )  -ViewBox 0,0,100,100
-.Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
-        }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
-        )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
-        )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
-.Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
-        }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
-        )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
-        )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
-.Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
-        }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
-        )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
-        )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
-.Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
-        }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
-        )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
-        )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
-.Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
-        }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
-        )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
-        )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
-.Example
     =<svg> -ViewBox 0,0,100,100 -Content (
         =<svg.g> -Content @(
             =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
     
-            =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s'
+            # If you only want to fade in once, remove the -RepeatCount
+            =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
         )
     )
 .Example
@@ -150,6 +47,34 @@ function SVG.animate {
         )
         =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
     ) -ViewBox '0 0 100 100'
+.Example
+    $colors = @('red','green','blue')
+    =<svg> @(
+        foreach ($n in 1..10) {
+            $n10 = $n * 10
+            =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+                fill   = $colors[$n % $colors.Length]
+                stroke = $colors[($n + 1) % $colors.Length]
+            } @(
+                =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+                =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+            )
+        }
+    )
+.Example
+    $colors = @('red','green','blue')
+    =<svg> @(
+        foreach ($n in 1..10) {
+            $n10 = $n * 10
+            =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+                fill   = $colors[$n % $colors.Length]
+                stroke = $colors[($n + 1) % $colors.Length]
+            } @(
+                =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+                =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+            )
+        }
+    )
 .Example
     =<svg> -Content @(
         =<svg.defs> @(
@@ -164,57 +89,13 @@ function SVG.animate {
         =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
     ) -viewbox 0,0,100,100
 .Example
-    $colors = @('red','green','blue')
-    =<svg> @(
-        foreach ($n in 1..10) {
-            $n10 = $n * 10
-            =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
-                fill   = $colors[$n % $colors.Length]
-                stroke = $colors[($n + 1) % $colors.Length]
-            } @(
-                =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
-                =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
-            )
-        }
-    )
-.Example
-    $colors = @('red','green','blue')
-    =<svg> @(
-        foreach ($n in 1..10) {
-            $n10 = $n * 10
-            =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
-                fill   = $colors[$n % $colors.Length]
-                stroke = $colors[($n + 1) % $colors.Length]
-            } @(
-                =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
-                =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
-            )
-        }
-    )
-.Example
     =<svg> -Content @(
         =<svg.defs> @(
             =<svg.radialGradient> -Id myGradient -Content @(
                 =<svg.stop> -Offset '1%' -Stopcolor gold @(
                     =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
                 )
-                =<svg.stop> -Offset '100%' -Stopcolor red @(
-                    # =<svg.animate> -AttributeName offset -Values '99;50;99' -Dur 5s -RepeatCount indefinite
-                )
-            )
-        )
-        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -ViewBox '0 0 100 100'
-.Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.radialGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '1%' -Stopcolor gold @(
-                    =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-                )
-                =<svg.stop> -Offset '100%' -Stopcolor red @(
-                    # =<svg.animate> -AttributeName offset -Values '99;50;99' -Dur 5s -RepeatCount indefinite
-                )
+                =<svg.stop> -Offset '100%' -Stopcolor red
             )
         )
         =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35

@@ -5,31 +5,6 @@ function SVG.circle {
 .Description
     The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element is an [SVG basic shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes), used to draw circles based on a center point and a radius.
 .Example
-    =<svg> -Content @(
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
-            =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
-            =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
-        ) -Stroke orange
-    )  -ViewBox 0,0,100,100
-.Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
-        }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
-        )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
-        )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
-.Example
     $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
     =<svg> -viewBox "0 0 200 100" @(
         =<svg.path> -d $path -Fill none -Stroke lightgrey
@@ -163,9 +138,7 @@ function SVG.circle {
                 =<svg.stop> -Offset '1%' -Stopcolor gold @(
                     =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
                 )
-                =<svg.stop> -Offset '100%' -Stopcolor red @(
-                    # =<svg.animate> -AttributeName offset -Values '99;50;99' -Dur 5s -RepeatCount indefinite
-                )
+                =<svg.stop> -Offset '100%' -Stopcolor red
             )
         )
         =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
