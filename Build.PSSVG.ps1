@@ -6,7 +6,7 @@
 .SYNOPSIS
     Generates PSSVG
 .DESCRIPTION
-    Generates PSSVG, a module for creating 2d images with PowerShell.
+    Generates PSSVG, a module for creating svg images with PowerShell.
 
     PSSVG allows you to create Scalable Vector Graphics using PowerShell commands.
 
@@ -72,6 +72,9 @@ if (-not $svgElements) {
 
 $findSvgElement = [Regex]::new("\{\{SVGElement\(['`"](?<e>[^'`"]+)")
 $findSvgAttr = [Regex]::new("\{\{SVGAttr\(['`"](?<a>[^'`"]+)")
+$replaceMDNContent = "\{\{\s{0,}(?>$(@('Glossary', 'cssxref', 'domxref', 'HTTPMethod', 'htmlelement','svgelement', 'svgattr','htmlattrxref','cssxref')  -join '|')[^\)]{0,})\(" + 
+        '["''](?<s>[^"'']+)["'']\)\s{0,}\}\}'
+
 
 function ConvertSVGMetadataToParameterAttribute {
     param([Parameter(ValueFromPipeline,Position=0)][string]$EdiValue)
@@ -79,6 +82,7 @@ function ConvertSVGMetadataToParameterAttribute {
     $hadUri     = $false
     $hadColor   = $false
     $hadUnknown = $false
+    $tabCompletionRedundant = $false
     if ($ediValue -notmatch '\|') {
         if ($ediValue -match '\<(?<t>[^\>])>') {
             if ($matches.t -as [type]) {
@@ -87,7 +91,8 @@ function ConvertSVGMetadataToParameterAttribute {
         }
         return
     }
-    $validSet = @(foreach ($validValue in $ediValue -split '\|' -replace '^\s{0,}' -replace '\s{0,}$') {
+    $setDescriptors = @($ediValue -split '\|' -replace '^\s{0,}' -replace '\s{0,}$')
+    $validSet = @(foreach ($validValue in $setDescriptors) {
         if ($validValue -as [int] -or $validValue -match 'number') {
             $hadNumbers = $true
         } 
@@ -105,7 +110,7 @@ function ConvertSVGMetadataToParameterAttribute {
         }
         else {
             $validValue
-        }                                
+        }        
     }) -join "','"
     if ($hadNumbers) {
         "[ValidatePattern('(?>$($validSet -split "','" -join '|')|\d+)')]"
@@ -117,8 +122,26 @@ function ConvertSVGMetadataToParameterAttribute {
         "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '\W'})]"
     }
     elseif ($validSet -and -not $hadUnknown) {
+        $tabCompletionRedundant = $true
         "[ValidateSet('$validSet')]"
-    }     
+    }
+    
+    if ($setDescriptors -and -not $tabCompletionRedundant) {
+        $null = $null
+'[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+' + "
+    `$validSet = '$($setDescriptors -replace $replaceMDNContent, '<${s}>' -replace "'", "''" -join "','")'
+" + @'   
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
+'@
+    }
 }
 
 function ImportSvgAttribute {
@@ -141,9 +164,7 @@ function ImportSvgAttribute {
     if (-not $elementMarkdown) {
         Write-Verbose "Did not get content for $elementOrSetName"
         return
-    }
-    $replaceMDNContent = "\{\{\s{0,}(?>$(@('Glossary', 'domxref', 'HTTPMethod', 'htmlelement','svgelement', 'svgattr','htmlattrxref','cssxref')  -join '|')[^\)]{0,})\(" + 
-        '["''](?<s>[^"'']+)["'']\)\s{0,}\}\}'
+    }    
     
     $start, $end = 0, 0
     $globalAttrStart, $globalAttrEnd = 0, 0 
@@ -425,9 +446,7 @@ function InitializeSvgAttributeData {
     
         }
         
-        $headingList       = $savedMarkdown[$attrUri] | ?<Markdown_Heading> -Split -IncludeMatch
-        $replaceMDNContent = "\{\{\s{0,}(?>$(@('Glossary', 'domxref', 'HTTPMethod', 'htmlelement','svgelement', 'svgattr','htmlattrxref')  -join '|'))\(" + 
-        '["''](?<s>[^"'']+)["'']\)\s{0,}\}\}'    
+        $headingList       = $savedMarkdown[$attrUri] | ?<Markdown_Heading> -Split -IncludeMatch        
         
         $attrMetadata[$attrKv.key] = [PSCustomObject]@{
             Name = $attrKv.Key
@@ -492,7 +511,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $newPipeScriptSplat = @{
         Synopsis    = "Creates SVG $($elementKV.Key) elements"
         Description = $elementKV.Value.Description.Trim()
-        Link = $docsLink, $mdnLink
+        Link = $docsLink, $mdnLink, 'Write-SVG'
     }
     $relevantExampleFiles = Get-ChildItem -Filter *.ps1 -Path $examplesRoot |
         Select-String "\<svg.$($elementKv.Key)\>" | 
@@ -521,8 +540,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         $parameters.Content = @(
             "# The Contents of the $($elementKv.Key) element"
             if ($content.Description -eq 'characterDataElementsInAnyOrder') {
-                "[Reflection.AssemblyMetaData('SVG.IsCData', `$$true)]"
-                "[string]"
+                "[Reflection.AssemblyMetaData('SVG.IsCData', `$$true)]"                
             }
             "[Parameter(Position=0,ValueFromPipelineByPropertyName)]"
             "[Alias('InputObject','Text', 'InnerText', 'Contents')]"
