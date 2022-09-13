@@ -192,7 +192,7 @@ You can use this attribute with any SVG element.
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 
-> **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 
 This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 
