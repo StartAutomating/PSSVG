@@ -141,6 +141,7 @@ $PSSVGTook = [Datetime]::Now - $PSSVGStart
 
 $PSSVGPS1Start = [DateTime]::Now
 $PSSVGPS1List  = @()
+
 if (-not $SkipPSSVGPS1) {
     $PSSVGFiles = @(
     Get-ChildItem -Recurse -Path $env:GITHUB_WORKSPACE |
