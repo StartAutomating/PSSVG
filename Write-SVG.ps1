@@ -60,13 +60,18 @@ function Write-SVG
         $elementText = "<$elementName "
         :nextParameter foreach ($kv in $Attribute.GetEnumerator()) {
             if ($myCmd.Parameters[$kv.Key]) { continue }
+            $paramValue = $kv.Value
+            $paramName  = $kv.Key
+            if ($paramName -eq 'Viewbox' -and $paramValue.Length -eq 2) {
+                $paramValue = @(0,0) + $paramValue
+            }
             foreach ($attr in $elementCmd.Parameters[$kv.Key].Attributes) {
                 
                 if ($attr.Key -eq 'SVG.AttributeName') {
                     if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
                         $inputObject.psobject.properties.Remove($attr.Key)
                     }
-                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
+                    $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($paramValue))' "
                     continue nextParameter
                 }                                    
             }            
@@ -97,7 +102,7 @@ function Write-SVG
                     $isCData = $true
                 }
             }
-            if ($isCData) {
+            if ($isCData -and $content -notmatch '^\s{0,}\<') {                
                 $escapedContent = [Security.SecurityElement]::Escape("$content")
                 $elementText += ">" + "$escapedContent" + "</$elementName>"
             } else {
