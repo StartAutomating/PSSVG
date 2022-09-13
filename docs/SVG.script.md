@@ -14,8 +14,17 @@ The SVG `script` element allows to add scripts to an SVG document.
 ---
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.script](https://pssvg.start-automating.com/SVG.script)
+
+
+
 * [https://developer.mozilla.org/en-US/web/svg/element/script/](https://developer.mozilla.org/en-US/web/svg/element/script/)
+
+
+
 * [Write-SVG](Write-SVG.md)
+
+
+
 ---
 ### Parameters
 #### **Content**
@@ -31,6 +40,9 @@ The Contents of the script element
 > **Position**: 1
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Data**
 
@@ -45,6 +57,9 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Crossorigin**
 
@@ -59,6 +74,9 @@ This attribute defines [CORS settings](https://developer.mozilla.org/en-US/docs/
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Href**
 
@@ -73,6 +91,9 @@ The URL to the script to load.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Type**
 
@@ -97,6 +118,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XlinkHref**
 
@@ -111,6 +135,9 @@ The URL to the script to load.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Id**
 
@@ -127,6 +154,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Lang**
 
@@ -147,6 +177,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Tabindex**
 
@@ -163,6 +196,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlBase**
 
@@ -179,6 +215,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlLang**
 
@@ -199,6 +238,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlSpace**
 
@@ -226,6 +268,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Class**
 
@@ -249,6 +294,9 @@ You can use this class to style SVG content using CSS.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Style**
 
@@ -265,10 +313,13 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 ### Syntax
 ```PowerShell
-SVG.script [[-Content] <Object>] [-Data <IDictionary>] [-Crossorigin <Object>] [-Href <Object>] [-Type <Object>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.script [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Crossorigin &lt;Object&gt;] [-Href &lt;Object&gt;] [-Type &lt;Object&gt;] [-XlinkHref &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 

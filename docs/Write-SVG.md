@@ -24,6 +24,9 @@ The name of the SVG element/
 > **Position**: 1
 
 > **PipelineInput**:false
+
+
+
 ---
 #### **Attribute**
 
@@ -38,6 +41,9 @@ A dictionary of attributes.
 > **Position**: 2
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Data**
 
@@ -52,6 +58,9 @@ A dictionary of data.
 > **Position**: 3
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Content**
 
@@ -66,6 +75,9 @@ A dictionary of content.
 > **Position**: 4
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **OutputPath**
 
@@ -80,10 +92,13 @@ An output path.
 > **Position**: 5
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 ### Syntax
 ```PowerShell
-Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-OutputPath] <String>] [<CommonParameters>]
+Write-SVG [-ElementName] &lt;String&gt; [[-Attribute] &lt;IDictionary&gt;] [[-Data] &lt;IDictionary&gt;] [[-Content] &lt;PSObject&gt;] [[-OutputPath] &lt;String&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 ### Notes

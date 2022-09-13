@@ -12,8 +12,17 @@ The `feMergeNode` takes the result of another filter to be processed by its pare
 ---
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feMergeNode](https://pssvg.start-automating.com/SVG.feMergeNode)
+
+
+
 * [https://developer.mozilla.org/en-US/web/svg/element/femergenode/](https://developer.mozilla.org/en-US/web/svg/element/femergenode/)
+
+
+
 * [Write-SVG](Write-SVG.md)
+
+
+
 ---
 ### Parameters
 #### **Content**
@@ -29,6 +38,9 @@ The Contents of the feMergeNode element
 > **Position**: 1
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Data**
 
@@ -43,6 +55,9 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **In**
 
@@ -53,6 +68,9 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Id**
 
@@ -69,6 +87,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Lang**
 
@@ -89,6 +110,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Tabindex**
 
@@ -105,6 +129,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlBase**
 
@@ -121,6 +148,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlLang**
 
@@ -141,6 +171,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlSpace**
 
@@ -168,10 +201,13 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 ### Syntax
 ```PowerShell
-SVG.feMergeNode [[-Content] <Object>] [-Data <IDictionary>] [-In <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.feMergeNode [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-In &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
