@@ -12,8 +12,17 @@ The **`<mpath>`** sub-element for the `animateMotion` element provides the abili
 ---
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.mpath](https://pssvg.start-automating.com/SVG.mpath)
+
+
+
 * [https://developer.mozilla.org/en-US/web/svg/element/mpath/](https://developer.mozilla.org/en-US/web/svg/element/mpath/)
+
+
+
 * [Write-SVG](Write-SVG.md)
+
+
+
 ---
 ### Parameters
 #### **Content**
@@ -29,6 +38,9 @@ The Contents of the mpath element
 > **Position**: 1
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Data**
 
@@ -43,6 +55,9 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XlinkHref**
 
@@ -59,6 +74,9 @@ The **`xlink:href`** attribute defines a reference to a resource as a reference 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Id**
 
@@ -75,6 +93,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Lang**
 
@@ -95,6 +116,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Tabindex**
 
@@ -111,6 +135,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlBase**
 
@@ -127,6 +154,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlLang**
 
@@ -147,12 +177,15 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 
-> **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 
 This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 
@@ -174,6 +207,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XlinkType**
 
@@ -188,6 +224,9 @@ The **`xlink:type`** attribute identifies the type of XLink being used. In SVG, 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XlinkArcrole**
 
@@ -204,6 +243,9 @@ This contextual role can differ from the meaning of the resource when taken outs
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XlinkTitle**
 
@@ -222,6 +264,9 @@ The use of this information is highly dependent on the type of processing being 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XlinkShow**
 
@@ -246,10 +291,13 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 ### Syntax
 ```PowerShell
-SVG.mpath [[-Content] <Object>] [-Data <IDictionary>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [<CommonParameters>]
+SVG.mpath [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-XlinkHref &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-XlinkType &lt;Object&gt;] [-XlinkArcrole &lt;Object&gt;] [-XlinkTitle &lt;Object&gt;] [-XlinkShow &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 

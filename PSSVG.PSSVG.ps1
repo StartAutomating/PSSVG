@@ -1,6 +1,10 @@
 #requires -Module PSSVG
 
+$assetsPath = Join-Path $PSScriptRoot Assets
 
+if (-not (Test-Path $assetsPath)) {
+    $null = New-Item -ItemType Directory -path $assetsPath -Force
+}
 =<svg> -content $(
     $commonParameters = @{
         Fill        = '#4488FF'
@@ -12,6 +16,6 @@
         =<svg.text> -Text 'PS' -X 40 -Y 50 -FontSize 52 -FontFamily monospace @commonParameters
         =<svg.text> -Text 'SVG' -X 100 -Y 50 -FontSize 42 -FontFamily sans-serif -FontStretch "10%" -FontWeight 150 @commonParameters
     )
-) -ViewBox 0, 0, 200, 100 -OutputPath (
-    Join-Path (Join-Path $PSScriptRoot Assets) .\PSSVG.svg
+) -ViewBox 0, 0, 200, 100 -OutputPath $(    
+    Join-Path (Join-Path $PSScriptRoot Assets) PSSVG.svg
 )

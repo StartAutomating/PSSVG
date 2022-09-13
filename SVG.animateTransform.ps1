@@ -5,6 +5,65 @@ function SVG.animateTransform {
 .Description
     The `animateTransform` element animates a transformation attribute on its target element, thereby allowing animations to control translation, scaling, rotation, and/or skewing.
 .Example
+    $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+    =<svg> -viewBox "0 0 200 100" @(
+        =<svg.path> -d $path -Fill none -Stroke lightgrey
+        =<svg.circle> -r 5 -Fill red (
+            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        )
+        =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+            =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        )
+    )
+.Example
+    =<svg> -ViewBox 0, 0, 250, 200 -Content @(
+        =<svg.defs> (
+            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+                ) -Fill '#4488ff'
+            )
+        )
+        =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+        =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+            =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        )
+    )
+.Example
+    =<svg> -ViewBox 0, 0, 250, 200 -Content @(
+        =<svg.defs> (
+            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+                ) -Fill '#4488ff'
+            )
+        )
+        =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+        =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+            =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        )
+    )
+.Example
+    =<svg> -ViewBox 0, 0, 100, 100 -Content @(
+        =<svg.defs> @(
+            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
+                ) -Fill white
+            )
+            =<svg.mask> (
+                =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
+            ) -Id myMask
+            =<svg.radialGradient> @(
+                =<svg.stop> -Offset '25%' -StopColor 'red'
+                =<svg.stop> -Offset '50%' -StopColor 'green'
+                =<svg.stop> -Offset '75%' -StopColor 'blue'
+            ) -id myGradient
+        )
+        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
+    )
+.Example
     function svgspinningspiral
     {
         param(
@@ -41,7 +100,7 @@ function SVG.animateTransform {
                 $svgPath += "L $px $py"
             }
     
-            =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke black -Content @(
+            =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke '#4488ff' -Content @(
                 if ($RotateEvery.TotalSeconds) {
                     =<svg.animatetransform> -AttributeName transform -From "0 $margin $margin"  -To "360 $margin $margin" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
                 }
@@ -62,7 +121,7 @@ function SVG.animateTransform {
         $n = $_.N
         =<svg> -content (
             $_ | svgspinningspiral
-        )
+        ) -ViewBox 0,0,500,500
 .Link
     https://pssvg.start-automating.com/SVG.animateTransform
 .Link
@@ -196,7 +255,7 @@ $XmlBase,
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
-# > **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+# > **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 # 
 # This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 # 
@@ -301,6 +360,17 @@ $Begin,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','dur')]
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | media | indefinite')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<clock-value>','media','indefinite'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'indefinite')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $Dur,
@@ -346,6 +416,17 @@ $Restart,
 [Reflection.AssemblyMetaData('SVG.AttributeName','repeatCount')]
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}} | indefinite')]
 [ValidatePattern('(?>indefinite|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<number>','indefinite'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $RepeatCount,
 # The **`repeatDur`** attribute specifies the total duration for repeating an animation.
@@ -354,6 +435,17 @@ $RepeatCount,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','repeatDur')]
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | indefinite')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<clock-value>','indefinite'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default values', 'None')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $RepeatDur,

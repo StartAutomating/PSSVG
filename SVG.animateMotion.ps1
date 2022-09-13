@@ -6,6 +6,30 @@ function SVG.animateMotion {
     The SVG **`<animateMotion>`** element provides a way to define how an element moves along a motion path.
     
     > **Note:** To reuse an existing path, it will be necessary to use an `mpath` element inside the `<animateMotion>` element instead of the `path` attribute.
+.Example
+    $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+    =<svg> -viewBox "0 0 200 100" @(
+        =<svg.path> -d $path -Fill none -Stroke lightgrey
+        =<svg.circle> -r 5 -Fill red (
+            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        )
+        =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+            =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        )
+    )
+.Example
+    $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+    =<svg> -viewBox "0 0 200 100" @(
+        =<svg.path> -d $path -Fill none -Stroke lightgrey
+        =<svg.circle> -r 5 -Fill red (
+            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        )
+        =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+            =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        )
+    )
 .Link
     https://pssvg.start-automating.com/SVG.animateMotion
 .Link
@@ -41,6 +65,17 @@ $Path,
 [Reflection.AssemblyMetaData('SVG.AttributeName','rotate')]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | auto-reverse | {{cssxref("number")}}')]
 [ValidatePattern('(?>auto|auto-reverse|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'auto','auto-reverse','<number>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $Rotate,
@@ -90,6 +125,17 @@ $Begin,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','dur')]
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | media | indefinite')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<clock-value>','media','indefinite'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'indefinite')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $Dur,
@@ -135,6 +181,17 @@ $Restart,
 [Reflection.AssemblyMetaData('SVG.AttributeName','repeatCount')]
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}} | indefinite')]
 [ValidatePattern('(?>indefinite|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<number>','indefinite'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $RepeatCount,
 # The **`repeatDur`** attribute specifies the total duration for repeating an animation.
@@ -143,6 +200,17 @@ $RepeatCount,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','repeatDur')]
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | indefinite')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<clock-value>','indefinite'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default values', 'None')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $RepeatDur,
@@ -302,7 +370,7 @@ $XmlBase,
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
-# > **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+# > **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 # 
 # This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 # 

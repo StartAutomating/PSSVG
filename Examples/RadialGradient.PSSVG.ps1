@@ -8,4 +8,4 @@
         )
     )
     =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35    
-)  -OutputPath (Join-Path $PSScriptRoot RadialGradient.svg)
+) -ViewBox 0,0,100,100 -OutputPath (Join-Path $PSScriptRoot RadialGradient.svg)

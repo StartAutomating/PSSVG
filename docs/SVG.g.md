@@ -14,20 +14,27 @@ Transformations applied to the `<g>` element are performed on its child elements
 ---
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.g](https://pssvg.start-automating.com/SVG.g)
+
+
+
 * [https://developer.mozilla.org/en-US/web/svg/element/g/](https://developer.mozilla.org/en-US/web/svg/element/g/)
+
+
+
 * [Write-SVG](Write-SVG.md)
+
+
+
 ---
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-$fadeinSteps = @(foreach ($n in 0..10) {
-    [double]($n * 10) / 100
-}) -join ';'
-=<svg> -ViewBox 0,0,100,100 -Content (
-    =<svg.g> -Content @(
-        =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Hello World"
+-ViewBox 0,0,100,100 -Content (
+    =&lt;svg.g&gt; -Content @(
+        =&lt;svg.text&gt; -Y &quot;50%&quot; -X &quot;50%&quot; -DominantBaseline middle -TextAnchor middle -Text &quot;Fading in&quot; -Fill &#39;#4488ff&#39;
 ```
-=<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s'
+# If you only want to fade in once, remove the -RepeatCount
+        =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
     )
 )
 ---
@@ -45,6 +52,9 @@ The Contents of the g element
 > **Position**: 1
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Data**
 
@@ -59,6 +69,9 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Id**
 
@@ -75,6 +88,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Lang**
 
@@ -95,6 +111,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Tabindex**
 
@@ -111,6 +130,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlBase**
 
@@ -127,6 +149,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlLang**
 
@@ -147,12 +172,15 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 
-> **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 
 This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 
@@ -174,6 +202,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Class**
 
@@ -197,6 +228,9 @@ You can use this class to style SVG content using CSS.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Style**
 
@@ -213,6 +247,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **RequiredFeatures**
 
@@ -233,6 +270,9 @@ To detect availability of an SVG feature from script, there is the (also depreca
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **SystemLanguage**
 
@@ -247,6 +287,9 @@ The **`systemLanguage`** attribute represents a list of supported language tags.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **AlignmentBaseline**
 
@@ -283,6 +326,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **BaselineShift**
 
@@ -301,6 +347,9 @@ The **`baseline-shift`** attribute allows repositioning of the dominant-baseline
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Clip**
 
@@ -324,6 +373,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **ClipPath**
 
@@ -340,6 +392,9 @@ The **`clip-path`** presentation attribute defines or associates a clipping path
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **ClipRule**
 
@@ -388,6 +443,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Color**
 
@@ -406,6 +464,9 @@ As a presentation attribute, it can be applied to any element, but as noted abov
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **ColorInterpolation**
 
@@ -436,6 +497,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **ColorInterpolationFilters**
 
@@ -466,6 +530,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **ColorProfile**
 
@@ -482,6 +549,9 @@ The **`color-profile`** attribute is used to define which color profile a raster
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Cursor**
 
@@ -502,6 +572,9 @@ As a presentation attribute, it also can be used as a property directly inside a
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Direction**
 
@@ -529,6 +602,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Display**
 
@@ -561,6 +637,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **DominantBaseline**
 
@@ -601,6 +680,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **EnableBackground**
 
@@ -617,6 +699,9 @@ The **`enable-background`** attribute specifies how the accumulation of the back
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Fill**
 
@@ -631,6 +716,9 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FillOpacity**
 
@@ -647,6 +735,9 @@ The **`fill-opacity`** attribute is a presentation attribute defining the opacit
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FillRule**
 
@@ -670,6 +761,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Filter**
 
@@ -688,6 +782,9 @@ As a presentation attribute, it can be applied to any element but it only has ef
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FloodColor**
 
@@ -704,6 +801,9 @@ The **`flood-color`** attribute indicates what color to use to flood the current
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FloodOpacity**
 
@@ -720,6 +820,9 @@ The **`flood-opacity`** attribute indicates the opacity value to use across the 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FontFamily**
 
@@ -736,6 +839,9 @@ The **`font-family`** attribute indicates which font family will be used to rend
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FontSize**
 
@@ -752,6 +858,9 @@ The **`font-size`** attribute refers to the size of the font from baseline to ba
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FontSizeAdjust**
 
@@ -768,6 +877,9 @@ The `font-size-adjust` attribute allows authors to specify an aspect value for a
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FontStretch**
 
@@ -784,6 +896,9 @@ The **`font-stretch`** attribute indicates the desired amount of condensing or e
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FontStyle**
 
@@ -808,6 +923,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FontVariant**
 
@@ -824,6 +942,9 @@ The **`font-variant`** attribute indicates whether the text is to be rendered us
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **FontWeight**
 
@@ -840,6 +961,9 @@ The **`font-weight`** attribute refers to the boldness or lightness of the glyph
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **GlyphOrientationHorizontal**
 
@@ -860,6 +984,9 @@ This attribute is applied only to text written in a horizontal writing-mode.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **GlyphOrientationVertical**
 
@@ -880,6 +1007,9 @@ This attribute is applied only to text written in a vertical writing-mode.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **ImageRendering**
 
@@ -906,12 +1036,15 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Kerning**
 
 The **`kerning`** attribute indicates whether the spacing between {{Glossary("glyph", "glyphs")}} should be adjusted based on kerning tables that are included in the relevant font (i.e., enable auto-kerning) or instead disable auto-kerning and set the spacing between them to a specific length (typically, zero).
 
-> **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called {{cssxref("font-kerning")}}, though.
+> **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called font-kerning, though.
 
 
 
@@ -922,12 +1055,15 @@ The **`kerning`** attribute indicates whether the spacing between {{Glossary("gl
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **LetterSpacing**
 
 The **`letter-spacing`** attribute controls spacing between text characters, in addition to any spacing from the kerning attribute.
 
-If the attribute value is a unitless number (like `128`), the browser processes it as a {{cssxref("length")}} in the current user coordinate system.
+If the attribute value is a unitless number (like `128`), the browser processes it as a length in the current user coordinate system.
 
 If the attribute value has a unit identifier, such as `.25em` or `1%`, then the browser converts the \<length> into its corresponding value in the current user coordinate system.
 
@@ -942,6 +1078,9 @@ If the attribute value has a unit identifier, such as `.25em` or `1%`, then the 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **LightingColor**
 
@@ -956,6 +1095,9 @@ The **`lighting-color`** attribute defines the color of the light source for lig
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **MarkerEnd**
 
@@ -974,6 +1116,9 @@ For all shape elements, except polyline and path, the last vertex is the same as
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **MarkerMid**
 
@@ -992,6 +1137,9 @@ The marker is rendered on every vertex other than the first and last vertices of
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **MarkerStart**
 
@@ -1010,12 +1158,15 @@ For all shape elements, except polyline and path, the last vertex is the same as
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Mask**
 
 The **`mask`** attribute is a presentation attribute mainly used to bind a given mask element with the element the attribute belongs to.
 
-> **Note:** As a presentation attribute {{cssxref('mask')}} can be used as a CSS property.
+> **Note:** As a presentation attribute mask can be used as a CSS property.
 
 
 
@@ -1026,6 +1177,9 @@ The **`mask`** attribute is a presentation attribute mainly used to bind a given
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Opacity**
 
@@ -1042,6 +1196,9 @@ The **`opacity`** attribute specifies the transparency of an object or of a grou
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Overflow**
 
@@ -1056,7 +1213,7 @@ This attribute has the same parameter values and meaning as the {{cssxref("overf
 
 > **Note:** Although the initial value for overflow is `auto`, it is overwritten in the User Agent style sheet for the svg element when it is not the root element of a stand-alone document, the pattern element, and the marker element to be hidden by default.
 
-> **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS {{cssxref("overflow")}} property for more information.
+> **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS overflow property for more information.
 
 
 
@@ -1076,12 +1233,15 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **PointerEvents**
 
 The **`pointer-events`** attribute is a presentation attribute that allows defining whether or when an element may be the target of a mouse event.
 
-> **Note:** As a presentation attribute {{cssxref('pointer-events')}} can be used as a CSS property.
+> **Note:** As a presentation attribute pointer-events can be used as a CSS property.
 
 
 
@@ -1107,6 +1267,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **ShapeRendering**
 
@@ -1132,6 +1295,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StopColor**
 
@@ -1150,6 +1316,9 @@ The **`stop-color`** attribute indicates what color to use at a gradient stop.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StopOpacity**
 
@@ -1168,6 +1337,9 @@ The opacity value used for the gradient calculation is the product of the value 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Stroke**
 
@@ -1184,6 +1356,9 @@ The **`stroke`** attribute is a presentation attribute defining the color (_or a
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StrokeDasharray**
 
@@ -1200,6 +1375,9 @@ The **`stroke-dasharray`** attribute is a presentation attribute defining the pa
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StrokeDashoffset**
 
@@ -1216,6 +1394,9 @@ The **`stroke-dashoffset`** attribute is a presentation attribute defining an of
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StrokeLinecap**
 
@@ -1240,6 +1421,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StrokeLinejoin**
 
@@ -1266,6 +1450,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StrokeMiterlimit**
 
@@ -1282,6 +1469,9 @@ The **`stroke-miterlimit`** attribute is a presentation attribute defining a lim
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StrokeOpacity**
 
@@ -1298,6 +1488,9 @@ The **`stroke-opacity`** attribute is a presentation attribute defining the opac
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **StrokeWidth**
 
@@ -1312,12 +1505,15 @@ The **`stroke-width`** attribute is a presentation attribute defining the width 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **TextAnchor**
 
-The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the {{cssxref("inline-size")}} property relative to a given point.
+The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the inline-size property relative to a given point.
 
-This attribute is not applicable to other types of auto-wrapped text. For those cases you should use {{cssxref("text-align")}}. For multi-line text, the alignment takes place for each line.
+This attribute is not applicable to other types of auto-wrapped text. For those cases you should use text-align. For multi-line text, the alignment takes place for each line.
 
 The `text-anchor` attribute is applied to each individual text chunk within a given text element. Each text chunk has an initial current text position, which represents the point in the user coordinate system resulting from (depending on context) application of the x and y attributes on the `<text>` element, any `x` or `y` attribute values on a tspan, tref or altGlyph element assigned explicitly to the first rendered character in a text chunk, or determination of the initial current text position for a textPath element.
 
@@ -1340,10 +1536,13 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **TextDecoration**
 
-The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the {{cssxref("text-decoration-line")}} and {{cssxref("text-decoration-style")}} properties.
+The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the text-decoration-line and text-decoration-style properties.
 
 The fill and stroke of the text decoration are given by the fill and stroke of the text at the point where the text decoration is declared.
 
@@ -1360,6 +1559,9 @@ The paint order of the text decoration, i.e. the fill and stroke, is determined 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **TextRendering**
 
@@ -1385,12 +1587,15 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Transform**
 
 The **`transform`** attribute defines a list of transform definitions that are applied to an element and the element's children.
 
-> **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property {{cssxref('transform')}} for the specific syntax to use in that case.
+> **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property transform for the specific syntax to use in that case.
 
 You can use this attribute with any SVG element.
 
@@ -1403,6 +1608,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **TransformOrigin**
 
@@ -1413,6 +1621,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **UnicodeBidi**
 
@@ -1429,6 +1640,9 @@ The **`unicode-bidi`** attribute specifies how the accumulation of the backgroun
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **VectorEffect**
 
@@ -1455,6 +1669,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Visibility**
 
@@ -1483,12 +1700,15 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **WordSpacing**
 
 The **`word-spacing`** attribute specifies spacing behavior between words.
 
-If a {{cssxref("length")}} is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
+If a length is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
 
 If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), then the browser converts the \<length> into a corresponding value in the current user coordinate system.
 
@@ -1503,12 +1723,15 @@ If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **WritingMode**
 
 The **`writing-mode`** attribute specifies whether the initial inline-progression-direction for a text element shall be left-to-right, right-to-left, or top-to-bottom. The `writing-mode` attribute applies only to text elements; the attribute is ignored for tspan, tref, altGlyph and textPath sub-elements. (Note that the inline-progression-direction can change within a text element due to the Unicode bidirectional algorithm and properties direction and unicode-bidi.)
 
-> **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS {{cssxref("writing-mode")}} property for more information.
+> **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS writing-mode property for more information.
 
 
 
@@ -1527,10 +1750,13 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 ### Syntax
 ```PowerShell
-SVG.g [[-Content] <Object>] [-Data <IDictionary>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
+SVG.g [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 

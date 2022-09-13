@@ -19,6 +19,10 @@ param(
 [string]
 $PSSVG,
 
+# If set, will not process any files named *.PSSVG.ps1
+[switch]
+$SkipPSSVGPS1,
+
 # If set, will not run Build-PSSVG.
 [switch]
 $SkipBuild,
@@ -127,7 +131,7 @@ if (-not $branchName) {
 
 $PSSVGStart = [DateTime]::Now
 if ($PSSVG) {
-    Invoke-PSSVG -Command $PSSVG |
+    $PSSVG |
         . $processScriptOutput |
         Out-Host
 }
@@ -135,19 +139,33 @@ if ($PSSVG) {
 $PSSVGTook = [Datetime]::Now - $PSSVGStart
 "::set-output name=PSSVGRuntime::$($PSSVGScriptTook.TotalMilliseconds)" | Out-Host
 
-$BuildPSSVGStart = [DateTime]::Now
-if (-not $SkipBuild) {
-    $buildOutputFiles = @(Build-PSSVG -InputPath $env:GITHUB_WORKSPACE)
-    $buildOutputFiles |
-        . $processScriptOutput  | 
-        Out-Host
+$PSSVGPS1Start = [DateTime]::Now
+$PSSVGPS1List  = @()
+
+if (-not $SkipPSSVGPS1) {
+    $PSSVGFiles = @(
+    Get-ChildItem -Recurse -Path $env:GITHUB_WORKSPACE |
+        Where-Object Name -Match '\.PSSVG\.ps1$')
+        
+    if ($PSSVGFiles) {
+        $PSSVGFiles |        
+            ForEach-Object {
+                $PSSVGPS1List += $_.FullName.Replace($env:GITHUB_WORKSPACE, '').TrimStart('/')
+                $PSSVGPS1Count++
+                "::notice title=Running::$($_.Fullname)" | Out-Host
+                . $_.FullName |            
+                    . $processScriptOutput  | 
+                    Out-Host
+            }
+    }
 }
 
-$BuildPSSVGEnd = [DateTime]::Now
-$BuildPSSVGTook = $BuildPSSVGEnd - $BuildPSSVGStart
-"::set-output name=PSSVGFilesBuiltCount::$($buildOutputFiles.Length)"   | Out-Host
-"::set-output name=PSSVGFilesBuilt::$($buildOutputFiles -join ';')"     | Out-Host
-"::set-output name=PSSVGBuildRuntime::$($BuildPSSVGTook.TotalMilliseconds)"   | Out-Host
+$PSSVGPS1EndStart = [DateTime]::Now
+$PSSVGPS1Took = [Datetime]::Now - $PSSVGPS1Start
+"::set-output name=PSSVGPS1Count::$($PSSVGPS1List.Length)"   | Out-Host
+"::set-output name=PSSVGPS1Files::$($PSSVGPS1List -join ';')"   | Out-Host
+"::set-output name=PSSVGPS1Runtime::$($PSSVGPS1Took.TotalMilliseconds)"   | Out-Host
+
 if ($CommitMessage -or $anyFilesChanged) {
     if ($CommitMessage) {
         dir $env:GITHUB_WORKSPACE -Recurse |

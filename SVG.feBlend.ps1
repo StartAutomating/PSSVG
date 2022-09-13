@@ -26,6 +26,17 @@ $Data,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','in')]
 [Reflection.AssemblyMetaData('SVG.Value', 'SourceGraphic | SourceAlpha | BackgroundImage | BackgroundAlpha | FillPaint | StrokePaint | <filter-primitive-reference>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'SourceGraphic','SourceAlpha','BackgroundImage','BackgroundAlpha','FillPaint','StrokePaint','<filter-primitive-reference>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'SourceGraphic for first filter primitive, otherwise result of previous filter primitive')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $In,
@@ -33,6 +44,17 @@ $In,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','in2')]
 [Reflection.AssemblyMetaData('SVG.Value', 'SourceGraphic | SourceAlpha | BackgroundImage | BackgroundAlpha | FillPaint | StrokePaint | <filter-primitive-reference>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'SourceGraphic','SourceAlpha','BackgroundImage','BackgroundAlpha','FillPaint','StrokePaint','<filter-primitive-reference>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'SourceGraphic for first filter primitive, otherwise result of previous filter primitive')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $In2,
@@ -95,7 +117,7 @@ $XmlBase,
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
-# > **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+# > **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 # 
 # This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 # 
@@ -131,6 +153,17 @@ $AlignmentBaseline,
 [Reflection.AssemblyMetaData('SVG.AttributeName','baseline-shift')]
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("length-percentage")}} | sub | super')]
 [ValidatePattern('(?>|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<length-percentage>','sub','super'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $BaselineShift,
@@ -155,6 +188,17 @@ $Clip,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','clip-path')]
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref(''url'')}} | [ {{cssxref(''basic-shape'')}} || <geometry-box> ] | none')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<url>','[ <basic-shape>','','<geometry-box> ]','none'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $ClipPath,
 # « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
@@ -200,6 +244,17 @@ $ClipRule,
 [Reflection.AssemblyMetaData('SVG.AttributeName','color')]
 [Reflection.AssemblyMetaData('SVG.Value', '<color> | inherit')]
 [ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '\W'})]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<color>','inherit'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'Depends on user agent')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $Color,
@@ -248,6 +303,17 @@ $ColorInterpolationFilters,
 [Reflection.AssemblyMetaData('SVG.AttributeName','color-profile')]
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | sRGB | <name> | <iri>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'auto','sRGB','<name>','<iri>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $ColorProfile,
@@ -262,6 +328,17 @@ $ColorProfile,
 [Reflection.AssemblyMetaData('SVG.AttributeName','cursor')]
 [Reflection.AssemblyMetaData('SVG.Categories', 'Presentation attribute')]
 [Reflection.AssemblyMetaData('SVG.Value', '[[<funciri>,]* [ auto | crosshair | default | pointer | move | e-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize | w-resize| text | wait | help ]] | inherit')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '[[<funciri>,]* [ auto','crosshair','default','pointer','move','e-resize','ne-resize','nw-resize','n-resize','se-resize','sw-resize','s-resize','w-resize','text','wait','help ]]','inherit'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition)')]
 $Cursor,
@@ -337,6 +414,17 @@ $DominantBaseline,
 [Reflection.AssemblyMetaData('SVG.AttributeName','enable-background')]
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'accumulate | new [ <x><y><width><height> ]?')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'accumulate','new [ <x><y><width><height> ]?'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'accumulate')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $EnableBackground,
@@ -357,6 +445,17 @@ $Fill,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','fill-opacity')]
 [Reflection.AssemblyMetaData('SVG.Value', '[0-1] | <percentage>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '[0-1]','<percentage>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', '1')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $FillOpacity,
@@ -380,6 +479,17 @@ $FillRule,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','filter')]
 [Reflection.AssemblyMetaData('SVG.Value', 'none|<filter-function-list>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'none','<filter-function-list>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $Filter,
 # The **`flood-color`** attribute indicates what color to use to flood the current filter primitive subregion.
@@ -424,6 +534,17 @@ $FontFamily,
 [Reflection.AssemblyMetaData('SVG.AttributeName','font-size')]
 [Reflection.AssemblyMetaData('SVG.Value', '<absolute-size> | <relative-size> | <length-percentage>')]
 [ValidatePattern('(?>|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<absolute-size>','<relative-size>','<length-percentage>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'medium')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $FontSize,
@@ -436,6 +557,17 @@ $FontSize,
 [Reflection.AssemblyMetaData('SVG.AttributeName','font-size-adjust')]
 [Reflection.AssemblyMetaData('SVG.Value', 'none | {{cssxref("number")}}')]
 [ValidatePattern('(?>none|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'none','<number>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $FontSizeAdjust,
 # The **`font-stretch`** attribute indicates the desired amount of condensing or expansion in the glyphs used to render the text.
@@ -469,6 +601,17 @@ $FontStyle,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','font-variant')]
 [Reflection.AssemblyMetaData('SVG.Value', 'normal | none | [ <common-lig-values> || <discretionary-lig-values> || <historical-lig-values> || <contextual-alt-values> || stylistic( <feature-value-name> ) || historical-forms || styleset( <feature-value-name># ) || character-variant( <feature-value-name># ) || swash( <feature-value-name> ) || ornaments( <feature-value-name> ) || annotation( <feature-value-name> ) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || <numeric-figure-values> || <numeric-spacing-values> || <numeric-fraction-values> || ordinal || slashed-zero || <east-asian-variant-values> || <east-asian-width-values> || ruby ]')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'normal','none','[ <common-lig-values>','','<discretionary-lig-values>','','<historical-lig-values>','','<contextual-alt-values>','','stylistic( <feature-value-name> )','','historical-forms','','styleset( <feature-value-name># )','','character-variant( <feature-value-name># )','','swash( <feature-value-name> )','','ornaments( <feature-value-name> )','','annotation( <feature-value-name> )','','[ small-caps','all-small-caps','petite-caps','all-petite-caps','unicase','titling-caps ]','','<numeric-figure-values>','','<numeric-spacing-values>','','<numeric-fraction-values>','','ordinal','','slashed-zero','','<east-asian-variant-values>','','<east-asian-width-values>','','ruby ]'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $FontVariant,
@@ -481,6 +624,17 @@ $FontVariant,
 [Reflection.AssemblyMetaData('SVG.AttributeName','font-weight')]
 [Reflection.AssemblyMetaData('SVG.Value', 'normal | bold | bolder | lighter | {{cssxref("number")}}')]
 [ValidatePattern('(?>normal|bold|bolder|lighter|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'normal','bold','bolder','lighter','<number>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $FontWeight,
@@ -513,6 +667,17 @@ $GlyphOrientationHorizontal,
 [Reflection.AssemblyMetaData('SVG.AttributeName','glyph-orientation-vertical')]
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | <angle>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'auto','<angle>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $GlyphOrientationVertical,
@@ -532,7 +697,7 @@ $GlyphOrientationVertical,
 $ImageRendering,
 # The **`kerning`** attribute indicates whether the spacing between {{Glossary("glyph", "glyphs")}} should be adjusted based on kerning tables that are included in the relevant font (i.e., enable auto-kerning) or instead disable auto-kerning and set the spacing between them to a specific length (typically, zero).
 # 
-# > **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called {{cssxref("font-kerning")}}, though.
+# > **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called font-kerning, though.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -540,12 +705,23 @@ $ImageRendering,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | <length>')]
 [ValidatePattern('(?>|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'auto','<length>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $Kerning,
 # The **`letter-spacing`** attribute controls spacing between text characters, in addition to any spacing from the kerning attribute.
 # 
-# If the attribute value is a unitless number (like `128`), the browser processes it as a {{cssxref("length")}} in the current user coordinate system.
+# If the attribute value is a unitless number (like `128`), the browser processes it as a length in the current user coordinate system.
 # 
 # If the attribute value has a unit identifier, such as `.25em` or `1%`, then the browser converts the \<length> into its corresponding value in the current user coordinate system.
 # 
@@ -556,6 +732,17 @@ $Kerning,
 [Reflection.AssemblyMetaData('SVG.AttributeName','letter-spacing')]
 [Reflection.AssemblyMetaData('SVG.Value', 'normal | {{cssxref("length")}}')]
 [ValidatePattern('(?>|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'normal','<length>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $LetterSpacing,
@@ -578,6 +765,17 @@ $LightingColor,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','marker-end')]
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'none','<marker-ref>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
 $MarkerEnd,
 # The **`marker-mid`** attribute defines the arrowhead or polymarker that will be drawn at all interior vertices of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
@@ -590,6 +788,17 @@ $MarkerEnd,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','marker-mid')]
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'none','<marker-ref>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
 $MarkerMid,
 # The **`marker-start`** attribute defines the arrowhead or polymarker that will be drawn at the first vertex of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
@@ -602,11 +811,22 @@ $MarkerMid,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','marker-start')]
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'none','<marker-ref>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
 $MarkerStart,
 # The **`mask`** attribute is a presentation attribute mainly used to bind a given mask element with the element the attribute belongs to.
 # 
-# > **Note:** As a presentation attribute {{cssxref('mask')}} can be used as a CSS property.
+# > **Note:** As a presentation attribute mask can be used as a CSS property.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -636,7 +856,7 @@ $Opacity,
 # 
 # > **Note:** Although the initial value for overflow is `auto`, it is overwritten in the User Agent style sheet for the svg element when it is not the root element of a stand-alone document, the pattern element, and the marker element to be hidden by default.
 # 
-# > **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS {{cssxref("overflow")}} property for more information.
+# > **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS overflow property for more information.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -648,7 +868,7 @@ $Opacity,
 $Overflow,
 # The **`pointer-events`** attribute is a presentation attribute that allows defining whether or when an element may be the target of a mouse event.
 # 
-# > **Note:** As a presentation attribute {{cssxref('pointer-events')}} can be used as a CSS property.
+# > **Note:** As a presentation attribute pointer-events can be used as a CSS property.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -681,6 +901,17 @@ $ShapeRendering,
 [Reflection.AssemblyMetaData('SVG.AttributeName','stop-color')]
 [Reflection.AssemblyMetaData('SVG.Value', 'currentcolor | {{cssxref("color_value", "<color>")}} <icccolor>')]
 [ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '\W'})]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'currentcolor','{{cssxref("color_value", "<color>")}} <icccolor>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'black')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $StopColor,
@@ -715,6 +946,17 @@ $Stroke,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','stroke-dasharray')]
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <dasharray>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'none','<dasharray>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $StrokeDasharray,
 # The **`stroke-dashoffset`** attribute is a presentation attribute defining an offset on the rendering of the associated dash array.
@@ -726,6 +968,17 @@ $StrokeDasharray,
 [Reflection.AssemblyMetaData('SVG.AttributeName','stroke-dashoffset')]
 [Reflection.AssemblyMetaData('SVG.Value', '<percentage> | <length>')]
 [ValidatePattern('(?>|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<percentage>','<length>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $StrokeDashoffset,
@@ -772,6 +1025,17 @@ $StrokeMiterlimit,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','stroke-opacity')]
 [Reflection.AssemblyMetaData('SVG.Value', '[0-1] | <percentage>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '[0-1]','<percentage>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', '1')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $StrokeOpacity,
@@ -782,12 +1046,23 @@ $StrokeOpacity,
 [Reflection.AssemblyMetaData('SVG.AttributeName','stroke-width')]
 [Reflection.AssemblyMetaData('SVG.Value', '<length> | <percentage>')]
 [ValidatePattern('(?>|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<length>','<percentage>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', '1px')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $StrokeWidth,
-# The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the {{cssxref("inline-size")}} property relative to a given point.
+# The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the inline-size property relative to a given point.
 # 
-# This attribute is not applicable to other types of auto-wrapped text. For those cases you should use {{cssxref("text-align")}}. For multi-line text, the alignment takes place for each line.
+# This attribute is not applicable to other types of auto-wrapped text. For those cases you should use text-align. For multi-line text, the alignment takes place for each line.
 # 
 # The `text-anchor` attribute is applied to each individual text chunk within a given text element. Each text chunk has an initial current text position, which represents the point in the user coordinate system resulting from (depending on context) application of the x and y attributes on the `<text>` element, any `x` or `y` attribute values on a tspan, tref or altGlyph element assigned explicitly to the first rendered character in a text chunk, or determination of the initial current text position for a textPath element.
 # 
@@ -801,7 +1076,7 @@ $StrokeWidth,
 [ValidateSet('start','middle','end')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
 $TextAnchor,
-# The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the {{cssxref("text-decoration-line")}} and {{cssxref("text-decoration-style")}} properties.
+# The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the text-decoration-line and text-decoration-style properties.
 # 
 # The fill and stroke of the text decoration are given by the fill and stroke of the text at the point where the text decoration is declared.
 # 
@@ -814,6 +1089,17 @@ $TextAnchor,
 [Reflection.AssemblyMetaData('SVG.AttributeName','text-decoration')]
 [Reflection.AssemblyMetaData('SVG.Value', '<''text-decoration-line''> || <''text-decoration-style''> || <''text-decoration-color''>')]
 [ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '\W'})]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = '<''text-decoration-line''>','','<''text-decoration-style''>','','<''text-decoration-color''>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Default value', 'See individual properties')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $TextDecoration,
@@ -831,7 +1117,7 @@ $TextDecoration,
 $TextRendering,
 # The **`transform`** attribute defines a list of transform definitions that are applied to an element and the element's children.
 # 
-# > **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property {{cssxref('transform')}} for the specific syntax to use in that case.
+# > **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property transform for the specific syntax to use in that case.
 # 
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -882,7 +1168,7 @@ $VectorEffect,
 $Visibility,
 # The **`word-spacing`** attribute specifies spacing behavior between words.
 # 
-# If a {{cssxref("length")}} is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
+# If a length is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
 # 
 # If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), then the browser converts the \<length> into a corresponding value in the current user coordinate system.
 # 
@@ -893,12 +1179,23 @@ $Visibility,
 [Reflection.AssemblyMetaData('SVG.AttributeName','word-spacing')]
 [Reflection.AssemblyMetaData('SVG.Value', 'normal | {{cssxref("length")}}')]
 [ValidatePattern('(?>|\d+)')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'normal','<length>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Default values', 'normal')]
 $WordSpacing,
 # The **`writing-mode`** attribute specifies whether the initial inline-progression-direction for a text element shall be left-to-right, right-to-left, or top-to-bottom. The `writing-mode` attribute applies only to text elements; the attribute is ignored for tspan, tref, altGlyph and textPath sub-elements. (Note that the inline-progression-direction can change within a text element due to the Unicode bidirectional algorithm and properties direction and unicode-bidi.)
 # 
-# > **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS {{cssxref("writing-mode")}} property for more information.
+# > **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS writing-mode property for more information.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
