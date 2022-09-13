@@ -1,4 +1,4 @@
-function Write-SVG
+﻿function Write-SVG
 {
     <#
     .SYNOPSIS
@@ -6,7 +6,7 @@ function Write-SVG
     .DESCRIPTION
         Writes a Scalable Vector Graphics element.
     .Notes
-        While this function can be used directly, it is designed to be the core function that other SVG creation functions call.     
+        While this function can be used directly, it is designed to be the core function that other SVG creation functions call.
     #>
     param(
     # The name of the SVG element/
@@ -40,15 +40,15 @@ function Write-SVG
         ${?<CamelCaseSpace>} = [Regex]::new('(?<CamelCaseSpace>(?<=[a-z])(?=[A-Z]))')
     }
 
-    process {        
+    process {
         $elementCmd = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$elementName", 'Function')
 
         if ($Attribute['Style'] -and $Attribute['Style'] -isnot [string]) {
             if ($Attribute['Style'] -is [Collections.IDictionary]) {
-                $Attribute['Style'] = 
+                $Attribute['Style'] =
                     @(foreach ($kv in $Attribute['Style'].GetEnumerator()) {
                         "$($kv.Key):$($kv.Value)"
-                    }) -join ';'                
+                    }) -join ';'
             }
             else {
                 $Attribute['Style'] = @(foreach ($prop in $Attribute['Style'].psobject.properties) {
@@ -66,18 +66,18 @@ function Write-SVG
                 $paramValue = @(0,0) + $paramValue
             }
             foreach ($attr in $elementCmd.Parameters[$kv.Key].Attributes) {
-                
+
                 if ($attr.Key -eq 'SVG.AttributeName') {
                     if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
                         $inputObject.psobject.properties.Remove($attr.Key)
                     }
                     $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($paramValue))' "
                     continue nextParameter
-                }                                    
-            }            
+                }
+            }
             $elementText += "$($kv.Key)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
         }
-        
+
         if ($data -and $data.Count) {
             foreach ($kv in $data.GetEnumerator()) {
                 $dataKey = ${?<CamelCaseSpace>}.Replace($kv.Key, '-').Replace('_','-')
@@ -102,18 +102,18 @@ function Write-SVG
                     $isCData = $true
                 }
             }
-            if ($isCData -and $content -notmatch '^\s{0,}\<') {                
+            if ($isCData -and $content -notmatch '^\s{0,}\<') {
                 $escapedContent = [Security.SecurityElement]::Escape("$content")
                 $elementText += ">" + "$escapedContent" + "</$elementName>"
             } else {
                 $elementText += ">" + "$Content" + "</$elementName>"
-            }                    
+            }
         }
 
         if ($OutputPath) {
             $elementText | Set-Content -Path $OutputPath
             Get-Item $OutputPath
-        } else {        
+        } else {
             $elementText
         }
     }
