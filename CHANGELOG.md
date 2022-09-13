@@ -1,3 +1,12 @@
+### 0.2.1
+* Improved Command Help
+  * Adding More Examples (Fixes #21)
+  * Adding Example/README.md (Fixes #26)
+* Write-SVG: Allowing 2 value ViewBox (Fixes #28)
+* All SVG.* commands allow elements (Fixes #25 )
+* All SVG.* commands now have argument completers (Fixes #24)
+---
+
 ### 0.2
 * All SVG. commands now support -Data attributes (Fixes #12)
 * Improved Command Help
