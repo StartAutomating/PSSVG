@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.2'
+    ModuleVersion     = '0.2.1'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022 Start-Automating'
@@ -13,12 +13,22 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
+### 0.2.1
+* All SVG. commands now support -Data attributes (Fixes #12)
+* Improved Command Help
+  * Adding More Examples (Fixes #21)
+  * Adding Example/README.md (Fixes #26)
+* Write-SVG: Allowing 2 value ViewBox (Fixes #28)
+---
+
 ### 0.2
+* All SVG. commands now support -Data attributes (Fixes #12)
 * Improved Command Help
   * Linking to docs and MDN (Get-Help SVG.a -Online) (Fixes #15)
-  * Adding .Examples (Fixes #18)
-* Adding Write-SVG (Fixed #14)
+  * Adding .Examples (Fixes #18)  
+* Adding Write-SVG (Fixes #14)
 ---
+
 ### 0.1
 * Initial Release of PSSVG, including:
   * A command for every SVG element (fixes #1)
