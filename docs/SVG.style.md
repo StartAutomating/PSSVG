@@ -14,8 +14,17 @@ The SVG **`<style>`** element allows style sheets to be embedded directly within
 ---
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.style](https://pssvg.start-automating.com/SVG.style)
+
+
+
 * [https://developer.mozilla.org/en-US/web/svg/element/style/](https://developer.mozilla.org/en-US/web/svg/element/style/)
+
+
+
 * [Write-SVG](Write-SVG.md)
+
+
+
 ---
 ### Parameters
 #### **Content**
@@ -31,6 +40,9 @@ The Contents of the style element
 > **Position**: 1
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Data**
 
@@ -45,6 +57,9 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Type**
 
@@ -69,6 +84,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Media**
 
@@ -83,6 +101,9 @@ This attribute defines to which {{cssxref('@media', 'media')}} the style applies
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Title**
 
@@ -97,6 +118,9 @@ This attribute the title of the style sheet which can be used to switch between 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Id**
 
@@ -113,6 +137,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Lang**
 
@@ -133,6 +160,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Tabindex**
 
@@ -149,6 +179,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlBase**
 
@@ -165,6 +198,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlLang**
 
@@ -185,6 +221,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlSpace**
 
@@ -212,6 +251,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Class**
 
@@ -235,6 +277,9 @@ You can use this class to style SVG content using CSS.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Style**
 
@@ -251,10 +296,13 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 ### Syntax
 ```PowerShell
-SVG.style [[-Content] <Object>] [-Data <IDictionary>] [-Type <Object>] [-Media <Object>] [-Title <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.style [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Type &lt;Object&gt;] [-Media &lt;Object&gt;] [-Title &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
