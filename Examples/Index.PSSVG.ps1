@@ -30,6 +30,6 @@ $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
         )
     }
     )
-) -OutputPath (Join-Path $PSScriptRoot DirectoryWithLinks.svg) -ViewBox "0 0 $(($maxLineLength * $fontSize)/$goldenRatio) $($ln * $fontSize * 1.2)"
+) -OutputPath (Join-Path $PSScriptRoot Index.svg) -ViewBox "0 0 $(($maxLineLength * $fontSize)/$goldenRatio) $($ln * $fontSize * 1.2)"
 
 
