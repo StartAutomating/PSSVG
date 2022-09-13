@@ -26,6 +26,38 @@ The SVG **`<animateMotion>`** element provides a way to define how an element mo
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
+=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
+    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
+    =&lt;svg.circle&gt; -r 5 -Fill red (
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+    )
+    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    )
+)
+```
+
+#### EXAMPLE 2
+```PowerShell
+$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
+=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
+    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
+    =&lt;svg.circle&gt; -r 5 -Fill red (
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+    )
+    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    )
+)
+```
+
+---
 ### Parameters
 #### **Content**
 
@@ -637,7 +669,7 @@ You can use this attribute with any SVG element.
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 
-> **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 
 This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 
