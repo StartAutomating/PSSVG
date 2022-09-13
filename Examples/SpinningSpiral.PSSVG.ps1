@@ -36,7 +36,7 @@ function svgspinningspiral
             $svgPath += "L $px $py"                
         }
                 
-        =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke black -Content @(
+        =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke '#4488ff' -Content @(
             if ($RotateEvery.TotalSeconds) {
                 =<svg.animatetransform> -AttributeName transform -From "0 $margin $margin"  -To "360 $margin $margin" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
             }            
@@ -57,7 +57,7 @@ function svgspinningspiral
     $n = $_.N     
     =<svg> -content (
         $_ | svgspinningspiral
-    ) -OutputPath (
+    ) -ViewBox 0,0,500,500 -OutputPath (
         Join-Path $psScriptRoot "SpinningSpiral$n.svg"
-    )    
+    )
 }
