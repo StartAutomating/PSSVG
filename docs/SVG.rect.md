@@ -27,19 +27,13 @@ The **`<rect>`** element is a [basic SVG shape](https://developer.mozilla.org/en
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-$original = @&quot;
-&lt;svg viewBox=&quot;0 0 10 10&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
-  &lt;rect width=&quot;10&quot; height=&quot;10&quot;&gt;
-    &lt;animate attributeName=&quot;rx&quot; values=&quot;0;5;0&quot; dur=&quot;10s&quot; repeatCount=&quot;indefinite&quot; /&gt;
-  &lt;/rect&gt;
-&lt;/svg&gt;
-&quot;@
-```
-=<svg> -ViewBox 0,0,10,10 (
-    =<svg.rect> -Width 10 -Height 10 (
-        =<svg.animate> -AttributeName rx -Values "0;5;0" -Dur "10s" -RepeatCount indefinite
-    )
+-ViewBox 0,0,10,10 (
+    =&lt;svg.rect&gt; -Width 10 -Height 10 (
+        =&lt;svg.animate&gt; -AttributeName rx -Values &quot;0;5;0&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
+    ) -Fill &#39;#4488ff&#39;
 )
+```
+
 #### EXAMPLE 2
 ```PowerShell
 @(
@@ -47,14 +41,14 @@ $original = @&quot;
         Dur = &#39;2s&#39;
         RepeatCount=&#39;indefinite&#39;
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
         =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
         =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
         =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
         =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
         =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
@@ -62,6 +56,51 @@ $original = @&quot;
 ```
 
 #### EXAMPLE 3
+```PowerShell
+$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
+=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
+    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
+    =&lt;svg.circle&gt; -r 5 -Fill red (
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+    )
+    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    )
+)
+```
+
+#### EXAMPLE 4
+```PowerShell
+-Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Stopcolor gold @(
+                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+            )
+            =&lt;svg.stop&gt; -Stopcolor red @(
+                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;100;0;100&#39; -Dur 5s -RepeatCount indefinite
+            )
+        )
+    )
+    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox &#39;0 0 100 100&#39;
+```
+
+#### EXAMPLE 5
+```PowerShell
+-Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -Values &#39;1;0;1&#39; -RepeatCount &#39;indefinite&#39;
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 6
 ```PowerShell
 $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 =&lt;svg&gt; @(
@@ -78,7 +117,7 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 )
 ```
 
-#### EXAMPLE 4
+#### EXAMPLE 7
 ```PowerShell
 $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 =&lt;svg&gt; @(
@@ -92,25 +131,40 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 )
 ```
 
-#### EXAMPLE 5
+#### EXAMPLE 8
 ```PowerShell
 @(
-    $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
-    }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.pattern&gt; -Id &#39;SimplePattern&#39; -Width .1 -Height .1 -Content @(
+            =&lt;svg.circle&gt; -Cx 2.5 -Cy 2.5 -R .5 -Fill &#39;#4488ff&#39;
+            =&lt;svg.line&gt; -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
+            =&lt;svg.line&gt; -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
+        )
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -Fill &#39;url(#SimplePattern)&#39; -Width 50 -Height 50 -Opacity .3
+) -ViewBox 0,0,50,50
+```
+
+#### EXAMPLE 9
+```PowerShell
+@(
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39;
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 20 -Height 20 -Fill &#39;#4488ff&#39;
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39;
+) -ViewBox 0, 0, 100, 200
+```
+
+#### EXAMPLE 10
+```PowerShell
+-Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+        ) -X1 0 -X2 0 -Y1 0% -Y2 100%
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
-    )
-) -ViewBox 0, 0, 100, 150
+    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -Width 100 -Height 100
+) -viewbox 0,0,100,100
 ```
 
 ---
@@ -375,7 +429,7 @@ You can use this attribute with any SVG element.
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 
-> **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 
 This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 
@@ -1239,7 +1293,7 @@ Valid Values:
 
 The **`kerning`** attribute indicates whether the spacing between {{Glossary("glyph", "glyphs")}} should be adjusted based on kerning tables that are included in the relevant font (i.e., enable auto-kerning) or instead disable auto-kerning and set the spacing between them to a specific length (typically, zero).
 
-> **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called {{cssxref("font-kerning")}}, though.
+> **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called font-kerning, though.
 
 
 
@@ -1258,7 +1312,7 @@ The **`kerning`** attribute indicates whether the spacing between {{Glossary("gl
 
 The **`letter-spacing`** attribute controls spacing between text characters, in addition to any spacing from the kerning attribute.
 
-If the attribute value is a unitless number (like `128`), the browser processes it as a {{cssxref("length")}} in the current user coordinate system.
+If the attribute value is a unitless number (like `128`), the browser processes it as a length in the current user coordinate system.
 
 If the attribute value has a unit identifier, such as `.25em` or `1%`, then the browser converts the \<length> into its corresponding value in the current user coordinate system.
 
@@ -1361,7 +1415,7 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 The **`mask`** attribute is a presentation attribute mainly used to bind a given mask element with the element the attribute belongs to.
 
-> **Note:** As a presentation attribute {{cssxref('mask')}} can be used as a CSS property.
+> **Note:** As a presentation attribute mask can be used as a CSS property.
 
 
 
@@ -1408,7 +1462,7 @@ This attribute has the same parameter values and meaning as the {{cssxref("overf
 
 > **Note:** Although the initial value for overflow is `auto`, it is overwritten in the User Agent style sheet for the svg element when it is not the root element of a stand-alone document, the pattern element, and the marker element to be hidden by default.
 
-> **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS {{cssxref("overflow")}} property for more information.
+> **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS overflow property for more information.
 
 
 
@@ -1436,7 +1490,7 @@ Valid Values:
 
 The **`pointer-events`** attribute is a presentation attribute that allows defining whether or when an element may be the target of a mouse event.
 
-> **Note:** As a presentation attribute {{cssxref('pointer-events')}} can be used as a CSS property.
+> **Note:** As a presentation attribute pointer-events can be used as a CSS property.
 
 
 
@@ -1706,9 +1760,9 @@ The **`stroke-width`** attribute is a presentation attribute defining the width 
 ---
 #### **TextAnchor**
 
-The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the {{cssxref("inline-size")}} property relative to a given point.
+The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the inline-size property relative to a given point.
 
-This attribute is not applicable to other types of auto-wrapped text. For those cases you should use {{cssxref("text-align")}}. For multi-line text, the alignment takes place for each line.
+This attribute is not applicable to other types of auto-wrapped text. For those cases you should use text-align. For multi-line text, the alignment takes place for each line.
 
 The `text-anchor` attribute is applied to each individual text chunk within a given text element. Each text chunk has an initial current text position, which represents the point in the user coordinate system resulting from (depending on context) application of the x and y attributes on the `<text>` element, any `x` or `y` attribute values on a tspan, tref or altGlyph element assigned explicitly to the first rendered character in a text chunk, or determination of the initial current text position for a textPath element.
 
@@ -1737,7 +1791,7 @@ Valid Values:
 ---
 #### **TextDecoration**
 
-The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the {{cssxref("text-decoration-line")}} and {{cssxref("text-decoration-style")}} properties.
+The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the text-decoration-line and text-decoration-style properties.
 
 The fill and stroke of the text decoration are given by the fill and stroke of the text at the point where the text decoration is declared.
 
@@ -1790,7 +1844,7 @@ Valid Values:
 
 The **`transform`** attribute defines a list of transform definitions that are applied to an element and the element's children.
 
-> **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property {{cssxref('transform')}} for the specific syntax to use in that case.
+> **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property transform for the specific syntax to use in that case.
 
 You can use this attribute with any SVG element.
 
@@ -1903,7 +1957,7 @@ Valid Values:
 
 The **`word-spacing`** attribute specifies spacing behavior between words.
 
-If a {{cssxref("length")}} is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
+If a length is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
 
 If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), then the browser converts the \<length> into a corresponding value in the current user coordinate system.
 
@@ -1926,7 +1980,7 @@ If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), 
 
 The **`writing-mode`** attribute specifies whether the initial inline-progression-direction for a text element shall be left-to-right, right-to-left, or top-to-bottom. The `writing-mode` attribute applies only to text elements; the attribute is ignored for tspan, tref, altGlyph and textPath sub-elements. (Note that the inline-progression-direction can change within a text element due to the Unicode bidirectional algorithm and properties direction and unicode-bidi.)
 
-> **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS {{cssxref("writing-mode")}} property for more information.
+> **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS writing-mode property for more information.
 
 
 
