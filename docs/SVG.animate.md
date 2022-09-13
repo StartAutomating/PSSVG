@@ -12,19 +12,28 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ---
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.animate](https://pssvg.start-automating.com/SVG.animate)
+
+
+
 * [https://developer.mozilla.org/en-US/web/svg/element/animate/](https://developer.mozilla.org/en-US/web/svg/element/animate/)
+
+
+
 * [Write-SVG](Write-SVG.md)
+
+
+
 ---
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-$original = @"
-<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-  <rect width="10" height="10">
-    <animate attributeName="rx" values="0;5;0" dur="10s" repeatCount="indefinite" />
-  </rect>
-</svg>
-"@
+$original = @&quot;
+&lt;svg viewBox=&quot;0 0 10 10&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+  &lt;rect width=&quot;10&quot; height=&quot;10&quot;&gt;
+    &lt;animate attributeName=&quot;rx&quot; values=&quot;0;5;0&quot; dur=&quot;10s&quot; repeatCount=&quot;indefinite&quot; /&gt;
+  &lt;/rect&gt;
+&lt;/svg&gt;
+&quot;@
 ```
 =<svg> -ViewBox 0,0,10,10 (
     =<svg.rect> -Width 10 -Height 10 (
@@ -35,19 +44,19 @@ $original = @"
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -56,19 +65,19 @@ $original = @"
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -77,19 +86,19 @@ $original = @"
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -98,19 +107,19 @@ $original = @"
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -119,19 +128,19 @@ $original = @"
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -140,10 +149,10 @@ $original = @"
 ```PowerShell
 $fadeinSteps = @(foreach ($n in 0..10) {
     [double]($n * 10) / 100
-}) -join ';'
-=<svg> -ViewBox 0,0,100,100 -Content (
-    =<svg.g> -Content @(
-        =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Hello World"
+}) -join &#39;;&#39;
+=&lt;svg&gt; -ViewBox 0,0,100,100 -Content (
+    =&lt;svg.g&gt; -Content @(
+        =&lt;svg.text&gt; -Y &quot;50%&quot; -X &quot;50%&quot; -DominantBaseline middle -TextAnchor middle -Text &quot;Hello World&quot;
 ```
 =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s'
     )
@@ -151,49 +160,49 @@ $fadeinSteps = @(foreach ($n in 0..10) {
 #### EXAMPLE 8
 ```PowerShell
 -Content @(
-    =<svg.defs> @(
-        =<svg.LinearGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor gold @(
-                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;1;50;10&#39; -Dur 2s -RepeatCount indefinite
             )
-            =<svg.stop> -Offset '95%' -Stopcolor red @(
-                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;99;51;99&#39; -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-) -ViewBox '0 0 100 100'
+    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+) -ViewBox &#39;0 0 100 100&#39;
 ```
 
 #### EXAMPLE 9
 ```PowerShell
 -Content @(
-    =<svg.defs> @(
-        =<svg.LinearGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor gold @(
-                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;1;50;10&#39; -Dur 2s -RepeatCount indefinite
             )
-            =<svg.stop> -Offset '95%' -Stopcolor red @(
-                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;99;51;99&#39; -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-) -ViewBox '0 0 100 100'
+    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+) -ViewBox &#39;0 0 100 100&#39;
 ```
 
 #### EXAMPLE 10
 ```PowerShell
-$colors = @('red','green','blue')
-=<svg> @(
+$colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
+=&lt;svg&gt; @(
     foreach ($n in 1..10) {
         $n10 = $n * 10
-        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+        =&lt;svg.rect&gt; -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
             fill   = $colors[$n % $colors.Length]
             stroke = $colors[($n + 1) % $colors.Length]
         } @(
-            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
-            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+            =&lt;svg.animate&gt; -AttributeName rx -Values &quot;0;50;0&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
+            =&lt;svg.animate&gt; -AttributeName x -Values &quot;$($n10);$(200 - $n10/2);$($n10);&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
         )
     }
 )
@@ -201,16 +210,16 @@ $colors = @('red','green','blue')
 
 #### EXAMPLE 11
 ```PowerShell
-$colors = @('red','green','blue')
-=<svg> @(
+$colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
+=&lt;svg&gt; @(
     foreach ($n in 1..10) {
         $n10 = $n * 10
-        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+        =&lt;svg.rect&gt; -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
             fill   = $colors[$n % $colors.Length]
             stroke = $colors[($n + 1) % $colors.Length]
         } @(
-            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
-            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+            =&lt;svg.animate&gt; -AttributeName rx -Values &quot;0;50;0&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
+            =&lt;svg.animate&gt; -AttributeName x -Values &quot;$($n10);$(200 - $n10/2);$($n10);&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
         )
     }
 )
@@ -219,54 +228,54 @@ $colors = @('red','green','blue')
 #### EXAMPLE 12
 ```PowerShell
 -Content @(
-    =<svg.defs> @(
-        =<svg.radialGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor gold @(
-                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;1;50;10&#39; -Dur 2s -RepeatCount indefinite
             )
-            =<svg.stop> -Offset '95%' -Stopcolor red @(
-                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;99;51;99&#39; -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-) -ViewBox '0 0 100 100'
+    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+) -ViewBox &#39;0 0 100 100&#39;
 ```
 
 #### EXAMPLE 13
 ```PowerShell
 -Content @(
-    =<svg.defs> @(
-        =<svg.radialGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor gold @(
-                =<svg.animate> -AttributeName Offset -Values '1;50;10' -Dur 2s -RepeatCount indefinite
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;1;50;10&#39; -Dur 2s -RepeatCount indefinite
             )
-            =<svg.stop> -Offset '95%' -Stopcolor red @(
-                =<svg.animate> -AttributeName Offset -Values '99;51;99' -Dur 5s -RepeatCount indefinite
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red @(
+                =&lt;svg.animate&gt; -AttributeName Offset -Values &#39;99;51;99&#39; -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-) -ViewBox '0 0 100 100'
+    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+) -ViewBox &#39;0 0 100 100&#39;
 ```
 
 #### EXAMPLE 14
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -275,19 +284,19 @@ $colors = @('red','green','blue')
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -296,19 +305,19 @@ $colors = @('red','green','blue')
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -317,19 +326,19 @@ $colors = @('red','green','blue')
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -338,19 +347,19 @@ $colors = @('red','green','blue')
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill black @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill Black @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill black @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -370,6 +379,9 @@ The Contents of the animate element
 > **Position**: 1
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Data**
 
@@ -384,6 +396,9 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Href**
 
@@ -400,6 +415,9 @@ The **`href`** attribute defines a link to a resource as a reference [URL](https
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **AttributeType**
 
@@ -422,6 +440,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **AttributeName**
 
@@ -436,6 +457,9 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Begin**
 
@@ -452,6 +476,9 @@ The attribute value is a semicolon separated list of values. The interpretation 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Dur**
 
@@ -466,6 +493,9 @@ The **`dur`** attribute indicates the simple duration of an animation.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **End**
 
@@ -480,6 +510,9 @@ The **`end`** attribute defines an end value for the animation that can constrai
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Min**
 
@@ -494,6 +527,9 @@ The **`min`** attribute specifies the minimum value of the active animation dura
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Max**
 
@@ -508,6 +544,9 @@ The **`max`** attribute specifies the maximum value of the active animation dura
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Restart**
 
@@ -530,6 +569,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **RepeatCount**
 
@@ -544,6 +586,9 @@ The **`repeatCount`** attribute indicates the number of times an animation will 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **RepeatDur**
 
@@ -558,6 +603,9 @@ The **`repeatDur`** attribute specifies the total duration for repeating an anim
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Fill**
 
@@ -572,6 +620,9 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **CalcMode**
 
@@ -597,6 +648,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Values**
 
@@ -611,6 +665,9 @@ The `values` attribute has different meanings, depending upon the context where 
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **KeyTimes**
 
@@ -627,6 +684,9 @@ Each time in the list corresponds to a value in the values attribute list, and d
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **KeySplines**
 
@@ -645,6 +705,9 @@ If there are any errors in the keySplines specification (bad values, too many or
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **From**
 
@@ -661,6 +724,9 @@ When used with the to attribute, the animation will change the modified attribut
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **To**
 
@@ -677,6 +743,9 @@ The value of the attribute will change between the from attribute value and this
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **By**
 
@@ -693,6 +762,9 @@ The starting value for the attribute is either indicated by specifying it as val
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Additive**
 
@@ -716,6 +788,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Accumulate**
 
@@ -739,6 +814,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Id**
 
@@ -755,6 +833,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Lang**
 
@@ -775,6 +856,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Tabindex**
 
@@ -791,6 +875,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlBase**
 
@@ -807,6 +894,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlLang**
 
@@ -827,6 +917,9 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **XmlSpace**
 
@@ -854,6 +947,9 @@ Valid Values:
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Class**
 
@@ -877,6 +973,9 @@ You can use this class to style SVG content using CSS.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 #### **Style**
 
@@ -893,10 +992,13 @@ You can use this attribute with any SVG element.
 > **Position**: named
 
 > **PipelineInput**:true (ByPropertyName)
+
+
+
 ---
 ### Syntax
 ```PowerShell
-SVG.animate [[-Content] <Object>] [-Data <IDictionary>] [-Href <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-From <Object>] [-To <Object>] [-By <Object>] [-Additive <Object>] [-Accumulate <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.animate [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Href &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-By &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
