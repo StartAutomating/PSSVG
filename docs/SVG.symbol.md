@@ -26,6 +26,22 @@ The use of `<symbol>` elements for graphics that are used multiple times in the 
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+@(
+    =&lt;svg.symbol&gt; -content (
+        =&lt;svg.text&gt; -Content &#39;⭐&#39; -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
+    ) -id Star -ViewBox 25,25
+```
+$scaledSize = @{Width=15;Height=15}
+    =<svg.use> -Href '#Star' -X 0 @scaledSize
+    =<svg.use> -Href '#Star' -X 20 @scaledSize
+    =<svg.use> -Href '#Star' -X 40 @scaledSize
+    =<svg.use> -Href '#Star' -X 60 @scaledSize
+    =<svg.use> -Href '#Star' -X 80 @scaledSize
+) -ViewBox 0,0,125,50
+---
 ### Parameters
 #### **Content**
 
@@ -304,7 +320,7 @@ You can use this attribute with any SVG element.
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 
-> **Note:** Instead of using the `xml:space` attribute, use the {{cssxref("white-space")}} CSS property.
+> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
 
 This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 
@@ -1128,7 +1144,7 @@ Valid Values:
 
 The **`kerning`** attribute indicates whether the spacing between {{Glossary("glyph", "glyphs")}} should be adjusted based on kerning tables that are included in the relevant font (i.e., enable auto-kerning) or instead disable auto-kerning and set the spacing between them to a specific length (typically, zero).
 
-> **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called {{cssxref("font-kerning")}}, though.
+> **Note:** As a presentation attribute `kerning` can be used as a CSS property. In CSS the property is called font-kerning, though.
 
 
 
@@ -1147,7 +1163,7 @@ The **`kerning`** attribute indicates whether the spacing between {{Glossary("gl
 
 The **`letter-spacing`** attribute controls spacing between text characters, in addition to any spacing from the kerning attribute.
 
-If the attribute value is a unitless number (like `128`), the browser processes it as a {{cssxref("length")}} in the current user coordinate system.
+If the attribute value is a unitless number (like `128`), the browser processes it as a length in the current user coordinate system.
 
 If the attribute value has a unit identifier, such as `.25em` or `1%`, then the browser converts the \<length> into its corresponding value in the current user coordinate system.
 
@@ -1250,7 +1266,7 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 The **`mask`** attribute is a presentation attribute mainly used to bind a given mask element with the element the attribute belongs to.
 
-> **Note:** As a presentation attribute {{cssxref('mask')}} can be used as a CSS property.
+> **Note:** As a presentation attribute mask can be used as a CSS property.
 
 
 
@@ -1297,7 +1313,7 @@ This attribute has the same parameter values and meaning as the {{cssxref("overf
 
 > **Note:** Although the initial value for overflow is `auto`, it is overwritten in the User Agent style sheet for the svg element when it is not the root element of a stand-alone document, the pattern element, and the marker element to be hidden by default.
 
-> **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS {{cssxref("overflow")}} property for more information.
+> **Note:** As a presentation attribute, `overflow` can be used as a CSS property. See the CSS overflow property for more information.
 
 
 
@@ -1325,7 +1341,7 @@ Valid Values:
 
 The **`pointer-events`** attribute is a presentation attribute that allows defining whether or when an element may be the target of a mouse event.
 
-> **Note:** As a presentation attribute {{cssxref('pointer-events')}} can be used as a CSS property.
+> **Note:** As a presentation attribute pointer-events can be used as a CSS property.
 
 
 
@@ -1595,9 +1611,9 @@ The **`stroke-width`** attribute is a presentation attribute defining the width 
 ---
 #### **TextAnchor**
 
-The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the {{cssxref("inline-size")}} property relative to a given point.
+The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the inline-size property relative to a given point.
 
-This attribute is not applicable to other types of auto-wrapped text. For those cases you should use {{cssxref("text-align")}}. For multi-line text, the alignment takes place for each line.
+This attribute is not applicable to other types of auto-wrapped text. For those cases you should use text-align. For multi-line text, the alignment takes place for each line.
 
 The `text-anchor` attribute is applied to each individual text chunk within a given text element. Each text chunk has an initial current text position, which represents the point in the user coordinate system resulting from (depending on context) application of the x and y attributes on the `<text>` element, any `x` or `y` attribute values on a tspan, tref or altGlyph element assigned explicitly to the first rendered character in a text chunk, or determination of the initial current text position for a textPath element.
 
@@ -1626,7 +1642,7 @@ Valid Values:
 ---
 #### **TextDecoration**
 
-The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the {{cssxref("text-decoration-line")}} and {{cssxref("text-decoration-style")}} properties.
+The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the text-decoration-line and text-decoration-style properties.
 
 The fill and stroke of the text decoration are given by the fill and stroke of the text at the point where the text decoration is declared.
 
@@ -1679,7 +1695,7 @@ Valid Values:
 
 The **`transform`** attribute defines a list of transform definitions that are applied to an element and the element's children.
 
-> **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property {{cssxref('transform')}} for the specific syntax to use in that case.
+> **Note:** As of SVG2, `transform` is a presentation attribute, meaning it can be used as a CSS property. However, be aware that there are some differences in syntax between the CSS property and the attribute. See the documentation for the CSS property transform for the specific syntax to use in that case.
 
 You can use this attribute with any SVG element.
 
@@ -1792,7 +1808,7 @@ Valid Values:
 
 The **`word-spacing`** attribute specifies spacing behavior between words.
 
-If a {{cssxref("length")}} is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
+If a length is provided without a unit identifier (e.g. an unqualified number such as 128), the browser processes the \<length> as a width value in the current user coordinate system.
 
 If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), then the browser converts the \<length> into a corresponding value in the current user coordinate system.
 
@@ -1815,7 +1831,7 @@ If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), 
 
 The **`writing-mode`** attribute specifies whether the initial inline-progression-direction for a text element shall be left-to-right, right-to-left, or top-to-bottom. The `writing-mode` attribute applies only to text elements; the attribute is ignored for tspan, tref, altGlyph and textPath sub-elements. (Note that the inline-progression-direction can change within a text element due to the Unicode bidirectional algorithm and properties direction and unicode-bidi.)
 
-> **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS {{cssxref("writing-mode")}} property for more information.
+> **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS writing-mode property for more information.
 
 
 
