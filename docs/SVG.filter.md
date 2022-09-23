@@ -34,22 +34,6 @@ The **`<filter>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 ```
 =<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
 ) -ViewBox 100, 100
-#### EXAMPLE 2
-```PowerShell
-@(
-    =&lt;svg.filter&gt; @(
-        =&lt;svg.feOffset&gt; -dx .5 -dy .5
-        =&lt;svg.feMerge&gt; @(
-            =&lt;svg.feMergeNode&gt;
-            =&lt;svg.feMergeNode&gt; -In &#39;SourceGraphic&#39;
-        )
-    ) -id dropShadow
-```
-=<svg.text> @"
-Dropping Shadows
-"@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
-
-) -ViewBox 300,300
 ---
 ### Parameters
 #### **Content**
