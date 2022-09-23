@@ -29,7 +29,7 @@ For open shapes, see the `polyline` element.
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-$bpm = 104
+$bpm = 70
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
 $animateSplat = @{
