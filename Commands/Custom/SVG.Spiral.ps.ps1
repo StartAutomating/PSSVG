@@ -8,7 +8,7 @@ function SVG.Spiral
     .LINK
         SVG.path
     #>
-    [inherit('SVG.path', ExcludeParameter='Points', Dynamic, Abstract)]
+    [inherit('SVG.path', ExcludeParameter='D','Fill', Dynamic, Abstract)]
     param(
     # The number of steps in the spiral
     [Parameter(ValueFromPipelineByPropertyName)]
