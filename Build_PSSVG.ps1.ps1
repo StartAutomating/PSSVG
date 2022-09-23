@@ -558,7 +558,7 @@ $destFolder  = Join-Path $PSScriptRoot "Commands"
 $destFolder  = Join-Path $destFolder "Standard"
 
 if (-not (Test-Path $destFolder)) {
-    $createdFolder = New-Item -ItemType $destFolder -Type Directory -Force
+    $createdFolder = New-Item $destFolder -Type Directory -Force
     if (-not $createdFolder) {
         Write-Error "Could not create $destFolder"
         return
