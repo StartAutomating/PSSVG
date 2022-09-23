@@ -24,40 +24,6 @@ The `feMergeNode` takes the result of another filter to be processed by its pare
 
 
 ---
-### Examples
-#### EXAMPLE 1
-```PowerShell
-@(
-    =&lt;svg.filter&gt; @(
-        =&lt;svg.feOffset&gt; -dx .5 -dy .5
-        =&lt;svg.feMerge&gt; @(
-            =&lt;svg.feMergeNode&gt;
-            =&lt;svg.feMergeNode&gt; -In &#39;SourceGraphic&#39;
-        )
-    ) -id dropShadow
-```
-=<svg.text> @"
-Dropping Shadows
-"@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
-
-) -ViewBox 300,300
-#### EXAMPLE 2
-```PowerShell
-@(
-    =&lt;svg.filter&gt; @(
-        =&lt;svg.feOffset&gt; -dx .5 -dy .5
-        =&lt;svg.feMerge&gt; @(
-            =&lt;svg.feMergeNode&gt;
-            =&lt;svg.feMergeNode&gt; -In &#39;SourceGraphic&#39;
-        )
-    ) -id dropShadow
-```
-=<svg.text> @"
-Dropping Shadows
-"@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
-
-) -ViewBox 300,300
----
 ### Parameters
 #### **Content**
 
