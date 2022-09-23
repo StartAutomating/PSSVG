@@ -12,21 +12,6 @@ function SVG.filter {
     
         =<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
     ) -ViewBox 100, 100
-.Example
-    =<svg> @(
-        =<svg.filter> @(
-            =<svg.feOffset> -dx .5 -dy .5
-            =<svg.feMerge> @(
-                =<svg.feMergeNode>
-                =<svg.feMergeNode> -In 'SourceGraphic'
-            )
-        ) -id dropShadow
-    
-        =<svg.text> @"
-    Dropping Shadows
-    "@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
-    
-    ) -ViewBox 300,300
 .Link
     https://pssvg.start-automating.com/SVG.filter
 .Link

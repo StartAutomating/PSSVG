@@ -64,52 +64,7 @@ function SVG.animateTransform {
         =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
     )
 .Example
-    function svgspinningspiral
-    {
-        param(
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [Uint32]
-        $NumSteps = 1000,
-    
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [double]
-        $Theta = [MATH]::pi * 15,
-    
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [Double]
-        $Alpha = 200,
-    
-        [Timespan]
-        $RotateEvery = '00:00:10'
-        )
-    
-        process {
-            $Margin  = $Alpha * 1.25
-            $width = $margin * 2
-            $height = $margin * 2
-    
-            $svgPath = @()
-            $svgPath += "M $margin $margin"
-    
-    
-            foreach ($n in 0..$numSteps) {
-                $t = ($theta/$numSteps) * $n
-                $a = ($alpha/$numSteps) * $n
-                $px = $margin+($a*[Math]::Cos($t))
-                $py = $margin+($a*[Math]::Sin($t))
-                $svgPath += "L $px $py"
-            }
-    
-            =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke '#4488ff' -Content @(
-                if ($RotateEvery.TotalSeconds) {
-                    =<svg.animatetransform> -AttributeName transform -From "0 $margin $margin"  -To "360 $margin $margin" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                }
-            )
-        }
-    }
-    
-    
-    
+    [Timespan]$RotateEvery = '00:00:10'
     
     
     @(foreach ($n in 15, 636, 741, 901) {
@@ -120,7 +75,11 @@ function SVG.animateTransform {
     }) | ForEach-Object {
         $n = $_.N
         =<svg> -content (
-            $_ | svgspinningspiral
+            $_ | =<svg.Spiral> -Stroke '#4488ff' -Content @(
+                if ($RotateEvery.TotalSeconds) {
+                    =<svg.animatetransform> -AttributeName transform -From "0 250 250"  -To "360 250 250" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+                }
+            )
         ) -ViewBox 0,0,500,500
 .Example
     $Radius = 35
@@ -130,7 +89,7 @@ function SVG.animateTransform {
         =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
         =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
             =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
+        ) -Opacity 0.8
     )
 .Link
     https://pssvg.start-automating.com/SVG.animateTransform

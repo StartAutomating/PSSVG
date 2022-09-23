@@ -34,7 +34,7 @@ function SVG.line {
         =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
         =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
             =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
+        ) -Opacity 0.8
     )
 .Link
     https://pssvg.start-automating.com/SVG.line

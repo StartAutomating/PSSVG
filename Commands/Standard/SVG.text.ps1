@@ -8,19 +8,13 @@ function SVG.text {
     If text is included in SVG not inside of a `<text>` element, it is not rendered. This is different than being hidden by default, as setting the `display` property won't show the text.
 .Example
     =<svg> @(
-        =<svg.filter> @(
-            =<svg.feOffset> -dx .5 -dy .5
-            =<svg.feMerge> @(
-                =<svg.feMergeNode>
-                =<svg.feMergeNode> -In 'SourceGraphic'
-            )
-        ) -id dropShadow
+        =<svg.DropShadow> -DistanceY .75
     
         =<svg.text> @"
     Dropping Shadows
-    "@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
+    "@ -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
     
-    ) -ViewBox 300,300
+    ) -ViewBox 0,0,300,100
 .Example
     =<svg> -ViewBox 0,0,100,100 -Content (
         =<svg.g> -Content @(

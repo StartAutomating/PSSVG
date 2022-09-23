@@ -4,36 +4,6 @@ function SVG.feMergeNode {
     Creates SVG feMergeNode elements
 .Description
     The `feMergeNode` takes the result of another filter to be processed by its parent `feMerge`.
-.Example
-    =<svg> @(
-        =<svg.filter> @(
-            =<svg.feOffset> -dx .5 -dy .5
-            =<svg.feMerge> @(
-                =<svg.feMergeNode>
-                =<svg.feMergeNode> -In 'SourceGraphic'
-            )
-        ) -id dropShadow
-    
-        =<svg.text> @"
-    Dropping Shadows
-    "@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
-    
-    ) -ViewBox 300,300
-.Example
-    =<svg> @(
-        =<svg.filter> @(
-            =<svg.feOffset> -dx .5 -dy .5
-            =<svg.feMerge> @(
-                =<svg.feMergeNode>
-                =<svg.feMergeNode> -In 'SourceGraphic'
-            )
-        ) -id dropShadow
-    
-        =<svg.text> @"
-    Dropping Shadows
-    "@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
-    
-    ) -ViewBox 300,300
 .Link
     https://pssvg.start-automating.com/SVG.feMergeNode
 .Link
