@@ -32,13 +32,13 @@ function SVG.Spiral
         $height = $margin * 2 
         
         $svgPoints = @(
-            "M $margin,$margin"    
+            "M $margin $margin"    
             foreach ($n in 0..$numSteps) {
                 $t = ($theta/$numSteps) * $n 
                 $a = ($alpha/$numSteps) * $n 
                 $px = $margin+($a*[Math]::Cos($t))
                 $py = $margin+($a*[Math]::Sin($t))
-                "L $px,$py"                
+                "L $px $py"                
             }
         )
 
