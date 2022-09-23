@@ -29,6 +29,60 @@ For open shapes, see the `polyline` element.
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
+$bpm = 104
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Scale = 4
+
+$patternSize = 1/$scale
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 800, 800 @(
+    =<svg.pattern> -Width $patternSize -Height $patternSize @(
+        =<svg.polygon> -Points "10,10, 10,90, 50,50, 90,10 90,90" @(
+            =<svg.animate> -AttributeName points -to "0,0 100,0 100,100, 0,100 0,0" -AttributeType XML @animateSplat
+        )  -Fill $color -Stroke $color
+    ) -id fillPattern
+    =<svg.rect> -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 2
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 3
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 4
+```PowerShell
 -ViewBox 0, 0, 250, 200 -Content @(
     =&lt;svg.defs&gt; (
         =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
@@ -44,7 +98,7 @@ For open shapes, see the `polyline` element.
 )
 ```
 
-#### EXAMPLE 2
+#### EXAMPLE 5
 ```PowerShell
 -ViewBox 0, 0, 100, 100 -Content @(
     =&lt;svg.defs&gt; @(
@@ -88,6 +142,23 @@ The Contents of the polygon element
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 
 
 
@@ -251,13 +322,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -362,26 +426,6 @@ The **`alignment-baseline`** attribute specifies how an object is aligned with r
 
 
 
-Valid Values:
-
-* auto
-* baseline
-* before-edge
-* text-before-edge
-* middle
-* central
-* after-edge
-* text-after-edge
-* ideographic
-* alphabetic
-* hanging
-* mathematical
-* top
-* center
-* bottom
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -419,13 +463,6 @@ The **`baseline-shift`** attribute allows repositioning of the dominant-baseline
 The **`clip`** attribute is a presentation attribute defining the visible region of an element.
 
 This attribute has the same parameter values as defined for the {{ cssxref("clip","CSS clip property") }}. Unitless values, which indicate current user coordinates, are permitted on the coordinate values on the `rect()`. The value of `auto` defines a clipping path along the bounds of the viewport created by the given element.
-
-
-
-Valid Values:
-
-* auto
-* rect()
 
 
 
@@ -491,14 +528,6 @@ As a presentation attribute, it also can be used as a property directly inside a
 
 
 
-Valid Values:
-
-* nonzero
-* evenodd
-* inherit
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -545,14 +574,6 @@ When a child element is blended into a background, the value of the `color-inter
 
 
 
-Valid Values:
-
-* auto
-* sRGB
-* linearRGB
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -575,14 +596,6 @@ The **`color-interpolation-filters`** attribute specifies the color space for im
 > It has no affect on filter functions, which operate in the sRGB color space.
 
 > **Note:** As a presentation attribute, `color-interpolation-filters` can be used as a CSS property.
-
-
-
-Valid Values:
-
-* auto
-* sRGB
-* linearRGB
 
 
 
@@ -651,13 +664,6 @@ In many cases, the bidirectional Unicode algorithm produces the desired result a
 
 
 
-Valid Values:
-
-* ltr
-* rtl
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -719,20 +725,6 @@ Some values of the property re-determine all three values. Others only re-establ
 If there is no baseline table in the nominal font, or if the baseline table lacks an entry for the desired baseline, then the browser may use heuristics to determine the position of the desired baseline.
 
 > **Note:** As a presentation attribute, `dominant-baseline` can be used as a CSS property.
-
-
-
-Valid Values:
-
-* auto
-* text-bottom
-* alphabetic
-* ideographic
-* middle
-* central
-* mathematical
-* hanging
-* text-top
 
 
 
@@ -807,13 +799,6 @@ The **`fill-opacity`** attribute is a presentation attribute defining the opacit
 The **`fill-rule`** attribute is a presentation attribute defining the algorithm to use to determine the _inside_ part of a shape.
 
 > **Note:** As a presentation attribute, `fill-rule` can be used as a CSS property.
-
-
-
-Valid Values:
-
-* nonzero
-* evenodd
 
 
 
@@ -971,14 +956,6 @@ The **`font-style`** attribute specifies whether the text is to be rendered usin
 
 
 
-Valid Values:
-
-* normal
-* italic
-* oblique
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -1053,7 +1030,7 @@ This attribute is applied only to text written in a horizontal writing-mode.
 ---
 #### **GlyphOrientationVertical**
 
-The **`glyph-orientation-vertical`** attribute affects the amount that hte current text position advances as each glyph is rendered.
+The **`glyph-orientation-vertical`** attribute affects the amount that the current text position advances as each glyph is rendered.
 
 When the inline-progression-direction is vertical and the `glyph-orientation-vertical` results in an orientation angle that is a multiple of 180 degrees, then the current text position is incremented according to the vertical metrics of the glyph. Otherwise, if the angle is not a multiple of 180 degrees, then the current text position is incremented according to the horizontal metrics of the glyph.
 
@@ -1081,14 +1058,6 @@ The **`image-rendering`** attribute provides a hint to the browser about how to 
 The resampling is always done in a truecolor (e.g., 24-bit) color space even if the original data and/or the target device is indexed color.
 
 > **Note:** As a presentation attribute, `image-rendering` can be used as a CSS property. See the {{cssxref("image-rendering", "CSS image-rendering")}} property for more information.
-
-
-
-Valid Values:
-
-* auto
-* optimizeSpeed
-* optimizeQuality
 
 
 
@@ -1280,15 +1249,6 @@ This attribute has the same parameter values and meaning as the {{cssxref("overf
 
 
 
-Valid Values:
-
-* visible
-* hidden
-* scroll
-* auto
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -1308,21 +1268,6 @@ The **`pointer-events`** attribute is a presentation attribute that allows defin
 
 
 
-Valid Values:
-
-* bounding-box
-* visiblePainted
-* visibleFill
-* visibleStroke
-* visible
-* painted
-* fill
-* stroke
-* all
-* none
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -1339,15 +1284,6 @@ Valid Values:
 The **`shape-rendering`** attribute provides hints to the renderer about what tradeoffs to make when rendering shapes like paths, circles, or rectangles.
 
 > **Note:** As a presentation attribute, `shape-rendering` can be used as a CSS property.
-
-
-
-Valid Values:
-
-* auto
-* optimizeSpeed
-* crispEdges
-* geometricPrecision
 
 
 
@@ -1469,14 +1405,6 @@ The **`stroke-linecap`** attribute is a presentation attribute defining the shap
 
 
 
-Valid Values:
-
-* butt
-* round
-* square
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -1493,16 +1421,6 @@ Valid Values:
 The **`stroke-linejoin`** attribute is a presentation attribute defining the shape to be used at the corners of paths when they are stroked.
 
 > **Note:** As a presentation attribute `stroke-linejoin` can be used as a CSS property.
-
-
-
-Valid Values:
-
-* arcs
-* bevel
-* miter
-* miter-clip
-* round
 
 
 
@@ -1584,14 +1502,6 @@ The `text-anchor` attribute is applied to each individual text chunk within a gi
 
 
 
-Valid Values:
-
-* start
-* middle
-* end
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -1631,15 +1541,6 @@ The paint order of the text decoration, i.e. the fill and stroke, is determined 
 The **`text-rendering`** attribute provides hints to the renderer about what tradeoffs to make when rendering text.
 
 > **Note:** As a presentation attribute, `text-rendering` can be used as a CSS property. See the {{cssxref("text-rendering", "CSS text-rendering")}} property for more information.
-
-
-
-Valid Values:
-
-* auto
-* optimizeSpeed
-* optimizeLegibility
-* geometricPrecision
 
 
 
@@ -1715,16 +1616,6 @@ The **`vector-effect`** property specifies the vector effect to use when drawing
 
 
 
-Valid Values:
-
-* none
-* non-scaling-stroke
-* non-scaling-size
-* non-rotation
-* fixed-position
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -1745,14 +1636,6 @@ The **`visibility`** attribute lets you control the visibility of graphical elem
 Depending on the value of attribute pointer-events, graphics elements which have their `visibility` attribute set to `hidden` still might receive events.
 
 > **Note:** As a presentation attribute, `visibility` can be used as a CSS property. See the {{cssxref("visibility", "CSS visibility")}} property for more information.
-
-
-
-Valid Values:
-
-* visible
-* hidden
-* collapse
 
 
 
@@ -1798,14 +1681,6 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 
 
 
-Valid Values:
-
-* horizontal-tb
-* vertical-rl
-* vertical-lr
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -1819,7 +1694,7 @@ Valid Values:
 ---
 ### Syntax
 ```PowerShell
-SVG.polygon [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Points &lt;Object&gt;] [-PathLength &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.polygon [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Points &lt;Object&gt;] [-PathLength &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
