@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.2.1'
+    ModuleVersion     = '0.2.2'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022 Start-Automating'
@@ -14,6 +14,25 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
+### 0.2.2:
+* More Examples:  
+  * Blur (#39)
+  * BPMAnimate/Morph (#40)
+  * DropShadow (#43)
+  * Morphing (#36)
+  * SweepCircle (#44)
+* Added new custom SVG commands:
+  * SVG.Spiral (Fixes #42 Fixes #41)
+  * SVG.DropShadow (Fixes #43 Fixes #41)
+* Generator Improvements:
+  * All commands now have -Attribute (Fixes #32)
+  * Improved Generation of attributes with multiple contexts (Fixes #31)
+* Write-SVG improvements:
+  * Outputs objects by default (Fixes #33) (with nice formatting (Fixes #35))
+  * Prettifies -OutputPath (Fixes #45)
+  * Handles [TimeSpan] values (Fixes #34)
+---
+
 ### 0.2.1
 * Improved Command Help
   * Adding More Examples (Fixes #21)
