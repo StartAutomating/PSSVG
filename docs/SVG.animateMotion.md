@@ -93,6 +93,23 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 ---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
 #### **KeyPoints**
 
 This attribute indicate, in the range \[0,1], how far is the object along the path for each keyTimes associated values.
@@ -166,14 +183,6 @@ The **`href`** attribute defines a link to a resource as a reference [URL](https
 #### **AttributeType**
 
 The **`attributeType`** attribute specifies the namespace in which the target attribute and its associated values are defined.
-
-
-
-Valid Values:
-
-* CSS
-* XML
-* auto
 
 
 
@@ -298,14 +307,6 @@ The **`restart`** attribute specifies whether or not an animation can restart.
 
 
 
-Valid Values:
-
-* always
-* whenNotActive
-* never
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -373,15 +374,6 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 The **`calcMode`** attribute specifies the interpolation mode for the animation.
 
 The default mode is `linear`, however if the attribute does not support linear interpolation (e.g. for strings), the `calcMode` attribute is ignored and discrete interpolation is used.
-
-
-
-Valid Values:
-
-* discrete
-* linear
-* paced
-* spline
 
 
 
@@ -518,13 +510,6 @@ It is frequently useful to define animation as an offset or delta to an attribut
 
 
 
-Valid Values:
-
-* replace
-* sum
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -541,13 +526,6 @@ Valid Values:
 The **`accumulate`** attribute controls whether or not an animation is cumulative.
 
 It is frequently useful for repeated animations to build upon the previous results, accumulating with each iteration. This attribute said to the animation if the value is added to the previous animated attribute's value on each iteration.
-
-
-
-Valid Values:
-
-* none
-* sum
 
 
 
@@ -677,13 +655,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -742,7 +713,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.animateMotion [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-KeyPoints &lt;Object&gt;] [-Path &lt;Object&gt;] [-Rotate &lt;Object&gt;] [-Href &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-By &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.animateMotion [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-KeyPoints &lt;Object&gt;] [-Path &lt;Object&gt;] [-Rotate &lt;Object&gt;] [-Href &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-By &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
