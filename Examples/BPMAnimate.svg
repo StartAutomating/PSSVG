@@ -1,1 +1,38 @@
-<svg viewBox='0 0 200 200' fill='black' style='background-color:black' xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><pattern width=".5" height=".5" id="fillPattern"><rect width="0" height="0" x="25" y="25" fill="#4488ff" id="TopLeft"><animate attributeName="width" values="0;50" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="height" values="0;50" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="x" values="25;0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="y" values="25;0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="opacity" from="0" to="1" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="rx" values="0;5;0" repeatDur="indefinite" dur="0.6667s" /></rect><rect width="0" height="0" x="75" y="25" fill="#4488ff" id="TopRight"><animate attributeName="width" values="50;0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="height" values="50;0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="x" values="50;75" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="y" from="0" to="25" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="opacity" from="1" to="0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="rx" values="0;5;0" repeatDur="indefinite" dur="0.6667s" /></rect><rect width="0" height="0" x="75" y="75" fill="#4488ff" id="BottomRight"><animate attributeName="width" values="0;50" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="height" values="0;50" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="x" values="75;50" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="y" values="75;50" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="opacity" from="0" to="1" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="rx" values="0;5;0" repeatDur="indefinite" dur="0.6667s" /></rect><rect width="0" height="0" x="25" y="75" fill="#4488ff" id="TopRight"><animate attributeName="width" values="50;0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="height" values="50;0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="y" values="50;75" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="x" from="0" to="25" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="opacity" from="1" to="0" repeatDur="indefinite" dur="0.6667s" /><animate attributeName="rx" values="0;5;0" repeatDur="indefinite" dur="0.6667s" /></rect></pattern> <rect width="200" height="200" fill="url(#fillPattern)" x="0" y="0" /></svg>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 200 200" fill="black" style="background-color:black" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <pattern width=".5" height=".5" id="fillPattern">
+    <rect width="0" height="0" x="25" y="25" fill="#4488ff" id="TopLeft">
+      <animate attributeName="width" values="0;50" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="height" values="0;50" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="x" values="25;0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="y" values="25;0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="opacity" from="0" to="1" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="rx" values="0;5;0" dur="0.6667s" repeatDur="indefinite" />
+    </rect>
+    <rect width="0" height="0" x="75" y="25" fill="#4488ff" id="TopRight">
+      <animate attributeName="width" values="50;0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="height" values="50;0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="x" values="50;75" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="y" from="0" to="25" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="opacity" from="1" to="0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="rx" values="0;5;0" dur="0.6667s" repeatDur="indefinite" />
+    </rect>
+    <rect width="0" height="0" x="75" y="75" fill="#4488ff" id="BottomRight">
+      <animate attributeName="width" values="0;50" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="height" values="0;50" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="x" values="75;50" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="y" values="75;50" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="opacity" from="0" to="1" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="rx" values="0;5;0" dur="0.6667s" repeatDur="indefinite" />
+    </rect>
+    <rect width="0" height="0" x="25" y="75" fill="#4488ff" id="TopRight">
+      <animate attributeName="width" values="50;0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="height" values="50;0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="y" values="50;75" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="x" from="0" to="25" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="opacity" from="1" to="0" dur="0.6667s" repeatDur="indefinite" />
+      <animate attributeName="rx" values="0;5;0" dur="0.6667s" repeatDur="indefinite" />
+    </rect>
+  </pattern>
+  <rect width="200" height="200" fill="url(#fillPattern)" x="0" y="0" />
+</svg>
