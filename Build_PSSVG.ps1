@@ -121,7 +121,7 @@ function ConvertSVGMetadataToParameterAttribute {
     elseif ($hadColor) {
         "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '\W'})]"
     }
-    elseif ($validSet -and -not $hadUnknown) {
+    elseif ($validSet -and -not $hadUnknown -and -not ($validSet -match '\p{P}')) {
         $tabCompletionRedundant = $true
         "[ValidateSet('$validSet')]"
     }
@@ -241,7 +241,14 @@ function ImportSvgAttribute {
             if ($attrMetadata[$attrInGroup]) {
                 if (-not $allAttributeData[$attrInGroup]) {
                     $allAttributeData += @{
-                        $attrInGroup = $attrMetadata[$attrInGroup].Properties
+                        $attrInGroup =                         
+                            if ($attrMetadata[$attrInGroup].properties -isnot [Object[]]) {
+                                $attrMetadata[$attrInGroup].Properties
+                            } else {
+                                foreach ($ht in $attrMetadata[$attrInGroup].properties) { 
+                                    if ($ht.AppliesTo -contains $elementOrSetName) { $ht;break }
+                                }
+                            }                        
                     }
                 }
                 if (-not $allAttributeHelp[$attrInGroup]) {
@@ -306,7 +313,14 @@ function ImportSvgElementAttribute {
                     }                    
                 }
                 if ($attrMetadata[$attributeName]) {
-                    $attributeData[$attributeName] = $attrMetadata[$attributeName].Properties
+                    $attributeData[$attributeName] = 
+                        if ($attrMetadata[$attributeName].properties -isnot [Object[]]) {
+                            $attrMetadata[$attributeName].Properties
+                        } else {
+                            foreach ($ht in $attrMetadata[$attributeName].properties) { 
+                                if ($ht.AppliesTo -contains $elementOrSetName) { $ht;break }
+                            }
+                        }                        
                 }
             }
             elseif ($attributeName -and $elementAttributeLine -match $attributeHelpLine) {            
@@ -368,10 +382,7 @@ function InitializeSvgAttributeData {
             }
         }
     }
-    $null = $null
-    
-    
-    
+        
     $attrsFound = [Ordered]@{}
     foreach ($match in $findSvgAttr.Matches($savedMarkdown[$attributeListUri])) {
         $attrName = $match.Groups["a"].Value
@@ -407,9 +418,26 @@ function InitializeSvgAttributeData {
         }
     
         $attributeTables   = @($savedMarkdown[$attrUri] | ?<HTML_StartOrEndTag> -Tag table)
-        $attributeProperties = [Ordered]@{}
+        
+        $allAttributeProperties = @() 
         for ($ati = 0; $ati -lt $attributeTables.Count; $ati++) {
+            $appliesToElements = @()
+            if ($attributeTables.Count -gt 2) {
+                $previousHeading = $savedMarkdown[$attrUri] | ?<Markdown_Heading> -RightToLeft -Count 1 -StartAt $attributeTables[$ati].Index
+                $previousHeadingEnd = $previousHeading.Index + $previousHeading.Length
+                $appliesToElements = @($findSvgElement.Matches(
+                    $previousHeading.Value
+                ))
+                if ($appliesToElements) {
+                    $appliesToElements = @(foreach ($appliesTo in $appliesToElements) {
+                        $appliesTo.Groups['e'].Value
+                    })
+                }                
+            }
+            
+            $attributeProperties = [Ordered]@{}
             if ($attributeTables[$ati] -match 'properties') {
+                
                 $attrTable = 
                     $savedMarkdown[$attrUri].Substring(
                         $attributeTables[$ati].Index,  $attributeTables[$ati + 1].Index + $attributeTables[$ati + 1].Length - $attributeTables[$ati].Index
@@ -441,7 +469,10 @@ function InitializeSvgAttributeData {
                 if ($attributeProperties['Default value'] -eq 'None') {
                     $attributeProperties.Remove('Default Value')
                 }
-                break
+                if ($appliesToElements) {
+                    $attributeProperties['AppliesTo'] = $appliesToElements
+                }
+                $allAttributeProperties += $attributeProperties                
             }
     
         }
@@ -463,7 +494,13 @@ function InitializeSvgAttributeData {
                     }
                 }
             )
-            Properties = $attributeProperties
+            Properties = $(
+                if ($allAttributeProperties.Count -eq 1) {
+                    $allAttributeProperties[0]
+                } else {
+                    $allAttributeProperties
+                }
+            )
         }
     }    
 }
@@ -502,6 +539,9 @@ foreach ($svgElement in $svgElements.elements.psobject.properties) {
 
 $examplesRoot = Join-Path $PSScriptRoot Examples
 
+$knownParameterAliases = @{
+    'Dur' = 'Duration'
+}
 
 foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $docsLink = "https://pssvg.start-automating.com/SVG.$($elementKV.Key)"
@@ -549,10 +589,18 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     }
     
     $parameters['Data'] = @(
-        "# A dictionary containing data.  This data will be embedded in data- attributes."
-        "[Collections.IDictionary]"
+        "# A dictionary containing data.  This data will be embedded in data- attributes."        
         "[Parameter(ValueFromPipelineByPropertyName)]"
+        "[Collections.IDictionary]"
         '$Data'
+    )
+
+    $parameters['Attribute'] = @(
+        "# A dictionary of attributes.  This can set any attribute not exposed in other parameters."        
+        "[Parameter(ValueFromPipelineByPropertyName)]"
+        "[Alias('Attributes')]"
+        "[Collections.IDictionary]"
+        '$Attribute = [Ordered]@{}'
     )
     
     foreach ($attrName in $elementKV.Value.AttributeNames) {
@@ -595,12 +643,18 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             
             if ($elementData) {
                 foreach ($dataKv in $elementData.GetEnumerator()) {
+                    if ($dataKv.Key -eq 'AppliesTo') { continue }
                     "[Reflection.AssemblyMetaData('SVG.$($dataKv.Key)', '$($dataKv.Value.ToString().Replace("'", "''"))')]"
                     if ($dataKv.Key -eq 'Value' -and $dataKv.Value) {
                         $dataKv.Value | ConvertSVGMetadataToParameterAttribute
                     }
                 }
-            }            
+            }
+            
+            if ($knownParameterAliases[$paramName]) {
+                "[Alias('$($knownParameterAliases[$paramName] -replace "'", "''" -join "','")')]"
+            }
+            
             "`$$paramName"
         )
     }
@@ -637,9 +691,17 @@ $OutputPath
         }
         if (-not $elementName) { return }
 
+        if (-not $attribute[$paramCopy.Keys]) {
+            $attribute += $paramCopy
+        } else {
+            foreach ($pc in $paramCopy.GetEnumerator()) {
+                $attribute[$pc.Key] = $pc.Value
+            }
+        }
+
         $writeSvgSplat = @{
             ElementName = $elementName
-            Attribute   = $paramCopy                
+            Attribute   = $attribute
         }
 
         if ($content) {
@@ -656,13 +718,13 @@ $OutputPath
         Write-SVG @writeSvgSplat
     }
 
-    if (-not $parameters) { continue }
+    if (-not $parameters) { continue }    
     $destination = Join-Path $PSScriptRoot "$($newPipeScriptSplat.functionName).ps1"
     $newScript = New-PipeScript @newPipeScriptSplat 
     if (-not $newScript) {
         $null = $null
     }
-    $newScript| 
+    $newScript | 
         Set-Content -Path $destination
     Get-Item -Path $destination
 }
