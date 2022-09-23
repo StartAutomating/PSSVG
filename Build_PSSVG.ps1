@@ -539,6 +539,17 @@ $knownParameterAliases = @{
     'Dur' = 'Duration'
 }
 
+$destFolder  = Join-Path $PSScriptRoot "Commands"
+$destFolder  = Join-Path $destFolder "Standard"
+
+if (-not (Test-Path $destFolder)) {
+    $createdFolder = New-Item -ItemType $destFolder -Type Directory -Force
+    if (-not $createdFolder) {
+        Write-Error "Could not create $destFolder"
+        return
+    }
+}
+
 foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $docsLink = "https://pssvg.start-automating.com/SVG.$($elementKV.Key)"
     $mdnLink  = "https://developer.mozilla.org/" + (@($elementKV.Value.SourceUri -split 'files/')[1] -replace 'en-us', 'en-US' -replace 'index.md$')
@@ -715,7 +726,10 @@ $OutputPath
     }
 
     if (-not $parameters) { continue }    
-    $destination = Join-Path $PSScriptRoot "$($newPipeScriptSplat.functionName).ps1"
+    $destination = Join-Path $destFolder "$($newPipeScriptSplat.functionName).ps1"
+
+
+
     $newScript = New-PipeScript @newPipeScriptSplat 
     if ($newScript) {
         $newScript | 
