@@ -144,6 +144,7 @@
         if ($OutputPath) {
             $unresolvedOutput = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
             if ($unresolvedOutput -and $svgOutput.ParentNode.Save) {
+                $svgOutput.ParentNode.PreserveWhitespace = $true
                 $writerSettings = [Xml.XmlWriterSettings]::new()
                 $writerSettings.Encoding = [Text.Encoding]::UTF8
                 $writerSettings.Indent = $true                
