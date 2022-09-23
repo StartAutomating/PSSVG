@@ -423,7 +423,7 @@ jobs:
           $ModulePath,
           
           [string[]]
-          $Exclude = @('*.png', '*.mp4', '*.jpg','*.jpeg', '*.gif')
+          $Exclude = @('*.png', '*.mp4', '*.jpg','*.jpeg', '*.gif', 'docs[/\]*')
           )
           
           $gitHubEvent = if ($env:GITHUB_EVENT_PATH) {
@@ -431,7 +431,7 @@ jobs:
           } else { $null }
           
           if (-not $Exclude) {
-              $Exclude = @('*.png', '*.mp4', '*.jpg','*.jpeg', '*.gif')
+              $Exclude = @('*.png', '*.mp4', '*.jpg','*.jpeg', '*.gif','docs[/\]*')
           }
           
           
@@ -516,39 +516,19 @@ jobs:
               }
           }
           } @Parameters
-  UsePiecemeal: 
+  BuildPSSVG: 
     runs-on: ubuntu-latest
     if: ${{ success() }}
     steps: 
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: UsePiecemeal
-        uses: StartAutomating/Piecemeal@main
-  BuildPipeScript: 
-    runs-on: ubuntu-latest
-    if: ${{ success() }}
-    steps: 
-      - name: Check out repository
-        uses: actions/checkout@v2
+      - name: Use PSSVG Action
+        uses: StartAutomating/PSSVG@PSSVG-Updates
+        id: PSSVG
       - name: BuildPipeScript
         uses: StartAutomating/PipeScript@main
-  RunEZOut: 
-    runs-on: ubuntu-latest
-    if: ${{ success() }}
-    steps: 
-      - name: Check out repository
-        uses: actions/checkout@v2
       - name: UseEZOut
         uses: StartAutomating/EZOut@master
-      - name: Push Changes
-        shell: pwsh
-        run: git push; exit 0
-  HelpOut: 
-    runs-on: ubuntu-latest
-    if: ${{ success() }}
-    steps: 
-      - name: Check out repository
-        uses: actions/checkout@v2
       - name: UseHelpOut
         uses: StartAutomating/HelpOut@master
 env: 
