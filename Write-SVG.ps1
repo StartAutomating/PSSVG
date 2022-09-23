@@ -9,7 +9,7 @@
         While this function can be used directly, it is designed to be the core function that other SVG creation functions call.
     #>
     param(
-    # The name of the SVG element/
+    # The name of the SVG element.
     [Parameter(Mandatory)]
     [string]
     $ElementName,
@@ -65,8 +65,10 @@
             if ($paramName -eq 'Viewbox' -and $paramValue.Length -eq 2) {
                 $paramValue = @(0,0) + $paramValue
             }
-            foreach ($attr in $elementCmd.Parameters[$kv.Key].Attributes) {
-
+            if ($paramValue -is [timespan]) {
+                $paramValue = "$($paramValue.TotalSeconds)s"
+            }
+            foreach ($attr in $elementCmd.Parameters[$kv.Key].Attributes) {                
                 if ($attr.Key -eq 'SVG.AttributeName') {
                     if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
                         $inputObject.psobject.properties.Remove($attr.Key)
@@ -102,19 +104,46 @@
                     $isCData = $true
                 }
             }
-            if ($isCData -and $content -notmatch '^\s{0,}\<') {
-                $escapedContent = [Security.SecurityElement]::Escape("$content")
-                $elementText += ">" + "$escapedContent" + "</$elementName>"
-            } else {
-                $elementText += ">" + "$Content" + "</$elementName>"
+            if ($ElementName -eq 'text') {
+                $null = $null
             }
+
+            $elementText += ">"            
+            $elementText +=
+                foreach ($pieceOfContent in $Content) {
+                    if ($isCData -and -not 
+                        ($pieceOfContent -as [xml.xmlelement]) -and 
+                        ($pieceOfContent -notmatch '^\s{0,}\<')
+                    ) {
+                        [Security.SecurityElement]::Escape("$content")
+                    }
+                    elseif ($pieceOfContent.Outerxml) {
+                        $pieceOfContent.Outerxml
+                    }
+                    else {
+                        "$pieceOfContent"
+                    }
+                }
+            $elementText += "</$elementName>"                    
         }
 
         if ($OutputPath) {
             $elementText | Set-Content -Path $OutputPath
             Get-Item $OutputPath
         } else {
-            $elementText
+            $elementXml = $elementText -as [xml]
+            if ($elementXml -and $elementXml.$ElementName) {
+
+                $o = $elementXml.$ElementName
+                if ($o -is [string]) {
+                    $o = $elementXml
+                }
+                $o.pstypenames.clear()
+                $o.pstypenames.add('SVG.Element')
+                $o                
+            } else {
+                $elementText
+            }
         }
     }
 }
