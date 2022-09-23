@@ -24,6 +24,40 @@ The `feMergeNode` takes the result of another filter to be processed by its pare
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+@(
+    =&lt;svg.filter&gt; @(
+        =&lt;svg.feOffset&gt; -dx .5 -dy .5
+        =&lt;svg.feMerge&gt; @(
+            =&lt;svg.feMergeNode&gt;
+            =&lt;svg.feMergeNode&gt; -In &#39;SourceGraphic&#39;
+        )
+    ) -id dropShadow
+```
+=<svg.text> @"
+Dropping Shadows
+"@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
+
+) -ViewBox 300,300
+#### EXAMPLE 2
+```PowerShell
+@(
+    =&lt;svg.filter&gt; @(
+        =&lt;svg.feOffset&gt; -dx .5 -dy .5
+        =&lt;svg.feMerge&gt; @(
+            =&lt;svg.feMergeNode&gt;
+            =&lt;svg.feMergeNode&gt; -In &#39;SourceGraphic&#39;
+        )
+    ) -id dropShadow
+```
+=<svg.text> @"
+Dropping Shadows
+"@ -TextAnchor middle -DominantBaseline middle -X 100 -Y 50 -Fill '#4488ff' -FontSize 16 -Filter 'url(#dropShadow)'
+
+) -ViewBox 300,300
+---
 ### Parameters
 #### **Content**
 
@@ -45,6 +79,23 @@ The Contents of the feMergeNode element
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 
 
 
@@ -187,13 +238,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -207,7 +251,7 @@ Valid Values:
 ---
 ### Syntax
 ```PowerShell
-SVG.feMergeNode [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-In &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.feMergeNode [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-In &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
