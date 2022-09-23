@@ -35,6 +35,7 @@ The following elements are supported:
 |[defs](SVG.defs.md)                              |[SVG.defs](SVG.defs.ps1)                              |=&lt;svg.defs&gt;               |
 |[desc](SVG.desc.md)                              |[SVG.desc](SVG.desc.ps1)                              |=&lt;svg.desc&gt;               |
 |[discard](SVG.discard.md)                        |[SVG.discard](SVG.discard.ps1)                        |=&lt;svg.discard&gt;            |
+|[](docs/SVG.DropShadow.md)                            |[SVG.DropShadow](SVG.DropShadow.ps1)                  |=&lt;svg.DropShadow&gt;         |
 |[ellipse](SVG.ellipse.md)                        |[SVG.ellipse](SVG.ellipse.ps1)                        |=&lt;svg.ellipse&gt;            |
 |[feBlend](SVG.feBlend.md)                        |[SVG.feBlend](SVG.feBlend.ps1)                        |=&lt;svg.feBlend&gt;            |
 |[feColorMatrix](SVG.feColorMatrix.md)            |[SVG.feColorMatrix](SVG.feColorMatrix.ps1)            |=&lt;svg.feColorMatrix&gt;      |
@@ -125,7 +126,6 @@ It uses two PowerShell modules to read the repository and create the commands:
 
 * [Irregular](https://github.com/StartAutomating/Irregular) is used to help parse the markdown contents of the repository
 * [PipeScript](https://github.com/StartAutomating/PipeScript) is used to create the functions from the parsed data.
-
 
 
 
