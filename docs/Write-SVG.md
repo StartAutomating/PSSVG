@@ -13,7 +13,7 @@ Writes a Scalable Vector Graphics element.
 ### Parameters
 #### **ElementName**
 
-The name of the SVG element/
+The name of the SVG element.
 
 
 
