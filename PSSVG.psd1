@@ -7,6 +7,7 @@
     AliasesToExport   = '*'
     RootModule        = 'PSSVG.psm1'
     Description       = 'Script SVGs with PowerShell'
+    FormatsToProcess  = 'PSSVG.format.ps1xml'
     PrivateData = @{
         PSData = @{
             Tags = 'SVG', 'ScalableVectorGraphics', 'PowerShell', 'PipeScript', 'Irregular'
