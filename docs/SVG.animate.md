@@ -36,6 +36,1403 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 
 #### EXAMPLE 2
 ```PowerShell
+-Content @(
+    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill red @(
+        =&lt;svg.animate&gt; -AttributeName fill -dur 10s -Values &#39;red;orange;yellow;green;blue;indigo;violet;red&#39; -RepeatCount indefinite -begin 1s
+        =&lt;svg.animate&gt; -AttributeName stroke -dur 10s -Values &#39;orange;yellow;green;blue;indigo;violet;red;orange&#39; -RepeatCount indefinite -begin 1s
+    ) -Stroke orange
+)  -ViewBox 0,0,100,100
+```
+
+#### EXAMPLE 3
+```PowerShell
+-Content @(
+    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill red @(
+        =&lt;svg.animate&gt; -AttributeName fill -dur 10s -Values &#39;red;orange;yellow;green;blue;indigo;violet;red&#39; -RepeatCount indefinite -begin 1s
+        =&lt;svg.animate&gt; -AttributeName stroke -dur 10s -Values &#39;orange;yellow;green;blue;indigo;violet;red;orange&#39; -RepeatCount indefinite -begin 1s
+    ) -Stroke orange
+)  -ViewBox 0,0,100,100
+```
+
+#### EXAMPLE 4
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
+    }
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    )
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    )
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 5
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
+    }
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    )
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    )
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 6
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
+    }
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    )
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    )
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 7
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
+    }
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    )
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    )
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 8
+```PowerShell
+@(
+    $animationSettings = @{
+        Dur = &#39;2s&#39;
+        RepeatCount=&#39;indefinite&#39;
+    }
+    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    )
+    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
+        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    )
+    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
+        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    )
+) -ViewBox 0, 0, 100, 150
+```
+
+#### EXAMPLE 9
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 10
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 11
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 12
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 13
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 14
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 15
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 16
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 17
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 18
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 19
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 20
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 21
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 22
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 23
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 24
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 25
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 26
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 27
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 28
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 29
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 30
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 31
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 32
+```PowerShell
+$bpm = 90
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 200, 200 -Fill black @(
+    =<svg.pattern> -Width .5 -Height .5 @(
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id TopLeft
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
+            =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
+            =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $color -Id BottomRight
+
+        =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
+            =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
+            =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
+            =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
+            =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
+            =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+        ) -Fill $Color -Id TopRight
+    ) -id fillPattern
+    =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 33
+```PowerShell
+$bpm = 70
+```
+$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateSplat = @{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Scale = 4
+
+$patternSize = 1/$scale
+
+$Color = "#4488ff"
+
+=<svg> -ViewBox 800, 800 @(
+    =<svg.pattern> -Width $patternSize -Height $patternSize @(
+        =<svg.polygon> -Points "10,10, 10,90, 50,50, 90,10 90,90" @(
+            =<svg.animate> -AttributeName points -to "0,0 100,0 100,100, 0,100 0,0" -AttributeType XML @animateSplat
+        )  -Fill $color -Stroke $color
+    ) -id fillPattern
+    =<svg.rect> -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 34
+```PowerShell
 -ViewBox 0,0,100,100 -Content (
     =&lt;svg.g&gt; -Content @(
         =&lt;svg.text&gt; -Y &quot;50%&quot; -X &quot;50%&quot; -DominantBaseline middle -TextAnchor middle -Text &quot;Fading in&quot; -Fill &#39;#4488ff&#39;
@@ -44,7 +1441,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
         =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
     )
 )
-#### EXAMPLE 3
+#### EXAMPLE 35
 ```PowerShell
 -Content @(
     =&lt;svg.defs&gt; @(
@@ -61,7 +1458,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ) -ViewBox &#39;0 0 100 100&#39;
 ```
 
-#### EXAMPLE 4
+#### EXAMPLE 36
 ```PowerShell
 -Content @(
     =&lt;svg.defs&gt; @(
@@ -78,7 +1475,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ) -ViewBox &#39;0 0 100 100&#39;
 ```
 
-#### EXAMPLE 5
+#### EXAMPLE 37
 ```PowerShell
 $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 =&lt;svg&gt; @(
@@ -95,7 +1492,7 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 )
 ```
 
-#### EXAMPLE 6
+#### EXAMPLE 38
 ```PowerShell
 $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 =&lt;svg&gt; @(
@@ -112,20 +1509,161 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 )
 ```
 
-#### EXAMPLE 7
+#### EXAMPLE 39
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 40
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 41
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 42
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 43
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 44
+```PowerShell
+-Content @(
+    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    )
+    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
+        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 45
 ```PowerShell
 -Content @(
     =&lt;svg.defs&gt; @(
         =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -Values &#39;1;0;1&#39; -RepeatCount &#39;indefinite&#39;
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
+            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
+            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
+            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
+            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
         ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
 )
     =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
 ) -viewbox 0,0,100,100
-#### EXAMPLE 8
+#### EXAMPLE 46
+```PowerShell
+-Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
+            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
+            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
+            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
+            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 47
+```PowerShell
+-Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
+            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
+            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
+            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
+            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 48
+```PowerShell
+-Content @(
+    =&lt;svg.defs&gt; @(
+        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
+            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
+            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
+            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
+            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
+            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
+            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 49
 ```PowerShell
 -Content @(
     =&lt;svg.defs&gt; @(
@@ -176,6 +1714,23 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 ---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
 #### **Href**
 
 The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
@@ -198,14 +1753,6 @@ The **`href`** attribute defines a link to a resource as a reference [URL](https
 #### **AttributeType**
 
 The **`attributeType`** attribute specifies the namespace in which the target attribute and its associated values are defined.
-
-
-
-Valid Values:
-
-* CSS
-* XML
-* auto
 
 
 
@@ -330,14 +1877,6 @@ The **`restart`** attribute specifies whether or not an animation can restart.
 
 
 
-Valid Values:
-
-* always
-* whenNotActive
-* never
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -405,15 +1944,6 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 The **`calcMode`** attribute specifies the interpolation mode for the animation.
 
 The default mode is `linear`, however if the attribute does not support linear interpolation (e.g. for strings), the `calcMode` attribute is ignored and discrete interpolation is used.
-
-
-
-Valid Values:
-
-* discrete
-* linear
-* paced
-* spline
 
 
 
@@ -550,13 +2080,6 @@ It is frequently useful to define animation as an offset or delta to an attribut
 
 
 
-Valid Values:
-
-* replace
-* sum
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -573,13 +2096,6 @@ Valid Values:
 The **`accumulate`** attribute controls whether or not an animation is cumulative.
 
 It is frequently useful for repeated animations to build upon the previous results, accumulating with each iteration. This attribute said to the animation if the value is added to the previous animated attribute's value on each iteration.
-
-
-
-Valid Values:
-
-* none
-* sum
 
 
 
@@ -709,13 +2225,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -774,7 +2283,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.animate [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Href &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-By &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.animate [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Href &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-By &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 

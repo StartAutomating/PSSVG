@@ -61,6 +61,23 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 ---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
 #### **Crossorigin**
 
 This attribute defines [CORS settings](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) as define for the HTML script element.
@@ -98,16 +115,6 @@ The URL to the script to load.
 #### **Type**
 
 This attribute defines type of the script language to use.
-
-
-
-Valid Values:
-
-* translate
-* scale
-* rotate
-* skewX
-* skewY
 
 
 
@@ -254,13 +261,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -319,7 +319,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.script [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Crossorigin &lt;Object&gt;] [-Href &lt;Object&gt;] [-Type &lt;Object&gt;] [-XlinkHref &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.script [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Crossorigin &lt;Object&gt;] [-Href &lt;Object&gt;] [-Type &lt;Object&gt;] [-XlinkHref &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 

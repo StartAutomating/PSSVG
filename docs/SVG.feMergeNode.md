@@ -59,6 +59,23 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 ---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
 #### **In**
 
 > **Type**: ```[Object]```
@@ -187,13 +204,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -207,7 +217,7 @@ Valid Values:
 ---
 ### Syntax
 ```PowerShell
-SVG.feMergeNode [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-In &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.feMergeNode [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-In &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
