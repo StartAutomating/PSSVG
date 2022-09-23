@@ -98,54 +98,8 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 
 #### EXAMPLE 5
 ```PowerShell
-function svgspinningspiral
-{
-    param(
-    [Parameter(ValueFromPipelineByPropertyName)]
-    [Uint32]
-    $NumSteps = 1000,
+[Timespan]$RotateEvery = &#39;00:00:10&#39;
 ```
-[Parameter(ValueFromPipelineByPropertyName)]
-    [double]
-    $Theta = [MATH]::pi * 15,
-
-    [Parameter(ValueFromPipelineByPropertyName)]
-    [Double]
-    $Alpha = 200,
-
-    [Timespan]
-    $RotateEvery = '00:00:10'
-    )
-
-    process {
-        $Margin  = $Alpha * 1.25
-        $width = $margin * 2
-        $height = $margin * 2
-
-        $svgPath = @()
-        $svgPath += "M $margin $margin"
-
-
-        foreach ($n in 0..$numSteps) {
-            $t = ($theta/$numSteps) * $n
-            $a = ($alpha/$numSteps) * $n
-            $px = $margin+($a*[Math]::Cos($t))
-            $py = $margin+($a*[Math]::Sin($t))
-            $svgPath += "L $px $py"
-        }
-
-        =<svg.path> -D ($svgPath -join ' ') -Fill transparent -Stroke '#4488ff' -Content @(
-            if ($RotateEvery.TotalSeconds) {
-                =<svg.animatetransform> -AttributeName transform -From "0 $margin $margin"  -To "360 $margin $margin" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-            }
-        )
-    }
-}
-
-
-
-
-
 @(foreach ($n in 15, 636, 741, 901) {
     New-Object PSObject -Property @{
         Theta = [MATH]::PI * $n
@@ -154,7 +108,11 @@ function svgspinningspiral
 }) | ForEach-Object {
     $n = $_.N
     =<svg> -content (
-        $_ | svgspinningspiral
+        $_ | =<svg.Spiral> -Stroke '#4488ff' -Content @(
+            if ($RotateEvery.TotalSeconds) {
+                =<svg.animatetransform> -AttributeName transform -From "0 250 250"  -To "360 250 250" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+            }
+        )
     ) -ViewBox 0,0,500,500
 #### EXAMPLE 6
 ```PowerShell
@@ -165,7 +123,7 @@ $RotateEvery = [Timespan]::FromSeconds(1.5)
     =&lt;svg.circle&gt; -Fill transparent -Stroke &#39;#4488ff&#39; -Cx $center -Cy $center -R 35
     =&lt;svg.line&gt; -Stroke &#39;#4488ff&#39; -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
         =&lt;svg.animatetransform&gt; -AttributeName transform -From &quot;0 $center $center&quot;  -To &quot;360 $center $center&quot; -dur &quot;$($RotateEvery.TotalSeconds)s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
-    )
+    ) -Opacity 0.8
 )
 ```
 
