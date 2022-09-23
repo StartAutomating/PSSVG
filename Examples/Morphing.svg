@@ -1,1 +1,13 @@
-<svg viewBox='0 0 100 100' xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><polygon points="25,50 50,75 75,50 50,25" fill="#4488ff"><animate attributeName="points" to="0,0 0,100 100,100, 100,0" dur="2s" id="morph1" begin="0s;morph2.end" attributeType="XML" /><animate attributeName="opacity" values="0" dur="0.0s" begin="morph1.end" attributeType="XML" /><animate attributeName="opacity" values="1" dur="0.0s" begin="morph1.end" attributeType="XML" /></polygon> <polygon points="0,0 0,100 100,100, 100,0" fill="#4488ff" opacity="0"><animate attributeName="opacity" values="1" dur="0.0s" begin="morph1.end" attributeType="XML" /><animate attributeName="points" to="25,50 50,75 75,50 50,25" dur="2s" id="morph2" begin="morph1.end" attributeType="XML" /><animate attributeName="opacity" values="0" dur="0.0s" begin="morph2.end" attributeType="XML" /></polygon></svg>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="25,50 50,75 75,50 50,25" fill="#4488ff">
+    <animate attributeName="points" to="0,0 0,100 100,100, 100,0" dur="2s" id="morph1" begin="0s;morph2.end" attributeType="XML" />
+    <animate attributeName="opacity" values="0" dur="0.0s" begin="morph1.end" attributeType="XML" />
+    <animate attributeName="opacity" values="1" dur="0.0s" begin="morph1.end" attributeType="XML" />
+  </polygon>
+  <polygon points="0,0 0,100 100,100, 100,0" fill="#4488ff" opacity="0">
+    <animate attributeName="opacity" values="1" dur="0.0s" begin="morph1.end" attributeType="XML" />
+    <animate attributeName="points" to="25,50 50,75 75,50 50,25" dur="2s" id="morph2" begin="morph1.end" attributeType="XML" />
+    <animate attributeName="opacity" values="0" dur="0.0s" begin="morph2.end" attributeType="XML" />
+  </polygon>
+</svg>
