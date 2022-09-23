@@ -107,7 +107,7 @@ function svgspinningspiral
 ```
 [Parameter(ValueFromPipelineByPropertyName)]
     [double]
-    $Theta = [MATH]::pi * 50,
+    $Theta = [MATH]::pi * 15,
 
     [Parameter(ValueFromPipelineByPropertyName)]
     [Double]
@@ -156,6 +156,19 @@ function svgspinningspiral
     =<svg> -content (
         $_ | svgspinningspiral
     ) -ViewBox 0,0,500,500
+#### EXAMPLE 6
+```PowerShell
+$Radius = 35
+$Center = 50
+$RotateEvery = [Timespan]::FromSeconds(1.5)
+=&lt;svg&gt; -ViewBox 0,0, ($center * 2), ($center * 2) @(
+    =&lt;svg.circle&gt; -Fill transparent -Stroke &#39;#4488ff&#39; -Cx $center -Cy $center -R 35
+    =&lt;svg.line&gt; -Stroke &#39;#4488ff&#39; -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+        =&lt;svg.animatetransform&gt; -AttributeName transform -From &quot;0 $center $center&quot;  -To &quot;360 $center $center&quot; -dur &quot;$($RotateEvery.TotalSeconds)s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    )
+)
+```
+
 ---
 ### Parameters
 #### **Content**
@@ -178,6 +191,23 @@ The Contents of the animateTransform element
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 
 
 
@@ -250,16 +280,6 @@ The value of the attribute will change between the from attribute value and this
 
 ---
 #### **Type**
-
-Valid Values:
-
-* translate
-* scale
-* rotate
-* skewX
-* skewY
-
-
 
 > **Type**: ```[Object]```
 
@@ -427,13 +447,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -527,16 +540,6 @@ The **`xlink:show`** attribute indicates how a linked resource should be opened 
 
 
 
-Valid Values:
-
-* new
-* replace
-* embed
-* other
-* none
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -551,14 +554,6 @@ Valid Values:
 #### **AttributeType**
 
 The **`attributeType`** attribute specifies the namespace in which the target attribute and its associated values are defined.
-
-
-
-Valid Values:
-
-* CSS
-* XML
-* auto
 
 
 
@@ -683,14 +678,6 @@ The **`restart`** attribute specifies whether or not an animation can restart.
 
 
 
-Valid Values:
-
-* always
-* whenNotActive
-* never
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -758,15 +745,6 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 The **`calcMode`** attribute specifies the interpolation mode for the animation.
 
 The default mode is `linear`, however if the attribute does not support linear interpolation (e.g. for strings), the `calcMode` attribute is ignored and discrete interpolation is used.
-
-
-
-Valid Values:
-
-* discrete
-* linear
-* paced
-* spline
 
 
 
@@ -846,13 +824,6 @@ It is frequently useful to define animation as an offset or delta to an attribut
 
 
 
-Valid Values:
-
-* replace
-* sum
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -872,13 +843,6 @@ It is frequently useful for repeated animations to build upon the previous resul
 
 
 
-Valid Values:
-
-* none
-* sum
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -892,7 +856,7 @@ Valid Values:
 ---
 ### Syntax
 ```PowerShell
-SVG.animateTransform [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-By &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-Type &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-XlinkHref &lt;Object&gt;] [-XlinkType &lt;Object&gt;] [-XlinkArcrole &lt;Object&gt;] [-XlinkTitle &lt;Object&gt;] [-XlinkShow &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.animateTransform [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-By &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-Type &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-XlinkHref &lt;Object&gt;] [-XlinkType &lt;Object&gt;] [-XlinkArcrole &lt;Object&gt;] [-XlinkTitle &lt;Object&gt;] [-XlinkShow &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
