@@ -17,12 +17,12 @@
     # A dictionary of attributes.
     [Parameter(ValueFromPipelineByPropertyName)]
     [Collections.IDictionary]
-    $Attribute = @{},
+    $Attribute = [Ordered]@{},
 
     # A dictionary of data.
     [Parameter(ValueFromPipelineByPropertyName)]
     [Collections.IDictionary]
-    $Data = @{},
+    $Data = [Ordered]@{},
 
     # A dictionary of content.
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -127,13 +127,9 @@
             $elementText += "</$elementName>"                    
         }
 
-        if ($OutputPath) {
-            $elementText | Set-Content -Path $OutputPath
-            Get-Item $OutputPath
-        } else {
-            $elementXml = $elementText -as [xml]
+        $elementXml = $elementText -as [xml]
+        $svgOutput  =         
             if ($elementXml -and $elementXml.$ElementName) {
-
                 $o = $elementXml.$ElementName
                 if ($o -is [string]) {
                     $o = $elementXml
@@ -144,6 +140,23 @@
             } else {
                 $elementText
             }
+
+        if ($OutputPath) {
+            $unresolvedOutput = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
+            if ($unresolvedOutput -and $svgOutput.ParentNode.Save) {
+                $writerSettings = [Xml.XmlWriterSettings]::new()
+                $writerSettings.Encoding = [Text.Encoding]::UTF8
+                $writerSettings.Indent = $true                
+                $writer = [Xml.XmlWriter]::Create("$unresolvedOutput", $writerSettings)
+                $svgOutput.ParentNode.Save($writer)
+                $writer.Dispose()
+                Get-Item $OutputPath
+            } elseif ($unresolvedOutput -and $svgOutput) {
+                $svgOutput | Set-Content -Path $OutputPath
+                Get-Item $OutputPath
+            }
+        } else {
+            $svgOutput
         }
     }
 }
