@@ -34,7 +34,7 @@ dynamicParam {
             $script:SVGpath
         }
     $IncludeParameter = @()
-    $ExcludeParameter = 'Points'
+    $ExcludeParameter = 'D','Fill'
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
