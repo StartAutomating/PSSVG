@@ -35,6 +35,7 @@ The following elements are supported:
 |[defs](docs/SVG.defs.md)                              |[SVG.defs](SVG.defs.ps1)                              |=&lt;svg.defs&gt;               |
 |[desc](docs/SVG.desc.md)                              |[SVG.desc](SVG.desc.ps1)                              |=&lt;svg.desc&gt;               |
 |[discard](docs/SVG.discard.md)                        |[SVG.discard](SVG.discard.ps1)                        |=&lt;svg.discard&gt;            |
+|[](docs/SVG.DropShadow.md)                            |[SVG.DropShadow](SVG.DropShadow.ps1)                  |=&lt;svg.DropShadow&gt;         |
 |[ellipse](docs/SVG.ellipse.md)                        |[SVG.ellipse](SVG.ellipse.ps1)                        |=&lt;svg.ellipse&gt;            |
 |[feBlend](docs/SVG.feBlend.md)                        |[SVG.feBlend](SVG.feBlend.ps1)                        |=&lt;svg.feBlend&gt;            |
 |[feColorMatrix](docs/SVG.feColorMatrix.md)            |[SVG.feColorMatrix](SVG.feColorMatrix.ps1)            |=&lt;svg.feColorMatrix&gt;      |
