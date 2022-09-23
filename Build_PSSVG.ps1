@@ -126,8 +126,7 @@ function ConvertSVGMetadataToParameterAttribute {
         "[ValidateSet('$validSet')]"
     }
     
-    if ($setDescriptors -and -not $tabCompletionRedundant) {
-        $null = $null
+    if ($setDescriptors -and -not $tabCompletionRedundant) {        
 '[ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
 ' + "
@@ -240,7 +239,7 @@ function ImportSvgAttribute {
         foreach ($attrInGroup in $groupedAttributes.Group) {
             if ($attrMetadata[$attrInGroup]) {
                 if (-not $allAttributeData[$attrInGroup]) {
-                    $allAttributeData += @{
+                    $allAttributeData += @{                        
                         $attrInGroup =                         
                             if ($attrMetadata[$attrInGroup].properties -isnot [Object[]]) {
                                 $attrMetadata[$attrInGroup].Properties
@@ -248,7 +247,7 @@ function ImportSvgAttribute {
                                 foreach ($ht in $attrMetadata[$attrInGroup].properties) { 
                                     if ($ht.AppliesTo -contains $elementOrSetName) { $ht;break }
                                 }
-                            }                        
+                            }
                     }
                 }
                 if (-not $allAttributeHelp[$attrInGroup]) {
@@ -320,7 +319,7 @@ function ImportSvgElementAttribute {
                             foreach ($ht in $attrMetadata[$attributeName].properties) { 
                                 if ($ht.AppliesTo -contains $elementOrSetName) { $ht;break }
                             }
-                        }                        
+                        }                    
                 }
             }
             elseif ($attributeName -and $elementAttributeLine -match $attributeHelpLine) {            
@@ -382,7 +381,7 @@ function InitializeSvgAttributeData {
             }
         }
     }
-        
+    
     $attrsFound = [Ordered]@{}
     foreach ($match in $findSvgAttr.Matches($savedMarkdown[$attributeListUri])) {
         $attrName = $match.Groups["a"].Value
@@ -409,8 +408,6 @@ function InitializeSvgAttributeData {
                     Write-Warning "$SVGAttributeUri : $_"                
                 }).Content
             ))
-        } elseif ($markdownNotFound[$attrUri]) {
-            $null = $null
         }
     
         if (-not $savedMarkdown[$attrUri]) {
@@ -418,7 +415,6 @@ function InitializeSvgAttributeData {
         }
     
         $attributeTables   = @($savedMarkdown[$attrUri] | ?<HTML_StartOrEndTag> -Tag table)
-        
         $allAttributeProperties = @() 
         for ($ati = 0; $ati -lt $attributeTables.Count; $ati++) {
             $appliesToElements = @()
@@ -721,12 +717,12 @@ $OutputPath
     if (-not $parameters) { continue }    
     $destination = Join-Path $PSScriptRoot "$($newPipeScriptSplat.functionName).ps1"
     $newScript = New-PipeScript @newPipeScriptSplat 
-    if (-not $newScript) {
-        $null = $null
+    if ($newScript) {
+        $newScript | 
+            Set-Content -Path $destination
+        Get-Item -Path $destination    
     }
-    $newScript | 
-        Set-Content -Path $destination
-    Get-Item -Path $destination
+    
 }
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
