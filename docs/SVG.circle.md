@@ -258,7 +258,7 @@ $RotateEvery = [Timespan]::FromSeconds(1.5)
     =&lt;svg.circle&gt; -Fill transparent -Stroke &#39;#4488ff&#39; -Cx $center -Cy $center -R 35
     =&lt;svg.line&gt; -Stroke &#39;#4488ff&#39; -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
         =&lt;svg.animatetransform&gt; -AttributeName transform -From &quot;0 $center $center&quot;  -To &quot;360 $center $center&quot; -dur &quot;$($RotateEvery.TotalSeconds)s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
-    )
+    ) -Opacity 0.8
 )
 ```
 
