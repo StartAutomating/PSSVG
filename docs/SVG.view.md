@@ -59,6 +59,23 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 ---
+#### **Attribute**
+
+A dictionary of attributes.  This can set any attribute not exposed in other parameters.
+
+
+
+> **Type**: ```[IDictionary]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:true (ByPropertyName)
+
+
+
+---
 #### **ViewBox**
 
 > **Type**: ```[Object]```
@@ -86,13 +103,6 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 ---
 #### **ZoomAndPan**
-
-Valid Values:
-
-* disable
-* magnify
-
-
 
 > **Type**: ```[Object]```
 
@@ -233,13 +243,6 @@ You can use this attribute with any SVG element.
 
 
 
-Valid Values:
-
-* default
-* preserve
-
-
-
 > **Type**: ```[Object]```
 
 > **Required**: false
@@ -253,7 +256,7 @@ Valid Values:
 ---
 ### Syntax
 ```PowerShell
-SVG.view [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-ViewBox &lt;Object&gt;] [-PreserveAspectRatio &lt;Object&gt;] [-ZoomAndPan &lt;Object&gt;] [-ViewTarget &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.view [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-ViewBox &lt;Object&gt;] [-PreserveAspectRatio &lt;Object&gt;] [-ZoomAndPan &lt;Object&gt;] [-ViewTarget &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
 ```
 ---
 
