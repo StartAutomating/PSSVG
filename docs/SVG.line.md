@@ -28,28 +28,28 @@ The **`<line>`** element is an SVG basic shape used to create a line connecting 
 #### EXAMPLE 1
 ```PowerShell
 @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -Id &#39;SimplePattern&#39; -Width .1 -Height .1 -Content @(
-            =&lt;svg.circle&gt; -Cx 2.5 -Cy 2.5 -R .5 -Fill &#39;#4488ff&#39;
-            =&lt;svg.line&gt; -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
-            =&lt;svg.line&gt; -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
+    =<svg.defs> @(
+        =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+            =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+            =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+            =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
         )
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#SimplePattern)&#39; -Width 50 -Height 50 -Opacity .3
+    =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
 ) -ViewBox 0,0,50,50
 ```
 
 #### EXAMPLE 2
 ```PowerShell
 @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -Id &#39;SimplePattern&#39; -Width .1 -Height .1 -Content @(
-            =&lt;svg.circle&gt; -Cx 2.5 -Cy 2.5 -R .5 -Fill &#39;#4488ff&#39;
-            =&lt;svg.line&gt; -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
-            =&lt;svg.line&gt; -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
+    =<svg.defs> @(
+        =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+            =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+            =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+            =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
         )
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#SimplePattern)&#39; -Width 50 -Height 50 -Opacity .3
+    =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
 ) -ViewBox 0,0,50,50
 ```
 
@@ -58,10 +58,10 @@ The **`<line>`** element is an SVG basic shape used to create a line connecting 
 $Radius = 35
 $Center = 50
 $RotateEvery = [Timespan]::FromSeconds(1.5)
-=&lt;svg&gt; -ViewBox 0,0, ($center * 2), ($center * 2) @(
-    =&lt;svg.circle&gt; -Fill transparent -Stroke &#39;#4488ff&#39; -Cx $center -Cy $center -R 35
-    =&lt;svg.line&gt; -Stroke &#39;#4488ff&#39; -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-        =&lt;svg.animatetransform&gt; -AttributeName transform -From &quot;0 $center $center&quot;  -To &quot;360 $center $center&quot; -dur &quot;$($RotateEvery.TotalSeconds)s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+=<svg> -ViewBox 0,0, ($center * 2), ($center * 2) @(
+    =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
+    =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+        =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
     ) -Opacity 0.8
 )
 ```
@@ -1691,7 +1691,7 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 ---
 ### Syntax
 ```PowerShell
-SVG.line [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-X1 &lt;Object&gt;] [-X2 &lt;Object&gt;] [-Y1 &lt;Object&gt;] [-Y2 &lt;Object&gt;] [-PathLength &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.line [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-X1 <Object>] [-X2 <Object>] [-Y1 <Object>] [-Y2 <Object>] [-PathLength <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
 ---
 
