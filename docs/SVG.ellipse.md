@@ -31,19 +31,19 @@ The **`<ellipse>`** element is an SVG basic shape, used to create ellipses based
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
+        Dur = '2s'
+        RepeatCount='indefinite'
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -51,9 +51,9 @@ The **`<ellipse>`** element is an SVG basic shape, used to create ellipses based
 #### EXAMPLE 2
 ```PowerShell
 @(
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39;
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 20 -Height 20 -Fill &#39;#4488ff&#39;
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39;
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff'
+    =<svg.rect> -X 0 -Y 50 -Width 20 -Height 20 -Fill '#4488ff'
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff'
 ) -ViewBox 0, 0, 100, 200
 ```
 
@@ -1682,7 +1682,7 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 ---
 ### Syntax
 ```PowerShell
-SVG.ellipse [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Cx &lt;Object&gt;] [-Cy &lt;Object&gt;] [-Rx &lt;Object&gt;] [-Ry &lt;Object&gt;] [-PathLength &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.ellipse [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Cx <Object>] [-Cy <Object>] [-Rx <Object>] [-Ry <Object>] [-PathLength <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
 ---
 
