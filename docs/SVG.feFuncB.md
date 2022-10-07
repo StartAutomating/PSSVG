@@ -204,7 +204,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.feFuncB [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.feFuncB [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
 ---
 
