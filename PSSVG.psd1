@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.2.2'
+    ModuleVersion     = '0.2.3'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022 Start-Automating'
@@ -14,6 +14,12 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
+### 0.2.3:
+* Adding SVG.Triangle (#47)
+* Updating SVG.DropShadow (#48)
+* Adding PowerShell Chevron Example (#49)
+---
+
 ### 0.2.2:
 * More Examples:  
   * Blur (#39)

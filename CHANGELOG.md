@@ -1,3 +1,9 @@
+### 0.2.3:
+* Adding SVG.Triangle (#47)
+* Updating SVG.DropShadow (#48)
+* Adding PowerShell Chevron Example (#49)
+---
+
 ### 0.2.2:
 * More Examples:  
   * Blur (#39)
