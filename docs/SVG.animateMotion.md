@@ -29,30 +29,30 @@ The SVG **`<animateMotion>`** element provides a way to define how an element mo
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
-=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
-    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
-    =&lt;svg.circle&gt; -r 5 -Fill red (
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+$path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+=<svg> -viewBox "0 0 200 100" @(
+    =<svg.path> -d $path -Fill none -Stroke lightgrey
+    =<svg.circle> -r 5 -Fill red (
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
     )
-    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
 
 #### EXAMPLE 2
 ```PowerShell
-$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
-=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
-    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
-    =&lt;svg.circle&gt; -r 5 -Fill red (
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+$path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+=<svg> -viewBox "0 0 200 100" @(
+    =<svg.path> -d $path -Fill none -Stroke lightgrey
+    =<svg.circle> -r 5 -Fill red (
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
     )
-    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -713,7 +713,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.animateMotion [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-KeyPoints &lt;Object&gt;] [-Path &lt;Object&gt;] [-Rotate &lt;Object&gt;] [-Href &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-By &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.animateMotion [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-KeyPoints <Object>] [-Path <Object>] [-Rotate <Object>] [-Href <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-From <Object>] [-To <Object>] [-By <Object>] [-Additive <Object>] [-Accumulate <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
 ---
 

@@ -28,74 +28,74 @@ The SVG **`<stop>`** element defines a color and its position to use on a gradie
 #### EXAMPLE 1
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -viewbox 0,0,100,100
 ```
 
 #### EXAMPLE 2
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -viewbox 0,0,100,100
 ```
 
 #### EXAMPLE 3
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Stopcolor red @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;100;0;100&#39; -Dur 5s -RepeatCount indefinite
+            =<svg.stop> -Stopcolor red @(
+                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -x 0 -Y 0 -Width 100 -Height 100
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 4
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Stopcolor red @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;100;0;100&#39; -Dur 5s -RepeatCount indefinite
+            =<svg.stop> -Stopcolor red @(
+                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -x 0 -Y 0 -Width 100 -Height 100
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 5
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
-            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
-            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
-            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
         ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
 )
@@ -104,14 +104,14 @@ The SVG **`<stop>`** element defines a color and its position to use on a gradie
 #### EXAMPLE 6
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
-            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
-            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
-            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
         ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
 )
@@ -120,148 +120,148 @@ The SVG **`<stop>`** element defines a color and its position to use on a gradie
 #### EXAMPLE 7
 ```PowerShell
 -ViewBox 0, 0, 100, 100 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate -
+    =<svg.defs> @(
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =&lt;svg.mask&gt; (
-            =&lt;svg.circle&gt; -Fill &#39;url(#star)&#39; -r 50 -cx 50 -cy 50
+        =<svg.mask> (
+            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =&lt;svg.radialGradient&gt; @(
-            =&lt;svg.stop&gt; -Offset &#39;25%&#39; -StopColor &#39;red&#39;
-            =&lt;svg.stop&gt; -Offset &#39;50%&#39; -StopColor &#39;green&#39;
-            =&lt;svg.stop&gt; -Offset &#39;75%&#39; -StopColor &#39;blue&#39;
+        =<svg.radialGradient> @(
+            =<svg.stop> -Offset '25%' -StopColor 'red'
+            =<svg.stop> -Offset '50%' -StopColor 'green'
+            =<svg.stop> -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill &#39;url(#myGradient)&#39; -Mask &#39;url(#myMask)&#39;
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 8
 ```PowerShell
 -ViewBox 0, 0, 100, 100 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate -
+    =<svg.defs> @(
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =&lt;svg.mask&gt; (
-            =&lt;svg.circle&gt; -Fill &#39;url(#star)&#39; -r 50 -cx 50 -cy 50
+        =<svg.mask> (
+            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =&lt;svg.radialGradient&gt; @(
-            =&lt;svg.stop&gt; -Offset &#39;25%&#39; -StopColor &#39;red&#39;
-            =&lt;svg.stop&gt; -Offset &#39;50%&#39; -StopColor &#39;green&#39;
-            =&lt;svg.stop&gt; -Offset &#39;75%&#39; -StopColor &#39;blue&#39;
+        =<svg.radialGradient> @(
+            =<svg.stop> -Offset '25%' -StopColor 'red'
+            =<svg.stop> -Offset '50%' -StopColor 'green'
+            =<svg.stop> -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill &#39;url(#myGradient)&#39; -Mask &#39;url(#myMask)&#39;
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 9
 ```PowerShell
 -ViewBox 0, 0, 100, 100 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate -
+    =<svg.defs> @(
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =&lt;svg.mask&gt; (
-            =&lt;svg.circle&gt; -Fill &#39;url(#star)&#39; -r 50 -cx 50 -cy 50
+        =<svg.mask> (
+            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =&lt;svg.radialGradient&gt; @(
-            =&lt;svg.stop&gt; -Offset &#39;25%&#39; -StopColor &#39;red&#39;
-            =&lt;svg.stop&gt; -Offset &#39;50%&#39; -StopColor &#39;green&#39;
-            =&lt;svg.stop&gt; -Offset &#39;75%&#39; -StopColor &#39;blue&#39;
+        =<svg.radialGradient> @(
+            =<svg.stop> -Offset '25%' -StopColor 'red'
+            =<svg.stop> -Offset '50%' -StopColor 'green'
+            =<svg.stop> -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill &#39;url(#myGradient)&#39; -Mask &#39;url(#myMask)&#39;
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 10
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -ViewBox 0,0,100,100
 ```
 
 #### EXAMPLE 11
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -ViewBox 0,0,100,100
 ```
 
 #### EXAMPLE 12
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;1%&#39; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '1%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red
+            =<svg.stop> -Offset '100%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 13
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;1%&#39; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '1%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red
+            =<svg.stop> -Offset '100%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 14
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         ) -X1 0 -X2 0 -Y1 0% -Y2 100%
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -Width 100 -Height 100
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
 ) -viewbox 0,0,100,100
 ```
 
 #### EXAMPLE 15
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         ) -X1 0 -X2 0 -Y1 0% -Y2 100%
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -Width 100 -Height 100
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
 ) -viewbox 0,0,100,100
 ```
 
@@ -1774,7 +1774,7 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 ---
 ### Syntax
 ```PowerShell
-SVG.stop [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Offset &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.stop [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Offset <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
 ---
 

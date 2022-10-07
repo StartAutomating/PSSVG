@@ -297,7 +297,7 @@ The **`xlink:show`** attribute indicates how a linked resource should be opened 
 ---
 ### Syntax
 ```PowerShell
-SVG.mpath [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-XlinkHref &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-XlinkType &lt;Object&gt;] [-XlinkArcrole &lt;Object&gt;] [-XlinkTitle &lt;Object&gt;] [-XlinkShow &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.mpath [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [<CommonParameters>]
 ```
 ---
 
