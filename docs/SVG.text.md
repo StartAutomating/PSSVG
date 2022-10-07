@@ -30,7 +30,7 @@ If text is included in SVG not inside of a `<text>` element, it is not rendered.
 #### EXAMPLE 1
 ```PowerShell
 @(
-    =&lt;svg.DropShadow&gt; -DistanceY .75
+    =<svg.DropShadow> -DistanceY .75
 ```
 =<svg.text> @"
 Dropping Shadows
@@ -40,8 +40,8 @@ Dropping Shadows
 #### EXAMPLE 2
 ```PowerShell
 -ViewBox 0,0,100,100 -Content (
-    =&lt;svg.g&gt; -Content @(
-        =&lt;svg.text&gt; -Y &quot;50%&quot; -X &quot;50%&quot; -DominantBaseline middle -TextAnchor middle -Text &quot;Fading in&quot; -Fill &#39;#4488ff&#39;
+    =<svg.g> -Content @(
+        =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
 ```
 # If you only want to fade in once, remove the -RepeatCount
         =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
@@ -50,7 +50,7 @@ Dropping Shadows
 #### EXAMPLE 3
 ```PowerShell
 (
-    =&lt;svg.text&gt; -X 50% -Y 50% -Fontsize 36 &quot;Hello World&quot; -DominantBaseline middle -TextAnchor middle -Fill &#39;#4488ff&#39;
+    =<svg.text> -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
 ) -ViewBox 0,0, 200, 100
 ```
 
@@ -58,7 +58,7 @@ Dropping Shadows
 ```PowerShell
 $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
 $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
-$fileListLines = @($fileListText -split &#39;(?&gt;\r\n|\n)&#39;)
+$fileListLines = @($fileListText -split '(?>\r\n|\n)')
 ```
 $fontSize = 14
 
@@ -90,8 +90,8 @@ $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
 #### EXAMPLE 5
 ```PowerShell
 @(
-    =&lt;svg.symbol&gt; -content (
-        =&lt;svg.text&gt; -Content &#39;⭐&#39; -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
+    =<svg.symbol> -content (
+        =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
     ) -id Star -ViewBox 25,25
 ```
 $scaledSize = @{Width=15;Height=15}
@@ -1760,7 +1760,7 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 ---
 ### Syntax
 ```PowerShell
-SVG.text [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-X &lt;Object&gt;] [-Y &lt;Object&gt;] [-Dx &lt;Object&gt;] [-Dy &lt;Object&gt;] [-Rotate &lt;Object&gt;] [-LengthAdjust &lt;Object&gt;] [-TextLength &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.text [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-X <Object>] [-Y <Object>] [-Dx <Object>] [-Dy <Object>] [-Rotate <Object>] [-LengthAdjust <Object>] [-TextLength <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
 ---
 
