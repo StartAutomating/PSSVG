@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="0 0 300 100" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <filter id="dropShadow">
-    <feOffset dx="0.5" dy="0.75" />
+    <feDropShadow dx="0.5" dy="0.75" stdDeviation="0" />
     <feMerge>
       <feMergeNode />
       <feMergeNode in="SourceGraphic" />
