@@ -70,7 +70,7 @@ The value for alpha (not to be confused with transparency, that's -Opacity)
 ---
 ### Syntax
 ```PowerShell
-SVG.Spiral [-NumSteps &lt;UInt32&gt;] [-Theta &lt;Double&gt;] [-Alpha &lt;Double&gt;] [&lt;CommonParameters&gt;]
+SVG.Spiral [-NumSteps <UInt32>] [-Theta <Double>] [-Alpha <Double>] [<CommonParameters>]
 ```
 ---
 
