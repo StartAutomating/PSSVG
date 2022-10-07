@@ -12,15 +12,15 @@ SVG.DropShadow
 
 
 
-* [SVG.feOffset](SVG.feOffset.md)
+* [SVG.feDropShadow](SVG.feDropShadow.md)
 
 
 
-* [SVG.Merge](SVG.Merge.md)
+* [SVG.feMerge](SVG.feMerge.md)
 
 
 
-* [SVG.MergeMode](SVG.MergeMode.md)
+* [SVG.feMergeNode](SVG.feMergeNode.md)
 
 
 
@@ -52,9 +52,22 @@ SVG.DropShadow
 
 
 ---
+#### **StandardDeviation**
+
+> **Type**: ```[Double]```
+
+> **Required**: false
+
+> **Position**: named
+
+> **PipelineInput**:false
+
+
+
+---
 ### Syntax
 ```PowerShell
-SVG.DropShadow [-DistanceX &lt;Double&gt;] [-DistanceY &lt;Double&gt;] [&lt;CommonParameters&gt;]
+SVG.DropShadow [-DistanceX <Double>] [-DistanceY <Double>] [-StandardDeviation <Double>] [<CommonParameters>]
 ```
 ---
 
