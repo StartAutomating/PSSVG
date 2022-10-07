@@ -98,7 +98,7 @@ An output path.
 ---
 ### Syntax
 ```PowerShell
-Write-SVG [-ElementName] &lt;String&gt; [[-Attribute] &lt;IDictionary&gt;] [[-Data] &lt;IDictionary&gt;] [[-Content] &lt;PSObject&gt;] [[-OutputPath] &lt;String&gt;] [&lt;CommonParameters&gt;]
+Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-OutputPath] <String>] [<CommonParameters>]
 ```
 ---
 ### Notes
