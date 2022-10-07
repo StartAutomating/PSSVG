@@ -3,11 +3,11 @@ function SVG.DropShadow {
     .LINK
         SVG.filter
     .LINK
-        SVG.feOffset
+        SVG.feDropShadow
     .LINK
-        SVG.Merge
+        SVG.feMerge
     .LINK
-        SVG.MergeMode
+        SVG.feMergeNode
     
 #>
     
@@ -18,7 +18,10 @@ function SVG.DropShadow {
     $DistanceX = 0.5,
 [Alias('DY')]
     [double]
-    $DistanceY = 0.5
+    $DistanceY = 0.5,
+[Alias('StdDeviation')]
+    [double]
+    $StandardDeviation
     )
 dynamicParam {
     $baseCommand = 
@@ -56,7 +59,7 @@ dynamicParam {
 }
     process {
         $DropShadow = @(            
-            =<svg.feOffset> -dx $DistanceX -dy $DistanceY
+            =<svg.feDropShadow> -dx $DistanceX -dy $DistanceY -StdDeviation $StandardDeviation
             =<svg.feMerge> @(
                 =<svg.feMergeNode>
                 =<svg.feMergeNode> -In 'SourceGraphic'

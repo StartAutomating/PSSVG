@@ -309,7 +309,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.feSpotLight [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-X &lt;Object&gt;] [-Y &lt;Object&gt;] [-Z &lt;Object&gt;] [-PointsAtX &lt;Object&gt;] [-PointsAtY &lt;Object&gt;] [-PointsAtZ &lt;Object&gt;] [-SpecularExponent &lt;Object&gt;] [-LimitingConeAngle &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.feSpotLight [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-X <Object>] [-Y <Object>] [-Z <Object>] [-PointsAtX <Object>] [-PointsAtY <Object>] [-PointsAtZ <Object>] [-SpecularExponent <Object>] [-LimitingConeAngle <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
 ---
 

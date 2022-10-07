@@ -28,9 +28,9 @@ The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 #### EXAMPLE 1
 ```PowerShell
 -Content @(
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill red @(
-        =&lt;svg.animate&gt; -AttributeName fill -dur 10s -Values &#39;red;orange;yellow;green;blue;indigo;violet;red&#39; -RepeatCount indefinite -begin 1s
-        =&lt;svg.animate&gt; -AttributeName stroke -dur 10s -Values &#39;orange;yellow;green;blue;indigo;violet;red;orange&#39; -RepeatCount indefinite -begin 1s
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
+        =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
+        =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
     ) -Stroke orange
 )  -ViewBox 0,0,100,100
 ```
@@ -39,34 +39,34 @@ The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
+        Dur = '2s'
+        RepeatCount='indefinite'
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
 
 #### EXAMPLE 3
 ```PowerShell
-$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
-=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
-    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
-    =&lt;svg.circle&gt; -r 5 -Fill red (
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+$path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+=<svg> -viewBox "0 0 200 100" @(
+    =<svg.path> -d $path -Fill none -Stroke lightgrey
+    =<svg.circle> -r 5 -Fill red (
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
     )
-    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -74,8 +74,8 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 #### EXAMPLE 4
 ```PowerShell
 @(
-    =&lt;svg.filter&gt; (
-        =&lt;svg.feGaussianBlur&gt; -In &#39;SourceGraphic&#39; -StdDeviation 5
+    =<svg.filter> (
+        =<svg.feGaussianBlur> -In 'SourceGraphic' -StdDeviation 5
     ) -id blurMe
 ```
 =<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
@@ -83,70 +83,70 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 #### EXAMPLE 5
 ```PowerShell
 -ViewBox 0,0,200,200 @(
-    =&lt;svg.circle&gt; -Fill &quot;red&quot; -Cx 100 -Cy 50 -r 5
-    =&lt;svg.circle&gt; -Fill &quot;green&quot; -cx 100 -cy 100 -r 10
-    =&lt;svg.circle&gt; -Fill &quot;blue&quot; -cx 100 -cy 150 -Stroke &quot;cyan&quot; -Strokewidth 1 -r 20
+    =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
+    =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
+    =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
 )
 ```
 
 #### EXAMPLE 6
 ```PowerShell
 -ViewBox 0,0,200,200 @(
-    =&lt;svg.circle&gt; -Fill &quot;red&quot; -Cx 100 -Cy 50 -r 5
-    =&lt;svg.circle&gt; -Fill &quot;green&quot; -cx 100 -cy 100 -r 10
-    =&lt;svg.circle&gt; -Fill &quot;blue&quot; -cx 100 -cy 150 -Stroke &quot;cyan&quot; -Strokewidth 1 -r 20
+    =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
+    =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
+    =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
 )
 ```
 
 #### EXAMPLE 7
 ```PowerShell
 -ViewBox 0,0,200,200 @(
-    =&lt;svg.circle&gt; -Fill &quot;red&quot; -Cx 100 -Cy 50 -r 5
-    =&lt;svg.circle&gt; -Fill &quot;green&quot; -cx 100 -cy 100 -r 10
-    =&lt;svg.circle&gt; -Fill &quot;blue&quot; -cx 100 -cy 150 -Stroke &quot;cyan&quot; -Strokewidth 1 -r 20
+    =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
+    =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
+    =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
 )
 ```
 
 #### EXAMPLE 8
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -viewbox 0,0,100,100
 ```
 
 #### EXAMPLE 9
 ```PowerShell
 @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -Id &#39;SimplePattern&#39; -Width .1 -Height .1 -Content @(
-            =&lt;svg.circle&gt; -Cx 2.5 -Cy 2.5 -R .5 -Fill &#39;#4488ff&#39;
-            =&lt;svg.line&gt; -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
-            =&lt;svg.line&gt; -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke &#39;#4488ff&#39; -StrokeWidth .1
+    =<svg.defs> @(
+        =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+            =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+            =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+            =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
         )
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#SimplePattern)&#39; -Width 50 -Height 50 -Opacity .3
+    =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
 ) -ViewBox 0,0,50,50
 ```
 
 #### EXAMPLE 10
 ```PowerShell
 -ViewBox 0, 0, 250, 200 -Content @(
-    =&lt;svg.defs&gt; (
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
-            ) -Fill &#39;#4488ff&#39;
+    =<svg.defs> (
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+            ) -Fill '#4488ff'
         )
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 100 -r 50 -Fill &#39;url(#star)&#39;
-    =&lt;svg.circle&gt; -cx 180 -cy 100 -r 50 -Fill &#39;none&#39; -StrokeWidth 20 -Stroke &#39;url(#star)&#39; -Content @(
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 180 100&quot;  -To &quot;360 180 100&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+    =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+        =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -154,16 +154,16 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 #### EXAMPLE 11
 ```PowerShell
 -ViewBox 0, 0, 250, 200 -Content @(
-    =&lt;svg.defs&gt; (
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
-            ) -Fill &#39;#4488ff&#39;
+    =<svg.defs> (
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+            ) -Fill '#4488ff'
         )
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 100 -r 50 -Fill &#39;url(#star)&#39;
-    =&lt;svg.circle&gt; -cx 180 -cy 100 -r 50 -Fill &#39;none&#39; -StrokeWidth 20 -Stroke &#39;url(#star)&#39; -Content @(
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 180 100&quot;  -To &quot;360 180 100&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+    =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+        =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -171,81 +171,81 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 #### EXAMPLE 12
 ```PowerShell
 -ViewBox 0, 0, 100, 100 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate -
+    =<svg.defs> @(
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =&lt;svg.mask&gt; (
-            =&lt;svg.circle&gt; -Fill &#39;url(#star)&#39; -r 50 -cx 50 -cy 50
+        =<svg.mask> (
+            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =&lt;svg.radialGradient&gt; @(
-            =&lt;svg.stop&gt; -Offset &#39;25%&#39; -StopColor &#39;red&#39;
-            =&lt;svg.stop&gt; -Offset &#39;50%&#39; -StopColor &#39;green&#39;
-            =&lt;svg.stop&gt; -Offset &#39;75%&#39; -StopColor &#39;blue&#39;
+        =<svg.radialGradient> @(
+            =<svg.stop> -Offset '25%' -StopColor 'red'
+            =<svg.stop> -Offset '50%' -StopColor 'green'
+            =<svg.stop> -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill &#39;url(#myGradient)&#39; -Mask &#39;url(#myMask)&#39;
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 13
 ```PowerShell
 -ViewBox 0, 0, 100, 100 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate -
+    =<svg.defs> @(
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =&lt;svg.mask&gt; (
-            =&lt;svg.circle&gt; -Fill &#39;url(#star)&#39; -r 50 -cx 50 -cy 50
+        =<svg.mask> (
+            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =&lt;svg.radialGradient&gt; @(
-            =&lt;svg.stop&gt; -Offset &#39;25%&#39; -StopColor &#39;red&#39;
-            =&lt;svg.stop&gt; -Offset &#39;50%&#39; -StopColor &#39;green&#39;
-            =&lt;svg.stop&gt; -Offset &#39;75%&#39; -StopColor &#39;blue&#39;
+        =<svg.radialGradient> @(
+            =<svg.stop> -Offset '25%' -StopColor 'red'
+            =<svg.stop> -Offset '50%' -StopColor 'green'
+            =<svg.stop> -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill &#39;url(#myGradient)&#39; -Mask &#39;url(#myMask)&#39;
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 14
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor gold
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor red
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor gold
+            =<svg.stop> -Offset '95%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -ViewBox 0,0,100,100
 ```
 
 #### EXAMPLE 15
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;1%&#39; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '1%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red
+            =<svg.stop> -Offset '100%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 16
 ```PowerShell
 @(
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39;
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 20 -Height 20 -Fill &#39;#4488ff&#39;
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39;
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff'
+    =<svg.rect> -X 0 -Y 50 -Width 20 -Height 20 -Fill '#4488ff'
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff'
 ) -ViewBox 0, 0, 100, 200
 ```
 
@@ -254,10 +254,10 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 $Radius = 35
 $Center = 50
 $RotateEvery = [Timespan]::FromSeconds(1.5)
-=&lt;svg&gt; -ViewBox 0,0, ($center * 2), ($center * 2) @(
-    =&lt;svg.circle&gt; -Fill transparent -Stroke &#39;#4488ff&#39; -Cx $center -Cy $center -R 35
-    =&lt;svg.line&gt; -Stroke &#39;#4488ff&#39; -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-        =&lt;svg.animatetransform&gt; -AttributeName transform -From &quot;0 $center $center&quot;  -To &quot;360 $center $center&quot; -dur &quot;$($RotateEvery.TotalSeconds)s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+=<svg> -ViewBox 0,0, ($center * 2), ($center * 2) @(
+    =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
+    =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+        =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
     ) -Opacity 0.8
 )
 ```
@@ -1870,7 +1870,7 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 ---
 ### Syntax
 ```PowerShell
-SVG.circle [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Cx &lt;Object&gt;] [-Cy &lt;Object&gt;] [-R &lt;Object&gt;] [-PathLength &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.circle [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Cx <Object>] [-Cy <Object>] [-R <Object>] [-PathLength <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
 ---
 

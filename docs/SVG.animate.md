@@ -28,18 +28,18 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 #### EXAMPLE 1
 ```PowerShell
 -ViewBox 0,0,10,10 (
-    =&lt;svg.rect&gt; -Width 10 -Height 10 (
-        =&lt;svg.animate&gt; -AttributeName rx -Values &quot;0;5;0&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
-    ) -Fill &#39;#4488ff&#39;
+    =<svg.rect> -Width 10 -Height 10 (
+        =<svg.animate> -AttributeName rx -Values "0;5;0" -Dur "10s" -RepeatCount indefinite
+    ) -Fill '#4488ff'
 )
 ```
 
 #### EXAMPLE 2
 ```PowerShell
 -Content @(
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill red @(
-        =&lt;svg.animate&gt; -AttributeName fill -dur 10s -Values &#39;red;orange;yellow;green;blue;indigo;violet;red&#39; -RepeatCount indefinite -begin 1s
-        =&lt;svg.animate&gt; -AttributeName stroke -dur 10s -Values &#39;orange;yellow;green;blue;indigo;violet;red;orange&#39; -RepeatCount indefinite -begin 1s
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
+        =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
+        =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
     ) -Stroke orange
 )  -ViewBox 0,0,100,100
 ```
@@ -47,9 +47,9 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 #### EXAMPLE 3
 ```PowerShell
 -Content @(
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill red @(
-        =&lt;svg.animate&gt; -AttributeName fill -dur 10s -Values &#39;red;orange;yellow;green;blue;indigo;violet;red&#39; -RepeatCount indefinite -begin 1s
-        =&lt;svg.animate&gt; -AttributeName stroke -dur 10s -Values &#39;orange;yellow;green;blue;indigo;violet;red;orange&#39; -RepeatCount indefinite -begin 1s
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
+        =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
+        =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
     ) -Stroke orange
 )  -ViewBox 0,0,100,100
 ```
@@ -58,19 +58,19 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
+        Dur = '2s'
+        RepeatCount='indefinite'
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -79,19 +79,19 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
+        Dur = '2s'
+        RepeatCount='indefinite'
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -100,19 +100,19 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
+        Dur = '2s'
+        RepeatCount='indefinite'
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -121,19 +121,19 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
+        Dur = '2s'
+        RepeatCount='indefinite'
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -142,19 +142,19 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 ```PowerShell
 @(
     $animationSettings = @{
-        Dur = &#39;2s&#39;
-        RepeatCount=&#39;indefinite&#39;
+        Dur = '2s'
+        RepeatCount='indefinite'
     }
-    =&lt;svg.circle&gt; -CX 25 -CY 25 -r 10 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;1;10;1&#39; -AttributeName r @animationSettings
+    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
     )
-    =&lt;svg.rect&gt; -X 0 -Y 50 -Width 50 -Height 50 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;0;50;0&#39; -AttributeName width @animationSettings
-        =&lt;svg.animate&gt; -values &#39;50;0;50&#39; -AttributeName height @animationSettings
+    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
+        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
     )
-    =&lt;svg.ellipse&gt; -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -values &#39;10;1;10&#39; -AttributeName rx @animationSettings
-        =&lt;svg.animate&gt; -values &#39;5;10;5&#39; -AttributeName ry @animationSettings
+    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
+        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -1434,8 +1434,8 @@ $Color = "#4488ff"
 #### EXAMPLE 34
 ```PowerShell
 -ViewBox 0,0,100,100 -Content (
-    =&lt;svg.g&gt; -Content @(
-        =&lt;svg.text&gt; -Y &quot;50%&quot; -X &quot;50%&quot; -DominantBaseline middle -TextAnchor middle -Text &quot;Fading in&quot; -Fill &#39;#4488ff&#39;
+    =<svg.g> -Content @(
+        =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
 ```
 # If you only want to fade in once, remove the -RepeatCount
         =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
@@ -1444,49 +1444,49 @@ $Color = "#4488ff"
 #### EXAMPLE 35
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Stopcolor red @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;100;0;100&#39; -Dur 5s -RepeatCount indefinite
+            =<svg.stop> -Stopcolor red @(
+                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -x 0 -Y 0 -Width 100 -Height 100
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 36
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Stopcolor red @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;100;0;100&#39; -Dur 5s -RepeatCount indefinite
+            =<svg.stop> -Stopcolor red @(
+                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
             )
         )
     )
-    =&lt;svg.rect&gt; -Fill &#39;url(#myGradient)&#39; -x 0 -Y 0 -Width 100 -Height 100
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 37
 ```PowerShell
-$colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
-=&lt;svg&gt; @(
+$colors = @('red','green','blue')
+=<svg> @(
     foreach ($n in 1..10) {
         $n10 = $n * 10
-        =&lt;svg.rect&gt; -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
             fill   = $colors[$n % $colors.Length]
             stroke = $colors[($n + 1) % $colors.Length]
         } @(
-            =&lt;svg.animate&gt; -AttributeName rx -Values &quot;0;50;0&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
-            =&lt;svg.animate&gt; -AttributeName x -Values &quot;$($n10);$(200 - $n10/2);$($n10);&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
+            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
         )
     }
 )
@@ -1494,16 +1494,16 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 
 #### EXAMPLE 38
 ```PowerShell
-$colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
-=&lt;svg&gt; @(
+$colors = @('red','green','blue')
+=<svg> @(
     foreach ($n in 1..10) {
         $n10 = $n * 10
-        =&lt;svg.rect&gt; -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
+        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style @{
             fill   = $colors[$n % $colors.Length]
             stroke = $colors[($n + 1) % $colors.Length]
         } @(
-            =&lt;svg.animate&gt; -AttributeName rx -Values &quot;0;50;0&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
-            =&lt;svg.animate&gt; -AttributeName x -Values &quot;$($n10);$(200 - $n10/2);$($n10);&quot; -Dur &quot;10s&quot; -RepeatCount indefinite
+            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
         )
     }
 )
@@ -1512,104 +1512,104 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 #### EXAMPLE 39
 ```PowerShell
 -Content @(
-    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
     )
-    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
     ) -Opacity 0
 ```
 ) -ViewBox 100,100
 #### EXAMPLE 40
 ```PowerShell
 -Content @(
-    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
     )
-    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
     ) -Opacity 0
 ```
 ) -ViewBox 100,100
 #### EXAMPLE 41
 ```PowerShell
 -Content @(
-    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
     )
-    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
     ) -Opacity 0
 ```
 ) -ViewBox 100,100
 #### EXAMPLE 42
 ```PowerShell
 -Content @(
-    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
     )
-    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
     ) -Opacity 0
 ```
 ) -ViewBox 100,100
 #### EXAMPLE 43
 ```PowerShell
 -Content @(
-    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
     )
-    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
     ) -Opacity 0
 ```
 ) -ViewBox 100,100
 #### EXAMPLE 44
 ```PowerShell
 -Content @(
-    =&lt;svg.polygon&gt; -Points &quot;25,50 50,75 75,50 50,25&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;0,0 0,100 100,100, 100,0&quot; -Dur 2s -Id morph1 -Begin &#39;0s;morph2.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
     )
-    =&lt;svg.polygon&gt; -Points &quot;0,0 0,100 100,100, 100,0&quot; -Fill &#39;#4488ff&#39; @(
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;1&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName points -to &quot;25,50 50,75 75,50 50,25&quot; -Dur 2s -Id morph2 -Begin &#39;morph1.end&#39; -AttributeType XML
-        =&lt;svg.animate&gt; -AttributeName opacity -Values &#39;0&#39; -Dur &#39;0.0s&#39; -Begin &#39;morph2.end&#39; -AttributeType XML
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
     ) -Opacity 0
 ```
 ) -ViewBox 100,100
 #### EXAMPLE 45
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
-            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
-            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
-            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
         ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
 )
@@ -1618,14 +1618,14 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 #### EXAMPLE 46
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
-            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
-            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
-            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
         ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
 )
@@ -1634,14 +1634,14 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 #### EXAMPLE 47
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
-            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
-            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
-            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
         ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
 )
@@ -1650,14 +1650,14 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 #### EXAMPLE 48
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.LinearGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;10%&#39; -Stopcolor transparent
-            =&lt;svg.stop&gt; -Offset &#39;95%&#39; -Stopcolor &#39;#4488ff&#39;
-            =&lt;svg.animate&gt; -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur &#39;3s&#39;
-            =&lt;svg.animate&gt; -AttributeName y2 -Dur &quot;3s&quot; -From 1 -to 0 -Id &#39;animateY2&#39; -Fill freeze -Begin &#39;animateY1.end&#39;
-            =&lt;svg.animate&gt; -AttributeName x1 -Values &#39;1;0&#39; -Dur &#39;3s&#39; -Begin &#39;animateY2.end&#39; -Fill freeze -Id animateX1
-            =&lt;svg.animate&gt; -AttributeName x2 -Values &#39;0;1&#39; -Dur &#39;3s&#39; -Begin &#39;animateX1.end&#39; -Fill freeze
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
         ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
 )
@@ -1666,16 +1666,16 @@ $colors = @(&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;)
 #### EXAMPLE 49
 ```PowerShell
 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.radialGradient&gt; -Id myGradient -Content @(
-            =&lt;svg.stop&gt; -Offset &#39;1%&#39; -Stopcolor gold @(
-                =&lt;svg.animate&gt; -AttributeName offset -Values &#39;.1;.99;.1&#39; -Dur 5s -RepeatCount indefinite
+    =<svg.defs> @(
+        =<svg.radialGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '1%' -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =&lt;svg.stop&gt; -Offset &#39;100%&#39; -Stopcolor red
+            =<svg.stop> -Offset '100%' -Stopcolor red
         )
     )
-    =&lt;svg.circle&gt; -Fill &#39;url(#myGradient)&#39; -Cx 50 -Cy 50 -R 35
-) -ViewBox &#39;0 0 100 100&#39;
+    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -ViewBox '0 0 100 100'
 ```
 
 ---
@@ -2283,7 +2283,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.animate [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Href &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-By &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.animate [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Href <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-From <Object>] [-To <Object>] [-By <Object>] [-Additive <Object>] [-Accumulate <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
 ---
 

@@ -27,15 +27,15 @@ The `animateTransform` element animates a transformation attribute on its target
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
-=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
-    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
-    =&lt;svg.circle&gt; -r 5 -Fill red (
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+$path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+=<svg> -viewBox "0 0 200 100" @(
+    =<svg.path> -d $path -Fill none -Stroke lightgrey
+    =<svg.circle> -r 5 -Fill red (
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
     )
-    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -43,16 +43,16 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 #### EXAMPLE 2
 ```PowerShell
 -ViewBox 0, 0, 250, 200 -Content @(
-    =&lt;svg.defs&gt; (
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
-            ) -Fill &#39;#4488ff&#39;
+    =<svg.defs> (
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+            ) -Fill '#4488ff'
         )
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 100 -r 50 -Fill &#39;url(#star)&#39;
-    =&lt;svg.circle&gt; -cx 180 -cy 100 -r 50 -Fill &#39;none&#39; -StrokeWidth 20 -Stroke &#39;url(#star)&#39; -Content @(
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 180 100&quot;  -To &quot;360 180 100&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+    =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+        =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -60,16 +60,16 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 #### EXAMPLE 3
 ```PowerShell
 -ViewBox 0, 0, 250, 200 -Content @(
-    =&lt;svg.defs&gt; (
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
-            ) -Fill &#39;#4488ff&#39;
+    =<svg.defs> (
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+            ) -Fill '#4488ff'
         )
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 100 -r 50 -Fill &#39;url(#star)&#39;
-    =&lt;svg.circle&gt; -cx 180 -cy 100 -r 50 -Fill &#39;none&#39; -StrokeWidth 20 -Stroke &#39;url(#star)&#39; -Content @(
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 180 100&quot;  -To &quot;360 180 100&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+    =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+        =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -77,28 +77,28 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 #### EXAMPLE 4
 ```PowerShell
 -ViewBox 0, 0, 100, 100 -Content @(
-    =&lt;svg.defs&gt; @(
-        =&lt;svg.pattern&gt; -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =&lt;svg.polygon&gt; -Points &quot;0,0&quot;, &quot;2,5&quot;, &quot;0,10&quot;, &quot;5,8&quot;, &quot;10,10&quot;,&quot;8,5&quot;, &quot;10,0&quot;, &quot;5,2&quot; @(
-                =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 5 5&quot;  -To &quot;360 5 5&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate -
+    =<svg.defs> @(
+        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =&lt;svg.mask&gt; (
-            =&lt;svg.circle&gt; -Fill &#39;url(#star)&#39; -r 50 -cx 50 -cy 50
+        =<svg.mask> (
+            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =&lt;svg.radialGradient&gt; @(
-            =&lt;svg.stop&gt; -Offset &#39;25%&#39; -StopColor &#39;red&#39;
-            =&lt;svg.stop&gt; -Offset &#39;50%&#39; -StopColor &#39;green&#39;
-            =&lt;svg.stop&gt; -Offset &#39;75%&#39; -StopColor &#39;blue&#39;
+        =<svg.radialGradient> @(
+            =<svg.stop> -Offset '25%' -StopColor 'red'
+            =<svg.stop> -Offset '50%' -StopColor 'green'
+            =<svg.stop> -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =&lt;svg.circle&gt; -cx 50 -cy 50 -r 50 -Fill &#39;url(#myGradient)&#39; -Mask &#39;url(#myMask)&#39;
+    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 5
 ```PowerShell
-[Timespan]$RotateEvery = &#39;00:00:10&#39;
+[Timespan]$RotateEvery = '00:00:10'
 ```
 @(foreach ($n in 15, 636, 741, 901) {
     New-Object PSObject -Property @{
@@ -119,10 +119,10 @@ $path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
 $Radius = 35
 $Center = 50
 $RotateEvery = [Timespan]::FromSeconds(1.5)
-=&lt;svg&gt; -ViewBox 0,0, ($center * 2), ($center * 2) @(
-    =&lt;svg.circle&gt; -Fill transparent -Stroke &#39;#4488ff&#39; -Cx $center -Cy $center -R 35
-    =&lt;svg.line&gt; -Stroke &#39;#4488ff&#39; -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-        =&lt;svg.animatetransform&gt; -AttributeName transform -From &quot;0 $center $center&quot;  -To &quot;360 $center $center&quot; -dur &quot;$($RotateEvery.TotalSeconds)s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+=<svg> -ViewBox 0,0, ($center * 2), ($center * 2) @(
+    =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
+    =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+        =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
     ) -Opacity 0.8
 )
 ```
@@ -814,7 +814,7 @@ It is frequently useful for repeated animations to build upon the previous resul
 ---
 ### Syntax
 ```PowerShell
-SVG.animateTransform [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-By &lt;Object&gt;] [-From &lt;Object&gt;] [-To &lt;Object&gt;] [-Type &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-XlinkHref &lt;Object&gt;] [-XlinkType &lt;Object&gt;] [-XlinkArcrole &lt;Object&gt;] [-XlinkTitle &lt;Object&gt;] [-XlinkShow &lt;Object&gt;] [-AttributeType &lt;Object&gt;] [-AttributeName &lt;Object&gt;] [-Begin &lt;Object&gt;] [-Dur &lt;Object&gt;] [-End &lt;Object&gt;] [-Min &lt;Object&gt;] [-Max &lt;Object&gt;] [-Restart &lt;Object&gt;] [-RepeatCount &lt;Object&gt;] [-RepeatDur &lt;Object&gt;] [-Fill &lt;Object&gt;] [-CalcMode &lt;Object&gt;] [-Values &lt;Object&gt;] [-KeyTimes &lt;Object&gt;] [-KeySplines &lt;Object&gt;] [-Additive &lt;Object&gt;] [-Accumulate &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.animateTransform [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-By <Object>] [-From <Object>] [-To <Object>] [-Type <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkHref <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-Additive <Object>] [-Accumulate <Object>] [<CommonParameters>]
 ```
 ---
 
