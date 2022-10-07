@@ -89,6 +89,7 @@ The following elements are supported:
 |[text](docs/SVG.text.md)                              |[SVG.text](SVG.text.ps1)                              |=&lt;svg.text&gt;               |
 |[textPath](docs/SVG.textPath.md)                      |[SVG.textPath](SVG.textPath.ps1)                      |=&lt;svg.textPath&gt;           |
 |[title](docs/SVG.title.md)                            |[SVG.title](SVG.title.ps1)                            |=&lt;svg.title&gt;              |
+|[](docs/SVG.Triangle.md)                              |[SVG.Triangle](SVG.Triangle.ps1)                      |=&lt;svg.Triangle&gt;           |
 |[tspan](docs/SVG.tspan.md)                            |[SVG.tspan](SVG.tspan.ps1)                            |=&lt;svg.tspan&gt;              |
 |[use](docs/SVG.use.md)                                |[SVG.use](SVG.use.ps1)                                |=&lt;svg.use&gt;                |
 |[view](docs/SVG.view.md)                              |[SVG.view](SVG.view.ps1)                              |=&lt;svg.view&gt;               |
