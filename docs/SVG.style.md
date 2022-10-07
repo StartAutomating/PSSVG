@@ -302,7 +302,7 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.style [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-Type &lt;Object&gt;] [-Media &lt;Object&gt;] [-Title &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.style [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Type <Object>] [-Media <Object>] [-Title <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
 ---
 
