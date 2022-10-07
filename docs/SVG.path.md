@@ -27,15 +27,15 @@ The **`<path>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-$path = &quot;M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z&quot;
-=&lt;svg&gt; -viewBox &quot;0 0 200 100&quot; @(
-    =&lt;svg.path&gt; -d $path -Fill none -Stroke lightgrey
-    =&lt;svg.circle&gt; -r 5 -Fill red (
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
+$path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
+=<svg> -viewBox "0 0 200 100" @(
+    =<svg.path> -d $path -Fill none -Stroke lightgrey
+    =<svg.circle> -r 5 -Fill red (
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
     )
-    =&lt;svg.rect&gt; -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-        =&lt;svg.animateMotion&gt; -Dur 10s -RepeatCount &#39;indefinite&#39; -Path $path
-        =&lt;svg.animateTransform&gt; -AttributeName transform -From &quot;0 0 0&quot;  -To &quot;360 0 0&quot; -dur &quot;5s&quot; -RepeatCount indefinite -AttributeType xml -type rotate
+    =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+        =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
@@ -1614,7 +1614,7 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 ---
 ### Syntax
 ```PowerShell
-SVG.path [[-Content] &lt;Object&gt;] [-Data &lt;IDictionary&gt;] [-Attribute &lt;IDictionary&gt;] [-D &lt;Object&gt;] [-PathLength &lt;Object&gt;] [-Id &lt;Object&gt;] [-Lang &lt;Object&gt;] [-Tabindex &lt;Object&gt;] [-XmlBase &lt;Object&gt;] [-XmlLang &lt;Object&gt;] [-XmlSpace &lt;Object&gt;] [-Class &lt;Object&gt;] [-Style &lt;Object&gt;] [-RequiredFeatures &lt;Object&gt;] [-SystemLanguage &lt;Object&gt;] [-AlignmentBaseline &lt;Object&gt;] [-BaselineShift &lt;Object&gt;] [-Clip &lt;Object&gt;] [-ClipPath &lt;Object&gt;] [-ClipRule &lt;Object&gt;] [-Color &lt;Object&gt;] [-ColorInterpolation &lt;Object&gt;] [-ColorInterpolationFilters &lt;Object&gt;] [-ColorProfile &lt;Object&gt;] [-Cursor &lt;Object&gt;] [-Direction &lt;Object&gt;] [-Display &lt;Object&gt;] [-DominantBaseline &lt;Object&gt;] [-EnableBackground &lt;Object&gt;] [-Fill &lt;Object&gt;] [-FillOpacity &lt;Object&gt;] [-FillRule &lt;Object&gt;] [-Filter &lt;Object&gt;] [-FloodColor &lt;Object&gt;] [-FloodOpacity &lt;Object&gt;] [-FontFamily &lt;Object&gt;] [-FontSize &lt;Object&gt;] [-FontSizeAdjust &lt;Object&gt;] [-FontStretch &lt;Object&gt;] [-FontStyle &lt;Object&gt;] [-FontVariant &lt;Object&gt;] [-FontWeight &lt;Object&gt;] [-GlyphOrientationHorizontal &lt;Object&gt;] [-GlyphOrientationVertical &lt;Object&gt;] [-ImageRendering &lt;Object&gt;] [-Kerning &lt;Object&gt;] [-LetterSpacing &lt;Object&gt;] [-LightingColor &lt;Object&gt;] [-MarkerEnd &lt;Object&gt;] [-MarkerMid &lt;Object&gt;] [-MarkerStart &lt;Object&gt;] [-Mask &lt;Object&gt;] [-Opacity &lt;Object&gt;] [-Overflow &lt;Object&gt;] [-PointerEvents &lt;Object&gt;] [-ShapeRendering &lt;Object&gt;] [-StopColor &lt;Object&gt;] [-StopOpacity &lt;Object&gt;] [-Stroke &lt;Object&gt;] [-StrokeDasharray &lt;Object&gt;] [-StrokeDashoffset &lt;Object&gt;] [-StrokeLinecap &lt;Object&gt;] [-StrokeLinejoin &lt;Object&gt;] [-StrokeMiterlimit &lt;Object&gt;] [-StrokeOpacity &lt;Object&gt;] [-StrokeWidth &lt;Object&gt;] [-TextAnchor &lt;Object&gt;] [-TextDecoration &lt;Object&gt;] [-TextRendering &lt;Object&gt;] [-Transform &lt;Object&gt;] [-TransformOrigin &lt;Object&gt;] [-UnicodeBidi &lt;Object&gt;] [-VectorEffect &lt;Object&gt;] [-Visibility &lt;Object&gt;] [-WordSpacing &lt;Object&gt;] [-WritingMode &lt;Object&gt;] [&lt;CommonParameters&gt;]
+SVG.path [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-D <Object>] [-PathLength <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
 ---
 
