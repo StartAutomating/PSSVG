@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.2.3'
+    ModuleVersion     = '0.2.4'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022 Start-Automating'
@@ -14,10 +14,18 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
+### 0.2.4:
+* Adding ConvertTo-PSSVG (Fixes #53)
+* Updated Logo to use PowerShell Chevron (Fixes #52)
+* Using [GitPub](https://github.com/StartAutomating/GitPub) to generate blog (Fixes #51)
+
+---
+
 ### 0.2.3:
 * Adding SVG.Triangle (#47)
 * Updating SVG.DropShadow (#48)
 * Adding PowerShell Chevron Example (#49)
+
 ---
 
 ### 0.2.2:
@@ -37,6 +45,7 @@
   * Outputs objects by default (Fixes #33) (with nice formatting (Fixes #35))
   * Prettifies -OutputPath (Fixes #45)
   * Handles [TimeSpan] values (Fixes #34)
+
 ---
 
 ### 0.2.1
@@ -46,6 +55,7 @@
 * Write-SVG: Allowing 2 value ViewBox (Fixes #28)
 * All SVG.* commands allow elements (Fixes #25 )
 * All SVG.* commands now have argument completers (Fixes #24)
+
 ---           
 
 ### 0.2
@@ -54,6 +64,7 @@
   * Linking to docs and MDN (Get-Help SVG.a -Online) (Fixes #15)
   * Adding .Examples (Fixes #18)  
 * Adding Write-SVG (Fixes #14)
+
 ---
 
 ### 0.1
@@ -66,7 +77,9 @@
   * It's own logo (fixes #7)
   * The script used to generate every SVG element (fixes #8)
   * [A github page](https://PSSVG.start-automating.com) (fixes #9)
+
 ---
+
 '@
         }
     }

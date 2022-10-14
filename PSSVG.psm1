@@ -6,7 +6,7 @@
 
 $svgCommandsPath = Join-Path $PSScriptRoot Commands
 
-foreach ($file in Get-ChildItem -Filter SVG*.ps1 -Path $svgCommandsPath -Recurse) {
+foreach ($file in Get-ChildItem -Filter *.ps1 -Path $svgCommandsPath -Recurse) {
     if ($file.Name -match '^SVG\.' -and $file.Name -notmatch '\.ps1{0,1}\.ps1$')  {
         . $file.FullName
         $functionName = $file.Name -replace '\.ps1$'
