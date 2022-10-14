@@ -16,12 +16,10 @@
                 PublishParameters = @'
 {
     "Get-GitPubIssue": {
-        "UserName": '${{github.repository_owner}}',
-        "Repository": "PipeScript"
+        "Repository": '${{github.repository}}',        
     },
     "Get-GitPubRelease": {
-        "UserName": '${{github.repository_owner}}',
-        "Repository": "PipeScript"
+        "Repository": '${{github.repository}}',        
     },
     "Publish-GitPubJekyll": {
         "OutputPath": "docs/_posts"
