@@ -42,7 +42,7 @@ ConvertTo-PSSVG -InputObject .\a.svg
 
 > **Position**: 1
 
-> **PipelineInput**:false
+> **PipelineInput**:true (ByValue, ByPropertyName)
 
 
 
