@@ -26,4 +26,20 @@ describe PSSVG {
                 }
         }
     }
+
+    context 'Converting SVGs' {
+        it 'Can convert SVGs to PSSVG' {
+            ConvertTo-PSSVG https://raw.githubusercontent.com/StartAutomating/PSSVG/main/Assets/PSSVG.svg | 
+                ForEach-Object { 
+                    $_.GetType() | Should -Be ([scriptblock])
+                }
+
+            Get-ChildItem -Path $PSScriptRoot -Filter *.svg |
+                Select-Object -First 1 |
+                ConvertTo-PSSVG |
+                ForEach-Object { 
+                    $_.GetType() | Should -Be ([scriptblock])
+                }
+        }
+    }
 }

@@ -1,3 +1,10 @@
+### 0.2.5:
+* ConvertTo-PSSVG improvements:
+  * Better at handling malformed XML (#59)
+  * Better at handling file input (#60, #61)
+
+---
+
 ### 0.2.4:
 * Adding ConvertTo-PSSVG (Fixes #53)
 * Updated Logo to use PowerShell Chevron (Fixes #52)
@@ -63,3 +70,4 @@
   * [A github page](https://PSSVG.start-automating.com) (fixes #9)
 
 ---
+
