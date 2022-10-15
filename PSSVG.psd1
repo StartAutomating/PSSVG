@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.2.4'
+    ModuleVersion     = '0.2.5'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022 Start-Automating'
@@ -14,6 +14,13 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
+### 0.2.5:
+* ConvertTo-PSSVG improvements:
+  * Better at handling malformed XML (#59)
+  * Better at handling file input (#60, #61)
+
+---
+
 ### 0.2.4:
 * Adding ConvertTo-PSSVG (Fixes #53)
 * Updated Logo to use PowerShell Chevron (Fixes #52)
