@@ -24,7 +24,7 @@ function ConvertTo-PSSVG
         filter ToPSSVG {
             if ($_.LocalName -eq '#whitespace') { return }
             if ($_.LocalName -eq '#text') {
-                "'$($_.Value -replace "'", "''")'"
+                (' ' * (4 * $indentDepth)) + "'$($_.Value -replace "'", "''")'"
             } elseif ($_.LocalName) {
                 $xin = $_
                 $svgCmdName = if ($xin.LocalName -ne 'SVG') {
@@ -72,9 +72,12 @@ function ConvertTo-PSSVG
         {
             # go get it
             $InputObject = Invoke-RestMethod -Uri $InputObject
+            if ($InputObject -is [string]) {
+                $InputObject = ($InputObject -replace '^[^<]+') -as [xml]
+            }
         } elseif ($InputObject -isnot [xml] -and 
             $InputObject -isnot [Xml.XmlDocument] -and 
-            (-not $InputObject -as [xml])
+            (-not ($InputObject -as [xml]))
         ) {
             # If it's not XML and won't be XML, try loading it from a file.
             $resolvedPath = $ExecutionContext.SessionState.Path.GetResolvedPSPathFromPSPath($InputObject)
