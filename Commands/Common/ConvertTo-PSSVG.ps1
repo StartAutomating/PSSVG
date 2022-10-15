@@ -14,8 +14,9 @@ function ConvertTo-PSSVG
     .EXAMPLE
         ConvertTo-PSSVG -InputObject "<svg><circle cx='5' cy='5' r='3'></svg>"
     #>
-    param(
-    [Parameter(Mandatory)]
+    param(        
+    [Parameter(Mandatory,ValueFromPipeline,ValueFromPipelineByPropertyName)]
+    [Alias('Fullname')]
     $InputObject
     )
 
@@ -67,6 +68,7 @@ function ConvertTo-PSSVG
     }
 
     process {
+        $originalInputObject = $InputObject
         # If the input looks like a URL
         if ($InputObject -match '^https{0,1}://') 
         {
@@ -80,7 +82,13 @@ function ConvertTo-PSSVG
             (-not ($InputObject -as [xml]))
         ) {
             # If it's not XML and won't be XML, try loading it from a file.
-            $resolvedPath = $ExecutionContext.SessionState.Path.GetResolvedPSPathFromPSPath($InputObject)
+            $resolvedPath = 
+                if ($InputObject -is [IO.FileInfo]) {
+                    $InputObject.FullName
+                } else {
+                    $ExecutionContext.SessionState.Path.GetResolvedPSPathFromPSPath($InputObject)
+                }
+            
             if (-not $resolvedPath) { return }
             if ($resolvedPath) {
                 $inputObject = [xml][IO.File]::ReadAllText($resolvedPath)
@@ -92,7 +100,7 @@ function ConvertTo-PSSVG
 
         # If the input isn't XML at this point, error out.
         if ($InputObject -isnot [xml] -and $InputObject -isnot [Xml.XmlDocument]) {
-            Write-Error "Could not convert input to XML"
+            Write-Error "Could not convert input '$originalInputObject' to XML"
             return
         }
 
