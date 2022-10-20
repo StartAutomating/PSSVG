@@ -78,6 +78,7 @@ The following elements are supported:
 |[polyline](docs/SVG.polyline.md)                      |[SVG.polyline](SVG.polyline.ps1)                      |=&lt;svg.polyline&gt;           |
 |[radialGradient](docs/SVG.radialGradient.md)          |[SVG.radialGradient](SVG.radialGradient.ps1)          |=&lt;svg.radialGradient&gt;     |
 |[rect](docs/SVG.rect.md)                              |[SVG.rect](SVG.rect.ps1)                              |=&lt;svg.rect&gt;               |
+|[](docs/SVG.RegularPolygon.md)                        |[SVG.RegularPolygon](SVG.RegularPolygon.ps1)          |=&lt;svg.RegularPolygon&gt;     |
 |[script](docs/SVG.script.md)                          |[SVG.script](SVG.script.ps1)                          |=&lt;svg.script&gt;             |
 |[set](docs/SVG.set.md)                                |[SVG.set](SVG.set.ps1)                                |=&lt;svg.set&gt;                |
 |[](docs/SVG.Spiral.md)                                |[SVG.Spiral](SVG.Spiral.ps1)                          |=&lt;svg.Spiral&gt;             |

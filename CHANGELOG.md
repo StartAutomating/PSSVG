@@ -1,3 +1,9 @@
+### 0.2.6:
+* Adding SVG.RegularPolygon (Fixes #65)
+
+---
+
+
 ### 0.2.5:
 * ConvertTo-PSSVG improvements:
   * Better at handling malformed XML (#59)
