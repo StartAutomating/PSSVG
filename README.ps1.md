@@ -25,7 +25,7 @@ For example, this script generates the image below it.
 PSSVG has _a lot cooler_ [Examples](https://github.com/StartAutomating/PSSVG/tree/main/Examples) than hello world:
 
 ~~~PipeScript {
-    $examplesRoot = (Join-Path $pwd\Examples)
+    $examplesRoot = Join-Path $pwd Examples
     $files = Get-ChildItem -Filter *.PSSVG.ps1 -Path 
     
 
