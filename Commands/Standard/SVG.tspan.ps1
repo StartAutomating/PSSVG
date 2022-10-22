@@ -36,6 +36,17 @@ function SVG.tspan {
         }
         )
     )
+.Example
+    =<svg> @(
+        =<svg.RegularPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -Content 'STOP' -FontSize 64 -FontFamily sans-serif -Fill white
+    
+        =<svg.text> -X 50% -Y 75% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            =<svg.tspan> -Content "GIF" -Id gif
+            =<svg.animate> -Values '28;32;28' -Dur 3s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    ) -ViewBox 200,200
 .Link
     https://pssvg.start-automating.com/SVG.tspan
 .Link
@@ -1573,7 +1584,6 @@ process {
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         $myCmd = $MyInvocation.MyCommand
 
-        $inputObject = $_
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
@@ -1598,8 +1608,8 @@ process {
         if ($content) {
             $writeSvgSplat.Content = $content
         }
-        if ($OutputPath) {
-            $writeSvgSplat.OutputPath = $OutputPath
+        if ($paramCopy['OutputPath']) {
+            $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
         if ($data) {
