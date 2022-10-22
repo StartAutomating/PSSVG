@@ -32,6 +32,7 @@ The following elements are supported:
 |[animateTransform](docs/SVG.animateTransform.md)      |[SVG.animateTransform](SVG.animateTransform.ps1)      |=&lt;svg.animateTransform&gt;   |
 |[circle](docs/SVG.circle.md)                          |[SVG.circle](SVG.circle.ps1)                          |=&lt;svg.circle&gt;             |
 |[clipPath](docs/SVG.clipPath.md)                      |[SVG.clipPath](SVG.clipPath.ps1)                      |=&lt;svg.clipPath&gt;           |
+|[](docs/SVG.ConvexPolygon.md)                         |[SVG.ConvexPolygon](SVG.ConvexPolygon.ps1)            |=&lt;svg.ConvexPolygon&gt;      |
 |[defs](docs/SVG.defs.md)                              |[SVG.defs](SVG.defs.ps1)                              |=&lt;svg.defs&gt;               |
 |[desc](docs/SVG.desc.md)                              |[SVG.desc](SVG.desc.ps1)                              |=&lt;svg.desc&gt;               |
 |[discard](docs/SVG.discard.md)                        |[SVG.discard](SVG.discard.ps1)                        |=&lt;svg.discard&gt;            |
