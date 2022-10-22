@@ -26,7 +26,7 @@ PSSVG has _a lot cooler_ [Examples](https://github.com/StartAutomating/PSSVG/tre
 
 ~~~PipeScript {
     $examplesRoot = Join-Path $pwd Examples
-    $files = Get-ChildItem -Filter *.PSSVG.ps1 -Path 
+    $files = Get-ChildItem -Filter *.PSSVG.ps1 -Path $examplesRoot
     
 
     [PSCustomObject]@{
