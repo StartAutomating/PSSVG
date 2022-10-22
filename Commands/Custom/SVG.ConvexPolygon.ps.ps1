@@ -1,17 +1,18 @@
-function SVG.RegularPolygon {
+function SVG.ConvexPolygon {
     <#
     .SYNOPSIS
-        SVG Regular Polygon
+        SVG Convex Polygon
     .DESCRIPTION
-        Creates a Regular Polygon of an number of sides.
+        Creates a Regular Convex Polygon of an number of sides.
     .LINK
-        SVG.Polygon
+        SVG.Path
     #>
-    [inherit('SVG.Polygon', Abstract,Dynamic, ExcludeParameter='Points')]
+    [inherit('SVG.Path', Abstract,Dynamic, ExcludeParameter='D')]
     param(
     # The number of sides in the polygon
     [Parameter(ValueFromPipelineByPropertyName)]
-    [Alias('NumberOfSides','SC','Sides','NumSides')]
+    [Alias('NumberOfSides','SC','Sides','NumSides','PC','D','PointCount')]
+    [ValidateRange(3,360)]
     [int]
     $SideCount,
 
@@ -45,17 +46,21 @@ function SVG.RegularPolygon {
         foreach ($sideNumber in 1..$SideCount) {
             $pointY = $centerY + $r * [math]::round([math]::cos($angle * [Math]::PI/180),15)
             $pointX = $centerX + $r * [math]::round([math]::sin($angle * [Math]::PI/180),15)
-            "$pointX, $pointY"
+            if ($sideNumber -eq 1) {
+                "M $pointX $pointY"
+            } else {
+                "L $pointX $pointY"
+            }            
             $angle += $anglePerPoint
         }) -join ' '
         $myParams = @{} + $PSBoundParameters
-        $myParams["Points"] = $points
+        $myParams["D"] = $points
         $myParams.Remove('SideCount')
         $myParams.Remove('Rotate')
         $myParams.Remove('Radius')
         $myParams.Remove('CenterX')
         $myParams.Remove('CenterY')
               
-        svg.Polygon @myParams  
+        svg.Path @myParams  
     }
 }
