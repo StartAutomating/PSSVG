@@ -3,9 +3,9 @@
   <symbol id="Star" viewBox="0 0 25 25">
     <text x="50%" y="50%" font-size="5" text-anchor="middle">⭐</text>
   </symbol>
-  <use href="#Star" x="0" width="15" height="15" />
-  <use href="#Star" x="20" width="15" height="15" />
-  <use href="#Star" x="40" width="15" height="15" />
-  <use href="#Star" x="60" width="15" height="15" />
-  <use href="#Star" x="80" width="15" height="15" />
+  <use href="#Star" x="0" height="15" width="15" />
+  <use href="#Star" x="20" height="15" width="15" />
+  <use href="#Star" x="40" height="15" width="15" />
+  <use href="#Star" x="60" height="15" width="15" />
+  <use href="#Star" x="80" height="15" width="15" />
 </svg>
