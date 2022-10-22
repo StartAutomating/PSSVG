@@ -79,7 +79,6 @@ The following elements are supported:
 |[polyline](SVG.polyline.md)                      |[SVG.polyline](SVG.polyline.ps1)                      |=&lt;svg.polyline&gt;           |
 |[radialGradient](SVG.radialGradient.md)          |[SVG.radialGradient](SVG.radialGradient.ps1)          |=&lt;svg.radialGradient&gt;     |
 |[rect](SVG.rect.md)                              |[SVG.rect](SVG.rect.ps1)                              |=&lt;svg.rect&gt;               |
-|[](docs/SVG.RegularPolygon.md)                        |[SVG.RegularPolygon](SVG.RegularPolygon.ps1)          |=&lt;svg.RegularPolygon&gt;     |
 |[script](SVG.script.md)                          |[SVG.script](SVG.script.ps1)                          |=&lt;svg.script&gt;             |
 |[set](SVG.set.md)                                |[SVG.set](SVG.set.ps1)                                |=&lt;svg.set&gt;                |
 |[](docs/SVG.Spiral.md)                                |[SVG.Spiral](SVG.Spiral.ps1)                          |=&lt;svg.Spiral&gt;             |
@@ -130,7 +129,6 @@ It uses two PowerShell modules to read the repository and create the commands:
 
 * [Irregular](https://github.com/StartAutomating/Irregular) is used to help parse the markdown contents of the repository
 * [PipeScript](https://github.com/StartAutomating/PipeScript) is used to create the functions from the parsed data.
-
 
 
 
