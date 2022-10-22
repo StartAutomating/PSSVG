@@ -82,6 +82,7 @@ The following elements are supported:
 |[script](SVG.script.md)                          |[SVG.script](SVG.script.ps1)                          |=&lt;svg.script&gt;             |
 |[set](SVG.set.md)                                |[SVG.set](SVG.set.ps1)                                |=&lt;svg.set&gt;                |
 |[](docs/SVG.Spiral.md)                                |[SVG.Spiral](SVG.Spiral.ps1)                          |=&lt;svg.Spiral&gt;             |
+|[](docs/SVG.Star.md)                                  |[SVG.Star](SVG.Star.ps1)                              |=&lt;svg.Star&gt;               |
 |[stop](SVG.stop.md)                              |[SVG.stop](SVG.stop.ps1)                              |=&lt;svg.stop&gt;               |
 |[style](SVG.style.md)                            |[SVG.style](SVG.style.ps1)                            |=&lt;svg.style&gt;              |
 |[svg](SVG.svg.md)                                |[SVG.svg](SVG.svg.ps1)                                |=&lt;svg&gt; svg                |
@@ -128,7 +129,6 @@ It uses two PowerShell modules to read the repository and create the commands:
 
 * [Irregular](https://github.com/StartAutomating/Irregular) is used to help parse the markdown contents of the repository
 * [PipeScript](https://github.com/StartAutomating/PipeScript) is used to create the functions from the parsed data.
-
 
 
 
