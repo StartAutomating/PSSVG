@@ -4,7 +4,7 @@ foreach ($n in 5..12) {
 
 
 =<svg> -ViewBox 2,2 @(
-    =<svg.Star> -PointCount $n  -Fill 'black' -Stroke 'red' -StrokeWidth 0.01
+    =<svg.Star> -PointCount $n  -Fill '#4488ff' -Stroke 'white' -StrokeWidth 0.01
 ) -OutputPath (Join-Path $PSScriptRoot .\Stars$n.svg)
 
 }
@@ -40,5 +40,5 @@ $RotateEvery = [timespan]'00:00:02'
         =<svg.animatetransform> -AttributeName transform -From "360 50 50"  -To "0 50 50" -dur "$($RotateEvery.TotalSeconds / 2)s" -RepeatCount indefinite -AttributeType xml -type rotate
     ) -Radius 5 -CenterX 50 -CenterY 50 -Fill transparent
 
-) -OutputPath (Join-Path $PSScriptRoot .\StarsSpinning.svg)
+) -OutputPath (Join-Path $PSScriptRoot .\Stars.svg)
 
