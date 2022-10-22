@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.2.6'
+    ModuleVersion     = '0.2.7'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022 Start-Automating'
@@ -14,6 +14,14 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
+### 0.2.7:
+* Adding SVG.Star (Fixes #68)
+* Fixing OutputPath issue (Fixes #67)
+* Renaming SVG.RegularPolygon to SVG.ConvexPolygon (Fixes #70)
+* Improving README and docs
+
+---
+
 ### 0.2.6:
 * Adding SVG.RegularPolygon (Fixes #65)
 
