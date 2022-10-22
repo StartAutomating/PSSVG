@@ -1,11 +1,11 @@
-function SVG.RegularPolygon {
+function SVG.Star {
 <#
     .SYNOPSIS
-        SVG Regular Polygon
+        SVG Star
     .DESCRIPTION
-        Creates a Regular Polygon of an number of sides.
+        Creates a Star of an number of points.
     .LINK
-        SVG.Polygon
+        SVG.Path
     
 #>
     
@@ -13,9 +13,10 @@ function SVG.RegularPolygon {
     param(
 # The number of sides in the polygon
     [Parameter(ValueFromPipelineByPropertyName)]
-    [Alias('NumberOfSides','SC','Sides','NumSides')]
+    [ValidateRange(3,360)]
+    [Alias('PC','Points')]
     [int]
-    $SideCount,
+    $PointCount,
 # The initial rotation of the polygon.
     [Alias('Rotation')]
     [double]
@@ -35,15 +36,15 @@ function SVG.RegularPolygon {
     )
 dynamicParam {
     $baseCommand = 
-        if (-not $script:SVGPolygon) {
-            $script:SVGPolygon = 
-                $executionContext.SessionState.InvokeCommand.GetCommand('SVG.Polygon','Function')
-            $script:SVGPolygon
+        if (-not $script:SVGPath) {
+            $script:SVGPath = 
+                $executionContext.SessionState.InvokeCommand.GetCommand('SVG.Path','Function')
+            $script:SVGPath
         } else {
-            $script:SVGPolygon
+            $script:SVGPath
         }
     $IncludeParameter = @()
-    $ExcludeParameter = 'Points'
+    $ExcludeParameter = 'D'
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -69,25 +70,60 @@ dynamicParam {
 }
     process {
         # We can construct a regular polygon by creating N points along a unit circle
-        $anglePerPoint = 360 / $SideCount
+        $anglePerPoint = 360 / $PointCount
         $r = $Radius
         $angle = $Rotate
-        $points = @(
-        foreach ($sideNumber in 1..$SideCount) {
+        $q = 2
+        $points = @()
+        $vertices = @(
+        foreach ($sideNumber in 1..$PointCount) {
             $pointY = $centerY + $r * [math]::round([math]::cos($angle * [Math]::PI/180),15)
             $pointX = $centerX + $r * [math]::round([math]::sin($angle * [Math]::PI/180),15)
-            "$pointX, $pointY"
+            "$pointX $pointY"
             $angle += $anglePerPoint
-        }) -join ' '
+        })
+        if ($vertices.Count % 2) {
+            for ($pointIndex = 0; $points.Length -lt $PointCount; $pointIndex += $q) {
+                
+                $vertex = $vertices[$pointIndex % $vertices.Count]
+                
+                if (-not $points) {
+                    $points += "M $($vertices[$pointIndex % $vertices.Count])"
+                } else {
+                    $points += "L $($vertices[$pointIndex % $vertices.Count])"
+                }                
+            }
+            $points += "L $($vertices[0])"
+        } else {
+            for ($pointIndex = 0; $pointIndex -le $vertices.Count; $pointIndex += $q) {
+                $points += 
+                    if ($pointIndex -eq 0) {
+                        "M $($vertices[$pointIndex % $vertices.Count])"
+                    } else {
+                        "L $($vertices[$pointIndex % $vertices.Count])"
+                    }
+            }
+            for ($pointIndex = 1; $pointIndex -le ($vertices.Count + 1); $pointIndex += $q) {
+                $points += 
+                    if ($pointIndex -eq 1) {
+                        "M $($vertices[$pointIndex % $vertices.Count])"
+                    } else {
+                        "L $($vertices[$pointIndex % $vertices.Count])"
+                    }
+                
+            }
+        }
+        
         $myParams = @{} + $PSBoundParameters
-        $myParams["Points"] = $points
-        $myParams.Remove('SideCount')
+        $myParams["D"] = $points -join ' '
+        $myParams.Remove('PointCount')
         $myParams.Remove('Rotate')
         $myParams.Remove('Radius')
         $myParams.Remove('CenterX')
         $myParams.Remove('CenterY')
               
-        svg.Polygon @myParams  
+        svg.Path @myParams  
+    
     
 }
 }

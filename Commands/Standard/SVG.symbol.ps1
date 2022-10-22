@@ -7,6 +7,21 @@ function SVG.symbol {
     
     The use of `<symbol>` elements for graphics that are used multiple times in the same document adds structure and semantics. Documents that are rich in structure may be rendered graphically, as speech, or as Braille, and thus promote accessibility.
 .Example
+    =<svg> -ViewBox 100,100 -Content @(
+        =<svg.symbol> -Id psChevron -Content @(
+            =<svg.polygon> -Points (@(
+                "40,20"
+                "45,20"
+                "60,50"
+                "35,80"
+                "32.5,80"
+                "55,50"
+            ) -join ' ')
+        ) -ViewBox 100, 100
+    
+        =<svg.use> -Href '#psChevron' -Fill '#4488ff'
+    )
+.Example
     =<svg> @(
         =<svg.symbol> -content (
             =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
@@ -1487,7 +1502,6 @@ process {
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         $myCmd = $MyInvocation.MyCommand
 
-        $inputObject = $_
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
@@ -1512,8 +1526,8 @@ process {
         if ($content) {
             $writeSvgSplat.Content = $content
         }
-        if ($OutputPath) {
-            $writeSvgSplat.OutputPath = $OutputPath
+        if ($paramCopy['OutputPath']) {
+            $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
         if ($data) {

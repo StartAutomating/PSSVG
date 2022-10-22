@@ -1,17 +1,17 @@
 
-SVG.RegularPolygon
-------------------
+SVG.ConvexPolygon
+-----------------
 ### Synopsis
-SVG Regular Polygon
+SVG Convex Polygon
 
 ---
 ### Description
 
-Creates a Regular Polygon of an number of sides.
+Creates a Regular Convex Polygon of an number of sides.
 
 ---
 ### Related Links
-* [SVG.Polygon](SVG.Polygon.md)
+* [SVG.Path](SVG.Path.md)
 
 
 
@@ -104,7 +104,7 @@ The radius of the polygon.
 ---
 ### Syntax
 ```PowerShell
-SVG.RegularPolygon [-SideCount <Int32>] [-Rotate <Double>] [-CenterX <Double>] [-CenterY <Double>] [-Radius <Double>] [<CommonParameters>]
+SVG.ConvexPolygon [-SideCount <Int32>] [-Rotate <Double>] [-CenterX <Double>] [-CenterY <Double>] [-Radius <Double>] [<CommonParameters>]
 ```
 ---
 

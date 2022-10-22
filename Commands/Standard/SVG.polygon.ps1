@@ -90,6 +90,21 @@ function SVG.polygon {
         )
         =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
     )
+.Example
+    =<svg> -ViewBox 100,100 -Content @(
+        =<svg.symbol> -Id psChevron -Content @(
+            =<svg.polygon> -Points (@(
+                "40,20"
+                "45,20"
+                "60,50"
+                "35,80"
+                "32.5,80"
+                "55,50"
+            ) -join ' ')
+        ) -ViewBox 100, 100
+    
+        =<svg.use> -Href '#psChevron' -Fill '#4488ff'
+    )
 .Link
     https://pssvg.start-automating.com/SVG.polygon
 .Link
@@ -1532,7 +1547,6 @@ process {
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         $myCmd = $MyInvocation.MyCommand
 
-        $inputObject = $_
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
@@ -1557,8 +1571,8 @@ process {
         if ($content) {
             $writeSvgSplat.Content = $content
         }
-        if ($OutputPath) {
-            $writeSvgSplat.OutputPath = $OutputPath
+        if ($paramCopy['OutputPath']) {
+            $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
         if ($data) {

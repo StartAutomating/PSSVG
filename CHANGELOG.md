@@ -1,3 +1,11 @@
+### 0.2.7:
+* Adding SVG.Star (Fixes #68)
+* Fixing OutputPath issue (Fixes #67)
+* Renaming SVG.RegularPolygon to SVG.ConvexPolygon (Fixes #70)
+* Improving README and docs
+
+---
+
 ### 0.2.6:
 * Adding SVG.RegularPolygon (Fixes #65)
 

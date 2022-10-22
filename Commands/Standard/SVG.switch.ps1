@@ -1410,7 +1410,6 @@ process {
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         $myCmd = $MyInvocation.MyCommand
 
-        $inputObject = $_
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
@@ -1435,8 +1434,8 @@ process {
         if ($content) {
             $writeSvgSplat.Content = $content
         }
-        if ($OutputPath) {
-            $writeSvgSplat.OutputPath = $OutputPath
+        if ($paramCopy['OutputPath']) {
+            $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
         if ($data) {
