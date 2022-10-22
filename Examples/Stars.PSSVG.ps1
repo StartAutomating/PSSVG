@@ -4,7 +4,7 @@ foreach ($n in 5..12) {
 
 
 =<svg> -ViewBox 2,2 @(
-    =<svg.Star> -PointCount $n  -Fill '#4488ff' -Stroke 'white' -StrokeWidth 0.01
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
 ) -OutputPath (Join-Path $PSScriptRoot .\Stars$n.svg)
 
 }
