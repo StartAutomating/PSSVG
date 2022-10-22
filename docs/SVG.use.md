@@ -27,18 +27,20 @@ The **`<use>`** element takes nodes from within the SVG document, and duplicates
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-@(
-    =<svg.symbol> -content (
-        =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
-    ) -id Star -ViewBox 25,25
+-ViewBox 100,100 -Content @(
+    =<svg.symbol> -Id psChevron -Content @(
+        =<svg.polygon> -Points (@(
+            "40,20"
+            "45,20"
+            "60,50"
+            "35,80"
+            "32.5,80"
+            "55,50"
+        ) -join ' ')
+    ) -ViewBox 100, 100
 ```
-$scaledSize = @{Width=15;Height=15}
-    =<svg.use> -Href '#Star' -X 0 @scaledSize
-    =<svg.use> -Href '#Star' -X 20 @scaledSize
-    =<svg.use> -Href '#Star' -X 40 @scaledSize
-    =<svg.use> -Href '#Star' -X 60 @scaledSize
-    =<svg.use> -Href '#Star' -X 80 @scaledSize
-) -ViewBox 0,0,125,50
+=<svg.use> -Href '#psChevron' -Fill '#4488ff'
+)
 #### EXAMPLE 2
 ```PowerShell
 @(
@@ -82,6 +84,20 @@ $scaledSize = @{Width=15;Height=15}
     =<svg.use> -Href '#Star' -X 80 @scaledSize
 ) -ViewBox 0,0,125,50
 #### EXAMPLE 5
+```PowerShell
+@(
+    =<svg.symbol> -content (
+        =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
+    ) -id Star -ViewBox 25,25
+```
+$scaledSize = @{Width=15;Height=15}
+    =<svg.use> -Href '#Star' -X 0 @scaledSize
+    =<svg.use> -Href '#Star' -X 20 @scaledSize
+    =<svg.use> -Href '#Star' -X 40 @scaledSize
+    =<svg.use> -Href '#Star' -X 60 @scaledSize
+    =<svg.use> -Href '#Star' -X 80 @scaledSize
+) -ViewBox 0,0,125,50
+#### EXAMPLE 6
 ```PowerShell
 @(
     =<svg.symbol> -content (
