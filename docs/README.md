@@ -32,6 +32,7 @@ The following elements are supported:
 |[animateTransform](SVG.animateTransform.md)      |[SVG.animateTransform](SVG.animateTransform.ps1)      |=&lt;svg.animateTransform&gt;   |
 |[circle](SVG.circle.md)                          |[SVG.circle](SVG.circle.ps1)                          |=&lt;svg.circle&gt;             |
 |[clipPath](SVG.clipPath.md)                      |[SVG.clipPath](SVG.clipPath.ps1)                      |=&lt;svg.clipPath&gt;           |
+|[](docs/SVG.ConvexPolygon.md)                         |[SVG.ConvexPolygon](SVG.ConvexPolygon.ps1)            |=&lt;svg.ConvexPolygon&gt;      |
 |[defs](SVG.defs.md)                              |[SVG.defs](SVG.defs.ps1)                              |=&lt;svg.defs&gt;               |
 |[desc](SVG.desc.md)                              |[SVG.desc](SVG.desc.ps1)                              |=&lt;svg.desc&gt;               |
 |[discard](SVG.discard.md)                        |[SVG.discard](SVG.discard.ps1)                        |=&lt;svg.discard&gt;            |
@@ -129,7 +130,6 @@ It uses two PowerShell modules to read the repository and create the commands:
 
 * [Irregular](https://github.com/StartAutomating/Irregular) is used to help parse the markdown contents of the repository
 * [PipeScript](https://github.com/StartAutomating/PipeScript) is used to create the functions from the parsed data.
-
 
 
 
