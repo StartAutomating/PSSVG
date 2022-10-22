@@ -48,7 +48,7 @@ PSSVG has _a lot cooler_ [Examples](https://github.com/StartAutomating/PSSVG/tre
                             $_.Name.StartsWith($fileName)
                         } |
                         Foreach-Object {
-                            "[$($_.Name)]($($_.Name))"
+                            "[$($_.Name)](Examples/$($_.Name))"
                             "![$fileName](Examples/$($_.Name))"
                         }) -join '<br/>'
                 }
