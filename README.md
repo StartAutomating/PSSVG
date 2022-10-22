@@ -82,6 +82,7 @@ The following elements are supported:
 |[script](docs/SVG.script.md)                          |[SVG.script](SVG.script.ps1)                          |=&lt;svg.script&gt;             |
 |[set](docs/SVG.set.md)                                |[SVG.set](SVG.set.ps1)                                |=&lt;svg.set&gt;                |
 |[](docs/SVG.Spiral.md)                                |[SVG.Spiral](SVG.Spiral.ps1)                          |=&lt;svg.Spiral&gt;             |
+|[](docs/SVG.Star.md)                                  |[SVG.Star](SVG.Star.ps1)                              |=&lt;svg.Star&gt;               |
 |[stop](docs/SVG.stop.md)                              |[SVG.stop](SVG.stop.ps1)                              |=&lt;svg.stop&gt;               |
 |[style](docs/SVG.style.md)                            |[SVG.style](SVG.style.ps1)                            |=&lt;svg.style&gt;              |
 |[svg](docs/SVG.svg.md)                                |[SVG.svg](SVG.svg.ps1)                                |=&lt;svg&gt; svg                |
