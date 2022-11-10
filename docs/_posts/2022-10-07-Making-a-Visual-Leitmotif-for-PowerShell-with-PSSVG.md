@@ -27,7 +27,7 @@ Using PSSVG, we can create our Visual Leitmotif with just a few lines of code.
         ) -join ' ')
     ) -ViewBox 100, 100
 
-    =<svg.use> -Href '#psChevron' -Fill '#4488ff'
+    =<svg.use> -Href '#psChevron' -Fill '[#4488](https://github.com/StartAutomating/PSSVG/issues/4488)ff'
 )
 ~~~
 
@@ -53,6 +53,12 @@ Here it is again in the [GitPub](https://github.com/StartAutomating/GitPub) logo
 
 And again in the [ugit](https://github.com/StartAutomating/ugit) logo:
 [![ugit Logo](https://raw.githubusercontent.com/StartAutomating/ugit/main/assets/ugit.svg)](https://github.com/StartAutomating/ugit/blob/main/ugit.PSSVG.ps1)
+
+---
+
+And again in PSDevOps [PSDevOps](https://github.com/StartAutomating/PSDevOps) logo:
+[![PSDevOps Logo](https://raw.githubusercontent.com/StartAutomating/PSDevOps/master/Assets/PSDevOps.svg)](https://github.com/StartAutomating/PSDevOps/blob/master/PSDevOps.PSSVG.ps1)
+
 
 ---
 And, of course, in an updated [PSSVG](https://github.com/StartAutomating/PSSVG) logo:
