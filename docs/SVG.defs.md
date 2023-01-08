@@ -155,6 +155,13 @@ Graphical objects can be referenced from anywhere, however, defining these objec
 
 #### EXAMPLE 9
 ```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 10
+```PowerShell
 -Content @(
     =<svg.defs> @(
         =<svg.LinearGradient> -Id myGradient -Content @(
