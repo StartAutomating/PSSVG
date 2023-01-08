@@ -1,4 +1,3 @@
-
 SVG.set
 -------
 ### Synopsis
@@ -35,13 +34,12 @@ The Contents of the set element
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: 1
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |1       |true (ByPropertyName)|
 
 
 
@@ -52,13 +50,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -69,13 +66,12 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -86,13 +82,12 @@ This attribute defines the value to be applied to the target attribute for the d
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -105,13 +100,12 @@ The **`href`** attribute defines a link to a resource as a reference [URL](https
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -122,13 +116,12 @@ The **`attributeType`** attribute specifies the namespace in which the target at
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -139,13 +132,12 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -158,13 +150,12 @@ The attribute value is a semicolon separated list of values. The interpretation 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -175,13 +166,12 @@ The **`dur`** attribute indicates the simple duration of an animation.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -192,13 +182,12 @@ The **`end`** attribute defines an end value for the animation that can constrai
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -209,13 +198,12 @@ The **`min`** attribute specifies the minimum value of the active animation dura
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -226,13 +214,12 @@ The **`max`** attribute specifies the maximum value of the active animation dura
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -243,13 +230,12 @@ The **`restart`** attribute specifies whether or not an animation can restart.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -260,13 +246,12 @@ The **`repeatCount`** attribute indicates the number of times an animation will 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -277,13 +262,12 @@ The **`repeatDur`** attribute specifies the total duration for repeating an anim
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -294,13 +278,12 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -313,13 +296,12 @@ The default mode is `linear`, however if the attribute does not support linear i
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -330,13 +312,12 @@ The `values` attribute has different meanings, depending upon the context where 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -349,13 +330,12 @@ Each time in the list corresponds to a value in the values attribute list, and d
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -370,13 +350,12 @@ If there are any errors in the keySplines specification (bad values, too many or
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -389,13 +368,12 @@ When used with the to attribute, the animation will change the modified attribut
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -408,13 +386,12 @@ The starting value for the attribute is either indicated by specifying it as val
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -427,13 +404,12 @@ It is frequently useful to define animation as an offset or delta to an attribut
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -446,13 +422,12 @@ It is frequently useful for repeated animations to build upon the previous resul
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -465,13 +440,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -488,13 +462,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -507,13 +480,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -526,13 +498,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -549,13 +520,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -572,13 +542,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -598,13 +567,12 @@ You can use this class to style SVG content using CSS.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -617,13 +585,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -633,5 +600,3 @@ You can use this attribute with any SVG element.
 SVG.set [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-To <Object>] [-Href <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-From <Object>] [-By <Object>] [-Additive <Object>] [-Accumulate <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
 ---
-
-
