@@ -1,4 +1,3 @@
-
 SVG.Triangle
 ------------
 ### Synopsis
@@ -21,5 +20,3 @@ Creates a Triangle as an SVG.Polygon.
 SVG.Triangle [<CommonParameters>]
 ```
 ---
-
-
