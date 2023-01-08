@@ -1,4 +1,3 @@
-
 SVG.mpath
 ---------
 ### Synopsis
@@ -31,13 +30,12 @@ The Contents of the mpath element
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: 1
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |1       |true (ByPropertyName)|
 
 
 
@@ -48,13 +46,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -65,13 +62,12 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -84,13 +80,12 @@ The **`xlink:href`** attribute defines a reference to a resource as a reference 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -103,13 +98,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -126,13 +120,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -145,13 +138,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -164,13 +156,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -187,13 +178,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -210,13 +200,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -227,13 +216,12 @@ The **`xlink:type`** attribute identifies the type of XLink being used. In SVG, 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -246,13 +234,12 @@ This contextual role can differ from the meaning of the resource when taken outs
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -267,13 +254,12 @@ The use of this information is highly dependent on the type of processing being 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -284,13 +270,12 @@ The **`xlink:show`** attribute indicates how a linked resource should be opened 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -300,5 +285,3 @@ The **`xlink:show`** attribute indicates how a linked resource should be opened 
 SVG.mpath [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [<CommonParameters>]
 ```
 ---
-
-
