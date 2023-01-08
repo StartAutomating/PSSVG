@@ -7,7 +7,10 @@ function SVG.ConvexPolygon {
     .LINK
         SVG.Path
     #>
-    [inherit('SVG.Path', Abstract,Dynamic, ExcludeParameter='D')]
+    [inherit(Command={
+        Import-Module ../../PSSVG.psd1 -Global
+        'SVG.Path'
+    }, Abstract,Dynamic, ExcludeParameter='D')]
     param(
     # The number of sides in the polygon
     [Parameter(ValueFromPipelineByPropertyName)]
