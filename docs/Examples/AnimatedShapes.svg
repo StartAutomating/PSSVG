@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="0 0 100 150" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <circle cx="25" cy="25" r="10" fill="#4488ff">
-    <animate values="1;10;1" attributeName="r" repeatCount="indefinite" dur="2s" />
+    <animate values="1;10;1" attributeName="r" dur="2s" repeatCount="indefinite" />
   </circle>
   <rect x="0" y="50" width="50" height="50" fill="#4488ff">
-    <animate values="0;50;0" attributeName="width" repeatCount="indefinite" dur="2s" />
-    <animate values="50;0;50" attributeName="height" repeatCount="indefinite" dur="2s" />
+    <animate values="0;50;0" attributeName="width" dur="2s" repeatCount="indefinite" />
+    <animate values="50;0;50" attributeName="height" dur="2s" repeatCount="indefinite" />
   </rect>
   <ellipse cx="25" cy="100" rx="10" ry="5" fill="#4488ff">
-    <animate values="10;1;10" attributeName="rx" repeatCount="indefinite" dur="2s" />
-    <animate values="5;10;5" attributeName="ry" repeatCount="indefinite" dur="2s" />
+    <animate values="10;1;10" attributeName="rx" dur="2s" repeatCount="indefinite" />
+    <animate values="5;10;5" attributeName="ry" dur="2s" repeatCount="indefinite" />
   </ellipse>
 </svg>
