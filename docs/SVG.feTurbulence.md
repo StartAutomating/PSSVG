@@ -23,6 +23,72 @@ The **`<feTurbulence>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+-viewBox '0 0 420 200' -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025'
+)
+    =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.05'
+)
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
+)
+```
+
+#### EXAMPLE 2
+```PowerShell
+-viewBox '0 0 420 200' -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025'
+)
+    =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.05'
+)
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
+)
+```
+
+#### EXAMPLE 3
+```PowerShell
+-viewBox '0 0 420 200' -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
+            =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
+        )
+)
+    =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
+            =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
+        )
+)
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
+)
+```
+
+#### EXAMPLE 4
+```PowerShell
+-viewBox '0 0 420 200' -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
+            =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
+        )
+)
+    =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
+            =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
+        )
+)
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
+)
+```
+
+---
 ### Parameters
 #### **Content**
 
