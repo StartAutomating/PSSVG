@@ -115,6 +115,48 @@ $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
     ) -ViewBox 0,0,500,500
 #### EXAMPLE 6
 ```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 7
+```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 8
+```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 9
+```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 10
+```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 11
+```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 12
+```PowerShell
 $Radius = 35
 $Center = 50
 $RotateEvery = [Timespan]::FromSeconds(1.5)
@@ -524,7 +566,7 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 
-The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 
 
 
