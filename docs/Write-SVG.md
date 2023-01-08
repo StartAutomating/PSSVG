@@ -1,4 +1,3 @@
-
 Write-SVG
 ---------
 ### Synopsis
@@ -17,13 +16,12 @@ The name of the SVG element.
 
 
 
-> **Type**: ```[String]```
 
-> **Required**: true
 
-> **Position**: 1
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[String]`|true    |1       |false        |
 
 
 
@@ -34,13 +32,12 @@ A dictionary of attributes.
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: 2
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |2       |true (ByPropertyName)|
 
 
 
@@ -51,13 +48,12 @@ A dictionary of data.
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: 3
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |3       |true (ByPropertyName)|
 
 
 
@@ -68,13 +64,12 @@ A dictionary of content.
 
 
 
-> **Type**: ```[PSObject]```
 
-> **Required**: false
 
-> **Position**: 4
 
-> **PipelineInput**:true (ByPropertyName)
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |4       |true (ByPropertyName)|
 
 
 
@@ -85,13 +80,12 @@ An output path.
 
 
 
-> **Type**: ```[String]```
 
-> **Required**: false
 
-> **Position**: 5
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[String]`|false   |5       |true (ByPropertyName)|
 
 
 
@@ -103,6 +97,3 @@ Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictio
 ---
 ### Notes
 While this function can be used directly, it is designed to be the core function that other SVG creation functions call.
-
-
-
