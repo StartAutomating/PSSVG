@@ -598,6 +598,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $parameters['Data'] = @(
         "# A dictionary containing data.  This data will be embedded in data- attributes."        
         "[Parameter(ValueFromPipelineByPropertyName)]"
+        "[Alias('DataAttribute','DataAttributes')]"
         "[Collections.IDictionary]"
         '$Data'
     )
@@ -605,7 +606,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $parameters['Attribute'] = @(
         "# A dictionary of attributes.  This can set any attribute not exposed in other parameters."        
         "[Parameter(ValueFromPipelineByPropertyName)]"
-        "[Alias('Attributes')]"
+        "[Alias('SVGAttributes','SVGAttribute')]"
         "[Collections.IDictionary]"
         '$Attribute = [Ordered]@{}'
     )
