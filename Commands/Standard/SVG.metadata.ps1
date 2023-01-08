@@ -3,7 +3,7 @@ function SVG.metadata {
 .Synopsis
     Creates SVG metadata elements
 .Description
-    The **`<metadata>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element adds metadata to SVG content. Metadata is structured information about data. The contents of `<metadata>` should be elements from other `XML` {{Glossary("namespace", "namespaces")}} such as `RDF`, [FOAF](https://developer.mozilla.orghttps://en.wikipedia.org/wiki/FOAF_\(ontology\)), etc.
+    The **`<metadata>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element adds metadata to SVG content. Metadata is structured information about data. The contents of `<metadata>` should be elements from other `XML` {{Glossary("namespace", "namespaces")}} such as `RDF`, [FOAF](https://developer.mozilla.org<https://en.wikipedia.org/wiki/FOAF_(ontology)>), etc.
 .Link
     https://pssvg.start-automating.com/SVG.metadata
 .Link
@@ -20,11 +20,12 @@ param(
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The **`id`** attribute assigns a unique name to an element.

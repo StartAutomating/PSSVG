@@ -21,11 +21,12 @@ param(
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The URL to the path or basic shape on which to render the text. If the `path` attribute is set, `href` has no effect.

@@ -82,6 +82,48 @@ function SVG.animateTransform {
             )
         ) -ViewBox 0,0,500,500
 .Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
     $Radius = 35
     $Center = 50
     $RotateEvery = [Timespan]::FromSeconds(1.5)
@@ -107,11 +149,12 @@ param(
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The **`by`** attribute specifies a relative offset value for an attribute that will be modified during an animation.
@@ -359,7 +402,7 @@ $AttributeType,
 $AttributeName,
 # The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 # 
-# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]

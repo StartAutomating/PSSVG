@@ -113,6 +113,13 @@ function SVG.defs {
         =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -ViewBox '0 0 100 100'
 .Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
     =<svg> -Content @(
         =<svg.defs> @(
             =<svg.LinearGradient> -Id myGradient -Content @(
@@ -138,11 +145,12 @@ param(
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The **`id`** attribute assigns a unique name to an element.

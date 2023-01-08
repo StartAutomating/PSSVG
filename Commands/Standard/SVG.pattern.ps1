@@ -140,11 +140,12 @@ param(
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # This attribute determines the height of the pattern tile.
@@ -230,7 +231,7 @@ $Width,
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $X,
-# This attribute reference a template pattern that provides default values for the `<pattern>` attributes.
+# This attribute references a template pattern that provides default values for the `<pattern>` attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]

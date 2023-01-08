@@ -6,6 +6,20 @@ function SVG.marker {
     The **`<marker>`** element defines the graphic that is to be used for drawing arrowheads or polymarkers on a given `path`, `line`, `polyline` or `polygon` element.
     
     Markers are attached to shapes using the `marker-start`, `marker-mid`, and `marker-end` properties.
+.Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
+.Example
+    foreach ($n in 5..12) {
+    
+    
+    =<svg> -ViewBox 2,2 @(
+        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    )
 .Link
     https://pssvg.start-automating.com/SVG.marker
 .Link
@@ -22,11 +36,12 @@ param(
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # This attribute defines the height of the marker viewport.

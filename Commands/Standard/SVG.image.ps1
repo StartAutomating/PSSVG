@@ -7,7 +7,7 @@ function SVG.image {
     
     The only image formats SVG software must support are `JPEG`, `PNG`, and other SVG files. Animated `GIF` behavior is undefined.
     
-    SVG files displayed with `<image>` are [treated as an image](https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_as_an_Image): external resources aren't loaded, `:visited` styles [aren't applied](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the\_:visited_selector), and they cannot be interactive. To include dynamic SVG elements, try `use` with an external URL. To include SVG files and run scripts inside them, try `object` inside of `foreignObject`.
+    SVG files displayed with `<image>` are [treated as an image](https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_as_an_Image): external resources aren't loaded, `:visited` styles [aren't applied](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector), and they cannot be interactive. To include dynamic SVG elements, try `use` with an external URL. To include SVG files and run scripts inside them, try `object` inside of `foreignObject`.
     
     > **Note:** The HTML spec defines `<image>` as a synonym for `img` while parsing HTML. This specific element and its behavior only apply inside SVG documents or inline SVGs.
 .Link
@@ -26,11 +26,12 @@ param(
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # 
