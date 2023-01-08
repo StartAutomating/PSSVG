@@ -351,7 +351,7 @@ This attribute determines the x coordinate shift of the pattern tile.
 ---
 #### **XlinkHref**
 
-This attribute reference a template pattern that provides default values for the `<pattern>` attributes.
+This attribute references a template pattern that provides default values for the `<pattern>` attributes.
 
 
 
