@@ -1689,6 +1689,42 @@ $colors = @('red','green','blue')
 
     )
 ) -ViewBox 200,200
+#### EXAMPLE 51
+```PowerShell
+-viewBox '0 0 420 200' -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
+            =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
+        )
+)
+    =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
+            =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
+        )
+)
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
+)
+```
+
+#### EXAMPLE 52
+```PowerShell
+-viewBox '0 0 420 200' -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
+            =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
+        )
+)
+    =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
+            =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
+        )
+)
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
+    =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
+)
+```
+
 ---
 ### Parameters
 #### **Content**
@@ -1743,7 +1779,7 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
 
-> **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id x="5" y="5" />`.
+> **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
 
 
 
@@ -1793,7 +1829,7 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 
-The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 
 
 
