@@ -6,7 +6,7 @@ Creates SVG metadata elements
 ---
 ### Description
 
-The **`<metadata>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element adds metadata to SVG content. Metadata is structured information about data. The contents of `<metadata>` should be elements from other `XML` {{Glossary("namespace", "namespaces")}} such as `RDF`, [FOAF](https://developer.mozilla.orghttps://en.wikipedia.org/wiki/FOAF_\(ontology\)), etc.
+The **`<metadata>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element adds metadata to SVG content. Metadata is structured information about data. The contents of `<metadata>` should be elements from other `XML` {{Glossary("namespace", "namespaces")}} such as `RDF`, [FOAF](https://developer.mozilla.org<https://en.wikipedia.org/wiki/FOAF_(ontology)>), etc.
 
 ---
 ### Related Links
