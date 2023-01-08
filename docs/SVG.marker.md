@@ -25,6 +25,22 @@ Markers are attached to shapes using the `marker-start`, `marker-mid`, and `mark
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 2
+```PowerShell
+foreach ($n in 5..12) {
+```
+=<svg> -ViewBox 2,2 @(
+    =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+---
 ### Parameters
 #### **Content**
 
