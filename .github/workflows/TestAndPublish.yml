@@ -587,4 +587,4 @@ jobs:
         uses: StartAutomating/HelpOut@master
 env: 
   NoCoverage: true
-  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  GIT_TOKEN: ${{secrets.GITHUB_TOKEN}}

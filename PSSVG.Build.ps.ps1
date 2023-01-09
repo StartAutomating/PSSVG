@@ -52,8 +52,8 @@ if (-not $svgElementData) {
 }
 
 # If we had a GITHUB_TOKEN, use it as $ghp
-if ($env:GITHUB_TOKEN) {
-    $ghp = $env:GITHUB_TOKEN
+if ($env:GIT_TOKEN) {
+    $ghp = $env:GIT_TOKEN
 }
 
 if (-not $ghp) {
