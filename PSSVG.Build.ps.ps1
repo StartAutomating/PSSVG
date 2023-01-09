@@ -86,6 +86,9 @@ $lastFileUpdate =
 if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) {
     "Up to Date" | Out-Host
     Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
+    if (Test-Path content) {
+        Remove-Item -Recurse -Force content
+    }
     return
 }
 
@@ -815,5 +818,9 @@ $OutputPath
 }
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
+
+if (Test-Path content) {
+    Remove-Item -Recurse -Force content
+}
 
 Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
