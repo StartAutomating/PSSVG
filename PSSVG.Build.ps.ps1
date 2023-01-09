@@ -67,7 +67,7 @@ if ($env:GITHUB_WORKSPACE) {
 
 $myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
 
-$mdnLastChange = (
+$mdnLastChange = $(
     try { Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content } catch { $null }
 ).updated_at
 
