@@ -13,6 +13,7 @@ function SVG.mpath {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'mpath')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the mpath element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
