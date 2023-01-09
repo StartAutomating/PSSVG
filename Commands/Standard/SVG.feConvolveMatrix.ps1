@@ -53,6 +53,7 @@ function SVG.feConvolveMatrix {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feConvolveMatrix')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feConvolveMatrix element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
