@@ -118,7 +118,6 @@ if (-not $ghp) {
 
 git fetch --unshallow
 
-
 $myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
 
 $mdnLastChange = (
@@ -139,6 +138,7 @@ $lastFileUpdate =
 "MDNLastChange  @ $mdnLastChange  " | Out-Host
 if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) {
     "Up to Date" | Out-Host
+    Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
     return
 }    
 
@@ -767,6 +767,9 @@ $OutputPath
 '@
             )
         }
+        $newPipeScriptSplat.attribute += @(
+            '[OutputType([IO.FileInfo])]'
+        )
     }
     $newPipeScriptSplat.Process = {
         $paramCopy = [Ordered]@{} + $PSBoundParameters
@@ -823,4 +826,4 @@ $OutputPath
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
 
-Import-Module .\PSSVG.psd1 -Global -Force
+Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
