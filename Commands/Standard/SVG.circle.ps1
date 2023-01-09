@@ -201,6 +201,7 @@ function SVG.circle {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'circle')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the circle element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
