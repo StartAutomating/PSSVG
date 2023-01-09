@@ -4,58 +4,6 @@ function SVG.feTurbulence {
     Creates SVG feTurbulence elements
 .Description
     The **`<feTurbulence>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filter primitive creates an image using the [Perlin turbulence function](https://developer.mozilla.orghttps://en.wikipedia.org/wiki/Perlin_noise). It allows the synthesis of artificial textures like clouds or marble. The resulting image will fill the entire filter primitive subregion.
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025'
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05'
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025'
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05'
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
-                =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
-            )
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
-                =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
-            )
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
-                =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
-            )
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
-                =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
-            )
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
 .Link
     https://pssvg.start-automating.com/SVG.feTurbulence
 .Link
@@ -65,6 +13,7 @@ function SVG.feTurbulence {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feTurbulence')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feTurbulence element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
