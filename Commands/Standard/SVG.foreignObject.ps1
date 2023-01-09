@@ -13,6 +13,7 @@ function SVG.foreignObject {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'foreignObject')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the foreignObject element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
