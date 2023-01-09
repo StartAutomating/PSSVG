@@ -64,7 +64,7 @@ if (-not $ghp) {
 $myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
 
 $mdnLastChange = (
-    https://api.github.com/repos/mdn/content -Invoker Invoke-GitHubRestAPI -PersonalAccessToken $ghp
+    Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content -PersonalAccessToken $ghp
 ).updated_at
 
 $lastFileUpdate = 
