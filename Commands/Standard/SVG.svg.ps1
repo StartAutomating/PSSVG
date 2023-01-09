@@ -15,6 +15,7 @@ function SVG.svg {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'svg')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the svg element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
@@ -1541,7 +1542,8 @@ $WordSpacing,
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $WritingMode,
-# The output path
+# The output path.
+# If provided, will return a file, rather than an element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [string]
 $OutputPath                
