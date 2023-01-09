@@ -73,66 +73,6 @@ function SVG.text {
         =<svg.use> -Href '#Star' -X 60 @scaledSize
         =<svg.use> -Href '#Star' -X 80 @scaledSize
     ) -ViewBox 0,0,125,50
-.Example
-    =<svg> -viewBox 300, 100 -Content @(
-        =<svg.symbol> -Id psChevron -Content @(
-            =<svg.polygon> -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-        =<svg.use> -Href '#psChevron' -Fill '#4488ff' -X -7.5%
-        =<svg.text> @(
-            =<svg.tspan> -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
-            =<svg.tspan> -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
-        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
-        # =<svg.text> -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
-    )
-.Example
-    =<svg> -viewBox 300, 100 -Content @(
-        =<svg.symbol> -Id psChevron -Content @(
-            =<svg.polygon> -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-        =<svg.use> -Href '#psChevron' -Fill '#4488ff' -X -7.5%
-        =<svg.text> @(
-            =<svg.tspan> -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
-            =<svg.tspan> -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
-        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
-        # =<svg.text> -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
-    )
-.Example
-    =<svg> @(
-        =<svg.RegularPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -Content 'STOP' -FontSize 64 -FontFamily sans-serif -Fill white
-    
-        =<svg.text> -X 50% -Y 75% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            =<svg.tspan> -Content "GIF" -Id gif
-            =<svg.animate> -Values '28;32;28' -Dur 3s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    ) -ViewBox 200,200
-.Example
-    =<svg> @(
-        =<svg.RegularPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -Content 'STOP' -FontSize 64 -FontFamily sans-serif -Fill white
-    
-        =<svg.text> -X 50% -Y 75% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            =<svg.tspan> -Content "GIF" -Id gif
-            =<svg.animate> -Values '28;32;28' -Dur 3s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    ) -ViewBox 200,200
 .Link
     https://pssvg.start-automating.com/SVG.text
 .Link
@@ -142,6 +82,7 @@ function SVG.text {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'text')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the text element
 [Reflection.AssemblyMetaData('SVG.IsCData', $True)]
