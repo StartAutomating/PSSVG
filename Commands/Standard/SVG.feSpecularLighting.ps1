@@ -15,6 +15,7 @@ function SVG.feSpecularLighting {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feSpecularLighting')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feSpecularLighting element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
