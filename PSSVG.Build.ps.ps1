@@ -800,7 +800,9 @@ $OutputPath
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
         }
 
@@ -818,7 +820,15 @@ $OutputPath
             Set-Content -Path $destination
         Get-Item -Path $destination    
     }
-    
+
+    $readMePath = (Join-Path $destFolder "README.md")
+@"
+This directory contains the commands that directly map to elements in the SVG standard.
+
+It was last synchronized to the standard @ $([DateTime]::UtcNow.ToString('o'))
+"@ |
+    Set-Content -Path $readMePath
+    Get-Item -Path $readMePath
 }
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
