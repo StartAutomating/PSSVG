@@ -15,6 +15,7 @@ function SVG.script {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'script')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the script element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
