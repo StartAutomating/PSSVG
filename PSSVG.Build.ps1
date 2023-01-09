@@ -111,17 +111,19 @@ if ($env:GIT_TOKEN) {
     $ghp = $env:GIT_TOKEN
 }
 
-if (-not $ghp) {
+<#if (-not $ghp) {
     Write-Error "Must have defined a GitHub Personal Access Token in `$ghp"
     return
-}
+}#>
 
-git fetch --unshallow
+if ($env:GITHUB_WORKSPACE) {
+    git fetch --unshallow
+}
 
 $myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
 
 $mdnLastChange = (
-    Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content -PersonalAccessToken $ghp
+    Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content
 ).updated_at
 
 $lastFileUpdate = 
@@ -135,19 +137,27 @@ $lastFileUpdate =
 
 "LastFileUpdate @ $lastFileUpdate" | Out-Host
 "MyLastChange   @ $myLastChange  " | Out-Host
-"MDNLastChange  @ $mdnLastChange  " | Out-Host
+"MDNLastChange  @ $mdnLastChange " | Out-Host
 if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) {
     "Up to Date" | Out-Host
     Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
     return
-}    
+}
 
+git clone https://github.com/mdn/content.git --depth 1 --progress
+
+$mdnContentRoot = Join-Path $pwd content
+$mdnContentsRoot = Join-Path $mdnContentRoot 'contents'
 
 # If we don't know the list of elements
 if (-not $svgElements) {
     # we can go to the repo and get the JSON.
-    $svgData = Invoke-GitHubRestAPI -uri https://api.github.com/repos/mdn/content/contents/files/jsondata/SVGData.json -PersonalAccessToken $ghp
-    $svgElements = [Text.Encoding]::utf8.getString([Convert]::FromBase64String($svgData.content)) | ConvertFrom-Json
+    $svgData = Join-Path $mdnContentRoot "files" |
+        Join-Path -ChildPath jsondata |
+        Join-Path -ChildPath SVGData.json |
+        Get-Content -Raw -Path { $_ } |
+        ConvertFrom-Json    
+    $svgElements = $svgData
 }
 
 $findSvgElement = [Regex]::new("\{\{SVGElement\(['`"](?<e>[^'`"]+)")
@@ -229,15 +239,14 @@ function ImportSvgAttribute {
     [uri]
     $SVGAttributeUri
     )
+    $markdownPath = (Join-Path $mdnContentRoot ($SVGAttributeUri.PathAndQuery -replace '.+contents/'))
     $elementOrSetName = $SVGAttributeUri.Segments[-2] -replace '^/' -replace '/$'
     if (-not $savedMarkdown["$SVGAttributeUri"]) {
-        $savedMarkdown["$SVGAttributeUri"] = [Text.Encoding]::utf8.getString([Convert]::FromBase64String(
-            $(try {
-                Invoke-GitHubRestApi -Uri $SVGAttributeUri -ErrorAction SilentlyContinue -PersonalAccessToken $ghp
-            } catch {
-                Write-Warning "$SVGAttributeUri : $_"                
-            }).Content
-        ))
+        $savedMarkdown["$SVGAttributeUri"] = if (Test-Path $markdownPath) {
+            Get-Content -Path $markdownPath -Raw
+        } else {
+            $markdownNotFound["$svgAttributeUri"] = $true
+        }
     }
     $elementMarkdown = $savedMarkdown["$SVGAttributeUri"]
     if (-not $elementMarkdown) {
@@ -415,7 +424,7 @@ function ImportSvgElementAttribute {
 }
 
 function InitializeSvgAttributeData {
-    $attributeListUri = "https://api.github.com/repos/mdn/content/contents/files/en-us/web/svg/attribute/index.md"
+    <#
     if (-not $savedMarkdown[$attributeListUri]) {
         $savedMarkdown[$attributeListUri] = [Text.Encoding]::utf8.getString([Convert]::FromBase64String(
                 $(try {
@@ -425,8 +434,16 @@ function InitializeSvgAttributeData {
                 }).Content
             ))
     }
-    
-    $attributeListMarkdown = $savedMarkdown[$attributeListUri]
+    #>
+    $attributeListUri = "https://api.github.com/repos/mdn/content/contents/files/en-us/web/svg/attribute/index.md"
+    $attributeListMarkdown = Join-Path $mdnContentRoot files |
+        Join-Path -ChildPath en-us | 
+        Join-Path -ChildPath web |
+        Join-Path -ChildPath svg |
+        Join-Path -ChildPath attribute |
+        Join-Path -ChildPath index.md |
+        Get-Content -Raw -Path { $_ }
+    $savedMarkdown[$attributeListUri] = $attributeListMarkdown
     $headingList         = @($attributeListMarkdown | ?<Markdown_Heading> -Split -IncludeMatch)
     $attributeGroups     = [Ordered]@{}
     $attributeGroupsText = [Ordered]@{}
@@ -467,7 +484,15 @@ function InitializeSvgAttributeData {
         $attrName = $match.Groups["a"].Value
         if (-not $attrsFound[$attrName]) {
             $attrUriPart = $attrName.ToLower() -replace '\:', '_colon_'
-            $attrsFound[$attrName] = "https://api.github.com/repos/mdn/content/contents/files/en-us/web/svg/attribute/$attrUriPart/index.md"
+            
+            $attrsFound[$attrName] = 
+                Join-Path $mdnContentRoot -ChildPath files |
+                Join-Path -ChildPath en-us |
+                Join-Path -ChildPath web |
+                Join-Path -ChildPath svg |
+                Join-Path -ChildPath attribute |
+                Join-Path -ChildPath $attrUriPart |
+                Join-Path -ChildPath index.md
         }    
     }
     
@@ -477,17 +502,12 @@ function InitializeSvgAttributeData {
     foreach ($attrKv in $attrsFound.GetEnumerator()) {
         $attrUri = $attrKv.Value
         if (-not $savedMarkdown[$attrUri] -and -not $markdownNotFound[$attrUri]) {
-            $savedMarkdown[$attrUri] = [Text.Encoding]::utf8.getString([Convert]::FromBase64String(
-                $(try {
-                    $err = $null
-                    Invoke-GitHubRestApi -Uri $attrUri -ErrorAction SilentlyContinue -PersonalAccessToken $ghp -ErrorVariable err
-                    if ($err -and $err -like '*404*') {
-                        $markdownNotFound[$attrUri] = $true
-                    }
-                } catch {
-                    Write-Warning "$SVGAttributeUri : $_"                
-                }).Content
-            ))
+            
+            $savedMarkdown[$attrUri] = if (Test-Path $attrUri) {
+                $attrUri | Get-Content -Raw -Path { $_ }
+            } else {
+                $markdownNotFound[$attrUri] = $true
+            }
         }
     
         if (-not $savedMarkdown[$attrUri]) {
@@ -584,6 +604,7 @@ function InitializeSvgAttributeData {
 . InitializeSvgAttributeData
 
 
+<#
 $eventAttributeListUri = "https://api.github.com/repos/mdn/content/contents/files/en-us/web/svg/attribute/events/index.md"
 if (-not $savedMarkdown[$eventAttributeListUri]) {
     $savedMarkdown[$eventAttributeListUri] = [Text.Encoding]::utf8.getString([Convert]::FromBase64String(
@@ -593,7 +614,7 @@ if (-not $savedMarkdown[$eventAttributeListUri]) {
                 Write-Warning "$_"
             }).Content
         ))
-}
+}#>
 
 
 $c, $t, $id = 0, @($svgElements.elements.psobject.properties).Length, (Get-Random)
@@ -772,34 +793,45 @@ $OutputPath
         )
     }
     $newPipeScriptSplat.Process = {
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
