@@ -116,13 +116,14 @@ if (-not $ghp) {
     return
 }
 
+git fetch --unshallow
+
+
 $myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
 
 $mdnLastChange = (
     Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content -PersonalAccessToken $ghp
 ).updated_at
-
-git fetch --unshallow
 
 $lastFileUpdate = 
     Join-Path $pwd Commands |
