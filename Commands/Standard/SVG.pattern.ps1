@@ -133,6 +133,7 @@ function SVG.pattern {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'pattern')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the pattern element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
