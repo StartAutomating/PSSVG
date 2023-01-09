@@ -13,6 +13,7 @@ function SVG.feMerge {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feMerge')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feMerge element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
