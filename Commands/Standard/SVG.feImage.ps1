@@ -13,6 +13,7 @@ function SVG.feImage {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feImage')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feImage element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
