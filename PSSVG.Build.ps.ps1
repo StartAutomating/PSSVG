@@ -1,7 +1,3 @@
-#Requires -Module PipeScript
-#Requires -Module Irregular
-#requires -Module PSDevOps
-
 <#
 .SYNOPSIS
     Generates PSSVG
@@ -30,6 +26,8 @@
 .LINK
     https://github.com/mdn/content/blob/main/LICENSE.md
 #>
+
+require latest Irregular,PipeScript,PSDevOps,ugit 
 
 # Initialize some collections for us to use:
 
@@ -60,6 +58,25 @@ if ($env:GITHUB_TOKEN) {
 
 if (-not $ghp) {
     Write-Error "Must have defined a GitHub Personal Access Token in `$ghp"
+    return
+}
+
+$myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
+
+$mdnLastChange = (
+    https://api.github.com/repos/mdn/content -Invoker Invoke-GitHubRestAPI -PersonalAccessToken $ghp
+).updated_at
+
+$lastFileUpdate = 
+    Join-Path $PSScriptRoot Commands |
+    Join-Path -ChildPath 'Standard' |
+    Get-ChildItem |
+    git log -n 1 |
+    Select-Object -ExpandProperty CommitDate |
+    Sort-Object -Descending | 
+    Select-Object -First 1
+
+if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $myLastChange ) {
     return
 }
 
@@ -149,8 +166,6 @@ function ImportSvgAttribute {
     [uri]
     $SVGAttributeUri
     )
-
-
 
     $elementOrSetName = $SVGAttributeUri.Segments[-2] -replace '^/' -replace '/$'
     if (-not $savedMarkdown["$SVGAttributeUri"]) {
@@ -688,12 +703,14 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $newPipeScriptSplat.attribute = @(
         "[Reflection.AssemblyMetadata('SVG.ElementName', '$($elementKV.Key)')]"
         '[CmdletBinding(PositionalBinding=$false)]'
+        '[OutputType([Xml.XmlElement])]'
     )
     if ($elementName -eq 'SVG') {
         $newPipeScriptSplat.parameter += @{
             OutputPath = @(
 @'
-# The output path
+# The output path.
+# If provided, will return a file, rather than an element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [string]
 $OutputPath                
@@ -755,3 +772,5 @@ $OutputPath
 }
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
+
+Import-Module .\PSSVG.psd1 -Global -Force
