@@ -85,8 +85,7 @@ if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) 
     "Up to Date" | Out-Host
     Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
     return
-}    
-
+}
 
 # If we don't know the list of elements
 if (-not $svgElements) {
@@ -755,15 +754,20 @@ $OutputPath
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
