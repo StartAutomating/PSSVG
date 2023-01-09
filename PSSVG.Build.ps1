@@ -122,8 +122,8 @@ if ($env:GITHUB_WORKSPACE) {
 
 $myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
 
-$mdnLastChange = (
-    Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content
+$mdnLastChange = $(
+    try { Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content } catch { $null }
 ).updated_at
 
 $lastFileUpdate = 
@@ -135,12 +135,19 @@ $lastFileUpdate =
     Sort-Object -Descending | 
     Select-Object -First 1
 
+if (-not $mdnLastChange) {
+    "Could not get MDN last change" | Out-Host
+    $mdnLastChange = $lastFileUpdate
+}
 "LastFileUpdate @ $lastFileUpdate" | Out-Host
 "MyLastChange   @ $myLastChange  " | Out-Host
 "MDNLastChange  @ $mdnLastChange " | Out-Host
 if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) {
     "Up to Date" | Out-Host
     Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
+    if (Test-Path content) {
+        Remove-Item -Recurse -Force content
+    }
     return
 }
 
@@ -857,5 +864,9 @@ $OutputPath
 }
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
+
+if (Test-Path content) {
+    Remove-Item -Recurse -Force content
+}
 
 Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
