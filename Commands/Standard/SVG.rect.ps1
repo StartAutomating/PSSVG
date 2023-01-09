@@ -391,58 +391,6 @@ function SVG.rect {
         =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff'
     ) -ViewBox 0, 0, 100, 200
 .Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025'
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05'
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025'
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05'
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
-                =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
-            )
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
-                =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
-            )
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
-                =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
-            )
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
-                =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
-            )
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
     =<svg> -Content @(
         =<svg.defs> @(
             =<svg.LinearGradient> -Id myGradient -Content @(
@@ -461,6 +409,7 @@ function SVG.rect {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'rect')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the rect element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
