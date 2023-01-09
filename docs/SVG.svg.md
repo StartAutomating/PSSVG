@@ -1650,7 +1650,8 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 ---
 #### **OutputPath**
 
-The output path
+The output path.
+If provided, will return a file, rather than an element.
 
 
 
@@ -1660,6 +1661,13 @@ The output path
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[String]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
+### Outputs
+* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
+
 
 
 
