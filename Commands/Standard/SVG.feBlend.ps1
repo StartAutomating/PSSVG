@@ -13,6 +13,7 @@ function SVG.feBlend {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feBlend')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feBlend element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
