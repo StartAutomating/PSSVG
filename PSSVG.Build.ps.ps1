@@ -76,9 +76,14 @@ $lastFileUpdate =
     Sort-Object -Descending | 
     Select-Object -First 1
 
-if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $myLastChange ) {
+"LastFileUpdate @ $lastFileUpdate" | Out-Host
+"MyLastChange   @ $myLastChange  " | Out-Host
+"MDNLastChange  @ $mdnLastChange  " | Out-Host
+if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) {
+    "Up to Date" | Out-Host
     return
-}
+}    
+
 
 # If we don't know the list of elements
 if (-not $svgElements) {
