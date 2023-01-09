@@ -13,6 +13,7 @@ function SVG.feTile {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feTile')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feTile element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
