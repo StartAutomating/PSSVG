@@ -67,8 +67,10 @@ $mdnLastChange = (
     Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content -PersonalAccessToken $ghp
 ).updated_at
 
+git fetch --unshallow
+
 $lastFileUpdate = 
-    Join-Path $PSScriptRoot Commands |
+    Join-Path $pwd Commands |
     Join-Path -ChildPath 'Standard' |
     Get-ChildItem |
     git log -n 1 |
