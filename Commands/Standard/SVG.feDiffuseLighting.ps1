@@ -15,6 +15,7 @@ function SVG.feDiffuseLighting {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDiffuseLighting')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feDiffuseLighting element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
