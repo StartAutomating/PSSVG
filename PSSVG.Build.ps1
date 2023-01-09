@@ -1,7 +1,3 @@
-#Requires -Module PipeScript
-#Requires -Module Irregular
-#requires -Module PSDevOps
-
 <#
 .SYNOPSIS
     Generates PSSVG
@@ -31,6 +27,63 @@
     https://github.com/mdn/content/blob/main/LICENSE.md
 #>
 
+
+foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
+    $requireLatest = $false
+    $ModuleLoader  = $null
+    # If the module requirement was a string
+    if ($moduleRequirement -is [string]) {
+        # see if it's already loaded
+        $foundModuleRequirement = Get-Module $moduleRequirement
+        if (-not $foundModuleRequirement) {
+            # If it wasn't,
+            $foundModuleRequirement = try { # try loading it
+                Import-Module -Name $moduleRequirement -PassThru -Global -ErrorAction SilentlyContinue 
+            } catch {                
+                $null
+            }
+        }
+        # If we found a version but require the latest version,
+        if ($foundModuleRequirement -and $requireLatest) {
+            # then find if there is a more recent version.
+            Write-Verbose "Searching for a more recent version of $($foundModuleRequirement.Name)@$($foundModuleRequirement.Version)"
+            if (-not $script:FoundModuleVersions) {
+                $script:FoundModuleVersions = @{}
+            }
+            if (-not $script:FoundModuleVersions[$foundModuleRequirement.Name]) {
+                $script:FoundModuleVersions[$foundModuleRequirement.Name] = Find-Module -Name $foundModuleRequirement.Name            
+            }
+            $foundModuleInGallery = $script:FoundModuleVersions[$foundModuleRequirement.Name]
+            if ($foundModuleInGallery -and 
+                ([Version]$foundModuleInGallery.Version -gt [Version]$foundModuleRequirement.Version)) {
+                Write-Verbose "$($foundModuleInGallery.Name)@$($foundModuleInGallery.Version)"
+                # If there was a more recent version, unload the one we already have
+                $foundModuleRequirement | Remove-Module # Unload the existing module
+                $foundModuleRequirement = $null
+            } else {
+                Write-Verbose "$($foundModuleRequirement.Name)@$($foundModuleRequirement.Version) is the latest"
+            }
+        }
+        # If we have no found the required module at this point
+        if (-not $foundModuleRequirement) {
+            if ($moduleLoader) { # load it using a -ModuleLoader (if provided)
+                $foundModuleRequirement = . $moduleLoader $moduleRequirement
+            } else {
+                # or install it from the gallery.
+                Install-Module -Name $moduleRequirement -Scope CurrentUser -Force -AllowClobber
+                if ($?) {
+                    # Provided the installation worked, try importing it
+                    $foundModuleRequirement =
+                        Import-Module -Name $moduleRequirement -PassThru -Global -ErrorAction SilentlyContinue
+                }
+            }
+        } else {
+            $foundModuleRequirement
+        }
+    }
+}
+     
+
 # Initialize some collections for us to use:
 
 # * The SVGCommonAttributes
@@ -54,12 +107,31 @@ if (-not $svgElementData) {
 }
 
 # If we had a GITHUB_TOKEN, use it as $ghp
-if ($env:GITHUB_TOKEN) {
-    $ghp = $env:GITHUB_TOKEN
+if ($env:GIT_TOKEN) {
+    $ghp = $env:GIT_TOKEN
 }
 
 if (-not $ghp) {
     Write-Error "Must have defined a GitHub Personal Access Token in `$ghp"
+    return
+}
+
+$myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
+
+$mdnLastChange = (
+    Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content -PersonalAccessToken $ghp
+).updated_at
+
+$lastFileUpdate = 
+    Join-Path $PSScriptRoot Commands |
+    Join-Path -ChildPath 'Standard' |
+    Get-ChildItem |
+    git log -n 1 |
+    Select-Object -ExpandProperty CommitDate |
+    Sort-Object -Descending | 
+    Select-Object -First 1
+
+if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $myLastChange ) {
     return
 }
 
@@ -673,12 +745,14 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $newPipeScriptSplat.attribute = @(
         "[Reflection.AssemblyMetadata('SVG.ElementName', '$($elementKV.Key)')]"
         '[CmdletBinding(PositionalBinding=$false)]'
+        '[OutputType([Xml.XmlElement])]'
     )
     if ($elementName -eq 'SVG') {
         $newPipeScriptSplat.parameter += @{
             OutputPath = @(
 @'
-# The output path
+# The output path.
+# If provided, will return a file, rather than an element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [string]
 $OutputPath                
@@ -740,3 +814,5 @@ $OutputPath
 }
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
+
+Import-Module .\PSSVG.psd1 -Global -Force
