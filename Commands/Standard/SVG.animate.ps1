@@ -1586,47 +1586,6 @@ function SVG.animate {
         )
         =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -ViewBox '0 0 100 100'
-.Example
-    =<svg> @(
-        =<svg.RegularPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -Content 'STOP' -FontSize 64 -FontFamily sans-serif -Fill white
-    
-        =<svg.text> -X 50% -Y 75% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            =<svg.tspan> -Content "GIF" -Id gif
-            =<svg.animate> -Values '28;32;28' -Dur 3s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    ) -ViewBox 200,200
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
-                =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
-            )
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
-                =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
-            )
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
-.Example
-    =<SVG> -viewBox '0 0 420 200' -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Seed 100 @(
-                =<svg.animate> -AttributeName seed -Values '100;0;100' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML'
-            )
-    )
-        =<SVG.filter> -id 'noise2' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.05' -seed 0 @(
-                =<svg.animate> -AttributeName seed -Values '0;100;0' -Dur 10s -RepeatCount 'indefinite' -AttributeType 'XML' -CalcMode 'paced'
-            )
-    )
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise1);'
-        =<SVG.rect> -x '0' -y '0' -width '200' -height '200' -style 'filter: url(#noise2); transform: translateX(220px);'
-    )
 .Link
     https://pssvg.start-automating.com/SVG.animate
 .Link
@@ -1636,6 +1595,7 @@ function SVG.animate {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animate')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the animate element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
