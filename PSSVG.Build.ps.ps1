@@ -90,7 +90,7 @@ if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) 
 # If we don't know the list of elements
 if (-not $svgElements) {
     # we can go to the repo and get the JSON.
-    $svgData = https://api.github.com/repos/mdn/content/contents/files/jsondata/SVGData.json -Invoker Invoke-GitHubRestAPI -PersonalAccessToken $ghp
+    $svgData = Invoke-GitHubRestAPI -uri https://api.github.com/repos/mdn/content/contents/files/jsondata/SVGData.json -PersonalAccessToken $ghp
     $svgElements = [Text.Encoding]::utf8.getString([Convert]::FromBase64String($svgData.content)) | ConvertFrom-Json
 }
 
