@@ -218,7 +218,7 @@ $Type,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','requiredFeatures')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<list-of-features>')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'true if not defined, false if null or empty string as value')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
@@ -264,7 +264,7 @@ $Tabindex,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:base')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlBase,
@@ -277,7 +277,7 @@ $XmlBase,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:lang')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlLang,
@@ -290,7 +290,7 @@ $XmlLang,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:space')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -313,7 +313,7 @@ $XmlSpace,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XlinkHref,
@@ -322,7 +322,7 @@ $XlinkHref,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:type')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', 'simple')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'simple')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
@@ -334,7 +334,7 @@ $XlinkType,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:arcrole')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XlinkArcrole,
@@ -347,7 +347,7 @@ $XlinkArcrole,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:title')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<anything>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XlinkTitle,
@@ -356,7 +356,7 @@ $XlinkTitle,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:show')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', 'new | replace | embed | other | none')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -377,7 +377,7 @@ $XlinkShow,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','attributeType')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', 'CSS | XML | auto')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
