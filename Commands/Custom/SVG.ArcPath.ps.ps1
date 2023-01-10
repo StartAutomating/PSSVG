@@ -1,83 +1,55 @@
-function SVG.Arc {
-<#
+function SVG.ArcPath
+{
+    <#
     .SYNOPSIS
         Draws an SVG arc.
     .DESCRIPTION
         Draws an SVG arc path.
     .EXAMPLE
-        =<svg> -Viewbox 50, 50 -OutputPath .\arcs.svg (
-            =<svg.arc> -Start 50 -End 75 -Radius 25
+        =<svg> -Viewbox 100, 100 -OutputPath .\arcs.svg (
+            =<svg.ArcPath> -Start 50 -End 75 -Radius 25 -Large
         )
     .LINK
         SVG.Path
-    
-#>
-        
-[CmdletBinding(PositionalBinding=$false)]
+    #>    
+    [inherit('SVG.path', Dynamic, Abstract)]
+    [Alias('SVG.ArcedPath','=<SVG.ArcedPath>')]
     param(
-# The Starting point of the arc.
+    # The Starting point of the arc.
     # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
-# The radius of the arc.
+
+    # The radius of the arc.
     # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]    
     [double[]]
     $Radius,
-# The Arc Rotation along the X axis.
+
+    # The Arc Rotation along the X axis.
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('XAxisRotation')]
     $ArcRotation = 0,
-# If set, the arc will be considered a "Large arc"
+
+    # If set, the arc will be considered a "Large arc"
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('IsLargeArc','LargeArc')]
     [switch]
     $Large,
-# If set, the arc will sweep the circle.
+
+    # If set, the arc will sweep the circle.
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Sweep,
-# The end point of the arc.
+
+    # The end point of the arc.
     # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $End
     )
-dynamicParam {
-    $baseCommand = 
-        if (-not $script:SVGpath) {
-            $script:SVGpath = 
-                $executionContext.SessionState.InvokeCommand.GetCommand('SVG.path','Function')
-            $script:SVGpath
-        } else {
-            $script:SVGpath
-        }
-    $IncludeParameter = @()
-    $ExcludeParameter = @()
-    $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
-    :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
-        if ($ExcludeParameter) {
-            foreach ($exclude in $ExcludeParameter) {
-                if ($paramName -like $exclude) { continue nextInputParameter}
-            }
-        }
-        if ($IncludeParameter) {
-            $shouldInclude = 
-                foreach ($include in $IncludeParameter) {
-                    if ($paramName -like $include) { $true;break}
-                }
-            if (-not $shouldInclude) { continue nextInputParameter }
-        }
-        
-        $DynamicParameters.Add($paramName, [Management.Automation.RuntimeDefinedParameter]::new(
-            $baseCommand.Parameters[$paramName].Name,
-            $baseCommand.Parameters[$paramName].ParameterType,
-            $baseCommand.Parameters[$paramName].Attributes
-        ))
-    }
-    $DynamicParameters
-}
+
     process {
         $existingPath = ''
         if ($PSBoundParameters.D) {
@@ -97,6 +69,7 @@ dynamicParam {
                     $start[0],$start[0]
                 }
             }
+
             "A"
             if ($Radius.Length -gt 2) {
                 Write-Error "-Radius can only contain one or two values"
@@ -133,8 +106,6 @@ dynamicParam {
         }
         
         SVG.Path @baseSplat
-    
+    }
 }
-}
-
 
