@@ -45,6 +45,7 @@ function SVG.line {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'line')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the line element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
