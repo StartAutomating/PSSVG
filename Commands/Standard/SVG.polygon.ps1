@@ -10,7 +10,7 @@ function SVG.polygon {
     $bpm = 70
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -114,7 +114,6 @@ function SVG.polygon {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'polygon')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the polygon element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
