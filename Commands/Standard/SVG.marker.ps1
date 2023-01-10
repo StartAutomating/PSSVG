@@ -29,7 +29,6 @@ function SVG.marker {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'marker')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the marker element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
