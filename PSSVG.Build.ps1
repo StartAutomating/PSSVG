@@ -752,7 +752,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             "[Parameter(ValueFromPipelineByPropertyName)]"            
             "[Reflection.AssemblyMetaData('SVG.AttributeName','$attrName')]"
             if ($paramIsDeprecated) {
-                "[Reflection.AssemblyMetaData('SVG.Deprecated',`$true)]"
+                "[Obsolete()]"
             }
             
             $elementData = $elementKV.Value.Data[$attrName]
