@@ -63,6 +63,27 @@ Let's focus on the color value at the second row and second column of the image 
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+@(
+    =<svg.filter> -id embossed @(
+        =<svg.feConvolveMatrix> -KernelMatrix '
+        5 0 0
+        0 0 0
+        0 0 -5
+'
+        =<svg.feMerge> @(
+            =<svg.feMergeNode>
+            =<svg.feMergeNode> -In 'SourceGraphic'
+        )
+    )
+```
+=<svg.text> "
+Embossed
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+) -ViewBox 0,0,300,100
+---
 ### Parameters
 #### **Content**
 
@@ -1561,13 +1582,6 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[Object]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
 
 
 
