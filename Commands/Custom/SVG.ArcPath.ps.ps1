@@ -6,9 +6,9 @@ function SVG.ArcPath
     .DESCRIPTION
         Draws an SVG arc path.
     .EXAMPLE
-        =<svg> -Viewbox 100, 100 -OutputPath .\arcs.svg (
+        =<svg> -Viewbox 100, 100 (
             =<svg.ArcPath> -Start 50 -End 75 -Radius 25 -Large
-        )
+        ) -OutputPath .\arcs.svg 
     .LINK
         SVG.Path
     #>    
