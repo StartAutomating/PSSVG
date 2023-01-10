@@ -5,7 +5,6 @@
 #.DESCRIPTION
 #    Generates a cloud effect using fractal noise and blending modes.
 
-
 =<SVG> -viewBox 1920, 1080 -Content @(
     =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
         =<SVG.feTurbulence> -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
