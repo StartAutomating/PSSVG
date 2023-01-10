@@ -114,6 +114,7 @@ function SVG.polygon {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'polygon')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the polygon element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
