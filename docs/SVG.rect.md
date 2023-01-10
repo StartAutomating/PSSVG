@@ -36,7 +36,7 @@ The **`<rect>`** element is a [basic SVG shape](https://developer.mozilla.org/en
 #### EXAMPLE 2
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
