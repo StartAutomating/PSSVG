@@ -176,6 +176,7 @@ function SVG.text {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'text')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the text element
 [Reflection.AssemblyMetaData('SVG.IsCData', $True)]
