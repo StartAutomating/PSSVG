@@ -93,6 +93,7 @@ function SVG.use {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'use')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the use element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
