@@ -1,7 +1,7 @@
 $bpm = 90
 
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
