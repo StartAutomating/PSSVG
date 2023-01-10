@@ -35,6 +35,7 @@ function SVG.feGaussianBlur {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feGaussianBlur')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feGaussianBlur element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
