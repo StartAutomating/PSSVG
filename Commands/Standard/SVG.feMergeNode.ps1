@@ -4,6 +4,74 @@ function SVG.feMergeNode {
     Creates SVG feMergeNode elements
 .Description
     The `feMergeNode` takes the result of another filter to be processed by its parent `feMerge`.
+.Example
+    =<svg> @(
+        =<svg.filter> -id embossed @(
+            =<svg.feConvolveMatrix> -KernelMatrix '
+            5 0 0
+            0 0 0
+            0 0 -5
+    '
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Embossed
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+    ) -ViewBox 0,0,300,100
+.Example
+    =<svg> @(
+        =<svg.filter> -id embossed @(
+            =<svg.feConvolveMatrix> -KernelMatrix '
+            5 0 0
+            0 0 0
+            0 0 -5
+    '
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Embossed
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+    ) -ViewBox 0,0,300,100
+.Example
+    =<svg> @(
+        =<svg.filter> -id dropShadow @(
+            =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
+.Example
+    =<svg> @(
+        =<svg.filter> -id dropShadow @(
+            =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
 .Link
     https://pssvg.start-automating.com/SVG.feMergeNode
 .Link
@@ -13,7 +81,6 @@ function SVG.feMergeNode {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feMergeNode')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feMergeNode element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

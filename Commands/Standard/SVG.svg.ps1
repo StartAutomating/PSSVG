@@ -15,8 +15,6 @@ function SVG.svg {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'svg')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
-[OutputType([IO.FileInfo])]
 param(
 # The Contents of the svg element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

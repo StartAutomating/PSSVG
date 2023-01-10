@@ -13,7 +13,6 @@ function SVG.view {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'view')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the view element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

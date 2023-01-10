@@ -74,7 +74,7 @@ $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -126,7 +126,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -178,7 +178,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -230,7 +230,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -282,7 +282,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -334,7 +334,7 @@ $Color = "#4488ff"
 $bpm = 70
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -355,6 +355,39 @@ $Color = "#4488ff"
 )
 #### EXAMPLE 10
 ```PowerShell
+$AnimationTimeframe = [Ordered]@{
+    Dur = '2s'
+    RepeatCount = 'indefinite'
+}
+=<SVG> -viewBox 1920,1080 -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' @(
+            =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
+            =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+        ) -NumOctaves 4 -Type fractalNoise
+        =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+    )
+    =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+)
+```
+
+#### EXAMPLE 11
+```PowerShell
+#.SYNOPSIS
+#    Generates clouds using SVG
+#.DESCRIPTION
+#    Generates a cloud effect using fractal noise and blending modes.
+```
+=<SVG> -viewBox 1920, 1080 -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
+        =<SVG.feGaussianBlur> -stdDeviation 0.9
+        =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+    )
+    =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+)
+#### EXAMPLE 12
+```PowerShell
 -Content @(
     =<svg.defs> @(
         =<svg.LinearGradient> -Id myGradient -Content @(
@@ -370,7 +403,7 @@ $Color = "#4488ff"
 ) -ViewBox '0 0 100 100'
 ```
 
-#### EXAMPLE 11
+#### EXAMPLE 13
 ```PowerShell
 $colors = @('red','green','blue')
 =<svg> @(
@@ -387,7 +420,7 @@ $colors = @('red','green','blue')
 )
 ```
 
-#### EXAMPLE 12
+#### EXAMPLE 14
 ```PowerShell
 $colors = @('red','green','blue')
 =<svg> @(
@@ -401,7 +434,7 @@ $colors = @('red','green','blue')
 )
 ```
 
-#### EXAMPLE 13
+#### EXAMPLE 15
 ```PowerShell
 -Content @(
     =<svg.defs> @(
@@ -417,7 +450,7 @@ $colors = @('red','green','blue')
 )
     =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
 ) -viewbox 0,0,100,100
-#### EXAMPLE 14
+#### EXAMPLE 16
 ```PowerShell
 @(
     =<svg.defs> @(
@@ -431,7 +464,7 @@ $colors = @('red','green','blue')
 ) -ViewBox 0,0,50,50
 ```
 
-#### EXAMPLE 15
+#### EXAMPLE 17
 ```PowerShell
 @(
     =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff'
@@ -440,7 +473,7 @@ $colors = @('red','green','blue')
 ) -ViewBox 0, 0, 100, 200
 ```
 
-#### EXAMPLE 16
+#### EXAMPLE 18
 ```PowerShell
 -Content @(
     =<svg.defs> @(
@@ -2025,13 +2058,6 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[Object]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
 
 
 

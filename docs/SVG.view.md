@@ -240,13 +240,6 @@ You can use this attribute with any SVG element.
 
 
 ---
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
-
-
-
----
 ### Syntax
 ```PowerShell
 SVG.view [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-ViewBox <Object>] [-PreserveAspectRatio <Object>] [-ZoomAndPan <Object>] [-ViewTarget <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]

@@ -14,7 +14,6 @@ function SVG.feSpotLight {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feSpotLight')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feSpotLight element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

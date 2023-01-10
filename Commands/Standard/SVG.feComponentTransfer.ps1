@@ -15,7 +15,6 @@ function SVG.feComponentTransfer {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feComponentTransfer')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feComponentTransfer element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

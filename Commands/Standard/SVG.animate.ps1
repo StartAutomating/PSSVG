@@ -118,7 +118,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -169,7 +169,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -220,7 +220,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -271,7 +271,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -322,7 +322,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -373,7 +373,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -424,7 +424,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -475,7 +475,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -526,7 +526,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -577,7 +577,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -628,7 +628,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -679,7 +679,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -730,7 +730,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -781,7 +781,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -832,7 +832,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -883,7 +883,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -934,7 +934,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -985,7 +985,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1036,7 +1036,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1087,7 +1087,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1138,7 +1138,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1189,7 +1189,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1240,7 +1240,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1291,7 +1291,7 @@ function SVG.animate {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1342,7 +1342,7 @@ function SVG.animate {
     $bpm = 70
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -1360,6 +1360,36 @@ function SVG.animate {
             )  -Fill $color -Stroke $color
         ) -id fillPattern
         =<svg.rect> -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+    )
+.Example
+    $AnimationTimeframe = [Ordered]@{
+        Dur = '2s'
+        RepeatCount = 'indefinite'
+    }
+    =<SVG> -viewBox 1920,1080 -Content @(
+        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            =<SVG.feTurbulence> -baseFrequency '0.025' @(
+                =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
+                =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+            ) -NumOctaves 4 -Type fractalNoise
+            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+        )
+        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+    )
+.Example
+    $AnimationTimeframe = [Ordered]@{
+        Dur = '2s'
+        RepeatCount = 'indefinite'
+    }
+    =<SVG> -viewBox 1920,1080 -Content @(
+        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            =<SVG.feTurbulence> -baseFrequency '0.025' @(
+                =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
+                =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+            ) -NumOctaves 4 -Type fractalNoise
+            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+        )
+        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
     )
 .Example
     =<svg> -ViewBox 0,0,100,100 -Content (
@@ -1575,6 +1605,22 @@ function SVG.animate {
         =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
     ) -viewbox 0,0,100,100
 .Example
+    =<svg> @(
+        =<svg.filter> -id dropShadow @(
+            =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
+.Example
     =<svg> -Content @(
         =<svg.defs> @(
             =<svg.radialGradient> -Id myGradient -Content @(
@@ -1586,6 +1632,66 @@ function SVG.animate {
         )
         =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -ViewBox '0 0 100 100'
+.Example
+    =<svg> @(
+        =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+    
+        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            =<svg.tspan> -Content "STOP" -Id stop
+            =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    
+        =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            =<svg.tspan> -Content "USING" -Id using
+            =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            =<svg.tspan> -Content "GIFS" -Id gif
+            =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    ) -ViewBox 200,200
+.Example
+    =<svg> @(
+        =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+    
+        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            =<svg.tspan> -Content "STOP" -Id stop
+            =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    
+        =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            =<svg.tspan> -Content "USING" -Id using
+            =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            =<svg.tspan> -Content "GIFS" -Id gif
+            =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    ) -ViewBox 200,200
+.Example
+    =<svg> @(
+        =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+    
+        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            =<svg.tspan> -Content "STOP" -Id stop
+            =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    
+        =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            =<svg.tspan> -Content "USING" -Id using
+            =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            =<svg.tspan> -Content "GIFS" -Id gif
+            =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    ) -ViewBox 200,200
 .Link
     https://pssvg.start-automating.com/SVG.animate
 .Link
@@ -1595,7 +1701,6 @@ function SVG.animate {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animate')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the animate element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

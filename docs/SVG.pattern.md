@@ -31,7 +31,7 @@ The `<pattern>` is referenced by the `fill` and/or `stroke` attributes on other 
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -83,7 +83,7 @@ $Color = "#4488ff"
 $bpm = 70
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1791,13 +1791,6 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[Object]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
 
 
 

@@ -23,6 +23,44 @@ The **`<feMerge>`** SVG element allows filter effects to be applied concurrently
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+@(
+    =<svg.filter> -id embossed @(
+        =<svg.feConvolveMatrix> -KernelMatrix '
+        5 0 0
+        0 0 0
+        0 0 -5
+'
+        =<svg.feMerge> @(
+            =<svg.feMergeNode>
+            =<svg.feMergeNode> -In 'SourceGraphic'
+        )
+    )
+```
+=<svg.text> "
+Embossed
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+) -ViewBox 0,0,300,100
+#### EXAMPLE 2
+```PowerShell
+@(
+    =<svg.filter> -id dropShadow @(
+        =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+            =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+        )
+        =<svg.feMerge> @(
+            =<svg.feMergeNode>
+            =<svg.feMergeNode> -In 'SourceGraphic'
+        )
+    )
+```
+=<svg.text> "
+Moving Shadows
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+) -ViewBox 0,0,300,100
+---
 ### Parameters
 #### **Content**
 
@@ -1401,13 +1439,6 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[Object]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
 
 
 

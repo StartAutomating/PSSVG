@@ -32,7 +32,6 @@ function SVG.mask {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'mask')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the mask element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

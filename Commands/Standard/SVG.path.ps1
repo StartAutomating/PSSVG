@@ -25,7 +25,6 @@ function SVG.path {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'path')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the path element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

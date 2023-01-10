@@ -17,7 +17,6 @@ function SVG.set {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'set')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the set element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

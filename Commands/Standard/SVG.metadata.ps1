@@ -13,7 +13,6 @@ function SVG.metadata {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'metadata')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the metadata element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

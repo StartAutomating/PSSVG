@@ -163,7 +163,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -215,7 +215,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -267,7 +267,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -319,7 +319,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -371,7 +371,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -423,7 +423,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -475,7 +475,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -527,7 +527,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -579,7 +579,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -631,7 +631,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -683,7 +683,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -735,7 +735,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -787,7 +787,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -839,7 +839,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -891,7 +891,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -943,7 +943,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -995,7 +995,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1047,7 +1047,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1099,7 +1099,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1151,7 +1151,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1203,7 +1203,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1255,7 +1255,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1307,7 +1307,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1359,7 +1359,7 @@ $Color = "#4488ff"
 $bpm = 90
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1411,7 +1411,7 @@ $Color = "#4488ff"
 $bpm = 70
 ```
 $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-$animateSplat = @{
+$animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
@@ -1432,6 +1432,42 @@ $Color = "#4488ff"
 )
 #### EXAMPLE 34
 ```PowerShell
+$AnimationTimeframe = [Ordered]@{
+    Dur = '2s'
+    RepeatCount = 'indefinite'
+}
+=<SVG> -viewBox 1920,1080 -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' @(
+            =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
+            =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+        ) -NumOctaves 4 -Type fractalNoise
+        =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+    )
+    =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+)
+```
+
+#### EXAMPLE 35
+```PowerShell
+$AnimationTimeframe = [Ordered]@{
+    Dur = '2s'
+    RepeatCount = 'indefinite'
+}
+=<SVG> -viewBox 1920,1080 -Content @(
+    =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+        =<SVG.feTurbulence> -baseFrequency '0.025' @(
+            =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
+            =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+        ) -NumOctaves 4 -Type fractalNoise
+        =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+    )
+    =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+)
+```
+
+#### EXAMPLE 36
+```PowerShell
 -ViewBox 0,0,100,100 -Content (
     =<svg.g> -Content @(
         =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
@@ -1440,59 +1476,42 @@ $Color = "#4488ff"
         =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
     )
 )
-#### EXAMPLE 35
-```PowerShell
--Content @(
-    =<svg.defs> @(
-        =<svg.LinearGradient> -Id myGradient -Content @(
-            =<svg.stop> -Stopcolor gold @(
-                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-            )
-            =<svg.stop> -Stopcolor red @(
-                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
-            )
-        )
-    )
-    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
-) -ViewBox '0 0 100 100'
-```
-
-#### EXAMPLE 36
-```PowerShell
--Content @(
-    =<svg.defs> @(
-        =<svg.LinearGradient> -Id myGradient -Content @(
-            =<svg.stop> -Stopcolor gold @(
-                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-            )
-            =<svg.stop> -Stopcolor red @(
-                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
-            )
-        )
-    )
-    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
-) -ViewBox '0 0 100 100'
-```
-
 #### EXAMPLE 37
 ```PowerShell
-$colors = @('red','green','blue')
-=<svg> @(
-    foreach ($n in 1..10) {
-        $n10 = $n * 10
-        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style ([Ordered]@{
-            fill   = $colors[$n % $colors.Length]
-            stroke = $colors[($n + 1) % $colors.Length]
-        }) @(
-            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
-            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+-Content @(
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
+            )
+            =<svg.stop> -Stopcolor red @(
+                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
+            )
         )
-    }
-)
+    )
+    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 38
 ```PowerShell
+-Content @(
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Stopcolor gold @(
+                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
+            )
+            =<svg.stop> -Stopcolor red @(
+                =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
+            )
+        )
+    )
+    =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox '0 0 100 100'
+```
+
+#### EXAMPLE 39
+```PowerShell
 $colors = @('red','green','blue')
 =<svg> @(
     foreach ($n in 1..10) {
@@ -1508,36 +1527,23 @@ $colors = @('red','green','blue')
 )
 ```
 
-#### EXAMPLE 39
-```PowerShell
--Content @(
-    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
-```
-) -ViewBox 100,100
 #### EXAMPLE 40
 ```PowerShell
--Content @(
-    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
+$colors = @('red','green','blue')
+=<svg> @(
+    foreach ($n in 1..10) {
+        $n10 = $n * 10
+        =<svg.rect> -X $n10 -Y $n10 -Width $n10 -Height $n10 -Style ([Ordered]@{
+            fill   = $colors[$n % $colors.Length]
+            stroke = $colors[($n + 1) % $colors.Length]
+        }) @(
+            =<svg.animate> -AttributeName rx -Values "0;50;0" -Dur "10s" -RepeatCount indefinite
+            =<svg.animate> -AttributeName x -Values "$($n10);$(200 - $n10/2);$($n10);" -Dur "10s" -RepeatCount indefinite
+        )
+    }
+)
 ```
-) -ViewBox 100,100
+
 #### EXAMPLE 41
 ```PowerShell
 -Content @(
@@ -1601,35 +1607,33 @@ $colors = @('red','green','blue')
 #### EXAMPLE 45
 ```PowerShell
 -Content @(
-    =<svg.defs> @(
-        =<svg.LinearGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor transparent
-            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
-            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+    )
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
+    ) -Opacity 0
 ```
-)
-    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
-) -viewbox 0,0,100,100
+) -ViewBox 100,100
 #### EXAMPLE 46
 ```PowerShell
 -Content @(
-    =<svg.defs> @(
-        =<svg.LinearGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor transparent
-            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
-            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+    =<svg.polygon> -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+    )
+    =<svg.polygon> -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        =<svg.animate> -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        =<svg.animate> -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
+    ) -Opacity 0
 ```
-)
-    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
-) -viewbox 0,0,100,100
+) -ViewBox 100,100
 #### EXAMPLE 47
 ```PowerShell
 -Content @(
@@ -1666,6 +1670,55 @@ $colors = @('red','green','blue')
 ```PowerShell
 -Content @(
     =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 50
+```PowerShell
+-Content @(
+    =<svg.defs> @(
+        =<svg.LinearGradient> -Id myGradient -Content @(
+            =<svg.stop> -Offset '10%' -Stopcolor transparent
+            =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
+            =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 51
+```PowerShell
+@(
+    =<svg.filter> -id dropShadow @(
+        =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+            =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+        )
+        =<svg.feMerge> @(
+            =<svg.feMergeNode>
+            =<svg.feMergeNode> -In 'SourceGraphic'
+        )
+    )
+```
+=<svg.text> "
+Moving Shadows
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+) -ViewBox 0,0,300,100
+#### EXAMPLE 52
+```PowerShell
+-Content @(
+    =<svg.defs> @(
         =<svg.radialGradient> -Id myGradient -Content @(
             =<svg.stop> -Offset '1%' -Stopcolor gold @(
                 =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
@@ -1677,6 +1730,69 @@ $colors = @('red','green','blue')
 ) -ViewBox '0 0 100 100'
 ```
 
+#### EXAMPLE 53
+```PowerShell
+@(
+    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        =<svg.tspan> -Content "STOP" -Id stop
+        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "USING" -Id using
+        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "GIFS" -Id gif
+        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
+#### EXAMPLE 54
+```PowerShell
+@(
+    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        =<svg.tspan> -Content "STOP" -Id stop
+        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "USING" -Id using
+        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "GIFS" -Id gif
+        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
+#### EXAMPLE 55
+```PowerShell
+@(
+    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        =<svg.tspan> -Content "STOP" -Id stop
+        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "USING" -Id using
+        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "GIFS" -Id gif
+        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
 ---
 ### Parameters
 #### **Content**
@@ -2244,13 +2360,6 @@ You can use this attribute with any SVG element.
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[Object]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
 
 
 

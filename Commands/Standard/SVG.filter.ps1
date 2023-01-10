@@ -12,6 +12,69 @@ function SVG.filter {
     
         =<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
     ) -ViewBox 100, 100
+.Example
+    $AnimationTimeframe = [Ordered]@{
+        Dur = '2s'
+        RepeatCount = 'indefinite'
+    }
+    =<SVG> -viewBox 1920,1080 -Content @(
+        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            =<SVG.feTurbulence> -baseFrequency '0.025' @(
+                =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
+                =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+            ) -NumOctaves 4 -Type fractalNoise
+            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+        )
+        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+    )
+.Example
+    #.SYNOPSIS
+    #    Generates clouds using SVG
+    #.DESCRIPTION
+    #    Generates a cloud effect using fractal noise and blending modes.
+    
+    =<SVG> -viewBox 1920, 1080 -Content @(
+        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            =<SVG.feTurbulence> -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
+            =<SVG.feGaussianBlur> -stdDeviation 0.9
+            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+        )
+        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+    )
+.Example
+    =<svg> @(
+        =<svg.filter> -id embossed @(
+            =<svg.feConvolveMatrix> -KernelMatrix '
+            5 0 0
+            0 0 0
+            0 0 -5
+    '
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Embossed
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+    ) -ViewBox 0,0,300,100
+.Example
+    =<svg> @(
+        =<svg.filter> -id dropShadow @(
+            =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
 .Link
     https://pssvg.start-automating.com/SVG.filter
 .Link
@@ -21,7 +84,6 @@ function SVG.filter {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'filter')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the filter element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

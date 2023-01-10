@@ -15,7 +15,6 @@ function SVG.discard {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'discard')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the discard element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

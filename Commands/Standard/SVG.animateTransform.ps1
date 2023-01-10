@@ -142,7 +142,6 @@ function SVG.animateTransform {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animateTransform')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the animateTransform element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]

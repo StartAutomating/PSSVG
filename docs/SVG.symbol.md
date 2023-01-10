@@ -49,7 +49,7 @@ The use of `<symbol>` elements for graphics that are used multiple times in the 
         =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
     ) -id Star -ViewBox 25,25
 ```
-$scaledSize = @{Width=15;Height=15}
+$scaledSize = [Ordered]@{Width=15;Height=15}
     =<svg.use> -Href '#Star' -X 0 @scaledSize
     =<svg.use> -Href '#Star' -X 20 @scaledSize
     =<svg.use> -Href '#Star' -X 40 @scaledSize
@@ -1606,13 +1606,6 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[Object]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
 
 
 

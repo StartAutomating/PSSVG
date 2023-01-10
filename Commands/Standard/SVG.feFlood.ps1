@@ -13,7 +13,6 @@ function SVG.feFlood {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feFlood')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feFlood element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
