@@ -56,6 +56,7 @@ function SVG.radialGradient {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'radialGradient')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the radialGradient element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
