@@ -214,6 +214,7 @@ function SVG.stop {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'stop')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the stop element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
