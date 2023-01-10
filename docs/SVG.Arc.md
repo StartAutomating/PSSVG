@@ -15,71 +15,46 @@ Draws an SVG arc path.
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+-Viewbox 50, 50 -OutputPath .\arcs.svg (
+    =<svg.arc> -Start 50 -End 75 -Radius 25
+)
+```
+
+---
 ### Parameters
-#### **StartX**
+#### **Start**
 
-The X-starting point of the arc.
-If -StartY point is not provided, -StartY will be -StartX
-
-
-
-
-
-
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Double]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-#### **StartY**
-
-The Y-starting point of the arc.
-If -StartX point is not provided, -StartX will be -StartY
+The Starting point of the arc.
+If only one value is provided, it will be used as the X and Y coordinate.
 
 
 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Double]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[Double[]]`|false   |named   |true (ByPropertyName)|
 
 
 
 ---
-#### **RadiusX**
+#### **Radius**
 
-The X-radius of the arc.
-If -RadiusX is not provided, -RadiusY will be -RadiusX
-
-
-
-
-
-
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Double]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-#### **RadiusY**
-
-The Y-radius of the arc.
-If -RadiusY is not provided, -RadiusX will be -RadiusY
+The radius of the arc.
+If only one value is provided, it will be used as the X and Y coordinate.
 
 
 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Double]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[Double[]]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -132,40 +107,25 @@ If set, the arc will sweep the circle.
 
 
 ---
-#### **EndX**
+#### **End**
 
-The end X point of the arc.
-
-
-
-
-
-
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Double]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-#### **EndY**
-
-The end Y point of the arc.
+The end point of the arc.
+If only one value is provided, it will be used as the X and Y coordinate.
 
 
 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Double]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[Double[]]`|false   |named   |true (ByPropertyName)|
 
 
 
 ---
 ### Syntax
 ```PowerShell
-SVG.Arc [-StartX <Double>] [-StartY <Double>] [-RadiusX <Double>] [-RadiusY <Double>] [-ArcRotation <Object>] [-Large] [-Sweep] [-EndX <Double>] [-EndY <Double>] [<CommonParameters>]
+SVG.Arc [-Start <Double[]>] [-Radius <Double[]>] [-ArcRotation <Object>] [-Large] [-Sweep] [-End <Double[]>] [<CommonParameters>]
 ```
 ---
