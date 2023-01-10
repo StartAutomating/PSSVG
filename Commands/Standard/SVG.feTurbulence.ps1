@@ -42,6 +42,7 @@ function SVG.feTurbulence {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feTurbulence')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feTurbulence element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
