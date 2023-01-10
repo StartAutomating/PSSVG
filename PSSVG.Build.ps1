@@ -856,8 +856,6 @@ $OutputPath
     if (-not $parameters) { continue }    
     $destination = Join-Path $destFolder "$($newPipeScriptSplat.functionName).ps1"
 
-
-
     $newScript = 
         try {
             New-PipeScript @newPipeScriptSplat 
