@@ -782,7 +782,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         "[Reflection.AssemblyMetadata('SVG.ElementName', '$($elementKV.Key)')]"
         '[CmdletBinding(PositionalBinding=$false)]'
         
-        # '[OutputType([Xml.XmlElement])]'
+        '[OutputType([Xml.XmlElement])]'
     )
     if ($elementName -eq 'SVG') {
         $newPipeScriptSplat.parameter += @{
@@ -797,9 +797,9 @@ $OutputPath
             )
         }
 
-        <#$newPipeScriptSplat.attribute += @(
+        $newPipeScriptSplat.attribute += @(
             '[OutputType([IO.FileInfo])]'
-        )#>
+        )
     }
     $newPipeScriptSplat.Process = {
         # Copy the bound parameters
@@ -858,14 +858,25 @@ $OutputPath
 
 
 
-    $newScript = New-PipeScript @newPipeScriptSplat 
+    $newScript = 
+        try {
+            New-PipeScript @newPipeScriptSplat 
+        } catch {
+            $newPipeScriptSplat.Remove('Example')
+            try { 
+                New-PipeScript @newPipeScriptSplat 
+            } catch {
+                Write-Error "Could not create $($newPipeScriptSplat.functionName): $($_ | Out-string)"                
+            }
+        }
     if ($newScript) {
         $newScript | 
             Set-Content -Path $destination
         Get-Item -Path $destination    
     }
+}
 
-    $readMePath = (Join-Path $destFolder "README.md")
+$readMePath = (Join-Path $destFolder "README.md")
 @"
 This directory contains the commands that directly map to elements in the SVG standard.
 
@@ -873,7 +884,6 @@ It was last synchronized to the standard @ $([DateTime]::UtcNow.ToString('o'))
 "@ |
     Set-Content -Path $readMePath
     Get-Item -Path $readMePath
-}
 
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
 
