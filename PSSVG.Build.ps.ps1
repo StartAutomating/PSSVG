@@ -843,7 +843,6 @@ It was last synchronized to the standard @ $([DateTime]::UtcNow.ToString('o'))
     Set-Content -Path $readMePath
     Get-Item -Path $readMePath
 
-
 Write-Progress "Getting Element Data" "$elementName " -Id $id -Completed
 
 if (Test-Path content) {
