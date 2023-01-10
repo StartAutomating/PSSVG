@@ -1,5 +1,6 @@
 =<svg> @(
     =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+    
     =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
         =<svg.tspan> -Content "STOP" -Id stop
         =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
