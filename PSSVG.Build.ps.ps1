@@ -739,7 +739,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     $newPipeScriptSplat.attribute = @(
         "[Reflection.AssemblyMetadata('SVG.ElementName', '$($elementKV.Key)')]"
         '[CmdletBinding(PositionalBinding=$false)]'
-        '[OutputType([Xml.XmlElement])]'
+        # '[OutputType([Xml.XmlElement])]'
     )
     if ($elementName -eq 'SVG') {
         $newPipeScriptSplat.parameter += @{
@@ -753,9 +753,9 @@ $OutputPath
 '@
             )
         }
-        $newPipeScriptSplat.attribute += @(
+        <#$newPipeScriptSplat.attribute += @(
             '[OutputType([IO.FileInfo])]'
-        )
+        )#>
     }
     $newPipeScriptSplat.Process = {
         # Copy the bound parameters
