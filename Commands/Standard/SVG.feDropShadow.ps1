@@ -6,6 +6,22 @@ function SVG.feDropShadow {
     The SVG **`<feDropShadow>`** filter primitive creates a drop shadow of the input image. It can only be used inside a `filter` element.
     
     > **Note:** The drop shadow color and opacity can be changed by using the `flood-color` and `flood-opacity` presentation attributes.
+.Example
+    =<svg> @(
+        =<svg.filter> -id dropShadow @(
+            =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            =<svg.feMerge> @(
+                =<svg.feMergeNode>
+                =<svg.feMergeNode> -In 'SourceGraphic'
+            )
+        )
+    
+        =<svg.text> "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
 .Link
     https://pssvg.start-automating.com/SVG.feDropShadow
 .Link
@@ -15,7 +31,6 @@ function SVG.feDropShadow {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDropShadow')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feDropShadow element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
