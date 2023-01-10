@@ -31,6 +31,7 @@ function SVG.feDropShadow {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDropShadow')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feDropShadow element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
