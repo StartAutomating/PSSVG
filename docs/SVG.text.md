@@ -31,12 +31,31 @@ If text is included in SVG not inside of a `<text>` element, it is not rendered.
 @(
     =<svg.DropShadow> -DistanceY .75
 ```
-=<svg.text> @"
+=<svg.text> "
 Dropping Shadows
-"@ -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
 
 ) -ViewBox 0,0,300,100
 #### EXAMPLE 2
+```PowerShell
+@(
+    =<svg.filter> -id embossed @(
+        =<svg.feConvolveMatrix> -KernelMatrix '
+        5 0 0
+        0 0 0
+        0 0 -5
+'
+        =<svg.feMerge> @(
+            =<svg.feMergeNode>
+            =<svg.feMergeNode> -In 'SourceGraphic'
+        )
+    )
+```
+=<svg.text> "
+Embossed
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+) -ViewBox 0,0,300,100
+#### EXAMPLE 3
 ```PowerShell
 -ViewBox 0,0,100,100 -Content (
     =<svg.g> -Content @(
@@ -46,14 +65,14 @@ Dropping Shadows
         =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
     )
 )
-#### EXAMPLE 3
+#### EXAMPLE 4
 ```PowerShell
 (
     =<svg.text> -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
 ) -ViewBox 0,0, 200, 100
 ```
 
-#### EXAMPLE 4
+#### EXAMPLE 5
 ```PowerShell
 $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
 $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
@@ -86,20 +105,100 @@ $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
     }
     )
 )
-#### EXAMPLE 5
+#### EXAMPLE 6
+```PowerShell
+@(
+    =<svg.filter> -id dropShadow @(
+        =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+            =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+        )
+        =<svg.feMerge> @(
+            =<svg.feMergeNode>
+            =<svg.feMergeNode> -In 'SourceGraphic'
+        )
+    )
+```
+=<svg.text> "
+Moving Shadows
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+) -ViewBox 0,0,300,100
+#### EXAMPLE 7
 ```PowerShell
 @(
     =<svg.symbol> -content (
         =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
     ) -id Star -ViewBox 25,25
 ```
-$scaledSize = @{Width=15;Height=15}
+$scaledSize = [Ordered]@{Width=15;Height=15}
     =<svg.use> -Href '#Star' -X 0 @scaledSize
     =<svg.use> -Href '#Star' -X 20 @scaledSize
     =<svg.use> -Href '#Star' -X 40 @scaledSize
     =<svg.use> -Href '#Star' -X 60 @scaledSize
     =<svg.use> -Href '#Star' -X 80 @scaledSize
 ) -ViewBox 0,0,125,50
+#### EXAMPLE 8
+```PowerShell
+@(
+    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        =<svg.tspan> -Content "STOP" -Id stop
+        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "USING" -Id using
+        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "GIFS" -Id gif
+        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
+#### EXAMPLE 9
+```PowerShell
+@(
+    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        =<svg.tspan> -Content "STOP" -Id stop
+        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "USING" -Id using
+        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "GIFS" -Id gif
+        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
+#### EXAMPLE 10
+```PowerShell
+@(
+    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        =<svg.tspan> -Content "STOP" -Id stop
+        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "USING" -Id using
+        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        =<svg.tspan> -Content "GIFS" -Id gif
+        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
 ---
 ### Parameters
 #### **Content**
@@ -1672,13 +1771,6 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
 |`[Object]`|false   |named   |true (ByPropertyName)|
-
-
-
----
-### Outputs
-* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
-
 
 
 
