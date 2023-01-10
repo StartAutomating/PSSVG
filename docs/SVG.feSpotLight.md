@@ -289,6 +289,13 @@ You can use this attribute with any SVG element.
 
 
 ---
+### Outputs
+* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
+
+
+
+
+---
 ### Syntax
 ```PowerShell
 SVG.feSpotLight [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-X <Object>] [-Y <Object>] [-Z <Object>] [-PointsAtX <Object>] [-PointsAtY <Object>] [-PointsAtZ <Object>] [-SpecularExponent <Object>] [-LimitingConeAngle <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
