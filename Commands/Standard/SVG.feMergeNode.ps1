@@ -81,6 +81,7 @@ function SVG.feMergeNode {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feMergeNode')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feMergeNode element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
