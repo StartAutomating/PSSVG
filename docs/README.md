@@ -80,6 +80,7 @@ The following commands are supported:
 |[circle](SVG.circle.md)                          |[SVG.circle](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.circle.ps1)                          |=&lt;svg.circle&gt;             |
 |[clipPath](SVG.clipPath.md)                      |[SVG.clipPath](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.clipPath.ps1)                      |=&lt;svg.clipPath&gt;           |
 |[ConvexPolygon](SVG.ConvexPolygon.md)            |[SVG.ConvexPolygon](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.ConvexPolygon.ps1)              |=&lt;svg.ConvexPolygon&gt;      |
+|[Curve](SVG.Curve.md)                            |[SVG.Curve](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.Curve.ps1)                              |=&lt;svg.Curve&gt;              |
 |[defs](SVG.defs.md)                              |[SVG.defs](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.defs.ps1)                              |=&lt;svg.defs&gt;               |
 |[desc](SVG.desc.md)                              |[SVG.desc](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.desc.ps1)                              |=&lt;svg.desc&gt;               |
 |[discard](SVG.discard.md)                        |[SVG.discard](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.discard.ps1)                        |=&lt;svg.discard&gt;            |
@@ -176,7 +177,6 @@ It uses two PowerShell modules to read the repository and create the commands:
 
 * [Irregular](https://github.com/StartAutomating/Irregular) is used to help parse the markdown contents of the repository
 * [PipeScript](https://github.com/StartAutomating/PipeScript) is used to create the functions from the parsed data.
-
 
 
 
