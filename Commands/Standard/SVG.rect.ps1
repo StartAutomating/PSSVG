@@ -44,7 +44,7 @@ function SVG.rect {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -95,7 +95,7 @@ function SVG.rect {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -146,7 +146,7 @@ function SVG.rect {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -197,7 +197,7 @@ function SVG.rect {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -248,7 +248,7 @@ function SVG.rect {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -299,7 +299,7 @@ function SVG.rect {
     $bpm = 70
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -317,6 +317,35 @@ function SVG.rect {
             )  -Fill $color -Stroke $color
         ) -id fillPattern
         =<svg.rect> -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+    )
+.Example
+    $AnimationTimeframe = [Ordered]@{
+        Dur = '2s'
+        RepeatCount = 'indefinite'
+    }
+    =<SVG> -viewBox 1920,1080 -Content @(
+        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            =<SVG.feTurbulence> -baseFrequency '0.025' @(
+                =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
+                =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+            ) -NumOctaves 4 -Type fractalNoise
+            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+        )
+        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+    )
+.Example
+    #.SYNOPSIS
+    #    Generates clouds using SVG
+    #.DESCRIPTION
+    #    Generates a cloud effect using fractal noise and blending modes.
+    
+    =<SVG> -viewBox 1920, 1080 -Content @(
+        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            =<SVG.feTurbulence> -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
+            =<SVG.feGaussianBlur> -stdDeviation 0.9
+            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+        )
+        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
     )
 .Example
     =<svg> -Content @(
@@ -409,7 +438,6 @@ function SVG.rect {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'rect')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the rect element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
