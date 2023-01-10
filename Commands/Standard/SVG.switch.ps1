@@ -17,6 +17,7 @@ function SVG.switch {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'switch')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the switch element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
