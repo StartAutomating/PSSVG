@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <path fill="#dd0000" stroke="white" d="M 138.268343236509 192.387953251129 L 192.387953251129 138.268343236509 L 192.387953251129 61.731656763491 L 138.268343236509 7.61204674887131 L 61.7316567634911 7.61204674887131 L 7.61204674887131 61.731656763491 L 7.61204674887131 138.268343236509 L 61.731656763491 192.387953251129" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="64" font-family="sans-serif" fill="white">
+    <tspan id="stop">STOP</tspan>
+    <animate values="64;66;64" dur="5s" attributeName="font-size" repeatDur="indefinite" />
+  </text>
+  <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-size="12" font-family="sans-serif" fill="white">
+    <tspan id="using">USING</tspan>
+    <animate values="12;13;12" dur="5s" attributeName="font-size" repeatDur="indefinite" />
+  </text>
+  <text x="50%" y="80%" dominant-baseline="middle" text-anchor="middle" font-size="32" font-family="sans-serif" fill="white">
+    <tspan id="gif">GIFS</tspan>
+    <animate values="28;30;28" dur="5s" attributeName="font-size" repeatDur="indefinite" />
+  </text>
+</svg>
