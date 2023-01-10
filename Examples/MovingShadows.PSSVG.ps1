@@ -11,7 +11,7 @@
         )    
     )
         
-    =<svg.text> @"
+    =<svg.text> "
 Moving Shadows
-"@ -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'    
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'    
 ) -ViewBox 0,0,300,100 -OutputPath (Join-Path $PSScriptRoot .\MovingsShadows.svg) 
