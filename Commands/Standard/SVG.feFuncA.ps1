@@ -13,6 +13,7 @@ function SVG.feFuncA {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feFuncA')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feFuncA element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
