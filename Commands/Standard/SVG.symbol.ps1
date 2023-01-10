@@ -43,6 +43,7 @@ function SVG.symbol {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'symbol')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the symbol element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
