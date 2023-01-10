@@ -138,6 +138,7 @@ function SVG.defs {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'defs')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the defs element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
