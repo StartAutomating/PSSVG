@@ -17,6 +17,7 @@ function SVG.title {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'title')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the title element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
