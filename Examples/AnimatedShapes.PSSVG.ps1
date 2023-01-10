@@ -1,5 +1,5 @@
 =<svg> @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
