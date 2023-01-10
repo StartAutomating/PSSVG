@@ -13,6 +13,7 @@ function SVG.feMorphology {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feMorphology')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feMorphology element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
