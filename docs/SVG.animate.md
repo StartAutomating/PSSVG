@@ -56,7 +56,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 #### EXAMPLE 4
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
@@ -77,7 +77,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 #### EXAMPLE 5
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
@@ -98,7 +98,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 #### EXAMPLE 6
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
@@ -119,7 +119,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 #### EXAMPLE 7
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
@@ -140,7 +140,7 @@ The SVG **`<animate>`** element provides a way to animate an attribute of an ele
 #### EXAMPLE 8
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
