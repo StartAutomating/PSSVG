@@ -29,7 +29,7 @@ The **`<ellipse>`** element is an SVG basic shape, used to create ellipses based
 #### EXAMPLE 1
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
