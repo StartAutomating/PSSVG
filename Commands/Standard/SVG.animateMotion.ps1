@@ -39,6 +39,7 @@ function SVG.animateMotion {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animateMotion')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the animateMotion element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
