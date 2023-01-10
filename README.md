@@ -71,6 +71,7 @@ The following commands are supported:
 |[animate](docs/SVG.animate.md)                        |[SVG.animate](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.animate.ps1)                        |=&lt;svg.animate&gt;            |
 |[animateMotion](docs/SVG.animateMotion.md)            |[SVG.animateMotion](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.animateMotion.ps1)            |=&lt;svg.animateMotion&gt;      |
 |[animateTransform](docs/SVG.animateTransform.md)      |[SVG.animateTransform](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.animateTransform.ps1)      |=&lt;svg.animateTransform&gt;   |
+|[Arc](docs/SVG.Arc.md)                                |[SVG.Arc](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.Arc.ps1)                                  |=&lt;svg.Arc&gt;                |
 |[circle](docs/SVG.circle.md)                          |[SVG.circle](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.circle.ps1)                          |=&lt;svg.circle&gt;             |
 |[clipPath](docs/SVG.clipPath.md)                      |[SVG.clipPath](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.clipPath.ps1)                      |=&lt;svg.clipPath&gt;           |
 |[ConvexPolygon](docs/SVG.ConvexPolygon.md)            |[SVG.ConvexPolygon](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.ConvexPolygon.ps1)              |=&lt;svg.ConvexPolygon&gt;      |
