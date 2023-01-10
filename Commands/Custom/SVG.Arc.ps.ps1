@@ -5,36 +5,26 @@ function SVG.Arc
         Draws an SVG arc.
     .DESCRIPTION
         Draws an SVG arc path.
+    .EXAMPLE
+        =<svg> -Viewbox 50, 50 -OutputPath .\arcs.svg (
+            =<svg.arc> -Start 50 -End 75 -Radius 25
+        )
     .LINK
         SVG.Path
     #>    
     [inherit('SVG.path', Dynamic, Abstract)]
     param(
-    # The X-starting point of the arc.
-    # If -StartY point is not provided, -StartY will be -StartX
+    # The Starting point of the arc.
+    # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]
-    [Alias('Start')]
-    [double]
-    $StartX,
+    [double[]]
+    $Start,
 
-    # The Y-starting point of the arc.
-    # If -StartX point is not provided, -StartX will be -StartY
-    [Parameter(ValueFromPipelineByPropertyName)]
-    [double]
-    $StartY,
-
-    # The X-radius of the arc.
-    # If -RadiusX is not provided, -RadiusY will be -RadiusX
-    [Parameter(ValueFromPipelineByPropertyName)]
-    [Alias('Radius')]
-    [double]
-    $RadiusX,
-
-    # The Y-radius of the arc.
-    # If -RadiusY is not provided, -RadiusX will be -RadiusY
-    [Parameter(ValueFromPipelineByPropertyName)]
-    [double]
-    $RadiusY,
+    # The radius of the arc.
+    # If only one value is provided, it will be used as the X and Y coordinate.
+    [Parameter(ValueFromPipelineByPropertyName)]    
+    [double[]]
+    $Radius,
 
     # The Arc Rotation along the X axis.
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -52,15 +42,11 @@ function SVG.Arc
     [switch]
     $Sweep,
 
-    # The end X point of the arc.
+    # The end point of the arc.
+    # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]
-    [double]
-    $EndX,
-
-    # The end Y point of the arc.
-    [Parameter(ValueFromPipelineByPropertyName)]
-    [double]
-    $EndY
+    [double[]]
+    $End
     )
 
     process {
@@ -69,42 +55,44 @@ function SVG.Arc
             $existingPath = $PSBoundParameters.D + ' '
         }
         $arcPath = @(
-            if ($psBoundParameters.Keys -match 'Start(?>X|Y)') {                
-                if ($PSBoundParameters.ContainsKey('StartX') -and
-                    $PSBoundParameters.ContainsKey('StartY')
-                ) {
-                    "M", $startX, $startY
+            if ($psBoundParameters.Keys -eq 'Start') {
+                "M"
+                if ($start.Length -gt 2) {
+                    Write-Error "-Start can only contain one or two values"
+                    return
                 }
-                elseif ($PSBoundParameters.ContainsKey('StartY')) {
-                    "M", $startY, $startY
+                elseif ($start.Length -eq 2) {
+                    $start[0],$start[1]
                 }
                 else {
-                    "M", $StartX, $StartX
+                    $start[0],$start[0]
                 }
             }
 
             "A"
-            if ($RadiusX -and $RadiusY) {
-                $RadiusX, $RadiusY
-            } elseif ($RadiusX) {
-                $RadiusX, $RadiusX
-            } elseif ($RadiusY) {
-                $RadiusY, $RadiusY
+            if ($Radius.Length -gt 2) {
+                Write-Error "-Radius can only contain one or two values"
+                return
+            } elseif ($Radius.Length -eq 2) {
+                $Radius[0],$Radius[1]
+            } elseif ($Radius.Length -eq 1) {
+                $Radius[0],$Radius[0]
             } else {
                 1,1
             }
             $ArcRotation
             if ($Large) { 1 } else { 0 }
             if ($Sweep) { 1 } else { 0 }
-            if ($null -ne $EndX -and $null -eq $EndY ) {
-                $EndX,$EndX
-            } elseif ($null -ne $EndY -and $null -eq $EndX) {
-                $EndY, $EndY
-            } elseif ($null -eq $EndX -and $null -eq $EndY) {
-                0, 0
+            if ($end.Length -gt 2) {
+                Write-Error "-End can only contain one or two values."
+                return
+            }
+            elseif ($end.Length -eq 2 ) {
+                $End[0],$end[1]
+            } elseif ($end.Length -eq 1) {
+                $End[0],$end[0]
             } else {
-                $EndX
-                $EndY
+                0, 0
             }            
         ) -join ' '
         
