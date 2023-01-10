@@ -39,7 +39,6 @@ function SVG.ellipse {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'ellipse')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the ellipse element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
