@@ -438,6 +438,7 @@ function SVG.rect {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'rect')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the rect element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
