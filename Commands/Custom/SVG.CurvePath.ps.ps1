@@ -1,4 +1,4 @@
-function SVG.Curve
+function SVG.CurvePath
 {
     <#
     .SYNOPSIS
@@ -7,12 +7,13 @@ function SVG.Curve
         Draws an SVG curve path.
     .EXAMPLE
         =<svg> -OutputPath .\Curves.svg @(
-            =<svg.Curve> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black
+            =<svg.CurvePath> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black
         ) -viewbox 50, 50
     .LINK
         SVG.Path
     #>    
     [inherit('SVG.path', Dynamic, Abstract)]
+    [Alias('SVG.CurvedPath','=<SVG.CurvedPath>')]
     param(
     # One or two control points.
     # If two control points are provided, it will be assumed to be a Bezier curve.
