@@ -47,6 +47,7 @@ function SVG.a {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'a')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the a element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
