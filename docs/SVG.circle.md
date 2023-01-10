@@ -37,7 +37,7 @@ The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 #### EXAMPLE 2
 ```PowerShell
 @(
-    $animationSettings = @{
+    $animationSettings = [Ordered]@{
         Dur = '2s'
         RepeatCount='indefinite'
     }
