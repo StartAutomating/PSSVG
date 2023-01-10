@@ -105,6 +105,7 @@ function SVG.tspan {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'tspan')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the tspan element
 [Reflection.AssemblyMetaData('SVG.IsCData', $True)]
