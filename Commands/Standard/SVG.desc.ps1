@@ -17,6 +17,7 @@ function SVG.desc {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'desc')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the desc element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
