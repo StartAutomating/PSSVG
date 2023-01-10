@@ -26,7 +26,7 @@ function SVG.animate {
     )  -ViewBox 0,0,100,100
 .Example
     =<svg> @(
-        $animationSettings = @{
+        $animationSettings = [Ordered]@{
             Dur = '2s'
             RepeatCount='indefinite'
         }
@@ -44,7 +44,7 @@ function SVG.animate {
     ) -ViewBox 0, 0, 100, 150
 .Example
     =<svg> @(
-        $animationSettings = @{
+        $animationSettings = [Ordered]@{
             Dur = '2s'
             RepeatCount='indefinite'
         }
@@ -62,7 +62,7 @@ function SVG.animate {
     ) -ViewBox 0, 0, 100, 150
 .Example
     =<svg> @(
-        $animationSettings = @{
+        $animationSettings = [Ordered]@{
             Dur = '2s'
             RepeatCount='indefinite'
         }
@@ -80,7 +80,7 @@ function SVG.animate {
     ) -ViewBox 0, 0, 100, 150
 .Example
     =<svg> @(
-        $animationSettings = @{
+        $animationSettings = [Ordered]@{
             Dur = '2s'
             RepeatCount='indefinite'
         }
@@ -98,7 +98,7 @@ function SVG.animate {
     ) -ViewBox 0, 0, 100, 150
 .Example
     =<svg> @(
-        $animationSettings = @{
+        $animationSettings = [Ordered]@{
             Dur = '2s'
             RepeatCount='indefinite'
         }
@@ -1626,7 +1626,7 @@ $Href,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','attributeType')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', 'CSS | XML | auto')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -1945,7 +1945,7 @@ $Tabindex,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:base')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlBase,
@@ -1958,7 +1958,7 @@ $XmlBase,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:lang')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlLang,
@@ -1971,7 +1971,7 @@ $XmlLang,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:space')]
-[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Obsolete()]
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
