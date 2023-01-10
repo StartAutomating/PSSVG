@@ -19,13 +19,19 @@ Draws an SVG curve path.
 #### EXAMPLE 1
 ```PowerShell
 -OutputPath .\Curves.svg @(
-    =<svg.Curve> -Start 10 -ControlPoint 15,5,20,15  -End 30,30 -fill transparent -stroke black
+    =<svg.Curve> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black
 ) -viewbox 50, 50
 ```
 
 ---
 ### Parameters
 #### **ControlPoint**
+
+One or two control points.
+If two control points are provided, it will be assumed to be a Bezier curve.
+If only one control point is provided, it will be assumed to be a Quadratic curve.
+
+
 
 
 
@@ -39,8 +45,8 @@ Draws an SVG curve path.
 ---
 #### **Start**
 
-The X-starting point of the curve.
-If -StartY point is not provided, -StartY will be -StartX
+The start point of the curve.
+If only one value is provided, it will be used as the X and Y coordinate.
 
 
 
@@ -57,6 +63,7 @@ If -StartY point is not provided, -StartY will be -StartX
 #### **End**
 
 The end point of the curve.
+If only one value is provided, it will be used as the X and Y coordinate.
 
 
 
@@ -72,6 +79,10 @@ The end point of the curve.
 ---
 #### **Smooth**
 
+If set, will attempt to draw a smooth bezier curve.
+
+
+
 
 
 
@@ -84,6 +95,11 @@ The end point of the curve.
 ---
 #### **MultiQuadratic**
 
+If set, will draw a multi-quadratic line.
+This can only be used if preceeded by another curve.
+
+
+
 
 
 
@@ -95,6 +111,11 @@ The end point of the curve.
 
 ---
 #### **Quadratic**
+
+If set, will draw a quadratic bezier curve.
+This is the default, as it only requires a single control point.
+
+
 
 
 

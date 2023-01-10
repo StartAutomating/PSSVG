@@ -80,6 +80,7 @@ The following commands are supported:
 |[circle](docs/SVG.circle.md)                          |[SVG.circle](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.circle.ps1)                          |=&lt;svg.circle&gt;             |
 |[clipPath](docs/SVG.clipPath.md)                      |[SVG.clipPath](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.clipPath.ps1)                      |=&lt;svg.clipPath&gt;           |
 |[ConvexPolygon](docs/SVG.ConvexPolygon.md)            |[SVG.ConvexPolygon](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.ConvexPolygon.ps1)              |=&lt;svg.ConvexPolygon&gt;      |
+|[Curve](docs/SVG.Curve.md)                            |[SVG.Curve](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.Curve.ps1)                              |=&lt;svg.Curve&gt;              |
 |[defs](docs/SVG.defs.md)                              |[SVG.defs](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.defs.ps1)                              |=&lt;svg.defs&gt;               |
 |[desc](docs/SVG.desc.md)                              |[SVG.desc](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.desc.ps1)                              |=&lt;svg.desc&gt;               |
 |[discard](docs/SVG.discard.md)                        |[SVG.discard](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.discard.ps1)                        |=&lt;svg.discard&gt;            |
