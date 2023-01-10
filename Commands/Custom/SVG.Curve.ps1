@@ -6,7 +6,7 @@ function SVG.Curve {
         Draws an SVG curve path.
     .EXAMPLE
         =<svg> -OutputPath .\Curves.svg @(
-            =<svg.Curve> -Start 10 -ControlPoint 15,5,20,15  -End 30,30 -fill transparent -stroke black
+            =<svg.Curve> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black
         ) -viewbox 50, 50
     .LINK
         SVG.Path
@@ -15,25 +15,34 @@ function SVG.Curve {
         
 [CmdletBinding(PositionalBinding=$false)]
     param(
-[Parameter(ValueFromPipelineByPropertyName)]
+# One or two control points.
+    # If two control points are provided, it will be assumed to be a Bezier curve.
+    # If only one control point is provided, it will be assumed to be a Quadratic curve.    
+    [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $ControlPoint,
-# The X-starting point of the curve.
-    # If -StartY point is not provided, -StartY will be -StartX
+# The start point of the curve.
+    # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
 # The end point of the curve.
+    # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $End,
-[Parameter(ValueFromPipelineByPropertyName)]
+# If set, will attempt to draw a smooth bezier curve.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Smooth,
-[Parameter(ValueFromPipelineByPropertyName)]
+# If set, will draw a multi-quadratic line.
+    # This can only be used if preceeded by another curve.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $MultiQuadratic,
-[Parameter(ValueFromPipelineByPropertyName)]
+# If set, will draw a quadratic bezier curve.
+    # This is the default, as it only requires a single control point.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Quadratic
     )
