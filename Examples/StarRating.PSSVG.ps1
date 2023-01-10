@@ -5,7 +5,7 @@
         =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
     ) -id Star -ViewBox 25,25
     
-    $scaledSize = @{Width=15;Height=15}
+    $scaledSize = [Ordered]@{Width=15;Height=15}
     =<svg.use> -Href '#Star' -X 0 @scaledSize
     =<svg.use> -Href '#Star' -X 20 @scaledSize 
     =<svg.use> -Href '#Star' -X 40 @scaledSize
