@@ -19,6 +19,7 @@ function SVG.image {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'image')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the image element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
