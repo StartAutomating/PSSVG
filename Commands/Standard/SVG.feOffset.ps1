@@ -13,7 +13,6 @@ function SVG.feOffset {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feOffset')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feOffset element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
