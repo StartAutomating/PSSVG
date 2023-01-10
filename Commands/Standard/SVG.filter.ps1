@@ -84,6 +84,7 @@ function SVG.filter {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'filter')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the filter element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
