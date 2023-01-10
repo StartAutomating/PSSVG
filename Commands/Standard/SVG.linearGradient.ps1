@@ -63,6 +63,7 @@ function SVG.linearGradient {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'linearGradient')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the linearGradient element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
