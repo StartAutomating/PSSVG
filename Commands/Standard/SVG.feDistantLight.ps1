@@ -13,7 +13,6 @@ function SVG.feDistantLight {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feDistantLight')]
 [CmdletBinding(PositionalBinding=$false)]
-[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feDistantLight element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
