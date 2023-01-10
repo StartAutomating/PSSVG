@@ -15,6 +15,7 @@ function SVG.style {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'style')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the style element
 [Parameter(Position=0,ValueFromPipelineByPropertyName)]
