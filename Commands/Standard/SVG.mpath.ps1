@@ -24,6 +24,11 @@ $Content,
 [Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('SVGAttributes','SVGAttribute')]
@@ -221,6 +226,12 @@ process {
         if ($data) {
             # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat
