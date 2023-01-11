@@ -49,7 +49,12 @@ function SVG.CurvePath
     # This is the default, as it only requires a single control point.
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
-    $Quadratic
+    $Quadratic,
+
+    # If set, will close the path after this element.
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [switch]
+    $Close
     )
 
     process {
@@ -109,7 +114,11 @@ function SVG.CurvePath
                 $End[0],$end[0]
             } else {
                 0, 0
-            }            
+            }
+            
+            if ($Close) {
+                "Z"
+            }
         ) -join ' '
         
         $PSBoundParameters['D'] = $existingPath + $arcPath
