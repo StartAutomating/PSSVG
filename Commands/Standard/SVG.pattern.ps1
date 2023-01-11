@@ -283,7 +283,7 @@ $Tabindex,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:base')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlBase,
@@ -296,7 +296,7 @@ $XmlBase,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:lang')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $XmlLang,
@@ -309,7 +309,7 @@ $XmlLang,
 # You can use this attribute with any SVG element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xml:space')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -361,7 +361,7 @@ $Style,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','requiredFeatures')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<list-of-features>')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'true if not defined, false if null or empty string as value')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
@@ -428,7 +428,7 @@ $BaselineShift,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','clip')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | rect()')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -595,7 +595,7 @@ $ColorInterpolationFilters,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','color-profile')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | sRGB | <name> | <iri>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -726,7 +726,7 @@ $DominantBaseline,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','enable-background')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'accumulate | new [ <x><y><width><height> ]?')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -980,7 +980,7 @@ $FontWeight,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','glyph-orientation-horizontal')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<angle>')]
 [Reflection.AssemblyMetaData('SVG.Default value', '0deg')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
@@ -996,7 +996,7 @@ $GlyphOrientationHorizontal,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','glyph-orientation-vertical')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | <angle>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
@@ -1043,7 +1043,7 @@ $ImageRendering,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','kerning')]
-[Obsolete()]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | <length>')]
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
