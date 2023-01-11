@@ -120,7 +120,9 @@ if ($env:GITHUB_WORKSPACE) {
     git fetch --unshallow
 }
 
-$myLastChange = git log -n 1 $MyInvocation.MyCommand.ScriptBlock.File | Select-Object -ExpandProperty CommitDate
+$myLastChange = git log -n 1 (
+    $MyInvocation.MyCommand.ScriptBlock.File -replace '\.ps1$', '.ps.ps1'
+) | Select-Object -ExpandProperty CommitDate
 
 $mdnLastChange = $(
     try { Invoke-GitHubRestAPI -Uri https://api.github.com/repos/mdn/content } catch { $null }
@@ -760,7 +762,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             "[Parameter(ValueFromPipelineByPropertyName)]"            
             "[Reflection.AssemblyMetaData('SVG.AttributeName','$attrName')]"
             if ($paramIsDeprecated) {
-                "[Obsolete()]"
+                "[Reflection.AssemblyMetaData('SVG.Deprecated',`$true)]"
             }
             
             $elementData = $elementKV.Value.Data[$attrName]
