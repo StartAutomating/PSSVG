@@ -19,7 +19,7 @@ function SVG.svg {
 [OutputType([IO.FileInfo])]
 param(
 # The Contents of the svg element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
