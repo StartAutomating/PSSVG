@@ -55,7 +55,7 @@
                     "$($prop.Name):$($kv.Value)"
                 }) -join ';'
             }
-        }
+        }        
 
         $elementText = "<$elementName "
         :nextParameter foreach ($kv in $Attribute.GetEnumerator()) {
@@ -115,7 +115,7 @@
                         ($pieceOfContent -as [xml.xmlelement]) -and 
                         ($pieceOfContent -notmatch '^\s{0,}\<')
                     ) {
-                        [Security.SecurityElement]::Escape("$content")
+                        [Security.SecurityElement]::Escape("$pieceOfContent")
                     }
                     elseif ($pieceOfContent.Outerxml) {
                         $pieceOfContent.Outerxml
@@ -141,16 +141,23 @@
                 $elementText
             }
 
-        if ($OutputPath) {
+        $myParams = @{} + $PSBoundParameters
+        if ($myParams['OutputPath']) {
             $unresolvedOutput = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
             if ($unresolvedOutput -and $svgOutput.ParentNode.Save) {
                 $svgOutput.ParentNode.PreserveWhitespace = $true
+                $memoryStream = [io.memorystream]::new()
+                $streamWriter = [io.streamWriter]::new($memoryStream)
                 $writerSettings = [Xml.XmlWriterSettings]::new()
                 $writerSettings.Encoding = [Text.Encoding]::UTF8
                 $writerSettings.Indent = $true                
-                $writer = [Xml.XmlWriter]::Create("$unresolvedOutput", $writerSettings)
-                $svgOutput.ParentNode.Save($writer)
+                $writer = [Xml.XmlWriter]::Create($streamWriter, $writerSettings)                
+                $svgOutput.ParentNode.Save($writer)                
+                [Text.Encoding]::UTF8.GetString($memoryStream.ToArray()) | 
+                    Set-Content -Path $OutputPath -Encoding UTF8
                 $writer.Dispose()
+                $streamWriter.Dispose()
+                $memoryStream.Dispose()
                 Get-Item $OutputPath
             } elseif ($unresolvedOutput -and $svgOutput) {
                 $svgOutput | Set-Content -Path $OutputPath
