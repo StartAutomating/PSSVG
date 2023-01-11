@@ -124,8 +124,24 @@ If only one value is provided, it will be used as the X and Y coordinate.
 
 
 ---
+#### **Close**
+
+If set, will close the path after this element.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Switch]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
 ### Syntax
 ```PowerShell
-SVG.ArcPath [-Start <Double[]>] [-Radius <Double[]>] [-ArcRotation <Object>] [-Large] [-Sweep] [-End <Double[]>] [<CommonParameters>]
+SVG.ArcPath [-Start <Double[]>] [-Radius <Double[]>] [-ArcRotation <Object>] [-Large] [-Sweep] [-End <Double[]>] [-Close] [<CommonParameters>]
 ```
 ---
