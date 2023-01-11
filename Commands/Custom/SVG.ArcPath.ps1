@@ -7,7 +7,7 @@ function SVG.ArcPath {
     .EXAMPLE
         =<svg> -Viewbox 100, 100 (
             =<svg.ArcPath> -Start 50 -End 75 -Radius 25 -Large
-        ) -OutputPath .\arcs.svg 
+        ) -OutputPath .\arcs.svg
     .LINK
         SVG.Path
     
@@ -43,7 +43,11 @@ function SVG.ArcPath {
     # If only one value is provided, it will be used as the X and Y coordinate.
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
-    $End
+    $End,
+# If set, will close the path after this element.
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [switch]
+    $Close
     )
 dynamicParam {
     $baseCommand = 
@@ -122,7 +126,10 @@ dynamicParam {
                 $End[0],$end[0]
             } else {
                 0, 0
-            }            
+            }
+            if ($Close) {
+                "Z"
+            }
         ) -join ' '
         
         $PSBoundParameters['D'] = $existingPath + $arcPath
