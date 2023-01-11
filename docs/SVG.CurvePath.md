@@ -127,8 +127,24 @@ This is the default, as it only requires a single control point.
 
 
 ---
+#### **Close**
+
+If set, will close the path after this element.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Switch]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
 ### Syntax
 ```PowerShell
-SVG.CurvePath [-ControlPoint <Double[]>] [-Start <Double[]>] [-End <Double[]>] [-Smooth] [-MultiQuadratic] [-Quadratic] [<CommonParameters>]
+SVG.CurvePath [-ControlPoint <Double[]>] [-Start <Double[]>] [-End <Double[]>] [-Smooth] [-MultiQuadratic] [-Quadratic] [-Close] [<CommonParameters>]
 ```
 ---
