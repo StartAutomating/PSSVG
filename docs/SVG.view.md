@@ -56,6 +56,24 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 ---
+#### **On**
+
+A dictionary or object containing event handlers.
+Each key or property name will be the name of the event
+Each value will be the handler.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -249,6 +267,6 @@ You can use this attribute with any SVG element.
 ---
 ### Syntax
 ```PowerShell
-SVG.view [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-ViewBox <Object>] [-PreserveAspectRatio <Object>] [-ZoomAndPan <Object>] [-ViewTarget <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.view [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-ViewBox <Object>] [-PreserveAspectRatio <Object>] [-ZoomAndPan <Object>] [-ViewTarget <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
 ---
