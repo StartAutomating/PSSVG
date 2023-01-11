@@ -657,7 +657,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             if ($content.Description -eq 'characterDataElementsInAnyOrder') {
                 "[Reflection.AssemblyMetaData('SVG.IsCData', `$$true)]"                
             }
-            "[Parameter(Position=0,ValueFromPipelineByPropertyName)]"
+            "[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]"
             "[Alias('InputObject','Text', 'InnerText', 'Contents')]"
             '$Content'
         )        
