@@ -202,6 +202,24 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 ---
+#### **On**
+
+A dictionary or object containing event handlers.
+Each key or property name will be the name of the event
+Each value will be the handler.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -825,6 +843,6 @@ It is frequently useful for repeated animations to build upon the previous resul
 ---
 ### Syntax
 ```PowerShell
-SVG.animateTransform [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-By <Object>] [-From <Object>] [-To <Object>] [-Type <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkHref <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-Additive <Object>] [-Accumulate <Object>] [<CommonParameters>]
+SVG.animateTransform [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-By <Object>] [-From <Object>] [-To <Object>] [-Type <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkHref <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-Additive <Object>] [-Accumulate <Object>] [<CommonParameters>]
 ```
 ---
