@@ -184,9 +184,9 @@ The Contents of the defs element
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |1       |true (ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |
+|----------|--------|--------|------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
 
 
 
