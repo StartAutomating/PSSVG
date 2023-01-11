@@ -136,7 +136,7 @@ function SVG.pattern {
 [OutputType([Xml.XmlElement])]
 param(
 # The Contents of the pattern element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
