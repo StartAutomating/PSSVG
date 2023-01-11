@@ -29,10 +29,16 @@
     [PSObject]
     $Content,
 
+    # A dictionary or object containing event handlers.
+    # Each key or property name will be the name of the event
+    # Each value will be the handler.
+    [Parameter(ValueFromPipelineByPropertyName)]
+    $On,
+
     # An output path.
     [Parameter(ValueFromPipelineByPropertyName)]
     [string]
-    $OutputPath
+    $OutputPath   
     )
 
     begin {
@@ -89,6 +95,28 @@
             }
         }
 
+        if ($On) {
+            $eventNames = @(
+                if ($on -is [Collections.IDictionary]) {
+                    $on.Keys    
+                } else {
+                    $on.psobject.properties.name
+                }
+            )
+            foreach ($eventName in $eventNames) {
+                $svgEventName = $eventName -replace '^On' -replace '^[_-]'
+                $eventValue   = if ($on -is [Collections.IDictionary]) {
+                    $on[$eventName]
+                } else {
+                    $on.$eventName
+                }
+                $elementText +=
+                    "on" + $svgEventName.ToLower() + "=" + $(
+                        [Web.HttpUtility]::HtmlAttributeEncode($eventValue)
+                    )
+            }
+        }
+
         if ($elementName -eq 'svg') {
             $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
         }
@@ -103,10 +131,7 @@
                 if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
                     $isCData = $true
                 }
-            }
-            if ($ElementName -eq 'text') {
-                $null = $null
-            }
+            }            
 
             $elementText += ">"            
             $elementText +=
