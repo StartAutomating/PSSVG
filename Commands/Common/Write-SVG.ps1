@@ -113,7 +113,7 @@
                 $elementText +=
                     "on" + $svgEventName.ToLower() + "=" + $(
                         [Web.HttpUtility]::HtmlAttributeEncode($eventValue)
-                    )
+                    ) + ' '
             }
         }
 
