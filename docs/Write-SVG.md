@@ -74,6 +74,24 @@ A dictionary of content.
 
 
 ---
+#### **On**
+
+A dictionary or object containing event handlers.
+Each key or property name will be the name of the event
+Each value will be the handler.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |5       |true (ByPropertyName)|
+
+
+
+---
 #### **OutputPath**
 
 An output path.
@@ -85,14 +103,14 @@ An output path.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[String]`|false   |5       |true (ByPropertyName)|
+|`[String]`|false   |6       |true (ByPropertyName)|
 
 
 
 ---
 ### Syntax
 ```PowerShell
-Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-OutputPath] <String>] [<CommonParameters>]
+Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-On] <Object>] [[-OutputPath] <String>] [<CommonParameters>]
 ```
 ---
 ### Notes
