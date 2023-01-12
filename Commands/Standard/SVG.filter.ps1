@@ -5,27 +5,31 @@ function SVG.filter {
 .Description
     The **`<filter>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element defines a custom filter effect by grouping atomic filter primitives. It is never rendered itself, but must be used by the `filter` attribute on SVG elements, or the `filter` `CSS` property for SVG/HTML elements.
 .Example
-    =<svg> @(
-        =<svg.filter> (
-            =<svg.feGaussianBlur> -In 'SourceGraphic' -StdDeviation 5
+    SVG @(
+        SVG.filter (
+            SVG.feGaussianBlur -In 'SourceGraphic' -StdDeviation 5
         ) -id blurMe
     
-        =<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
+        SVG.circle -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
     ) -ViewBox 100, 100
 .Example
     $AnimationTimeframe = [Ordered]@{
         Dur = '2s'
         RepeatCount = 'indefinite'
     }
-    =<SVG> -viewBox 1920,1080 -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' @(
-                =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
-                =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+    
+    SVG -viewBox 1920,1080 -Content @(
+        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            SVG.feTurbulence -baseFrequency '0.025' @(
+                SVG.animate -AttributeName numOctaves -Values '1;6;12' @AnimationTimeframe
+                SVG.animate -AttributeName seed -Values '0;5;0' @AnimationTimeframe
             ) -NumOctaves 4 -Type fractalNoise
-            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+            SVG.feGaussianBlur -stdDeviation 0.9 @(
+                SVG.animate -AttributeName stdDeviation -Values '1.1;3.3;1.1' @AnimationTimeframe
+            )
+            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
         )
-        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .4
     )
 .Example
     #.SYNOPSIS
@@ -33,45 +37,45 @@ function SVG.filter {
     #.DESCRIPTION
     #    Generates a cloud effect using fractal noise and blending modes.
     
-    =<SVG> -viewBox 1920, 1080 -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
-            =<SVG.feGaussianBlur> -stdDeviation 0.9
-            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+    SVG -viewBox 1920, 1080 -Content @(
+        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            SVG.feTurbulence -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
+            SVG.feGaussianBlur -stdDeviation 0.9
+            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
         )
-        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
     )
 .Example
-    =<svg> @(
-        =<svg.filter> -id embossed @(
-            =<svg.feConvolveMatrix> -KernelMatrix '
+    svg @(
+        svg.filter -id embossed @(
+            svg.feConvolveMatrix -KernelMatrix '
             5 0 0
             0 0 0
             0 0 -5
     '
-            =<svg.feMerge> @(
-                =<svg.feMergeNode>
-                =<svg.feMergeNode> -In 'SourceGraphic'
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
             )
         )
     
-        =<svg.text> "
+        svg.text "
     Embossed
     " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
     ) -ViewBox 0,0,300,100
 .Example
-    =<svg> @(
-        =<svg.filter> -id dropShadow @(
-            =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
-                =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+    svg @(
+        svg.filter -id dropShadow @(
+            svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
             )
-            =<svg.feMerge> @(
-                =<svg.feMergeNode>
-                =<svg.feMergeNode> -In 'SourceGraphic'
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
             )
         )
     
-        =<svg.text> "
+        svg.text "
     Moving Shadows
     " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
     ) -ViewBox 0,0,300,100
