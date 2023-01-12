@@ -26,43 +26,102 @@ The **`<line>`** element is an SVG basic shape used to create a line connecting 
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-@(
-    =<svg.defs> @(
-        =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
-            =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
-            =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-            =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+svg -Content @(
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor gold
+            svg.stop -Offset '95%' -Stopcolor red
         )
     )
-    =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
-) -ViewBox 0,0,50,50
+    svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+) -viewbox 0,0,100,100
 ```
 
 #### EXAMPLE 2
 ```PowerShell
-@(
-    =<svg.defs> @(
-        =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
-            =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
-            =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-            =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+svg -Content @(
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Stopcolor gold @(
+                svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
+            )
+            svg.stop -Stopcolor red @(
+                svg.animate -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
+            )
         )
     )
-    =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
-) -ViewBox 0,0,50,50
+    svg.rect -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+) -ViewBox '0 0 100 100'
 ```
 
 #### EXAMPLE 3
 ```PowerShell
+svg -Content @(
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor transparent
+            svg.stop -Offset '95%' -Stopcolor '#4488ff'
+            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
+```
+)
+    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
+#### EXAMPLE 4
+```PowerShell
+svg @(
+    svg.defs @(
+        svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+            svg.circle -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+            svg.line -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+            svg.line -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+        )
+    )
+    svg.rect -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
+) -ViewBox 0,0,50,50
+```
+
+#### EXAMPLE 5
+```PowerShell
+svg @(
+    svg.defs @(
+        svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+            svg.circle -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+            svg.line -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+            svg.line -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+        )
+    )
+    svg.rect -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
+) -ViewBox 0,0,50,50
+```
+
+#### EXAMPLE 6
+```PowerShell
 $Radius = 35
 $Center = 50
 $RotateEvery = [Timespan]::FromSeconds(1.5)
-=<svg> -ViewBox 0,0, ($center * 2), ($center * 2) @(
-    =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
-    =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-        =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+svg -ViewBox 0,0, ($center * 2), ($center * 2) @(
+    svg.circle -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
+    svg.line -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+        svg.animatetransform -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
     ) -Opacity 0.8
 )
+```
+
+#### EXAMPLE 7
+```PowerShell
+svg -Content @(
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor gold
+            svg.stop -Offset '95%' -Stopcolor red
+        ) -X1 0 -X2 0 -Y1 0% -Y2 100%
+    )
+    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
 ```
 
 ---
