@@ -63,7 +63,7 @@ dynamicParam {
     $DynamicParameters
 }
     process {
-        $null = $PSBoundParameters.Remove('StylesheetUri')
+        $null = $PSBoundParameters.Remove('FontName')
         $extraContent = ''
         if ($FontName) {
             if ($FontName -like 'http*') {
