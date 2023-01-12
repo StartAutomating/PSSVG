@@ -1,3 +1,27 @@
+### 0.2.8:
+
+* General Improvements:
+  * General Event support on every command with -On (Fixes #91)
+  * Reduced Warnings in GitHub Action (Fixes #94)
+* New Commands:
+  * SVG.ANSI (Fixes #82)
+  * SVG.StyleSheet (Fixes #83)
+  * SVG.GoogleFont (Fixes #84)
+  * Demystifying Path syntax
+    * SVG.ArcPath (Fixes #80)
+    * SVG.CurvePath (Fixes #81)
+    * SVG.LinePath (Fixes #90)
+* Pipeline improvements:
+  * Allowing -Content to be provided from the pipeline 
+  * Removing 'Attributes' parameter alias (Fixes #85)
+* Command Improvements
+  * SVG.Sprial can -ScaleX/-ScaleY (Fixes #77)
+* Example Updates
+  * New Examples
+  * Examples avoid tag-style syntax (Fixes #95)
+
+---
+
 ### 0.2.7:
 * Adding SVG.Star (Fixes #68)
 * Fixing OutputPath issue (Fixes #67)
