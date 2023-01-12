@@ -135,6 +135,7 @@ The following commands are supported:
 |[Star](SVG.Star.md)                              |[SVG.Star](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.Star.ps1)                                |=&lt;svg.Star&gt;                                            |
 |[stop](SVG.stop.md)                              |[SVG.stop](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.stop.ps1)                              |=&lt;svg.stop&gt;                                            |
 |[style](SVG.style.md)                            |[SVG.style](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.style.ps1)                            |=&lt;svg.style&gt;                                           |
+|[StyleSheet](SVG.StyleSheet.md)                  |[SVG.StyleSheet](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.StyleSheet.ps1)                    |=&lt;svg.StyleSheet&gt;                                      |
 |[svg](SVG.svg.md)                                |[SVG.svg](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.svg.ps1)                                |=&lt;svg&gt; svg                                             |
 |[switch](SVG.switch.md)                          |[SVG.switch](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.switch.ps1)                          |=&lt;svg.switch&gt;                                          |
 |[symbol](SVG.symbol.md)                          |[SVG.symbol](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.symbol.ps1)                          |=&lt;svg.symbol&gt;                                          |
@@ -179,7 +180,6 @@ It uses two PowerShell modules to read the repository and create the commands:
 
 * [Irregular](https://github.com/StartAutomating/Irregular) is used to help parse the markdown contents of the repository
 * [PipeScript](https://github.com/StartAutomating/PipeScript) is used to create the functions from the parsed data.
-
 
 
 
