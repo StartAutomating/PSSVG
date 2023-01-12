@@ -10,10 +10,10 @@
     }    
 }) | ForEach-Object {
     $n = $_.N     
-    =<svg> -content (
-        $_ | =<svg.Spiral> -Stroke '#4488ff' -Content @(
+    svg -content (
+        $_ | svg.Spiral -Stroke '#4488ff' -Content @(
             if ($RotateEvery.TotalSeconds) {
-                =<svg.animatetransform> -AttributeName transform -From "0 250 250"  -To "360 250 250" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+                svg.animatetransform -AttributeName transform -From "0 250 250"  -To "360 250 250" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
             }            
         )
     ) -ViewBox 0,0,500,500 -OutputPath (
