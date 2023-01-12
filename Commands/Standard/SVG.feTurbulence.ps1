@@ -9,15 +9,19 @@ function SVG.feTurbulence {
         Dur = '2s'
         RepeatCount = 'indefinite'
     }
-    =<SVG> -viewBox 1920,1080 -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' @(
-                =<svg.animate> -AttributeName numOctaves -Values '1;6;1' @AnimationTimeframe
-                =<svg.animate> -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+    
+    SVG -viewBox 1920,1080 -Content @(
+        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            SVG.feTurbulence -baseFrequency '0.025' @(
+                SVG.animate -AttributeName numOctaves -Values '1;6;12' @AnimationTimeframe
+                SVG.animate -AttributeName seed -Values '0;5;0' @AnimationTimeframe
             ) -NumOctaves 4 -Type fractalNoise
-            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+            SVG.feGaussianBlur -stdDeviation 0.9 @(
+                SVG.animate -AttributeName stdDeviation -Values '1.1;3.3;1.1' @AnimationTimeframe
+            )
+            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
         )
-        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .4
     )
 .Example
     #.SYNOPSIS
@@ -25,13 +29,13 @@ function SVG.feTurbulence {
     #.DESCRIPTION
     #    Generates a cloud effect using fractal noise and blending modes.
     
-    =<SVG> -viewBox 1920, 1080 -Content @(
-        =<SVG.filter> -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            =<SVG.feTurbulence> -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
-            =<SVG.feGaussianBlur> -stdDeviation 0.9
-            =<svg.feBlend> -In 'SourceGraphic' -Mode color-burn
+    SVG -viewBox 1920, 1080 -Content @(
+        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            SVG.feTurbulence -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
+            SVG.feGaussianBlur -stdDeviation 0.9
+            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
         )
-        =<SVG.rect> -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
     )
 .Link
     https://pssvg.start-automating.com/SVG.feTurbulence
