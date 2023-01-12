@@ -76,6 +76,7 @@ The following commands are supported:
 |[animate](SVG.animate.md)                        |[SVG.animate](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.animate.ps1)                        |=&lt;svg.animate&gt;                                         |
 |[animateMotion](SVG.animateMotion.md)            |[SVG.animateMotion](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.animateMotion.ps1)            |=&lt;svg.animateMotion&gt;                                   |
 |[animateTransform](SVG.animateTransform.md)      |[SVG.animateTransform](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.animateTransform.ps1)      |=&lt;svg.animateTransform&gt;                                |
+|[ANSI](SVG.ANSI.md)                              |[SVG.ANSI](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.ANSI.ps1)                                |=&lt;svg.ANSI&gt;                                            |
 |[ArcPath](SVG.ArcPath.md)                        |[SVG.ArcPath](https://github.com/StartAutomating/PSSVG/tree/main/CommandsCustomSVG.ArcPath.ps1)                          |=&lt;SVG.ArcedPath&gt; =&lt;svg.ArcPath&gt; SVG.ArcedPath    |
 |[circle](SVG.circle.md)                          |[SVG.circle](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.circle.ps1)                          |=&lt;svg.circle&gt;                                          |
 |[clipPath](SVG.clipPath.md)                      |[SVG.clipPath](https://github.com/StartAutomating/PSSVG/tree/main/CommandsStandardSVG.clipPath.ps1)                      |=&lt;svg.clipPath&gt;                                        |
@@ -178,7 +179,6 @@ It uses two PowerShell modules to read the repository and create the commands:
 
 * [Irregular](https://github.com/StartAutomating/Irregular) is used to help parse the markdown contents of the repository
 * [PipeScript](https://github.com/StartAutomating/PipeScript) is used to create the functions from the parsed data.
-
 
 
 
