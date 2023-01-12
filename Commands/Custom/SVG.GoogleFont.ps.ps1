@@ -16,11 +16,11 @@ function SVG.GoogleFont
     .EXAMPLE
         SVG @(
             SVG.Defs @(
-                SVG.GoogleFont -FontName Abel
+                SVG.GoogleFont -FontName "La Belle Aurore"
             )
             
-            SVG.Text -Text "Abel" -X 50% -Y 50% -TextAnchor 'middle'
-        ) -Viewbox 100,100 -OutputPath .\abel.svg
+            SVG.Text -Text "Fancy Text" -X 50% -Y 50% -TextAnchor 'middle' -Style "font-family: 'La Belle Aurore'"
+        ) -Viewbox 100,100 -OutputPath .\FancyText.svg
     #>
     [inherit('SVG.Style', Abstract,Dynamic,ExcludeParameter='Type')]
     param(
