@@ -5,176 +5,176 @@ function SVG.circle {
 .Description
     The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element is an [SVG basic shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes), used to draw circles based on a center point and a radius.
 .Example
-    =<svg> -Content @(
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
-            =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
-            =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
+    SVG -Content @(
+        SVG.circle -cx 50 -cy 50 -r 50 -Fill red @(
+            SVG.animate -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
+            SVG.animate -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
         ) -Stroke orange
     )  -ViewBox 0,0,100,100
 .Example
-    =<svg> @(
+    SVG @(
         $animationSettings = [Ordered]@{
-            Dur = '2s'
-            RepeatCount='indefinite'
+            Dur  = '2s'
+            RepeatCount = 'indefinite'
         }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        SVG.circle -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+            SVG.animate -values '1;10;1' -AttributeName r @animationSettings
         )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        SVG.rect -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+            SVG.animate -values '0;50;0' -AttributeName width @animationSettings
+            SVG.animate -values '50;0;50' -AttributeName height @animationSettings
         )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        SVG.ellipse -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+            SVG.animate -values '10;1;10' -AttributeName rx @animationSettings
+            SVG.animate -values '5;10;5' -AttributeName ry @animationSettings
         )
     ) -ViewBox 0, 0, 100, 150
 .Example
     $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    =<svg> -viewBox "0 0 200 100" @(
-        =<svg.path> -d $path -Fill none -Stroke lightgrey
-        =<svg.circle> -r 5 -Fill red (
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+    SVG -viewBox "0 0 200 100" @(
+        SVG.path -d $path -Fill none -Stroke lightgrey
+        SVG.circle -r 5 -Fill red (
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
         )
-        =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
-            =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
+            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
-    =<svg> @(
-        =<svg.filter> (
-            =<svg.feGaussianBlur> -In 'SourceGraphic' -StdDeviation 5
+    SVG @(
+        SVG.filter (
+            SVG.feGaussianBlur -In 'SourceGraphic' -StdDeviation 5
         ) -id blurMe
     
-        =<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
+        SVG.circle -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
     ) -ViewBox 100, 100
 .Example
-    =<svg> -ViewBox 0,0,200,200 @(
-        =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
-        =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
-        =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
+    SVG -ViewBox 0,0,200,200 @(
+        SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
+        SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
+        SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
     )
 .Example
-    =<svg> -ViewBox 0,0,200,200 @(
-        =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
-        =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
-        =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
+    SVG -ViewBox 0,0,200,200 @(
+        SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
+        SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
+        SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
     )
 .Example
-    =<svg> -ViewBox 0,0,200,200 @(
-        =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
-        =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
-        =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
+    SVG -ViewBox 0,0,200,200 @(
+        SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
+        SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
+        SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
     )
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.LinearGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '10%' -Stopcolor gold
-                =<svg.stop> -Offset '95%' -Stopcolor red
+    svg -Content @(
+        svg.defs @(
+            svg.LinearGradient -Id myGradient -Content @(
+                svg.stop -Offset '10%' -Stopcolor gold
+                svg.stop -Offset '95%' -Stopcolor red
             )
         )
-        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -viewbox 0,0,100,100
 .Example
-    =<svg> @(
-        =<svg.defs> @(
-            =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
-                =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
-                =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-                =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+    svg @(
+        svg.defs @(
+            svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+                svg.circle -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+                svg.line -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+                svg.line -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
             )
         )
-        =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
+        svg.rect -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
     ) -ViewBox 0,0,50,50
 .Example
-    =<svg> -ViewBox 0, 0, 250, 200 -Content @(
-        =<svg.defs> (
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg -ViewBox 0, 0, 250, 200 -Content @(
+        svg.defs (
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
                 ) -Fill '#4488ff'
             )
         )
-        =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
-    =<svg> -ViewBox 0, 0, 250, 200 -Content @(
-        =<svg.defs> (
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg -ViewBox 0, 0, 250, 200 -Content @(
+        svg.defs (
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
                 ) -Fill '#4488ff'
             )
         )
-        =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
-    =<svg> -ViewBox 0, 0, 100, 100 -Content @(
-        =<svg.defs> @(
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
+    svg -ViewBox 0, 0, 100, 100 -Content @(
+        svg.defs @(
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
                 ) -Fill white
             )
-            =<svg.mask> (
-                =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
+            svg.mask (
+                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
             ) -Id myMask
-            =<svg.radialGradient> @(
-                =<svg.stop> -Offset '25%' -StopColor 'red'
-                =<svg.stop> -Offset '50%' -StopColor 'green'
-                =<svg.stop> -Offset '75%' -StopColor 'blue'
+            svg.radialGradient @(
+                svg.stop -Offset '25%' -StopColor 'red'
+                svg.stop -Offset '50%' -StopColor 'green'
+                svg.stop -Offset '75%' -StopColor 'blue'
             ) -id myGradient
         )
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
+        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
     )
 .Example
-    =<svg> -ViewBox 0, 0, 100, 100 -Content @(
-        =<svg.defs> @(
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
+    svg -ViewBox 0, 0, 100, 100 -Content @(
+        svg.defs @(
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
                 ) -Fill white
             )
-            =<svg.mask> (
-                =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
+            svg.mask (
+                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
             ) -Id myMask
-            =<svg.radialGradient> @(
-                =<svg.stop> -Offset '25%' -StopColor 'red'
-                =<svg.stop> -Offset '50%' -StopColor 'green'
-                =<svg.stop> -Offset '75%' -StopColor 'blue'
+            svg.radialGradient @(
+                svg.stop -Offset '25%' -StopColor 'red'
+                svg.stop -Offset '50%' -StopColor 'green'
+                svg.stop -Offset '75%' -StopColor 'blue'
             ) -id myGradient
         )
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
+        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
     )
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.radialGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '10%' -Stopcolor gold
-                =<svg.stop> -Offset '95%' -Stopcolor red
+    svg -Content @(
+        svg.defs @(
+            svg.radialGradient -Id myGradient -Content @(
+                svg.stop -Offset '10%' -Stopcolor gold
+                svg.stop -Offset '95%' -Stopcolor red
             )
         )
-        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -ViewBox 0,0,100,100
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.radialGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '1%' -Stopcolor gold @(
-                    =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
+    svg -Content @(
+        svg.defs @(
+            svg.radialGradient -Id myGradient -Content @(
+                svg.stop -Offset '1%' -Stopcolor gold @(
+                    svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
                 )
-                =<svg.stop> -Offset '100%' -Stopcolor red
+                svg.stop -Offset '100%' -Stopcolor red
             )
         )
-        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -ViewBox '0 0 100 100'
 .Example
     =<svg> @(
@@ -186,10 +186,10 @@ function SVG.circle {
     $Radius = 35
     $Center = 50
     $RotateEvery = [Timespan]::FromSeconds(1.5)
-    =<svg> -ViewBox 0,0, ($center * 2), ($center * 2) @(
-        =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
-        =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-            =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg -ViewBox 0,0, ($center * 2), ($center * 2) @(
+        svg.circle -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
+        svg.line -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+            svg.animatetransform -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
         ) -Opacity 0.8
     )
 .Link
