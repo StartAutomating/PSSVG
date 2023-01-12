@@ -6,62 +6,62 @@ function SVG.animateTransform {
     The `animateTransform` element animates a transformation attribute on its target element, thereby allowing animations to control translation, scaling, rotation, and/or skewing.
 .Example
     $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    =<svg> -viewBox "0 0 200 100" @(
-        =<svg.path> -d $path -Fill none -Stroke lightgrey
-        =<svg.circle> -r 5 -Fill red (
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+    SVG -viewBox "0 0 200 100" @(
+        SVG.path -d $path -Fill none -Stroke lightgrey
+        SVG.circle -r 5 -Fill red (
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
         )
-        =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
-            =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
+            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
-    =<svg> -ViewBox 0, 0, 250, 200 -Content @(
-        =<svg.defs> (
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg -ViewBox 0, 0, 250, 200 -Content @(
+        svg.defs (
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
                 ) -Fill '#4488ff'
             )
         )
-        =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
-    =<svg> -ViewBox 0, 0, 250, 200 -Content @(
-        =<svg.defs> (
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg -ViewBox 0, 0, 250, 200 -Content @(
+        svg.defs (
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
                 ) -Fill '#4488ff'
             )
         )
-        =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
-    =<svg> -ViewBox 0, 0, 100, 100 -Content @(
-        =<svg.defs> @(
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
+    svg -ViewBox 0, 0, 100, 100 -Content @(
+        svg.defs @(
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
                 ) -Fill white
             )
-            =<svg.mask> (
-                =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
+            svg.mask (
+                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
             ) -Id myMask
-            =<svg.radialGradient> @(
-                =<svg.stop> -Offset '25%' -StopColor 'red'
-                =<svg.stop> -Offset '50%' -StopColor 'green'
-                =<svg.stop> -Offset '75%' -StopColor 'blue'
+            svg.radialGradient @(
+                svg.stop -Offset '25%' -StopColor 'red'
+                svg.stop -Offset '50%' -StopColor 'green'
+                svg.stop -Offset '75%' -StopColor 'blue'
             ) -id myGradient
         )
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
+        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
     )
 .Example
     [Timespan]$RotateEvery = '00:00:10'
@@ -74,10 +74,10 @@ function SVG.animateTransform {
         }
     }) | ForEach-Object {
         $n = $_.N
-        =<svg> -content (
-            $_ | =<svg.Spiral> -Stroke '#4488ff' -Content @(
+        svg -content (
+            $_ | svg.Spiral -Stroke '#4488ff' -Content @(
                 if ($RotateEvery.TotalSeconds) {
-                    =<svg.animatetransform> -AttributeName transform -From "0 250 250"  -To "360 250 250" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+                    svg.animatetransform -AttributeName transform -From "0 250 250"  -To "360 250 250" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
                 }
             )
         ) -ViewBox 0,0,500,500
@@ -85,52 +85,52 @@ function SVG.animateTransform {
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Example
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Example
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Example
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Example
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Example
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Example
     $Radius = 35
     $Center = 50
     $RotateEvery = [Timespan]::FromSeconds(1.5)
-    =<svg> -ViewBox 0,0, ($center * 2), ($center * 2) @(
-        =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
-        =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-            =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg -ViewBox 0,0, ($center * 2), ($center * 2) @(
+        svg.circle -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
+        svg.line -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+            svg.animatetransform -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
         ) -Opacity 0.8
     )
 .Link
