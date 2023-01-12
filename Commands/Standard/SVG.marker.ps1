@@ -10,15 +10,15 @@ function SVG.marker {
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Example
     foreach ($n in 5..12) {
     
     
-    =<svg> -ViewBox 2,2 @(
-        =<svg.Star> -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+    svg -ViewBox 2,2 @(
+        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
     )
 .Link
     https://pssvg.start-automating.com/SVG.marker
