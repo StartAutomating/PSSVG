@@ -2,7 +2,7 @@
 
 $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
 $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
-$fileListLines = @($fileListText -split '(?\r\n|\n)')
+$fileListLines = @($fileListText -split '(?>\r\n|\n)')
 
 $fontSize = 14
 
