@@ -66,11 +66,12 @@ dynamicParam {
         $null = $PSBoundParameters.Remove('FontName')
         $extraContent = ''
         if ($FontName) {
-            if ($FontName -like 'http*') {
-                $fontUri = $FontName
-            } else {
-                "https://fonts.googleapis.com/css?family=$fontName"
-            }
+            $fontUri = 
+                if ($FontName -like 'http*') {
+                    $FontName
+                } else {
+                    "https://fonts.googleapis.com/css?family=$fontName"
+                }
             if ($PSBoundParameters['Content']) {
                 $extraContent = $PSBoundParameters['Content']
             }
