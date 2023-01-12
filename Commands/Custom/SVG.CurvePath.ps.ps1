@@ -62,6 +62,10 @@ function SVG.CurvePath
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
         }
+
+        if ($_ -eq $PSBoundParameters.Content) {
+            $null = $PSBoundParameters.Remove('Content')
+        }
         
         if ($ControlPoint.Length -eq 1) {
             $ControlPoint = $ControlPoint[0], $ControlPoint[0]

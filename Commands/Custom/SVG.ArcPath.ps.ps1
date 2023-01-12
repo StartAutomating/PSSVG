@@ -60,6 +60,9 @@ function SVG.ArcPath
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
         }
+        if ($_ -eq $PSBoundParameters.Content) {
+            $null = $PSBoundParameters.Remove('Content')
+        }
         $arcPath = @(
             if ($psBoundParameters.Keys -eq 'Start') {
                 "M"

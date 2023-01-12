@@ -57,6 +57,9 @@ function SVG.LinePath
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
         }
+        if ($_ -eq $PSBoundParameters.Content) {
+            $null = $PSBoundParameters.Remove('Content')
+        }
         $linePath = @(
             if ($psBoundParameters.Keys -eq 'Start') {
                 "M"
