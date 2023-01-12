@@ -28,47 +28,47 @@ If text is included in SVG not inside of a `<text>` element, it is not rendered.
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
-@(
-    =<svg.DropShadow> -DistanceY .75
+SVG @(
+    SVG.DropShadow -DistanceY .75
 ```
-=<svg.text> "
+SVG.text "
 Dropping Shadows
 " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
 
 ) -ViewBox 0,0,300,100
 #### EXAMPLE 2
 ```PowerShell
-@(
-    =<svg.filter> -id embossed @(
-        =<svg.feConvolveMatrix> -KernelMatrix '
+svg @(
+    svg.filter -id embossed @(
+        svg.feConvolveMatrix -KernelMatrix '
         5 0 0
         0 0 0
         0 0 -5
 '
-        =<svg.feMerge> @(
-            =<svg.feMergeNode>
-            =<svg.feMergeNode> -In 'SourceGraphic'
+        svg.feMerge @(
+            svg.feMergeNode
+            svg.feMergeNode -In 'SourceGraphic'
         )
     )
 ```
-=<svg.text> "
+svg.text "
 Embossed
 " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
 ) -ViewBox 0,0,300,100
 #### EXAMPLE 3
 ```PowerShell
--ViewBox 0,0,100,100 -Content (
-    =<svg.g> -Content @(
-        =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
+svg -ViewBox 0,0,100,100 -Content (
+    svg.g -Content @(
+        svg.text -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
 ```
 # If you only want to fade in once, remove the -RepeatCount
-        =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
+        svg.animate -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
     )
 )
 #### EXAMPLE 4
 ```PowerShell
-(
-    =<svg.text> -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
+svg (
+    svg.text -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
 ) -ViewBox 0,0, 200, 100
 ```
 
@@ -84,8 +84,8 @@ $ln = 0
 $maxLineLength =0
 $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
 
-=<svg> (
-    =<svg.text> -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
+svg (
+    svg.text -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
     foreach ($line in $fileListLines) {
         $ln++
         $href =
@@ -99,26 +99,26 @@ $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
             $maxLineLength = $line.Length
         }
 
-        =<svg.a> -href $href (
-            =<svg.tspan> -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
+        svg.a -href $href (
+            svg.tspan -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
         )
     }
     )
 )
 #### EXAMPLE 6
 ```PowerShell
-@(
-    =<svg.filter> -id dropShadow @(
-        =<svg.feDropShadow> -dx 0.5 -dy 0.75 -StdDeviation 0 @(
-            =<svg.animate> -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+svg @(
+    svg.filter -id dropShadow @(
+        svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+            svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
         )
-        =<svg.feMerge> @(
-            =<svg.feMergeNode>
-            =<svg.feMergeNode> -In 'SourceGraphic'
+        svg.feMerge @(
+            svg.feMergeNode
+            svg.feMergeNode -In 'SourceGraphic'
         )
     )
 ```
-=<svg.text> "
+svg.text "
 Moving Shadows
 " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
 ) -ViewBox 0,0,300,100
@@ -138,65 +138,109 @@ $scaledSize = [Ordered]@{Width=15;Height=15}
 ) -ViewBox 0,0,125,50
 #### EXAMPLE 8
 ```PowerShell
-@(
-    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+svg -viewBox 300, 100 -Content @(
+    svg.symbol -Id psChevron -Content @(
+        svg.polygon -Points (@(
+            "40,20"
+            "45,20"
+            "60,50"
+            "35,80"
+            "32.5,80"
+            "55,50"
+        ) -join ' ')
+    ) -ViewBox 100, 100
+    svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
+    svg.text @(
+        svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
+        svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
+    ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
+    # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
+)
 ```
-=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-        =<svg.tspan> -Content "STOP" -Id stop
-        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    )
 
-    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-        =<svg.tspan> -Content "USING" -Id using
-        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-
-    )
-
-    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-        =<svg.tspan> -Content "GIFS" -Id gif
-        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    )
-) -ViewBox 200,200
 #### EXAMPLE 9
 ```PowerShell
-@(
-    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+svg -viewBox 300, 100 -Content @(
+    svg.symbol -Id psChevron -Content @(
+        svg.polygon -Points (@(
+            "40,20"
+            "45,20"
+            "60,50"
+            "35,80"
+            "32.5,80"
+            "55,50"
+        ) -join ' ')
+    ) -ViewBox 100, 100
+    svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
+    svg.text @(
+        svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
+        svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
+    ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
+    # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
+)
 ```
-=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-        =<svg.tspan> -Content "STOP" -Id stop
-        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    )
 
-    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-        =<svg.tspan> -Content "USING" -Id using
-        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-
-    )
-
-    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-        =<svg.tspan> -Content "GIFS" -Id gif
-        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    )
-) -ViewBox 200,200
 #### EXAMPLE 10
 ```PowerShell
-@(
-    =<svg.ConvexPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+svg @(
+    svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
 ```
-=<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-        =<svg.tspan> -Content "STOP" -Id stop
-        =<svg.animate> -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        svg.tspan -Content "STOP" -Id stop
+        svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
     )
 
-    =<svg.text> -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-        =<svg.tspan> -Content "USING" -Id using
-        =<svg.animate> -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        svg.tspan -Content "USING" -Id using
+        svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
 
     )
 
-    =<svg.text> -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-        =<svg.tspan> -Content "GIFS" -Id gif
-        =<svg.animate> -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        svg.tspan -Content "GIFS" -Id gif
+        svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
+#### EXAMPLE 11
+```PowerShell
+svg @(
+    svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        svg.tspan -Content "STOP" -Id stop
+        svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        svg.tspan -Content "USING" -Id using
+        svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        svg.tspan -Content "GIFS" -Id gif
+        svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+) -ViewBox 200,200
+#### EXAMPLE 12
+```PowerShell
+svg @(
+    svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+```
+svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+        svg.tspan -Content "STOP" -Id stop
+        svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    )
+
+    svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+        svg.tspan -Content "USING" -Id using
+        svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+
+    )
+
+    svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+        svg.tspan -Content "GIFS" -Id gif
+        svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
     )
 ) -ViewBox 200,200
 ---
