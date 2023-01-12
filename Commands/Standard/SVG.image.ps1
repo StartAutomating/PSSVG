@@ -7,7 +7,7 @@ function SVG.image {
     
     The only image formats SVG software must support are `JPEG`, `PNG`, and other SVG files. Animated `GIF` behavior is undefined.
     
-    SVG files displayed with `<image>` are [treated as an image](https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_as_an_Image): external resources aren't loaded, `:visited` styles [aren't applied](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the\_:visited_selector), and they cannot be interactive. To include dynamic SVG elements, try `use` with an external URL. To include SVG files and run scripts inside them, try `object` inside of `foreignObject`.
+    SVG files displayed with `<image>` are [treated as an image](https://developer.mozilla.org/en-US/docs/Web/SVG/SVG_as_an_Image): external resources aren't loaded, `:visited` styles [aren't applied](https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector), and they cannot be interactive. To include dynamic SVG elements, try `use` with an external URL. To include SVG files and run scripts inside them, try `object` inside of `foreignObject`.
     
     > **Note:** The HTML spec defines `<image>` as a synonym for `img` while parsing HTML. This specific element and its behavior only apply inside SVG documents or inline SVGs.
 .Link
@@ -19,18 +19,25 @@ function SVG.image {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'image')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the image element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # 
@@ -1538,39 +1545,58 @@ $XlinkShow
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

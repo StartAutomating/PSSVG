@@ -7,21 +7,21 @@ function SVG.ellipse {
     
     > **Note:** Ellipses are unable to specify the exact orientation of the ellipse (if, for example, you wanted to draw an ellipse tilted at a 45 degree angle), but it can be rotated by using the `transform` attribute.
 .Example
-    =<svg> @(
-        $animationSettings = @{
-            Dur = '2s'
-            RepeatCount='indefinite'
+    SVG @(
+        $animationSettings = [Ordered]@{
+            Dur  = '2s'
+            RepeatCount = 'indefinite'
         }
-        =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+        SVG.circle -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+            SVG.animate -values '1;10;1' -AttributeName r @animationSettings
         )
-        =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-            =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+        SVG.rect -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+            SVG.animate -values '0;50;0' -AttributeName width @animationSettings
+            SVG.animate -values '50;0;50' -AttributeName height @animationSettings
         )
-        =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-            =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+        SVG.ellipse -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+            SVG.animate -values '10;1;10' -AttributeName rx @animationSettings
+            SVG.animate -values '5;10;5' -AttributeName ry @animationSettings
         )
     ) -ViewBox 0, 0, 100, 150
 .Example
@@ -39,18 +39,25 @@ function SVG.ellipse {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'ellipse')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the ellipse element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The x position of the ellipse.
@@ -1527,39 +1534,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

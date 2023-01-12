@@ -4,6 +4,108 @@ function SVG.feMerge {
     Creates SVG feMerge elements
 .Description
     The **`<feMerge>`** SVG element allows filter effects to be applied concurrently instead of sequentially. This is achieved by other filters storing their output via the `result` attribute and then accessing it in a `feMergeNode` child.
+.Example
+    svg @(
+        svg.filter -id embossed @(
+            svg.feConvolveMatrix -KernelMatrix '
+            5 0 0
+            0 0 0
+            0 0 -5
+    '
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Embossed
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+    ) -ViewBox 0,0,300,100
+.Example
+    svg @(
+        svg.filter -id embossed @(
+            svg.feConvolveMatrix -KernelMatrix '
+            5 0 0
+            0 0 0
+            0 0 -5
+    '
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Embossed
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+    ) -ViewBox 0,0,300,100
+.Example
+    svg @(
+        svg.filter -id embossed @(
+            svg.feConvolveMatrix -KernelMatrix '
+            5 0 0
+            0 0 0
+            0 0 -5
+    '
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Embossed
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+    ) -ViewBox 0,0,300,100
+.Example
+    svg @(
+        svg.filter -id dropShadow @(
+            svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
+.Example
+    svg @(
+        svg.filter -id dropShadow @(
+            svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
+.Example
+    svg @(
+        svg.filter -id dropShadow @(
+            svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
 .Link
     https://pssvg.start-automating.com/SVG.feMerge
 .Link
@@ -13,18 +115,25 @@ function SVG.feMerge {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feMerge')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feMerge element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The **`id`** attribute assigns a unique name to an element.
@@ -1379,39 +1488,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

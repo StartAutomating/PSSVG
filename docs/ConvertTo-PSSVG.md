@@ -1,4 +1,3 @@
-
 ConvertTo-PSSVG
 ---------------
 ### Synopsis
@@ -36,13 +35,12 @@ ConvertTo-PSSVG -InputObject .\a.svg
 ### Parameters
 #### **InputObject**
 
-> **Type**: ```[Object]```
 
-> **Required**: true
 
-> **Position**: 1
 
-> **PipelineInput**:true (ByValue, ByPropertyName)
+|Type      |Required|Position|PipelineInput                 |
+|----------|--------|--------|------------------------------|
+|`[Object]`|true    |1       |true (ByValue, ByPropertyName)|
 
 
 
@@ -52,5 +50,3 @@ ConvertTo-PSSVG -InputObject .\a.svg
 ConvertTo-PSSVG [-InputObject] <Object> [<CommonParameters>]
 ```
 ---
-
-

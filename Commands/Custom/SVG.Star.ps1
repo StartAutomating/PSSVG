@@ -114,7 +114,7 @@ dynamicParam {
             }
         }
         
-        $myParams = @{} + $PSBoundParameters
+        $myParams = [Ordered]@{} + $PSBoundParameters
         $myParams["D"] = $points -join ' '
         $myParams.Remove('PointCount')
         $myParams.Remove('Rotate')

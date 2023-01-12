@@ -7,26 +7,44 @@ function SVG.text {
     
     If text is included in SVG not inside of a `<text>` element, it is not rendered. This is different than being hidden by default, as setting the `display` property won't show the text.
 .Example
-    =<svg> @(
-        =<svg.DropShadow> -DistanceY .75
+    SVG @(
+        SVG.DropShadow -DistanceY .75
     
-        =<svg.text> @"
+        SVG.text "
     Dropping Shadows
-    "@ -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
     
     ) -ViewBox 0,0,300,100
 .Example
-    =<svg> -ViewBox 0,0,100,100 -Content (
-        =<svg.g> -Content @(
-            =<svg.text> -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
+    svg @(
+        svg.filter -id embossed @(
+            svg.feConvolveMatrix -KernelMatrix '
+            5 0 0
+            0 0 0
+            0 0 -5
+    '
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Embossed
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+    ) -ViewBox 0,0,300,100
+.Example
+    svg -ViewBox 0,0,100,100 -Content (
+        svg.g -Content @(
+            svg.text -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text "Fading in" -Fill '#4488ff'
     
             # If you only want to fade in once, remove the -RepeatCount
-            =<svg.animate> -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
+            svg.animate -Values '0;1' -AttributeName opacity -Begin '0s' -End '1s' -Dur '1s' -RepeatCount 'indefinite'
         )
     )
 .Example
-    =<svg> (
-        =<svg.text> -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
+    svg (
+        svg.text -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
     ) -ViewBox 0,0, 200, 100
 .Example
     $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
@@ -39,8 +57,8 @@ function SVG.text {
     $maxLineLength =0
     $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
     
-    =<svg> (
-        =<svg.text> -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
+    svg (
+        svg.text -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
         foreach ($line in $fileListLines) {
             $ln++
             $href =
@@ -54,19 +72,35 @@ function SVG.text {
                 $maxLineLength = $line.Length
             }
     
-            =<svg.a> -href $href (
-                =<svg.tspan> -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
+            svg.a -href $href (
+                svg.tspan -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
             )
         }
         )
     )
+.Example
+    svg @(
+        svg.filter -id dropShadow @(
+            svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+                svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+            )
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
+            )
+        )
+    
+        svg.text "
+    Moving Shadows
+    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+    ) -ViewBox 0,0,300,100
 .Example
     =<svg> @(
         =<svg.symbol> -content (
             =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
         ) -id Star -ViewBox 25,25
     
-        $scaledSize = @{Width=15;Height=15}
+        $scaledSize = [Ordered]@{Width=15;Height=15}
         =<svg.use> -Href '#Star' -X 0 @scaledSize
         =<svg.use> -Href '#Star' -X 20 @scaledSize
         =<svg.use> -Href '#Star' -X 40 @scaledSize
@@ -74,25 +108,101 @@ function SVG.text {
         =<svg.use> -Href '#Star' -X 80 @scaledSize
     ) -ViewBox 0,0,125,50
 .Example
-    =<svg> @(
-        =<svg.RegularPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -Content 'STOP' -FontSize 64 -FontFamily sans-serif -Fill white
+    svg -viewBox 300, 100 -Content @(
+        svg.symbol -Id psChevron -Content @(
+            svg.polygon -Points (@(
+                "40,20"
+                "45,20"
+                "60,50"
+                "35,80"
+                "32.5,80"
+                "55,50"
+            ) -join ' ')
+        ) -ViewBox 100, 100
+        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
+        svg.text @(
+            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
+            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
+        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
+        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
+    )
+.Example
+    svg -viewBox 300, 100 -Content @(
+        svg.symbol -Id psChevron -Content @(
+            svg.polygon -Points (@(
+                "40,20"
+                "45,20"
+                "60,50"
+                "35,80"
+                "32.5,80"
+                "55,50"
+            ) -join ' ')
+        ) -ViewBox 100, 100
+        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
+        svg.text @(
+            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
+            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
+        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
+        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
+    )
+.Example
+    svg @(
+        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
     
-        =<svg.text> -X 50% -Y 75% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            =<svg.tspan> -Content "GIF" -Id gif
-            =<svg.animate> -Values '28;32;28' -Dur 3s -AttributeName font-size -RepeatDur 'indefinite'
+        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            svg.tspan -Content "STOP" -Id stop
+            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
     
+        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "USING" -Id using
+            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "GIFS" -Id gif
+            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
         )
     ) -ViewBox 200,200
 .Example
-    =<svg> @(
-        =<svg.RegularPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -Content 'STOP' -FontSize 64 -FontFamily sans-serif -Fill white
+    svg @(
+        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
     
-        =<svg.text> -X 50% -Y 75% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            =<svg.tspan> -Content "GIF" -Id gif
-            =<svg.animate> -Values '28;32;28' -Dur 3s -AttributeName font-size -RepeatDur 'indefinite'
+        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            svg.tspan -Content "STOP" -Id stop
+            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
     
+        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "USING" -Id using
+            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "GIFS" -Id gif
+            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    ) -ViewBox 200,200
+.Example
+    svg @(
+        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+    
+        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            svg.tspan -Content "STOP" -Id stop
+            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    
+        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "USING" -Id using
+            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "GIFS" -Id gif
+            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
         )
     ) -ViewBox 200,200
 .Link
@@ -104,19 +214,26 @@ function SVG.text {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'text')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the text element
 [Reflection.AssemblyMetaData('SVG.IsCData', $True)]
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The x coordinate of the starting point of the text baseline.
@@ -1631,39 +1748,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

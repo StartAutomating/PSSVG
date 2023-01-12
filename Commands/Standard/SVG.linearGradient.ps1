@@ -5,54 +5,54 @@ function SVG.linearGradient {
 .Description
     The **`<linearGradient>`** element lets authors define linear gradients to apply to other SVG elements.
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.LinearGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '10%' -Stopcolor gold
-                =<svg.stop> -Offset '95%' -Stopcolor red
+    svg -Content @(
+        svg.defs @(
+            svg.LinearGradient -Id myGradient -Content @(
+                svg.stop -Offset '10%' -Stopcolor gold
+                svg.stop -Offset '95%' -Stopcolor red
             )
         )
-        =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -viewbox 0,0,100,100
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.LinearGradient> -Id myGradient -Content @(
-                =<svg.stop> -Stopcolor gold @(
-                    =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
+    svg -Content @(
+        svg.defs @(
+            svg.LinearGradient -Id myGradient -Content @(
+                svg.stop -Stopcolor gold @(
+                    svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
                 )
-                =<svg.stop> -Stopcolor red @(
-                    =<svg.animate> -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
+                svg.stop -Stopcolor red @(
+                    svg.animate -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
                 )
             )
         )
-        =<svg.rect> -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
+        svg.rect -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
     ) -ViewBox '0 0 100 100'
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.LinearGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '10%' -Stopcolor transparent
-                =<svg.stop> -Offset '95%' -Stopcolor '#4488ff'
-                =<svg.animate> -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-                =<svg.animate> -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-                =<svg.animate> -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-                =<svg.animate> -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+    svg -Content @(
+        svg.defs @(
+            svg.LinearGradient -Id myGradient -Content @(
+                svg.stop -Offset '10%' -Stopcolor transparent
+                svg.stop -Offset '95%' -Stopcolor '#4488ff'
+                svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+                svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+                svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+                svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
             ) -X1 100% -X2 0 -Y1 0% -Y2 100%
     
     
         )
-        =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+        svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
     ) -viewbox 0,0,100,100
 .Example
-    =<svg> -Content @(
-        =<svg.defs> @(
-            =<svg.LinearGradient> -Id myGradient -Content @(
-                =<svg.stop> -Offset '10%' -Stopcolor gold
-                =<svg.stop> -Offset '95%' -Stopcolor red
+    svg -Content @(
+        svg.defs @(
+            svg.LinearGradient -Id myGradient -Content @(
+                svg.stop -Offset '10%' -Stopcolor gold
+                svg.stop -Offset '95%' -Stopcolor red
             ) -X1 0 -X2 0 -Y1 0% -Y2 100%
         )
-        =<svg.rect> -Fill 'url(#myGradient)' -Width 100 -Height 100
+        svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
     ) -viewbox 0,0,100,100
 .Link
     https://pssvg.start-automating.com/SVG.linearGradient
@@ -63,18 +63,25 @@ function SVG.linearGradient {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'linearGradient')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the linearGradient element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # This attribute defines the coordinate system for attributes `x1`, `x2`, `y1`, `y2`
@@ -1586,39 +1593,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

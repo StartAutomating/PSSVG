@@ -137,7 +137,7 @@ if ($PSSVG) {
 }
 
 $PSSVGTook = [Datetime]::Now - $PSSVGStart
-"::set-output name=PSSVGRuntime::$($PSSVGScriptTook.TotalMilliseconds)" | Out-Host
+# "::set-output name=PSSVGRuntime::$($PSSVGScriptTook.TotalMilliseconds)" | Out-Host
 
 $PSSVGPS1Start = [DateTime]::Now
 $PSSVGPS1List  = @()
@@ -162,9 +162,9 @@ if (-not $SkipPSSVGPS1) {
 
 $PSSVGPS1EndStart = [DateTime]::Now
 $PSSVGPS1Took = [Datetime]::Now - $PSSVGPS1Start
-"::set-output name=PSSVGPS1Count::$($PSSVGPS1List.Length)"   | Out-Host
-"::set-output name=PSSVGPS1Files::$($PSSVGPS1List -join ';')"   | Out-Host
-"::set-output name=PSSVGPS1Runtime::$($PSSVGPS1Took.TotalMilliseconds)"   | Out-Host
+# "::set-output name=PSSVGPS1Count::$($PSSVGPS1List.Length)"   | Out-Host
+# "::set-output name=PSSVGPS1Files::$($PSSVGPS1List -join ';')"   | Out-Host
+# "::set-output name=PSSVGPS1Runtime::$($PSSVGPS1Took.TotalMilliseconds)"   | Out-Host
 
 if ($CommitMessage -or $anyFilesChanged) {
     if ($CommitMessage) {

@@ -23,7 +23,19 @@ function SVG.Spiral
     # The value for alpha (not to be confused with transparency, that's -Opacity)
     [Parameter(ValueFromPipelineByPropertyName)]
     [Double]
-    $Alpha = 200
+    $Alpha = 200,
+
+    # The scale of the spiral along the horizontal axis
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('ScaleHorizontal')]
+    [double]
+    $ScaleX = 1,
+
+    # The scale of the spiral along the vertical axis
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('ScaleVertical')]
+    [double]
+    $ScaleY = 1
     )
 
     process {
@@ -36,8 +48,8 @@ function SVG.Spiral
             foreach ($n in 0..$numSteps) {
                 $t = ($theta/$numSteps) * $n 
                 $a = ($alpha/$numSteps) * $n 
-                $px = $margin+($a*[Math]::Cos($t))
-                $py = $margin+($a*[Math]::Sin($t))
+                $px = $margin+($a*[Math]::Cos($t) * $ScaleX)
+                $py = $margin+($a*[Math]::Sin($t) * $ScaleY)
                 "L $px $py"                
             }
         )

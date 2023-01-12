@@ -1,4 +1,3 @@
-
 SVG.feDistantLight
 ------------------
 ### Synopsis
@@ -31,13 +30,12 @@ The Contents of the feDistantLight element
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: 1
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput                 |
+|----------|--------|--------|------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
 
 
 
@@ -48,13 +46,30 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
+#### **On**
+
+A dictionary or object containing event handlers.
+Each key or property name will be the name of the event
+Each value will be the handler.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -65,39 +80,36 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
 
 
 
 ---
 #### **Azimuth**
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
 ---
 #### **Elevation**
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -110,13 +122,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -133,13 +144,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -152,13 +162,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -171,13 +180,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -194,13 +202,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -217,21 +224,25 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
+### Outputs
+* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
+
 
 
 
 ---
 ### Syntax
 ```PowerShell
-SVG.feDistantLight [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Azimuth <Object>] [-Elevation <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.feDistantLight [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Azimuth <Object>] [-Elevation <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
 ---
-
-

@@ -1,4 +1,3 @@
-
 SVG.feMergeNode
 ---------------
 ### Synopsis
@@ -24,6 +23,80 @@ The `feMergeNode` takes the result of another filter to be processed by its pare
 
 
 ---
+### Examples
+#### EXAMPLE 1
+```PowerShell
+svg @(
+    svg.filter -id embossed @(
+        svg.feConvolveMatrix -KernelMatrix '
+        5 0 0
+        0 0 0
+        0 0 -5
+'
+        svg.feMerge @(
+            svg.feMergeNode
+            svg.feMergeNode -In 'SourceGraphic'
+        )
+    )
+```
+svg.text "
+Embossed
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+) -ViewBox 0,0,300,100
+#### EXAMPLE 2
+```PowerShell
+svg @(
+    svg.filter -id embossed @(
+        svg.feConvolveMatrix -KernelMatrix '
+        5 0 0
+        0 0 0
+        0 0 -5
+'
+        svg.feMerge @(
+            svg.feMergeNode
+            svg.feMergeNode -In 'SourceGraphic'
+        )
+    )
+```
+svg.text "
+Embossed
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
+) -ViewBox 0,0,300,100
+#### EXAMPLE 3
+```PowerShell
+svg @(
+    svg.filter -id dropShadow @(
+        svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+            svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+        )
+        svg.feMerge @(
+            svg.feMergeNode
+            svg.feMergeNode -In 'SourceGraphic'
+        )
+    )
+```
+svg.text "
+Moving Shadows
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+) -ViewBox 0,0,300,100
+#### EXAMPLE 4
+```PowerShell
+svg @(
+    svg.filter -id dropShadow @(
+        svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
+            svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
+        )
+        svg.feMerge @(
+            svg.feMergeNode
+            svg.feMergeNode -In 'SourceGraphic'
+        )
+    )
+```
+svg.text "
+Moving Shadows
+" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
+) -ViewBox 0,0,300,100
+---
 ### Parameters
 #### **Content**
 
@@ -31,13 +104,12 @@ The Contents of the feMergeNode element
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: 1
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput                 |
+|----------|--------|--------|------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
 
 
 
@@ -48,13 +120,30 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
+#### **On**
+
+A dictionary or object containing event handlers.
+Each key or property name will be the name of the event
+Each value will be the handler.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -65,26 +154,24 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
 
 
 
 ---
 #### **In**
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -97,13 +184,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -120,13 +206,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -139,13 +224,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -158,13 +242,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -181,13 +264,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -204,21 +286,25 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
+### Outputs
+* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
+
 
 
 
 ---
 ### Syntax
 ```PowerShell
-SVG.feMergeNode [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-In <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.feMergeNode [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-In <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
 ---
-
-

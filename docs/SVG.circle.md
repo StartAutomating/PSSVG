@@ -1,4 +1,3 @@
-
 SVG.circle
 ----------
 ### Synopsis
@@ -27,31 +26,31 @@ The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
--Content @(
-    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill red @(
-        =<svg.animate> -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
-        =<svg.animate> -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
+SVG -Content @(
+    SVG.circle -cx 50 -cy 50 -r 50 -Fill red @(
+        SVG.animate -AttributeName fill -dur 10s -Values 'red;orange;yellow;green;blue;indigo;violet;red' -RepeatCount indefinite -begin 1s
+        SVG.animate -AttributeName stroke -dur 10s -Values 'orange;yellow;green;blue;indigo;violet;red;orange' -RepeatCount indefinite -begin 1s
     ) -Stroke orange
 )  -ViewBox 0,0,100,100
 ```
 
 #### EXAMPLE 2
 ```PowerShell
-@(
-    $animationSettings = @{
-        Dur = '2s'
-        RepeatCount='indefinite'
+SVG @(
+    $animationSettings = [Ordered]@{
+        Dur  = '2s'
+        RepeatCount = 'indefinite'
     }
-    =<svg.circle> -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-        =<svg.animate> -values '1;10;1' -AttributeName r @animationSettings
+    SVG.circle -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
+        SVG.animate -values '1;10;1' -AttributeName r @animationSettings
     )
-    =<svg.rect> -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-        =<svg.animate> -values '0;50;0' -AttributeName width @animationSettings
-        =<svg.animate> -values '50;0;50' -AttributeName height @animationSettings
+    SVG.rect -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
+        SVG.animate -values '0;50;0' -AttributeName width @animationSettings
+        SVG.animate -values '50;0;50' -AttributeName height @animationSettings
     )
-    =<svg.ellipse> -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-        =<svg.animate> -values '10;1;10' -AttributeName rx @animationSettings
-        =<svg.animate> -values '5;10;5' -AttributeName ry @animationSettings
+    SVG.ellipse -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
+        SVG.animate -values '10;1;10' -AttributeName rx @animationSettings
+        SVG.animate -values '5;10;5' -AttributeName ry @animationSettings
     )
 ) -ViewBox 0, 0, 100, 150
 ```
@@ -59,184 +58,184 @@ The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 #### EXAMPLE 3
 ```PowerShell
 $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-=<svg> -viewBox "0 0 200 100" @(
-    =<svg.path> -d $path -Fill none -Stroke lightgrey
-    =<svg.circle> -r 5 -Fill red (
-        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+SVG -viewBox "0 0 200 100" @(
+    SVG.path -d $path -Fill none -Stroke lightgrey
+    SVG.circle -r 5 -Fill red (
+        SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
     )
-    =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-        =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
-        =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+        SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
+        SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
 
 #### EXAMPLE 4
 ```PowerShell
-@(
-    =<svg.filter> (
-        =<svg.feGaussianBlur> -In 'SourceGraphic' -StdDeviation 5
+SVG @(
+    SVG.filter (
+        SVG.feGaussianBlur -In 'SourceGraphic' -StdDeviation 5
     ) -id blurMe
 ```
-=<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
+SVG.circle -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
 ) -ViewBox 100, 100
 #### EXAMPLE 5
 ```PowerShell
--ViewBox 0,0,200,200 @(
-    =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
-    =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
-    =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
+SVG -ViewBox 0,0,200,200 @(
+    SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
+    SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
+    SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
 )
 ```
 
 #### EXAMPLE 6
 ```PowerShell
--ViewBox 0,0,200,200 @(
-    =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
-    =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
-    =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
+SVG -ViewBox 0,0,200,200 @(
+    SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
+    SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
+    SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
 )
 ```
 
 #### EXAMPLE 7
 ```PowerShell
--ViewBox 0,0,200,200 @(
-    =<svg.circle> -Fill "red" -Cx 100 -Cy 50 -r 5
-    =<svg.circle> -Fill "green" -cx 100 -cy 100 -r 10
-    =<svg.circle> -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
+SVG -ViewBox 0,0,200,200 @(
+    SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
+    SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
+    SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
 )
 ```
 
 #### EXAMPLE 8
 ```PowerShell
--Content @(
-    =<svg.defs> @(
-        =<svg.LinearGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor gold
-            =<svg.stop> -Offset '95%' -Stopcolor red
+svg -Content @(
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor gold
+            svg.stop -Offset '95%' -Stopcolor red
         )
     )
-    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+    svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -viewbox 0,0,100,100
 ```
 
 #### EXAMPLE 9
 ```PowerShell
-@(
-    =<svg.defs> @(
-        =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
-            =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
-            =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-            =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+svg @(
+    svg.defs @(
+        svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+            svg.circle -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+            svg.line -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+            svg.line -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
         )
     )
-    =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
+    svg.rect -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
 ) -ViewBox 0,0,50,50
 ```
 
 #### EXAMPLE 10
 ```PowerShell
--ViewBox 0, 0, 250, 200 -Content @(
-    =<svg.defs> (
-        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+svg -ViewBox 0, 0, 250, 200 -Content @(
+    svg.defs (
+        svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
             ) -Fill '#4488ff'
         )
     )
-    =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-    =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-        =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+    svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+        svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
 
 #### EXAMPLE 11
 ```PowerShell
--ViewBox 0, 0, 250, 200 -Content @(
-    =<svg.defs> (
-        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+svg -ViewBox 0, 0, 250, 200 -Content @(
+    svg.defs (
+        svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
             ) -Fill '#4488ff'
         )
     )
-    =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-    =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-        =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+    svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+        svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
     )
 )
 ```
 
 #### EXAMPLE 12
 ```PowerShell
--ViewBox 0, 0, 100, 100 -Content @(
-    =<svg.defs> @(
-        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
+svg -ViewBox 0, 0, 100, 100 -Content @(
+    svg.defs @(
+        svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =<svg.mask> (
-            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
+        svg.mask (
+            svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =<svg.radialGradient> @(
-            =<svg.stop> -Offset '25%' -StopColor 'red'
-            =<svg.stop> -Offset '50%' -StopColor 'green'
-            =<svg.stop> -Offset '75%' -StopColor 'blue'
+        svg.radialGradient @(
+            svg.stop -Offset '25%' -StopColor 'red'
+            svg.stop -Offset '50%' -StopColor 'green'
+            svg.stop -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
+    svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 13
 ```PowerShell
--ViewBox 0, 0, 100, 100 -Content @(
-    =<svg.defs> @(
-        =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-            =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
+svg -ViewBox 0, 0, 100, 100 -Content @(
+    svg.defs @(
+        svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+            svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
             ) -Fill white
         )
-        =<svg.mask> (
-            =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
+        svg.mask (
+            svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
         ) -Id myMask
-        =<svg.radialGradient> @(
-            =<svg.stop> -Offset '25%' -StopColor 'red'
-            =<svg.stop> -Offset '50%' -StopColor 'green'
-            =<svg.stop> -Offset '75%' -StopColor 'blue'
+        svg.radialGradient @(
+            svg.stop -Offset '25%' -StopColor 'red'
+            svg.stop -Offset '50%' -StopColor 'green'
+            svg.stop -Offset '75%' -StopColor 'blue'
         ) -id myGradient
     )
-    =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
+    svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
 )
 ```
 
 #### EXAMPLE 14
 ```PowerShell
--Content @(
-    =<svg.defs> @(
-        =<svg.radialGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '10%' -Stopcolor gold
-            =<svg.stop> -Offset '95%' -Stopcolor red
+svg -Content @(
+    svg.defs @(
+        svg.radialGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor gold
+            svg.stop -Offset '95%' -Stopcolor red
         )
     )
-    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+    svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -ViewBox 0,0,100,100
 ```
 
 #### EXAMPLE 15
 ```PowerShell
--Content @(
-    =<svg.defs> @(
-        =<svg.radialGradient> -Id myGradient -Content @(
-            =<svg.stop> -Offset '1%' -Stopcolor gold @(
-                =<svg.animate> -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
+svg -Content @(
+    svg.defs @(
+        svg.radialGradient -Id myGradient -Content @(
+            svg.stop -Offset '1%' -Stopcolor gold @(
+                svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
             )
-            =<svg.stop> -Offset '100%' -Stopcolor red
+            svg.stop -Offset '100%' -Stopcolor red
         )
     )
-    =<svg.circle> -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
+    svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
 ) -ViewBox '0 0 100 100'
 ```
 
@@ -254,10 +253,10 @@ $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
 $Radius = 35
 $Center = 50
 $RotateEvery = [Timespan]::FromSeconds(1.5)
-=<svg> -ViewBox 0,0, ($center * 2), ($center * 2) @(
-    =<svg.circle> -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
-    =<svg.line> -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-        =<svg.animatetransform> -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+svg -ViewBox 0,0, ($center * 2), ($center * 2) @(
+    svg.circle -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
+    svg.line -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
+        svg.animatetransform -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
     ) -Opacity 0.8
 )
 ```
@@ -270,13 +269,12 @@ The Contents of the circle element
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: 1
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput                 |
+|----------|--------|--------|------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
 
 
 
@@ -287,13 +285,30 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
+#### **On**
+
+A dictionary or object containing event handlers.
+Each key or property name will be the name of the event
+Each value will be the handler.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -304,13 +319,12 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-> **Type**: ```[IDictionary]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type           |Required|Position|PipelineInput        |
+|---------------|--------|--------|---------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -321,13 +335,12 @@ The x-axis coordinate of the center of the circle.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -338,13 +351,12 @@ The y-axis coordinate of the center of the circle.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -355,13 +367,12 @@ The radius of the circle. A value lower or equal to zero disables rendering of t
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -372,13 +383,12 @@ The total length for the circle's circumference, in user units.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -391,13 +401,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -414,13 +423,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -433,13 +441,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -452,13 +459,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -475,13 +481,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -498,13 +503,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -524,13 +528,12 @@ You can use this class to style SVG content using CSS.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -543,13 +546,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -566,13 +568,12 @@ To detect availability of an SVG feature from script, there is the (also depreca
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -583,13 +584,12 @@ The **`systemLanguage`** attribute represents a list of supported language tags.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -602,13 +602,12 @@ The **`alignment-baseline`** attribute specifies how an object is aligned with r
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -623,13 +622,12 @@ The **`baseline-shift`** attribute allows repositioning of the dominant-baseline
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -642,13 +640,12 @@ This attribute has the same parameter values as defined for the {{ cssxref("clip
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -661,13 +658,12 @@ The **`clip-path`** presentation attribute defines or associates a clipping path
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -704,13 +700,12 @@ As a presentation attribute, it also can be used as a property directly inside a
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -725,13 +720,12 @@ As a presentation attribute, it can be applied to any element, but as noted abov
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -750,13 +744,12 @@ When a child element is blended into a background, the value of the `color-inter
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -775,13 +768,12 @@ The **`color-interpolation-filters`** attribute specifies the color space for im
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -794,13 +786,12 @@ The **`color-profile`** attribute is used to define which color profile a raster
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -817,13 +808,12 @@ As a presentation attribute, it also can be used as a property directly inside a
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -840,13 +830,12 @@ In many cases, the bidirectional Unicode algorithm produces the desired result a
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -875,13 +864,12 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -904,13 +892,12 @@ If there is no baseline table in the nominal font, or if the baseline table lack
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -923,13 +910,12 @@ The **`enable-background`** attribute specifies how the accumulation of the back
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -940,13 +926,12 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -959,13 +944,12 @@ The **`fill-opacity`** attribute is a presentation attribute defining the opacit
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -978,13 +962,12 @@ The **`fill-rule`** attribute is a presentation attribute defining the algorithm
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -999,13 +982,12 @@ As a presentation attribute, it can be applied to any element but it only has ef
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1018,13 +1000,12 @@ The **`flood-color`** attribute indicates what color to use to flood the current
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1037,13 +1018,12 @@ The **`flood-opacity`** attribute indicates the opacity value to use across the 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1056,13 +1036,12 @@ The **`font-family`** attribute indicates which font family will be used to rend
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1075,13 +1054,12 @@ The **`font-size`** attribute refers to the size of the font from baseline to ba
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1094,13 +1072,12 @@ The `font-size-adjust` attribute allows authors to specify an aspect value for a
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1113,13 +1090,12 @@ The **`font-stretch`** attribute indicates the desired amount of condensing or e
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1132,13 +1108,12 @@ The **`font-style`** attribute specifies whether the text is to be rendered usin
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1151,13 +1126,12 @@ The **`font-variant`** attribute indicates whether the text is to be rendered us
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1170,13 +1144,12 @@ The **`font-weight`** attribute refers to the boldness or lightness of the glyph
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1193,13 +1166,12 @@ This attribute is applied only to text written in a horizontal writing-mode.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1216,13 +1188,12 @@ This attribute is applied only to text written in a vertical writing-mode.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1237,13 +1208,12 @@ The resampling is always done in a truecolor (e.g., 24-bit) color space even if 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1256,13 +1226,12 @@ The **`kerning`** attribute indicates whether the spacing between {{Glossary("gl
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1279,13 +1248,12 @@ If the attribute value has a unit identifier, such as `.25em` or `1%`, then the 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1296,13 +1264,12 @@ The **`lighting-color`** attribute defines the color of the light source for lig
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1317,13 +1284,12 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1338,13 +1304,12 @@ The marker is rendered on every vertex other than the first and last vertices of
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1359,13 +1324,12 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1378,13 +1342,12 @@ The **`mask`** attribute is a presentation attribute mainly used to bind a given
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1397,13 +1360,12 @@ The **`opacity`** attribute specifies the transparency of an object or of a grou
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1425,13 +1387,12 @@ This attribute has the same parameter values and meaning as the {{cssxref("overf
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1444,13 +1405,12 @@ The **`pointer-events`** attribute is a presentation attribute that allows defin
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1463,13 +1423,12 @@ The **`shape-rendering`** attribute provides hints to the renderer about what tr
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1484,13 +1443,12 @@ The **`stop-color`** attribute indicates what color to use at a gradient stop.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1505,13 +1463,12 @@ The opacity value used for the gradient calculation is the product of the value 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1524,13 +1481,12 @@ The **`stroke`** attribute is a presentation attribute defining the color (_or a
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1543,13 +1499,12 @@ The **`stroke-dasharray`** attribute is a presentation attribute defining the pa
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1562,13 +1517,12 @@ The **`stroke-dashoffset`** attribute is a presentation attribute defining an of
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1581,13 +1535,12 @@ The **`stroke-linecap`** attribute is a presentation attribute defining the shap
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1600,13 +1553,12 @@ The **`stroke-linejoin`** attribute is a presentation attribute defining the sha
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1619,13 +1571,12 @@ The **`stroke-miterlimit`** attribute is a presentation attribute defining a lim
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1638,13 +1589,12 @@ The **`stroke-opacity`** attribute is a presentation attribute defining the opac
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1655,13 +1605,12 @@ The **`stroke-width`** attribute is a presentation attribute defining the width 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1678,13 +1627,12 @@ The `text-anchor` attribute is applied to each individual text chunk within a gi
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1701,13 +1649,12 @@ The paint order of the text decoration, i.e. the fill and stroke, is determined 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1720,13 +1667,12 @@ The **`text-rendering`** attribute provides hints to the renderer about what tra
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1741,26 +1687,24 @@ You can use this attribute with any SVG element.
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
 ---
 #### **TransformOrigin**
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1773,13 +1717,12 @@ The **`unicode-bidi`** attribute specifies how the accumulation of the backgroun
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1792,13 +1735,12 @@ The **`vector-effect`** property specifies the vector effect to use when drawing
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1815,13 +1757,12 @@ Depending on the value of attribute pointer-events, graphics elements which have
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1838,13 +1779,12 @@ If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), 
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1857,21 +1797,25 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 
 
 
-> **Type**: ```[Object]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Object]`|false   |named   |true (ByPropertyName)|
+
+
+
+---
+### Outputs
+* [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
+
 
 
 
 ---
 ### Syntax
 ```PowerShell
-SVG.circle [[-Content] <Object>] [-Data <IDictionary>] [-Attribute <IDictionary>] [-Cx <Object>] [-Cy <Object>] [-R <Object>] [-PathLength <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
+SVG.circle [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Cx <Object>] [-Cy <Object>] [-R <Object>] [-PathLength <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
 ---
-
-

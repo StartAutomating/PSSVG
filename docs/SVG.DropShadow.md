@@ -1,4 +1,3 @@
-
 SVG.DropShadow
 --------------
 ### Synopsis
@@ -28,39 +27,36 @@ SVG.DropShadow
 ### Parameters
 #### **DistanceX**
 
-> **Type**: ```[Double]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Double]`|false   |named   |false        |
 
 
 
 ---
 #### **DistanceY**
 
-> **Type**: ```[Double]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Double]`|false   |named   |false        |
 
 
 
 ---
 #### **StandardDeviation**
 
-> **Type**: ```[Double]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Double]`|false   |named   |false        |
 
 
 
@@ -70,5 +66,3 @@ SVG.DropShadow
 SVG.DropShadow [-DistanceX <Double>] [-DistanceY <Double>] [-StandardDeviation <Double>] [<CommonParameters>]
 ```
 ---
-
-

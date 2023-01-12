@@ -29,10 +29,16 @@
     [PSObject]
     $Content,
 
+    # A dictionary or object containing event handlers.
+    # Each key or property name will be the name of the event
+    # Each value will be the handler.
+    [Parameter(ValueFromPipelineByPropertyName)]
+    $On,
+
     # An output path.
     [Parameter(ValueFromPipelineByPropertyName)]
     [string]
-    $OutputPath
+    $OutputPath   
     )
 
     begin {
@@ -55,7 +61,7 @@
                     "$($prop.Name):$($kv.Value)"
                 }) -join ';'
             }
-        }
+        }        
 
         $elementText = "<$elementName "
         :nextParameter foreach ($kv in $Attribute.GetEnumerator()) {
@@ -89,6 +95,28 @@
             }
         }
 
+        if ($On) {
+            $eventNames = @(
+                if ($on -is [Collections.IDictionary]) {
+                    $on.Keys    
+                } else {
+                    $on.psobject.properties.name
+                }
+            )
+            foreach ($eventName in $eventNames) {
+                $svgEventName = $eventName -replace '^On' -replace '^[_-]'
+                $eventValue   = if ($on -is [Collections.IDictionary]) {
+                    $on[$eventName]
+                } else {
+                    $on.$eventName
+                }
+                $elementText +=
+                    "on" + $svgEventName.ToLower() + "=`"" + $(
+                        [Web.HttpUtility]::HtmlAttributeEncode($eventValue)
+                    ) + '" '
+            }
+        }
+
         if ($elementName -eq 'svg') {
             $elementText += 'xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"'
         }
@@ -103,10 +131,7 @@
                 if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
                     $isCData = $true
                 }
-            }
-            if ($ElementName -eq 'text') {
-                $null = $null
-            }
+            }            
 
             $elementText += ">"            
             $elementText +=
@@ -115,7 +140,7 @@
                         ($pieceOfContent -as [xml.xmlelement]) -and 
                         ($pieceOfContent -notmatch '^\s{0,}\<')
                     ) {
-                        [Security.SecurityElement]::Escape("$content")
+                        [Security.SecurityElement]::Escape("$pieceOfContent")
                     }
                     elseif ($pieceOfContent.Outerxml) {
                         $pieceOfContent.Outerxml
@@ -141,16 +166,23 @@
                 $elementText
             }
 
-        if ($OutputPath) {
+        $myParams = @{} + $PSBoundParameters
+        if ($myParams['OutputPath']) {
             $unresolvedOutput = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
             if ($unresolvedOutput -and $svgOutput.ParentNode.Save) {
                 $svgOutput.ParentNode.PreserveWhitespace = $true
+                $memoryStream = [io.memorystream]::new()
+                $streamWriter = [io.streamWriter]::new($memoryStream)
                 $writerSettings = [Xml.XmlWriterSettings]::new()
                 $writerSettings.Encoding = [Text.Encoding]::UTF8
                 $writerSettings.Indent = $true                
-                $writer = [Xml.XmlWriter]::Create("$unresolvedOutput", $writerSettings)
-                $svgOutput.ParentNode.Save($writer)
+                $writer = [Xml.XmlWriter]::Create($streamWriter, $writerSettings)                
+                $svgOutput.ParentNode.Save($writer)                
+                [Text.Encoding]::UTF8.GetString($memoryStream.ToArray()) | 
+                    Set-Content -Path $OutputPath -Encoding UTF8
                 $writer.Dispose()
+                $streamWriter.Dispose()
+                $memoryStream.Dispose()
                 Get-Item $OutputPath
             } elseif ($unresolvedOutput -and $svgOutput) {
                 $svgOutput | Set-Content -Path $OutputPath

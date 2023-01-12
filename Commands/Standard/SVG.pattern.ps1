@@ -10,58 +10,58 @@ function SVG.pattern {
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
     
     $Color = "#4488ff"
     
-    =<svg> -ViewBox 200, 200 -Fill black @(
-        =<svg.pattern> -Width .5 -Height .5 @(
-            =<svg.rect> -Width 0 -Height 0 -X 25 -Y 25 @(
-                =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
-                =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
-                =<svg.animate> -AttributeName x -Values '25;0' @animateSplat
-                =<svg.animate> -AttributeName y -Values '25;0' @animateSplat
-                =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
-                =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+    SVG -ViewBox 200, 200 -Fill black @(
+        SVG.pattern -Width .5 -Height .5 @(
+            SVG.rect -Width 0 -Height 0 -X 25 -Y 25 @(
+                SVG.animate -AttributeName width -Values '0;50' @animateSplat
+                SVG.animate -AttributeName height -Values '0;50' @animateSplat
+                SVG.animate -AttributeName x -Values '25;0' @animateSplat
+                SVG.animate -AttributeName y -Values '25;0' @animateSplat
+                SVG.animate -AttributeName opacity -From 0 -To 1 @animateSplat
+                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
             ) -Fill $color -Id TopLeft
     
-            =<svg.rect> -Width 0 -Height 0 -X 75 -Y 25 @(
-                =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
-                =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
-                =<svg.animate> -AttributeName x -Values '50;75' @animateSplat
-                =<svg.animate> -AttributeName y -From 0 -To 25 @animateSplat
-                =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
-                =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+            SVG.rect -Width 0 -Height 0 -X 75 -Y 25 @(
+                SVG.animate -AttributeName width -Values '50;0' @animateSplat
+                SVG.animate -AttributeName height -Values '50;0' @animateSplat
+                SVG.animate -AttributeName x -Values '50;75' @animateSplat
+                SVG.animate -AttributeName y -From 0 -To 25 @animateSplat
+                SVG.animate -AttributeName opacity -From 1 -To 0 @animateSplat
+                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
             ) -Fill $Color -Id TopRight
     
-            =<svg.rect> -Width 0 -Height 0 -X 75 -Y 75 @(
-                =<svg.animate> -AttributeName width -Values '0;50' @animateSplat
-                =<svg.animate> -AttributeName height -Values '0;50' @animateSplat
-                =<svg.animate> -AttributeName x -Values '75;50' @animateSplat
-                =<svg.animate> -AttributeName y -Values '75;50' @animateSplat
-                =<svg.animate> -AttributeName opacity -From 0 -To 1 @animateSplat
-                =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+            SVG.rect -Width 0 -Height 0 -X 75 -Y 75 @(
+                SVG.animate -AttributeName width -Values '0;50' @animateSplat
+                SVG.animate -AttributeName height -Values '0;50' @animateSplat
+                SVG.animate -AttributeName x -Values '75;50' @animateSplat
+                SVG.animate -AttributeName y -Values '75;50' @animateSplat
+                SVG.animate -AttributeName opacity -From 0 -To 1 @animateSplat
+                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
             ) -Fill $color -Id BottomRight
     
-            =<svg.rect> -Width 0 -Height 0 -X 25 -Y 75 @(
-                =<svg.animate> -AttributeName width -Values '50;0' @animateSplat
-                =<svg.animate> -AttributeName height -Values '50;0' @animateSplat
-                =<svg.animate> -AttributeName y -Values '50;75' @animateSplat
-                =<svg.animate> -AttributeName x -From 0 -To 25 @animateSplat
-                =<svg.animate> -AttributeName opacity -From 1 -To 0 @animateSplat
-                =<svg.animate> -AttributeName rx -Values "0;5;0" @animateSplat
+            SVG.rect -Width 0 -Height 0 -X 25 -Y 75 @(
+                SVG.animate -AttributeName width -Values '50;0' @animateSplat
+                SVG.animate -AttributeName height -Values '50;0' @animateSplat
+                SVG.animate -AttributeName y -Values '50;75' @animateSplat
+                SVG.animate -AttributeName x -From 0 -To 25 @animateSplat
+                SVG.animate -AttributeName opacity -From 1 -To 0 @animateSplat
+                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
             ) -Fill $Color -Id TopRight
         ) -id fillPattern
-        =<svg.rect> -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
+        SVG.rect -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
     )
 .Example
     $bpm = 70
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = @{
+    $animateSplat = [Ordered]@{
         Dur = $animateDuration
         RepeatDur = "indefinite"
     }
@@ -72,57 +72,57 @@ function SVG.pattern {
     
     $Color = "#4488ff"
     
-    =<svg> -ViewBox 800, 800 @(
-        =<svg.pattern> -Width $patternSize -Height $patternSize @(
-            =<svg.polygon> -Points "10,10, 10,90, 50,50, 90,10 90,90" @(
-                =<svg.animate> -AttributeName points -to "0,0 100,0 100,100, 0,100 0,0" -AttributeType XML @animateSplat
+    SVG -ViewBox 800, 800 @(
+        SVG.pattern -Width $patternSize -Height $patternSize @(
+            SVG.polygon -Points "10,10, 10,90, 50,50, 90,10 90,90" @(
+                SVG.animate -AttributeName points -to "0,0 100,0 100,100, 0,100 0,0" -AttributeType XML @animateSplat
             )  -Fill $color -Stroke $color
         ) -id fillPattern
-        =<svg.rect> -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+        SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
     )
 .Example
-    =<svg> @(
-        =<svg.defs> @(
-            =<svg.pattern> -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
-                =<svg.circle> -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
-                =<svg.line> -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-                =<svg.line> -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+    svg @(
+        svg.defs @(
+            svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
+                svg.circle -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
+                svg.line -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
+                svg.line -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
             )
         )
-        =<svg.rect> -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
+        svg.rect -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
     ) -ViewBox 0,0,50,50
 .Example
-    =<svg> -ViewBox 0, 0, 250, 200 -Content @(
-        =<svg.defs> (
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+    svg -ViewBox 0, 0, 250, 200 -Content @(
+        svg.defs (
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
                 ) -Fill '#4488ff'
             )
         )
-        =<svg.circle> -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        =<svg.circle> -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            =<svg.animateTransform> -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
+        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
+            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
-    =<svg> -ViewBox 0, 0, 100, 100 -Content @(
-        =<svg.defs> @(
-            =<svg.pattern> -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                =<svg.polygon> -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    =<svg.animateTransform> -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
+    svg -ViewBox 0, 0, 100, 100 -Content @(
+        svg.defs @(
+            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
+                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
+                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
                 ) -Fill white
             )
-            =<svg.mask> (
-                =<svg.circle> -Fill 'url(#star)' -r 50 -cx 50 -cy 50
+            svg.mask (
+                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
             ) -Id myMask
-            =<svg.radialGradient> @(
-                =<svg.stop> -Offset '25%' -StopColor 'red'
-                =<svg.stop> -Offset '50%' -StopColor 'green'
-                =<svg.stop> -Offset '75%' -StopColor 'blue'
+            svg.radialGradient @(
+                svg.stop -Offset '25%' -StopColor 'red'
+                svg.stop -Offset '50%' -StopColor 'green'
+                svg.stop -Offset '75%' -StopColor 'blue'
             ) -id myGradient
         )
-        =<svg.circle> -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
+        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
     )
 .Link
     https://pssvg.start-automating.com/SVG.pattern
@@ -133,18 +133,25 @@ function SVG.pattern {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'pattern')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the pattern element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # This attribute determines the height of the pattern tile.
@@ -230,7 +237,7 @@ $Width,
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 $X,
-# This attribute reference a template pattern that provides default values for the `<pattern>` attributes.
+# This attribute references a template pattern that provides default values for the `<pattern>` attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
@@ -1644,39 +1651,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

@@ -6,7 +6,7 @@ if (-not (Test-Path $assetsPath)) {
     $null = New-Item -ItemType Directory -path $assetsPath -Force
 }
 =<svg> -content $(
-    $commonParameters = @{
+    $commonParameters = [Ordered]@{
         Fill        = '#4488FF'
         Stroke      = 'black'
         StrokeWidth = '0.05'

@@ -1,6 +1,6 @@
 
 name: MakePSSVG
-description: Script SVGs with PowerShell
+description: Build SVGs in your Workflow (with PowerShell)
 inputs: 
   PSSVG: 
     required: false
@@ -29,20 +29,6 @@ inputs:
 branding: 
   icon: aperture
   color: blue
-outputs: 
-  
-    PSSVGRuntime: 
-      description: The time it took the .PSSVG parameter to run
-      value: ${{steps.PSSVGAction.outputs.PSSVGRuntime}}
-    PSSVGBuildRuntime: 
-      description: The time it took Build-PSSVG to run
-      value: ${{steps.PSSVGAction.outputs.PSSVGBuildRuntime}}
-    PSSVGFilesBuilt: 
-      description: The files built using PSSVG (separated by semicolons)
-      value: ${{steps.PSSVGAction.outputs.PSSVGFilesBuilt}}
-    PSSVGFilesBuiltCount: 
-      description: The number of .PSSVG.ps1 files that were run
-      value: ${{steps.PSSVGAction.outputs.PSSVGFilesBuiltCount}}
 runs: 
   using: composite
   steps: 
@@ -50,12 +36,12 @@ runs:
       id: PSSVG
       shell: pwsh
       env: 
-        CommitMessage: ${{inputs.CommitMessage}}
+        SkipBuild: ${{inputs.SkipBuild}}
         SkipPSSVGPS1: ${{inputs.SkipPSSVGPS1}}
         UserName: ${{inputs.UserName}}
-        UserEmail: ${{inputs.UserEmail}}
         PSSVG: ${{inputs.PSSVG}}
-        SkipBuild: ${{inputs.SkipBuild}}
+        CommitMessage: ${{inputs.CommitMessage}}
+        UserEmail: ${{inputs.UserEmail}}
       run: |
         $Parameters = @{}
         $Parameters.PSSVG = ${env:PSSVG}
@@ -211,7 +197,7 @@ runs:
         }
         
         $PSSVGTook = [Datetime]::Now - $PSSVGStart
-        "::set-output name=PSSVGRuntime::$($PSSVGScriptTook.TotalMilliseconds)" | Out-Host
+        # "::set-output name=PSSVGRuntime::$($PSSVGScriptTook.TotalMilliseconds)" | Out-Host
         
         $PSSVGPS1Start = [DateTime]::Now
         $PSSVGPS1List  = @()
@@ -236,9 +222,9 @@ runs:
         
         $PSSVGPS1EndStart = [DateTime]::Now
         $PSSVGPS1Took = [Datetime]::Now - $PSSVGPS1Start
-        "::set-output name=PSSVGPS1Count::$($PSSVGPS1List.Length)"   | Out-Host
-        "::set-output name=PSSVGPS1Files::$($PSSVGPS1List -join ';')"   | Out-Host
-        "::set-output name=PSSVGPS1Runtime::$($PSSVGPS1Took.TotalMilliseconds)"   | Out-Host
+        # "::set-output name=PSSVGPS1Count::$($PSSVGPS1List.Length)"   | Out-Host
+        # "::set-output name=PSSVGPS1Files::$($PSSVGPS1List -join ';')"   | Out-Host
+        # "::set-output name=PSSVGPS1Runtime::$($PSSVGPS1Took.TotalMilliseconds)"   | Out-Host
         
         if ($CommitMessage -or $anyFilesChanged) {
             if ($CommitMessage) {

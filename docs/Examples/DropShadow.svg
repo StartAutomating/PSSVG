@@ -7,5 +7,7 @@
       <feMergeNode in="SourceGraphic" />
     </feMerge>
   </filter>
-  <text text-anchor="middle" dominant-baseline="middle" fill="#4488ff" font-size="16" x="50%" y="50%" filter="url(#dropShadow)">Dropping Shadows</text>
+  <text text-anchor="middle" dominant-baseline="middle" fill="#4488ff" font-size="16" x="50%" y="50%" filter="url(#dropShadow)">
+Dropping Shadows
+</text>
 </svg>

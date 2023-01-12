@@ -5,9 +5,9 @@ function SVG.use {
 .Description
     The **`<use>`** element takes nodes from within the SVG document, and duplicates them somewhere else.
 .Example
-    =<svg> -ViewBox 100,100 -Content @(
-        =<svg.symbol> -Id psChevron -Content @(
-            =<svg.polygon> -Points (@(
+    svg -ViewBox 100,100 -Content @(
+        svg.symbol -Id psChevron -Content @(
+            svg.polygon -Points (@(
                 "40,20"
                 "45,20"
                 "60,50"
@@ -17,7 +17,7 @@ function SVG.use {
             ) -join ' ')
         ) -ViewBox 100, 100
     
-        =<svg.use> -Href '#psChevron' -Fill '#4488ff'
+        svg.use -Href '#psChevron' -Fill '#4488ff'
     )
 .Example
     =<svg> @(
@@ -25,7 +25,7 @@ function SVG.use {
             =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
         ) -id Star -ViewBox 25,25
     
-        $scaledSize = @{Width=15;Height=15}
+        $scaledSize = [Ordered]@{Width=15;Height=15}
         =<svg.use> -Href '#Star' -X 0 @scaledSize
         =<svg.use> -Href '#Star' -X 20 @scaledSize
         =<svg.use> -Href '#Star' -X 40 @scaledSize
@@ -38,7 +38,7 @@ function SVG.use {
             =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
         ) -id Star -ViewBox 25,25
     
-        $scaledSize = @{Width=15;Height=15}
+        $scaledSize = [Ordered]@{Width=15;Height=15}
         =<svg.use> -Href '#Star' -X 0 @scaledSize
         =<svg.use> -Href '#Star' -X 20 @scaledSize
         =<svg.use> -Href '#Star' -X 40 @scaledSize
@@ -51,7 +51,7 @@ function SVG.use {
             =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
         ) -id Star -ViewBox 25,25
     
-        $scaledSize = @{Width=15;Height=15}
+        $scaledSize = [Ordered]@{Width=15;Height=15}
         =<svg.use> -Href '#Star' -X 0 @scaledSize
         =<svg.use> -Href '#Star' -X 20 @scaledSize
         =<svg.use> -Href '#Star' -X 40 @scaledSize
@@ -64,7 +64,7 @@ function SVG.use {
             =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
         ) -id Star -ViewBox 25,25
     
-        $scaledSize = @{Width=15;Height=15}
+        $scaledSize = [Ordered]@{Width=15;Height=15}
         =<svg.use> -Href '#Star' -X 0 @scaledSize
         =<svg.use> -Href '#Star' -X 20 @scaledSize
         =<svg.use> -Href '#Star' -X 40 @scaledSize
@@ -77,13 +77,32 @@ function SVG.use {
             =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
         ) -id Star -ViewBox 25,25
     
-        $scaledSize = @{Width=15;Height=15}
+        $scaledSize = [Ordered]@{Width=15;Height=15}
         =<svg.use> -Href '#Star' -X 0 @scaledSize
         =<svg.use> -Href '#Star' -X 20 @scaledSize
         =<svg.use> -Href '#Star' -X 40 @scaledSize
         =<svg.use> -Href '#Star' -X 60 @scaledSize
         =<svg.use> -Href '#Star' -X 80 @scaledSize
     ) -ViewBox 0,0,125,50
+.Example
+    svg -viewBox 300, 100 -Content @(
+        svg.symbol -Id psChevron -Content @(
+            svg.polygon -Points (@(
+                "40,20"
+                "45,20"
+                "60,50"
+                "35,80"
+                "32.5,80"
+                "55,50"
+            ) -join ' ')
+        ) -ViewBox 100, 100
+        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
+        svg.text @(
+            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
+            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
+        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
+        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
+    )
 .Link
     https://pssvg.start-automating.com/SVG.use
 .Link
@@ -93,18 +112,25 @@ function SVG.use {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'use')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the use element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The URL to an element/fragment that needs to be duplicated.
@@ -1597,39 +1623,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

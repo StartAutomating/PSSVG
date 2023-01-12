@@ -8,26 +8,26 @@ function SVG.animateMotion {
     > **Note:** To reuse an existing path, it will be necessary to use an `mpath` element inside the `<animateMotion>` element instead of the `path` attribute.
 .Example
     $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    =<svg> -viewBox "0 0 200 100" @(
-        =<svg.path> -d $path -Fill none -Stroke lightgrey
-        =<svg.circle> -r 5 -Fill red (
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+    SVG -viewBox "0 0 200 100" @(
+        SVG.path -d $path -Fill none -Stroke lightgrey
+        SVG.circle -r 5 -Fill red (
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
         )
-        =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
-            =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
+            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Example
     $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    =<svg> -viewBox "0 0 200 100" @(
-        =<svg.path> -d $path -Fill none -Stroke lightgrey
-        =<svg.circle> -r 5 -Fill red (
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
+    SVG -viewBox "0 0 200 100" @(
+        SVG.path -d $path -Fill none -Stroke lightgrey
+        SVG.circle -r 5 -Fill red (
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
         )
-        =<svg.rect> -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            =<svg.animateMotion> -Dur 10s -RepeatCount 'indefinite' -Path $path
-            =<svg.animateTransform> -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
+        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
+            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
+            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
         )
     )
 .Link
@@ -39,18 +39,25 @@ function SVG.animateMotion {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'animateMotion')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the animateMotion element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # This attribute indicate, in the range \[0,1], how far is the object along the path for each keyTimes associated values.
@@ -86,7 +93,7 @@ $Path,
 $Rotate,
 # The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
 # 
-# > **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id x="5" y="5" />`.
+# > **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -125,7 +132,7 @@ $AttributeType,
 $AttributeName,
 # The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
 # 
-# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following : `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+# The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -490,39 +497,58 @@ $Style
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

@@ -5,13 +5,46 @@ function SVG.feGaussianBlur {
 .Description
     The **`<feGaussianBlur>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filter primitive blurs the input image by the amount specified in `stdDeviation`, which defines the bell-curve.
 .Example
-    =<svg> @(
-        =<svg.filter> (
-            =<svg.feGaussianBlur> -In 'SourceGraphic' -StdDeviation 5
+    SVG @(
+        SVG.filter (
+            SVG.feGaussianBlur -In 'SourceGraphic' -StdDeviation 5
         ) -id blurMe
     
-        =<svg.circle> -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
+        SVG.circle -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
     ) -ViewBox 100, 100
+.Example
+    $AnimationTimeframe = [Ordered]@{
+        Dur = '2s'
+        RepeatCount = 'indefinite'
+    }
+    
+    SVG -viewBox 1920,1080 -Content @(
+        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            SVG.feTurbulence -baseFrequency '0.025' @(
+                SVG.animate -AttributeName numOctaves -Values '1;6;12' @AnimationTimeframe
+                SVG.animate -AttributeName seed -Values '0;5;0' @AnimationTimeframe
+            ) -NumOctaves 4 -Type fractalNoise
+            SVG.feGaussianBlur -stdDeviation 0.9 @(
+                SVG.animate -AttributeName stdDeviation -Values '1.1;3.3;1.1' @AnimationTimeframe
+            )
+            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
+        )
+        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .4
+    )
+.Example
+    #.SYNOPSIS
+    #    Generates clouds using SVG
+    #.DESCRIPTION
+    #    Generates a cloud effect using fractal noise and blending modes.
+    
+    SVG -viewBox 1920, 1080 -Content @(
+        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
+            SVG.feTurbulence -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
+            SVG.feGaussianBlur -stdDeviation 0.9
+            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
+        )
+        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
+    )
 .Link
     https://pssvg.start-automating.com/SVG.feGaussianBlur
 .Link
@@ -21,18 +54,25 @@ function SVG.feGaussianBlur {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'feGaussianBlur')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the feGaussianBlur element
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # 
@@ -1429,39 +1469,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

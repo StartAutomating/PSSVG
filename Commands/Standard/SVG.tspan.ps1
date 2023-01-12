@@ -15,8 +15,8 @@ function SVG.tspan {
     $maxLineLength =0
     $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
     
-    =<svg> (
-        =<svg.text> -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
+    svg (
+        svg.text -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
         foreach ($line in $fileListLines) {
             $ln++
             $href =
@@ -30,21 +30,108 @@ function SVG.tspan {
                 $maxLineLength = $line.Length
             }
     
-            =<svg.a> -href $href (
-                =<svg.tspan> -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
+            svg.a -href $href (
+                svg.tspan -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
             )
         }
         )
     )
 .Example
-    =<svg> @(
-        =<svg.RegularPolygon> -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-        =<svg.text> -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -Content 'STOP' -FontSize 64 -FontFamily sans-serif -Fill white
+    svg -viewBox 300, 100 -Content @(
+        svg.symbol -Id psChevron -Content @(
+            svg.polygon -Points (@(
+                "40,20"
+                "45,20"
+                "60,50"
+                "35,80"
+                "32.5,80"
+                "55,50"
+            ) -join ' ')
+        ) -ViewBox 100, 100
+        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
+        svg.text @(
+            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
+            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
+        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
+        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
+    )
+.Example
+    svg -viewBox 300, 100 -Content @(
+        svg.symbol -Id psChevron -Content @(
+            svg.polygon -Points (@(
+                "40,20"
+                "45,20"
+                "60,50"
+                "35,80"
+                "32.5,80"
+                "55,50"
+            ) -join ' ')
+        ) -ViewBox 100, 100
+        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
+        svg.text @(
+            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
+            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
+        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
+        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
+    )
+.Example
+    svg @(
+        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
     
-        =<svg.text> -X 50% -Y 75% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            =<svg.tspan> -Content "GIF" -Id gif
-            =<svg.animate> -Values '28;32;28' -Dur 3s -AttributeName font-size -RepeatDur 'indefinite'
+        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            svg.tspan -Content "STOP" -Id stop
+            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
     
+        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "USING" -Id using
+            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "GIFS" -Id gif
+            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    ) -ViewBox 200,200
+.Example
+    svg @(
+        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+    
+        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            svg.tspan -Content "STOP" -Id stop
+            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    
+        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "USING" -Id using
+            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "GIFS" -Id gif
+            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    ) -ViewBox 200,200
+.Example
+    svg @(
+        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
+    
+        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
+            svg.tspan -Content "STOP" -Id stop
+            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+        )
+    
+        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "USING" -Id using
+            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
+    
+        )
+    
+        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
+            svg.tspan -Content "GIFS" -Id gif
+            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
         )
     ) -ViewBox 200,200
 .Link
@@ -56,19 +143,26 @@ function SVG.tspan {
 #>
 [Reflection.AssemblyMetadata('SVG.ElementName', 'tspan')]
 [CmdletBinding(PositionalBinding=$false)]
+[OutputType([Xml.XmlElement])]
 param(
 # The Contents of the tspan element
 [Reflection.AssemblyMetaData('SVG.IsCData', $True)]
-[Parameter(Position=0,ValueFromPipelineByPropertyName)]
+[Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
+[Alias('DataAttribute','DataAttributes')]
 [Collections.IDictionary]
 $Data,
+# A dictionary or object containing event handlers.
+# Each key or property name will be the name of the event
+# Each value will be the handler.
+[Parameter(ValueFromPipelineByPropertyName)]
+$On,
 # A dictionary of attributes.  This can set any attribute not exposed in other parameters.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Alias('Attributes')]
+[Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
 # The x coordinate of the starting point of the text baseline.
@@ -1581,39 +1675,58 @@ $WritingMode
 
 process {
 
+        # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
+        # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
 
+        # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
                 $myAttr.Value
                 break
             }
         }
+        # If we could not determine this, return.
         if (-not $elementName) { return }
 
+        # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
-            $attribute += $paramCopy
+            $attribute += $paramCopy # merge the values by adding hashtables.
         } else {
+            # Otherwise copy into -Attribute one-by-one.
             foreach ($pc in $paramCopy.GetEnumerator()) {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
 
+        # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
 
+        # If content was provided
         if ($content) {
+            # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+        # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
+            # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
 
+        # If we provided any -Data attributes
         if ($data) {
+            # put it into the splat.
             $writeSvgSplat.Data = $data
+        }
+
+        # If we provided any -On events
+        if ($on) {
+            # put it into the splat.
+            $writeSvgSplat.On = $on
         }
 
         Write-SVG @writeSvgSplat

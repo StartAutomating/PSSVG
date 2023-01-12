@@ -1,4 +1,3 @@
-
 SVG.ConvexPolygon
 -----------------
 ### Synopsis
@@ -23,13 +22,12 @@ The number of sides in the polygon
 
 
 
-> **Type**: ```[Int32]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:true (ByPropertyName)
+|Type     |Required|Position|PipelineInput        |
+|---------|--------|--------|---------------------|
+|`[Int32]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -40,13 +38,12 @@ The initial rotation of the polygon.
 
 
 
-> **Type**: ```[Double]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Double]`|false   |named   |false        |
 
 
 
@@ -57,13 +54,12 @@ The center X coordinate for the polygon.
 
 
 
-> **Type**: ```[Double]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Double]`|false   |named   |false        |
 
 
 
@@ -74,13 +70,12 @@ The center Y coordinate for the polygon.
 
 
 
-> **Type**: ```[Double]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Double]`|false   |named   |false        |
 
 
 
@@ -91,13 +86,12 @@ The radius of the polygon.
 
 
 
-> **Type**: ```[Double]```
 
-> **Required**: false
 
-> **Position**: named
 
-> **PipelineInput**:false
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Double]`|false   |named   |false        |
 
 
 
@@ -107,5 +101,3 @@ The radius of the polygon.
 SVG.ConvexPolygon [-SideCount <Int32>] [-Rotate <Double>] [-CenterX <Double>] [-CenterY <Double>] [-Radius <Double>] [<CommonParameters>]
 ```
 ---
-
-
