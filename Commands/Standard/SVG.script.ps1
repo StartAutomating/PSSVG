@@ -39,7 +39,7 @@ $Attribute = [Ordered]@{},
 # This attribute defines [CORS settings](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) as define for the HTML script element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`crossorigin`](/en-US/docs/Web/HTML/Element/script#crossorigin)')]
-$CrossoriginEnUSDocsWebHTMLElementScriptCrossorigin,
+$Crossorigin,
 # The URL to the script to load.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','href')]
