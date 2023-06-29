@@ -69,16 +69,20 @@
             $paramValue = $kv.Value
             $paramName  = $kv.Key
             if ($paramName -eq 'Viewbox') {
-                if ($paramValue.Length -eq 2) {
-                    $paramValue = @(0,0) + $paramValue
-                }
-                if ($paramValue.Length -eq 1) {
-                    if ($paramValue[0] -lt 0) {
-                        $paramValue = @($paramValue[0];$paramValue[0];$paramValue[0]*-1;$paramValue[0]*-1)
+                $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom = $paramValue -as [double[]]
+                $paramValue = @(if (-not $viewBoxTop) {
+                    if ($viewBoxLeft -lt 0) {
+                        $viewBoxLeft;$viewBoxLeft;$viewBoxLeft*-1;$viewBoxLeft*-1;
                     } else {
-                        $paramValue = @(0,0) + @($paramValue*2)
-                    }                    
-                }                
+                        0,0,$viewBoxLeft,$viewBoxLeft
+                    }
+                } elseif (-not $viewBoxRight) {
+                    0,0,$viewBoxLeft,$viewBoxTop                    
+                } elseif (-not $viewBoxBottom) {
+                    $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxTop
+                } else {
+                    $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom
+                })
             }
 
             if ($paramValue -is [timespan]) {
