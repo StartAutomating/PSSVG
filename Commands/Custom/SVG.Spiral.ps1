@@ -1,40 +1,40 @@
 function SVG.Spiral {
-<#
-    .SYNOPSIS
-        Draws an SVG Spiral
-    .DESCRIPTION
-        Creates an SVG spiral as an SVG path.
-    .LINK
-        SVG.path
+    <#
     
-#>
+    .SYNOPSIS    
+        Draws an SVG Spiral    
+    .DESCRIPTION    
+        Creates an SVG spiral as an SVG path.    
+    .LINK    
+        SVG.path    
     
-[CmdletBinding(PositionalBinding=$false)]
+    #>
+        
     param(
-# The number of steps in the spiral
+    # The number of steps in the spiral    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Uint32]
     $NumSteps = 1000,
-# The value for theta
+    # The value for theta    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double]
     $Theta = [MATH]::pi * 50,
-# The value for alpha (not to be confused with transparency, that's -Opacity)
+    # The value for alpha (not to be confused with transparency, that's -Opacity)    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Double]
     $Alpha = 200,
-# The scale of the spiral along the horizontal axis
+    # The scale of the spiral along the horizontal axis    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('ScaleHorizontal')]
     [double]
     $ScaleX = 1,
-# The scale of the spiral along the vertical axis
+    # The scale of the spiral along the vertical axis    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('ScaleVertical')]
     [double]
     $ScaleY = 1
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGpath) {
             $script:SVGpath = 
@@ -67,8 +67,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         $Margin  = $Alpha * 1.25
         $width = $margin * 2
         $height = $margin * 2 
@@ -94,6 +94,6 @@ dynamicParam {
                 
         =<svg.path> @baseCommandParameters        
     
-}
+    }
 }
 
