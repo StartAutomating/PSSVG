@@ -1,57 +1,57 @@
 function SVG.CurvePath {
-<#
-    .SYNOPSIS
-        Draws an SVG curve.
-    .DESCRIPTION
-        Draws an SVG curve path.
-    .EXAMPLE
-        =<svg> -OutputPath .\Curves.svg @(
-            =<svg.CurvePath> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black
-        ) -viewbox 50, 50
-    .LINK
-        SVG.Path
+    <#
     
-#>
-        
+    .SYNOPSIS    
+        Draws an SVG curve.    
+    .DESCRIPTION    
+        Draws an SVG curve path.    
+    .EXAMPLE    
+        =<svg> -OutputPath .\Curves.svg @(    
+            =<svg.CurvePath> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black    
+        ) -viewbox 50, 50    
+    .LINK    
+        SVG.Path    
+    
+    #>
+                
     [Alias('SVG.CurvedPath','=<SVG.CurvedPath>')]
-[CmdletBinding(PositionalBinding=$false)]
     param(
-# One or two control points.
-    # If two control points are provided, it will be assumed to be a Bezier curve.
-    # If only one control point is provided, it will be assumed to be a Quadratic curve.    
+    # One or two control points.    
+    # If two control points are provided, it will be assumed to be a Bezier curve.    
+    # If only one control point is provided, it will be assumed to be a Quadratic curve.        
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $ControlPoint,
-# The start point of the curve.
-    # If only one value is provided, it will be used as the X and Y coordinate.
+    # The start point of the curve.    
+    # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
-# The end point of the curve.
-    # If only one value is provided, it will be used as the X and Y coordinate.
+    # The end point of the curve.    
+    # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $End,
-# If set, will attempt to draw a smooth bezier curve.
+    # If set, will attempt to draw a smooth bezier curve.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Smooth,
-# If set, will draw a multi-quadratic line.
-    # This can only be used if preceeded by another curve.
+    # If set, will draw a multi-quadratic line.    
+    # This can only be used if preceeded by another curve.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $MultiQuadratic,
-# If set, will draw a quadratic bezier curve.
-    # This is the default, as it only requires a single control point.
+    # If set, will draw a quadratic bezier curve.    
+    # This is the default, as it only requires a single control point.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Quadratic,
-# If set, will close the path after this element.
+    # If set, will close the path after this element.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Close
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGpath) {
             $script:SVGpath = 
@@ -84,8 +84,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         $existingPath = ''
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
@@ -160,7 +160,7 @@ dynamicParam {
         
         SVG.Path @baseSplat
     
-}
+    }
 }
 
 
