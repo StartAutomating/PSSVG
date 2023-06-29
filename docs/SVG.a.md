@@ -2110,7 +2110,7 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-#### **DownloadEnUSDocsWebHTMLElementADownload**
+#### **Download**
 
 Instructs browsers to download a URL instead of navigating to it, so the user will be prompted to save it as a local file.
 
@@ -2140,7 +2140,7 @@ The URL or URL fragment the hyperlink points to.
 
 
 
-#### **HreflangEnUSDocsWebHTMLElementAHreflang**
+#### **Hreflang**
 
 The human language of the URL or URL fragment that the hyperlink points to.
 
@@ -2155,7 +2155,7 @@ The human language of the URL or URL fragment that the hyperlink points to.
 
 
 
-#### **PingEnUSDocsWebHTMLElementAPing**
+#### **Ping**
 
 A space-separated list of URLs to which, when the hyperlink is followed, POST requests with the body `PING` will be sent by the browser (in the background). Typically used for tracking. For a more widely-supported feature addressing the same use cases, see Navigator.sendBeacon().
 
@@ -2170,7 +2170,7 @@ A space-separated list of URLs to which, when the hyperlink is followed, POST re
 
 
 
-#### **ReferrerpolicyEnUSDocsWebHTMLElementAReferrerpolicy**
+#### **Referrerpolicy**
 
 Which [referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) to send when fetching the URL.
 
@@ -2185,7 +2185,7 @@ Which [referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Refer
 
 
 
-#### **RelEnUSDocsWebHTMLElementARel**
+#### **Rel**
 
 The relationship of the target object to the link object.
 
@@ -2215,7 +2215,7 @@ Where to display the linked URL.
 
 
 
-#### **TypeEnUSDocsWebHTMLElementAType**
+#### **Type**
 
 A MIME type for the linked URL.
 
@@ -3604,5 +3604,5 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 
 ### Syntax
 ```PowerShell
-SVG.a [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-DownloadEnUSDocsWebHTMLElementADownload <Object>] [-Href <Object>] [-HreflangEnUSDocsWebHTMLElementAHreflang <Object>] [-PingEnUSDocsWebHTMLElementAPing <Object>] [-ReferrerpolicyEnUSDocsWebHTMLElementAReferrerpolicy <Object>] [-RelEnUSDocsWebHTMLElementARel <Object>] [-Target <Object>] [-TypeEnUSDocsWebHTMLElementAType <Object>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
+SVG.a [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Download <Object>] [-Href <Object>] [-Hreflang <Object>] [-Ping <Object>] [-Referrerpolicy <Object>] [-Rel <Object>] [-Target <Object>] [-Type <Object>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
