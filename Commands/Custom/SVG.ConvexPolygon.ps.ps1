@@ -6,14 +6,18 @@ function SVG.ConvexPolygon {
         Creates a Regular Convex Polygon of an number of sides.
     .LINK
         SVG.Path
+    .LINK
+        SVG.Star
     #>
     [inherit(Command={
         Import-Module ../../PSSVG.psd1 -Global
         'SVG.Path'
     }, Abstract,Dynamic, ExcludeParameter='D')]
+    [CmdletBinding(PositionalBinding=$false)]
     param(
     # The number of sides in the polygon
-    [Parameter(ValueFromPipelineByPropertyName)]
+    # This is also aliased to -PointCount for consistent use with SVG.Star.
+    [Parameter(ValueFromPipelineByPropertyName,Position=0)]
     [Alias('NumberOfSides','SC','Sides','NumSides','PC','D','PointCount')]
     [ValidateRange(3,360)]
     [int]
