@@ -1921,7 +1921,6 @@ $Href,
 [Reflection.AssemblyMetaData('SVG.Value', 'CSS | XML | auto')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'CSS','XML','auto'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1941,7 +1940,7 @@ $AttributeType,
 [Reflection.AssemblyMetaData('SVG.Value', '<name>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $AttributeName,
-# The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
+# The **`begin`** attribute defines when an animation should begin.
 # 
 # The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 # 
@@ -1960,7 +1959,6 @@ $Begin,
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | media | indefinite')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = '<clock-value>','media','indefinite'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2006,7 +2004,6 @@ $Max,
 [Reflection.AssemblyMetaData('SVG.Value', 'always | whenNotActive | never')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'always','whenNotActive','never'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2027,7 +2024,6 @@ $Restart,
 [ValidatePattern('(?>indefinite|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = '<number>','indefinite'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2046,7 +2042,6 @@ $RepeatCount,
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | indefinite')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = '<clock-value>','indefinite'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2066,7 +2061,6 @@ $RepeatDur,
 [Reflection.AssemblyMetaData('SVG.Value', 'freeze (Keep the state of the last animation frame) | remove (Keep the state of the first animation frame)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'freeze (Keep the state of the last animation frame)','remove (Keep the state of the first animation frame)'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2088,7 +2082,6 @@ $Fill,
 [Reflection.AssemblyMetaData('SVG.Value', 'discrete | linear | paced | spline')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'discrete','linear','paced','spline'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2170,7 +2163,6 @@ $By,
 [Reflection.AssemblyMetaData('SVG.Value', 'replace | sum')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'replace','sum'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2192,7 +2184,6 @@ $Additive,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | sum')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'none','sum'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2266,7 +2257,6 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'default','preserve'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2304,15 +2294,11 @@ $Class,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $Style
 )
-
-
 process {
-
         # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
-
         # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
@@ -2322,7 +2308,6 @@ process {
         }
         # If we could not determine this, return.
         if (-not $elementName) { return }
-
         # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
             $attribute += $paramCopy # merge the values by adding hashtables.
@@ -2332,13 +2317,11 @@ process {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
-
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
-
         # If content was provided
         if ($content) {
             # put it into the splat.
@@ -2349,22 +2332,18 @@ process {
             # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
-
         # If we provided any -Data attributes
         if ($data) {
             # put it into the splat.
             $writeSvgSplat.Data = $data
         }
-
         # If we provided any -On events
         if ($on) {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
-
         Write-SVG @writeSvgSplat
     
 }
-
 } 
 
