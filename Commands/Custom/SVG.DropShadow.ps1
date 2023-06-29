@@ -75,7 +75,7 @@ function SVG.DropShadow {
         }
         $null = $PSBoundParameters.Remove('DistanceX')
         $null = $PSBoundParameters.Remove('DistanceY')
-        & $baseCommand @PSBoundParameters
+        SVG.filter @PSBoundParameters
     
     }
 }
