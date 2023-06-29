@@ -1,14 +1,26 @@
 Write-SVG
 ---------
+
+
+
+
 ### Synopsis
 Writes a SVG element
 
+
+
 ---
+
+
 ### Description
 
 Writes a Scalable Vector Graphics element.
 
+
+
 ---
+
+
 ### Parameters
 #### **ElementName**
 
@@ -25,7 +37,6 @@ The name of the SVG element.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.
@@ -41,7 +52,6 @@ A dictionary of attributes.
 
 
 
----
 #### **Data**
 
 A dictionary of data.
@@ -57,7 +67,6 @@ A dictionary of data.
 
 
 
----
 #### **Content**
 
 A dictionary of content.
@@ -73,7 +82,6 @@ A dictionary of content.
 
 
 
----
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -91,7 +99,6 @@ Each value will be the handler.
 
 
 
----
 #### **OutputPath**
 
 An output path.
@@ -107,11 +114,20 @@ An output path.
 
 
 
+
+
 ---
+
+
+### Notes
+While this function can be used directly, it is designed to be the core function that other SVG creation functions call.
+
+
+
+---
+
+
 ### Syntax
 ```PowerShell
 Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-On] <Object>] [[-OutputPath] <String>] [<CommonParameters>]
 ```
----
-### Notes
-While this function can be used directly, it is designed to be the core function that other SVG creation functions call.
