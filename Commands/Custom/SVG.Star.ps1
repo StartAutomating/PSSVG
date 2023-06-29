@@ -7,16 +7,21 @@ function SVG.Star {
         Creates a Star of an number of points.    
     .LINK    
         SVG.Path    
+    .LINK    
+        SVG.ConvexPolygon    
     
     #>
-        
+            
+    [CmdletBinding(PositionalBinding=$false)]
     param(
-    # The number of sides in the polygon    
-    [Parameter(ValueFromPipelineByPropertyName)]
+    # The number of points in the star.    
+    # This is also aliased to -SideCount for consistent use with SVG.ConvexPolygon,    
+    # (even if this is not mathematically accurate).    
+    [Parameter(ValueFromPipelineByPropertyName,Position=0)]
     [ValidateRange(3,360)]
-    [Alias('PC','Points')]
+    [Alias('PC','Points','SC','SideCount','Sides','NumSides')]
     [int]
-    $PointCount,
+    $PointCount = 5,
     # The initial rotation of the polygon.    
     [Alias('Rotation')]
     [double]
