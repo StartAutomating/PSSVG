@@ -577,7 +577,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
       - name: PipeScript
-        uses: StartAutomating/PipeScript
+        uses: StartAutomating/PipeScript@main
         id: PipeScript
       - name: Use PSSVG Action
         uses: StartAutomating/PSSVG@main
