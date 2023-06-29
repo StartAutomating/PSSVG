@@ -1,9 +1,17 @@
 SVG.desc
 --------
+
+
+
+
 ### Synopsis
 Creates SVG desc elements
 
+
+
 ---
+
+
 ### Description
 
 The **`<desc>`** element provides an accessible, long-text description of any SVG [container element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#container_elements) or [graphics element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#graphics_elements).
@@ -12,7 +20,11 @@ Text in a `<desc>` element is not rendered as part of the graphic. If the elemen
 
 The hidden text of a `<desc>` element can also be concatenated with the visible text of other elements using multiple IDs in an `aria-describedby` value. In that case, the `<desc>` element must provide an ID for reference.
 
+
+
 ---
+
+
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.desc](https://pssvg.start-automating.com/SVG.desc)
 
@@ -26,7 +38,11 @@ The hidden text of a `<desc>` element can also be concatenated with the visible 
 
 
 
+
+
 ---
+
+
 ### Parameters
 #### **Content**
 
@@ -37,13 +53,12 @@ The Contents of the desc element
 
 
 
-|Type      |Required|Position|PipelineInput                 |
-|----------|--------|--------|------------------------------|
-|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |Aliases                                        |
+|----------|--------|--------|------------------------------|-----------------------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|InputObject<br/>Text<br/>InnerText<br/>Contents|
 
 
 
----
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
@@ -53,13 +68,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                         |
+|---------------|--------|--------|---------------------|--------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|DataAttribute<br/>DataAttributes|
 
 
 
----
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -77,7 +91,6 @@ Each value will be the handler.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -87,13 +100,12 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                       |
+|---------------|--------|--------|---------------------|------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|SVGAttributes<br/>SVGAttribute|
 
 
 
----
 #### **Id**
 
 The **`id`** attribute assigns a unique name to an element.
@@ -111,7 +123,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Lang**
 
 The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -133,7 +144,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Tabindex**
 
 The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
@@ -151,7 +161,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlBase**
 
 The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
@@ -169,7 +178,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlLang**
 
 The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -191,7 +199,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
@@ -213,7 +220,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Class**
 
 « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
@@ -238,7 +244,6 @@ You can use this class to style SVG content using CSS.
 
 
 
----
 #### **Style**
 
 The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
@@ -256,16 +261,23 @@ You can use this attribute with any SVG element.
 
 
 
+
+
 ---
+
+
 ### Outputs
 * [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
 
 
 
 
+
+
 ---
+
+
 ### Syntax
 ```PowerShell
 SVG.desc [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
----
