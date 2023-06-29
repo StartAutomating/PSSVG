@@ -1939,7 +1939,7 @@ $Attribute = [Ordered]@{},
 # Instructs browsers to download a URL instead of navigating to it, so the user will be prompted to save it as a local file.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`download`](/en-US/docs/Web/HTML/Element/a#download)')]
-$DownloadEnUSDocsWebHTMLElementADownload,
+$Download,
 # The URL or URL fragment the hyperlink points to.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','href')]
@@ -1949,19 +1949,19 @@ $Href,
 # The human language of the URL or URL fragment that the hyperlink points to.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`hreflang`](/en-US/docs/Web/HTML/Element/a#hreflang)')]
-$HreflangEnUSDocsWebHTMLElementAHreflang,
+$Hreflang,
 # A space-separated list of URLs to which, when the hyperlink is followed, POST requests with the body `PING` will be sent by the browser (in the background). Typically used for tracking. For a more widely-supported feature addressing the same use cases, see Navigator.sendBeacon().
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`ping`](/en-US/docs/Web/HTML/Element/a#ping)')]
-$PingEnUSDocsWebHTMLElementAPing,
+$Ping,
 # Which [referrer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) to send when fetching the URL.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`referrerpolicy`](/en-US/docs/Web/HTML/Element/a#referrerpolicy)')]
-$ReferrerpolicyEnUSDocsWebHTMLElementAReferrerpolicy,
+$Referrerpolicy,
 # The relationship of the target object to the link object.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`rel`](/en-US/docs/Web/HTML/Element/a#rel)')]
-$RelEnUSDocsWebHTMLElementARel,
+$Rel,
 # Where to display the linked URL.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','target')]
@@ -1982,7 +1982,7 @@ $Target,
 # A MIME type for the linked URL.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`type`](/en-US/docs/Web/HTML/Element/a#type)')]
-$TypeEnUSDocsWebHTMLElementAType,
+$Type,
 # The URL or URL fragment that the hyperlink points to. May be required for backwards compatibility for older browsers.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
