@@ -1,55 +1,55 @@
 function SVG.ArcPath {
-<#
-    .SYNOPSIS
-        Draws an SVG arc.
-    .DESCRIPTION
-        Draws an SVG arc path.
-    .EXAMPLE
-        =<svg> -Viewbox 100, 100 (
-            =<svg.ArcPath> -Start 50 -End 75 -Radius 25 -Large
-        ) -OutputPath .\arcs.svg
-    .LINK
-        SVG.Path
+    <#
     
-#>
-        
+    .SYNOPSIS    
+        Draws an SVG arc.    
+    .DESCRIPTION    
+        Draws an SVG arc path.    
+    .EXAMPLE    
+        =<svg> -Viewbox 100, 100 (    
+            =<svg.ArcPath> -Start 50 -End 75 -Radius 25 -Large    
+        ) -OutputPath .\arcs.svg    
+    .LINK    
+        SVG.Path    
+    
+    #>
+                
     [Alias('SVG.ArcedPath','=<SVG.ArcedPath>')]
-[CmdletBinding(PositionalBinding=$false)]
     param(
-# The Starting point of the arc.
-    # If only one value is provided, it will be used as the X and Y coordinate.
+    # The Starting point of the arc.    
+    # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
-# The radius of the arc.
-    # If only one value is provided, it will be used as the X and Y coordinate.
+    # The radius of the arc.    
+    # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]    
     [double[]]
     $Radius,
-# The Arc Rotation along the X axis.
+    # The Arc Rotation along the X axis.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('XAxisRotation')]
     $ArcRotation = 0,
-# If set, the arc will be considered a "Large arc"
+    # If set, the arc will be considered a "Large arc"    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('IsLargeArc','LargeArc')]
     [switch]
     $Large,
-# If set, the arc will sweep the circle.
+    # If set, the arc will sweep the circle.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Sweep,
-# The end point of the arc.
-    # If only one value is provided, it will be used as the X and Y coordinate.
+    # The end point of the arc.    
+    # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $End,
-# If set, will close the path after this element.
+    # If set, will close the path after this element.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Close
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGpath) {
             $script:SVGpath = 
@@ -82,8 +82,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         $existingPath = ''
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
@@ -145,7 +145,7 @@ dynamicParam {
         
         SVG.Path @baseSplat
     
-}
+    }
 }
 
 
