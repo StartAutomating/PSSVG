@@ -5,7 +5,7 @@ function SVG.script {
 .Description
     The SVG `script` element allows to add scripts to an SVG document.
     
-    > **Note:** While SVG's `script` element is equivalent to the HTML `script` element, it has some discrepancies, like it uses the `href` attribute instead of {{htmlattrxref('src','script')}} and it doesn't support ECMAScript modules so far (See browser compatibility below for details)
+    > **Note:** While SVG's `script` element is equivalent to the HTML `script` element, it has some discrepancies, like it uses the `href` attribute instead of [`src`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#src) and it doesn't support ECMAScript modules so far (See browser compatibility below for details)
 .Link
     https://pssvg.start-automating.com/SVG.script
 .Link
@@ -38,8 +38,8 @@ $On,
 $Attribute = [Ordered]@{},
 # This attribute defines [CORS settings](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) as define for the HTML script element.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','crossorigin')]
-$Crossorigin,
+[Reflection.AssemblyMetaData('SVG.AttributeName','[`crossorigin`](/en-US/docs/Web/HTML/Element/script#crossorigin)')]
+$CrossoriginEnUSDocsWebHTMLElementScriptCrossorigin,
 # The URL to the script to load.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','href')]
@@ -123,7 +123,6 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'default','preserve'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -161,15 +160,11 @@ $Class,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 $Style
 )
-
-
 process {
-
         # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
-
         # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
@@ -179,7 +174,6 @@ process {
         }
         # If we could not determine this, return.
         if (-not $elementName) { return }
-
         # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
             $attribute += $paramCopy # merge the values by adding hashtables.
@@ -189,13 +183,11 @@ process {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
-
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
-
         # If content was provided
         if ($content) {
             # put it into the splat.
@@ -206,22 +198,18 @@ process {
             # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
-
         # If we provided any -Data attributes
         if ($data) {
             # put it into the splat.
             $writeSvgSplat.Data = $data
         }
-
         # If we provided any -On events
         if ($on) {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
-
         Write-SVG @writeSvgSplat
     
 }
-
 } 
 
