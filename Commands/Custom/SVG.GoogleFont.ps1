@@ -1,34 +1,34 @@
 function SVG.GoogleFont {
-<#
-    .SYNOPSIS
-        SVG Google Font
-    .DESCRIPTION
-        Imports a Google Font into SVG.
-    .NOTES
-        Imported Google Fonts will not render when SVGs are linked as images.
-        To use an imported Google Fonts, either load the SVG alone in it's own frame or embed the SVG directly in HTML.
-    .LINK
-        SVG.Style
-    .LINK
-        SVG.StyleSheet
-    .EXAMPLE
-        SVG @(
-            SVG.Defs @(
-                SVG.GoogleFont -FontName "La Belle Aurore"
-            )
-            SVG.Text -Text "Fancy Text" -X 50% -Y 50% -TextAnchor 'middle' -Style "font-family: 'La Belle Aurore'"
-        ) -Viewbox 100,100 -OutputPath .\FancyText.svg
+    <#
     
-#>
+    .SYNOPSIS    
+        SVG Google Font    
+    .DESCRIPTION    
+        Imports a Google Font into SVG.    
+    .NOTES    
+        Imported Google Fonts will not render when SVGs are linked as images.    
+        To use an imported Google Fonts, either load the SVG alone in it's own frame or embed the SVG directly in HTML.    
+    .LINK    
+        SVG.Style    
+    .LINK    
+        SVG.StyleSheet    
+    .EXAMPLE    
+        SVG @(    
+            SVG.Defs @(    
+                SVG.GoogleFont -FontName "La Belle Aurore"    
+            )    
+            SVG.Text -Text "Fancy Text" -X 50% -Y 50% -TextAnchor 'middle' -Style "font-family: 'La Belle Aurore'"    
+        ) -Viewbox 100,100 -OutputPath .\FancyText.svg    
     
-[CmdletBinding(PositionalBinding=$false)]
+    #>
+        
     param(
-# The name of the font.
+    # The name of the font.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [string]
     $FontName
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGStyle) {
             $script:SVGStyle = 
@@ -61,8 +61,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         $null = $PSBoundParameters.Remove('FontName')
         $extraContent = ''
         if ($FontName) {
@@ -89,6 +89,6 @@ dynamicParam {
         }        
         SVG.style @PSBoundParameters
     
-}
+    }
 }
 
