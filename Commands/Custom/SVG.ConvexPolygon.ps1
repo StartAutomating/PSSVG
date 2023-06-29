@@ -89,7 +89,7 @@ function SVG.ConvexPolygon {
             $angle += $anglePerPoint
         }) -join ' '
         $myParams = [Ordered]@{} + $PSBoundParameters
-        $myParams["D"] = $points
+        $myParams["D"] = "$points Z"
         $myParams.Remove('SideCount')
         $myParams.Remove('Rotate')
         $myParams.Remove('Radius')
