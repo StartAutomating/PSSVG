@@ -68,9 +68,19 @@
             if ($myCmd.Parameters[$kv.Key]) { continue }
             $paramValue = $kv.Value
             $paramName  = $kv.Key
-            if ($paramName -eq 'Viewbox' -and $paramValue.Length -eq 2) {
-                $paramValue = @(0,0) + $paramValue
+            if ($paramName -eq 'Viewbox') {
+                if ($paramValue.Length -eq 2) {
+                    $paramValue = @(0,0) + $paramValue
+                }
+                if ($paramValue.Length -eq 1) {
+                    if ($paramValue[0] -lt 0) {
+                        $paramValue = @($paramValue[0];$paramValue[0];$paramValue[0]*-1;$paramValue[0]*-1)
+                    } else {
+                        $paramValue = @(0,0) + @($paramValue*2)
+                    }                    
+                }                
             }
+
             if ($paramValue -is [timespan]) {
                 $paramValue = "$($paramValue.TotalSeconds)s"
             }
