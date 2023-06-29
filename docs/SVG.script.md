@@ -104,7 +104,7 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-#### **CrossoriginEnUSDocsWebHTMLElementScriptCrossorigin**
+#### **Crossorigin**
 
 This attribute defines [CORS settings](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) as define for the HTML script element.
 
@@ -337,5 +337,5 @@ You can use this attribute with any SVG element.
 
 ### Syntax
 ```PowerShell
-SVG.script [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-CrossoriginEnUSDocsWebHTMLElementScriptCrossorigin <Object>] [-Href <Object>] [-Type <Object>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.script [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Crossorigin <Object>] [-Href <Object>] [-Type <Object>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
