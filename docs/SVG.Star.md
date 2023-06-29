@@ -26,6 +26,10 @@ Creates a Star of an number of points.
 
 
 
+* [SVG.ConvexPolygon](SVG.ConvexPolygon.md)
+
+
+
 
 
 ---
@@ -34,16 +38,18 @@ Creates a Star of an number of points.
 ### Parameters
 #### **PointCount**
 
-The number of sides in the polygon
+The number of points in the star.    
+This is also aliased to -SideCount for consistent use with SVG.ConvexPolygon,    
+(even if this is not mathematically accurate).
 
 
 
 
 
 
-|Type     |Required|Position|PipelineInput        |Aliases      |
-|---------|--------|--------|---------------------|-------------|
-|`[Int32]`|false   |1       |true (ByPropertyName)|PC<br/>Points|
+|Type     |Required|Position|PipelineInput        |Aliases                                                  |
+|---------|--------|--------|---------------------|---------------------------------------------------------|
+|`[Int32]`|false   |1       |true (ByPropertyName)|PC<br/>Points<br/>SC<br/>SideCount<br/>Sides<br/>NumSides|
 
 
 
@@ -58,7 +64,7 @@ The initial rotation of the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases |
 |----------|--------|--------|-------------|--------|
-|`[Double]`|false   |2       |false        |Rotation|
+|`[Double]`|false   |named   |false        |Rotation|
 
 
 
@@ -73,7 +79,7 @@ The center X coordinate for the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases|
 |----------|--------|--------|-------------|-------|
-|`[Double]`|false   |3       |false        |CX     |
+|`[Double]`|false   |named   |false        |CX     |
 
 
 
@@ -88,7 +94,7 @@ The center Y coordinate for the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases|
 |----------|--------|--------|-------------|-------|
-|`[Double]`|false   |4       |false        |CY     |
+|`[Double]`|false   |named   |false        |CY     |
 
 
 
@@ -103,7 +109,7 @@ The radius of the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases|
 |----------|--------|--------|-------------|-------|
-|`[Double]`|false   |5       |false        |R      |
+|`[Double]`|false   |named   |false        |R      |
 
 
 
@@ -114,5 +120,5 @@ The radius of the polygon.
 
 ### Syntax
 ```PowerShell
-SVG.Star [[-PointCount] <Int32>] [[-Rotate] <Double>] [[-CenterX] <Double>] [[-CenterY] <Double>] [[-Radius] <Double>] [<CommonParameters>]
+SVG.Star [[-PointCount] <Int32>] [-Rotate <Double>] [-CenterX <Double>] [-CenterY <Double>] [-Radius <Double>] [<CommonParameters>]
 ```
