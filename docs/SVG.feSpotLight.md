@@ -1,15 +1,27 @@
 SVG.feSpotLight
 ---------------
+
+
+
+
 ### Synopsis
 Creates SVG feSpotLight elements
 
+
+
 ---
+
+
 ### Description
 
 The **`<feSpotLight>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filter primitive defines a light source that can be used to create a spotlight effect.
 It is used within a lighting filter primitive: `feDiffuseLighting` or `feSpecularLighting`.
 
+
+
 ---
+
+
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.feSpotLight](https://pssvg.start-automating.com/SVG.feSpotLight)
 
@@ -23,7 +35,11 @@ It is used within a lighting filter primitive: `feDiffuseLighting` or `feSpecula
 
 
 
+
+
 ---
+
+
 ### Parameters
 #### **Content**
 
@@ -34,13 +50,12 @@ The Contents of the feSpotLight element
 
 
 
-|Type      |Required|Position|PipelineInput                 |
-|----------|--------|--------|------------------------------|
-|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |Aliases                                        |
+|----------|--------|--------|------------------------------|-----------------------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|InputObject<br/>Text<br/>InnerText<br/>Contents|
 
 
 
----
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
@@ -50,13 +65,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                         |
+|---------------|--------|--------|---------------------|--------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|DataAttribute<br/>DataAttributes|
 
 
 
----
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -74,7 +88,6 @@ Each value will be the handler.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -84,13 +97,12 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                       |
+|---------------|--------|--------|---------------------|------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|SVGAttributes<br/>SVGAttribute|
 
 
 
----
 #### **X**
 
 
@@ -102,7 +114,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **Y**
 
 
@@ -114,7 +125,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **Z**
 
 
@@ -126,7 +136,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **PointsAtX**
 
 
@@ -138,7 +147,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **PointsAtY**
 
 
@@ -150,7 +158,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **PointsAtZ**
 
 
@@ -162,7 +169,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **SpecularExponent**
 
 
@@ -174,7 +180,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **LimitingConeAngle**
 
 
@@ -186,7 +191,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **Id**
 
 The **`id`** attribute assigns a unique name to an element.
@@ -204,7 +208,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Lang**
 
 The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -226,7 +229,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Tabindex**
 
 The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
@@ -244,7 +246,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlBase**
 
 The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
@@ -262,7 +263,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlLang**
 
 The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -284,7 +284,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
@@ -306,16 +305,23 @@ You can use this attribute with any SVG element.
 
 
 
+
+
 ---
+
+
 ### Outputs
 * [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
 
 
 
 
+
+
 ---
+
+
 ### Syntax
 ```PowerShell
 SVG.feSpotLight [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-X <Object>] [-Y <Object>] [-Z <Object>] [-PointsAtX <Object>] [-PointsAtY <Object>] [-PointsAtZ <Object>] [-SpecularExponent <Object>] [-LimitingConeAngle <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
----
