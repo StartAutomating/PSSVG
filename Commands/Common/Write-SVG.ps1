@@ -70,15 +70,15 @@
             $paramName  = $kv.Key
             if ($paramName -eq 'Viewbox') {
                 $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom = $paramValue -as [double[]]
-                $paramValue = @(if (-not $viewBoxTop) {
+                $paramValue = @(if ($null -eq $viewBoxTop) {
                     if ($viewBoxLeft -lt 0) {
                         $viewBoxLeft;$viewBoxLeft;$viewBoxLeft*-1;$viewBoxLeft*-1;
                     } else {
                         0,0,$viewBoxLeft,$viewBoxLeft
                     }
-                } elseif (-not $viewBoxRight) {
+                } elseif ($null -eq $viewBoxRight) {
                     0,0,$viewBoxLeft,$viewBoxTop                    
-                } elseif (-not $viewBoxBottom) {
+                } elseif ($null -eq $viewBoxBottom) {
                     $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxTop
                 } else {
                     $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom
