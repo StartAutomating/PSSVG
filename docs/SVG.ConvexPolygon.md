@@ -26,6 +26,10 @@ Creates a Regular Convex Polygon of an number of sides.
 
 
 
+* [SVG.Star](SVG.Star.md)
+
+
+
 
 
 ---
@@ -34,7 +38,8 @@ Creates a Regular Convex Polygon of an number of sides.
 ### Parameters
 #### **SideCount**
 
-The number of sides in the polygon
+The number of sides in the polygon    
+This is also aliased to -PointCount for consistent use with SVG.Star.
 
 
 
@@ -58,7 +63,7 @@ The initial rotation of the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases |
 |----------|--------|--------|-------------|--------|
-|`[Double]`|false   |2       |false        |Rotation|
+|`[Double]`|false   |named   |false        |Rotation|
 
 
 
@@ -73,7 +78,7 @@ The center X coordinate for the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases|
 |----------|--------|--------|-------------|-------|
-|`[Double]`|false   |3       |false        |CX     |
+|`[Double]`|false   |named   |false        |CX     |
 
 
 
@@ -88,7 +93,7 @@ The center Y coordinate for the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases|
 |----------|--------|--------|-------------|-------|
-|`[Double]`|false   |4       |false        |CY     |
+|`[Double]`|false   |named   |false        |CY     |
 
 
 
@@ -103,7 +108,7 @@ The radius of the polygon.
 
 |Type      |Required|Position|PipelineInput|Aliases|
 |----------|--------|--------|-------------|-------|
-|`[Double]`|false   |5       |false        |R      |
+|`[Double]`|false   |named   |false        |R      |
 
 
 
@@ -114,5 +119,5 @@ The radius of the polygon.
 
 ### Syntax
 ```PowerShell
-SVG.ConvexPolygon [[-SideCount] <Int32>] [[-Rotate] <Double>] [[-CenterX] <Double>] [[-CenterY] <Double>] [[-Radius] <Double>] [<CommonParameters>]
+SVG.ConvexPolygon [[-SideCount] <Int32>] [-Rotate <Double>] [-CenterX <Double>] [-CenterY <Double>] [-Radius <Double>] [<CommonParameters>]
 ```
