@@ -1,40 +1,40 @@
 function SVG.Star {
-<#
-    .SYNOPSIS
-        SVG Star
-    .DESCRIPTION
-        Creates a Star of an number of points.
-    .LINK
-        SVG.Path
+    <#
     
-#>
+    .SYNOPSIS    
+        SVG Star    
+    .DESCRIPTION    
+        Creates a Star of an number of points.    
+    .LINK    
+        SVG.Path    
     
-[CmdletBinding(PositionalBinding=$false)]
+    #>
+        
     param(
-# The number of sides in the polygon
+    # The number of sides in the polygon    
     [Parameter(ValueFromPipelineByPropertyName)]
     [ValidateRange(3,360)]
     [Alias('PC','Points')]
     [int]
     $PointCount,
-# The initial rotation of the polygon.
+    # The initial rotation of the polygon.    
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
-# The center X coordinate for the polygon.
+    # The center X coordinate for the polygon.    
     [Alias('CX')]
     [double]
     $CenterX = 1,
-# The center Y coordinate for the polygon.
+    # The center Y coordinate for the polygon.    
     [Alias('CY')]
     [double]
     $CenterY = 1,
-# The radius of the polygon.
+    # The radius of the polygon.    
     [Alias('R')]
     [double]
     $Radius = 1
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGPath) {
             $script:SVGPath = 
@@ -67,8 +67,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         # We can construct a regular polygon by creating N points along a unit circle
         $anglePerPoint = 360 / $PointCount
         $r = $Radius
@@ -125,5 +125,5 @@ dynamicParam {
         svg.Path @myParams  
     
     
-}
+    }
 }
