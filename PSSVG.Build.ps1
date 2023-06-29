@@ -737,7 +737,12 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             param($match)
             $match.Groups['w'].Value.Substring(0,1).ToUpper() + 
                 $match.Groups['w'].Value.Substring(1)
-        })        
+        })
+        # If the parameter name is a link
+        if ($paramName -match '\[(?<n>[^\]]+)\]') {
+            # take the link name as the parameter name.
+            $paramName = $matches.n
+        }        
         $paramName = $paramName.Substring(0,1).ToUpper() + $paramName.Substring(1)
         $paramName = $paramName -replace '\W'
         $paramMetadata = $attrMetadata[$attrName]
