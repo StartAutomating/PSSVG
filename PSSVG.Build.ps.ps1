@@ -100,7 +100,7 @@ if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) 
 
 git clone https://github.com/mdn/content.git --depth 1 --progress
 
-$mdnContentRoot = Join-Path $pwd content
+$mdnContentRoot  = Join-Path $pwd content
 $mdnContentsRoot = Join-Path $mdnContentRoot 'contents'
 
 # If we don't know the list of elements
@@ -698,6 +698,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
                 $match.Groups['w'].Value.Substring(1)
         })        
         $paramName = $paramName.Substring(0,1).ToUpper() + $paramName.Substring(1)
+        $paramName = $paramName -replace '\W'
         $paramMetadata = $attrMetadata[$attrName]
         $paramIsDeprecated = $false
         $parameters[$paramName ] = @(
