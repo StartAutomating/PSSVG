@@ -1,16 +1,28 @@
 SVG.symbol
 ----------
+
+
+
+
 ### Synopsis
 Creates SVG symbol elements
 
+
+
 ---
+
+
 ### Description
 
 The **`<symbol>`** element is used to define graphical template objects which can be instantiated by a `use` element.
 
 The use of `<symbol>` elements for graphics that are used multiple times in the same document adds structure and semantics. Documents that are rich in structure may be rendered graphically, as speech, or as Braille, and thus promote accessibility.
 
+
+
 ---
+
+
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.symbol](https://pssvg.start-automating.com/SVG.symbol)
 
@@ -24,7 +36,11 @@ The use of `<symbol>` elements for graphics that are used multiple times in the 
 
 
 
+
+
 ---
+
+
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
@@ -78,7 +94,11 @@ svg -viewBox 300, 100 -Content @(
 )
 ```
 
+
+
 ---
+
+
 ### Parameters
 #### **Content**
 
@@ -89,13 +109,12 @@ The Contents of the symbol element
 
 
 
-|Type      |Required|Position|PipelineInput                 |
-|----------|--------|--------|------------------------------|
-|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |Aliases                                        |
+|----------|--------|--------|------------------------------|-----------------------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|InputObject<br/>Text<br/>InnerText<br/>Contents|
 
 
 
----
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
@@ -105,13 +124,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                         |
+|---------------|--------|--------|---------------------|--------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|DataAttribute<br/>DataAttributes|
 
 
 
----
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -129,7 +147,6 @@ Each value will be the handler.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -139,13 +156,12 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                       |
+|---------------|--------|--------|---------------------|------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|SVGAttributes<br/>SVGAttribute|
 
 
 
----
 #### **Height**
 
 This attribute determines the height of the symbol.
@@ -161,7 +177,6 @@ This attribute determines the height of the symbol.
 
 
 
----
 #### **PreserveAspectRatio**
 
 This attribute defines how the svg fragment must be deformed if it is embedded in a container with a different aspect ratio.
@@ -177,7 +192,6 @@ This attribute defines how the svg fragment must be deformed if it is embedded i
 
 
 
----
 #### **RefX**
 
 This attribute determines the x coordinate of the reference point of the symbol.
@@ -193,7 +207,6 @@ This attribute determines the x coordinate of the reference point of the symbol.
 
 
 
----
 #### **RefY**
 
 This attribute determines the y coordinate of the reference point of the symbol.
@@ -209,7 +222,6 @@ This attribute determines the y coordinate of the reference point of the symbol.
 
 
 
----
 #### **ViewBox**
 
 This attribute defines the bound of the SVG viewport for the current symbol.
@@ -225,7 +237,6 @@ This attribute defines the bound of the SVG viewport for the current symbol.
 
 
 
----
 #### **Width**
 
 This attribute determines the width of the symbol.
@@ -241,7 +252,6 @@ This attribute determines the width of the symbol.
 
 
 
----
 #### **X**
 
 This attribute determines the x coordinate of the symbol.
@@ -257,7 +267,6 @@ This attribute determines the x coordinate of the symbol.
 
 
 
----
 #### **Y**
 
 This attribute determines the y coordinate of the symbol.
@@ -273,7 +282,6 @@ This attribute determines the y coordinate of the symbol.
 
 
 
----
 #### **Id**
 
 The **`id`** attribute assigns a unique name to an element.
@@ -291,7 +299,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Lang**
 
 The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -313,7 +320,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Tabindex**
 
 The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
@@ -331,7 +337,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlBase**
 
 The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
@@ -349,7 +354,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlLang**
 
 The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -371,7 +375,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
@@ -393,7 +396,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Class**
 
 « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
@@ -418,7 +420,6 @@ You can use this class to style SVG content using CSS.
 
 
 
----
 #### **Style**
 
 The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
@@ -436,7 +437,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **AlignmentBaseline**
 
 The **`alignment-baseline`** attribute specifies how an object is aligned with respect to its parent. This property specifies which baseline of this element is to be aligned with the corresponding baseline of the parent. For example, this allows alphabetic baselines in Roman text to stay aligned across font size changes. It defaults to the baseline with the same name as the computed value of the `alignment-baseline` property.
@@ -454,7 +454,6 @@ The **`alignment-baseline`** attribute specifies how an object is aligned with r
 
 
 
----
 #### **BaselineShift**
 
 The **`baseline-shift`** attribute allows repositioning of the dominant-baseline relative to the dominant-baseline of the parent text content element. The shifted object might be a sub- or superscript.
@@ -474,7 +473,6 @@ The **`baseline-shift`** attribute allows repositioning of the dominant-baseline
 
 
 
----
 #### **Clip**
 
 The **`clip`** attribute is a presentation attribute defining the visible region of an element.
@@ -492,7 +490,6 @@ This attribute has the same parameter values as defined for the {{ cssxref("clip
 
 
 
----
 #### **ClipPath**
 
 The **`clip-path`** presentation attribute defines or associates a clipping path with the element it is related to.
@@ -510,7 +507,6 @@ The **`clip-path`** presentation attribute defines or associates a clipping path
 
 
 
----
 #### **ClipRule**
 
 « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
@@ -552,7 +548,6 @@ As a presentation attribute, it also can be used as a property directly inside a
 
 
 
----
 #### **Color**
 
 The **`color`** attribute is used to provide a potential indirect value, `currentcolor`, for the fill, stroke, stop-color, flood-color, and lighting-color attributes.
@@ -572,7 +567,6 @@ As a presentation attribute, it can be applied to any element, but as noted abov
 
 
 
----
 #### **ColorInterpolation**
 
 The **`color-interpolation`** attribute specifies the color space for gradient interpolations, color animations, and alpha compositing.
@@ -596,7 +590,6 @@ When a child element is blended into a background, the value of the `color-inter
 
 
 
----
 #### **ColorInterpolationFilters**
 
 The **`color-interpolation-filters`** attribute specifies the color space for imaging operations performed via filter effects.
@@ -620,7 +613,6 @@ The **`color-interpolation-filters`** attribute specifies the color space for im
 
 
 
----
 #### **ColorProfile**
 
 The **`color-profile`** attribute is used to define which color profile a raster image included through the image element should use.
@@ -638,7 +630,6 @@ The **`color-profile`** attribute is used to define which color profile a raster
 
 
 
----
 #### **Cursor**
 
 [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
@@ -660,7 +651,6 @@ As a presentation attribute, it also can be used as a property directly inside a
 
 
 
----
 #### **Direction**
 
 The **`direction`** attribute specifies the inline-base direction of a text or tspan element. It defines the start and end points of a line of text as used by the text-anchor and inline-size properties. It also may affect the direction in which characters are positioned if the unicode-bidi property's value is either `embed` or `bidi-override`.
@@ -682,7 +672,6 @@ In many cases, the bidirectional Unicode algorithm produces the desired result a
 
 
 
----
 #### **Display**
 
 The **`display`** attribute lets you control the rendering of graphical or container elements.
@@ -691,9 +680,9 @@ A value of `display="none"` indicates that the given element and its children wi
 
 When applied to a container element, setting `display` to `none` causes the container and all of its children to be invisible; thus, it acts on groups of elements as a group. This means that any child of an element with `display="none"` will never be rendered even if the child has a value for `display` other than `none`.
 
-When the `display` attribute is set to `none`, then the given element does not become part of the rendering tree. It has implications for the tspan, tref, and altGlyph elements, event processing, for bounding box calculations and for calculation of clipping paths:
+When the `display` attribute is set to `none`, then the given element does not become part of the rendering tree. It has implications for the tspan and tref elements, event processing, for bounding box calculations and for calculation of clipping paths:
 
-* If `display` is set to `none` on a tspan, tref, or altGlyph element, then the text string is ignored for the purposes of text layout.
+* If `display` is set to `none` on a tspan or tref element, then the text string is ignored for the purposes of text layout.
 * Regarding events, if `display` is set to `none`, the element receives no events.
 * The geometry of a [graphics element](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#graphics_elements) with `display` set to `none` is not included in bounding box and clipping paths calculations.
 
@@ -716,7 +705,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **DominantBaseline**
 
 The **`dominant-baseline`** attribute specifies the dominant baseline, which is the baseline used to align the box's text and inline-level contents. It also indicates the default alignment baseline of any boxes participating in baseline alignment in the box's alignment context.
@@ -744,7 +732,6 @@ If there is no baseline table in the nominal font, or if the baseline table lack
 
 
 
----
 #### **EnableBackground**
 
 The **`enable-background`** attribute specifies how the accumulation of the background image is managed.
@@ -762,7 +749,6 @@ The **`enable-background`** attribute specifies how the accumulation of the back
 
 
 
----
 #### **Fill**
 
 The **`fill`** attribute has two different meanings. For shapes and text it's a presentation attribute that defines the color (_or any SVG paint servers like gradients or patterns_) used to paint the element; for animation it defines the final state of the animation.
@@ -778,7 +764,6 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 
 
 
----
 #### **FillOpacity**
 
 The **`fill-opacity`** attribute is a presentation attribute defining the opacity of the paint server (_color_, _gradient_, _pattern_, etc.) applied to a shape.
@@ -796,7 +781,6 @@ The **`fill-opacity`** attribute is a presentation attribute defining the opacit
 
 
 
----
 #### **FillRule**
 
 The **`fill-rule`** attribute is a presentation attribute defining the algorithm to use to determine the _inside_ part of a shape.
@@ -814,7 +798,6 @@ The **`fill-rule`** attribute is a presentation attribute defining the algorithm
 
 
 
----
 #### **Filter**
 
 The **`filter`** attribute specifies the filter effects defined by the filter element that shall be applied to its element.
@@ -834,7 +817,6 @@ As a presentation attribute, it can be applied to any element but it only has ef
 
 
 
----
 #### **FloodColor**
 
 The **`flood-color`** attribute indicates what color to use to flood the current filter primitive subregion.
@@ -852,7 +834,6 @@ The **`flood-color`** attribute indicates what color to use to flood the current
 
 
 
----
 #### **FloodOpacity**
 
 The **`flood-opacity`** attribute indicates the opacity value to use across the current filter primitive subregion.
@@ -870,7 +851,6 @@ The **`flood-opacity`** attribute indicates the opacity value to use across the 
 
 
 
----
 #### **FontFamily**
 
 The **`font-family`** attribute indicates which font family will be used to render the text, specified as a prioritized list of font family names and/or generic family names.
@@ -888,10 +868,9 @@ The **`font-family`** attribute indicates which font family will be used to rend
 
 
 
----
 #### **FontSize**
 
-The **`font-size`** attribute refers to the size of the font from baseline to baseline when multiple lines of text are set solid in a multiline layout environment.
+The **`font-size`** attribute refers to the size of the font from {{Glossary("baseline/typography", "baseline")}} to baseline when multiple lines of text are set solid in a multiline layout environment.
 
 > **Note:** As a presentation attribute, `font-size` can be used as a CSS property. See the {{cssxref("font-size", "CSS font-size")}} property for more information.
 
@@ -906,7 +885,6 @@ The **`font-size`** attribute refers to the size of the font from baseline to ba
 
 
 
----
 #### **FontSizeAdjust**
 
 The `font-size-adjust` attribute allows authors to specify an aspect value for an element that will preserve the x-height of the first choice font in a substitute font.
@@ -924,7 +902,6 @@ The `font-size-adjust` attribute allows authors to specify an aspect value for a
 
 
 
----
 #### **FontStretch**
 
 The **`font-stretch`** attribute indicates the desired amount of condensing or expansion in the glyphs used to render the text.
@@ -942,7 +919,6 @@ The **`font-stretch`** attribute indicates the desired amount of condensing or e
 
 
 
----
 #### **FontStyle**
 
 The **`font-style`** attribute specifies whether the text is to be rendered using a normal, italic, or oblique face.
@@ -960,7 +936,6 @@ The **`font-style`** attribute specifies whether the text is to be rendered usin
 
 
 
----
 #### **FontVariant**
 
 The **`font-variant`** attribute indicates whether the text is to be rendered using variations of the font's {{Glossary("glyph", "glyphs")}}.
@@ -978,7 +953,6 @@ The **`font-variant`** attribute indicates whether the text is to be rendered us
 
 
 
----
 #### **FontWeight**
 
 The **`font-weight`** attribute refers to the boldness or lightness of the glyphs used to render the text, relative to other fonts in the same font family.
@@ -996,7 +970,6 @@ The **`font-weight`** attribute refers to the boldness or lightness of the glyph
 
 
 
----
 #### **GlyphOrientationHorizontal**
 
 The **`glyph-orientation-horizontal`** attribute affects the amount that the current text position advances as each glyph is rendered.
@@ -1018,7 +991,6 @@ This attribute is applied only to text written in a horizontal writing-mode.
 
 
 
----
 #### **GlyphOrientationVertical**
 
 The **`glyph-orientation-vertical`** attribute affects the amount that the current text position advances as each glyph is rendered.
@@ -1040,7 +1012,6 @@ This attribute is applied only to text written in a vertical writing-mode.
 
 
 
----
 #### **ImageRendering**
 
 The **`image-rendering`** attribute provides a hint to the browser about how to make speed vs. quality tradeoffs as it performs image processing.
@@ -1060,7 +1031,6 @@ The resampling is always done in a truecolor (e.g., 24-bit) color space even if 
 
 
 
----
 #### **Kerning**
 
 The **`kerning`** attribute indicates whether the spacing between {{Glossary("glyph", "glyphs")}} should be adjusted based on kerning tables that are included in the relevant font (i.e., enable auto-kerning) or instead disable auto-kerning and set the spacing between them to a specific length (typically, zero).
@@ -1078,7 +1048,6 @@ The **`kerning`** attribute indicates whether the spacing between {{Glossary("gl
 
 
 
----
 #### **LetterSpacing**
 
 The **`letter-spacing`** attribute controls spacing between text characters, in addition to any spacing from the kerning attribute.
@@ -1100,7 +1069,6 @@ If the attribute value has a unit identifier, such as `.25em` or `1%`, then the 
 
 
 
----
 #### **LightingColor**
 
 The **`lighting-color`** attribute defines the color of the light source for lighting filter primitives.
@@ -1116,7 +1084,6 @@ The **`lighting-color`** attribute defines the color of the light source for lig
 
 
 
----
 #### **MarkerEnd**
 
 The **`marker-end`** attribute defines the arrowhead or polymarker that will be drawn at the final vertex of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
@@ -1136,7 +1103,6 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 
 
----
 #### **MarkerMid**
 
 The **`marker-mid`** attribute defines the arrowhead or polymarker that will be drawn at all interior vertices of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
@@ -1156,7 +1122,6 @@ The marker is rendered on every vertex other than the first and last vertices of
 
 
 
----
 #### **MarkerStart**
 
 The **`marker-start`** attribute defines the arrowhead or polymarker that will be drawn at the first vertex of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
@@ -1176,7 +1141,6 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 
 
----
 #### **Mask**
 
 The **`mask`** attribute is a presentation attribute mainly used to bind a given mask element with the element the attribute belongs to.
@@ -1194,7 +1158,6 @@ The **`mask`** attribute is a presentation attribute mainly used to bind a given
 
 
 
----
 #### **Opacity**
 
 The **`opacity`** attribute specifies the transparency of an object or of a group of objects, that is, the degree to which the background behind the element is overlaid.
@@ -1212,7 +1175,6 @@ The **`opacity`** attribute specifies the transparency of an object or of a grou
 
 
 
----
 #### **Overflow**
 
 The **`overflow`** attribute sets what to do when an element's content is too big to fit in its block formatting context. **This feature is not widely implemented yet**.
@@ -1239,7 +1201,6 @@ This attribute has the same parameter values and meaning as the {{cssxref("overf
 
 
 
----
 #### **PointerEvents**
 
 The **`pointer-events`** attribute is a presentation attribute that allows defining whether or when an element may be the target of a mouse event.
@@ -1257,7 +1218,6 @@ The **`pointer-events`** attribute is a presentation attribute that allows defin
 
 
 
----
 #### **ShapeRendering**
 
 The **`shape-rendering`** attribute provides hints to the renderer about what tradeoffs to make when rendering shapes like paths, circles, or rectangles.
@@ -1275,7 +1235,6 @@ The **`shape-rendering`** attribute provides hints to the renderer about what tr
 
 
 
----
 #### **StopColor**
 
 The **`stop-color`** attribute indicates what color to use at a gradient stop.
@@ -1295,7 +1254,6 @@ The **`stop-color`** attribute indicates what color to use at a gradient stop.
 
 
 
----
 #### **StopOpacity**
 
 The **`stop-opacity`** attribute defines the opacity of a given color gradient stop.
@@ -1315,7 +1273,6 @@ The opacity value used for the gradient calculation is the product of the value 
 
 
 
----
 #### **Stroke**
 
 The **`stroke`** attribute is a presentation attribute defining the color (_or any SVG paint servers like gradients or patterns_) used to paint the outline of the shape;
@@ -1333,7 +1290,6 @@ The **`stroke`** attribute is a presentation attribute defining the color (_or a
 
 
 
----
 #### **StrokeDasharray**
 
 The **`stroke-dasharray`** attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape;
@@ -1351,7 +1307,6 @@ The **`stroke-dasharray`** attribute is a presentation attribute defining the pa
 
 
 
----
 #### **StrokeDashoffset**
 
 The **`stroke-dashoffset`** attribute is a presentation attribute defining an offset on the rendering of the associated dash array.
@@ -1369,7 +1324,6 @@ The **`stroke-dashoffset`** attribute is a presentation attribute defining an of
 
 
 
----
 #### **StrokeLinecap**
 
 The **`stroke-linecap`** attribute is a presentation attribute defining the shape to be used at the end of open subpaths when they are stroked.
@@ -1387,7 +1341,6 @@ The **`stroke-linecap`** attribute is a presentation attribute defining the shap
 
 
 
----
 #### **StrokeLinejoin**
 
 The **`stroke-linejoin`** attribute is a presentation attribute defining the shape to be used at the corners of paths when they are stroked.
@@ -1405,7 +1358,6 @@ The **`stroke-linejoin`** attribute is a presentation attribute defining the sha
 
 
 
----
 #### **StrokeMiterlimit**
 
 The **`stroke-miterlimit`** attribute is a presentation attribute defining a limit on the ratio of the miter length to the stroke-width used to draw a miter join. When the limit is exceeded, the join is converted from a miter to a bevel.
@@ -1423,7 +1375,6 @@ The **`stroke-miterlimit`** attribute is a presentation attribute defining a lim
 
 
 
----
 #### **StrokeOpacity**
 
 The **`stroke-opacity`** attribute is a presentation attribute defining the opacity of the paint server (_color_, _gradient_, _pattern_, etc.) applied to the stroke of a shape.
@@ -1441,7 +1392,6 @@ The **`stroke-opacity`** attribute is a presentation attribute defining the opac
 
 
 
----
 #### **StrokeWidth**
 
 The **`stroke-width`** attribute is a presentation attribute defining the width of the stroke to be applied to the shape.
@@ -1457,14 +1407,13 @@ The **`stroke-width`** attribute is a presentation attribute defining the width 
 
 
 
----
 #### **TextAnchor**
 
 The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the inline-size property relative to a given point.
 
 This attribute is not applicable to other types of auto-wrapped text. For those cases you should use text-align. For multi-line text, the alignment takes place for each line.
 
-The `text-anchor` attribute is applied to each individual text chunk within a given text element. Each text chunk has an initial current text position, which represents the point in the user coordinate system resulting from (depending on context) application of the x and y attributes on the `<text>` element, any `x` or `y` attribute values on a tspan, tref or altGlyph element assigned explicitly to the first rendered character in a text chunk, or determination of the initial current text position for a textPath element.
+The `text-anchor` attribute is applied to each individual text chunk within a given text element. Each text chunk has an initial current text position, which represents the point in the user coordinate system resulting from (depending on context) application of the x and y attributes on the `<text>` element, any `x` or `y` attribute values on a tspan or tref element assigned explicitly to the first rendered character in a text chunk, or determination of the initial current text position for a textPath element.
 
 > **Note:** As a presentation attribute, `text-anchor` can be used as a CSS property.
 
@@ -1479,7 +1428,6 @@ The `text-anchor` attribute is applied to each individual text chunk within a gi
 
 
 
----
 #### **TextDecoration**
 
 The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the text-decoration-line and text-decoration-style properties.
@@ -1501,7 +1449,6 @@ The paint order of the text decoration, i.e. the fill and stroke, is determined 
 
 
 
----
 #### **TextRendering**
 
 The **`text-rendering`** attribute provides hints to the renderer about what tradeoffs to make when rendering text.
@@ -1519,7 +1466,6 @@ The **`text-rendering`** attribute provides hints to the renderer about what tra
 
 
 
----
 #### **Transform**
 
 The **`transform`** attribute defines a list of transform definitions that are applied to an element and the element's children.
@@ -1539,7 +1485,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **TransformOrigin**
 
 
@@ -1551,7 +1496,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **UnicodeBidi**
 
 The **`unicode-bidi`** attribute specifies how the accumulation of the background image is managed.
@@ -1569,7 +1513,6 @@ The **`unicode-bidi`** attribute specifies how the accumulation of the backgroun
 
 
 
----
 #### **VectorEffect**
 
 The **`vector-effect`** property specifies the vector effect to use when drawing an object. Vector effects are applied before any of the other compositing operations, i.e. filters, masks and clips.
@@ -1587,7 +1530,6 @@ The **`vector-effect`** property specifies the vector effect to use when drawing
 
 
 
----
 #### **Visibility**
 
 The **`visibility`** attribute lets you control the visibility of graphical elements. With a value of `hidden` or `collapse` the current graphics element is invisible.
@@ -1609,7 +1551,6 @@ Depending on the value of attribute pointer-events, graphics elements which have
 
 
 
----
 #### **WordSpacing**
 
 The **`word-spacing`** attribute specifies spacing behavior between words.
@@ -1631,10 +1572,9 @@ If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), 
 
 
 
----
 #### **WritingMode**
 
-The **`writing-mode`** attribute specifies whether the initial inline-progression-direction for a text element shall be left-to-right, right-to-left, or top-to-bottom. The `writing-mode` attribute applies only to text elements; the attribute is ignored for tspan, tref, altGlyph and textPath sub-elements. (Note that the inline-progression-direction can change within a text element due to the Unicode bidirectional algorithm and properties direction and unicode-bidi.)
+The **`writing-mode`** attribute specifies whether the initial inline-progression-direction for a text element shall be left-to-right, right-to-left, or top-to-bottom. The `writing-mode` attribute applies only to text elements; the attribute is ignored for tspan, tref, and textPath sub-elements. (Note that the inline-progression-direction can change within a text element due to the Unicode bidirectional algorithm and properties direction and unicode-bidi.)
 
 > **Note:** As a presentation attribute, `writing-mode` can be used as a CSS property. See the CSS writing-mode property for more information.
 
@@ -1649,16 +1589,23 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 
 
 
+
+
 ---
+
+
 ### Outputs
 * [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
 
 
 
 
+
+
 ---
+
+
 ### Syntax
 ```PowerShell
 SVG.symbol [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Height <Object>] [-PreserveAspectRatio <Object>] [-RefX <Object>] [-RefY <Object>] [-ViewBox <Object>] [-Width <Object>] [-X <Object>] [-Y <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
 ```
----
