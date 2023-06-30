@@ -164,7 +164,7 @@ function ConvertSVGMetadataToParameterAttribute {
             "[ValidateScript({`$_ -in '$validSet' -or `$_ -as [uri]})]"
         }
         elseif ($hadColor -and -not $hadUnknown) {
-            "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '\W'})]"
+            "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '[\W-[\-]]'})]"
         }
         elseif ($validSet -and -not $hadUnknown -and -not ($validSet -match '\p{P}')) {
             $tabCompletionRedundant = $true
