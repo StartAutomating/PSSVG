@@ -156,18 +156,20 @@ function ConvertSVGMetadataToParameterAttribute {
             $validValue
         }        
     }) -join "','"
-    if ($hadNumbers) {
-        "[ValidatePattern('(?>$($validSet -split "','" -join '|')|\d+)')]"
-    }
-    elseif ($hadUri -and $validSet) {
-        "[ValidateScript({`$_ -in '$validSet' -or `$_ -as [uri]})]"
-    }
-    elseif ($hadColor) {
-        "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '\W'})]"
-    }
-    elseif ($validSet -and -not $hadUnknown -and -not ($validSet -match '\p{P}')) {
-        $tabCompletionRedundant = $true
-        "[ValidateSet('$validSet')]"
+    if (-not $hadUnknown) {
+        if ($hadNumbers) {
+            "[ValidatePattern('(?>$($validSet -split "','" -join '|')|\d+)')]"
+        }
+        elseif ($hadUri -and $validSet) {
+            "[ValidateScript({`$_ -in '$validSet' -or `$_ -as [uri]})]"
+        }
+        elseif ($hadColor -and -not $hadUnknown) {
+            "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '\W'})]"
+        }
+        elseif ($validSet -and -not $hadUnknown -and -not ($validSet -match '\p{P}')) {
+            $tabCompletionRedundant = $true
+            "[ValidateSet('$validSet')]"
+        }
     }
     
     if ($setDescriptors -and -not $tabCompletionRedundant) {        
@@ -684,7 +686,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     )
 
     $parameters['Attribute'] = @(
-        "# A dictionary of attributes.  This can set any attribute not exposed in other parameters."        
+        "# A dictionary of attributes.  This can set any attribute not exposed in other parameters."
         "[Parameter(ValueFromPipelineByPropertyName)]"
         "[Alias('SVGAttributes','SVGAttribute')]"
         "[Collections.IDictionary]"
@@ -706,6 +708,9 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         $paramName = $paramName -replace '\W'
         $paramMetadata = $attrMetadata[$attrName]
         $paramIsDeprecated = $false
+        if ($paramName -eq 'TextDecoration') {
+            $null = $null
+        }
         $parameters[$paramName ] = @(
             $attrHelp = $elementKv.Value.Help.$attrName
           
