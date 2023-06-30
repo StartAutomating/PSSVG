@@ -447,7 +447,7 @@ $ClipRule,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','color')]
 [Reflection.AssemblyMetaData('SVG.Value', '<color> | inherit')]
-[ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '\W'})]
+[ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '[\W-[\-]]'})]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
     $validSet = '<color>','inherit'
@@ -1175,7 +1175,7 @@ $ShapeRendering,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','stop-color')]
 [Reflection.AssemblyMetaData('SVG.Value', 'currentcolor | {{cssxref("color_value", "<color>")}} <icccolor>')]
-[ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '\W'})]
+[ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '[\W-[\-]]'})]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
     $validSet = 'currentcolor','{{cssxref("color_value", "<color>")}} <icccolor>'
@@ -1385,7 +1385,7 @@ $TextAnchor,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','text-decoration')]
 [Reflection.AssemblyMetaData('SVG.Value', '<''text-decoration-line''> || <''text-decoration-style''> || <''text-decoration-color''>')]
-[ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '\W'})]
+[ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '[\W-[\-]]'})]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
     $validSet = '<''text-decoration-line''>','','<''text-decoration-style''>','','<''text-decoration-color''>'
