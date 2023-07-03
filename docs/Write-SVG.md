@@ -69,7 +69,8 @@ A dictionary of data.
 
 #### **Content**
 
-A dictionary of content.
+An object containing content.
+If this content is XML, it will be added as a child element.
 
 
 
