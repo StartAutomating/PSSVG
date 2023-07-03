@@ -102,6 +102,21 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
+#### **Comment**
+
+# A comment that will appear before the element.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[String]`|false   |named   |true (ByPropertyName)|Comments|
+
+
+
 #### **ViewBox**
 
 
@@ -278,5 +293,5 @@ You can use this attribute with any SVG element.
 
 ### Syntax
 ```PowerShell
-SVG.view [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-ViewBox <Object>] [-PreserveAspectRatio <Object>] [-ZoomAndPan <Object>] [-ViewTarget <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.view [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-ViewBox <Object>] [-PreserveAspectRatio <Object>] [-ZoomAndPan <Object>] [-ViewTarget <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
