@@ -61,9 +61,9 @@ The initial rotation of the polygon.
 
 
 
-|Type      |Required|Position|PipelineInput|Aliases |
-|----------|--------|--------|-------------|--------|
-|`[Double]`|false   |named   |false        |Rotation|
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[Double]`|false   |named   |true (ByPropertyName)|Rotation|
 
 
 
@@ -76,9 +76,9 @@ The center X coordinate for the polygon.
 
 
 
-|Type      |Required|Position|PipelineInput|Aliases|
-|----------|--------|--------|-------------|-------|
-|`[Double]`|false   |named   |false        |CX     |
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Double]`|false   |named   |true (ByPropertyName)|CX     |
 
 
 
@@ -91,9 +91,9 @@ The center Y coordinate for the polygon.
 
 
 
-|Type      |Required|Position|PipelineInput|Aliases|
-|----------|--------|--------|-------------|-------|
-|`[Double]`|false   |named   |false        |CY     |
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Double]`|false   |named   |true (ByPropertyName)|CY     |
 
 
 
@@ -106,9 +106,9 @@ The radius of the polygon.
 
 
 
-|Type      |Required|Position|PipelineInput|Aliases|
-|----------|--------|--------|-------------|-------|
-|`[Double]`|false   |named   |false        |R      |
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Double]`|false   |named   |true (ByPropertyName)|R      |
 
 
 
