@@ -60,6 +60,11 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
+# # A comment that will appear before the element.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Comments')]
+[String]
+$Comment,
 # The x position of the center of the ellipse.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','cx')]
@@ -1508,9 +1513,14 @@ process {
             Attribute   = $attribute
         }
         # If content was provided
-        if ($content) {
+        if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
+        }
+        # If comments were provided
+        if ($comment) {
+            # put it into the splat.
+            $writeSvgSplat.Comment = $comment
         }
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
