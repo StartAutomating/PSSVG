@@ -21,13 +21,13 @@ function SVG.Rhombus
                         SVG.Rhombus -Rotate 180
                         SVG.Rhombus -Rotate 270                        
                     ).D -join ';'
-                ) -AttributeType XML -Dur 2s -RepeatCount indefinite -CalcMode spline
+                ) -AttributeType XML -Dur 2s -RepeatCount indefinite -CalcMode discrete
             ) 
         ) -OutputPath .\Rhombus-Morph.svg
     
     #>
     [Alias('SVG.Rhombi')]
-    [inherit('SVG.Path', Abstract,Dynamic, ExcludeParameter='D')]
+    [inherit('SVG.Path', Abstract)]
     [CmdletBinding(PositionalBinding=$false)]
     param(    
     # The initial rotation of the rhombus.
