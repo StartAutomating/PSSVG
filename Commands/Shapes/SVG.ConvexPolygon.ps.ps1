@@ -24,21 +24,25 @@ function SVG.ConvexPolygon {
     $SideCount,
 
     # The initial rotation of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
 
     # The center X coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
 
     # The center Y coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
 
     # The radius of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
     [double]
     $Radius = 1

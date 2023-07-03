@@ -22,27 +22,31 @@ function SVG.Star {
     $PointCount = 5,
 
     # The initial rotation of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
 
     # The center X coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
 
     # The center Y coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
 
     # The radius of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
     [double]
     $Radius = 1
     )
 
-    process {
+    process {        
         # We can construct a regular polygon by creating N points along a unit circle
         $anglePerPoint = 360 / $PointCount
         $r = $Radius
@@ -97,7 +101,6 @@ function SVG.Star {
         $myParams.Remove('Radius')
         $myParams.Remove('CenterX')
         $myParams.Remove('CenterY')
-              
         svg.Path @myParams  
     
     }
