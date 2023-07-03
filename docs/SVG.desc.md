@@ -106,6 +106,21 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
+#### **Comment**
+
+# A comment that will appear before the element.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[String]`|false   |named   |true (ByPropertyName)|Comments|
+
+
+
 #### **Id**
 
 The **`id`** attribute assigns a unique name to an element.
@@ -279,5 +294,5 @@ You can use this attribute with any SVG element.
 
 ### Syntax
 ```PowerShell
-SVG.desc [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.desc [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
 ```
