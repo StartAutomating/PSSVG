@@ -1,4 +1,4 @@
-﻿$showElementIf = {'#text','#whitespace','#document' -notcontains $_.LocalName }
+﻿$showElementIf = {'#text','#whitespace','#comment','#document' -notcontains $_.LocalName }
 Write-FormatTreeView -Property @({
     Write-FormatViewExpression -ForegroundColor Success -if $showElementIf -ScriptBlock { '<'.Trim() }
     Write-FormatViewExpression -ForegroundColor Verbose -if $showElementIf -ScriptBlock {
@@ -14,7 +14,8 @@ Write-FormatTreeView -Property @({
             '/>'
         }
     } -if $showElementIf
-    Write-FormatViewExpression -If { $_.LocalName -eq '#text' } -ScriptBlock {$_.InnerText } -ForegroundColor 'Verbose'
+    Write-FormatViewExpression -If { $_.LocalName -in '#text' } -ScriptBlock {$_.InnerText } -ForegroundColor 'Verbose'
+    Write-FormatViewExpression -If { $_.LocalName -in '#comment' } -ScriptBlock { "<!--$($_.InnerText)-->" } -ForegroundColor 'Verbose'
 }) -TypeName 'Svg.Element' -HasChildren { $_.HasChildren -or $_.HasChildNodes -and $_.LocalName -ne '#whitespace'} -Children {
     @(foreach ($cn in $_.ChildNodes) {
         if ($cn.LocalName -eq '#whitespace') { continue }
