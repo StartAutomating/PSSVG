@@ -34,6 +34,11 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
+# # A comment that will appear before the element.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Comments')]
+[String]
+$Comment,
 # The **`flood-color`** attribute indicates what color to use to flood the current filter primitive subregion.
 # 
 # > **Note:** As a presentation attribute, `flood-color` can be used as a CSS property.
@@ -1365,9 +1370,14 @@ process {
             Attribute   = $attribute
         }
         # If content was provided
-        if ($content) {
+        if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
+        }
+        # If comments were provided
+        if ($comment) {
+            # put it into the splat.
+            $writeSvgSplat.Comment = $comment
         }
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
