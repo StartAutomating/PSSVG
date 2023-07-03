@@ -1936,6 +1936,11 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
+# # A comment that will appear before the element.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Comments')]
+[String]
+$Comment,
 # Instructs browsers to download a URL instead of navigating to it, so the user will be prompted to save it as a local file.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`download`](/en-US/docs/Web/HTML/Element/a#download)')]
@@ -3367,9 +3372,14 @@ process {
             Attribute   = $attribute
         }
         # If content was provided
-        if ($content) {
+        if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
+        }
+        # If comments were provided
+        if ($comment) {
+            # put it into the splat.
+            $writeSvgSplat.Comment = $comment
         }
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
