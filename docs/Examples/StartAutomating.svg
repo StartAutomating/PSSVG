@@ -5,7 +5,7 @@
   </symbol>
   <use href="#psChevron" fill="#4488ff" x="-7.5%" />
   <text font-family="monospace" alignment-baseline="middle" x="27.5%" y="50%" fill="#4488ff">
-    <tspan letter-spacing=".15em" alignment-baseline="middle" />
-    <tspan letter-spacing=".2em" alignment-baseline="middle" dx="0.5em" />
+    <tspan letter-spacing=".15em" alignment-baseline="middle">Start</tspan>
+    <tspan letter-spacing=".2em" alignment-baseline="middle" dx="0.5em">Automating</tspan>
   </text>
 </svg>
