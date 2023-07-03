@@ -152,7 +152,10 @@ if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) 
     return
 }
 
-git clone https://github.com/mdn/content.git --depth 1 --progress
+$clonedMDN = git clone https://github.com/mdn/content.git --depth 1 --progress
+if ($clonedMDN) {
+    "Cloned MDN" | Out-Host
+}
 
 $mdnContentRoot  = Join-Path $pwd content
 $mdnContentsRoot = Join-Path $mdnContentRoot 'contents'
@@ -733,6 +736,13 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         "[Collections.IDictionary]"
         '$Attribute = [Ordered]@{}'
     )
+
+    $parameters['Comment'] = [Ordered]@{
+        Help = "# A comment that will appear before the element."
+        Attribute = 'ValueFromPipelineByPropertyName'
+        Alias = 'Comments'
+        Type  = [string]
+    }
     
     foreach ($attrName in $elementKV.Value.AttributeNames) {
         $paramName = [regex]::Replace($attrName, '\W(?<w>\w+)', {
@@ -858,10 +868,17 @@ $OutputPath
         }
 
         # If content was provided
-        if ($content) {
+        if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+
+        # If comments were provided
+        if ($comment) {
+            # put it into the splat.
+            $writeSvgSplat.Comment = $comment
+        }
+
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
             # put it into the splat.
