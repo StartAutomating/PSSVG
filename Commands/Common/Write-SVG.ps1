@@ -24,7 +24,8 @@
     [Collections.IDictionary]
     $Data = [Ordered]@{},
 
-    # A dictionary of content.
+    # An object containing content.
+    # If this content is XML, it will be added as a child element.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [PSObject]
     $Content,
@@ -52,10 +53,14 @@
         ${?<CamelCaseSpace>} = [Regex]::new('(?<CamelCaseSpace>(?<=[a-z])(?=[A-Z]))')
     }
 
-    process {
+    process {        
+        # Determine what command we're using to create the elements.
         $elementCmd = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$elementName", 'Function')
+    
 
+        # If -Style was passed (and was not a string)
         if ($Attribute['Style'] -and $Attribute['Style'] -isnot [string]) {
+            # Turn dictionaries into simple CSS,
             if ($Attribute['Style'] -is [Collections.IDictionary]) {
                 $Attribute['Style'] =
                     @(foreach ($kv in $Attribute['Style'].GetEnumerator()) {
@@ -63,18 +68,27 @@
                     }) -join ';'
             }
             else {
+                # and do the same for other PSObjects.
                 $Attribute['Style'] = @(foreach ($prop in $Attribute['Style'].psobject.properties) {
                     "$($prop.Name):$($kv.Value)"
                 }) -join ';'
             }
         }        
 
+        # Keep track of which attributes are bound.
+        $boundAttributes = @()
+        
+        # Start creating a tag for our element.
         $elementText = "<$elementName "
+        # Next, walk over the attributes of the command
         :nextParameter foreach ($kv in $Attribute.GetEnumerator()) {
+            # skip any parameters from Write-SVG.
             if ($myCmd.Parameters[$kv.Key]) { continue }
             $paramValue = $kv.Value
             $paramName  = $kv.Key
+            # The only attribute we treat that specially is -Viewbox.
             if ($paramName -eq 'Viewbox') {
+                # For that, we basically pad out whatever list was provided to make four coordinates.
                 $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom = $paramValue -as [double[]]
                 $paramValue = @(if ($null -eq $viewBoxTop) {                    
                     0,0,$viewBoxLeft,$viewBoxLeft                    
@@ -87,22 +101,41 @@
                 })
             }
 
+            # For timespan values, we want to use the total number of seconds
             if ($paramValue -is [timespan]) {
                 $paramValue = "$($paramValue.TotalSeconds)s"
             }
+
+            # If the parameter value was a script block, run it.
+            if ($paramValue -is [scriptblock]) {
+                if ($null -ne $content) { # (if we had -Content, set $_ first)
+                    $this = $_ = $psItem = $content
+                    $scriptOut = . ([ScriptBlock]::Create($paramValue))
+                    $paramValue = $scriptOut
+                } else {
+                    $paramValue = . ([ScriptBlock]::Create($paramValue))
+                }                
+            }
+
+            # Now we refer to the element command and find the actual name of the attribute.
             foreach ($attr in $elementCmd.Parameters[$kv.Key].Attributes) {                
                 if ($attr.Key -eq 'SVG.AttributeName') {
+                    
                     if ($inputObject -and $inputObject.psobject.properties[$attr.Key]) {
                         $inputObject.psobject.properties.Remove($attr.Key)
                     }
+                    # and append it to the XML.
+                    $boundAttributes += $paramName
                     $elementText += "$($attr.Value)='$([Web.HttpUtility]::HtmlAttributeEncode($paramValue))' "
                     continue nextParameter
                 }
             }
+            
             $elementText += "$($kv.Key)='$([Web.HttpUtility]::HtmlAttributeEncode($kv.Value))' "
         }
 
         if ($data -and $data.Count) {
+            if ($content.Data) { $boundAttributes += "data"}
             foreach ($kv in $data.GetEnumerator()) {
                 $dataKey = ${?<CamelCaseSpace>}.Replace($kv.Key, '-').Replace('_','-')
                 $dataKey = "data-$($dataKey.ToLower())"
@@ -112,6 +145,7 @@
         }
 
         if ($On) {
+            if ($content.Data) { $boundAttributes += "on"}
             $eventNames = @(
                 if ($on -is [Collections.IDictionary]) {
                     $on.Keys    
@@ -139,7 +173,15 @@
 
         $elementText = $elementText -replace '\s{0,1}$'
 
-        if (-not $content) {
+        if (
+            # If there is no content
+            (-not $content) -or 
+            # or the content is an int
+            ($content -is [int]) -or
+            # or all of the properties are bound
+            (@($content.psobject.properties).Length -le $boundAttributes.Length)
+        ) {
+            # ignore -Content and close the element.
             $elementText += " />"
         } else {
             $isCData = $false
