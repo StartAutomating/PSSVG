@@ -6,9 +6,7 @@
         <animateTransform attributeName="transform" from="0 5 5" to="360 5 5" dur="5s" repeatCount="indefinite" attributeType="xml" type="rotate" />
       </polygon>
     </pattern>
-    <mask id="myMask">
-      <circle fill="url(#star)" r="50" cx="50" cy="50" />
-    </mask>
+    <mask id="myMask" />
     <radialGradient id="myGradient">
       <stop offset="25%" stop-color="red" />
       <stop offset="50%" stop-color="green" />
