@@ -179,7 +179,13 @@
             # or the content is an int
             ($content -is [int]) -or
             # or all of the properties are bound
-            (@($content.psobject.properties).Length -le $boundAttributes.Length)
+            (@($content.psobject.properties).Length -le $boundAttributes.Length) -or
+            # or the content is a custom object (but not XML or string or array).
+            ($content -is [PSCustomObject] -and 
+                -not ($content -as [xml]) -and 
+                -not ($content -is [string]) -and
+                -not ($content -is [array])
+            )
         ) {
             # ignore -Content and close the element.
             $elementText += " />"
