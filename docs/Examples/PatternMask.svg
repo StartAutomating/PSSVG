@@ -3,7 +3,7 @@
   <defs>
     <pattern id="star" viewBox="0 0 10 10" width="10%" height="10%">
       <polygon points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2" fill="white">
-        <animateTransform attributeName="transform" from="0 5 5" to="360 5 5" dur="5s" repeatCount="indefinite" attributeType="xml" type="rotate">-</animateTransform>
+        <animateTransform attributeName="transform" from="0 5 5" to="360 5 5" dur="5s" repeatCount="indefinite" attributeType="xml" type="rotate" />
       </polygon>
     </pattern>
     <mask id="myMask">
