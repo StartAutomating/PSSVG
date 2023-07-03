@@ -177,14 +177,13 @@
             # If there is no content
             (-not $content) -or 
             # or the content is an int
-            ($content -is [int]) -or
-            # or all of the properties are bound
-            (@($content.psobject.properties).Length -le $boundAttributes.Length) -or
+            ($content -is [int]) -or            
             # or the content is a custom object (but not XML or string or array).
             ($content -is [PSCustomObject] -and 
                 -not ($content -as [xml]) -and 
                 -not ($content -is [string]) -and
-                -not ($content -is [array])
+                -not ($content -is [array]) -and
+                -not ($content -is [Xml.XmlElement])
             )
         ) {
             # ignore -Content and close the element.
