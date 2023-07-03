@@ -29,6 +29,12 @@
     [PSObject]
     $Content,
 
+    # A comment that will appear before the element.  
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('Comments')]
+    [string]
+    $Comment,
+
     # A dictionary or object containing event handlers.
     # Each key or property name will be the name of the event
     # Each value will be the handler.
@@ -70,14 +76,10 @@
             $paramName  = $kv.Key
             if ($paramName -eq 'Viewbox') {
                 $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom = $paramValue -as [double[]]
-                $paramValue = @(if ($null -eq $viewBoxTop) {
-                    if ($viewBoxLeft -lt 0) {
-                        $viewBoxLeft;$viewBoxLeft;$viewBoxLeft*-1;$viewBoxLeft*-1;
-                    } else {
-                        0,0,$viewBoxLeft,$viewBoxLeft
-                    }
+                $paramValue = @(if ($null -eq $viewBoxTop) {                    
+                    0,0,$viewBoxLeft,$viewBoxLeft                    
                 } elseif ($null -eq $viewBoxRight) {
-                    0,0,$viewBoxLeft,$viewBoxTop                    
+                    0,0,$viewBoxLeft,$viewBoxTop
                 } elseif ($null -eq $viewBoxBottom) {
                     $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxTop
                 } else {
@@ -145,7 +147,7 @@
                 if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
                     $isCData = $true
                 }
-            }            
+            }
 
             $elementText += ">"            
             $elementText +=
@@ -167,8 +169,11 @@
         }
 
         $elementXml = $elementText -as [xml]
+        if ($elementXml -and $Comment) {
+            $elementXml = "<!-- $comment -->$elementText" -as [xml]
+        }
         $svgOutput  =         
-            if ($elementXml -and $elementXml.$ElementName) {
+            if ($elementXml -and ($null -ne $elementXml.$ElementName)) {
                 $o = $elementXml.$ElementName
                 if ($o -is [string]) {
                     $o = $elementXml
