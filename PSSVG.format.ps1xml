@@ -49,7 +49,7 @@ $script:TreeDepth++;</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
                 <ItemSelectionCondition>
-                  <ScriptBlock>'#text','#whitespace','#document' -notcontains $_.LocalName </ScriptBlock>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
                 </ItemSelectionCondition>
                 <ScriptBlock> '&lt;'.Trim() </ScriptBlock>
               </ExpressionBinding>
@@ -61,7 +61,7 @@ $script:TreeDepth++;</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
                 <ItemSelectionCondition>
-                  <ScriptBlock>'#text','#whitespace','#document' -notcontains $_.LocalName </ScriptBlock>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
                 </ItemSelectionCondition>
                 <ScriptBlock>
         $_.LocalName
@@ -85,7 +85,7 @@ $script:TreeDepth++;</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
                 <ItemSelectionCondition>
-                  <ScriptBlock>'#text','#whitespace','#document' -notcontains $_.LocalName </ScriptBlock>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
                 </ItemSelectionCondition>
                 <ScriptBlock>
         if ($_.HasChildren -or $_.HasChildNodes) {
@@ -103,9 +103,21 @@ $script:TreeDepth++;</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
                 <ItemSelectionCondition>
-                  <ScriptBlock> $_.LocalName -eq '#text' </ScriptBlock>
+                  <ScriptBlock> $_.LocalName -in '#text' </ScriptBlock>
                 </ItemSelectionCondition>
                 <ScriptBlock>$_.InnerText </ScriptBlock>
+              </ExpressionBinding>
+              <ExpressionBinding>
+                <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' ) -join ''</ScriptBlock>
+              </ExpressionBinding>
+              <ExpressionBinding>
+                <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' -NoClear) -join ''</ScriptBlock>
+              </ExpressionBinding>
+              <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock> $_.LocalName -in '#comment' </ScriptBlock>
+                </ItemSelectionCondition>
+                <ScriptBlock> "&lt;!--$($_.InnerText)--&gt;" </ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' ) -join ''</ScriptBlock>
