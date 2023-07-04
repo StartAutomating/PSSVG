@@ -1420,7 +1420,7 @@ process {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
-        Write-SVG @writeSvgSplat
+        . Write-SVG @writeSvgSplat
     
 }
 } 
