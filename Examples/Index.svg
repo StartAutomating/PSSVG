@@ -181,6 +181,9 @@
     <a href="README.ps1.md">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">README.ps1.md</tspan>
     </a>
+    <a href="RepeatedShapes.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes.PSSVG.ps1</tspan>
+    </a>
     <a href="Shapes.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Shapes.PSSVG.ps1</tspan>
     </a>
@@ -264,6 +267,9 @@
     </a>
     <a href="US-FlagAnimated.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">US-FlagAnimated.PSSVG.ps1</tspan>
+    </a>
+    <a href="US-FlagAnimated.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">US-FlagAnimated.svg</tspan>
     </a>
     <a href="VerticalLinearGradient.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">VerticalLinearGradient.PSSVG.ps1</tspan>
