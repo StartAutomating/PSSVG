@@ -120,6 +120,30 @@ SVG -ViewBox 800, 800 @(
 )
 #### EXAMPLE 3
 ```PowerShell
+$bpm = 128
+```
+$animateDuration = "$([Math]::Round((60/$bpm)*2, 4))s"
+$animateSplat = [Ordered]@{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Scale = 8
+
+$patternSize = 1/$scale
+
+$Color = "#4488ff"
+
+SVG -ViewBox 800, 800 @(
+    SVG.pattern -Width $patternSize -Height $patternSize @(
+        SVG.polygon -Points "0,0, 100,100, 0,100" @(
+            SVG.animate -AttributeName points -to "100,100 0,0 100,0" -AttributeType XML @animateSplat
+        )  -Fill $color -Stroke $color
+    ) -id fillPattern
+    SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
+#### EXAMPLE 4
+```PowerShell
 svg @(
     svg.defs @(
         svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
@@ -132,7 +156,7 @@ svg @(
 ) -ViewBox 0,0,50,50
 ```
 
-#### EXAMPLE 4
+#### EXAMPLE 5
 ```PowerShell
 svg -ViewBox 0, 0, 250, 200 -Content @(
     svg.defs (
@@ -149,7 +173,7 @@ svg -ViewBox 0, 0, 250, 200 -Content @(
 )
 ```
 
-#### EXAMPLE 5
+#### EXAMPLE 6
 ```PowerShell
 svg -ViewBox 0, 0, 100, 100 -Content @(
     svg.defs @(
