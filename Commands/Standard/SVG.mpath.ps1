@@ -34,11 +34,15 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
-# # A comment that will appear before the element.
+# A comment that will appear before the element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Comments')]
 [String]
 $Comment,
+# One or more child elements.  These will be treated as if they were content.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Child')]
+$Children,
 # The **`xlink:href`** attribute defines a reference to a resource as a reference [IRI](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#iri). The exact meaning of that link depends on the context of each element using it.
 # 
 # > **Note:** SVG 2 removed the need for the `xlink` namespace, so instead of `xlink:href` you should use href. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
