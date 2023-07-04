@@ -277,11 +277,11 @@
 
         # If we have not provided a comment and the element is SVG
         if ((-not $myParams.Comment) -and ($ElementName -eq 'svg')) {
-            $Comment = "Generated with PSSVG $((Get-Module PSSVG).Version)"
+            $Comment = "Generated with PSSVG $((Get-Module PSSVG).Version) <$((Get-Module PSSVG).ProjectUri)>"
         }
 
         if ($elementXml -and $Comment) {
-            $elementXml = "<!-- $comment -->$elementText" -as [xml]
+            $elementXml = "<!-- $($comment -replace '^\<\!\-\-' -replace '\-\-\>$') -->$elementText" -as [xml]
         }
         $svgOutput  =         
             if ($elementXml -and ($null -ne $elementXml.$ElementName)) {                
