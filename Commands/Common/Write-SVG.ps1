@@ -242,6 +242,9 @@
             if ($children) {
                 # then children first.
                 $elementText += $(@(foreach ($child in $children) {
+                    if ($child.Comment) {
+                        "<!-- $($child.Comment) -->"
+                    }
                     if ($child.OuterXml) {
                         $child.OuterXml
                     } else {
@@ -251,6 +254,9 @@
             }            
             $elementText +=
                 foreach ($pieceOfContent in $Content) {
+                    if ($pieceOfContent.Comment) {
+                        "<!-- $($pieceOfContent.Comment) -->"
+                    }
                     if ($isCData -and -not 
                         ($pieceOfContent -as [xml.xmlelement]) -and 
                         ($pieceOfContent -notmatch '^\s{0,}\<')
@@ -272,10 +278,13 @@
             $elementXml = "<!-- $comment -->$elementText" -as [xml]
         }
         $svgOutput  =         
-            if ($elementXml -and ($null -ne $elementXml.$ElementName)) {
+            if ($elementXml -and ($null -ne $elementXml.$ElementName)) {                
                 $o = $elementXml.$ElementName
                 if ($o -is [string]) {
                     $o = $elementXml
+                }
+                if ($comment) {
+                    Add-Member -InputObject $o NoteProperty Comment $comment -Force
                 }
                 $o.pstypenames.clear()
                 $o.pstypenames.add('SVG.Element')
