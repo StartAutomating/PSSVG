@@ -44,6 +44,7 @@ $Comment,
 # One or more child elements.  These will be treated as if they were content.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
+[Management.Automation.PSObject]
 $Children,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -61,6 +62,7 @@ $Children,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'SourceGraphic for first filter primitive, otherwise result of previous filter primitive')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $In,
 # The **`id`** attribute assigns a unique name to an element.
 # 
@@ -69,6 +71,7 @@ $In,
 [Reflection.AssemblyMetaData('SVG.AttributeName','id')]
 [Reflection.AssemblyMetaData('SVG.Value', '<id>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Id,
 # The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -81,6 +84,7 @@ $Id,
 [Reflection.AssemblyMetaData('SVG.AttributeName','lang')]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Lang,
 # The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
 # 
@@ -89,6 +93,7 @@ $Lang,
 [Reflection.AssemblyMetaData('SVG.AttributeName','tabindex')]
 [Reflection.AssemblyMetaData('SVG.Value', 'valid integer')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Tabindex,
 # The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
 # 
@@ -98,6 +103,7 @@ $Tabindex,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlBase,
 # The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -111,6 +117,7 @@ $XmlBase,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
@@ -135,6 +142,7 @@ $XmlLang,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlSpace,
 # The **`alignment-baseline`** attribute specifies how an object is aligned with respect to its parent. This property specifies which baseline of this element is to be aligned with the corresponding baseline of the parent. For example, this allows alphabetic baselines in Roman text to stay aligned across font size changes. It defaults to the baseline with the same name as the computed value of the `alignment-baseline` property.
 # 
@@ -156,6 +164,7 @@ $XmlSpace,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $AlignmentBaseline,
 # The **`baseline-shift`** attribute allows repositioning of the dominant-baseline relative to the dominant-baseline of the parent text content element. The shifted object might be a sub- or superscript.
 # 
@@ -180,6 +189,7 @@ $AlignmentBaseline,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $BaselineShift,
 # The **`clip`** attribute is a presentation attribute defining the visible region of an element.
 # 
@@ -202,6 +212,7 @@ $BaselineShift,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Clip,
 # The **`clip-path`** presentation attribute defines or associates a clipping path with the element it is related to.
 # 
@@ -222,6 +233,7 @@ $Clip,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $ClipPath,
 # « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
@@ -265,6 +277,7 @@ $ClipPath,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'nonzero')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $ClipRule,
 # The **`color`** attribute is used to provide a potential indirect value, `currentcolor`, for the fill, stroke, stop-color, flood-color, and lighting-color attributes.
 # 
@@ -287,6 +300,7 @@ $ClipRule,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'Depends on user agent')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Color,
 # The **`color-interpolation`** attribute specifies the color space for gradient interpolations, color animations, and alpha compositing.
 # 
@@ -314,6 +328,7 @@ $Color,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'sRGB')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $ColorInterpolation,
 # The **`color-interpolation-filters`** attribute specifies the color space for imaging operations performed via filter effects.
 # 
@@ -341,6 +356,7 @@ $ColorInterpolation,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'linearRGB')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $ColorInterpolationFilters,
 # The **`color-profile`** attribute is used to define which color profile a raster image included through the image element should use.
 # 
@@ -363,6 +379,7 @@ $ColorInterpolationFilters,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $ColorProfile,
 # [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
@@ -387,6 +404,7 @@ $ColorProfile,
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition)')]
+[PSObject]
 $Cursor,
 # The **`direction`** attribute specifies the inline-base direction of a text or tspan element. It defines the start and end points of a line of text as used by the text-anchor and inline-size properties. It also may affect the direction in which characters are positioned if the unicode-bidi property's value is either `embed` or `bidi-override`.
 # 
@@ -412,6 +430,7 @@ $Cursor,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'ltr')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Direction,
 # The **`display`** attribute lets you control the rendering of graphical or container elements.
 # 
@@ -437,6 +456,7 @@ $Direction,
 [Reflection.AssemblyMetaData('SVG.Default value', 'inline')]
 [Reflection.AssemblyMetaData('SVG.Value', '{{csssyntax("display")}}')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Display,
 # The **`dominant-baseline`** attribute specifies the dominant baseline, which is the baseline used to align the box's text and inline-level contents. It also indicates the default alignment baseline of any boxes participating in baseline alignment in the box's alignment context.
 # 
@@ -468,6 +488,7 @@ $Display,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $DominantBaseline,
 # The **`enable-background`** attribute specifies how the accumulation of the background image is managed.
 # 
@@ -490,12 +511,14 @@ $DominantBaseline,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'accumulate')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $EnableBackground,
 # The **`fill`** attribute has two different meanings. For shapes and text it's a presentation attribute that defines the color (_or any SVG paint servers like gradients or patterns_) used to paint the element; for animation it defines the final state of the animation.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','fill')]
+[PSObject]
 $Fill,
 # The **`fill-opacity`** attribute is a presentation attribute defining the opacity of the paint server (_color_, _gradient_, _pattern_, etc.) applied to a shape.
 # 
@@ -517,6 +540,7 @@ $Fill,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', '1')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FillOpacity,
 # The **`fill-rule`** attribute is a presentation attribute defining the algorithm to use to determine the _inside_ part of a shape.
 # 
@@ -538,6 +562,7 @@ $FillOpacity,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'nonzero')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $FillRule,
 # The **`filter`** attribute specifies the filter effects defined by the filter element that shall be applied to its element.
 # 
@@ -558,6 +583,7 @@ $FillRule,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Filter,
 # The **`flood-color`** attribute indicates what color to use to flood the current filter primitive subregion.
 # 
@@ -569,6 +595,7 @@ $Filter,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("color")}}')]
 [Reflection.AssemblyMetaData('SVG.Initial value', 'black')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FloodColor,
 # The **`flood-opacity`** attribute indicates the opacity value to use across the current filter primitive subregion.
 # 
@@ -580,6 +607,7 @@ $FloodColor,
 [Reflection.AssemblyMetaData('SVG.Value', '<alpha-value>')]
 [Reflection.AssemblyMetaData('SVG.Initial value', '1')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FloodOpacity,
 # The **`font-family`** attribute indicates which font family will be used to render the text, specified as a prioritized list of font family names and/or generic family names.
 # 
@@ -591,6 +619,7 @@ $FloodOpacity,
 [Reflection.AssemblyMetaData('SVG.Value', '{{csssyntax("font-family")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'Depends on user agent')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FontFamily,
 # The **`font-size`** attribute refers to the size of the font from {{Glossary("baseline/typography", "baseline")}} to baseline when multiple lines of text are set solid in a multiline layout environment.
 # 
@@ -613,6 +642,7 @@ $FontFamily,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'medium')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FontSize,
 # The `font-size-adjust` attribute allows authors to specify an aspect value for an element that will preserve the x-height of the first choice font in a substitute font.
 # 
@@ -634,6 +664,7 @@ $FontSize,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FontSizeAdjust,
 # The **`font-stretch`** attribute indicates the desired amount of condensing or expansion in the glyphs used to render the text.
 # 
@@ -645,6 +676,7 @@ $FontSizeAdjust,
 [Reflection.AssemblyMetaData('SVG.Value', '{{csssyntax("font-stretch")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FontStretch,
 # The **`font-style`** attribute specifies whether the text is to be rendered using a normal, italic, or oblique face.
 # 
@@ -666,6 +698,7 @@ $FontStretch,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FontStyle,
 # The **`font-variant`** attribute indicates whether the text is to be rendered using variations of the font's {{Glossary("glyph", "glyphs")}}.
 # 
@@ -687,6 +720,7 @@ $FontStyle,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FontVariant,
 # The **`font-weight`** attribute refers to the boldness or lightness of the glyphs used to render the text, relative to other fonts in the same font family.
 # 
@@ -709,6 +743,7 @@ $FontVariant,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $FontWeight,
 # The **`glyph-orientation-horizontal`** attribute affects the amount that the current text position advances as each glyph is rendered.
 # 
@@ -725,6 +760,7 @@ $FontWeight,
 [Reflection.AssemblyMetaData('SVG.Value', '<angle>')]
 [Reflection.AssemblyMetaData('SVG.Default value', '0deg')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $GlyphOrientationHorizontal,
 # The **`glyph-orientation-vertical`** attribute affects the amount that the current text position advances as each glyph is rendered.
 # 
@@ -751,6 +787,7 @@ $GlyphOrientationHorizontal,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $GlyphOrientationVertical,
 # The **`image-rendering`** attribute provides a hint to the browser about how to make speed vs. quality tradeoffs as it performs image processing.
 # 
@@ -774,6 +811,7 @@ $GlyphOrientationVertical,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $ImageRendering,
 # The **`kerning`** attribute indicates whether the spacing between {{Glossary("glyph", "glyphs")}} should be adjusted based on kerning tables that are included in the relevant font (i.e., enable auto-kerning) or instead disable auto-kerning and set the spacing between them to a specific length (typically, zero).
 # 
@@ -797,6 +835,7 @@ $ImageRendering,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Kerning,
 # The **`letter-spacing`** attribute controls spacing between text characters, in addition to any spacing from the kerning attribute.
 # 
@@ -823,6 +862,7 @@ $Kerning,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $LetterSpacing,
 # The **`lighting-color`** attribute defines the color of the light source for lighting filter primitives.
 # 
@@ -832,6 +872,7 @@ $LetterSpacing,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("color")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'white')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $LightingColor,
 # The **`marker-end`** attribute defines the arrowhead or polymarker that will be drawn at the final vertex of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
 # 
@@ -854,6 +895,7 @@ $LightingColor,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $MarkerEnd,
 # The **`marker-mid`** attribute defines the arrowhead or polymarker that will be drawn at all interior vertices of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
 # 
@@ -876,6 +918,7 @@ $MarkerEnd,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $MarkerMid,
 # The **`marker-start`** attribute defines the arrowhead or polymarker that will be drawn at the first vertex of the given [shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#shape_elements).
 # 
@@ -898,6 +941,7 @@ $MarkerMid,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $MarkerStart,
 # The **`mask`** attribute is a presentation attribute mainly used to bind a given mask element with the element the attribute belongs to.
 # 
@@ -908,6 +952,7 @@ $MarkerStart,
 [Reflection.AssemblyMetaData('SVG.AttributeName','mask')]
 [Reflection.AssemblyMetaData('SVG.Value', 'See the CSS property {{cssxref("mask")}}')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Mask,
 # The **`opacity`** attribute specifies the transparency of an object or of a group of objects, that is, the degree to which the background behind the element is overlaid.
 # 
@@ -919,6 +964,7 @@ $Mask,
 [Reflection.AssemblyMetaData('SVG.Default value', '1')]
 [Reflection.AssemblyMetaData('SVG.Value', '<alpha-value>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Opacity,
 # The **`overflow`** attribute sets what to do when an element's content is too big to fit in its block formatting context. **This feature is not widely implemented yet**.
 # 
@@ -949,6 +995,7 @@ $Opacity,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'visible')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Overflow,
 # The **`pointer-events`** attribute is a presentation attribute that allows defining whether or when an element may be the target of a mouse event.
 # 
@@ -970,6 +1017,7 @@ $Overflow,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'visiblePainted')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $PointerEvents,
 # The **`shape-rendering`** attribute provides hints to the renderer about what tradeoffs to make when rendering shapes like paths, circles, or rectangles.
 # 
@@ -991,6 +1039,7 @@ $PointerEvents,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $ShapeRendering,
 # The **`stop-color`** attribute indicates what color to use at a gradient stop.
 # 
@@ -1015,6 +1064,7 @@ $ShapeRendering,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'black')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $StopColor,
 # The **`stop-opacity`** attribute defines the opacity of a given color gradient stop.
 # 
@@ -1028,6 +1078,7 @@ $StopColor,
 [Reflection.AssemblyMetaData('SVG.Value', '<opacity-value>')]
 [Reflection.AssemblyMetaData('SVG.Default value', '1')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $StopOpacity,
 # The **`stroke`** attribute is a presentation attribute defining the color (_or any SVG paint servers like gradients or patterns_) used to paint the outline of the shape;
 # 
@@ -1038,6 +1089,7 @@ $StopOpacity,
 [Reflection.AssemblyMetaData('SVG.AttributeName','stroke')]
 [Reflection.AssemblyMetaData('SVG.Value', '<paint>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Stroke,
 # The **`stroke-dasharray`** attribute is a presentation attribute defining the pattern of dashes and gaps used to paint the outline of the shape;
 # 
@@ -1058,6 +1110,7 @@ $Stroke,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $StrokeDasharray,
 # The **`stroke-dashoffset`** attribute is a presentation attribute defining an offset on the rendering of the associated dash array.
 # 
@@ -1080,6 +1133,7 @@ $StrokeDasharray,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $StrokeDashoffset,
 # The **`stroke-linecap`** attribute is a presentation attribute defining the shape to be used at the end of open subpaths when they are stroked.
 # 
@@ -1101,6 +1155,7 @@ $StrokeDashoffset,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'butt')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $StrokeLinecap,
 # The **`stroke-linejoin`** attribute is a presentation attribute defining the shape to be used at the corners of paths when they are stroked.
 # 
@@ -1122,6 +1177,7 @@ $StrokeLinecap,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'miter')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $StrokeLinejoin,
 # The **`stroke-miterlimit`** attribute is a presentation attribute defining a limit on the ratio of the miter length to the stroke-width used to draw a miter join. When the limit is exceeded, the join is converted from a miter to a bevel.
 # 
@@ -1133,6 +1189,7 @@ $StrokeLinejoin,
 [Reflection.AssemblyMetaData('SVG.Value', '<number>')]
 [Reflection.AssemblyMetaData('SVG.Default value', '4')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $StrokeMiterlimit,
 # The **`stroke-opacity`** attribute is a presentation attribute defining the opacity of the paint server (_color_, _gradient_, _pattern_, etc.) applied to the stroke of a shape.
 # 
@@ -1154,6 +1211,7 @@ $StrokeMiterlimit,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', '1')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $StrokeOpacity,
 # The **`stroke-width`** attribute is a presentation attribute defining the width of the stroke to be applied to the shape.
 # 
@@ -1174,6 +1232,7 @@ $StrokeOpacity,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', '1px')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $StrokeWidth,
 # The **`text-anchor`** attribute is used to align (start-, middle- or end-alignment) a string of pre-formatted text or auto-wrapped text where the wrapping area is determined from the inline-size property relative to a given point.
 # 
@@ -1199,6 +1258,7 @@ $StrokeWidth,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $TextAnchor,
 # The **`text-decoration`** attribute defines whether text is decorated with an underline, overline and/or strike-through. It is a shorthand for the text-decoration-line and text-decoration-style properties.
 # 
@@ -1225,6 +1285,7 @@ $TextAnchor,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'See individual properties')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $TextDecoration,
 # The **`text-rendering`** attribute provides hints to the renderer about what tradeoffs to make when rendering text.
 # 
@@ -1246,6 +1307,7 @@ $TextDecoration,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $TextRendering,
 # The **`transform`** attribute defines a list of transform definitions that are applied to an element and the element's children.
 # 
@@ -1256,9 +1318,11 @@ $TextRendering,
 [Reflection.AssemblyMetaData('SVG.AttributeName','transform')]
 [Reflection.AssemblyMetaData('SVG.Value', '<transform-list>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Transform,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','transform-origin')]
+[PSObject]
 $TransformOrigin,
 # The **`unicode-bidi`** attribute specifies how the accumulation of the background image is managed.
 # 
@@ -1270,6 +1334,7 @@ $TransformOrigin,
 [Reflection.AssemblyMetaData('SVG.Value', '{{csssyntax("unicode-bidi")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $UnicodeBidi,
 # The **`vector-effect`** property specifies the vector effect to use when drawing an object. Vector effects are applied before any of the other compositing operations, i.e. filters, masks and clips.
 # 
@@ -1290,6 +1355,7 @@ $UnicodeBidi,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'discrete')]
+[PSObject]
 $VectorEffect,
 # The **`visibility`** attribute lets you control the visibility of graphical elements. With a value of `hidden` or `collapse` the current graphics element is invisible.
 # 
@@ -1315,6 +1381,7 @@ $VectorEffect,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'visible')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Visibility,
 # The **`word-spacing`** attribute specifies spacing behavior between words.
 # 
@@ -1341,6 +1408,7 @@ $Visibility,
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Default values', 'normal')]
+[PSObject]
 $WordSpacing,
 # The **`writing-mode`** attribute specifies whether the initial inline-progression-direction for a text element shall be left-to-right, right-to-left, or top-to-bottom. The `writing-mode` attribute applies only to text elements; the attribute is ignored for tspan, tref, and textPath sub-elements. (Note that the inline-progression-direction can change within a text element due to the Unicode bidirectional algorithm and properties direction and unicode-bidi.)
 # 
@@ -1362,6 +1430,7 @@ $WordSpacing,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $WritingMode
 )
 process {
