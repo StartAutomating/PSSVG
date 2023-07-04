@@ -30,6 +30,11 @@
     [PSObject]
     $Content,
 
+    # One or more child elements.  These will be treated as if they were content.
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('Child')]
+    $Children,
+
     # A comment that will appear before the element.  
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Comments')]
@@ -186,8 +191,27 @@
                 -not ($content -is [Xml.XmlElement])
             )
         ) {
-            # ignore -Content and close the element.
-            $elementText += " />"
+            # If there were children
+            if ($children) {
+                # close the opening tag.
+                $elementText += ">"
+                # and the animation
+                $elementText += $(@(foreach ($child in $children) {
+                    if ($child.OuterXml) {
+                        $child.OuterXml
+                    } else {
+                        [Security.SecurityElement]::Escape("$child")
+                    }                    
+                }) -join ([Environment]::NewLine))
+
+                # and close the tag.
+                $elementText += "</$elementName>"
+            } else {
+                # ignore -Content and close the element.
+                $elementText += " />"
+            }
+
+            
         } else {
             $isCData = $false
             foreach ($attr in $elementCmd.Parameters.Content.Attributes) {
@@ -196,7 +220,18 @@
                 }
             }
 
-            $elementText += ">"            
+            $elementText += ">"
+            # If there were children,
+            if ($children) {
+                # then children first.
+                $elementText += $(@(foreach ($child in $children) {
+                    if ($child.OuterXml) {
+                        $child.OuterXml
+                    } else {
+                        [Security.SecurityElement]::Escape("$child")
+                    }                    
+                }) -join ([Environment]::NewLine))
+            }            
             $elementText +=
                 foreach ($pieceOfContent in $Content) {
                     if ($isCData -and -not 
