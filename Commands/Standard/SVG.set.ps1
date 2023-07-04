@@ -38,11 +38,15 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
-# # A comment that will appear before the element.
+# A comment that will appear before the element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Comments')]
 [String]
 $Comment,
+# One or more child elements.  These will be treated as if they were content.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Child')]
+$Children,
 # This attribute defines the value to be applied to the target attribute for the duration of the animation. The value must match the requirements of the target attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','to')]
