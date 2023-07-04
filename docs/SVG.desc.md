@@ -130,9 +130,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |Aliases|
-|----------|--------|--------|---------------------|-------|
-|`[Object]`|false   |named   |true (ByPropertyName)|Child  |
+|Type        |Required|Position|PipelineInput        |Aliases|
+|------------|--------|--------|---------------------|-------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|Child  |
 
 
 
@@ -147,9 +147,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -168,9 +168,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -185,9 +185,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -202,9 +202,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -223,9 +223,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -244,9 +244,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -268,9 +268,9 @@ You can use this class to style SVG content using CSS.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -285,9 +285,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -309,5 +309,5 @@ You can use this attribute with any SVG element.
 
 ### Syntax
 ```PowerShell
-SVG.desc [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.desc [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-Class <PSObject>] [-Style <PSObject>] [<CommonParameters>]
 ```
