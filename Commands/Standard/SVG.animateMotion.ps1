@@ -60,11 +60,15 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
-# # A comment that will appear before the element.
+# A comment that will appear before the element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Comments')]
 [String]
 $Comment,
+# One or more child elements.  These will be treated as if they were content.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Child')]
+$Children,
 # This attribute indicate, in the range \[0,1], how far is the object along the path for each keyTimes associated values.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','keyPoints')]
