@@ -1,29 +1,29 @@
 function SVG.DropShadow {
-<#
-    .LINK
-        SVG.filter
-    .LINK
-        SVG.feDropShadow
-    .LINK
-        SVG.feMerge
-    .LINK
-        SVG.feMergeNode
+    <#
     
-#>
+    .LINK    
+        SVG.filter    
+    .LINK    
+        SVG.feDropShadow    
+    .LINK    
+        SVG.feMerge    
+    .LINK    
+        SVG.feMergeNode    
     
-[CmdletBinding(PositionalBinding=$false)]
+    #>
+        
     param(
-[Alias('DX')]
+    [Alias('DX')]
     [double]
     $DistanceX = 0.5,
-[Alias('DY')]
+    [Alias('DY')]
     [double]
     $DistanceY = 0.5,
-[Alias('StdDeviation')]
+    [Alias('StdDeviation')]
     [double]
     $StandardDeviation
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGfilter) {
             $script:SVGfilter = 
@@ -56,8 +56,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         $DropShadow = @(            
             =<svg.feDropShadow> -dx $DistanceX -dy $DistanceY -StdDeviation $StandardDeviation
             =<svg.feMerge> @(
@@ -75,7 +75,7 @@ dynamicParam {
         }
         $null = $PSBoundParameters.Remove('DistanceX')
         $null = $PSBoundParameters.Remove('DistanceY')
-        & $baseCommand @PSBoundParameters
+        SVG.filter @PSBoundParameters
     
-}
+    }
 }

@@ -1,54 +1,54 @@
 function SVG.LinePath {
-<#
-    .SYNOPSIS
-        Draws an SVG Line Path.
-    .DESCRIPTION
-        Draws a line in SVG Path Syntax.
-    .EXAMPLE
-        =<svg> -Viewbox 100, 100 (
-            =<svg.LinePath> -Start 50 -End 75 -Stroke black
-        ) -OutputPath .\Line1.svg
-    .EXAMPLE
-        =<svg> -Viewbox 60, 60 (
-            =<svg.LinePath> -Start 10 -Horizontal -End 50 -Stroke black -Fill transparent |
-                =<svg.LinePath> -Vertical -End 50 |
-                =<svg.LinePath> -Horizontal -End 10 |
-                =<svg.LinePath> -Vertical -End 10 -Close
-        ) -OutputPath .\LineBox.svg 
-    .LINK
-        SVG.Path
+    <#
     
-#>
-        
+    .SYNOPSIS    
+        Draws an SVG Line Path.    
+    .DESCRIPTION    
+        Draws a line in SVG Path Syntax.    
+    .EXAMPLE    
+        =<svg> -Viewbox 100, 100 (    
+            =<svg.LinePath> -Start 50 -End 75 -Stroke black    
+        ) -OutputPath .\Line1.svg    
+    .EXAMPLE    
+        =<svg> -Viewbox 60, 60 (    
+            =<svg.LinePath> -Start 10 -Horizontal -End 50 -Stroke black -Fill transparent |    
+                =<svg.LinePath> -Vertical -End 50 |    
+                =<svg.LinePath> -Horizontal -End 10 |    
+                =<svg.LinePath> -Vertical -End 10 -Close    
+        ) -OutputPath .\LineBox.svg     
+    .LINK    
+        SVG.Path    
+    
+    #>
+                
     [Alias('SVG.LinedPath','=<SVG.LinedPath>')]
-[CmdletBinding(PositionalBinding=$false)]
     param(
-# The Starting point of the arc.
-    # If only one value is provided, it will be used as the X and Y coordinate.
+    # The Starting point of the arc.    
+    # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
-# If set, will draw a horizontal line.
-    # Only the first -End point will be evaluated.
+    # If set, will draw a horizontal line.    
+    # Only the first -End point will be evaluated.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Horizontal,
-# If set, will draw a vertical line.
-    # -LineLength must also be provided.
+    # If set, will draw a vertical line.    
+    # -LineLength must also be provided.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Vertical,
-# If set, will close the path.
+    # If set, will close the path.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Close,
-# The end point of the line, or it's length
-    # If this is provided, a line will be drawn to this point
+    # The end point of the line, or it's length    
+    # If this is provided, a line will be drawn to this point    
     [Parameter(ValueFromPipelineByPropertyName)]    
     [double[]]
     $End
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGpath) {
             $script:SVGpath = 
@@ -81,8 +81,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         $existingPath = ''
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
@@ -147,7 +147,7 @@ dynamicParam {
         
         SVG.Path @baseSplat
     
-}
+    }
 }
 
 

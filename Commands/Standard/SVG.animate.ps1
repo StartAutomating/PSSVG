@@ -115,42 +115,6 @@ function SVG.animate {
         )
     ) -ViewBox 0, 0, 100, 150
 .Example
-    $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    SVG -viewBox "0 0 200 100" @(
-        SVG.path -d $path -Fill none -Stroke lightgrey
-        SVG.circle -r 5 -Fill red (
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
-        )
-        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
-            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
-.Example
-    $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    SVG -viewBox "0 0 200 100" @(
-        SVG.path -d $path -Fill none -Stroke lightgrey
-        SVG.circle -r 5 -Fill red (
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
-        )
-        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
-            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
-.Example
-    $path = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    SVG -viewBox "0 0 200 100" @(
-        SVG.path -d $path -Fill none -Stroke lightgrey
-        SVG.circle -r 5 -Fill red (
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
-        )
-        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $path
-            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
-.Example
     $bpm = 90
     
     $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
@@ -1398,6 +1362,29 @@ function SVG.animate {
         SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
     )
 .Example
+    $bpm = 128
+    
+    $animateDuration = "$([Math]::Round((60/$bpm)*2, 4))s"
+    $animateSplat = [Ordered]@{
+        Dur = $animateDuration
+        RepeatDur = "indefinite"
+    }
+    
+    $Scale = 8
+    
+    $patternSize = 1/$scale
+    
+    $Color = "#4488ff"
+    
+    SVG -ViewBox 800, 800 @(
+        SVG.pattern -Width $patternSize -Height $patternSize @(
+            SVG.polygon -Points "0,0, 100,100, 0,100" @(
+                SVG.animate -AttributeName points -to "100,100 0,0 100,0" -AttributeType XML @animateSplat
+            )  -Fill $color -Stroke $color
+        ) -id fillPattern
+        SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+    )
+.Example
     $AnimationTimeframe = [Ordered]@{
         Dur = '2s'
         RepeatCount = 'indefinite'
@@ -1684,53 +1671,6 @@ function SVG.animate {
     " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
     ) -ViewBox 0,0,300,100
 .Example
-    svg -ViewBox 0, 0, 250, 200 -Content @(
-        svg.defs (
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill '#4488ff'
-            )
-        )
-        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
-.Example
-    svg -ViewBox 0, 0, 250, 200 -Content @(
-        svg.defs (
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill '#4488ff'
-            )
-        )
-        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
-.Example
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
-.Example
     svg -Content @(
         svg.defs @(
             svg.radialGradient -Id myGradient -Content @(
@@ -1743,64 +1683,62 @@ function SVG.animate {
         svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
     ) -ViewBox '0 0 100 100'
 .Example
-    [Timespan]$RotateEvery = '00:00:10'
+    param(
+    # The number of repetitions
+    [int]$RepeatCount = 80,
+    # The Center X coordinate of the shape
+    [float]$CenterX  = 100,
+    # The Center Y coordinate of the shape
+    [float]$CenterY  = 100,
+    # The radius coordinate of the shape.  This will decrease by 1/RepeatCount each time.
+    [float]$Radius   = 100,
+    # The number of sides
+    $SideCount  = 3,
+    # The total rotation of the innermost element,
+    $TotalRotation  = 180,
+    # The total duration of any animations.
+    [timespan]$duration = '00:00:03.75',
+    # A palette of colors to alternate thru
+    [string[]]$colors = @('#112244','#224488',"#4488ff"),
+    # The type of the shape. (either Star or ConvexPolygon)
+    [ValidateSet("Star", "ConvexPolygon")]
+    [string]
+    $ShapeType = 'ConvexPolygon',
     
+    # If set, will animate opacity between a low and high point, depending on the radius.
+    [switch]
+    $AnimateOpacity
+    )
     
-    @(foreach ($n in 15, 636, 741, 901) {
-        New-Object PSObject -Property @{
-            Theta = [MATH]::PI * $n
-            N =  $n
-        }
-    }) | ForEach-Object {
-        $n = $_.N
-        svg -content (
-            $_ | svg.Spiral -Stroke '#4488ff' -Content @(
-                if ($RotateEvery.TotalSeconds) {
-                    svg.animatetransform -AttributeName transform -From "0 250 250"  -To "360 250 250" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
+    $Splat = [Ordered]@{
+        SideCount = $SideCount
+        Fill = 'transparent'
+        CenterX = $CenterX
+        CenterY = $CenterY
+    }
+    
+    $shapeCommand = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$ShapeType", "Function")
+    SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
+        SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
+    
+        0..($RepeatCount -1) |
+            . $shapeCommand @Splat -Rotate {
+                    $_ * ($totalRotation / $RepeatCount)
+            } -Radius {
+                $Radius - (
+                    $_ * ($Radius / $RepeatCount)
+                )
+            } -Stroke {
+                $colors[$_ % $colors.Length]
+            } -Children {
+                $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
+                SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
+                $lowOpacity = [double]($_)/$RepeatCount
+                $highOpacity = 1.0 - [double]($_)/$RepeatCount
+                if ($AnimateOpacity) {
+                    SVG.animate -AttributeName opacity -Values "$highOpacity;$lowOpacity;$highOpacity" -Dur $dur -RepeatCount 'indefinite'
                 }
-            )
-        ) -ViewBox 0,0,500,500
-.Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-    )
-.Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-    )
-.Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-    )
-.Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-    )
-.Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-    )
-.Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+            }
     )
 .Example
     svg @(
@@ -1862,16 +1800,6 @@ function SVG.animate {
             svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
         )
     ) -ViewBox 200,200
-.Example
-    $Radius = 35
-    $Center = 50
-    $RotateEvery = [Timespan]::FromSeconds(1.5)
-    svg -ViewBox 0,0, ($center * 2), ($center * 2) @(
-        svg.circle -Fill transparent -Stroke '#4488ff' -Cx $center -Cy $center -R 35
-        svg.line -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-            svg.animatetransform -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-        ) -Opacity 0.8
-    )
 .Link
     https://pssvg.start-automating.com/SVG.animate
 .Link
@@ -1902,6 +1830,16 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
+# A comment that will appear before the element.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Comments')]
+[String]
+$Comment,
+# One or more child elements.  These will be treated as if they were content.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Child')]
+[Management.Automation.PSObject]
+$Children,
 # The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
 # 
 # > **Note:** Specifications before SVG 2 defined an xlink:href attribute, which is now rendered obsolete by the `href` attribute. If you need to support earlier browser versions, the deprecated `xlink:href` attribute can be used as a fallback in addition to the `href` attribute, e.g. `<use href="some-id" xlink:href="some-id" x="5" y="5" />`.
@@ -1911,6 +1849,7 @@ $Attribute = [Ordered]@{},
 [Reflection.AssemblyMetaData('SVG.AttributeName','href')]
 [Reflection.AssemblyMetaData('SVG.Value', '<url>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Href,
 # The **`attributeType`** attribute specifies the namespace in which the target attribute and its associated values are defined.
 # 
@@ -1921,7 +1860,6 @@ $Href,
 [Reflection.AssemblyMetaData('SVG.Value', 'CSS | XML | auto')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'CSS','XML','auto'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1932,6 +1870,7 @@ $Href,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $AttributeType,
 # The **`attributeName`** attribute indicates the name of the CSS property or attribute of the target element that is going to be changed during an animation.
 # 
@@ -1940,8 +1879,9 @@ $AttributeType,
 [Reflection.AssemblyMetaData('SVG.AttributeName','attributeName')]
 [Reflection.AssemblyMetaData('SVG.Value', '<name>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $AttributeName,
-# The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
+# The **`begin`** attribute defines when an animation should begin.
 # 
 # The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 # 
@@ -1951,6 +1891,7 @@ $AttributeName,
 [Reflection.AssemblyMetaData('SVG.Value', '<begin-value-list>')]
 [Reflection.AssemblyMetaData('SVG.Default value', '0s')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Begin,
 # The **`dur`** attribute indicates the simple duration of an animation.
 # 
@@ -1960,7 +1901,6 @@ $Begin,
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | media | indefinite')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = '<clock-value>','media','indefinite'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1972,6 +1912,7 @@ $Begin,
 [Reflection.AssemblyMetaData('SVG.Default value', 'indefinite')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [Alias('Duration')]
+[PSObject]
 $Dur,
 # The **`end`** attribute defines an end value for the animation that can constrain the active duration.
 # 
@@ -1980,6 +1921,7 @@ $Dur,
 [Reflection.AssemblyMetaData('SVG.AttributeName','end')]
 [Reflection.AssemblyMetaData('SVG.Value', '<end-value-list>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $End,
 # The **`min`** attribute specifies the minimum value of the active animation duration.
 # 
@@ -1989,6 +1931,7 @@ $End,
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value>')]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Min,
 # The **`max`** attribute specifies the maximum value of the active animation duration.
 # 
@@ -1997,6 +1940,7 @@ $Min,
 [Reflection.AssemblyMetaData('SVG.AttributeName','max')]
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Max,
 # The **`restart`** attribute specifies whether or not an animation can restart.
 # 
@@ -2006,7 +1950,6 @@ $Max,
 [Reflection.AssemblyMetaData('SVG.Value', 'always | whenNotActive | never')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'always','whenNotActive','never'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2017,6 +1960,7 @@ $Max,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'always')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Restart,
 # The **`repeatCount`** attribute indicates the number of times an animation will take place.
 # 
@@ -2027,7 +1971,6 @@ $Restart,
 [ValidatePattern('(?>indefinite|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = '<number>','indefinite'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2037,6 +1980,7 @@ $Restart,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $RepeatCount,
 # The **`repeatDur`** attribute specifies the total duration for repeating an animation.
 # 
@@ -2046,7 +1990,6 @@ $RepeatCount,
 [Reflection.AssemblyMetaData('SVG.Value', '<clock-value> | indefinite')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = '<clock-value>','indefinite'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2057,6 +2000,7 @@ $RepeatCount,
 })]
 [Reflection.AssemblyMetaData('SVG.Default values', 'None')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $RepeatDur,
 # The **`fill`** attribute has two different meanings. For shapes and text it's a presentation attribute that defines the color (_or any SVG paint servers like gradients or patterns_) used to paint the element; for animation it defines the final state of the animation.
 # 
@@ -2066,7 +2010,6 @@ $RepeatDur,
 [Reflection.AssemblyMetaData('SVG.Value', 'freeze (Keep the state of the last animation frame) | remove (Keep the state of the first animation frame)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'freeze (Keep the state of the last animation frame)','remove (Keep the state of the first animation frame)'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2077,6 +2020,7 @@ $RepeatDur,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'remove')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Fill,
 # The **`calcMode`** attribute specifies the interpolation mode for the animation.
 # 
@@ -2088,7 +2032,6 @@ $Fill,
 [Reflection.AssemblyMetaData('SVG.Value', 'discrete | linear | paced | spline')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'discrete','linear','paced','spline'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2099,6 +2042,7 @@ $Fill,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'linear')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $CalcMode,
 # The `values` attribute has different meanings, depending upon the context where it's used, either it defines a sequence of values used over the course of an animation, or it's a list of numbers for a color matrix, which is interpreted differently depending on the type of color change to be performed.
 # 
@@ -2107,6 +2051,7 @@ $CalcMode,
 [Reflection.AssemblyMetaData('SVG.AttributeName','values')]
 [Reflection.AssemblyMetaData('SVG.Value', '<list-of-values>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Values,
 # The **`keyTimes`** attribute represents a list of time values used to control the pacing of the animation.
 # 
@@ -2117,6 +2062,7 @@ $Values,
 [Reflection.AssemblyMetaData('SVG.AttributeName','keyTimes')]
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}} [ ; {{cssxref("number")}} ]* ;?')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $KeyTimes,
 # The **`keySplines`** attribute defines a set of [Bézier curve](https://developer.mozilla.org/en-US/docs/Glossary/Bezier_curve) control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
 # 
@@ -2129,6 +2075,7 @@ $KeyTimes,
 [Reflection.AssemblyMetaData('SVG.AttributeName','keySplines')]
 [Reflection.AssemblyMetaData('SVG.Value', '<control-point> [ ;<control-point> ]* ;?')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $KeySplines,
 # The **`from`** attribute indicates the initial value of the attribute that will be modified during the animation.
 # 
@@ -2139,6 +2086,7 @@ $KeySplines,
 [Reflection.AssemblyMetaData('SVG.AttributeName','from')]
 [Reflection.AssemblyMetaData('SVG.Value', 'See below')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $From,
 # The **`to`** attribute indicates the final value of the attribute that will be modified during the animation.
 # 
@@ -2149,6 +2097,7 @@ $From,
 [Reflection.AssemblyMetaData('SVG.AttributeName','to')]
 [Reflection.AssemblyMetaData('SVG.Value', '<value>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $To,
 # The **`by`** attribute specifies a relative offset value for an attribute that will be modified during an animation.
 # 
@@ -2159,6 +2108,7 @@ $To,
 [Reflection.AssemblyMetaData('SVG.AttributeName','by')]
 [Reflection.AssemblyMetaData('SVG.Value', 'See below')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $By,
 # The **`additive`** attribute controls whether or not an animation is additive.
 # 
@@ -2170,7 +2120,6 @@ $By,
 [Reflection.AssemblyMetaData('SVG.Value', 'replace | sum')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'replace','sum'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2181,6 +2130,7 @@ $By,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'replace')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Additive,
 # The **`accumulate`** attribute controls whether or not an animation is cumulative.
 # 
@@ -2192,7 +2142,6 @@ $Additive,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | sum')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'none','sum'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2202,6 +2151,7 @@ $Additive,
     }
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Accumulate,
 # The **`id`** attribute assigns a unique name to an element.
 # 
@@ -2210,6 +2160,7 @@ $Accumulate,
 [Reflection.AssemblyMetaData('SVG.AttributeName','id')]
 [Reflection.AssemblyMetaData('SVG.Value', '<id>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Id,
 # The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -2222,6 +2173,7 @@ $Id,
 [Reflection.AssemblyMetaData('SVG.AttributeName','lang')]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Lang,
 # The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
 # 
@@ -2230,6 +2182,7 @@ $Lang,
 [Reflection.AssemblyMetaData('SVG.AttributeName','tabindex')]
 [Reflection.AssemblyMetaData('SVG.Value', 'valid integer')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Tabindex,
 # The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
 # 
@@ -2239,6 +2192,7 @@ $Tabindex,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlBase,
 # The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -2252,6 +2206,7 @@ $XmlBase,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
@@ -2266,7 +2221,6 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'default','preserve'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -2277,6 +2231,7 @@ $XmlLang,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlSpace,
 # « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
@@ -2294,6 +2249,7 @@ $XmlSpace,
 [Reflection.AssemblyMetaData('SVG.Value', '<list-of-class-names>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition): The class attribute')]
+[PSObject]
 $Class,
 # The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 # 
@@ -2302,17 +2258,14 @@ $Class,
 [Reflection.AssemblyMetaData('SVG.AttributeName','style')]
 [Reflection.AssemblyMetaData('SVG.Value', '<style>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Style
 )
-
-
 process {
-
         # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
-
         # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
@@ -2322,7 +2275,6 @@ process {
         }
         # If we could not determine this, return.
         if (-not $elementName) { return }
-
         # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
             $attribute += $paramCopy # merge the values by adding hashtables.
@@ -2332,39 +2284,43 @@ process {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
-
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
-
         # If content was provided
-        if ($content) {
+        if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
+        }
+        # If comments were provided
+        if ($comment) {
+            # put it into the splat.
+            $writeSvgSplat.Comment = $comment
+        }
+        # If any children were provided
+        if ($children) {
+            # put them in the splat.
+            $writeSvgSplat.Children = $children
         }
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
             # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
-
         # If we provided any -Data attributes
         if ($data) {
             # put it into the splat.
             $writeSvgSplat.Data = $data
         }
-
         # If we provided any -On events
         if ($on) {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
-
-        Write-SVG @writeSvgSplat
+        . Write-SVG @writeSvgSplat
     
 }
-
 } 
 

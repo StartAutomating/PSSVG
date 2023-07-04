@@ -1,18 +1,19 @@
 function SVG.Triangle {
-<#
-    .SYNOPSIS
-        SVG Triangle
-    .DESCRIPTION
-        Creates a Triangle as an SVG.Polygon.
-    .LINK
-        SVG.Polygon
+    <#
     
-#>
+    .SYNOPSIS    
+        SVG Triangle    
+    .DESCRIPTION    
+        Creates a Triangle as an SVG.Polygon.    
+    .LINK    
+        SVG.Polygon    
     
-[CmdletBinding(PositionalBinding=$false)]
+    #>
+        
     param(
+    
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGPolygon) {
             $script:SVGPolygon = 
@@ -45,8 +46,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         $myParams = @{} + $PSBoundParameters
         $points = $myParams['Points']
         if (-not $points) { 
@@ -88,5 +89,5 @@ dynamicParam {
         
         svg.Polygon @myParams
     
-}
+    }
 }

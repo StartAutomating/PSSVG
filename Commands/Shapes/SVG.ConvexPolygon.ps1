@@ -1,40 +1,48 @@
 function SVG.ConvexPolygon {
-<#
-    .SYNOPSIS
-        SVG Convex Polygon
-    .DESCRIPTION
-        Creates a Regular Convex Polygon of an number of sides.
-    .LINK
-        SVG.Path
+    <#
     
-#>
+    .SYNOPSIS    
+        SVG Convex Polygon    
+    .DESCRIPTION    
+        Creates a Regular Convex Polygon of an number of sides.    
+    .LINK    
+        SVG.Path    
+    .LINK    
+        SVG.Star    
     
-[CmdletBinding(PositionalBinding=$false)]
+    #>
+            
+    [CmdletBinding(PositionalBinding=$false)]
     param(
-# The number of sides in the polygon
-    [Parameter(ValueFromPipelineByPropertyName)]
+    # The number of sides in the polygon    
+    # This is also aliased to -PointCount for consistent use with SVG.Star.    
+    [Parameter(ValueFromPipelineByPropertyName,Position=0)]
     [Alias('NumberOfSides','SC','Sides','NumSides','PC','D','PointCount')]
     [ValidateRange(3,360)]
     [int]
     $SideCount,
-# The initial rotation of the polygon.
+    # The initial rotation of the polygon.    
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
-# The center X coordinate for the polygon.
+    # The center X coordinate for the polygon.    
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
-# The center Y coordinate for the polygon.
+    # The center Y coordinate for the polygon.    
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
-# The radius of the polygon.
+    # The radius of the polygon.    
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
     [double]
     $Radius = 1
     )
-dynamicParam {
+    dynamicParam {
     $baseCommand = 
         if (-not $script:SVGPath) {
             $script:SVGPath = 
@@ -67,8 +75,8 @@ dynamicParam {
         ))
     }
     $DynamicParameters
-}
-    process {
+    }
+        process {
         # We can construct a regular polygon by creating N points along a unit circle
         $anglePerPoint = 360 / $SideCount
         $r = $Radius
@@ -85,7 +93,7 @@ dynamicParam {
             $angle += $anglePerPoint
         }) -join ' '
         $myParams = [Ordered]@{} + $PSBoundParameters
-        $myParams["D"] = $points
+        $myParams["D"] = "$points Z"
         $myParams.Remove('SideCount')
         $myParams.Remove('Rotate')
         $myParams.Remove('Radius')
@@ -94,5 +102,5 @@ dynamicParam {
               
         svg.Path @myParams  
     
-}
+    }
 }

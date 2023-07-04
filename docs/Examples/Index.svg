@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 276.879226959953 1512" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<!-- Generated with PSSVG 0.2.8 <https://github.com/StartAutomating/PSSVG> -->
+<svg viewBox="0 0  " xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <text font-size="14" font-family="monospace" fill="#4488ff">
     <a href=".">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Name</tspan>
@@ -48,6 +49,12 @@
     </a>
     <a href="BPMMorph.svg">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">BPMMorph.svg</tspan>
+    </a>
+    <a href="BPMTriangleMorph.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">BPMTriangleMorph.PSSVG.ps1</tspan>
+    </a>
+    <a href="BPMTriangleMorph.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">BPMTriangleMorph.svg</tspan>
     </a>
     <a href="Circles.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Circles.PSSVG.ps1</tspan>
@@ -181,6 +188,12 @@
     <a href="README.ps1.md">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">README.ps1.md</tspan>
     </a>
+    <a href="RepeatedShapes.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes.PSSVG.ps1</tspan>
+    </a>
+    <a href="RepeatedShapes3.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes3.svg</tspan>
+    </a>
     <a href="Shapes.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Shapes.PSSVG.ps1</tspan>
     </a>
@@ -256,11 +269,29 @@
     <a href="SweepCircle.svg">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">SweepCircle.svg</tspan>
     </a>
+    <a href="US-Flag.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">US-Flag.PSSVG.ps1</tspan>
+    </a>
+    <a href="US-Flag.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">US-Flag.svg</tspan>
+    </a>
+    <a href="US-FlagAnimated.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">US-FlagAnimated.PSSVG.ps1</tspan>
+    </a>
+    <a href="US-FlagAnimated.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">US-FlagAnimated.svg</tspan>
+    </a>
     <a href="VerticalLinearGradient.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">VerticalLinearGradient.PSSVG.ps1</tspan>
     </a>
     <a href="VerticalLinearGradient.svg">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">VerticalLinearGradient.svg</tspan>
+    </a>
+    <a href="ViewBoxAnimation.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">ViewBoxAnimation.PSSVG.ps1</tspan>
+    </a>
+    <a href="ViewBoxAnimation.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">ViewBoxAnimation.svg</tspan>
     </a>
     <a href="">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff" />

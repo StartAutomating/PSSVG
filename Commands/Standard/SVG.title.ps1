@@ -8,6 +8,131 @@ function SVG.title {
     Text in a `<title>` element is not rendered as part of the graphic, but browsers usually display it as a tooltip. If an element can be described by visible text, it is recommended to reference that text with an [`aria-labelledby`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) attribute rather than using the `<title>` element.
     
     > **Note:** For backward compatibility with SVG 1.1, `<title>` elements should be the first child element of their parent.
+.Example
+    SVG -ViewBox 1.986,1 -Content @(
+        $g = (1.986 * .4) / 12
+        $e = (7/13)/10
+    
+        SVG.defs @(
+            SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+        )
+    
+        SVG.title "American Flag"
+    
+        SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+    
+        1..13 |
+            SVG.rect -Id {"bar$_"} -Fill {
+                @("#FFFFFF", "#B22234")[$_ % 2]
+            } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+    
+    
+        SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+    
+        # Five rows of 6 stars
+        1..30 |
+            SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    $g + ($g * 2 * ((($_ -1) % 6)))
+                ) $(
+                    $e + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                    )
+                ))"
+            }
+    
+        # Then interleaved with 4 rows of 5 stars
+        1..20 |
+            SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+                # SVG.animateTransform -Type 'translate' -From $($g/2) -To $($g/2) -RepeatCount 'indefinite' -Dur 1s -AttributeName transform
+                # SVG.animateTransform -Type 'scale' -Values '.75;1.25;.75' -RepeatCount 'indefinite' -Dur ((60/128) * 2)s  -AttributeName transform -Additive 'sum'
+            ) -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+                ) $(
+                    ($e * 2) + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                    )
+                ))"
+            }
+    
+    )
+.Example
+    param(
+    # The smaller Star Size (as a ratio)
+    [Alias('SmallerStarSize')]
+    [double]
+    $StarSizeSmall = .9,
+    # The larger Star Size (as a ratio)
+    [Alias('StarSizeBig','LargerStarSize')]
+    [double]
+    $StarSizeLarge = 1.1,
+    # The duration of the animation, in seconds.
+    # By default, two beats at 128 beats per minute.
+    [Alias('Interval')]
+    [double]
+    $Duration = $((60/128) * 2)
+    )
+    
+    
+    SVG -ViewBox 1.986,1 -Content @(
+        $g = (1.986 * .4) / 12
+        $e = (7/13)/10
+    
+        SVG.defs @(
+            SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+        )
+    
+        SVG.title "American Flag"
+    
+        SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+    
+        1..13 |
+            SVG.rect -Id {"bar$_"} -Fill {
+                @("#FFFFFF", "#B22234")[$_ % 2]
+            } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+    
+    
+        SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+    
+    
+        # Five rows of 6 stars
+        1..30 |
+            SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    $g + ($g * 2 * ((($_ -1) % 6)))
+                ) $(
+                    $e + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                    )
+                ))"
+            } -Children @(
+                SVG.animateTransform -Type 'scale' -Values "$StarSizeLarge;$StarSizeSmall;$StarSizeLarge" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+            )
+    
+        # Then interleaved with 4 rows of 5 stars
+        1..20 |
+            SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+                SVG.animateTransform -Type 'scale' -Values "$StarSizeSmall;$StarSizeLarge;$StarSizeSmall" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+            ) -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+                ) $(
+                    ($e * 2) + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                    )
+                ))"
+            }
+    
+    )
 .Link
     https://pssvg.start-automating.com/SVG.title
 .Link
@@ -38,6 +163,16 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
+# A comment that will appear before the element.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Comments')]
+[String]
+$Comment,
+# One or more child elements.  These will be treated as if they were content.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Child')]
+[Management.Automation.PSObject]
+$Children,
 # The **`id`** attribute assigns a unique name to an element.
 # 
 # You can use this attribute with any SVG element.
@@ -45,6 +180,7 @@ $Attribute = [Ordered]@{},
 [Reflection.AssemblyMetaData('SVG.AttributeName','id')]
 [Reflection.AssemblyMetaData('SVG.Value', '<id>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Id,
 # The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -57,6 +193,7 @@ $Id,
 [Reflection.AssemblyMetaData('SVG.AttributeName','lang')]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Lang,
 # The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
 # 
@@ -65,6 +202,7 @@ $Lang,
 [Reflection.AssemblyMetaData('SVG.AttributeName','tabindex')]
 [Reflection.AssemblyMetaData('SVG.Value', 'valid integer')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Tabindex,
 # The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
 # 
@@ -74,6 +212,7 @@ $Tabindex,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlBase,
 # The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -87,6 +226,7 @@ $XmlBase,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
@@ -101,7 +241,6 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
     $validSet = 'default','preserve'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -112,6 +251,7 @@ $XmlLang,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlSpace,
 # « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
@@ -129,6 +269,7 @@ $XmlSpace,
 [Reflection.AssemblyMetaData('SVG.Value', '<list-of-class-names>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition): The class attribute')]
+[PSObject]
 $Class,
 # The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 # 
@@ -137,17 +278,14 @@ $Class,
 [Reflection.AssemblyMetaData('SVG.AttributeName','style')]
 [Reflection.AssemblyMetaData('SVG.Value', '<style>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Style
 )
-
-
 process {
-
         # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
-
         # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
@@ -157,7 +295,6 @@ process {
         }
         # If we could not determine this, return.
         if (-not $elementName) { return }
-
         # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
             $attribute += $paramCopy # merge the values by adding hashtables.
@@ -167,39 +304,43 @@ process {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
-
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
-
         # If content was provided
-        if ($content) {
+        if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
+        }
+        # If comments were provided
+        if ($comment) {
+            # put it into the splat.
+            $writeSvgSplat.Comment = $comment
+        }
+        # If any children were provided
+        if ($children) {
+            # put them in the splat.
+            $writeSvgSplat.Children = $children
         }
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
             # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
-
         # If we provided any -Data attributes
         if ($data) {
             # put it into the splat.
             $writeSvgSplat.Data = $data
         }
-
         # If we provided any -On events
         if ($on) {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
-
-        Write-SVG @writeSvgSplat
+        . Write-SVG @writeSvgSplat
     
 }
-
 } 
 

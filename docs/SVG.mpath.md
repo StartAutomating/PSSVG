@@ -1,14 +1,26 @@
 SVG.mpath
 ---------
+
+
+
+
 ### Synopsis
 Creates SVG mpath elements
 
+
+
 ---
+
+
 ### Description
 
 The **`<mpath>`** sub-element for the `animateMotion` element provides the ability to reference an external `path` element as the definition of a motion path.
 
+
+
 ---
+
+
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.mpath](https://pssvg.start-automating.com/SVG.mpath)
 
@@ -22,7 +34,11 @@ The **`<mpath>`** sub-element for the `animateMotion` element provides the abili
 
 
 
+
+
 ---
+
+
 ### Parameters
 #### **Content**
 
@@ -33,13 +49,12 @@ The Contents of the mpath element
 
 
 
-|Type      |Required|Position|PipelineInput                 |
-|----------|--------|--------|------------------------------|
-|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |Aliases                                        |
+|----------|--------|--------|------------------------------|-----------------------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|InputObject<br/>Text<br/>InnerText<br/>Contents|
 
 
 
----
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
@@ -49,13 +64,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                         |
+|---------------|--------|--------|---------------------|--------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|DataAttribute<br/>DataAttributes|
 
 
 
----
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -73,7 +87,6 @@ Each value will be the handler.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -83,13 +96,42 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                       |
+|---------------|--------|--------|---------------------|------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|SVGAttributes<br/>SVGAttribute|
 
 
 
----
+#### **Comment**
+
+A comment that will appear before the element.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[String]`|false   |named   |true (ByPropertyName)|Comments|
+
+
+
+#### **Children**
+
+One or more child elements.  These will be treated as if they were content.
+
+
+
+
+
+
+|Type        |Required|Position|PipelineInput        |Aliases|
+|------------|--------|--------|---------------------|-------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|Child  |
+
+
+
 #### **XlinkHref**
 
 The **`xlink:href`** attribute defines a reference to a resource as a reference [IRI](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#iri). The exact meaning of that link depends on the context of each element using it.
@@ -101,13 +143,12 @@ The **`xlink:href`** attribute defines a reference to a resource as a reference 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Id**
 
 The **`id`** attribute assigns a unique name to an element.
@@ -119,13 +160,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Lang**
 
 The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -141,13 +181,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Tabindex**
 
 The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
@@ -159,13 +198,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XmlBase**
 
 The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
@@ -177,13 +215,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XmlLang**
 
 The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -199,13 +236,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
@@ -221,13 +257,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XlinkType**
 
 The **`xlink:type`** attribute identifies the type of XLink being used. In SVG, only simple links are available.
@@ -237,13 +272,12 @@ The **`xlink:type`** attribute identifies the type of XLink being used. In SVG, 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XlinkArcrole**
 
 The **`xlink:arcrole`** attribute specifies a contextual role for the element and corresponds to the [RDF Primer](https://developer.mozilla.orghttps://www.w3.org/TR/rdf-primer/) notion of a property.
@@ -255,13 +289,12 @@ This contextual role can differ from the meaning of the resource when taken outs
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XlinkTitle**
 
 The **`xlink:title`** attribute is used to describe the meaning of a link or resource in a human-readable fashion.
@@ -275,13 +308,12 @@ The use of this information is highly dependent on the type of processing being 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XlinkShow**
 
 The **`xlink:show`** attribute indicates how a linked resource should be opened and is meant for XLink-aware processors. In case of a conflict, the target attribute has priority, since it can express a wider range of values.
@@ -291,22 +323,29 @@ The **`xlink:show`** attribute indicates how a linked resource should be opened 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+
 
 
 
 ---
+
+
 ### Outputs
 * [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
 
 
 
 
+
+
 ---
+
+
 ### Syntax
 ```PowerShell
-SVG.mpath [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-XlinkHref <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [<CommonParameters>]
+SVG.mpath [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <PSObject>] [-XlinkHref <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-XlinkType <PSObject>] [-XlinkArcrole <PSObject>] [-XlinkTitle <PSObject>] [-XlinkShow <PSObject>] [<CommonParameters>]
 ```
----

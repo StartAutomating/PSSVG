@@ -6,38 +6,47 @@ function SVG.Star {
         Creates a Star of an number of points.
     .LINK
         SVG.Path
+    .LINK
+        SVG.ConvexPolygon
     #>
     [inherit('SVG.Path', Abstract,Dynamic, ExcludeParameter='D')]
+    [CmdletBinding(PositionalBinding=$false)]
     param(
-    # The number of sides in the polygon
-    [Parameter(ValueFromPipelineByPropertyName)]
+    # The number of points in the star.
+    # This is also aliased to -SideCount for consistent use with SVG.ConvexPolygon,
+    # (even if this is not mathematically accurate).
+    [Parameter(ValueFromPipelineByPropertyName,Position=0)]
     [ValidateRange(3,360)]
-    [Alias('PC','Points')]
+    [Alias('PC','Points','SC','SideCount','Sides','NumSides')]
     [int]
-    $PointCount,
+    $PointCount = 5,
 
     # The initial rotation of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
 
     # The center X coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
 
     # The center Y coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
 
     # The radius of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
     [double]
     $Radius = 1
     )
 
-    process {
+    process {        
         # We can construct a regular polygon by creating N points along a unit circle
         $anglePerPoint = 360 / $PointCount
         $r = $Radius
@@ -92,7 +101,6 @@ function SVG.Star {
         $myParams.Remove('Radius')
         $myParams.Remove('CenterX')
         $myParams.Remove('CenterY')
-              
         svg.Path @myParams  
     
     }

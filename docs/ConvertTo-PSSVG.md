@@ -1,20 +1,36 @@
 ConvertTo-PSSVG
 ---------------
+
+
+
+
 ### Synopsis
 Converts an SVG to PSSVG
 
+
+
 ---
+
+
 ### Description
 
 Converts an SVG to a PowerShell Script that would generate that SVG
 
+
+
 ---
+
+
 ### Related Links
 * [Write-SVG](Write-SVG.md)
 
 
 
+
+
 ---
+
+
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
@@ -31,22 +47,29 @@ ConvertTo-PSSVG -InputObject .\a.svg
 <circle cx='5' cy='5' r='3'></svg>"
 ```
 
+
+
 ---
+
+
 ### Parameters
 #### **InputObject**
 
 
 
 
-|Type      |Required|Position|PipelineInput                 |
-|----------|--------|--------|------------------------------|
-|`[Object]`|true    |1       |true (ByValue, ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |Aliases |
+|----------|--------|--------|------------------------------|--------|
+|`[Object]`|true    |1       |true (ByValue, ByPropertyName)|Fullname|
+
+
 
 
 
 ---
+
+
 ### Syntax
 ```PowerShell
 ConvertTo-PSSVG [-InputObject] <Object> [<CommonParameters>]
 ```
----

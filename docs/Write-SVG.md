@@ -1,14 +1,26 @@
 Write-SVG
 ---------
+
+
+
+
 ### Synopsis
 Writes a SVG element
 
+
+
 ---
+
+
 ### Description
 
 Writes a Scalable Vector Graphics element.
 
+
+
 ---
+
+
 ### Parameters
 #### **ElementName**
 
@@ -25,7 +37,6 @@ The name of the SVG element.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.
@@ -41,7 +52,6 @@ A dictionary of attributes.
 
 
 
----
 #### **Data**
 
 A dictionary of data.
@@ -57,10 +67,10 @@ A dictionary of data.
 
 
 
----
 #### **Content**
 
-A dictionary of content.
+An object containing content.
+If this content is XML, it will be added as a child element.
 
 
 
@@ -73,7 +83,36 @@ A dictionary of content.
 
 
 
----
+#### **Children**
+
+One or more child elements.  These will be treated as if they were content.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Object]`|false   |5       |true (ByPropertyName)|Child  |
+
+
+
+#### **Comment**
+
+A comment that will appear before the element.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[String]`|false   |6       |true (ByPropertyName)|Comments|
+
+
+
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -87,11 +126,10 @@ Each value will be the handler.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[Object]`|false   |5       |true (ByPropertyName)|
+|`[Object]`|false   |7       |true (ByPropertyName)|
 
 
 
----
 #### **OutputPath**
 
 An output path.
@@ -103,15 +141,24 @@ An output path.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[String]`|false   |6       |true (ByPropertyName)|
+|`[String]`|false   |8       |true (ByPropertyName)|
+
+
 
 
 
 ---
-### Syntax
-```PowerShell
-Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-On] <Object>] [[-OutputPath] <String>] [<CommonParameters>]
-```
----
+
+
 ### Notes
 While this function can be used directly, it is designed to be the core function that other SVG creation functions call.
+
+
+
+---
+
+
+### Syntax
+```PowerShell
+Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <Object>] [[-OutputPath] <String>] [<CommonParameters>]
+```

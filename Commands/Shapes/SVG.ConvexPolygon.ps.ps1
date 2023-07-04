@@ -6,35 +6,43 @@ function SVG.ConvexPolygon {
         Creates a Regular Convex Polygon of an number of sides.
     .LINK
         SVG.Path
+    .LINK
+        SVG.Star
     #>
     [inherit(Command={
         Import-Module ../../PSSVG.psd1 -Global
         'SVG.Path'
     }, Abstract,Dynamic, ExcludeParameter='D')]
+    [CmdletBinding(PositionalBinding=$false)]
     param(
     # The number of sides in the polygon
-    [Parameter(ValueFromPipelineByPropertyName)]
+    # This is also aliased to -PointCount for consistent use with SVG.Star.
+    [Parameter(ValueFromPipelineByPropertyName,Position=0)]
     [Alias('NumberOfSides','SC','Sides','NumSides','PC','D','PointCount')]
     [ValidateRange(3,360)]
     [int]
     $SideCount,
 
     # The initial rotation of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
 
     # The center X coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
 
     # The center Y coordinate for the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
 
     # The radius of the polygon.
+    [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
     [double]
     $Radius = 1
@@ -57,7 +65,7 @@ function SVG.ConvexPolygon {
             $angle += $anglePerPoint
         }) -join ' '
         $myParams = [Ordered]@{} + $PSBoundParameters
-        $myParams["D"] = $points
+        $myParams["D"] = "$points Z"
         $myParams.Remove('SideCount')
         $myParams.Remove('Rotate')
         $myParams.Remove('Radius')

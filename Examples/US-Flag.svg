@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hoist (height) of the flag: A = 1.0
+Fly (width) of the flag: B = 1.9[86]
+Hoist (height) of the canton ("union"): C = 0.5385 (A × 7/13, spanning seven stripes)
+Fly (width) of the canton: D = 0.76 (B × 2/5, two-fifths of the flag width)
+E = F = 0.0538 (C/10, one-tenth of the height of the canton)
+G = H = 0.0633 (D/12, one twelfth of the width of the canton)
+Diameter of star: K = 0.0616 (approximately L × 4/5, four-fifths of the stripe width)
+Width of stripe: L = 0.0769 (A/13, one thirteenth of the flag height) -->
+<svg viewBox="0 0 1.986 1" preserveAspectRatio="True" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Each Star has a radius of 2/5ths a Bar. -->
+    <path fill="white" id="Star" d="M 0 -0.0307692307692308 L -0.0180857000705376 0.0248928305961522 L 0.0292632774244663 -0.00950821521153683 L -0.0292632774244663 -0.00950821521153686 L 0.0180857000705377 0.0248928305961522 L 0 -0.0307692307692308" />
+  </defs>
+  <title>American Flag</title>
+  <rect width="200%" height="200%" x="-50%" y="-50%" fill="black" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar1" fill="#B22234" width="100%" height="7.69230769230769%" y="0%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar2" fill="#FFFFFF" width="100%" height="7.69230769230769%" y="7.69230769230769%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar3" fill="#B22234" width="100%" height="7.69230769230769%" y="15.3846153846154%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar4" fill="#FFFFFF" width="100%" height="7.69230769230769%" y="23.0769230769231%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar5" fill="#B22234" width="100%" height="7.69230769230769%" y="30.7692307692308%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar6" fill="#FFFFFF" width="100%" height="7.69230769230769%" y="38.4615384615385%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar7" fill="#B22234" width="100%" height="7.69230769230769%" y="46.1538461538462%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar8" fill="#FFFFFF" width="100%" height="7.69230769230769%" y="53.8461538461538%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar9" fill="#B22234" width="100%" height="7.69230769230769%" y="61.5384615384615%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar10" fill="#FFFFFF" width="100%" height="7.69230769230769%" y="69.2307692307692%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar11" fill="#B22234" width="100%" height="7.69230769230769%" y="76.9230769230769%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar12" fill="#FFFFFF" width="100%" height="7.69230769230769%" y="84.6153846153846%" />
+  <!-- Each Bar is 1/13th the height -->
+  <rect id="bar13" fill="#B22234" width="100%" height="7.69230769230769%" y="92.3076923076923%" />
+  <!-- The Canton is 40% of the width and 7/13ths of the height -->
+  <rect fill="#3C3B6E" width="40%" height="53.8461538461538%" x="0%" y="0%" id="canton" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star1" href="#Star" transform="translate(0.0662 0.0538461538461538)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star2" href="#Star" transform="translate(0.1986 0.0538461538461538)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star3" href="#Star" transform="translate(0.331 0.0538461538461538)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star4" href="#Star" transform="translate(0.4634 0.0538461538461538)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star5" href="#Star" transform="translate(0.5958 0.0538461538461538)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star6" href="#Star" transform="translate(0.7282 0.0538461538461538)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star7" href="#Star" transform="translate(0.0662 0.1615384615384618)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star8" href="#Star" transform="translate(0.1986 0.161538461538462)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star9" href="#Star" transform="translate(0.331 0.161538461538462)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star10" href="#Star" transform="translate(0.4634 0.161538461538462)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star11" href="#Star" transform="translate(0.5958 0.161538461538462)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star12" href="#Star" transform="translate(0.7282 0.161538461538462)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star13" href="#Star" transform="translate(0.0662 0.2692307692307698)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star14" href="#Star" transform="translate(0.1986 0.269230769230769)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star15" href="#Star" transform="translate(0.331 0.269230769230769)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star16" href="#Star" transform="translate(0.4634 0.269230769230769)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star17" href="#Star" transform="translate(0.5958 0.269230769230769)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star18" href="#Star" transform="translate(0.7282 0.269230769230769)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star19" href="#Star" transform="translate(0.0662 0.3769230769230778)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star20" href="#Star" transform="translate(0.1986 0.376923076923077)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star21" href="#Star" transform="translate(0.331 0.376923076923077)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star22" href="#Star" transform="translate(0.4634 0.376923076923077)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star23" href="#Star" transform="translate(0.5958 0.376923076923077)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star24" href="#Star" transform="translate(0.7282 0.376923076923077)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star25" href="#Star" transform="translate(0.0662 0.4846153846153858)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star26" href="#Star" transform="translate(0.1986 0.484615384615385)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star27" href="#Star" transform="translate(0.331 0.484615384615385)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star28" href="#Star" transform="translate(0.4634 0.484615384615385)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star29" href="#Star" transform="translate(0.5958 0.484615384615385)" />
+  <!-- Five Rows of Six Stars -->
+  <use id="star30" href="#Star" transform="translate(0.7282 0.484615384615385)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star31" href="#Star" width="0.0331" transform="translate(0.1324 0.107692307692308)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star32" href="#Star" width="0.0331" transform="translate(0.2648 0.107692307692308)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star33" href="#Star" width="0.0331" transform="translate(0.3972 0.107692307692308)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star34" href="#Star" width="0.0331" transform="translate(0.5296 0.107692307692308)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star35" href="#Star" width="0.0331" transform="translate(0.662 0.107692307692308)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star36" href="#Star" width="0.0331" transform="translate(0.1324 0.215384615384616)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star37" href="#Star" width="0.0331" transform="translate(0.2648 0.215384615384615)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star38" href="#Star" width="0.0331" transform="translate(0.3972 0.215384615384615)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star39" href="#Star" width="0.0331" transform="translate(0.5296 0.215384615384615)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star40" href="#Star" width="0.0331" transform="translate(0.662 0.215384615384615)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star41" href="#Star" width="0.0331" transform="translate(0.1324 0.323076923076924)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star42" href="#Star" width="0.0331" transform="translate(0.2648 0.323076923076923)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star43" href="#Star" width="0.0331" transform="translate(0.3972 0.323076923076923)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star44" href="#Star" width="0.0331" transform="translate(0.5296 0.323076923076923)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star45" href="#Star" width="0.0331" transform="translate(0.662 0.323076923076923)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star46" href="#Star" width="0.0331" transform="translate(0.1324 0.430769230769232)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star47" href="#Star" width="0.0331" transform="translate(0.2648 0.430769230769231)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star48" href="#Star" width="0.0331" transform="translate(0.3972 0.430769230769231)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star49" href="#Star" width="0.0331" transform="translate(0.5296 0.430769230769231)" />
+  <!-- Four Rows of Five Stars -->
+  <use id="star50" href="#Star" width="0.0331" transform="translate(0.662 0.430769230769231)" />
+</svg>

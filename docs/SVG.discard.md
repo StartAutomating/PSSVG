@@ -1,16 +1,28 @@
 SVG.discard
 -----------
+
+
+
+
 ### Synopsis
 Creates SVG discard elements
 
+
+
 ---
+
+
 ### Description
 
 The **`<discard>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element allows authors to specify the time at which particular elements are to be discarded, thereby reducing the resources required by an SVG user agent. This is particularly useful to help SVG viewers conserve memory while displaying long-running documents.
 
 The `<discard>` element may occur wherever the `animate` element may.
 
+
+
 ---
+
+
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.discard](https://pssvg.start-automating.com/SVG.discard)
 
@@ -24,7 +36,11 @@ The `<discard>` element may occur wherever the `animate` element may.
 
 
 
+
+
 ---
+
+
 ### Parameters
 #### **Content**
 
@@ -35,13 +51,12 @@ The Contents of the discard element
 
 
 
-|Type      |Required|Position|PipelineInput                 |
-|----------|--------|--------|------------------------------|
-|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |Aliases                                        |
+|----------|--------|--------|------------------------------|-----------------------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|InputObject<br/>Text<br/>InnerText<br/>Contents|
 
 
 
----
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
@@ -51,13 +66,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                         |
+|---------------|--------|--------|---------------------|--------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|DataAttribute<br/>DataAttributes|
 
 
 
----
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -75,7 +89,6 @@ Each value will be the handler.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -85,13 +98,12 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                       |
+|---------------|--------|--------|---------------------|------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|SVGAttributes<br/>SVGAttribute|
 
 
 
----
 #### **Begin**
 
 
@@ -103,7 +115,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **Href**
 
 
@@ -115,7 +126,6 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
----
 #### **RequiredFeatures**
 
 The **`requiredFeatures`** attribute takes a list of feature strings, with the individual strings separated by white space. It determines whether or not all of the named features are supported by the browser; if all of them are supported, the attribute evaluates to `true` end the element is rendered; otherwise, the attribute evaluates to `false` and the current element and its children are skipped and thus will not be rendered. This provides a way to design SVG that gracefully falls back when features aren't available.
@@ -137,7 +147,6 @@ To detect availability of an SVG feature from script, there is the (also depreca
 
 
 
----
 #### **SystemLanguage**
 
 The **`systemLanguage`** attribute represents a list of supported language tags. This list is matched against the language defined in the user preferences.
@@ -153,7 +162,6 @@ The **`systemLanguage`** attribute represents a list of supported language tags.
 
 
 
----
 #### **Id**
 
 The **`id`** attribute assigns a unique name to an element.
@@ -171,7 +179,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Lang**
 
 The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -193,7 +200,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **Tabindex**
 
 The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
@@ -211,7 +217,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlBase**
 
 The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
@@ -229,7 +234,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlLang**
 
 The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -251,7 +255,6 @@ You can use this attribute with any SVG element.
 
 
 
----
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
@@ -273,16 +276,23 @@ You can use this attribute with any SVG element.
 
 
 
+
+
 ---
+
+
 ### Outputs
 * [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
 
 
 
 
+
+
 ---
+
+
 ### Syntax
 ```PowerShell
 SVG.discard [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Begin <Object>] [-Href <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
----

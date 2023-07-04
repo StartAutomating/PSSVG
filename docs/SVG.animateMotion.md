@@ -1,16 +1,28 @@
 SVG.animateMotion
 -----------------
+
+
+
+
 ### Synopsis
 Creates SVG animateMotion elements
 
+
+
 ---
+
+
 ### Description
 
 The SVG **`<animateMotion>`** element provides a way to define how an element moves along a motion path.
 
 > **Note:** To reuse an existing path, it will be necessary to use an `mpath` element inside the `<animateMotion>` element instead of the `path` attribute.
 
+
+
 ---
+
+
 ### Related Links
 * [https://pssvg.start-automating.com/SVG.animateMotion](https://pssvg.start-automating.com/SVG.animateMotion)
 
@@ -24,7 +36,11 @@ The SVG **`<animateMotion>`** element provides a way to define how an element mo
 
 
 
+
+
 ---
+
+
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
@@ -56,7 +72,11 @@ SVG -viewBox "0 0 200 100" @(
 )
 ```
 
+
+
 ---
+
+
 ### Parameters
 #### **Content**
 
@@ -67,13 +87,12 @@ The Contents of the animateMotion element
 
 
 
-|Type      |Required|Position|PipelineInput                 |
-|----------|--------|--------|------------------------------|
-|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|
+|Type      |Required|Position|PipelineInput                 |Aliases                                        |
+|----------|--------|--------|------------------------------|-----------------------------------------------|
+|`[Object]`|false   |1       |true (ByValue, ByPropertyName)|InputObject<br/>Text<br/>InnerText<br/>Contents|
 
 
 
----
 #### **Data**
 
 A dictionary containing data.  This data will be embedded in data- attributes.
@@ -83,13 +102,12 @@ A dictionary containing data.  This data will be embedded in data- attributes.
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                         |
+|---------------|--------|--------|---------------------|--------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|DataAttribute<br/>DataAttributes|
 
 
 
----
 #### **On**
 
 A dictionary or object containing event handlers.
@@ -107,7 +125,6 @@ Each value will be the handler.
 
 
 
----
 #### **Attribute**
 
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -117,13 +134,42 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 
 
-|Type           |Required|Position|PipelineInput        |
-|---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |named   |true (ByPropertyName)|
+|Type           |Required|Position|PipelineInput        |Aliases                       |
+|---------------|--------|--------|---------------------|------------------------------|
+|`[IDictionary]`|false   |named   |true (ByPropertyName)|SVGAttributes<br/>SVGAttribute|
 
 
 
----
+#### **Comment**
+
+A comment that will appear before the element.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[String]`|false   |named   |true (ByPropertyName)|Comments|
+
+
+
+#### **Children**
+
+One or more child elements.  These will be treated as if they were content.
+
+
+
+
+
+
+|Type        |Required|Position|PipelineInput        |Aliases|
+|------------|--------|--------|---------------------|-------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|Child  |
+
+
+
 #### **KeyPoints**
 
 This attribute indicate, in the range \[0,1], how far is the object along the path for each keyTimes associated values.
@@ -133,13 +179,12 @@ This attribute indicate, in the range \[0,1], how far is the object along the pa
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Path**
 
 This attribute defines the path of the motion, using the same syntax as the d attribute.
@@ -149,13 +194,12 @@ This attribute defines the path of the motion, using the same syntax as the d at
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Rotate**
 
 This attribute defines a rotation applied to the element animated along a path, usually to make it pointing in the direction of the animation.
@@ -165,13 +209,12 @@ This attribute defines a rotation applied to the element animated along a path, 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Href**
 
 The **`href`** attribute defines a link to a resource as a reference [URL](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url). The exact meaning of that link depends on the context of each element using it.
@@ -183,13 +226,12 @@ The **`href`** attribute defines a link to a resource as a reference [URL](https
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **AttributeType**
 
 The **`attributeType`** attribute specifies the namespace in which the target attribute and its associated values are defined.
@@ -199,13 +241,12 @@ The **`attributeType`** attribute specifies the namespace in which the target at
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **AttributeName**
 
 The **`attributeName`** attribute indicates the name of the CSS property or attribute of the target element that is going to be changed during an animation.
@@ -215,31 +256,29 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Begin**
 
-The **`begin`** attribute defines when an animation should begin or when an element should be discarded.
+The **`begin`** attribute defines when an animation should begin.
 
-The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
-
-
+The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#timing-evaluationofbeginendtimelists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Dur**
 
 The **`dur`** attribute indicates the simple duration of an animation.
@@ -249,13 +288,12 @@ The **`dur`** attribute indicates the simple duration of an animation.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |Aliases |
+|------------|--------|--------|---------------------|--------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|Duration|
 
 
 
----
 #### **End**
 
 The **`end`** attribute defines an end value for the animation that can constrain the active duration.
@@ -265,13 +303,12 @@ The **`end`** attribute defines an end value for the animation that can constrai
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Min**
 
 The **`min`** attribute specifies the minimum value of the active animation duration.
@@ -281,13 +318,12 @@ The **`min`** attribute specifies the minimum value of the active animation dura
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Max**
 
 The **`max`** attribute specifies the maximum value of the active animation duration.
@@ -297,13 +333,12 @@ The **`max`** attribute specifies the maximum value of the active animation dura
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Restart**
 
 The **`restart`** attribute specifies whether or not an animation can restart.
@@ -313,13 +348,12 @@ The **`restart`** attribute specifies whether or not an animation can restart.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **RepeatCount**
 
 The **`repeatCount`** attribute indicates the number of times an animation will take place.
@@ -329,13 +363,12 @@ The **`repeatCount`** attribute indicates the number of times an animation will 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **RepeatDur**
 
 The **`repeatDur`** attribute specifies the total duration for repeating an animation.
@@ -345,13 +378,12 @@ The **`repeatDur`** attribute specifies the total duration for repeating an anim
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Fill**
 
 The **`fill`** attribute has two different meanings. For shapes and text it's a presentation attribute that defines the color (_or any SVG paint servers like gradients or patterns_) used to paint the element; for animation it defines the final state of the animation.
@@ -361,13 +393,12 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **CalcMode**
 
 The **`calcMode`** attribute specifies the interpolation mode for the animation.
@@ -379,13 +410,12 @@ The default mode is `linear`, however if the attribute does not support linear i
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Values**
 
 The `values` attribute has different meanings, depending upon the context where it's used, either it defines a sequence of values used over the course of an animation, or it's a list of numbers for a color matrix, which is interpreted differently depending on the type of color change to be performed.
@@ -395,13 +425,12 @@ The `values` attribute has different meanings, depending upon the context where 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **KeyTimes**
 
 The **`keyTimes`** attribute represents a list of time values used to control the pacing of the animation.
@@ -413,13 +442,12 @@ Each time in the list corresponds to a value in the values attribute list, and d
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **KeySplines**
 
 The **`keySplines`** attribute defines a set of [Bézier curve](https://developer.mozilla.org/en-US/docs/Glossary/Bezier_curve) control points associated with the keyTimes list, defining a cubic Bézier function that controls interval pacing.
@@ -433,13 +461,12 @@ If there are any errors in the keySplines specification (bad values, too many or
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **From**
 
 The **`from`** attribute indicates the initial value of the attribute that will be modified during the animation.
@@ -451,13 +478,12 @@ When used with the to attribute, the animation will change the modified attribut
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **To**
 
 The **`to`** attribute indicates the final value of the attribute that will be modified during the animation.
@@ -469,13 +495,12 @@ The value of the attribute will change between the from attribute value and this
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **By**
 
 The **`by`** attribute specifies a relative offset value for an attribute that will be modified during an animation.
@@ -487,13 +512,12 @@ The starting value for the attribute is either indicated by specifying it as val
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Additive**
 
 The **`additive`** attribute controls whether or not an animation is additive.
@@ -505,13 +529,12 @@ It is frequently useful to define animation as an offset or delta to an attribut
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Accumulate**
 
 The **`accumulate`** attribute controls whether or not an animation is cumulative.
@@ -523,13 +546,12 @@ It is frequently useful for repeated animations to build upon the previous resul
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Id**
 
 The **`id`** attribute assigns a unique name to an element.
@@ -541,13 +563,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Lang**
 
 The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -563,13 +584,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Tabindex**
 
 The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
@@ -581,13 +601,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XmlBase**
 
 The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
@@ -599,13 +618,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XmlLang**
 
 The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
@@ -621,13 +639,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **XmlSpace**
 
 SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
@@ -643,13 +660,12 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Class**
 
 « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
@@ -668,13 +684,12 @@ You can use this class to style SVG content using CSS.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
----
 #### **Style**
 
 The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
@@ -686,22 +701,29 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+
 
 
 
 ---
+
+
 ### Outputs
 * [Xml.XmlElement](https://learn.microsoft.com/en-us/dotnet/api/System.Xml.XmlElement)
 
 
 
 
+
+
 ---
+
+
 ### Syntax
 ```PowerShell
-SVG.animateMotion [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-KeyPoints <Object>] [-Path <Object>] [-Rotate <Object>] [-Href <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-From <Object>] [-To <Object>] [-By <Object>] [-Additive <Object>] [-Accumulate <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-Class <Object>] [-Style <Object>] [<CommonParameters>]
+SVG.animateMotion [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <PSObject>] [-KeyPoints <PSObject>] [-Path <PSObject>] [-Rotate <PSObject>] [-Href <PSObject>] [-AttributeType <PSObject>] [-AttributeName <PSObject>] [-Begin <PSObject>] [-Dur <PSObject>] [-End <PSObject>] [-Min <PSObject>] [-Max <PSObject>] [-Restart <PSObject>] [-RepeatCount <PSObject>] [-RepeatDur <PSObject>] [-Fill <PSObject>] [-CalcMode <PSObject>] [-Values <PSObject>] [-KeyTimes <PSObject>] [-KeySplines <PSObject>] [-From <PSObject>] [-To <PSObject>] [-By <PSObject>] [-Additive <PSObject>] [-Accumulate <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-Class <PSObject>] [-Style <PSObject>] [<CommonParameters>]
 ```
----

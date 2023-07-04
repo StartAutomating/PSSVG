@@ -27,8 +27,8 @@
     https://github.com/mdn/content/blob/main/LICENSE.md
 #>
 
-
-foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
+    
+$ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
     $requireLatest = $false
     $ModuleLoader  = $null
     # If the module requirement was a string
@@ -38,7 +38,7 @@ foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
         if (-not $foundModuleRequirement) {
             # If it wasn't,
             $foundModuleRequirement = try { # try loading it
-                Import-Module -Name $moduleRequirement -PassThru -Global -ErrorAction SilentlyContinue 
+                Import-Module -Name $moduleRequirement -PassThru -Global -ErrorAction 'Ignore'
             } catch {                
                 $null
             }
@@ -74,15 +74,14 @@ foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
                 if ($?) {
                     # Provided the installation worked, try importing it
                     $foundModuleRequirement =
-                        Import-Module -Name $moduleRequirement -PassThru -Global -ErrorAction SilentlyContinue
+                        Import-Module -Name $moduleRequirement -PassThru -Global -ErrorAction 'Continue' -Force
                 }
             }
         } else {
             $foundModuleRequirement
         }
     }
-}
-     
+} 
 
 # Initialize some collections for us to use:
 
@@ -153,9 +152,12 @@ if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) 
     return
 }
 
-git clone https://github.com/mdn/content.git --depth 1 --progress
+$clonedMDN = git clone https://github.com/mdn/content.git --depth 1 --progress
+if ($clonedMDN) {
+    "Cloned MDN" | Out-Host
+}
 
-$mdnContentRoot = Join-Path $pwd content
+$mdnContentRoot  = Join-Path $pwd content
 $mdnContentsRoot = Join-Path $mdnContentRoot 'contents'
 
 # If we don't know the list of elements
@@ -211,18 +213,20 @@ function ConvertSVGMetadataToParameterAttribute {
             $validValue
         }        
     }) -join "','"
-    if ($hadNumbers) {
-        "[ValidatePattern('(?>$($validSet -split "','" -join '|')|\d+)')]"
-    }
-    elseif ($hadUri -and $validSet) {
-        "[ValidateScript({`$_ -in '$validSet' -or `$_ -as [uri]})]"
-    }
-    elseif ($hadColor) {
-        "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '\W'})]"
-    }
-    elseif ($validSet -and -not $hadUnknown -and -not ($validSet -match '\p{P}')) {
-        $tabCompletionRedundant = $true
-        "[ValidateSet('$validSet')]"
+    if (-not $hadUnknown) {
+        if ($hadNumbers) {
+            "[ValidatePattern('(?>$($validSet -split "','" -join '|')|\d+)')]"
+        }
+        elseif ($hadUri -and $validSet) {
+            "[ValidateScript({`$_ -in '$validSet' -or `$_ -as [uri]})]"
+        }
+        elseif ($hadColor -and -not $hadUnknown) {
+            "[ValidateScript({`$_ -in '$validSet' -or `$_ -match '\#[0-9a-f]{3}' -or `$_ -match '\#[0-9a-f]{6}' -or `$_ -notmatch '[\W-[\-]]'})]"
+        }
+        elseif ($validSet -and -not $hadUnknown -and -not ($validSet -match '\p{P}')) {
+            $tabCompletionRedundant = $true
+            "[ValidateSet('$validSet')]"
+        }
     }
     
     if ($setDescriptors -and -not $tabCompletionRedundant) {        
@@ -671,14 +675,16 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         Link = $docsLink, $mdnLink, 'Write-SVG'
     }
     $relevantExampleFiles = Get-ChildItem -Filter *.ps1 -Path $examplesRoot |
-        Select-String "svg.$($elementKv.Key)" | 
+        Select-String "svg.$($elementKv.Key)\s{1,}" | 
         Select-Object -ExpandProperty Path
     if ($relevantExampleFiles) {        
         $newPipeScriptSplat.Example = @(
             foreach ($exampleFile in $relevantExampleFiles) {
                 $exampleContent = (
                     (Get-Content -Raw $exampleFile) -replace 
-                        '\#requires -Module PSSVG' -replace '\s-OutputPath(?:.|\s){0,}?(?=\z|$)'
+                        '\#requires -Module PSSVG' -replace 
+                        '\s-OutputPath(?:.|\s){0,}?(?=\z|$)' -replace 
+                        '\<\#(?<Block>(?:.|\s)+?(?=\z|\#>))\#\>'
                     ).Trim()
                 $exampleContent
             }
@@ -726,22 +732,45 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
     )
 
     $parameters['Attribute'] = @(
-        "# A dictionary of attributes.  This can set any attribute not exposed in other parameters."        
+        "# A dictionary of attributes.  This can set any attribute not exposed in other parameters."
         "[Parameter(ValueFromPipelineByPropertyName)]"
         "[Alias('SVGAttributes','SVGAttribute')]"
         "[Collections.IDictionary]"
         '$Attribute = [Ordered]@{}'
     )
+
+    $parameters['Comment'] = [Ordered]@{
+        Help = "A comment that will appear before the element."
+        Attribute = 'ValueFromPipelineByPropertyName'
+        Alias = 'Comments'
+        Type  = [string]
+    }
+
+    $parameters['Children'] = [Ordered]@{
+        Help = "One or more child elements.  These will be treated as if they were content."
+        Attribute = 'ValueFromPipelineByPropertyName'
+        Alias = 'Child'
+        Type = [PSObject]
+    }
     
     foreach ($attrName in $elementKV.Value.AttributeNames) {
         $paramName = [regex]::Replace($attrName, '\W(?<w>\w+)', {
             param($match)
             $match.Groups['w'].Value.Substring(0,1).ToUpper() + 
                 $match.Groups['w'].Value.Substring(1)
-        })        
+        })
+        # If the parameter name is a link
+        if ($paramName -match '\[(?<n>[^\]]+)\]') {
+            # take the link name as the parameter name.
+            $paramName = $matches.n
+        }        
         $paramName = $paramName.Substring(0,1).ToUpper() + $paramName.Substring(1)
+        $paramName = $paramName -replace '\W'
         $paramMetadata = $attrMetadata[$attrName]
         $paramIsDeprecated = $false
+        if ($paramName -eq 'TextDecoration') {
+            $null = $null
+        }
         $parameters[$paramName ] = @(
             $attrHelp = $elementKv.Value.Help.$attrName
           
@@ -784,7 +813,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             if ($knownParameterAliases[$paramName]) {
                 "[Alias('$($knownParameterAliases[$paramName] -replace "'", "''" -join "','")')]"
             }
-            
+            "[PSObject]"
             "`$$paramName"
         )
     }
@@ -848,10 +877,23 @@ $OutputPath
         }
 
         # If content was provided
-        if ($content) {
+        if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+
+        # If comments were provided
+        if ($comment) {
+            # put it into the splat.
+            $writeSvgSplat.Comment = $comment
+        }
+
+        # If any children were provided
+        if ($children) {
+            # put them in the splat.
+            $writeSvgSplat.Children = $children
+        }
+
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
             # put it into the splat.
@@ -870,7 +912,7 @@ $OutputPath
             $writeSvgSplat.On = $on
         }
 
-        Write-SVG @writeSvgSplat
+        . Write-SVG @writeSvgSplat
     }
 
     if (-not $parameters) { continue }    

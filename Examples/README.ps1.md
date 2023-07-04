@@ -1,6 +1,7 @@
 ~~~PipeScript {
     
-    $files = Get-ChildItem -Filter *.PSSVG.ps1 -Path $pwd
+    $files     = Get-ChildItem -Filter *.PSSVG.ps1 -Path $pwd
+    $svgFiles  = Get-ChildItem -Filter *.svg -Path $pwd
     
 
     [PSCustomObject]@{
@@ -28,5 +29,9 @@
                 }
             }              
     }
+
+
+
+    "$($svgFiles.Count) SVG examples (~ $([Math]::Round(($svgFiles | Measure-Object -Sum -Property Length | Select -Expand Sum)/1kb)) kb )"    
 }
 ~~~

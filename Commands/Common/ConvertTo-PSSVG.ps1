@@ -29,13 +29,13 @@ function ConvertTo-PSSVG
             } elseif ($_.LocalName) {
                 $xin = $_
                 $svgCmdName = if ($xin.LocalName -ne 'SVG') {
-                    "=<SVG.$($xin.LocalName)>"
+                    "SVG.$($xin.LocalName)"
                 } else {
-                    "=<SVG>"
+                    "SVG"
                 }
 
                 (' ' * (4 * $indentDepth)) + $svgCmdName
-                $svgFunc = $ExecutionContext.SessionState.InvokeCommand.GetCommand($svgCmdName, 'Alias').ResolvedCommand
+                $svgFunc = $ExecutionContext.SessionState.InvokeCommand.GetCommand($svgCmdName, 'Function')
                 
                 
                 foreach ($attr in $xin.Attributes) {
@@ -79,7 +79,7 @@ function ConvertTo-PSSVG
             }
         } elseif ($InputObject -isnot [xml] -and 
             $InputObject -isnot [Xml.XmlDocument] -and 
-            (-not ($InputObject -as [xml]))
+            (-not ($InputObject -like "*<*>*"))
         ) {
             # If it's not XML and won't be XML, try loading it from a file.
             $resolvedPath = 
@@ -96,6 +96,11 @@ function ConvertTo-PSSVG
         } elseif ($InputObject -as [xml]) {
             # If the input was castable to XML, cast it to XML.
             $InputObject = $InputObject -as [xml]
+        } elseif ($(
+            $coerceToSVG = "<svg>$inputObject</svg>" -as [xml]
+            $coerceToSVG
+        )) {
+            $InputObject = $coerceToSVG
         }
 
         # If the input isn't XML at this point, error out.
