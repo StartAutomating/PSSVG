@@ -709,6 +709,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         Help = "One or more child elements.  These will be treated as if they were content."
         Attribute = 'ValueFromPipelineByPropertyName'
         Alias = 'Child'
+        Type = [PSObject]
     }
     
     foreach ($attrName in $elementKV.Value.AttributeNames) {
