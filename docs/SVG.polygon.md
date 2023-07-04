@@ -68,19 +68,28 @@ SVG -ViewBox 800, 800 @(
 )
 #### EXAMPLE 2
 ```PowerShell
-svg -Content @(
-    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
+$bpm = 128
 ```
-) -ViewBox 100,100
+$animateDuration = "$([Math]::Round((60/$bpm)*2, 4))s"
+$animateSplat = [Ordered]@{
+    Dur = $animateDuration
+    RepeatDur = "indefinite"
+}
+
+$Scale = 8
+
+$patternSize = 1/$scale
+
+$Color = "#4488ff"
+
+SVG -ViewBox 800, 800 @(
+    SVG.pattern -Width $patternSize -Height $patternSize @(
+        SVG.polygon -Points "0,0, 100,100, 0,100" @(
+            SVG.animate -AttributeName points -to "100,100 0,0 100,0" -AttributeType XML @animateSplat
+        )  -Fill $color -Stroke $color
+    ) -id fillPattern
+    SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
+)
 #### EXAMPLE 3
 ```PowerShell
 svg -Content @(
@@ -98,6 +107,21 @@ svg -Content @(
 ) -ViewBox 100,100
 #### EXAMPLE 4
 ```PowerShell
+svg -Content @(
+    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
+        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
+        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+    )
+    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
+        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
+        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
+    ) -Opacity 0
+```
+) -ViewBox 100,100
+#### EXAMPLE 5
+```PowerShell
 svg -ViewBox 0, 0, 250, 200 -Content @(
     svg.defs (
         svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
@@ -113,7 +137,7 @@ svg -ViewBox 0, 0, 250, 200 -Content @(
 )
 ```
 
-#### EXAMPLE 5
+#### EXAMPLE 6
 ```PowerShell
 svg -ViewBox 0, 0, 100, 100 -Content @(
     svg.defs @(
@@ -135,7 +159,7 @@ svg -ViewBox 0, 0, 100, 100 -Content @(
 )
 ```
 
-#### EXAMPLE 6
+#### EXAMPLE 7
 ```PowerShell
 svg -ViewBox 100,100 -Content @(
     svg.symbol -Id psChevron -Content @(
@@ -151,7 +175,7 @@ svg -ViewBox 100,100 -Content @(
 ```
 svg.use -Href '#psChevron' -Fill '#4488ff'
 )
-#### EXAMPLE 7
+#### EXAMPLE 8
 ```PowerShell
 svg -viewBox 300, 100 -Content @(
     svg.symbol -Id psChevron -Content @(
