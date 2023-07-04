@@ -61,7 +61,8 @@
     process {        
         # Determine what command we're using to create the elements.
         $elementCmd = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$elementName", 'Function')
-    
+
+        $myParams = [Ordered]@{} + $PSBoundParameters
 
         # If -Style was passed (and was not a string)
         if ($Attribute['Style'] -and $Attribute['Style'] -isnot [string]) {
@@ -199,7 +200,23 @@
                 $elementText += $(@(foreach ($child in $children) {
                     if ($child.OuterXml) {
                         $child.OuterXml
-                    } else {
+                    } 
+                    elseif ($child -is [scriptblock]) {
+                        $scriptOut = if ($null -ne $content) { # (if we had -Content, set $_ first)
+                            $this = $_ = $psItem = $content
+                            . ([ScriptBlock]::Create($child))                            
+                        } else {
+                            . ([ScriptBlock]::Create($child))
+                        }
+                        foreach ($scriptOutput in $scriptOut) {
+                            if ($scriptOutput.OuterXml) {
+                                $scriptOutput.OuterXml
+                            } else {
+                                [Security.SecurityElement]::Escape("$scriptOutput")
+                            }
+                        }
+                    }
+                    else {
                         [Security.SecurityElement]::Escape("$child")
                     }                    
                 }) -join ([Environment]::NewLine))
@@ -267,7 +284,7 @@
                 $elementText
             }
 
-        $myParams = @{} + $PSBoundParameters
+        
         if ($myParams['OutputPath']) {
             $unresolvedOutput = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
             if ($unresolvedOutput -and $svgOutput.ParentNode.Save) {
