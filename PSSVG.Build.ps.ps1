@@ -641,7 +641,9 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             foreach ($exampleFile in $relevantExampleFiles) {
                 $exampleContent = (
                     (Get-Content -Raw $exampleFile) -replace 
-                        '\#requires -Module PSSVG' -replace '\s-OutputPath(?:.|\s){0,}?(?=\z|$)'
+                        '\#requires -Module PSSVG' -replace 
+                        '\s-OutputPath(?:.|\s){0,}?(?=\z|$)' -replace 
+                        '\<\#(?<Block>(?:.|\s)+?(?=\z|\#>))\#\>'
                     ).Trim()
                 $exampleContent
             }
