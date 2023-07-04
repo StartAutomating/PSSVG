@@ -32,6 +32,6 @@
 
 
 
-    "$($svgFile.Count) SVG examples (~ $([Math]::Round(($svgFile | Measure-Object -Sum -Property Length | Select -Expand Sum)/1kb)) kb )"    
+    "$($svgFiles.Count) SVG examples (~ $([Math]::Round(($svgFiles | Measure-Object -Sum -Property Length | Select -Expand Sum)/1kb)) kb )"    
 }
 ~~~
