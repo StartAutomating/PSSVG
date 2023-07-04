@@ -64,6 +64,64 @@ function SVG.animateTransform {
         svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
     )
 .Example
+    param(
+    # The number of repetitions
+    [int]$RepeatCount = 80,
+    # The Center X coordinate of the shape
+    [float]$CenterX  = 100,
+    # The Center Y coordinate of the shape
+    [float]$CenterY  = 100,
+    # The radius coordinate of the shape.  This will decrease by 1/RepeatCount each time.
+    [float]$Radius   = 100,
+    # The number of sides
+    $SideCount  = 3,
+    # The total rotation of the innermost element,
+    $TotalRotation  = 180,
+    # The total duration of any animations.
+    [timespan]$duration = '00:00:03.75',
+    # A palette of colors to alternate thru
+    [string[]]$colors = @('#112244','#224488',"#4488ff"),
+    # The type of the shape. (either Star or ConvexPolygon)
+    [ValidateSet("Star", "ConvexPolygon")]
+    [string]
+    $ShapeType = 'ConvexPolygon',
+    
+    # If set, will animate opacity between a low and high point, depending on the radius.
+    [switch]
+    $AnimateOpacity
+    )
+    
+    $Splat = [Ordered]@{
+        SideCount = $SideCount
+        Fill = 'transparent'
+        CenterX = $CenterX
+        CenterY = $CenterY
+    }
+    
+    $shapeCommand = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$ShapeType", "Function")
+    SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
+        SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
+    
+        0..($RepeatCount -1) |
+            . $shapeCommand @Splat -Rotate {
+                    $_ * ($totalRotation / $RepeatCount)
+            } -Radius {
+                $Radius - (
+                    $_ * ($Radius / $RepeatCount)
+                )
+            } -Stroke {
+                $colors[$_ % $colors.Length]
+            } -Children {
+                $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
+                SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
+                $lowOpacity = [double]($_)/$RepeatCount
+                $highOpacity = 1.0 - [double]($_)/$RepeatCount
+                if ($AnimateOpacity) {
+                    SVG.animate -AttributeName opacity -Values "$highOpacity;$lowOpacity;$highOpacity" -Dur $dur -RepeatCount 'indefinite'
+                }
+            }
+    )
+.Example
     [Timespan]$RotateEvery = '00:00:10'
     
     
@@ -132,6 +190,256 @@ function SVG.animateTransform {
         svg.line -Stroke '#4488ff' -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
             svg.animatetransform -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
         ) -Opacity 0.8
+    )
+.Example
+    SVG -ViewBox 1.986,1 -Content @(
+        $g = (1.986 * .4) / 12
+        $e = (7/13)/10
+    
+        SVG.defs @(
+            SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+        )
+    
+        SVG.title "American Flag"
+    
+        SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+    
+        1..13 |
+            SVG.rect -Id {"bar$_"} -Fill {
+                @("#FFFFFF", "#B22234")[$_ % 2]
+            } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+    
+    
+        SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+    
+        # Five rows of 6 stars
+        1..30 |
+            SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    $g + ($g * 2 * ((($_ -1) % 6)))
+                ) $(
+                    $e + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                    )
+                ))"
+            }
+    
+        # Then interleaved with 4 rows of 5 stars
+        1..20 |
+            SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+                # SVG.animateTransform -Type 'translate' -From $($g/2) -To $($g/2) -RepeatCount 'indefinite' -Dur 1s -AttributeName transform
+                # SVG.animateTransform -Type 'scale' -Values '.75;1.25;.75' -RepeatCount 'indefinite' -Dur ((60/128) * 2)s  -AttributeName transform -Additive 'sum'
+            ) -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+                ) $(
+                    ($e * 2) + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                    )
+                ))"
+            }
+    
+    )
+.Example
+    SVG -ViewBox 1.986,1 -Content @(
+        $g = (1.986 * .4) / 12
+        $e = (7/13)/10
+    
+        SVG.defs @(
+            SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+        )
+    
+        SVG.title "American Flag"
+    
+        SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+    
+        1..13 |
+            SVG.rect -Id {"bar$_"} -Fill {
+                @("#FFFFFF", "#B22234")[$_ % 2]
+            } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+    
+    
+        SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+    
+        # Five rows of 6 stars
+        1..30 |
+            SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    $g + ($g * 2 * ((($_ -1) % 6)))
+                ) $(
+                    $e + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                    )
+                ))"
+            }
+    
+        # Then interleaved with 4 rows of 5 stars
+        1..20 |
+            SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+                # SVG.animateTransform -Type 'translate' -From $($g/2) -To $($g/2) -RepeatCount 'indefinite' -Dur 1s -AttributeName transform
+                # SVG.animateTransform -Type 'scale' -Values '.75;1.25;.75' -RepeatCount 'indefinite' -Dur ((60/128) * 2)s  -AttributeName transform -Additive 'sum'
+            ) -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+                ) $(
+                    ($e * 2) + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                    )
+                ))"
+            }
+    
+    )
+.Example
+    param(
+    # The smaller Star Size (as a ratio)
+    [Alias('SmallerStarSize')]
+    [double]
+    $StarSizeSmall = .9,
+    # The larger Star Size (as a ratio)
+    [Alias('StarSizeBig','LargerStarSize')]
+    [double]
+    $StarSizeLarge = 1.1,
+    # The duration of the animation, in seconds.
+    # By default, two beats at 128 beats per minute.
+    [Alias('Interval')]
+    [double]
+    $Duration = $((60/128) * 2)
+    )
+    
+    
+    SVG -ViewBox 1.986,1 -Content @(
+        $g = (1.986 * .4) / 12
+        $e = (7/13)/10
+    
+        SVG.defs @(
+            SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+        )
+    
+        SVG.title "American Flag"
+    
+        SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+    
+        1..13 |
+            SVG.rect -Id {"bar$_"} -Fill {
+                @("#FFFFFF", "#B22234")[$_ % 2]
+            } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+    
+    
+        SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+    
+    
+        # Five rows of 6 stars
+        1..30 |
+            SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    $g + ($g * 2 * ((($_ -1) % 6)))
+                ) $(
+                    $e + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                    )
+                ))"
+            } -Children @(
+                SVG.animateTransform -Type 'scale' -Values "$StarSizeLarge;$StarSizeSmall;$StarSizeLarge" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+            )
+    
+        # Then interleaved with 4 rows of 5 stars
+        1..20 |
+            SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+                SVG.animateTransform -Type 'scale' -Values "$StarSizeSmall;$StarSizeLarge;$StarSizeSmall" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+            ) -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+                ) $(
+                    ($e * 2) + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                    )
+                ))"
+            }
+    
+    )
+.Example
+    param(
+    # The smaller Star Size (as a ratio)
+    [Alias('SmallerStarSize')]
+    [double]
+    $StarSizeSmall = .9,
+    # The larger Star Size (as a ratio)
+    [Alias('StarSizeBig','LargerStarSize')]
+    [double]
+    $StarSizeLarge = 1.1,
+    # The duration of the animation, in seconds.
+    # By default, two beats at 128 beats per minute.
+    [Alias('Interval')]
+    [double]
+    $Duration = $((60/128) * 2)
+    )
+    
+    
+    SVG -ViewBox 1.986,1 -Content @(
+        $g = (1.986 * .4) / 12
+        $e = (7/13)/10
+    
+        SVG.defs @(
+            SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+        )
+    
+        SVG.title "American Flag"
+    
+        SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+    
+        1..13 |
+            SVG.rect -Id {"bar$_"} -Fill {
+                @("#FFFFFF", "#B22234")[$_ % 2]
+            } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+    
+    
+        SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+    
+    
+        # Five rows of 6 stars
+        1..30 |
+            SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    $g + ($g * 2 * ((($_ -1) % 6)))
+                ) $(
+                    $e + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                    )
+                ))"
+            } -Children @(
+                SVG.animateTransform -Type 'scale' -Values "$StarSizeLarge;$StarSizeSmall;$StarSizeLarge" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+            )
+    
+        # Then interleaved with 4 rows of 5 stars
+        1..20 |
+            SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+                SVG.animateTransform -Type 'scale' -Values "$StarSizeSmall;$StarSizeLarge;$StarSizeSmall" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+            ) -Transform {
+                $g = (1.986 * .4) / 12
+                $e = (7/13)/10
+                "translate($(
+                    ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+                ) $(
+                    ($e * 2) + (
+                        $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                    )
+                ))"
+            }
+    
     )
 .Link
     https://pssvg.start-automating.com/SVG.animateTransform
@@ -692,7 +1000,7 @@ process {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
-        Write-SVG @writeSvgSplat
+        . Write-SVG @writeSvgSplat
     
 }
 } 
