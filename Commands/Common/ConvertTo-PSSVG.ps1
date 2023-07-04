@@ -29,9 +29,9 @@ function ConvertTo-PSSVG
             } elseif ($_.LocalName) {
                 $xin = $_
                 $svgCmdName = if ($xin.LocalName -ne 'SVG') {
-                    "=<SVG.$($xin.LocalName)>"
+                    "SVG.$($xin.LocalName)"
                 } else {
-                    "=<SVG>"
+                    "SVG"
                 }
 
                 (' ' * (4 * $indentDepth)) + $svgCmdName
