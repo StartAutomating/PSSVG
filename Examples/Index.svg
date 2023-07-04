@@ -49,6 +49,12 @@
     <a href="BPMMorph.svg">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">BPMMorph.svg</tspan>
     </a>
+    <a href="BPMTriangleMorph.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">BPMTriangleMorph.PSSVG.ps1</tspan>
+    </a>
+    <a href="BPMTriangleMorph.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">BPMTriangleMorph.svg</tspan>
+    </a>
     <a href="Circles.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Circles.PSSVG.ps1</tspan>
     </a>
@@ -180,6 +186,9 @@
     </a>
     <a href="README.ps1.md">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">README.ps1.md</tspan>
+    </a>
+    <a href="RepeatedShapes-3.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes-3.svg</tspan>
     </a>
     <a href="RepeatedShapes.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes.PSSVG.ps1</tspan>
