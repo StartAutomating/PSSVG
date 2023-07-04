@@ -634,7 +634,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         Link = $docsLink, $mdnLink, 'Write-SVG'
     }
     $relevantExampleFiles = Get-ChildItem -Filter *.ps1 -Path $examplesRoot |
-        Select-String "svg.$($elementKv.Key)\s{0,}" | 
+        Select-String "svg.$($elementKv.Key)\s{1,}" | 
         Select-Object -ExpandProperty Path
     if ($relevantExampleFiles) {        
         $newPipeScriptSplat.Example = @(
