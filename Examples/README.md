@@ -43,5 +43,5 @@
 |[VerticalLinearGradient](VerticalLinearGradient.PSSVG.ps1)|[VerticalLinearGradient.svg](VerticalLinearGradient.svg)<br/>![VerticalLinearGradient](VerticalLinearGradient.svg)                                                                                                                                                                                                                                                                                                                                                                                     |
 |[ViewBoxAnimation](ViewBoxAnimation.PSSVG.ps1)            |[ViewBoxAnimation.svg](ViewBoxAnimation.svg)<br/>![ViewBoxAnimation](ViewBoxAnimation.svg)                                                                                                                                                                                                                                                                                                                                                                                                             |
 
- 52 SVG examples (~ 232 kb )
+ 52 SVG examples (~ 239 kb )
 
