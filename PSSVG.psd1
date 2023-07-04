@@ -1,5 +1,5 @@
 @{
-    ModuleVersion     = '0.2.8'
+    ModuleVersion     = '0.2.9'
     Guid              = '77696e6e-0252-43f2-b914-2dfa63953c60'
     CompanyName       = 'Start-Automating'
     Copyright         = '2022-2023 Start-Automating'
