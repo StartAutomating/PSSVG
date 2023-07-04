@@ -6,15 +6,13 @@ PowerShell tools for SVG.
 
 PSSVG helps you create Scalable Vector Graphics using PowerShell.
 
-
-There is a command for every tag of the SVG standard, complete with help and tab completion for every parameter.
-
+There is a command for every tag of the SVG standard (and then some).
 
 For example, this script generates the image below it.
 
 ~~~PowerShell
-=<svg> (
-    =<svg.text> -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
+svg (
+    svg.text -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
 ) -ViewBox 0,0, 200, 100
 ~~~
 
@@ -178,7 +176,7 @@ Thus the primary goal is to make SVG creation scriptable.
 
 ### Limitations 
 
-At current, PSSVG does not support event or aria attributes.
+At current, PSSVG does not support aria attributes.  Events can be generically specified with the parameter -On.
 
 ### How PSSVG is Built
 
