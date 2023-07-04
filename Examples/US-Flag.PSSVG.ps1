@@ -23,6 +23,8 @@ SVG -ViewBox 1.986,1 -Content @(
     # Five rows of 6 stars
     1..30 |
         SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+            $g = (1.986 * .4) / 12 
+            $e = (7/13)/10
             "translate($(
                 $g + ($g * 2 * ((($_ -1) % 6)))
             ) $(
@@ -38,6 +40,8 @@ SVG -ViewBox 1.986,1 -Content @(
             # SVG.animateTransform -Type 'translate' -From $($g/2) -To $($g/2) -RepeatCount 'indefinite' -Dur 1s -AttributeName transform
             # SVG.animateTransform -Type 'scale' -Values '.75;1.25;.75' -RepeatCount 'indefinite' -Dur ((60/128) * 2)s  -AttributeName transform -Additive 'sum'
         ) -Transform {
+            $g = (1.986 * .4) / 12 
+            $e = (7/13)/10
             "translate($(
                 ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
             ) $(
