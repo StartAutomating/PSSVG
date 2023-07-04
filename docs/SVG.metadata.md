@@ -104,7 +104,7 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 
 #### **Comment**
 
-# A comment that will appear before the element.
+A comment that will appear before the element.
 
 
 
@@ -114,6 +114,21 @@ A dictionary of attributes.  This can set any attribute not exposed in other par
 |Type      |Required|Position|PipelineInput        |Aliases |
 |----------|--------|--------|---------------------|--------|
 |`[String]`|false   |named   |true (ByPropertyName)|Comments|
+
+
+
+#### **Children**
+
+One or more child elements.  These will be treated as if they were content.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Object]`|false   |named   |true (ByPropertyName)|Child  |
 
 
 
@@ -249,5 +264,5 @@ You can use this attribute with any SVG element.
 
 ### Syntax
 ```PowerShell
-SVG.metadata [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
+SVG.metadata [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [<CommonParameters>]
 ```
