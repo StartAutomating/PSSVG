@@ -1452,6 +1452,11 @@ process {
             # put it into the splat.
             $writeSvgSplat.Comment = $comment
         }
+        # If any children were provided
+        if ($children) {
+            # put them in the splat.
+            $writeSvgSplat.Children = $children
+        }
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
             # put it into the splat.
