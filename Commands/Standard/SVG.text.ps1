@@ -95,19 +95,6 @@ function SVG.text {
     " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
     ) -ViewBox 0,0,300,100
 .Example
-    =<svg> @(
-        =<svg.symbol> -content (
-            =<svg.text> -Content '⭐' -X 50% -Y 50% -FontSize 5 -TextAnchor middle # -DominantBaseline middle -TextAnchor middle
-        ) -id Star -ViewBox 25,25
-    
-        $scaledSize = [Ordered]@{Width=15;Height=15}
-        =<svg.use> -Href '#Star' -X 0 @scaledSize
-        =<svg.use> -Href '#Star' -X 20 @scaledSize
-        =<svg.use> -Href '#Star' -X 40 @scaledSize
-        =<svg.use> -Href '#Star' -X 60 @scaledSize
-        =<svg.use> -Href '#Star' -X 80 @scaledSize
-    ) -ViewBox 0,0,125,50
-.Example
     svg -viewBox 300, 100 -Content @(
         svg.symbol -Id psChevron -Content @(
             svg.polygon -Points (@(
