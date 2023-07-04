@@ -21,12 +21,12 @@ A matrix convolution is based on an n-by-m matrix (the convolution kernel) which
 COLOR<sub>X,Y</sub> = (
 SUM <sub>I=0 to [<a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute">orderY</a>-1]</sub> {
 SUM <sub>J=0 to [<a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute">orderX</a>-1]</sub> {
-SOURCE <sub>X-<a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute">targetX</a>+J, Y-<a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute">targetY</a>+I</sub> \* [kernelMatrix](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementkernelmatrixattribute)<sub><a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute">orderX</a>-J-1, <a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute">orderY</a>-I-1</sub>
+SOURCE <sub>X-<a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute">targetX</a>+J, Y-<a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute">targetY</a>+I</sub> \* [kernelMatrix](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementKernelMatrixAttribute)<sub><a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute">orderX</a>-J-1, <a href="https://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute">orderY</a>-I-1</sub>
 }
 }
-) / [divisor](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementdivisorattribute) + [bias](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementbiasattribute) \* ALPHA<sub>X,Y</sub>
+) / [divisor](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementDivisorAttribute) + [bias](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementBiasAttribute) \* ALPHA<sub>X,Y</sub>
 
-where "orderX" and "orderY" represent the X and Y values for the ['order'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementorderattribute) attribute, "targetX" represents the value of the ['targetX'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementtargetxattribute) attribute, "targetY" represents the value of the ['targetY'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementtargetyattribute) attribute, "kernelMatrix" represents the value of the ['kernelMatrix'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementkernelmatrixattribute) attribute, "divisor" represents the value of the ['divisor'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementdivisorattribute) attribute, and "bias" represents the value of the ['bias'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementbiasattribute) attribute.
+where "orderX" and "orderY" represent the X and Y values for the ['order'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementOrderAttribute) attribute, "targetX" represents the value of the ['targetX'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute) attribute, "targetY" represents the value of the ['targetY'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute) attribute, "kernelMatrix" represents the value of the ['kernelMatrix'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementKernelMatrixAttribute) attribute, "divisor" represents the value of the ['divisor'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementDivisorAttribute) attribute, and "bias" represents the value of the ['bias'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementBiasAttribute) attribute.
 
 Note in the above formulas that the values in the kernel matrix are applied such that the kernel matrix is rotated 180 degrees relative to the source and destination images in order to match convolution theory as described in many computer graphics textbooks.
 
@@ -48,7 +48,7 @@ and you define a 3-by-3 convolution kernel as follows:
 7 8 9
 ```
 
-Let's focus on the color value at the second row and second column of the image (source pixel value is 120). Assuming the simplest case (where the input image's pixel grid aligns perfectly with the kernel's pixel grid) and assuming default values for attributes ['divisor'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementdivisorattribute), ['targetX'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementtargetxattribute) and ['targetY'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feconvolvematrixelementtargetyattribute), then resulting color value will be:
+Let's focus on the color value at the second row and second column of the image (source pixel value is 120). Assuming the simplest case (where the input image's pixel grid aligns perfectly with the kernel's pixel grid) and assuming default values for attributes ['divisor'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementDivisorAttribute), ['targetX'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetXAttribute) and ['targetY'](https://developer.mozilla.orghttps://www.w3.org/TR/SVG11/filters.html#feConvolveMatrixElementTargetYAttribute), then resulting color value will be:
 
 ```plain
 (9*0   + 8*20  + 7*40 +
@@ -191,9 +191,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |Aliases|
-|----------|--------|--------|---------------------|-------|
-|`[Object]`|false   |named   |true (ByPropertyName)|Child  |
+|Type        |Required|Position|PipelineInput        |Aliases|
+|------------|--------|--------|---------------------|-------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|Child  |
 
 
 
@@ -202,9 +202,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -213,9 +213,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -224,9 +224,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -235,9 +235,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -246,9 +246,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -257,9 +257,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -268,9 +268,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -279,9 +279,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -290,9 +290,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -301,9 +301,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -318,9 +318,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -339,9 +339,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -356,9 +356,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -373,9 +373,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -394,9 +394,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -415,9 +415,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -432,9 +432,9 @@ The **`alignment-baseline`** attribute specifies how an object is aligned with r
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -451,9 +451,9 @@ The **`baseline-shift`** attribute allows repositioning of the dominant-baseline
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -468,9 +468,9 @@ This attribute has the same parameter values as defined for the {{ cssxref("clip
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -485,9 +485,9 @@ The **`clip-path`** presentation attribute defines or associates a clipping path
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -526,9 +526,9 @@ As a presentation attribute, it also can be used as a property directly inside a
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -545,9 +545,9 @@ As a presentation attribute, it can be applied to any element, but as noted abov
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -568,9 +568,9 @@ When a child element is blended into a background, the value of the `color-inter
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -591,9 +591,9 @@ The **`color-interpolation-filters`** attribute specifies the color space for im
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -608,9 +608,9 @@ The **`color-profile`** attribute is used to define which color profile a raster
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -629,9 +629,9 @@ As a presentation attribute, it also can be used as a property directly inside a
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -650,9 +650,9 @@ In many cases, the bidirectional Unicode algorithm produces the desired result a
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -683,9 +683,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -710,9 +710,9 @@ If there is no baseline table in the nominal font, or if the baseline table lack
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -727,9 +727,9 @@ The **`enable-background`** attribute specifies how the accumulation of the back
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -742,9 +742,9 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -759,9 +759,9 @@ The **`fill-opacity`** attribute is a presentation attribute defining the opacit
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -776,9 +776,9 @@ The **`fill-rule`** attribute is a presentation attribute defining the algorithm
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -795,9 +795,9 @@ As a presentation attribute, it can be applied to any element but it only has ef
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -812,9 +812,9 @@ The **`flood-color`** attribute indicates what color to use to flood the current
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -829,9 +829,9 @@ The **`flood-opacity`** attribute indicates the opacity value to use across the 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -846,9 +846,9 @@ The **`font-family`** attribute indicates which font family will be used to rend
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -863,9 +863,9 @@ The **`font-size`** attribute refers to the size of the font from {{Glossary("ba
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -880,9 +880,9 @@ The `font-size-adjust` attribute allows authors to specify an aspect value for a
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -897,9 +897,9 @@ The **`font-stretch`** attribute indicates the desired amount of condensing or e
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -914,9 +914,9 @@ The **`font-style`** attribute specifies whether the text is to be rendered usin
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -931,9 +931,9 @@ The **`font-variant`** attribute indicates whether the text is to be rendered us
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -948,9 +948,9 @@ The **`font-weight`** attribute refers to the boldness or lightness of the glyph
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -969,9 +969,9 @@ This attribute is applied only to text written in a horizontal writing-mode.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -990,9 +990,9 @@ This attribute is applied only to text written in a vertical writing-mode.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1009,9 +1009,9 @@ The resampling is always done in a truecolor (e.g., 24-bit) color space even if 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1026,9 +1026,9 @@ The **`kerning`** attribute indicates whether the spacing between {{Glossary("gl
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1047,9 +1047,9 @@ If the attribute value has a unit identifier, such as `.25em` or `1%`, then the 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1062,9 +1062,9 @@ The **`lighting-color`** attribute defines the color of the light source for lig
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1081,9 +1081,9 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1100,9 +1100,9 @@ The marker is rendered on every vertex other than the first and last vertices of
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1119,9 +1119,9 @@ For all shape elements, except polyline and path, the last vertex is the same as
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1136,9 +1136,9 @@ The **`mask`** attribute is a presentation attribute mainly used to bind a given
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1153,9 +1153,9 @@ The **`opacity`** attribute specifies the transparency of an object or of a grou
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1179,9 +1179,9 @@ This attribute has the same parameter values and meaning as the {{cssxref("overf
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1196,9 +1196,9 @@ The **`pointer-events`** attribute is a presentation attribute that allows defin
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1213,9 +1213,9 @@ The **`shape-rendering`** attribute provides hints to the renderer about what tr
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1232,9 +1232,9 @@ The **`stop-color`** attribute indicates what color to use at a gradient stop.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1251,9 +1251,9 @@ The opacity value used for the gradient calculation is the product of the value 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1268,9 +1268,9 @@ The **`stroke`** attribute is a presentation attribute defining the color (_or a
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1285,9 +1285,9 @@ The **`stroke-dasharray`** attribute is a presentation attribute defining the pa
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1302,9 +1302,9 @@ The **`stroke-dashoffset`** attribute is a presentation attribute defining an of
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1319,9 +1319,9 @@ The **`stroke-linecap`** attribute is a presentation attribute defining the shap
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1336,9 +1336,9 @@ The **`stroke-linejoin`** attribute is a presentation attribute defining the sha
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1353,9 +1353,9 @@ The **`stroke-miterlimit`** attribute is a presentation attribute defining a lim
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1370,9 +1370,9 @@ The **`stroke-opacity`** attribute is a presentation attribute defining the opac
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1385,9 +1385,9 @@ The **`stroke-width`** attribute is a presentation attribute defining the width 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1406,9 +1406,9 @@ The `text-anchor` attribute is applied to each individual text chunk within a gi
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1427,9 +1427,9 @@ The paint order of the text decoration, i.e. the fill and stroke, is determined 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1444,9 +1444,9 @@ The **`text-rendering`** attribute provides hints to the renderer about what tra
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1463,9 +1463,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1474,9 +1474,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1491,9 +1491,9 @@ The **`unicode-bidi`** attribute specifies how the accumulation of the backgroun
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1508,9 +1508,9 @@ The **`vector-effect`** property specifies the vector effect to use when drawing
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1529,9 +1529,9 @@ Depending on the value of attribute pointer-events, graphics elements which have
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1550,9 +1550,9 @@ If a \<length> is provided with one of the unit identifiers (e.g. .25em or 1%), 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1567,9 +1567,9 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -1591,5 +1591,5 @@ The **`writing-mode`** attribute specifies whether the initial inline-progressio
 
 ### Syntax
 ```PowerShell
-SVG.feConvolveMatrix [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <Object>] [-In <Object>] [-Order <Object>] [-KernelMatrix <Object>] [-Divisor <Object>] [-Bias <Object>] [-TargetX <Object>] [-TargetY <Object>] [-EdgeMode <Object>] [-KernelUnitLength <Object>] [-PreserveAlpha <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-AlignmentBaseline <Object>] [-BaselineShift <Object>] [-Clip <Object>] [-ClipPath <Object>] [-ClipRule <Object>] [-Color <Object>] [-ColorInterpolation <Object>] [-ColorInterpolationFilters <Object>] [-ColorProfile <Object>] [-Cursor <Object>] [-Direction <Object>] [-Display <Object>] [-DominantBaseline <Object>] [-EnableBackground <Object>] [-Fill <Object>] [-FillOpacity <Object>] [-FillRule <Object>] [-Filter <Object>] [-FloodColor <Object>] [-FloodOpacity <Object>] [-FontFamily <Object>] [-FontSize <Object>] [-FontSizeAdjust <Object>] [-FontStretch <Object>] [-FontStyle <Object>] [-FontVariant <Object>] [-FontWeight <Object>] [-GlyphOrientationHorizontal <Object>] [-GlyphOrientationVertical <Object>] [-ImageRendering <Object>] [-Kerning <Object>] [-LetterSpacing <Object>] [-LightingColor <Object>] [-MarkerEnd <Object>] [-MarkerMid <Object>] [-MarkerStart <Object>] [-Mask <Object>] [-Opacity <Object>] [-Overflow <Object>] [-PointerEvents <Object>] [-ShapeRendering <Object>] [-StopColor <Object>] [-StopOpacity <Object>] [-Stroke <Object>] [-StrokeDasharray <Object>] [-StrokeDashoffset <Object>] [-StrokeLinecap <Object>] [-StrokeLinejoin <Object>] [-StrokeMiterlimit <Object>] [-StrokeOpacity <Object>] [-StrokeWidth <Object>] [-TextAnchor <Object>] [-TextDecoration <Object>] [-TextRendering <Object>] [-Transform <Object>] [-TransformOrigin <Object>] [-UnicodeBidi <Object>] [-VectorEffect <Object>] [-Visibility <Object>] [-WordSpacing <Object>] [-WritingMode <Object>] [<CommonParameters>]
+SVG.feConvolveMatrix [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <PSObject>] [-In <PSObject>] [-Order <PSObject>] [-KernelMatrix <PSObject>] [-Divisor <PSObject>] [-Bias <PSObject>] [-TargetX <PSObject>] [-TargetY <PSObject>] [-EdgeMode <PSObject>] [-KernelUnitLength <PSObject>] [-PreserveAlpha <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-AlignmentBaseline <PSObject>] [-BaselineShift <PSObject>] [-Clip <PSObject>] [-ClipPath <PSObject>] [-ClipRule <PSObject>] [-Color <PSObject>] [-ColorInterpolation <PSObject>] [-ColorInterpolationFilters <PSObject>] [-ColorProfile <PSObject>] [-Cursor <PSObject>] [-Direction <PSObject>] [-Display <PSObject>] [-DominantBaseline <PSObject>] [-EnableBackground <PSObject>] [-Fill <PSObject>] [-FillOpacity <PSObject>] [-FillRule <PSObject>] [-Filter <PSObject>] [-FloodColor <PSObject>] [-FloodOpacity <PSObject>] [-FontFamily <PSObject>] [-FontSize <PSObject>] [-FontSizeAdjust <PSObject>] [-FontStretch <PSObject>] [-FontStyle <PSObject>] [-FontVariant <PSObject>] [-FontWeight <PSObject>] [-GlyphOrientationHorizontal <PSObject>] [-GlyphOrientationVertical <PSObject>] [-ImageRendering <PSObject>] [-Kerning <PSObject>] [-LetterSpacing <PSObject>] [-LightingColor <PSObject>] [-MarkerEnd <PSObject>] [-MarkerMid <PSObject>] [-MarkerStart <PSObject>] [-Mask <PSObject>] [-Opacity <PSObject>] [-Overflow <PSObject>] [-PointerEvents <PSObject>] [-ShapeRendering <PSObject>] [-StopColor <PSObject>] [-StopOpacity <PSObject>] [-Stroke <PSObject>] [-StrokeDasharray <PSObject>] [-StrokeDashoffset <PSObject>] [-StrokeLinecap <PSObject>] [-StrokeLinejoin <PSObject>] [-StrokeMiterlimit <PSObject>] [-StrokeOpacity <PSObject>] [-StrokeWidth <PSObject>] [-TextAnchor <PSObject>] [-TextDecoration <PSObject>] [-TextRendering <PSObject>] [-Transform <PSObject>] [-TransformOrigin <PSObject>] [-UnicodeBidi <PSObject>] [-VectorEffect <PSObject>] [-Visibility <PSObject>] [-WordSpacing <PSObject>] [-WritingMode <PSObject>] [<CommonParameters>]
 ```
