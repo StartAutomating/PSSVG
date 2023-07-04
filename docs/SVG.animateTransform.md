@@ -113,6 +113,65 @@ svg -ViewBox 0, 0, 100, 100 -Content @(
 
 #### EXAMPLE 5
 ```PowerShell
+param(
+# The number of repetitions
+[int]$RepeatCount = 80,
+# The Center X coordinate of the shape
+[float]$CenterX  = 100,
+# The Center Y coordinate of the shape
+[float]$CenterY  = 100,
+# The radius coordinate of the shape.  This will decrease by 1/RepeatCount each time.
+[float]$Radius   = 100,
+# The number of sides
+$SideCount  = 3,
+# The total rotation of the innermost element,
+$TotalRotation  = 180,
+# The total duration of any animations.
+[timespan]$duration = '00:00:03.75',
+# A palette of colors to alternate thru
+[string[]]$colors = @('#112244','#224488',"#4488ff"),
+# The type of the shape. (either Star or ConvexPolygon)
+[ValidateSet("Star", "ConvexPolygon")]
+[string]
+$ShapeType = 'ConvexPolygon',
+```
+# If set, will animate opacity between a low and high point, depending on the radius.
+[switch]
+$AnimateOpacity
+)
+
+$Splat = [Ordered]@{
+    SideCount = $SideCount
+    Fill = 'transparent'
+    CenterX = $CenterX
+    CenterY = $CenterY
+}
+
+$shapeCommand = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$ShapeType", "Function")
+SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
+    SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
+
+    0..($RepeatCount -1) |
+        . $shapeCommand @Splat -Rotate {
+                $_ * ($totalRotation / $RepeatCount)
+        } -Radius {
+            $Radius - (
+                $_ * ($Radius / $RepeatCount)
+            )
+        } -Stroke {
+            $colors[$_ % $colors.Length]
+        } -Children {
+            $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
+            SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
+            $lowOpacity = [double]($_)/$RepeatCount
+            $highOpacity = 1.0 - [double]($_)/$RepeatCount
+            if ($AnimateOpacity) {
+                SVG.animate -AttributeName opacity -Values "$highOpacity;$lowOpacity;$highOpacity" -Dur $dur -RepeatCount 'indefinite'
+            }
+        }
+)
+#### EXAMPLE 6
+```PowerShell
 [Timespan]$RotateEvery = '00:00:10'
 ```
 @(foreach ($n in 15, 636, 741, 901) {
@@ -129,13 +188,6 @@ svg -ViewBox 0, 0, 100, 100 -Content @(
             }
         )
     ) -ViewBox 0,0,500,500
-#### EXAMPLE 6
-```PowerShell
-foreach ($n in 5..12) {
-```
-svg -ViewBox 2,2 @(
-    svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-)
 #### EXAMPLE 7
 ```PowerShell
 foreach ($n in 5..12) {
@@ -173,6 +225,13 @@ svg -ViewBox 2,2 @(
 )
 #### EXAMPLE 12
 ```PowerShell
+foreach ($n in 5..12) {
+```
+svg -ViewBox 2,2 @(
+    svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
+)
+#### EXAMPLE 13
+```PowerShell
 $Radius = 35
 $Center = 50
 $RotateEvery = [Timespan]::FromSeconds(1.5)
@@ -184,6 +243,258 @@ svg -ViewBox 0,0, ($center * 2), ($center * 2) @(
 )
 ```
 
+#### EXAMPLE 14
+```PowerShell
+SVG -ViewBox 1.986,1 -Content @(
+    $g = (1.986 * .4) / 12
+    $e = (7/13)/10
+```
+SVG.defs @(
+        SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+    )
+
+    SVG.title "American Flag"
+
+    SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+
+    1..13 |
+        SVG.rect -Id {"bar$_"} -Fill {
+            @("#FFFFFF", "#B22234")[$_ % 2]
+        } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+
+
+    SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+
+    # Five rows of 6 stars
+    1..30 |
+        SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                $g + ($g * 2 * ((($_ -1) % 6)))
+            ) $(
+                $e + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                )
+            ))"
+        }
+
+    # Then interleaved with 4 rows of 5 stars
+    1..20 |
+        SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+            # SVG.animateTransform -Type 'translate' -From $($g/2) -To $($g/2) -RepeatCount 'indefinite' -Dur 1s -AttributeName transform
+            # SVG.animateTransform -Type 'scale' -Values '.75;1.25;.75' -RepeatCount 'indefinite' -Dur ((60/128) * 2)s  -AttributeName transform -Additive 'sum'
+        ) -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+            ) $(
+                ($e * 2) + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                )
+            ))"
+        }
+
+)
+#### EXAMPLE 15
+```PowerShell
+SVG -ViewBox 1.986,1 -Content @(
+    $g = (1.986 * .4) / 12
+    $e = (7/13)/10
+```
+SVG.defs @(
+        SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+    )
+
+    SVG.title "American Flag"
+
+    SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+
+    1..13 |
+        SVG.rect -Id {"bar$_"} -Fill {
+            @("#FFFFFF", "#B22234")[$_ % 2]
+        } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+
+
+    SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+
+    # Five rows of 6 stars
+    1..30 |
+        SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                $g + ($g * 2 * ((($_ -1) % 6)))
+            ) $(
+                $e + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                )
+            ))"
+        }
+
+    # Then interleaved with 4 rows of 5 stars
+    1..20 |
+        SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+            # SVG.animateTransform -Type 'translate' -From $($g/2) -To $($g/2) -RepeatCount 'indefinite' -Dur 1s -AttributeName transform
+            # SVG.animateTransform -Type 'scale' -Values '.75;1.25;.75' -RepeatCount 'indefinite' -Dur ((60/128) * 2)s  -AttributeName transform -Additive 'sum'
+        ) -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+            ) $(
+                ($e * 2) + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                )
+            ))"
+        }
+
+)
+#### EXAMPLE 16
+```PowerShell
+param(
+# The smaller Star Size (as a ratio)
+[Alias('SmallerStarSize')]
+[double]
+$StarSizeSmall = .9,
+# The larger Star Size (as a ratio)
+[Alias('StarSizeBig','LargerStarSize')]
+[double]
+$StarSizeLarge = 1.1,
+# The duration of the animation, in seconds.
+# By default, two beats at 128 beats per minute.
+[Alias('Interval')]
+[double]
+$Duration = $((60/128) * 2)
+)
+```
+SVG -ViewBox 1.986,1 -Content @(
+    $g = (1.986 * .4) / 12
+    $e = (7/13)/10
+
+    SVG.defs @(
+        SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+    )
+
+    SVG.title "American Flag"
+
+    SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+
+    1..13 |
+        SVG.rect -Id {"bar$_"} -Fill {
+            @("#FFFFFF", "#B22234")[$_ % 2]
+        } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+
+
+    SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+
+
+    # Five rows of 6 stars
+    1..30 |
+        SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                $g + ($g * 2 * ((($_ -1) % 6)))
+            ) $(
+                $e + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                )
+            ))"
+        } -Children @(
+            SVG.animateTransform -Type 'scale' -Values "$StarSizeLarge;$StarSizeSmall;$StarSizeLarge" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+        )
+
+    # Then interleaved with 4 rows of 5 stars
+    1..20 |
+        SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+            SVG.animateTransform -Type 'scale' -Values "$StarSizeSmall;$StarSizeLarge;$StarSizeSmall" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+        ) -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+            ) $(
+                ($e * 2) + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                )
+            ))"
+        }
+
+)
+#### EXAMPLE 17
+```PowerShell
+param(
+# The smaller Star Size (as a ratio)
+[Alias('SmallerStarSize')]
+[double]
+$StarSizeSmall = .9,
+# The larger Star Size (as a ratio)
+[Alias('StarSizeBig','LargerStarSize')]
+[double]
+$StarSizeLarge = 1.1,
+# The duration of the animation, in seconds.
+# By default, two beats at 128 beats per minute.
+[Alias('Interval')]
+[double]
+$Duration = $((60/128) * 2)
+)
+```
+SVG -ViewBox 1.986,1 -Content @(
+    $g = (1.986 * .4) / 12
+    $e = (7/13)/10
+
+    SVG.defs @(
+        SVG.Star -PointCount 5 -Radius (1/13 * .4) -Fill white -CenterX 0 -CenterY 0 -Rotate 180 -Id Star -Comment "Each Star has a radius of 2/5ths a Bar."
+    )
+
+    SVG.title "American Flag"
+
+    SVG.rect -Width 200% -Height 200% -x -50% -y -50% -Fill black
+
+    1..13 |
+        SVG.rect -Id {"bar$_"} -Fill {
+            @("#FFFFFF", "#B22234")[$_ % 2]
+        } -Width 100% -Height "$((1/13) * 100)%" -Y { "$((($_ -1)/13 * 100))%" } -Comment "Each Bar is 1/13th the height"
+
+
+    SVG.rect -Fill "#3C3B6E" -Width 40% -Height "$((7/13 * 100))%" -X 0% -Y 0% -Id 'canton' -Comment "The Canton is 40% of the width and 7/13ths of the height"
+
+
+    # Five rows of 6 stars
+    1..30 |
+        SVG.use -Id { "star$($_)" } -Href "#Star" -Comment "Five Rows of Six Stars" -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                $g + ($g * 2 * ((($_ -1) % 6)))
+            ) $(
+                $e + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 6)))
+                )
+            ))"
+        } -Children @(
+            SVG.animateTransform -Type 'scale' -Values "$StarSizeLarge;$StarSizeSmall;$StarSizeLarge" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+        )
+
+    # Then interleaved with 4 rows of 5 stars
+    1..20 |
+        SVG.use -Id { "star$($_ + 30)" } -Href "#Star" -Width ($g/2) -Comment "Four Rows of Five Stars" -Children @(
+            SVG.animateTransform -Type 'scale' -Values "$StarSizeSmall;$StarSizeLarge;$StarSizeSmall" -RepeatCount 'indefinite' -Dur $Duration  -AttributeName transform -Additive 'sum'
+        ) -Transform {
+            $g = (1.986 * .4) / 12
+            $e = (7/13)/10
+            "translate($(
+                ($g * 2) + ($g * 2 * ((($_ -1) % 5)))
+            ) $(
+                ($e * 2) + (
+                    $e * 2 * (([Math]::Floor(($_ - 1)/ 5)))
+                )
+            ))"
+        }
+
+)
 
 
 ---
@@ -276,9 +587,9 @@ One or more child elements.  These will be treated as if they were content.
 
 
 
-|Type      |Required|Position|PipelineInput        |Aliases|
-|----------|--------|--------|---------------------|-------|
-|`[Object]`|false   |named   |true (ByPropertyName)|Child  |
+|Type        |Required|Position|PipelineInput        |Aliases|
+|------------|--------|--------|---------------------|-------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|Child  |
 
 
 
@@ -293,9 +604,9 @@ The starting value for the attribute is either indicated by specifying it as val
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -310,9 +621,9 @@ When used with the to attribute, the animation will change the modified attribut
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -327,9 +638,9 @@ The value of the attribute will change between the from attribute value and this
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -338,9 +649,9 @@ The value of the attribute will change between the from attribute value and this
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -357,9 +668,9 @@ If the attribute is not present, then its implicit evaluated value is `true`. If
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -372,9 +683,9 @@ The **`systemLanguage`** attribute represents a list of supported language tags.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -389,9 +700,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -410,9 +721,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -427,9 +738,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -444,9 +755,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -465,9 +776,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -486,9 +797,9 @@ You can use this attribute with any SVG element.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -503,9 +814,9 @@ The **`xlink:href`** attribute defines a reference to a resource as a reference 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -518,9 +829,9 @@ The **`xlink:type`** attribute identifies the type of XLink being used. In SVG, 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -535,9 +846,9 @@ This contextual role can differ from the meaning of the resource when taken outs
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -554,9 +865,9 @@ The use of this information is highly dependent on the type of processing being 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -569,9 +880,9 @@ The **`xlink:show`** attribute indicates how a linked resource should be opened 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -584,9 +895,9 @@ The **`attributeType`** attribute specifies the namespace in which the target at
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -599,9 +910,9 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -609,16 +920,16 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 The **`begin`** attribute defines when an animation should begin.
 
-The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#timing-evaluationofbeginendtimelists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 
 
 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -631,9 +942,9 @@ The **`dur`** attribute indicates the simple duration of an animation.
 
 
 
-|Type      |Required|Position|PipelineInput        |Aliases |
-|----------|--------|--------|---------------------|--------|
-|`[Object]`|false   |named   |true (ByPropertyName)|Duration|
+|Type        |Required|Position|PipelineInput        |Aliases |
+|------------|--------|--------|---------------------|--------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|Duration|
 
 
 
@@ -646,9 +957,9 @@ The **`end`** attribute defines an end value for the animation that can constrai
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -661,9 +972,9 @@ The **`min`** attribute specifies the minimum value of the active animation dura
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -676,9 +987,9 @@ The **`max`** attribute specifies the maximum value of the active animation dura
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -691,9 +1002,9 @@ The **`restart`** attribute specifies whether or not an animation can restart.
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -706,9 +1017,9 @@ The **`repeatCount`** attribute indicates the number of times an animation will 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -721,9 +1032,9 @@ The **`repeatDur`** attribute specifies the total duration for repeating an anim
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -736,9 +1047,9 @@ The **`fill`** attribute has two different meanings. For shapes and text it's a 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -753,9 +1064,9 @@ The default mode is `linear`, however if the attribute does not support linear i
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -768,9 +1079,9 @@ The `values` attribute has different meanings, depending upon the context where 
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -785,9 +1096,9 @@ Each time in the list corresponds to a value in the values attribute list, and d
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -804,9 +1115,9 @@ If there are any errors in the keySplines specification (bad values, too many or
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -821,9 +1132,9 @@ It is frequently useful to define animation as an offset or delta to an attribut
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -838,9 +1149,9 @@ It is frequently useful for repeated animations to build upon the previous resul
 
 
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 
 
@@ -862,5 +1173,5 @@ It is frequently useful for repeated animations to build upon the previous resul
 
 ### Syntax
 ```PowerShell
-SVG.animateTransform [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <Object>] [-By <Object>] [-From <Object>] [-To <Object>] [-Type <Object>] [-RequiredFeatures <Object>] [-SystemLanguage <Object>] [-Id <Object>] [-Lang <Object>] [-Tabindex <Object>] [-XmlBase <Object>] [-XmlLang <Object>] [-XmlSpace <Object>] [-XlinkHref <Object>] [-XlinkType <Object>] [-XlinkArcrole <Object>] [-XlinkTitle <Object>] [-XlinkShow <Object>] [-AttributeType <Object>] [-AttributeName <Object>] [-Begin <Object>] [-Dur <Object>] [-End <Object>] [-Min <Object>] [-Max <Object>] [-Restart <Object>] [-RepeatCount <Object>] [-RepeatDur <Object>] [-Fill <Object>] [-CalcMode <Object>] [-Values <Object>] [-KeyTimes <Object>] [-KeySplines <Object>] [-Additive <Object>] [-Accumulate <Object>] [<CommonParameters>]
+SVG.animateTransform [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <PSObject>] [-By <PSObject>] [-From <PSObject>] [-To <PSObject>] [-Type <PSObject>] [-RequiredFeatures <PSObject>] [-SystemLanguage <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-XlinkHref <PSObject>] [-XlinkType <PSObject>] [-XlinkArcrole <PSObject>] [-XlinkTitle <PSObject>] [-XlinkShow <PSObject>] [-AttributeType <PSObject>] [-AttributeName <PSObject>] [-Begin <PSObject>] [-Dur <PSObject>] [-End <PSObject>] [-Min <PSObject>] [-Max <PSObject>] [-Restart <PSObject>] [-RepeatCount <PSObject>] [-RepeatDur <PSObject>] [-Fill <PSObject>] [-CalcMode <PSObject>] [-Values <PSObject>] [-KeyTimes <PSObject>] [-KeySplines <PSObject>] [-Additive <PSObject>] [-Accumulate <PSObject>] [<CommonParameters>]
 ```
