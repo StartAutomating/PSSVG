@@ -771,7 +771,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             if ($knownParameterAliases[$paramName]) {
                 "[Alias('$($knownParameterAliases[$paramName] -replace "'", "''" -join "','")')]"
             }
-            
+            "[PSObject]"
             "`$$paramName"
         )
     }
