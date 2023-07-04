@@ -42,12 +42,14 @@ $Comment,
 # One or more child elements.  These will be treated as if they were content.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
+[Management.Automation.PSObject]
 $Children,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','viewBox')]
 [Reflection.AssemblyMetaData('SVG.Value', '<number>?, <number>?, <number>?, <number>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $ViewBox,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -55,6 +57,7 @@ $ViewBox,
 [Reflection.AssemblyMetaData('SVG.Value', '<align> <meetOrSlice>?')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'xMidYMidmeet')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $PreserveAspectRatio,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -72,12 +75,14 @@ $PreserveAspectRatio,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'magnify')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $ZoomAndPan,
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','viewTarget')]
 [Reflection.AssemblyMetaData('SVG.Value', '<xml-name>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $ViewTarget,
 # The **`id`** attribute assigns a unique name to an element.
 # 
@@ -86,6 +91,7 @@ $ViewTarget,
 [Reflection.AssemblyMetaData('SVG.AttributeName','id')]
 [Reflection.AssemblyMetaData('SVG.Value', '<id>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Id,
 # The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -98,6 +104,7 @@ $Id,
 [Reflection.AssemblyMetaData('SVG.AttributeName','lang')]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Lang,
 # The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
 # 
@@ -106,6 +113,7 @@ $Lang,
 [Reflection.AssemblyMetaData('SVG.AttributeName','tabindex')]
 [Reflection.AssemblyMetaData('SVG.Value', 'valid integer')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Tabindex,
 # The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
 # 
@@ -115,6 +123,7 @@ $Tabindex,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlBase,
 # The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -128,6 +137,7 @@ $XmlBase,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
@@ -152,6 +162,7 @@ $XmlLang,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlSpace
 )
 process {
