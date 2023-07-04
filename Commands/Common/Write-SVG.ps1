@@ -277,7 +277,7 @@
 
         # If we have not provided a comment and the element is SVG
         if ((-not $myParams.Comment) -and ($ElementName -eq 'svg')) {
-            $Comment = "<!-- Generated with PSSVG $((Get-Module PSSVG).Version) -->"
+            $Comment = "Generated with PSSVG $((Get-Module PSSVG).Version)"
         }
 
         if ($elementXml -and $Comment) {
