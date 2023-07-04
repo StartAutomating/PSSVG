@@ -84,11 +84,15 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
-# # A comment that will appear before the element.
+# A comment that will appear before the element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Comments')]
 [String]
 $Comment,
+# One or more child elements.  These will be treated as if they were content.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Child')]
+$Children,
 # This attribute defines the coordinate system for attributes `x1`, `x2`, `y1`, `y2`
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','gradientUnits')]
