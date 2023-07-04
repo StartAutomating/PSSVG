@@ -44,6 +44,7 @@ $Comment,
 # One or more child elements.  These will be treated as if they were content.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
+[Management.Automation.PSObject]
 $Children,
 # This attribute defines type of the style sheet language to use as a media type string.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -52,6 +53,7 @@ $Children,
 [Reflection.AssemblyMetaData('SVG.Value', '<content-type>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition) : scriptSVG 1.1 (2nd Edition) : style')]
+[PSObject]
 $Type,
 # This attribute defines to which {{cssxref('@media', 'media')}} the style applies.
 [Parameter(ValueFromPipelineByPropertyName)]
@@ -59,10 +61,12 @@ $Type,
 [Reflection.AssemblyMetaData('SVG.Value', '<media-query-list>')]
 [Reflection.AssemblyMetaData('SVG.Default value', 'all')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[PSObject]
 $Media,
 # This attribute the title of the style sheet which can be used to switch between [alternate style sheets](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','title')]
+[PSObject]
 $Title,
 # The **`id`** attribute assigns a unique name to an element.
 # 
@@ -71,6 +75,7 @@ $Title,
 [Reflection.AssemblyMetaData('SVG.AttributeName','id')]
 [Reflection.AssemblyMetaData('SVG.Value', '<id>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Id,
 # The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -83,6 +88,7 @@ $Id,
 [Reflection.AssemblyMetaData('SVG.AttributeName','lang')]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Lang,
 # The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
 # 
@@ -91,6 +97,7 @@ $Lang,
 [Reflection.AssemblyMetaData('SVG.AttributeName','tabindex')]
 [Reflection.AssemblyMetaData('SVG.Value', 'valid integer')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Tabindex,
 # The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
 # 
@@ -100,6 +107,7 @@ $Tabindex,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlBase,
 # The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
 # 
@@ -113,6 +121,7 @@ $XmlBase,
 [Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
 [Reflection.AssemblyMetaData('SVG.Value', '<language-tag>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlLang,
 # SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
 # 
@@ -137,6 +146,7 @@ $XmlLang,
 })]
 [Reflection.AssemblyMetaData('SVG.Default value', 'default')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $XmlSpace,
 # « [SVG Attribute reference home](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute)
 # 
@@ -154,6 +164,7 @@ $XmlSpace,
 [Reflection.AssemblyMetaData('SVG.Value', '<list-of-class-names>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition): The class attribute')]
+[PSObject]
 $Class,
 # The **`style`** attribute allows to style an element using CSS declarations. It functions identically to [the `style` attribute in HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/style).
 # 
@@ -162,6 +173,7 @@ $Class,
 [Reflection.AssemblyMetaData('SVG.AttributeName','style')]
 [Reflection.AssemblyMetaData('SVG.Value', '<style>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[PSObject]
 $Style
 )
 process {
