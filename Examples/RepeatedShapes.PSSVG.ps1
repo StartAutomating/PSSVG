@@ -1,3 +1,5 @@
+#requires -Module PSSVG
+
 <#
 .SYNOPSIS
     Generates Repeated Convex Polygons and Stars
@@ -43,7 +45,7 @@ SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
     SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
 
     0..($RepeatCount -1) |
-        & $shapeCommand @Splat -Rotate {
+        . $shapeCommand @Splat -Rotate {
                 $_ * ($totalRotation / $RepeatCount)
         } -Radius {
             $Radius - (
@@ -60,6 +62,6 @@ SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
                 SVG.animate -AttributeName opacity -Values "$highOpacity;$lowOpacity;$highOpacity" -Dur $dur -RepeatCount 'indefinite'
             }
         }    
-) -OutputPath (Join-Path $PSScriptRoot "PipingToPolygons-$SideCount.svg") 
+) -OutputPath (Join-Path $PSScriptRoot "RepeatedShapes-$SideCount.svg") 
 
 return
