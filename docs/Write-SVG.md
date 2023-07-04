@@ -83,6 +83,21 @@ If this content is XML, it will be added as a child element.
 
 
 
+#### **Children**
+
+One or more child elements.  These will be treated as if they were content.
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Object]`|false   |5       |true (ByPropertyName)|Child  |
+
+
+
 #### **Comment**
 
 A comment that will appear before the element.
@@ -94,7 +109,7 @@ A comment that will appear before the element.
 
 |Type      |Required|Position|PipelineInput        |Aliases |
 |----------|--------|--------|---------------------|--------|
-|`[String]`|false   |5       |true (ByPropertyName)|Comments|
+|`[String]`|false   |6       |true (ByPropertyName)|Comments|
 
 
 
@@ -111,7 +126,7 @@ Each value will be the handler.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[Object]`|false   |6       |true (ByPropertyName)|
+|`[Object]`|false   |7       |true (ByPropertyName)|
 
 
 
@@ -126,7 +141,7 @@ An output path.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[String]`|false   |7       |true (ByPropertyName)|
+|`[String]`|false   |8       |true (ByPropertyName)|
 
 
 
@@ -145,5 +160,5 @@ While this function can be used directly, it is designed to be the core function
 
 ### Syntax
 ```PowerShell
-Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Comment] <String>] [[-On] <Object>] [[-OutputPath] <String>] [<CommonParameters>]
+Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <Object>] [[-OutputPath] <String>] [<CommonParameters>]
 ```
