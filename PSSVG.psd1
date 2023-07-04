@@ -14,7 +14,35 @@
             ProjectURI = 'https://github.com/StartAutomating/PSSVG'
             LicenseURI = 'https://github.com/StartAutomating/PSSVG/blob/main/LICENSE'            
             ReleaseNotes = @'
-### 0.2.8:
+### PSSVG 0.2.9:
+
+* New Examples:
+  * US-Flag / US-FlagAnimated (#118) (Happy 4th!)
+* PSSVG Can Now Be Sponsored (#119) (please show your support)
+* Improved Pipeline Friendliness
+  * Commands support ValueFromPipelineByPropertyName (#124)
+  * Added -Comment (#112), -Children (#116) to all commands.
+* New Shapes!
+  * SVG.Kite (Fixes #111)
+  * SVG.Rhombus (Fixes #110)
+* Shape Updates
+  * SVG.ConvexPolygons are now closed (#106)  
+* Build Fixes
+  * Filtering Examples More Effectively (#123)
+  * Skipping parameter validation when there are unknowns (#107)
+* ConvertTo-PSSVG:
+  * Improving Fault Tolerance (#102)
+  * Not Using Tag Form (#117)
+* Write-SVG
+  * Added -Comment (#112), -Children (#116)
+  * -ViewBox Improvements (#105)
+  * Empty Element Improvement (#113)
+  * Not rendering integer content (#112)
+  * Leaving a note (#99)
+
+---
+
+### PSSVG 0.2.8:
 
 * General Improvements:
   * General Event support on every command with -On (Fixes #91)
@@ -38,7 +66,7 @@
 
 ---
 
-### 0.2.7:
+### PSSVG 0.2.7:
 * Adding SVG.Star (Fixes #68)
 * Fixing OutputPath issue (Fixes #67)
 * Renaming SVG.RegularPolygon to SVG.ConvexPolygon (Fixes #70)
@@ -46,33 +74,33 @@
 
 ---
 
-### 0.2.6:
+### PSSVG 0.2.6:
 * Adding SVG.RegularPolygon (Fixes #65)
 
 ---
 
-### 0.2.5:
+### PSSVG 0.2.5:
 * ConvertTo-PSSVG improvements:
   * Better at handling malformed XML (#59)
   * Better at handling file input (#60, #61)
 
 ---
 
-### 0.2.4:
+### PSSVG 0.2.4:
 * Adding ConvertTo-PSSVG (Fixes #53)
 * Updated Logo to use PowerShell Chevron (Fixes #52)
 * Using [GitPub](https://github.com/StartAutomating/GitPub) to generate blog (Fixes #51)
 
 ---
 
-### 0.2.3:
+### PSSVG 0.2.3:
 * Adding SVG.Triangle (#47)
 * Updating SVG.DropShadow (#48)
 * Adding PowerShell Chevron Example (#49)
 
 ---
 
-### 0.2.2:
+### PSSVG 0.2.2:
 * More Examples:  
   * Blur (#39)
   * BPMAnimate/Morph (#40)
@@ -92,7 +120,7 @@
 
 ---
 
-### 0.2.1
+### PSSVG 0.2.1
 * Improved Command Help
   * Adding More Examples (Fixes #21)
   * Adding Example/README.md (Fixes #26)
@@ -102,7 +130,7 @@
 
 ---           
 
-### 0.2
+### PSSVG 0.2
 * All SVG. commands now support -Data attributes (Fixes #12)
 * Improved Command Help
   * Linking to docs and MDN (Get-Help SVG.a -Online) (Fixes #15)
@@ -111,7 +139,7 @@
 
 ---
 
-### 0.1
+### PSSVG 0.1
 * Initial Release of PSSVG, including:
   * A command for every SVG element (fixes #1)
   * Lots of examples (fixes #2)
