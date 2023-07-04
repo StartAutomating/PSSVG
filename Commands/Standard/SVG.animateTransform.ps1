@@ -163,11 +163,15 @@ $On,
 [Alias('SVGAttributes','SVGAttribute')]
 [Collections.IDictionary]
 $Attribute = [Ordered]@{},
-# # A comment that will appear before the element.
+# A comment that will appear before the element.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Comments')]
 [String]
 $Comment,
+# One or more child elements.  These will be treated as if they were content.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('Child')]
+$Children,
 # The **`by`** attribute specifies a relative offset value for an attribute that will be modified during an animation.
 # 
 # The starting value for the attribute is either indicated by specifying it as value for the attribute given in the attributeName or the from attribute.
