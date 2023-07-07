@@ -2,8 +2,11 @@
 Import-BuildStep -ModuleName PSSVG
 New-GitHubWorkflow -Name "Analyze, Test, Tag, and Publish" -On Push, PullRequest, Demand -Job PowerShellStaticAnalysis, TestPowerShellOnLinux, TagReleaseAndPublish, MakePSSVG -Environment @{
     NoCoverage = $true
-}|
-    Set-Content (Join-Path $PSScriptRoot .github\workflows\TestAndPublish.yml) -Encoding UTF8 -PassThru
+    GIT_TOKEN = '${{secrets.GITHUB_TOKEN}}'
+} -OutputPath (
+    Join-Path $PSScriptRoot .github\workflows\TestAndPublish.yml
+)
 
-New-GitHubWorkflow -On Issue, Demand -Job RunGitPub -Name OnIssueChanged |
-    Set-Content (Join-Path $PSScriptRoot .github\workflows\OnIssue.yml) -Encoding UTF8 -PassThru
+New-GitHubWorkflow -On Demand -Job RunGitPub -Name GitPub -OutputPath (
+    Join-Path $PSScriptRoot .github\workflows\GitPub.yml
+)

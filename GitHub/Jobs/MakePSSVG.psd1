@@ -5,13 +5,23 @@
         @{
             name = 'Check out repository'
             uses = 'actions/checkout@v2'
-        }, 
-        @{    
-            name = 'Use PSSVG Action'
-            uses = 'StartAutomating/PSSVG@main'
-            id = 'PSSVG'
         },
-        'RunPipeScript',
+        @{    
+            name = 'PipeScript'
+            uses = 'StartAutomating/PipeScript@main'
+            id = 'PipeScript'
+        },@{
+            name = 'Use PSSVG (from main)'
+            if   = '${{github.ref_name == ''main''}}'
+            uses = 'StartAutomating/PSSVG@main'
+            id = 'PSSVGMain'
+        },
+        @{
+            name = 'Use PSSVG (on branch)'
+            if   = '${{github.ref_name != ''main''}}'
+            uses = './'
+            id = 'PSSVGBranch'
+        },        
         'RunEZOut',       
         'RunHelpOut'
     )
