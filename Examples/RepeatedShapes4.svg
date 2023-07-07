@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated with PSSVG 0.2.9 <https://github.com/StartAutomating/PSSVG> -->
+<svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <path stroke="#112244" fill="transparent" d="M 100 200 L 200 100 L 100 0 L 0 100 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 103.876906806208 198.673867328771 L 198.673867328771 96.1230931937919 L 96.123093193792 1.32613267122861 L 1.32613267122861 103.876906806208 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 107.649761833465 197.19944003898 L 197.19944003898 92.3502381665351 L 92.3502381665351 2.80055996102003 L 2.80055996102003 107.649761833465 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 111.312974505317 195.582838981912 L 195.582838981912 88.6870254946831 L 88.6870254946832 4.41716101808838 L 4.41716101808838 111.312974505317 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 114.861274178822 193.830392356538 L 193.830392356538 85.1387258211781 L 85.1387258211781 6.16960764346189 L 6.16960764346189 114.861274178822 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 118.289717689012 191.948620037803 L 191.948620037803 81.710282310988 L 81.710282310988 8.05137996219719 L 8.05137996219719 118.289717689012 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 121.593696156671 189.944217636785 L 189.944217636785 78.4063038433288 L 78.4063038433287 10.055782363215 L 10.0557823632149 121.593696156671 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 124.768941050188 187.824040326395 L 187.824040326395 75.231058949812 L 75.231058949812 12.1759596736047 L 12.1759596736047 124.768941050188 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 127.811529493745 185.595086466564 L 185.595086466564 72.1884705062548 L 72.1884705062547 14.4049135334361 L 14.4049135334361 127.811529493745 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 130.717888815628 183.26448106312 L 183.26448106312 69.2821111843725 L 69.2821111843725 16.7355189368795 L 16.7355189368795 130.717888815627 Z">
+    <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 133.484800331945 180.839459094738 L 180.839459094738 66.5151996680546 L 66.5151996680547 19.1605409052624 L 19.1605409052624 133.484800331945 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 136.109402362603 178.327348742413 L 178.327348742413 63.8905976373968 L 63.8905976373968 21.6726512575868 L 21.6726512575867 136.109402362603 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 138.589192477862 175.735554556011 L 175.735554556011 61.4108075221385 L 61.4108075221386 24.2644454439887 L 24.2644454439887 138.589192477862 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 140.92202897537 173.071540592347 L 173.071540592347 59.07797102463 L 59.07797102463 26.9284594076532 L 26.9284594076532 140.92202897537 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 143.106131589066 170.342813559213 L 170.342813559213 56.8938684109342 L 56.8938684109342 29.6571864407874 L 29.6571864407874 143.106131589066 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 145.140081432843 167.556905999582 L 167.556905999582 54.8599185671573 L 54.8599185671573 32.4430940004182 L 32.4430940004181 145.140081432843 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 147.022820183398 164.721359549996 L 164.721359549996 52.9771798166022 L 52.9771798166022 35.2786404500042 L 35.2786404500042 147.022820183398 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 148.753648508149 161.843708306859 L 161.843708306859 51.2463514918506 L 51.2463514918506 38.1562916931413 L 38.1562916931413 148.753648508149 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 150.332223745589 158.931462334002 L 158.931462334002 49.6677762544107 L 49.6677762544107 41.0685376659976 L 41.0685376659976 150.332223745589 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 151.758556846887 155.992091344471 L 155.992091344471 48.2414431531132 L 48.2414431531132 44.0079086555289 L 44.0079086555289 151.758556846887 Z">
+    <animateTransform from="0 100 100" to="720 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 153.033008588991 153.033008588991 L 153.033008588991 46.9669914110089 L 46.9669914110089 46.9669914110089 L 46.9669914110089 153.033008588991 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 154.156285070882 150.061554983054 L 150.061554983054 45.8437149291182 L 45.8437149291182 49.9384450169455 L 49.9384450169455 154.156285070882 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 155.129432506002 147.084983503938 L 147.084983503938 44.8705674939977 L 44.8705674939977 52.9150164960617 L 52.9150164960617 155.129432506002 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 155.953831325253 144.110443888326 L 144.110443888326 44.0461686747469 L 44.0461686747469 55.8895561116743 L 55.8895561116743 155.953831325253 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 156.631189606246 141.144967660473 L 141.144967660473 43.3688103937537 L 43.3688103937537 58.8550323395269 L 58.8550323395269 156.631189606246 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 157.1635358458 138.195453520098 L 138.195453520098 42.8364641542 L 42.8364641542 61.8045464799023 L 61.8045464799024 157.1635358458 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 157.553211093901 135.268653118327 L 135.268653118327 42.4467889060988 L 42.4467889060988 64.7313468816734 L 64.7313468816734 157.553211093901 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 157.802860468573 132.371157249173 L 132.371157249173 42.1971395314272 L 42.1971395314272 67.6288427508267 L 67.6288427508267 157.802860468573 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 157.915424072244 129.509382483071 L 129.509382483071 42.0845759277561 L 42.0845759277561 70.4906175169294 L 70.4906175169294 157.915424072244 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 157.894127331349 126.689558268011 L 126.689558268011 42.1058726686511 L 42.1058726686511 73.310441731989 L 73.310441731989 157.894127331349 Z">
+    <animateTransform from="0 100 100" to="1080 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 157.742470781955 123.917714522818 L 123.917714522818 42.2575292180446 L 42.2575292180446 76.0822854771819 L 76.0822854771819 157.742470781955 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 157.464219325252 121.199669745996 L 121.199669745996 42.5357806747479 L 42.5357806747479 78.8003302540036 L 78.8003302540036 157.464219325252 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 157.063390977709 118.541019662497 L 118.541019662497 42.9366090222908 L 42.9366090222908 81.4589803375031 L 81.4589803375031 157.063390977709 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 156.544245141652 115.947126429573 L 115.947126429573 43.4557548583482 L 43.4557548583482 84.0528735704269 L 84.0528735704269 156.544245141652 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 155.911270422866 113.423108421715 L 113.423108421715 44.0887295771336 L 44.0887295771336 86.5768915782855 L 86.5768915782854 155.911270422866 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 155.169172022682 110.973830613407 L 110.973830613407 44.8308279773183 L 44.8308279773183 89.0261693865927 L 89.0261693865927 155.169172022682 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 154.322858732733 108.603895577213 L 108.603895577213 45.6771412672674 L 45.6771412672674 91.3961044227873 L 91.3961044227873 154.322858732733 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 153.377429561327 106.317635113359 L 106.317635113359 46.6225704386727 L 46.6225704386727 93.6823648866412 L 93.6823648866412 153.377429561327 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 152.338160020989 104.119102525712 L 104.119102525712 47.6618399790108 L 47.6618399790108 95.8808974742881 L 95.8808974742881 152.338160020989 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 151.210488107337 102.012065557652 L 102.012065557652 48.7895118926629 L 48.7895118926629 97.9879344423477 L 97.9879344423477 151.210488107337 Z">
+    <animateTransform from="0 100 100" to="1440 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 150 100 L 100 50 L 50 100 L 100 150 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 148.712415516735 98.0860839817454 L 98.0860839817454 51.2875844832648 L 51.2875844832648 101.913916018255 L 101.913916018255 148.712415516735 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 147.353573352324 96.2731929529274 L 96.2731929529274 52.6464266476764 L 52.6464266476764 103.726807047073 L 103.726807047073 147.353573352324 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 145.929416134165 94.563895367575 L 94.563895367575 54.0705838658347 L 54.0705838658347 105.436104632425 L 105.436104632425 145.929416134165 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 144.445975326781 92.9604490731896 L 92.9604490731896 55.5540246732188 L 55.5540246732188 107.03955092681 L 107.03955092681 144.445975326781 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 142.909356017641 91.4647984117944 L 91.4647984117944 57.0906439823587 L 57.0906439823587 108.535201588206 L 108.535201588206 142.909356017641 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 141.325721616901 90.078572036124 L 90.078572036124 58.6742783830988 L 58.6742783830987 109.921427963876 L 109.921427963876 141.325721616901 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 139.701278503713 88.8030814430657 L 88.8030814430657 60.2987214962871 L 60.2987214962871 111.196918556934 L 111.196918556934 139.701278503713 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 138.042260651806 87.6393202250021 L 87.6393202250021 61.9577393481938 L 61.9577393481938 112.360679774998 L 112.360679774998 138.042260651806 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 136.354914266996 86.5879640382472 L 86.5879640382472 63.6450857330037 L 63.6450857330037 113.412035961753 L 113.412035961753 136.354914266996 Z">
+    <animateTransform from="0 100 100" to="1800 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 134.645482469173 85.6493712863091 L 85.6493712863092 65.3545175308267 L 65.3545175308267 114.350628713691 L 114.350628713691 134.645482469173 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 132.920190051159 84.8235845142682 L 84.8235845142682 67.0798099488408 L 67.0798099488408 115.176415485732 L 115.176415485732 132.920190051159 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 131.185228346593 84.1103325091158 L 84.1103325091159 68.8147716534071 L 68.8147716534071 115.889667490884 L 115.889667490884 131.185228346593 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 129.446740238707 83.5090330994778 L 83.5090330994778 70.5532597612931 L 70.5532597612931 116.490966900522 L 116.490966900522 129.446740238707 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 127.710805341508 83.0187966467317 L 83.0187966467317 72.289194658492 L 72.289194658492 116.981203353268 L 116.981203353268 127.710805341508 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 125.983425384455 82.6384302181374 L 82.6384302181374 74.0165746155455 L 74.0165746155454 117.361569781863 L 117.361569781863 125.983425384455 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 124.270509831248 82.3664424312258 L 82.3664424312258 75.7294901687516 L 75.7294901687516 117.633557568774 L 117.633557568774 124.270509831248 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 122.577861762821 82.2010489573423 L 82.2010489573423 77.4221382371786 L 77.4221382371786 117.798951042658 L 117.798951042658 122.577861762821 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 120.911164054001 82.1401786709199 L 82.1401786709199 79.0888359459992 L 79.0888359459992 117.85982132908 L 117.85982132908 120.911164054001 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 119.275965872687 82.1814804297603 L 82.1814804297603 80.7240341273132 L 80.7240341273132 117.81851957024 L 117.81851957024 119.275965872687 Z">
+    <animateTransform from="0 100 100" to="2160 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 117.677669529664 82.3223304703363 L 82.3223304703363 82.3223304703363 L 82.3223304703363 117.677669529664 L 117.677669529664 117.677669529664 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 116.121517706407 82.5598404009025 L 82.5598404009025 83.8784822935926 L 83.8784822935926 117.440159599098 L 117.440159599098 116.121517706407 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 114.612581087429 82.8908657739993 L 82.8908657739993 85.3874189125709 L 85.3874189125709 117.109134226001 L 117.109134226001 114.612581087429 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 113.155746422834 83.3120152187842 L 83.3120152187842 86.844253577166 L 86.844253577166 116.687984781216 L 116.687984781216 113.155746422834 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 111.755705045849 83.8196601125011 L 83.8196601125011 88.2442949541505 L 88.2442949541505 116.180339887499 L 116.180339887499 111.755705045849 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 110.416941869118 84.4099447693273 L 84.4099447693273 89.5830581308824 L 89.5830581308825 115.590055230673 L 115.590055230673 110.416941869118 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 109.143724882529 85.0787971238034 L 85.0787971238034 90.8562751174709 L 90.8562751174709 114.921202876197 L 114.921202876197 109.143724882529 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 107.940095174326 85.8219398850671 L 85.8219398850671 92.0599048256745 L 92.0599048256745 114.178060114933 L 114.178060114933 107.940095174326 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 106.809857496093 86.6349021371745 L 86.6349021371745 93.1901425039068 L 93.1901425039068 113.365097862826 L 113.365097862826 106.809857496093 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 105.75657139114 87.5130313599051 L 87.5130313599051 94.2434286088604 L 94.2434286088604 112.486968640095 L 112.486968640095 105.75657139114 Z">
+    <animateTransform from="0 100 100" to="2520 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 104.783542904564 88.4515058436089 L 88.4515058436089 95.2164570954364 L 95.2164570954364 111.548494156391 L 111.548494156391 104.783542904564 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 103.893816892122 89.4453474708721 L 89.4453474708721 96.1061831078782 L 96.1061831078782 110.554652529128 L 110.554652529128 103.893816892122 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 103.090169943749 90.4894348370485 L 90.4894348370485 96.9098300562505 L 96.9098300562505 109.510565162952 L 109.510565162952 103.090169943749 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 102.375103936319 91.5785166810306 L 91.5785166810306 97.6248960636806 L 97.6248960636806 108.421483318969 L 108.421483318969 102.375103936319 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 101.750840228919 92.7072255970174 L 92.7072255970174 98.2491597710807 L 98.2491597710807 107.292774402983 L 107.292774402983 101.750840228919 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 101.219314512601 93.8700919974798 L 93.8700919974798 98.7806854873992 L 98.7806854873992 106.12990800252 L 106.12990800252 101.219314512601 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 100.782172325201 95.0615582970243 L 95.0615582970243 99.2178276747988 L 99.2178276747988 104.938441702976 L 104.938441702976 100.782172325201 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#4488ff" fill="transparent" d="M 100.440765240467 96.275993286419 L 96.275993286419 99.5592347595331 L 99.5592347595331 103.724006713581 L 103.724006713581 100.440765240467 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#112244" fill="transparent" d="M 100.19614773932 97.5077066656672 L 97.5077066656672 99.8038522606804 L 99.8038522606804 102.492293334333 L 102.492293334333 100.19614773932 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+  <path stroke="#224488" fill="transparent" d="M 100.049074769699 98.7509637046991 L 98.7509637046991 99.9509252303012 L 99.9509252303012 101.249036295301 L 101.249036295301 100.049074769699 Z">
+    <animateTransform from="0 100 100" to="2880 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
+  </path>
+</svg>
