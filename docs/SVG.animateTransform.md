@@ -129,7 +129,7 @@ $TotalRotation  = 180,
 # The total duration of any animations.
 [timespan]$duration = '00:00:03.75',
 # A palette of colors to alternate thru
-[string[]]$colors = @('#112244','#224488',"#4488ff"),
+[string[]]$Color = @('#112244','#224488',"#4488ff"),
 # The type of the shape. (either Star or ConvexPolygon)
 [ValidateSet("Star", "ConvexPolygon")]
 [string]
@@ -152,14 +152,14 @@ SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
     SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
 
     0..($RepeatCount -1) |
-        . $shapeCommand @Splat -Rotate {
+        & $shapeCommand @Splat -Rotate {
                 $_ * ($totalRotation / $RepeatCount)
         } -Radius {
             $Radius - (
                 $_ * ($Radius / $RepeatCount)
             )
         } -Stroke {
-            $colors[$_ % $colors.Length]
+            $Color[$_ % $color.Length]
         } -Children {
             $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
             SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
@@ -920,7 +920,7 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 The **`begin`** attribute defines when an animation should begin.
 
-The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#timing-evaluationofbeginendtimelists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 
 
 
