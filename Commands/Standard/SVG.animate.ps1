@@ -1509,86 +1509,8 @@ function SVG.animate {
 .Example
     svg -Content @(
         svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-            svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+            svg.animate -AttributeName points -Values "25,50 50,75 75,50 50,25;0,0 0,100 100,100, 100,0; 25,50 50,75 75,50 50,25" -Dur 2s -Id morph1 -RepeatCount 'indefinite' -AttributeType XML
         )
-        svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-        ) -Opacity 0
-    
-    ) -ViewBox 100,100
-.Example
-    svg -Content @(
-        svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-            svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        )
-        svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-        ) -Opacity 0
-    
-    ) -ViewBox 100,100
-.Example
-    svg -Content @(
-        svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-            svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        )
-        svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-        ) -Opacity 0
-    
-    ) -ViewBox 100,100
-.Example
-    svg -Content @(
-        svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-            svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        )
-        svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-        ) -Opacity 0
-    
-    ) -ViewBox 100,100
-.Example
-    svg -Content @(
-        svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-            svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        )
-        svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-        ) -Opacity 0
-    
-    ) -ViewBox 100,100
-.Example
-    svg -Content @(
-        svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-            svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        )
-        svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-            svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-            svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-        ) -Opacity 0
-    
     ) -ViewBox 100,100
 .Example
     svg -Content @(
@@ -1699,7 +1621,7 @@ function SVG.animate {
     # The total duration of any animations.
     [timespan]$duration = '00:00:03.75',
     # A palette of colors to alternate thru
-    [string[]]$colors = @('#112244','#224488',"#4488ff"),
+    [string[]]$Color = @('#112244','#224488',"#4488ff"),
     # The type of the shape. (either Star or ConvexPolygon)
     [ValidateSet("Star", "ConvexPolygon")]
     [string]
@@ -1722,14 +1644,14 @@ function SVG.animate {
         SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
     
         0..($RepeatCount -1) |
-            . $shapeCommand @Splat -Rotate {
+            & $shapeCommand @Splat -Rotate {
                     $_ * ($totalRotation / $RepeatCount)
             } -Radius {
                 $Radius - (
                     $_ * ($Radius / $RepeatCount)
                 )
             } -Stroke {
-                $colors[$_ % $colors.Length]
+                $Color[$_ % $color.Length]
             } -Children {
                 $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
                 SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
@@ -1799,6 +1721,11 @@ function SVG.animate {
             svg.tspan -Content "GIFS" -Id gif
             svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
         )
+    ) -ViewBox 200,200
+.Example
+    svg @(
+        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#4488ff' -Stroke '#4488ff' -CenterX 100 -CenterY 100 -Radius 100
+        SVG.animate -AttributeName viewBox -Values "0 0 200 200; 50 50 100 100; 0 0 200 200" -RepeatCount 'indefinite' -Dur 3.9
     ) -ViewBox 200,200
 .Link
     https://pssvg.start-automating.com/SVG.animate
