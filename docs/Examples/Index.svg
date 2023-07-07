@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generated with PSSVG 0.2.9 <https://github.com/StartAutomating/PSSVG> -->
-<svg viewBox="0 0 276.879226959953 1680" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 276.879226959953 1730.4" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <text font-size="14" font-family="monospace" fill="#4488ff">
     <a href=".">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Name</tspan>
@@ -193,6 +193,15 @@
     </a>
     <a href="RepeatedShapes3.svg">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes3.svg</tspan>
+    </a>
+    <a href="RepeatedShapes4.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes4.svg</tspan>
+    </a>
+    <a href="RepeatedShapes5.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes5.svg</tspan>
+    </a>
+    <a href="RepeatedShapes6.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">RepeatedShapes6.svg</tspan>
     </a>
     <a href="Shapes.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Shapes.PSSVG.ps1</tspan>
