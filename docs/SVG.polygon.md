@@ -94,33 +94,12 @@ SVG -ViewBox 800, 800 @(
 ```PowerShell
 svg -Content @(
     svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        svg.animate -AttributeName points -Values "25,50 50,75 75,50 50,25;0,0 0,100 100,100, 100,0; 25,50 50,75 75,50 50,25" -Dur 2s -Id morph1 -RepeatCount 'indefinite' -AttributeType XML
     )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
-```
 ) -ViewBox 100,100
+```
+
 #### EXAMPLE 4
-```PowerShell
-svg -Content @(
-    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
-```
-) -ViewBox 100,100
-#### EXAMPLE 5
 ```PowerShell
 svg -ViewBox 0, 0, 250, 200 -Content @(
     svg.defs (
@@ -137,7 +116,7 @@ svg -ViewBox 0, 0, 250, 200 -Content @(
 )
 ```
 
-#### EXAMPLE 6
+#### EXAMPLE 5
 ```PowerShell
 svg -ViewBox 0, 0, 100, 100 -Content @(
     svg.defs @(
@@ -159,7 +138,7 @@ svg -ViewBox 0, 0, 100, 100 -Content @(
 )
 ```
 
-#### EXAMPLE 7
+#### EXAMPLE 6
 ```PowerShell
 svg -ViewBox 100,100 -Content @(
     svg.symbol -Id psChevron -Content @(
@@ -175,7 +154,7 @@ svg -ViewBox 100,100 -Content @(
 ```
 svg.use -Href '#psChevron' -Fill '#4488ff'
 )
-#### EXAMPLE 8
+#### EXAMPLE 7
 ```PowerShell
 svg -viewBox 300, 100 -Content @(
     svg.symbol -Id psChevron -Content @(
