@@ -1,4 +1,4 @@
-SVG -ViewBox 1920,1080 -Content @(
+SVG -Content @(
     SVG.defs -Content @(
         
         SVG.pattern -id 'HexagonPattern' -patternUnits 'userSpaceOnUse' -width '174' -height '200' -patternTransform 'scale(.5)' -Content @(
