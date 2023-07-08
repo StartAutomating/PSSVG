@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generated with PSSVG 0.2.9 <https://github.com/StartAutomating/PSSVG> -->
+<!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
 <svg viewBox="0 0 200 200" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <path stroke="#112244" fill="transparent" d="M 100 200 L 186.602540378444 150 L 186.602540378444 50 L 100 0 L 13.3974596215562 50 L 13.3974596215561 150 Z">
     <animateTransform from="0 100 100" to="360 100 100" dur="3.75s" attributeName="transform" type="rotate" repeatCount="indefinite" />
