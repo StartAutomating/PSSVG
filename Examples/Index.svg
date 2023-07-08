@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generated with PSSVG 0.2.9 <https://github.com/StartAutomating/PSSVG> -->
-<svg viewBox="0 0 276.879226959953 1730.4" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 276.879226959953 1764" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <text font-size="14" font-family="monospace" fill="#4488ff">
     <a href=".">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Name</tspan>
@@ -97,6 +97,12 @@
     </a>
     <a href="HelloWorld.svg">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">HelloWorld.svg</tspan>
+    </a>
+    <a href="HexagonPattern.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">HexagonPattern.PSSVG.ps1</tspan>
+    </a>
+    <a href="HexagonPattern.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">HexagonPattern.svg</tspan>
     </a>
     <a href="Index.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Index.PSSVG.ps1</tspan>
