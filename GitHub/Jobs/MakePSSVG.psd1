@@ -6,11 +6,6 @@
             name = 'Check out repository'
             uses = 'actions/checkout@v2'
         },
-        @{
-            name = 'GitLogger'
-            uses = 'GitLogging/GitLoggerAction@main'
-            id = 'GitLogger'
-        },
         @{    
             name = 'PipeScript'
             uses = 'StartAutomating/PipeScript@main'
@@ -26,7 +21,12 @@
             if   = '${{github.ref_name != ''main''}}'
             uses = './'
             id = 'PSSVGBranch'
-        },        
+        },
+        @{
+            name = 'GitLogger'
+            uses = 'GitLogging/GitLoggerAction@main'
+            id = 'GitLogger'
+        },
         'RunEZOut',       
         'RunHelpOut'
     )
