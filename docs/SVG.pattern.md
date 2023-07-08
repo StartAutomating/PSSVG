@@ -144,6 +144,19 @@ SVG -ViewBox 800, 800 @(
 )
 #### EXAMPLE 4
 ```PowerShell
+SVG -Content @(
+    SVG.defs -Content @(
+```
+SVG.pattern -id 'HexagonPattern' -patternUnits 'userSpaceOnUse' -width '174' -height '200' -patternTransform 'scale(.5)' -Content @(
+            SVG.Hexagon -CenterX 87 -CenterY 100 -Radius 100 -Fill transparent -Stroke '#4488ff' -Comment "A hexagon with a" -Class 'foreground-fill'
+        ) -Comment "A faint hexagon Pattern, rendered 4x at a base scale of 174 by 200"
+    )
+    $hugeSize = 20000
+
+    SVG.rect -width "$hugeSize%" -height "$hugeSize%" -fill 'url(#HexagonPattern)'
+)
+#### EXAMPLE 5
+```PowerShell
 svg @(
     svg.defs @(
         svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
@@ -156,7 +169,7 @@ svg @(
 ) -ViewBox 0,0,50,50
 ```
 
-#### EXAMPLE 5
+#### EXAMPLE 6
 ```PowerShell
 svg -ViewBox 0, 0, 250, 200 -Content @(
     svg.defs (
@@ -173,7 +186,7 @@ svg -ViewBox 0, 0, 250, 200 -Content @(
 )
 ```
 
-#### EXAMPLE 6
+#### EXAMPLE 7
 ```PowerShell
 svg -ViewBox 0, 0, 100, 100 -Content @(
     svg.defs @(

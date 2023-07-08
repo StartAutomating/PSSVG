@@ -95,7 +95,7 @@
             # The only attribute we treat that specially is -Viewbox.
             if ($paramName -eq 'Viewbox') {
                 # For that, we basically pad out whatever list was provided to make four coordinates.
-                $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom = $paramValue -as [double[]]
+                $viewBoxLeft, $viewBoxTop, $viewBoxRight, $viewBoxBottom = $paramValue -split '\s' -as [double[]]
                 $paramValue = @(if ($null -eq $viewBoxTop) {                    
                     0,0,$viewBoxLeft,$viewBoxLeft                    
                 } elseif ($null -eq $viewBoxRight) {

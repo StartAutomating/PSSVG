@@ -52,6 +52,57 @@ This is also aliased to -PointCount for consistent use with SVG.Star.
 
 
 
+#### **ShapeName**
+
+The formal name of the shape, for example Pentagon.    
+Note, for ease of calculation, only shapes with sides between three and thirty accept their names.    
+(aka, No Hectagons or Megagons)
+
+
+
+Valid Values:
+
+* Triangle
+* Rectangle
+* Pentagon
+* Hexagon
+* Heptagon
+* Octagon
+* Nonagon
+* Decagon
+* Decagon
+* Hendecagon
+* Dodecagon
+* Tridecagon
+* Tetradecagon
+* Pentadecagon
+* Hexadecagon
+* Heptadecagon
+* Octadecagon
+* Enneadecagon
+* Icosagon
+* Icosikaihenagon
+* Icosikaidigon
+* Icositrigon
+* Icositetragon
+* Icosikaipentagon
+* Icosikaihexagon
+* Icosikaiheptagon
+* Icosikaioctagon
+* Icosikaienneagon
+* Triacontagon
+
+
+
+
+
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[String]`|false   |named   |true (ByPropertyName)|
+
+
+
 #### **Rotate**
 
 The initial rotation of the polygon.
@@ -119,5 +170,5 @@ The radius of the polygon.
 
 ### Syntax
 ```PowerShell
-SVG.ConvexPolygon [[-SideCount] <Int32>] [-Rotate <Double>] [-CenterX <Double>] [-CenterY <Double>] [-Radius <Double>] [<CommonParameters>]
+SVG.ConvexPolygon [[-SideCount] <Int32>] [-ShapeName <String>] [-Rotate <Double>] [-CenterX <Double>] [-CenterY <Double>] [-Radius <Double>] [<CommonParameters>]
 ```

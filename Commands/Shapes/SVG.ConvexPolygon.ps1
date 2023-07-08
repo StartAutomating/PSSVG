@@ -12,7 +12,17 @@ function SVG.ConvexPolygon {
     
     #>
             
-    [CmdletBinding(PositionalBinding=$false)]
+    [CmdletBinding(PositionalBinding=$false)]    
+    [Alias('SVG.Pentagon',    
+    'SVG.Hexagon','SVG.Heptagon','SVG.Octagon',    
+    'SVG.Nonagon','SVG.Decagon','SVG.Decagon',    
+    'SVG.Hendecagon', 'SVG.Dodecagon','SVG.Tridecagon',    
+    'SVG.Tetradecagon','SVG.Pentadecagon','SVG.Hexadecagon',    
+    'SVG.Heptadecagon','SVG.Octadecagon','SVG.Enneadecagon',    
+    'SVG.Icosagon','SVG.Icosikaihenagon','SVG.Icosikaidigon',    
+    'SVG.Icositrigon','SVG.Icositetragon','SVG.Icosikaipentagon',    
+    'SVG.Icosikaihexagon','SVG.Icosikaiheptagon','SVG.Icosikaioctagon',    
+    'SVG.Icosikaienneagon','SVG.Triacontagon')]
     param(
     # The number of sides in the polygon    
     # This is also aliased to -PointCount for consistent use with SVG.Star.    
@@ -20,7 +30,24 @@ function SVG.ConvexPolygon {
     [Alias('NumberOfSides','SC','Sides','NumSides','PC','D','PointCount')]
     [ValidateRange(3,360)]
     [int]
-    $SideCount,
+    $SideCount = 3,
+    # The formal name of the shape, for example Pentagon.    
+    # Note, for ease of calculation, only shapes with sides between three and thirty accept their names.    
+    # (aka, No Hectagons or Megagons)    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [ValidateSet('Triangle','Rectangle','Pentagon',
+        'Hexagon','Heptagon','Octagon',
+        'Nonagon','Decagon','Decagon',
+        'Hendecagon', 'Dodecagon','Tridecagon',
+        'Tetradecagon','Pentadecagon','Hexadecagon',
+        'Heptadecagon','Octadecagon','Enneadecagon',
+        'Icosagon','Icosikaihenagon','Icosikaidigon',
+        'Icositrigon','Icositetragon','Icosikaipentagon',
+        'Icosikaihexagon','Icosikaiheptagon','Icosikaioctagon',
+        'Icosikaienneagon','Triacontagon'
+        )]
+    [string]
+    $ShapeName,
     # The initial rotation of the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
@@ -77,6 +104,18 @@ function SVG.ConvexPolygon {
     $DynamicParameters
     }
         process {
+        if (-not $PSBoundParameters['SideCount'] -and 
+            ($MyInvocation.InvocationName -ne $MyInvocation.MyCommand.Name)) {
+            $shapeValues = @($MyInvocation.MyCommand.Parameters['ShapeName'].Attributes.ValidValues)
+            
+            for ($shapeNumber = 0; $shapeNumber -lt $shapeValues.Length;$shapeNumber++) {                
+                if ($MyInvocation.InvocationName -eq "SVG.$($shapeValues[$shapeNumber])") {
+                    $SideCount = $shapeNumber + 3
+                    break
+                }
+            }            
+        }
+        
         # We can construct a regular polygon by creating N points along a unit circle
         $anglePerPoint = 360 / $SideCount
         $r = $Radius

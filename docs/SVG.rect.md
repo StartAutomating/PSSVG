@@ -430,6 +430,19 @@ SVG -viewBox 1920, 1080 -Content @(
 )
 #### EXAMPLE 13
 ```PowerShell
+SVG -Content @(
+    SVG.defs -Content @(
+```
+SVG.pattern -id 'HexagonPattern' -patternUnits 'userSpaceOnUse' -width '174' -height '200' -patternTransform 'scale(.5)' -Content @(
+            SVG.Hexagon -CenterX 87 -CenterY 100 -Radius 100 -Fill transparent -Stroke '#4488ff' -Comment "A hexagon with a" -Class 'foreground-fill'
+        ) -Comment "A faint hexagon Pattern, rendered 4x at a base scale of 174 by 200"
+    )
+    $hugeSize = 20000
+
+    SVG.rect -width "$hugeSize%" -height "$hugeSize%" -fill 'url(#HexagonPattern)'
+)
+#### EXAMPLE 14
+```PowerShell
 svg -Content @(
     svg.defs @(
         svg.LinearGradient -Id myGradient -Content @(
@@ -445,7 +458,7 @@ svg -Content @(
 ) -ViewBox '0 0 100 100'
 ```
 
-#### EXAMPLE 14
+#### EXAMPLE 15
 ```PowerShell
 $colors = @('red','green','blue')
 svg @(
@@ -462,7 +475,7 @@ svg @(
 )
 ```
 
-#### EXAMPLE 15
+#### EXAMPLE 16
 ```PowerShell
 $colors = @('red','green','blue')
 svg @(
@@ -476,7 +489,7 @@ svg @(
 )
 ```
 
-#### EXAMPLE 16
+#### EXAMPLE 17
 ```PowerShell
 svg -Content @(
     svg.defs @(
@@ -492,7 +505,7 @@ svg -Content @(
 )
     svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
 ) -viewbox 0,0,100,100
-#### EXAMPLE 17
+#### EXAMPLE 18
 ```PowerShell
 svg @(
     svg.defs @(
@@ -506,65 +519,6 @@ svg @(
 ) -ViewBox 0,0,50,50
 ```
 
-#### EXAMPLE 18
-```PowerShell
-param(
-# The number of repetitions
-[int]$RepeatCount = 80,
-# The Center X coordinate of the shape
-[float]$CenterX  = 100,
-# The Center Y coordinate of the shape
-[float]$CenterY  = 100,
-# The radius coordinate of the shape.  This will decrease by 1/RepeatCount each time.
-[float]$Radius   = 100,
-# The number of sides
-$SideCount  = 3,
-# The total rotation of the innermost element,
-$TotalRotation  = 180,
-# The total duration of any animations.
-[timespan]$duration = '00:00:03.75',
-# A palette of colors to alternate thru
-[string[]]$colors = @('#112244','#224488',"#4488ff"),
-# The type of the shape. (either Star or ConvexPolygon)
-[ValidateSet("Star", "ConvexPolygon")]
-[string]
-$ShapeType = 'ConvexPolygon',
-```
-# If set, will animate opacity between a low and high point, depending on the radius.
-[switch]
-$AnimateOpacity
-)
-
-$Splat = [Ordered]@{
-    SideCount = $SideCount
-    Fill = 'transparent'
-    CenterX = $CenterX
-    CenterY = $CenterY
-}
-
-$shapeCommand = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$ShapeType", "Function")
-SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
-    SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
-
-    0..($RepeatCount -1) |
-        . $shapeCommand @Splat -Rotate {
-                $_ * ($totalRotation / $RepeatCount)
-        } -Radius {
-            $Radius - (
-                $_ * ($Radius / $RepeatCount)
-            )
-        } -Stroke {
-            $colors[$_ % $colors.Length]
-        } -Children {
-            $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
-            SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
-            $lowOpacity = [double]($_)/$RepeatCount
-            $highOpacity = 1.0 - [double]($_)/$RepeatCount
-            if ($AnimateOpacity) {
-                SVG.animate -AttributeName opacity -Values "$highOpacity;$lowOpacity;$highOpacity" -Dur $dur -RepeatCount 'indefinite'
-            }
-        }
-)
 #### EXAMPLE 19
 ```PowerShell
 SVG -ViewBox 1.986,1 -Content @(

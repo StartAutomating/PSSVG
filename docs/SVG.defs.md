@@ -44,6 +44,19 @@ Graphical objects can be referenced from anywhere, however, defining these objec
 ### Examples
 #### EXAMPLE 1
 ```PowerShell
+SVG -Content @(
+    SVG.defs -Content @(
+```
+SVG.pattern -id 'HexagonPattern' -patternUnits 'userSpaceOnUse' -width '174' -height '200' -patternTransform 'scale(.5)' -Content @(
+            SVG.Hexagon -CenterX 87 -CenterY 100 -Radius 100 -Fill transparent -Stroke '#4488ff' -Comment "A hexagon with a" -Class 'foreground-fill'
+        ) -Comment "A faint hexagon Pattern, rendered 4x at a base scale of 174 by 200"
+    )
+    $hugeSize = 20000
+
+    SVG.rect -width "$hugeSize%" -height "$hugeSize%" -fill 'url(#HexagonPattern)'
+)
+#### EXAMPLE 2
+```PowerShell
 svg -Content @(
     svg.defs @(
         svg.LinearGradient -Id myGradient -Content @(
@@ -55,7 +68,7 @@ svg -Content @(
 ) -viewbox 0,0,100,100
 ```
 
-#### EXAMPLE 2
+#### EXAMPLE 3
 ```PowerShell
 svg -Content @(
     svg.defs @(
@@ -72,7 +85,7 @@ svg -Content @(
 ) -ViewBox '0 0 100 100'
 ```
 
-#### EXAMPLE 3
+#### EXAMPLE 4
 ```PowerShell
 svg -Content @(
     svg.defs @(
@@ -88,7 +101,7 @@ svg -Content @(
 )
     svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
 ) -viewbox 0,0,100,100
-#### EXAMPLE 4
+#### EXAMPLE 5
 ```PowerShell
 svg @(
     svg.defs @(
@@ -102,7 +115,7 @@ svg @(
 ) -ViewBox 0,0,50,50
 ```
 
-#### EXAMPLE 5
+#### EXAMPLE 6
 ```PowerShell
 svg -ViewBox 0, 0, 250, 200 -Content @(
     svg.defs (
@@ -119,7 +132,7 @@ svg -ViewBox 0, 0, 250, 200 -Content @(
 )
 ```
 
-#### EXAMPLE 6
+#### EXAMPLE 7
 ```PowerShell
 svg -ViewBox 0, 0, 100, 100 -Content @(
     svg.defs @(
@@ -141,7 +154,7 @@ svg -ViewBox 0, 0, 100, 100 -Content @(
 )
 ```
 
-#### EXAMPLE 7
+#### EXAMPLE 8
 ```PowerShell
 svg -Content @(
     svg.defs @(
@@ -154,7 +167,7 @@ svg -Content @(
 ) -ViewBox 0,0,100,100
 ```
 
-#### EXAMPLE 8
+#### EXAMPLE 9
 ```PowerShell
 svg -Content @(
     svg.defs @(
@@ -169,14 +182,14 @@ svg -Content @(
 ) -ViewBox '0 0 100 100'
 ```
 
-#### EXAMPLE 9
+#### EXAMPLE 10
 ```PowerShell
 foreach ($n in 5..12) {
 ```
 svg -ViewBox 2,2 @(
     svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
 )
-#### EXAMPLE 10
+#### EXAMPLE 11
 ```PowerShell
 SVG -ViewBox 1.986,1 -Content @(
     $g = (1.986 * .4) / 12
@@ -230,7 +243,7 @@ SVG.defs @(
         }
 
 )
-#### EXAMPLE 11
+#### EXAMPLE 12
 ```PowerShell
 param(
 # The smaller Star Size (as a ratio)
@@ -302,7 +315,7 @@ SVG -ViewBox 1.986,1 -Content @(
         }
 
 )
-#### EXAMPLE 12
+#### EXAMPLE 13
 ```PowerShell
 svg -Content @(
     svg.defs @(

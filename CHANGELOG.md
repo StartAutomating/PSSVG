@@ -1,3 +1,12 @@
+### PSSVG 0.2.10:
+
+* Write-SVG - Fixing -ViewBox for string values (#127)
+* Adding -ShapeName and many aliases to SVG.ConvexPolygon (#132)
+* Adding HexagonPattern Example (#133)
+* Adding more RepeatedShapes (with less black background) (#129)
+
+---
+
 ### PSSVG 0.2.9:
 
 * New Examples:

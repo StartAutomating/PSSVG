@@ -579,13 +579,21 @@ jobs:
       - name: PipeScript
         uses: StartAutomating/PipeScript@main
         id: PipeScript
-      - name: Use PSSVG Action
+      - name: Use PSSVG (from main)
+        if: ${{github.ref_name == 'main'}}
         uses: StartAutomating/PSSVG@main
-        id: PSSVG
+        id: PSSVGMain
+      - name: Use PSSVG (on branch)
+        if: ${{github.ref_name != 'main'}}
+        uses: ./
+        id: PSSVGBranch
+      - name: GitLogger
+        uses: GitLogging/GitLoggerAction@main
+        id: GitLogger
       - name: UseEZOut
         uses: StartAutomating/EZOut@master
       - name: UseHelpOut
         uses: StartAutomating/HelpOut@master
 env: 
-  NoCoverage: true
   GIT_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  NoCoverage: true

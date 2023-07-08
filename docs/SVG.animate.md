@@ -1612,157 +1612,76 @@ svg @(
 ```PowerShell
 svg -Content @(
     svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
+        svg.animate -AttributeName points -Values "25,50 50,75 75,50 50,25;0,0 0,100 100,100, 100,0; 25,50 50,75 75,50 50,25" -Dur 2s -Id morph1 -RepeatCount 'indefinite' -AttributeType XML
     )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
-```
 ) -ViewBox 100,100
+```
+
 #### EXAMPLE 44
 ```PowerShell
 svg -Content @(
-    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor transparent
+            svg.stop -Offset '95%' -Stopcolor '#4488ff'
+            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
-) -ViewBox 100,100
+)
+    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
 #### EXAMPLE 45
 ```PowerShell
 svg -Content @(
-    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor transparent
+            svg.stop -Offset '95%' -Stopcolor '#4488ff'
+            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
-) -ViewBox 100,100
+)
+    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
 #### EXAMPLE 46
 ```PowerShell
 svg -Content @(
-    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor transparent
+            svg.stop -Offset '95%' -Stopcolor '#4488ff'
+            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
-) -ViewBox 100,100
+)
+    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
 #### EXAMPLE 47
 ```PowerShell
 svg -Content @(
-    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
+    svg.defs @(
+        svg.LinearGradient -Id myGradient -Content @(
+            svg.stop -Offset '10%' -Stopcolor transparent
+            svg.stop -Offset '95%' -Stopcolor '#4488ff'
+            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
+            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
+            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
+            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
+        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
 ```
-) -ViewBox 100,100
+)
+    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
+) -viewbox 0,0,100,100
 #### EXAMPLE 48
-```PowerShell
-svg -Content @(
-    svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-        svg.animate -AttributeName points -to "0,0 0,100 100,100, 100,0" -Dur 2s -Id morph1 -Begin '0s;morph2.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-    )
-    svg.polygon -Points "0,0 0,100 100,100, 100,0" -Fill '#4488ff' @(
-        svg.animate -AttributeName opacity -Values '1' -Dur '0.0s' -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName points -to "25,50 50,75 75,50 50,25" -Dur 2s -Id morph2 -Begin 'morph1.end' -AttributeType XML
-        svg.animate -AttributeName opacity -Values '0' -Dur '0.0s' -Begin 'morph2.end' -AttributeType XML
-    ) -Opacity 0
-```
-) -ViewBox 100,100
-#### EXAMPLE 49
-```PowerShell
-svg -Content @(
-    svg.defs @(
-        svg.LinearGradient -Id myGradient -Content @(
-            svg.stop -Offset '10%' -Stopcolor transparent
-            svg.stop -Offset '95%' -Stopcolor '#4488ff'
-            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-```
-)
-    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-) -viewbox 0,0,100,100
-#### EXAMPLE 50
-```PowerShell
-svg -Content @(
-    svg.defs @(
-        svg.LinearGradient -Id myGradient -Content @(
-            svg.stop -Offset '10%' -Stopcolor transparent
-            svg.stop -Offset '95%' -Stopcolor '#4488ff'
-            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-```
-)
-    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-) -viewbox 0,0,100,100
-#### EXAMPLE 51
-```PowerShell
-svg -Content @(
-    svg.defs @(
-        svg.LinearGradient -Id myGradient -Content @(
-            svg.stop -Offset '10%' -Stopcolor transparent
-            svg.stop -Offset '95%' -Stopcolor '#4488ff'
-            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-```
-)
-    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-) -viewbox 0,0,100,100
-#### EXAMPLE 52
-```PowerShell
-svg -Content @(
-    svg.defs @(
-        svg.LinearGradient -Id myGradient -Content @(
-            svg.stop -Offset '10%' -Stopcolor transparent
-            svg.stop -Offset '95%' -Stopcolor '#4488ff'
-            svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-            svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-            svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-            svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-        ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-```
-)
-    svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-) -viewbox 0,0,100,100
-#### EXAMPLE 53
 ```PowerShell
 svg @(
     svg.filter -id dropShadow @(
@@ -1779,7 +1698,7 @@ svg.text "
 Moving Shadows
 " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
 ) -ViewBox 0,0,300,100
-#### EXAMPLE 54
+#### EXAMPLE 49
 ```PowerShell
 svg -Content @(
     svg.defs @(
@@ -1794,7 +1713,7 @@ svg -Content @(
 ) -ViewBox '0 0 100 100'
 ```
 
-#### EXAMPLE 55
+#### EXAMPLE 50
 ```PowerShell
 param(
 # The number of repetitions
@@ -1805,14 +1724,14 @@ param(
 [float]$CenterY  = 100,
 # The radius coordinate of the shape.  This will decrease by 1/RepeatCount each time.
 [float]$Radius   = 100,
-# The number of sides
-$SideCount  = 3,
+# The number of sides.  A file will be generated for each unique value provided.
+[int[]]$SideCount  = 3..6,
 # The total rotation of the innermost element,
 $TotalRotation  = 180,
 # The total duration of any animations.
 [timespan]$duration = '00:00:03.75',
 # A palette of colors to alternate thru
-[string[]]$colors = @('#112244','#224488',"#4488ff"),
+[string[]]$Color = @('#112244','#224488',"#4488ff"),
 # The type of the shape. (either Star or ConvexPolygon)
 [ValidateSet("Star", "ConvexPolygon")]
 [string]
@@ -1823,37 +1742,38 @@ $ShapeType = 'ConvexPolygon',
 $AnimateOpacity
 )
 
-$Splat = [Ordered]@{
-    SideCount = $SideCount
-    Fill = 'transparent'
-    CenterX = $CenterX
-    CenterY = $CenterY
-}
 
 $shapeCommand = $ExecutionContext.SessionState.InvokeCommand.GetCommand("SVG.$ShapeType", "Function")
-SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
-    SVG.rect -Width 1000% -Height 1000% -X -500% -Y -500% -Fill 'black'
 
-    0..($RepeatCount -1) |
-        . $shapeCommand @Splat -Rotate {
-                $_ * ($totalRotation / $RepeatCount)
-        } -Radius {
-            $Radius - (
-                $_ * ($Radius / $RepeatCount)
-            )
-        } -Stroke {
-            $colors[$_ % $colors.Length]
-        } -Children {
-            $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
-            SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
-            $lowOpacity = [double]($_)/$RepeatCount
-            $highOpacity = 1.0 - [double]($_)/$RepeatCount
-            if ($AnimateOpacity) {
-                SVG.animate -AttributeName opacity -Values "$highOpacity;$lowOpacity;$highOpacity" -Dur $dur -RepeatCount 'indefinite'
+foreach ($Sides in $SideCount) {
+    $Splat = [Ordered]@{
+        SideCount = $Sides
+        Fill = 'transparent'
+        CenterX = $CenterX
+        CenterY = $CenterY
+    }
+
+    SVG -ViewBox (($CenterX * 2), ($CenterY * 2)) @(
+        0..($RepeatCount -1) |
+            & $shapeCommand @Splat -Rotate {
+                    $_ * ($totalRotation / $RepeatCount)
+            } -Radius {
+                $Radius - (
+                    $_ * ($Radius / $RepeatCount)
+                )
+            } -Stroke {
+                $Color[$_ % $color.Length]
+            } -Children {
+                $toRotation =  $(360 * ([Math]::Ceiling(($_ + 1)/10)))
+                SVG.animateTransform -From "0 $centerX $centerY" -To "$toRotation $centerX $centerY" -Dur $duration -AttributeName transform -Type 'rotate' -RepeatCount 'indefinite'
+                $lowOpacity = [double]($_)/$RepeatCount
+                $highOpacity = 1.0 - [double]($_)/$RepeatCount
+                if ($AnimateOpacity) {
+                    SVG.animate -AttributeName opacity -Values "$highOpacity;$lowOpacity;$highOpacity" -Dur $dur -RepeatCount 'indefinite'
+                }
             }
-        }
-)
-#### EXAMPLE 56
+    )
+#### EXAMPLE 51
 ```PowerShell
 svg @(
     svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
@@ -1874,7 +1794,7 @@ svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize
         svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
     )
 ) -ViewBox 200,200
-#### EXAMPLE 57
+#### EXAMPLE 52
 ```PowerShell
 svg @(
     svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
@@ -1895,7 +1815,7 @@ svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize
         svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
     )
 ) -ViewBox 200,200
-#### EXAMPLE 58
+#### EXAMPLE 53
 ```PowerShell
 svg @(
     svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
@@ -1916,6 +1836,14 @@ svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize
         svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
     )
 ) -ViewBox 200,200
+#### EXAMPLE 54
+```PowerShell
+svg @(
+    svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#4488ff' -Stroke '#4488ff' -CenterX 100 -CenterY 100 -Radius 50
+    SVG.animate -AttributeName viewBox -Values "0 0 200 200; 50 50 100 100; 0 0 200 200" -RepeatCount 'indefinite' -Dur 3.9
+) -ViewBox 200,200
+```
+
 
 
 ---
