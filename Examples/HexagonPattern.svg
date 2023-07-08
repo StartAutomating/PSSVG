@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generated with PSSVG 0.2.9 <https://github.com/StartAutomating/PSSVG> -->
-<svg viewBox="0 0 1920 1080" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- A faint hexagon Pattern, rendered 4x at a base scale of 174 by 200 -->
     <pattern id="HexagonPattern" patternUnits="userSpaceOnUse" width="174" height="200" patternTransform="scale(.5)">
