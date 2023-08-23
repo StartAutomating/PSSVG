@@ -173,7 +173,7 @@ SVG has many benefits as an image file format, for example:
 
 However, it is not a complete programming language.
 
-Thus the primary goal is to make SVG creation scriptable.
+Thus the primary goal of PSSVG is to make SVG scriptable.
 
 ### Limitations 
 
