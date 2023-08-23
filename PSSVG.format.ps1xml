@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-16"?>
-<!-- Generated with EZOut 1.9.9: Install-Module EZOut or https://github.com/StartAutomating/EZOut -->
+<!-- Generated with EZOut 2.0.1: Install-Module EZOut or https://github.com/StartAutomating/EZOut -->
 <Configuration>
   <Controls>
     <Control>
@@ -18,6 +18,9 @@ if ($script:treeDepth) {
 $script:TreeDepth++;</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>$moduleName = 'PSSVG'
 
             do {
@@ -54,9 +57,15 @@ $script:TreeDepth++;</ScriptBlock>
                 <ScriptBlock> '&lt;'.Trim() </ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Success' ) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' -NoClear) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
@@ -68,6 +77,9 @@ $script:TreeDepth++;</ScriptBlock>
     </ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' ) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
@@ -81,6 +93,9 @@ $script:TreeDepth++;</ScriptBlock>
                 <CustomControlName>XmlAttributeControl</CustomControlName>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Success' -NoClear) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
@@ -96,9 +111,15 @@ $script:TreeDepth++;</ScriptBlock>
     </ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock>'#text','#whitespace','#comment','#document' -notcontains $_.LocalName </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Success' ) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock> $_.LocalName -in '#text' </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' -NoClear) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
@@ -108,9 +129,15 @@ $script:TreeDepth++;</ScriptBlock>
                 <ScriptBlock>$_.InnerText </ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock> $_.LocalName -in '#text' </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' ) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock> $_.LocalName -in '#comment' </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' -NoClear) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
@@ -120,6 +147,9 @@ $script:TreeDepth++;</ScriptBlock>
                 <ScriptBlock> "&lt;!--$($_.InnerText)--&gt;" </ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
+                <ItemSelectionCondition>
+                  <ScriptBlock> $_.LocalName -in '#comment' </ScriptBlock>
+                </ItemSelectionCondition>
                 <ScriptBlock>@(&amp; ${PSSVG_Format-RichText} -ForegroundColor 'Verbose' ) -join ''</ScriptBlock>
               </ExpressionBinding>
               <ExpressionBinding>
@@ -575,7 +605,7 @@ $script:TreeDepth++;</ScriptBlock>
                 }
                 elseif ($canUseANSI) {
                     # For ANSI,
-                    '' + $esc + ']8m;;' + $Link + $esc + '\'   
+                    '' + $esc + ']8;;' + $Link + $esc + '\'   
                 }
             }
             
