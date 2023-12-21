@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
+<svg viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <path fill="Transparent" stroke="#4488ff" d="M 50 100 L 93.301270189222 25 L 6.6987298107781 25 L 50 100 M 93.301270189222 75 L 50 0 L 6.69872981077805 75 L 93.301270189222 75">
+    <animate attributeName="d" values="M 50 100 L 93.301270189222 75 L 93.301270189222 25 L 50 0 L 6.6987298107781 25 L 6.69872981077805 75 Z;M 100 50 L 75 6.69872981077805 L 25 6.69872981077805 L 0 50 L 25 93.3012701892219 L 74.9999999999999 93.301270189222 Z;M 50 100 L 93.301270189222 75 L 93.301270189222 25 L 50 0 L 6.6987298107781 25 L 6.69872981077805 75 Z" dur="10s" repeatCount="indefinite" />
+  </path>
+</svg>
