@@ -15,19 +15,23 @@ function SVG.Spiral {
     [Parameter(ValueFromPipelineByPropertyName)]
     [Uint32]
     $NumSteps = 1000,
+
     # The value for theta    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double]
     $Theta = [MATH]::pi * 50,
+
     # The value for alpha (not to be confused with transparency, that's -Opacity)    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Double]
     $Alpha = 200,
+
     # The scale of the spiral along the horizontal axis    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('ScaleHorizontal')]
     [double]
     $ScaleX = 1,
+
     # The scale of the spiral along the vertical axis    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('ScaleVertical')]
@@ -45,6 +49,8 @@ function SVG.Spiral {
         }
     $IncludeParameter = @()
     $ExcludeParameter = 'D','Fill'
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -67,6 +73,7 @@ function SVG.Spiral {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $Margin  = $Alpha * 1.25
@@ -83,12 +90,14 @@ function SVG.Spiral {
                 "L $px $py"                
             }
         )
+
         $baseCommandParameters = [Ordered]@{}
         foreach ($paramName in $PSBoundParameters.Keys) {
             if ($baseCommand.Parameters.$paramName) {
                 $baseCommandParameters[$paramName] = $PSBoundParameters[$paramName]
             }
         }
+
         $baseCommandParameters.D = $svgPoints
         $baseCommandParameters.Fill = 'Transparent'
                 
