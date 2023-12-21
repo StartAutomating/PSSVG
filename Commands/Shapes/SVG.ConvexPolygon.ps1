@@ -31,6 +31,7 @@ function SVG.ConvexPolygon {
     [ValidateRange(3,360)]
     [int]
     $SideCount = 3,
+
     # The formal name of the shape, for example Pentagon.    
     # Note, for ease of calculation, only shapes with sides between three and thirty accept their names.    
     # (aka, No Hectagons or Megagons)    
@@ -48,21 +49,25 @@ function SVG.ConvexPolygon {
         )]
     [string]
     $ShapeName,
+
     # The initial rotation of the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
+
     # The center X coordinate for the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
+
     # The center Y coordinate for the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
+
     # The radius of the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
@@ -80,6 +85,8 @@ function SVG.ConvexPolygon {
         }
     $IncludeParameter = @()
     $ExcludeParameter = 'D'
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -102,6 +109,7 @@ function SVG.ConvexPolygon {
         ))
     }
     $DynamicParameters
+
     }
         process {
         if (-not $PSBoundParameters['SideCount'] -and 
