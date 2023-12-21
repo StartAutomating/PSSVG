@@ -16,9 +16,11 @@ function SVG.DropShadow {
     [Alias('DX')]
     [double]
     $DistanceX = 0.5,
+
     [Alias('DY')]
     [double]
     $DistanceY = 0.5,
+
     [Alias('StdDeviation')]
     [double]
     $StandardDeviation
@@ -34,6 +36,8 @@ function SVG.DropShadow {
         }
     $IncludeParameter = @()
     $ExcludeParameter = @()
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -56,6 +60,7 @@ function SVG.DropShadow {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $DropShadow = @(            
