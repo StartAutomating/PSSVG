@@ -22,30 +22,36 @@ function SVG.CurvePath {
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $ControlPoint,
+
     # The start point of the curve.    
     # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
+
     # The end point of the curve.    
     # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $End,
+
     # If set, will attempt to draw a smooth bezier curve.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Smooth,
+
     # If set, will draw a multi-quadratic line.    
     # This can only be used if preceeded by another curve.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $MultiQuadratic,
+
     # If set, will draw a quadratic bezier curve.    
     # This is the default, as it only requires a single control point.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Quadratic,
+
     # If set, will close the path after this element.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
@@ -62,6 +68,8 @@ function SVG.CurvePath {
         }
     $IncludeParameter = @()
     $ExcludeParameter = @()
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -84,12 +92,14 @@ function SVG.CurvePath {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $existingPath = ''
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
         }
+
         if ($_ -eq $PSBoundParameters.Content) {
             $null = $PSBoundParameters.Remove('Content')
         }
@@ -97,10 +107,12 @@ function SVG.CurvePath {
         if ($ControlPoint.Length -eq 1) {
             $ControlPoint = $ControlPoint[0], $ControlPoint[0]
         }
+
         if ($ControlPoint.Length -gt 4) {
             Write-Error "Up to two control points can be provided"
             return
         }
+
         $arcPath = @(
             if ($psBoundParameters.Keys -eq 'Start') {
                 "M"
