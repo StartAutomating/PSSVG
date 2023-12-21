@@ -21,29 +21,35 @@ function SVG.ArcPath {
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
+
     # The radius of the arc.    
     # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]    
     [double[]]
     $Radius,
+
     # The Arc Rotation along the X axis.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('XAxisRotation')]
     $ArcRotation = 0,
+
     # If set, the arc will be considered a "Large arc"    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('IsLargeArc','LargeArc')]
     [switch]
     $Large,
+
     # If set, the arc will sweep the circle.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Sweep,
+
     # The end point of the arc.    
     # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $End,
+
     # If set, will close the path after this element.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
@@ -60,6 +66,8 @@ function SVG.ArcPath {
         }
     $IncludeParameter = @()
     $ExcludeParameter = @()
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -82,6 +90,7 @@ function SVG.ArcPath {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $existingPath = ''
@@ -105,6 +114,7 @@ function SVG.ArcPath {
                     $start[0],$start[0]
                 }
             }
+
             "A"
             if ($Radius.Length -gt 2) {
                 Write-Error "-Radius can only contain one or two values"
@@ -130,6 +140,7 @@ function SVG.ArcPath {
             } else {
                 0, 0
             }
+
             if ($Close) {
                 "Z"
             }
