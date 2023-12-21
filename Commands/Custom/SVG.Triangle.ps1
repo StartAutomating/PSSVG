@@ -24,6 +24,8 @@ function SVG.Triangle {
         }
     $IncludeParameter = @()
     $ExcludeParameter = @()
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -46,6 +48,7 @@ function SVG.Triangle {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $myParams = @{} + $PSBoundParameters
