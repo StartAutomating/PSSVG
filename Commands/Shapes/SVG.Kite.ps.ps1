@@ -1,3 +1,4 @@
+#requires -Module PSSVG
 function SVG.Kite 
 {
     <#
@@ -9,7 +10,7 @@ function SVG.Kite
         A Kite is generated with a -Radius and an -InnerRadius and an -OuterRadius.
     .EXAMPLE
         SVG -ViewBox 2,2 (
-            SVG.Kite -Fill "#4488ff" 
+            SVG.Kite -Fill "#4488ff"
         ) -OutputPath .\Kite.svg
     .EXAMPLE
         SVG -ViewBox 200,200 (
@@ -23,7 +24,7 @@ function SVG.Kite
                         SVG.Kite -Rotate 0
                         SVG.Kite -Rotate 90
                         SVG.Kite -Rotate 180
-                        SVG.Kite -Rotate 270                        
+                        SVG.Kite -Rotate 270
                     ).D -join ';'
                 ) -AttributeType XML -Dur 2s -RepeatCount indefinite -CalcMode linear
             ) 
