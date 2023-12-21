@@ -31,6 +31,7 @@
 $ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
     $requireLatest = $false
     $ModuleLoader  = $null
+
     # If the module requirement was a string
     if ($moduleRequirement -is [string]) {
         # see if it's already loaded
@@ -43,13 +44,16 @@ $ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript',
                 $null
             }
         }
+
         # If we found a version but require the latest version,
         if ($foundModuleRequirement -and $requireLatest) {
             # then find if there is a more recent version.
             Write-Verbose "Searching for a more recent version of $($foundModuleRequirement.Name)@$($foundModuleRequirement.Version)"
+
             if (-not $script:FoundModuleVersions) {
                 $script:FoundModuleVersions = @{}
             }
+
             if (-not $script:FoundModuleVersions[$foundModuleRequirement.Name]) {
                 $script:FoundModuleVersions[$foundModuleRequirement.Name] = Find-Module -Name $foundModuleRequirement.Name            
             }
@@ -64,6 +68,7 @@ $ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript',
                 Write-Verbose "$($foundModuleRequirement.Name)@$($foundModuleRequirement.Version) is the latest"
             }
         }
+
         # If we have no found the required module at this point
         if (-not $foundModuleRequirement) {
             if ($moduleLoader) { # load it using a -ModuleLoader (if provided)
@@ -116,7 +121,7 @@ if ($env:GIT_TOKEN) {
 }#>
 
 if ($env:GITHUB_WORKSPACE) {
-    git fetch --unshallow
+    try { git fetch  } catch { Write-Warning "$($_ |Out-string)"} 
 }
 
 $myLastChange = git log -n 1 (
@@ -178,6 +183,7 @@ $replaceMDNContent = "\{\{\s{0,}(?>$(@('Glossary', 'cssxref', 'domxref', 'HTTPMe
 
 
 function ConvertSVGMetadataToParameterAttribute {
+
     param([Parameter(ValueFromPipeline,Position=0)][string]$EdiValue)
     $hadNumbers = $false
     $hadUri     = $false
@@ -244,14 +250,17 @@ function ConvertSVGMetadataToParameterAttribute {
 })]
 '@
     }
+
 }
 
 function ImportSvgAttribute {
+
     param(
     [Parameter(ValueFromPipeline,Position=0)]
     [uri]
     $SVGAttributeUri
     )
+
     $markdownPath = (Join-Path $mdnContentRoot ($SVGAttributeUri.PathAndQuery -replace '.+contents/'))
     $elementOrSetName = $SVGAttributeUri.Segments[-2] -replace '^/' -replace '/$'
     if (-not $savedMarkdown["$SVGAttributeUri"]) {
@@ -261,6 +270,8 @@ function ImportSvgAttribute {
             $markdownNotFound["$svgAttributeUri"] = $true
         }
     }
+
+
     $elementMarkdown = $savedMarkdown["$SVGAttributeUri"]
     if (-not $elementMarkdown) {
         Write-Verbose "Did not get content for $elementOrSetName"
@@ -293,6 +304,7 @@ function ImportSvgAttribute {
             $start = $heading.Index
             $end = $heading.NextMatch().Index            
         }
+
         if ($headingName -match $trailingAttributes -and $attributeGroups[$headingName -replace $trailingAttributes -replace '\s']) {
             $attributeGroupName = $headingName -replace $trailingAttributes -replace '\s'
             $groupedAttributes += [PSCustomObject]@{
@@ -301,6 +313,7 @@ function ImportSvgAttribute {
             }
         }
         else {
+
             if ($headingName -eq 'Animation Attributes') {
                 $animationAttributeStart =$heading.Index
                 $animationAttributeEnd = $heading.NextMatch().Index
@@ -312,7 +325,9 @@ function ImportSvgAttribute {
             }
         }            
     }
+
     
+
     $elementAttributeContent = $elementMarkdown.Substring($start, $end - $start) -replace $replaceMDNContent, '${s}'
     $elementAttributes = $elementAttributeContent | ImportSvgElementAttribute
     $globalAttributes  = @()
@@ -362,7 +377,9 @@ function ImportSvgAttribute {
             }
         }
     }
+
     $elementContentInfo = $svgElements.elements.$elementOrSetName.content           
+
     [PSCustomObject][Ordered]@{
         Name            = $elementOrSetName
         Description     = $elementDescription
@@ -372,14 +389,17 @@ function ImportSvgAttribute {
         Content         = $elementContentInfo
         SourceUri       = $SVGAttributeUri
     }
+
 }
 
 function ImportSvgElementAttribute {
+
     param(
     [Parameter(Position=0,ValueFromPipeline)]
     [string]
     $elementAttributeContent
     )
+
     process {
         $elementAttributeLines = $elementAttributeContent -split "(?>\r\n|\n)"
         $attributeName = ''
@@ -428,15 +448,18 @@ function ImportSvgElementAttribute {
                 $attributeHelp[$attributeName] = $elementAttributeLine -replace $attributeHelpLine                
             }            
         }
+
         [PSCustomObject][Ordered]@{
             Help = $attributeHelp
             Data = $attributeData
             AttributeNames = $attributeNames
         }
     }
+
 }
 
 function InitializeSvgAttributeData {
+
     <#
     if (-not $savedMarkdown[$attributeListUri]) {
         $savedMarkdown[$attributeListUri] = [Text.Encoding]::utf8.getString([Convert]::FromBase64String(
@@ -471,6 +494,7 @@ function InitializeSvgAttributeData {
             $attributeGroupsText[$attributeGroupName] = $attributeGroupContent
         }
     }
+
     foreach ($groupWithSubGroups in 'Generic', 'Animation') {
         $genericGroupsText = $attributeGroupsText.$groupWithSubGroups
         $genericGroupsList = @($genericGroupsText | ?<Markdown_List> -Split -IncludeMatch)
@@ -528,6 +552,7 @@ function InitializeSvgAttributeData {
         }
     
         $attributeTables   = @($savedMarkdown[$attrUri] | ?<HTML_StartOrEndTag> -Tag table)
+
         $allAttributeProperties = @() 
         for ($ati = 0; $ati -lt $attributeTables.Count; $ati++) {
             $appliesToElements = @()
@@ -612,6 +637,7 @@ function InitializeSvgAttributeData {
             )
         }
     }    
+
 }
 
 . InitializeSvgAttributeData
