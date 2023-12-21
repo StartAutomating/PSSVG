@@ -1,4 +1,5 @@
 function SVG.mask {
+
 <#
 .Synopsis
     Creates SVG mask elements
@@ -70,6 +71,7 @@ $Children,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<length>','<percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -88,6 +90,7 @@ $Height,
 [Reflection.AssemblyMetaData('SVG.Value', 'userSpaceOnUse | objectBoundingBox')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'userSpaceOnUse','objectBoundingBox'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -106,6 +109,7 @@ $MaskContentUnits,
 [Reflection.AssemblyMetaData('SVG.Value', 'userSpaceOnUse | objectBoundingBox')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'userSpaceOnUse','objectBoundingBox'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -125,6 +129,7 @@ $MaskUnits,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<length>','<percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -144,6 +149,7 @@ $X,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<length>','<percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -163,6 +169,7 @@ $Y,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<length>','<percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -243,6 +250,7 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'default','preserve'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -316,6 +324,7 @@ $SystemLanguage,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | baseline | before-edge | text-before-edge | middle | central | after-edge | text-after-edge | ideographic | alphabetic | hanging | mathematical | top | center | bottom')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','baseline','before-edge','text-before-edge','middle','central','after-edge','text-after-edge','ideographic','alphabetic','hanging','mathematical','top','center','bottom'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -341,6 +350,7 @@ $AlignmentBaseline,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<length-percentage>','sub','super'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -364,6 +374,7 @@ $BaselineShift,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | rect()')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','rect()'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -386,6 +397,7 @@ $Clip,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref(''url'')}} | [ {{cssxref(''basic-shape'')}} || <geometry-box> ] | none')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<url>','[ <basic-shape>','','<geometry-box> ]','none'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -429,6 +441,7 @@ $ClipPath,
 [Reflection.AssemblyMetaData('SVG.Value', 'nonzero | evenodd | inherit')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'nonzero','evenodd','inherit'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -452,6 +465,7 @@ $ClipRule,
 [ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '[\W-[\-]]'})]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<color>','inherit'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -480,6 +494,7 @@ $Color,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | sRGB | linearRGB')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','sRGB','linearRGB'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -508,6 +523,7 @@ $ColorInterpolation,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | sRGB | linearRGB')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','sRGB','linearRGB'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -531,6 +547,7 @@ $ColorInterpolationFilters,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | sRGB | <name> | <iri>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','sRGB','<name>','<iri>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -556,6 +573,7 @@ $ColorProfile,
 [Reflection.AssemblyMetaData('SVG.Value', '[[<funciri>,]* [ auto | crosshair | default | pointer | move | e-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize | s-resize | w-resize| text | wait | help ]] | inherit')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '[[<funciri>,]* [ auto','crosshair','default','pointer','move','e-resize','ne-resize','nw-resize','n-resize','se-resize','sw-resize','s-resize','w-resize','text','wait','help ]]','inherit'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -582,6 +600,7 @@ $Cursor,
 [Reflection.AssemblyMetaData('SVG.Value', 'ltr | rtl')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'ltr','rtl'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -640,6 +659,7 @@ $Display,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto|text-bottom | alphabetic | ideographic | middle | central | mathematical | hanging | text-top')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','text-bottom','alphabetic','ideographic','middle','central','mathematical','hanging','text-top'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -663,6 +683,7 @@ $DominantBaseline,
 [Reflection.AssemblyMetaData('SVG.Value', 'accumulate | new [ <x><y><width><height> ]?')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'accumulate','new [ <x><y><width><height> ]?'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -692,6 +713,7 @@ $Fill,
 [Reflection.AssemblyMetaData('SVG.Value', '[0-1] | <percentage>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '[0-1]','<percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -714,6 +736,7 @@ $FillOpacity,
 [Reflection.AssemblyMetaData('SVG.Value', 'nonzero | evenodd')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'nonzero','evenodd'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -736,6 +759,7 @@ $FillRule,
 [Reflection.AssemblyMetaData('SVG.Value', 'none|<filter-function-list>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'none','<filter-function-list>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -794,6 +818,7 @@ $FontFamily,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<absolute-size>','<relative-size>','<length-percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -817,6 +842,7 @@ $FontSize,
 [ValidatePattern('(?>none|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'none','<number>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -850,6 +876,7 @@ $FontStretch,
 [Reflection.AssemblyMetaData('SVG.Value', 'normal | italic | oblique')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'normal','italic','oblique'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -872,6 +899,7 @@ $FontStyle,
 [Reflection.AssemblyMetaData('SVG.Value', 'normal | none | [ <common-lig-values> || <discretionary-lig-values> || <historical-lig-values> || <contextual-alt-values> || stylistic( <feature-value-name> ) || historical-forms || styleset( <feature-value-name># ) || character-variant( <feature-value-name># ) || swash( <feature-value-name> ) || ornaments( <feature-value-name> ) || annotation( <feature-value-name> ) || [ small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps ] || <numeric-figure-values> || <numeric-spacing-values> || <numeric-fraction-values> || ordinal || slashed-zero || <east-asian-variant-values> || <east-asian-width-values> || ruby ]')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'normal','none','[ <common-lig-values>','','<discretionary-lig-values>','','<historical-lig-values>','','<contextual-alt-values>','','stylistic( <feature-value-name> )','','historical-forms','','styleset( <feature-value-name># )','','character-variant( <feature-value-name># )','','swash( <feature-value-name> )','','ornaments( <feature-value-name> )','','annotation( <feature-value-name> )','','[ small-caps','all-small-caps','petite-caps','all-petite-caps','unicase','titling-caps ]','','<numeric-figure-values>','','<numeric-spacing-values>','','<numeric-fraction-values>','','ordinal','','slashed-zero','','<east-asian-variant-values>','','<east-asian-width-values>','','ruby ]'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -895,6 +923,7 @@ $FontVariant,
 [ValidatePattern('(?>normal|bold|bolder|lighter|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'normal','bold','bolder','lighter','<number>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -939,6 +968,7 @@ $GlyphOrientationHorizontal,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | <angle>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','<angle>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -963,6 +993,7 @@ $GlyphOrientationVertical,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | optimizeSpeed | optimizeQuality')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','optimizeSpeed','optimizeQuality'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -987,6 +1018,7 @@ $ImageRendering,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','<length>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1014,6 +1046,7 @@ $Kerning,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'normal','<length>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1048,6 +1081,7 @@ $LightingColor,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'none','<marker-ref>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1071,6 +1105,7 @@ $MarkerEnd,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'none','<marker-ref>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1094,6 +1129,7 @@ $MarkerMid,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <marker-ref>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'none','<marker-ref>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1147,6 +1183,7 @@ $Opacity,
 [Reflection.AssemblyMetaData('SVG.Value', 'visible | hidden | scroll | auto')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'visible','hidden','scroll','auto'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1169,6 +1206,7 @@ $Overflow,
 [Reflection.AssemblyMetaData('SVG.Value', 'bounding-box | visiblePainted | visibleFill | visibleStroke | visible | painted | fill | stroke | all | none')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'bounding-box','visiblePainted','visibleFill','visibleStroke','visible','painted','fill','stroke','all','none'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1191,6 +1229,7 @@ $PointerEvents,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | optimizeSpeed | crispEdges | geometricPrecision')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','optimizeSpeed','crispEdges','geometricPrecision'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1216,6 +1255,7 @@ $ShapeRendering,
 [ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '[\W-[\-]]'})]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'currentcolor','{{cssxref("color_value", "<color>")}} <icccolor>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1263,6 +1303,7 @@ $Stroke,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | <dasharray>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'none','<dasharray>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1285,6 +1326,7 @@ $StrokeDasharray,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<percentage>','<length>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1307,6 +1349,7 @@ $StrokeDashoffset,
 [Reflection.AssemblyMetaData('SVG.Value', 'butt | round | square')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'butt','round','square'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1329,6 +1372,7 @@ $StrokeLinecap,
 [Reflection.AssemblyMetaData('SVG.Value', 'arcs | bevel |miter | miter-clip | round')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'arcs','bevel','miter','miter-clip','round'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1363,6 +1407,7 @@ $StrokeMiterlimit,
 [Reflection.AssemblyMetaData('SVG.Value', '[0-1] | <percentage>')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '[0-1]','<percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1384,6 +1429,7 @@ $StrokeOpacity,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<length>','<percentage>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1411,6 +1457,7 @@ $StrokeWidth,
 [Reflection.AssemblyMetaData('SVG.Value', 'start | middle | end')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'start','middle','end'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1437,6 +1484,7 @@ $TextAnchor,
 [ValidateScript({$_ -in '' -or $_ -match '\#[0-9a-f]{3}' -or $_ -match '\#[0-9a-f]{6}' -or $_ -notmatch '[\W-[\-]]'})]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = '<''text-decoration-line''>','','<''text-decoration-style''>','','<''text-decoration-color''>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1459,6 +1507,7 @@ $TextDecoration,
 [Reflection.AssemblyMetaData('SVG.Value', 'auto | optimizeSpeed | optimizeLegibility | geometricPrecision')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'auto','optimizeSpeed','optimizeLegibility','geometricPrecision'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1508,6 +1557,7 @@ $UnicodeBidi,
 [Reflection.AssemblyMetaData('SVG.Value', 'none | non-scaling-stroke | non-scaling-size | non-rotation | fixed-position')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'none','non-scaling-stroke','non-scaling-size','non-rotation','fixed-position'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1533,6 +1583,7 @@ $VectorEffect,
 [Reflection.AssemblyMetaData('SVG.Value', 'visible | hidden | collapse')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'visible','hidden','collapse'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1560,6 +1611,7 @@ $Visibility,
 [ValidatePattern('(?>|\d+)')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'normal','<length>'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1583,6 +1635,7 @@ $WordSpacing,
 [Reflection.AssemblyMetaData('SVG.Value', 'horizontal-tb | vertical-rl | vertical-lr')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'horizontal-tb','vertical-rl','vertical-lr'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -1595,11 +1648,15 @@ $WordSpacing,
 [PSObject]
 $WritingMode
 )
+
+
 process {
+
         # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
+
         # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
@@ -1609,6 +1666,7 @@ process {
         }
         # If we could not determine this, return.
         if (-not $elementName) { return }
+
         # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
             $attribute += $paramCopy # merge the values by adding hashtables.
@@ -1618,43 +1676,53 @@ process {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
+
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
+
         # If content was provided
         if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+
         # If comments were provided
         if ($comment) {
             # put it into the splat.
             $writeSvgSplat.Comment = $comment
         }
+
         # If any children were provided
         if ($children) {
             # put them in the splat.
             $writeSvgSplat.Children = $children
         }
+
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
             # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
+
         # If we provided any -Data attributes
         if ($data) {
             # put it into the splat.
             $writeSvgSplat.Data = $data
         }
+
         # If we provided any -On events
         if ($on) {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
+
         . Write-SVG @writeSvgSplat
     
 }
+
+
 } 
 
