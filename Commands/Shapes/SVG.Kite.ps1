@@ -1,4 +1,3 @@
-#requires -Module PSSVG
 function SVG.Kite {
     <#
     
