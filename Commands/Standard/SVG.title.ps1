@@ -1,4 +1,5 @@
 function SVG.title {
+
 <#
 .Synopsis
     Creates SVG title elements
@@ -241,6 +242,7 @@ $XmlLang,
 [Reflection.AssemblyMetaData('SVG.Value', 'default | preserve')]
 [ArgumentCompleter({
     param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
     $validSet = 'default','preserve'
     if ($wordToComplete) {        
         $toComplete = $wordToComplete -replace "^'" -replace "'$"
@@ -281,11 +283,15 @@ $Class,
 [PSObject]
 $Style
 )
+
+
 process {
+
         # Copy the bound parameters
         $paramCopy = [Ordered]@{} + $PSBoundParameters
         # and get a reference to yourself.
         $myCmd = $MyInvocation.MyCommand
+
         # Use that self-reference to determine the element name.
         $elementName = foreach ($myAttr in $myCmd.ScriptBlock.Attributes) {
             if ($myAttr.Key -eq 'SVG.ElementName') {
@@ -295,6 +301,7 @@ process {
         }
         # If we could not determine this, return.
         if (-not $elementName) { return }
+
         # If there were no keys found in -Attribute
         if (-not $attribute[$paramCopy.Keys]) {
             $attribute += $paramCopy # merge the values by adding hashtables.
@@ -304,43 +311,53 @@ process {
                 $attribute[$pc.Key] = $pc.Value
             }
         }
+
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
             Attribute   = $attribute
         }
+
         # If content was provided
         if ($null -ne $content) {
             # put it into the splat.
             $writeSvgSplat.Content = $content
         }
+
         # If comments were provided
         if ($comment) {
             # put it into the splat.
             $writeSvgSplat.Comment = $comment
         }
+
         # If any children were provided
         if ($children) {
             # put them in the splat.
             $writeSvgSplat.Children = $children
         }
+
         # If we provided an -OutputPath
         if ($paramCopy['OutputPath']) {
             # put it into the splat.
             $writeSvgSplat.OutputPath = $paramCopy['OutputPath']
         }
+
         # If we provided any -Data attributes
         if ($data) {
             # put it into the splat.
             $writeSvgSplat.Data = $data
         }
+
         # If we provided any -On events
         if ($on) {
             # put it into the splat.
             $writeSvgSplat.On = $on
         }
+
         . Write-SVG @writeSvgSplat
     
 }
+
+
 } 
 
