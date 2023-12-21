@@ -28,20 +28,24 @@ function SVG.LinePath {
     [Parameter(ValueFromPipelineByPropertyName)]
     [double[]]
     $Start,
+
     # If set, will draw a horizontal line.    
     # Only the first -End point will be evaluated.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Horizontal,
+
     # If set, will draw a vertical line.    
     # -LineLength must also be provided.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Vertical,
+
     # If set, will close the path.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [switch]
     $Close,
+
     # The end point of the line, or it's length    
     # If this is provided, a line will be drawn to this point    
     [Parameter(ValueFromPipelineByPropertyName)]    
@@ -59,6 +63,8 @@ function SVG.LinePath {
         }
     $IncludeParameter = @()
     $ExcludeParameter = @()
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -81,6 +87,7 @@ function SVG.LinePath {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $existingPath = ''
@@ -131,6 +138,7 @@ function SVG.LinePath {
                 }
                 
             }
+
             if ($Close) {
                 "Z"
             }
