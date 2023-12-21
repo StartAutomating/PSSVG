@@ -16,12 +16,15 @@ function SVG.ANSI {
     [Parameter(ValueFromPipelineByPropertyName)]
     [double]
     $LineSpacing = 1.2,
+
     # The foreground color.  By default, white.    
     # All elements that use the -ForegroundColor will also use the CSS class foreground-fill.        
     [string]$ForegroundColor = 'white',
+
     # The background color.  By default, black.    
     # All items colored in black will also use the class background-fill.    
     [string]$BackgroundColor = 'black',
+
     <#    
     The console color palette.    
         
@@ -57,6 +60,8 @@ function SVG.ANSI {
         }
     $IncludeParameter = @()
     $ExcludeParameter = @()
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -79,6 +84,7 @@ function SVG.ANSI {
         ))
     }
     $DynamicParameters
+
     }
         begin {
         # We start off by declaring a big Regex to match ANSI Styles.
@@ -233,6 +239,7 @@ function SVG.ANSI {
         )
         )
 '@, 'IgnoreCase,IgnorePatternWhitespace', '00:00:05')
+
         $allContent = @()
     
     }
@@ -241,7 +248,8 @@ function SVG.ANSI {
         $allContent += $psBoundParameters['Content']
     
     }
-    end {               
+    end {
+               
         $content = $allContent
         if (-not $Content) { return }
         # Default the font size to 12 if not provided.
@@ -249,6 +257,7 @@ function SVG.ANSI {
             if ($psBoundParameters['FontSize']) {
                 ($psBoundParameters['FontSize'] -replace '[\D - [\.]]') -as [double]
             } else { 12 }
+
         # Set up a 'base' splat of all settings we always want to provide.
         $styleSplatBase = [Ordered]@{
             XmlSpace = 'preserve'        
@@ -268,6 +277,7 @@ function SVG.ANSI {
         $maxLineLength = 0
         # We also want to force -LineSpacing into 'emphasis' units.
         $lineSpacer = "${lineSpacing}em"
+
         # Now find all ANSI Styles
         $ansiStyleMatches = @(${?<ANSI_Style>}.Matches($Content))
         if ($ansiStyleMatches) {
@@ -283,6 +293,7 @@ function SVG.ANSI {
             # Otherwise, make sure we count how many lines we have in total, so we can set the viewbox.
             $totalLines = @($content -split '(?>\r\n|\n)' -ne '')
         }
+
         # Walk over each match
         foreach ($match in $ansiStyleMatches) {
             # Find all of the ext between now and the last match.
@@ -314,6 +325,7 @@ function SVG.ANSI {
                       }
                 }                
             }
+
             # If the result was followed by a newline
             if ($match.Result('$`') -match '[\r\n]$') {
                 # create one more span to drop the line down.
@@ -322,10 +334,12 @@ function SVG.ANSI {
             }
             
             # Now we apply various ANIS styles to change the current style.
+
             # If we're Resetting
             if ($match.Groups['Reset'].Success) {
                 $styleSplat = @{} + $styleSplatBase # reset the splat.
             }
+
             # If we're starting bold or are a 'bright' color
             if ($match.Groups['BoldStart'].Success -or $match.Groups['IsBright'].Success) {
                 $styleSplat.FontWeight = 'Bold' # make the font bold.
@@ -350,6 +364,7 @@ function SVG.ANSI {
             if ($match.Groups['ItalicEnd'].Success) {
                 $styleSplat.Remove('FontStyle') # make it so.
             }
+
             # If it should be hidden
             if ($match.Groups["HideStart"].Success) {
                 $styleSplat.Opacity = 0 # drop opacity to 0.
@@ -395,6 +410,7 @@ function SVG.ANSI {
                     #>
                 }
             }
+
             # If we had a 4-bit color
             if ($match.Groups["ANSI_4BitColor"].Success) {
                 # determine the color number
@@ -416,6 +432,7 @@ function SVG.ANSI {
                     ) -ne '' -join ' '
                     $styleSplat.Class = $cssClassName
                 }
+
                 # SVG text does not support background colors.
                 # we can only paint a rectangle beneath the whole output.
                 if ($match.Groups["IsBackgroundColor"].Success) {
@@ -428,12 +445,14 @@ function SVG.ANSI {
             if ($match.Groups["DefaultForegroundColor"].Success) {
                 $styleSplat.Remove('Fill') # clear the fill.
             }
+
             if ($match.Groups["DefaultBackgroundColor"].Success) {
                 if ($styleSplat.Style.'background-color') {
                     $styleSplat.Style.Remove('background-color')
                 }
             }            
         }
+
         # If we have anything left in the string, render it normally.
         if ($index -lt $contentString.Length) {            
             $textSpan = $contentString.Substring($index)
@@ -458,6 +477,7 @@ function SVG.ANSI {
                     }
             }
         }
+
         # Now, copy my parameters.
         $myParams = [Ordered]@{} + $PSBoundParameters
         # and remove parameters that do not apply to the base command.
