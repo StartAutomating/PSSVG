@@ -39,6 +39,8 @@ function SVG.GoogleFont {
         }
     $IncludeParameter = @()
     $ExcludeParameter = 'Type'
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -61,6 +63,7 @@ function SVG.GoogleFont {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $null = $PSBoundParameters.Remove('FontName')
