@@ -1,3 +1,4 @@
+#requires -Module PSSVG
 function SVG.Kite {
     <#
     
@@ -8,7 +9,7 @@ function SVG.Kite {
         A Kite is generated with a -Radius and an -InnerRadius and an -OuterRadius.    
     .EXAMPLE    
         SVG -ViewBox 2,2 (    
-            SVG.Kite -Fill "#4488ff"     
+            SVG.Kite -Fill "#4488ff"    
         ) -OutputPath .\Kite.svg    
     .EXAMPLE    
         SVG -ViewBox 200,200 (    
@@ -22,7 +23,7 @@ function SVG.Kite {
                         SVG.Kite -Rotate 0    
                         SVG.Kite -Rotate 90    
                         SVG.Kite -Rotate 180    
-                        SVG.Kite -Rotate 270                            
+                        SVG.Kite -Rotate 270    
                     ).D -join ';'    
                 ) -AttributeType XML -Dur 2s -RepeatCount indefinite -CalcMode linear    
             )     
@@ -38,28 +39,33 @@ function SVG.Kite {
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
+
     # The center X coordinate for the kite.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
+
     # The center Y coordinate for the kite.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
+
     # The radius of the kite.    
     # This is the distance to either constant side of the kite.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
     [double]
     $Radius = .5,
+
     # The inner radius of the kite.    
     # This is the distance from the center of the kite to the top.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('IR','InRadius')]
     [double]
     $InnerRadius = 1,
+
     # The outer radius of the kite.    
     # This is the distance from the center of the kite to the bottom.    
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -78,6 +84,8 @@ function SVG.Kite {
         }
     $IncludeParameter = @()
     $ExcludeParameter = 'D'
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -100,6 +108,7 @@ function SVG.Kite {
         ))
     }
     $DynamicParameters
+
     }
         begin {
         
@@ -110,6 +119,7 @@ function SVG.Kite {
         $pathData = @(
             # We want to start at the top
             $CurrentAngle = $Rotate - 90
+
             # Top
             "M"
             $centerY + ($InnerRadius * [math]::round([math]::cos($CurrentAngle * [Math]::PI/180),15))
@@ -133,6 +143,7 @@ function SVG.Kite {
             "Z"
         )
         
+
         $myParams = [Ordered]@{} + $PSBoundParameters
         $myParams["D"] = $pathData -join ' '        
         $myParams.Remove('Rotate')
