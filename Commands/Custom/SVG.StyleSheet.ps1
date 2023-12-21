@@ -42,6 +42,8 @@ function SVG.StyleSheet {
         }
     $IncludeParameter = @()
     $ExcludeParameter = 'Type'
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -64,6 +66,7 @@ function SVG.StyleSheet {
         ))
     }
     $DynamicParameters
+
     }
         process {
         $null = $PSBoundParameters.Remove('StylesheetUri')
