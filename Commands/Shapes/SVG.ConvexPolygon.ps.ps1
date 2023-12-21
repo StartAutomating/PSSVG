@@ -77,15 +77,24 @@ function SVG.ConvexPolygon {
     )
 
     process {
+        $myInv = $MyInvocation
         if (-not $PSBoundParameters['SideCount'] -and 
-            ($MyInvocation.InvocationName -ne $MyInvocation.MyCommand.Name)) {
-            $shapeValues = @($MyInvocation.MyCommand.Parameters['ShapeName'].Attributes.ValidValues)
+            ($myInv.InvocationName -ne $myInv.MyCommand.Name)) {
             
+            $shapeValues = @($myInv.MyCommand.Parameters['ShapeName'].Attributes.ValidValues)
+            $myName = $myInv.InvocationName
+            if ($myName -eq '&') {
+                $MyName, $myArgs = $MyInv.Line.Substring($MyInv.OffsetInLine) -replace '^[\&\.]?\s{0,}' -split '\s',2
+                if ($MyName -match '^\$') {
+                    $MyName = $ExecutionContext.SessionState.PSVariable.Get($MyName -replace '\$').Value
+                }
+            }
+
             for ($shapeNumber = 0; $shapeNumber -lt $shapeValues.Length;$shapeNumber++) {                
-                if ($MyInvocation.InvocationName -eq "SVG.$($shapeValues[$shapeNumber])") {
+                if ("SVG.$($shapeValues[$shapeNumber])" -eq $MyName) {
                     $SideCount = $shapeNumber + 3
                     break
-                }
+                }                
             }            
         }
         
