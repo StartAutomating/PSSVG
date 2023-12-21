@@ -62,7 +62,7 @@ if ($env:GIT_TOKEN) {
 }#>
 
 if ($env:GITHUB_WORKSPACE) {
-    git fetch --unshallow
+    try { git fetch --unshallow } catch { Write-Warning "$($_ |Out-string)"} 
 }
 
 $myLastChange = git log -n 1 (
