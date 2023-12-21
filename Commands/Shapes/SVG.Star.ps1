@@ -22,21 +22,25 @@ function SVG.Star {
     [Alias('PC','Points','SC','SideCount','Sides','NumSides')]
     [int]
     $PointCount = 5,
+
     # The initial rotation of the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('Rotation')]
     [double]
     $Rotate = 0,
+
     # The center X coordinate for the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
     $CenterX = 1,
+
     # The center Y coordinate for the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
     $CenterY = 1,
+
     # The radius of the polygon.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('R')]
@@ -54,6 +58,8 @@ function SVG.Star {
         }
     $IncludeParameter = @()
     $ExcludeParameter = 'D'
+
+
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
     :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
         if ($ExcludeParameter) {
@@ -76,6 +82,7 @@ function SVG.Star {
         ))
     }
     $DynamicParameters
+
     }
         process {        
         # We can construct a regular polygon by creating N points along a unit circle
@@ -91,6 +98,7 @@ function SVG.Star {
             "$pointX $pointY"
             $angle += $anglePerPoint
         })
+
         if ($vertices.Count % 2) {
             for ($pointIndex = 0; $points.Length -lt $PointCount; $pointIndex += $q) {
                 
@@ -122,6 +130,7 @@ function SVG.Star {
                 
             }
         }
+
         
         $myParams = [Ordered]@{} + $PSBoundParameters
         $myParams["D"] = $points -join ' '
