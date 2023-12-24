@@ -6,9 +6,16 @@ function SVG.CurvePath {
     .DESCRIPTION    
         Draws an SVG curve path.    
     .EXAMPLE    
-        =<svg> -OutputPath .\Curves.svg @(    
-            =<svg.CurvePath> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black    
-        ) -viewbox 50, 50    
+        svg -Viewbox 50 @(    
+            svg.CurvePath -Start 10 -ControlPoint 15,5,20,40  -End 30 -fill transparent -stroke black    
+        ) -OutputPath .\Curve.svg    
+    .EXAMPLE    
+        svg -Viewbox 100 (        
+            svg.CurvePath -Start 50 -End 10 -Angle 45 -Multiquadratic |    
+                svg.CurvePath -End 10 -Angle -45 -Multiquadratic |    
+                svg.CurvePath -End 20 -Angle 50 -Multiquadratic |    
+                svg.CurvePath -End 20 -Angle -50 -Stroke '#4488ff' -Fill transparent -Multiquadratic    
+        ) -OutputPath .\ZigZagCurvePath.svg    
     .LINK    
         SVG.Path    
     
@@ -32,8 +39,15 @@ function SVG.CurvePath {
     # The end point of the curve.    
     # If only one value is provided, it will be used as the X and Y coordinate.    
     [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('Distance')]
     [double[]]
     $End,
+
+    # An optional angle.    
+    # If an `-Angle` is provided and `-End` is a single number, it will be treated as a `-Distance`.    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [double]
+    $Angle,
 
     # If set, will attempt to draw a smooth bezier curve.    
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -113,31 +127,36 @@ function SVG.CurvePath {
             return
         }
 
-        $arcPath = @(
+        $curvePath = @(
             if ($psBoundParameters.Keys -eq 'Start') {
                 "M"
                 if ($start.Length -gt 2) {
                     Write-Error "-Start can only contain one or two values"
                     return
                 }
-                elseif ($start.Length -eq 2) {
-                    $start[0],$start[1]
-                }
-                else {
-                    $start[0],$start[0]
-                }
-            }        
+                $startPoint = 
+                    if ($start.Length -eq 2) {
+                        $start[0],$start[1]
+                    }
+                    else {
+                        $start[0],$start[0]
+                    }
+                $startPoint
+            } elseif ($_.D) {
+                $startPoint = @($_.D -split '\s' -match '[\d\.]+')[-1..-2] -as [double[]]
+            }
+
             if ($ControlPoint.Length -ge 4) {
                 "C" # Bezier curves have 2 control points
             } else {
                 if ($Smooth) {
                     "S"
                 }
-                elseif ($MultiQuadratic) {
-                    "T"
-                } else{
+                elseif ($Quadratic) {
                     "Q"
-                }
+                } else {
+                    "T"
+                } 
             }
             
             for ($cpIndex =0 ; $cpIndex -lt $ControlPoint.Length; $cpIndex+=2 ) {
@@ -152,7 +171,19 @@ function SVG.CurvePath {
             elseif ($end.Length -eq 2 ) {
                 $End[0],$end[1]
             } elseif ($end.Length -eq 1) {
-                $End[0],$end[0]
+                if ($null -ne $psBoundParameters["Angle"]) {
+                    if ($startPoint) {
+                        $startPoint[0] + ($end[0] * [math]::round([math]::sin($angle * [Math]::PI/180),15))
+                        $startPoint[1] + ($end[0] * [math]::round([math]::cos($angle * [Math]::PI/180),15))
+                    } 
+                    else
+                    {
+                        $end[0] * [math]::round([math]::sin($angle * [Math]::PI/180),15)
+                        $end[0] * [math]::round([math]::cos($angle * [Math]::PI/180),15)
+                    }                    
+                } else {
+                    $End[0],$end[0]
+                }
             } else {
                 0, 0
             }
@@ -162,7 +193,7 @@ function SVG.CurvePath {
             }
         ) -join ' '
         
-        $PSBoundParameters['D'] = $existingPath + $arcPath
+        $PSBoundParameters['D'] = $existingPath + $curvePath
         $baseSplat = [Ordered]@{}
         foreach ($k in $PSBoundParameters.Keys) {
             if ($baseCommand.Parameters[$k]) {
