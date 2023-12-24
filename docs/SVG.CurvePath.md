@@ -21,9 +21,19 @@ Draws an SVG curve path.
 > EXAMPLE 1
 
 ```PowerShell
--OutputPath .\Curves.svg @(    
-    =<svg.CurvePath> -Start 10 -ControlPoint 15,5,20,40  -End 30,30 -fill transparent -stroke black    
-) -viewbox 50, 50
+svg -Viewbox 50 @(    
+    svg.CurvePath -Start 10 -ControlPoint 15,5,20,40  -End 30 -fill transparent -stroke black    
+) -OutputPath .\Curve.svg
+```
+> EXAMPLE 2
+
+```PowerShell
+svg -Viewbox 100 (        
+    svg.CurvePath -Start 50 -End 10 -Angle 45 -Multiquadratic |    
+        svg.CurvePath -End 10 -Angle -45 -Multiquadratic |    
+        svg.CurvePath -End 20 -Angle 50 -Multiquadratic |    
+        svg.CurvePath -End 20 -Angle -50 -Stroke '#4488ff' -Fill transparent -Multiquadratic    
+) -OutputPath .\ZigZagCurvePath.svg
 ```
 
 ---
@@ -50,9 +60,17 @@ If only one value is provided, it will be used as the X and Y coordinate.
 The end point of the curve.    
 If only one value is provided, it will be used as the X and Y coordinate.
 
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[Double[]]`|false   |3       |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |Aliases |
+|------------|--------|--------|---------------------|--------|
+|`[Double[]]`|false   |3       |true (ByPropertyName)|Distance|
+
+#### **Angle**
+An optional angle.    
+If an `-Angle` is provided and `-End` is a single number, it will be treated as a `-Distance`.
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Double]`|false   |4       |true (ByPropertyName)|
 
 #### **Smooth**
 If set, will attempt to draw a smooth bezier curve.
@@ -88,5 +106,5 @@ If set, will close the path after this element.
 
 ### Syntax
 ```PowerShell
-SVG.CurvePath [[-ControlPoint] <Double[]>] [[-Start] <Double[]>] [[-End] <Double[]>] [-Smooth] [-MultiQuadratic] [-Quadratic] [-Close] [<CommonParameters>]
+SVG.CurvePath [[-ControlPoint] <Double[]>] [[-Start] <Double[]>] [[-End] <Double[]>] [[-Angle] <Double>] [-Smooth] [-MultiQuadratic] [-Quadratic] [-Close] [<CommonParameters>]
 ```
