@@ -8,7 +8,7 @@ Invoke-SVG, Fractal Generation of SVG
 
 ### Description
 
-Generates a SVG fractally by repeatedly invoking commands with slightly different parameters.
+Generates a SVG fractally by repeatedly invoking a `-Command` and `-Change`ing `-Parameter`s for N `-Repetitions`
 
 ---
 
@@ -91,6 +91,11 @@ SVG.Fractal -Command SVG.Octagon -RepeatCount 8 -Parameter @{
     Rotate = 360/16    
 } -Viewbox 3 -OutputPath .\Fractal8.svg
 ```
+> EXAMPLE 7
+
+```PowerShell
+1..100 | %{ $_; $_ } | Invoke-SVG
+```
 
 ---
 
@@ -99,9 +104,9 @@ SVG.Fractal -Command SVG.Octagon -RepeatCount 8 -Parameter @{
 The command for the fractal.    
 This can be the name of a command within PSSVG, or a ScriptBlock.
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[String]`|false   |1       |true (ByPropertyName)|
+|Type      |Required|Position|PipelineInput        |Aliases    |
+|----------|--------|--------|---------------------|-----------|
+|`[String]`|false   |1       |true (ByPropertyName)|ScriptBlock|
 
 #### **RepeatCount**
 The number of times the command should be repeated.  By default, 1.
@@ -128,9 +133,30 @@ ScriptBlocks will be evaluated.
 |---------------|--------|--------|---------------------|-------|
 |`[IDictionary]`|false   |4       |true (ByPropertyName)|Changes|
 
+#### **CoordinateSystem**
+The coordinate system to use.    
+By default, cartesian.    
+Any -Command is likely to return a full SVG element, but may also return a series of points    
+If a series of points is provided, this will determine how they will be interpreted.    
+Note: using Polar coordinates will require that a -ViewBox is provided, and will be based off of the center of that viewbox.
+Valid Values:
+
+* Cartesian
+* Polar
+
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[String]`|false   |5       |false        |
+
+---
+
+### Notes
+The -Command can be a specific command within this module or a `[ScriptBlock]`.    
+Because this command can accept a [ScriptBlock] parameter that runs without any bounding, it is unsafe to expose Invoke-SVG as a web service.
+
 ---
 
 ### Syntax
 ```PowerShell
-Invoke-SVG [[-Command] <String>] [[-RepeatCount] <Int32>] [[-Parameter] <IDictionary>] [[-Change] <IDictionary>] [<CommonParameters>]
+Invoke-SVG [[-Command] <String>] [[-RepeatCount] <Int32>] [[-Parameter] <IDictionary>] [[-Change] <IDictionary>] [[-CoordinateSystem] <String>] [<CommonParameters>]
 ```
