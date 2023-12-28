@@ -56,7 +56,7 @@
     # This can allow for custom formatting and extended types.
     # If nothing was provided, each output will be decorated with it's `-ElementName`.
     [Parameter(ValueFromPipelineByPropertyName)]
-    [Alias('PSTypeName','TypeName','Decoration')]
+    [Alias('PSTypeName','PSTypeNames','TypeName','TypeNames','Decoration','Decorations')]
     [string[]]
     $Decorate
     )

@@ -712,7 +712,7 @@ This can allow for custom formatting and extended types.
 If nothing was provided, each output will be decorated with it's ElementName.
         "
         Attribute = 'ValueFromPipelineByPropertyName'
-        Alias = 'Comments'
+        Alias = 'PSTypeName','PSTypeNames','TypeName','TypeNames','Decoration','Decorations'
         Type  = [string]
     }
 
