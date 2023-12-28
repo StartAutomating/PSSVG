@@ -77,9 +77,9 @@ If provided, will decorate outputted objects with a typename.
 This can allow for custom formatting and extended types.
 If nothing was provided, each output will be decorated with it's `-ElementName`.
 
-|Type        |Required|Position|PipelineInput        |Aliases                               |
-|------------|--------|--------|---------------------|--------------------------------------|
-|`[String[]]`|false   |9       |true (ByPropertyName)|PSTypeName<br/>TypeName<br/>Decoration|
+|Type        |Required|Position|PipelineInput        |Aliases                                                                             |
+|------------|--------|--------|---------------------|------------------------------------------------------------------------------------|
+|`[String[]]`|false   |9       |true (ByPropertyName)|PSTypeName<br/>PSTypeNames<br/>TypeName<br/>TypeNames<br/>Decoration<br/>Decorations|
 
 ---
 
