@@ -705,6 +705,17 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         Type  = [string]
     }
 
+    $parameters['Decorate'] = [Ordered]@{
+        Help = "
+If provided, will decorate outputted objects with a typename.
+This can allow for custom formatting and extended types.        
+If nothing was provided, each output will be decorated with it's ElementName.
+        "
+        Attribute = 'ValueFromPipelineByPropertyName'
+        Alias = 'Comments'
+        Type  = [string]
+    }
+
     $parameters['Children'] = [Ordered]@{
         Help = "One or more child elements.  These will be treated as if they were content."
         Attribute = 'ValueFromPipelineByPropertyName'
