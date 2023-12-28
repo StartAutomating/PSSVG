@@ -72,6 +72,15 @@ An output path.
 |----------|--------|--------|---------------------|
 |`[String]`|false   |8       |true (ByPropertyName)|
 
+#### **Decorate**
+If provided, will decorate outputted objects with a typename.
+This can allow for custom formatting and extended types.
+If nothing was provided, each output will be decorated with it's `-ElementName`.
+
+|Type        |Required|Position|PipelineInput        |Aliases                               |
+|------------|--------|--------|---------------------|--------------------------------------|
+|`[String[]]`|false   |9       |true (ByPropertyName)|PSTypeName<br/>TypeName<br/>Decoration|
+
 ---
 
 ### Notes
@@ -81,5 +90,5 @@ While this function can be used directly, it is designed to be the core function
 
 ### Syntax
 ```PowerShell
-Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <Object>] [[-OutputPath] <String>] [<CommonParameters>]
+Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <Object>] [[-OutputPath] <String>] [[-Decorate] <String[]>] [<CommonParameters>]
 ```
