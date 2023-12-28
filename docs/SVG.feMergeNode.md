@@ -101,6 +101,15 @@ A comment that will appear before the element.
 |----------|--------|--------|---------------------|--------|
 |`[String]`|false   |named   |true (ByPropertyName)|Comments|
 
+#### **Decorate**
+If provided, will decorate outputted objects with a typename.
+This can allow for custom formatting and extended types.        
+If nothing was provided, each output will be decorated with it's ElementName.
+
+|Type      |Required|Position|PipelineInput        |Aliases                                                                             |
+|----------|--------|--------|---------------------|------------------------------------------------------------------------------------|
+|`[String]`|false   |named   |true (ByPropertyName)|PSTypeName<br/>PSTypeNames<br/>TypeName<br/>TypeNames<br/>Decoration<br/>Decorations|
+
 #### **Children**
 One or more child elements.  These will be treated as if they were content.
 
@@ -177,5 +186,5 @@ You can use this attribute with any SVG element.
 
 ### Syntax
 ```PowerShell
-SVG.feMergeNode [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <PSObject>] [-In <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [<CommonParameters>]
+SVG.feMergeNode [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-In <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [<CommonParameters>]
 ```
