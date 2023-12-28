@@ -50,7 +50,15 @@
     # An output path.
     [Parameter(ValueFromPipelineByPropertyName)]
     [string]
-    $OutputPath   
+    $OutputPath,
+
+    # If provided, will decorate outputted objects with a typename.
+    # This can allow for custom formatting and extended types.
+    # If nothing was provided, each output will be decorated with it's `-ElementName`.
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('PSTypeName','TypeName','Decoration')]
+    [string[]]
+    $Decorate
     )
 
     begin {
@@ -293,8 +301,15 @@
                     Add-Member -InputObject $o NoteProperty Comment $comment -Force
                 }
                 $o.pstypenames.clear()
-                $o.pstypenames.add('SVG.Element')
-                $o                
+                if (-not $PSBoundParameters["Decorate"]) {
+                    $o.pstypenames.add("SVG.$elementName")
+                    $o.pstypenames.add('SVG.Element')    
+                } else {
+                    foreach ($decoration in $Decorate) {
+                        $o.pstypenames.add($decoration)
+                    }
+                }                
+                $o
             } else {
                 $elementText
             }
