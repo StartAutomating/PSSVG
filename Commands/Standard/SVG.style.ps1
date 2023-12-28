@@ -42,6 +42,15 @@ $Attribute = [Ordered]@{},
 [Alias('Comments')]
 [String]
 $Comment,
+<#
+If provided, will decorate outputted objects with a typename.
+This can allow for custom formatting and extended types.        
+If nothing was provided, each output will be decorated with it's ElementName.
+#>
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('PSTypeName','PSTypeNames','TypeName','TypeNames','Decoration','Decorations')]
+[String]
+$Decorate,
 # One or more child elements.  These will be treated as if they were content.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
