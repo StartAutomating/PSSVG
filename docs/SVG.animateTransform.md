@@ -508,6 +508,15 @@ A comment that will appear before the element.
 |----------|--------|--------|---------------------|--------|
 |`[String]`|false   |named   |true (ByPropertyName)|Comments|
 
+#### **Decorate**
+If provided, will decorate outputted objects with a typename.
+This can allow for custom formatting and extended types.        
+If nothing was provided, each output will be decorated with it's ElementName.
+
+|Type      |Required|Position|PipelineInput        |Aliases                                                                             |
+|----------|--------|--------|---------------------|------------------------------------------------------------------------------------|
+|`[String]`|false   |named   |true (ByPropertyName)|PSTypeName<br/>PSTypeNames<br/>TypeName<br/>TypeNames<br/>Decoration<br/>Decorations|
+
 #### **Children**
 One or more child elements.  These will be treated as if they were content.
 
@@ -670,7 +679,7 @@ The **`attributeName`** attribute indicates the name of the CSS property or attr
 
 #### **Begin**
 The **`begin`** attribute defines when an animation should begin.
-The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#timing-evaluationofbeginendtimelists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
+The attribute value is a semicolon separated list of values. The interpretation of a list of start times is detailed in the SMIL specification in ["Evaluation of begin and end time lists"](https://developer.mozilla.orghttps://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists). Each individual value can be one of the following: `<offset-value>`, `<syncbase-value>`, `<event-value>`, `<repeat-value>`, `<accessKey-value>`, `<wallclock-sync-value>` or the keyword `indefinite`.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
@@ -789,5 +798,5 @@ It is frequently useful for repeated animations to build upon the previous resul
 
 ### Syntax
 ```PowerShell
-SVG.animateTransform [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Children <PSObject>] [-By <PSObject>] [-From <PSObject>] [-To <PSObject>] [-Type <PSObject>] [-RequiredFeatures <PSObject>] [-SystemLanguage <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-XlinkHref <PSObject>] [-XlinkType <PSObject>] [-XlinkArcrole <PSObject>] [-XlinkTitle <PSObject>] [-XlinkShow <PSObject>] [-AttributeType <PSObject>] [-AttributeName <PSObject>] [-Begin <PSObject>] [-Dur <PSObject>] [-End <PSObject>] [-Min <PSObject>] [-Max <PSObject>] [-Restart <PSObject>] [-RepeatCount <PSObject>] [-RepeatDur <PSObject>] [-Fill <PSObject>] [-CalcMode <PSObject>] [-Values <PSObject>] [-KeyTimes <PSObject>] [-KeySplines <PSObject>] [-Additive <PSObject>] [-Accumulate <PSObject>] [<CommonParameters>]
+SVG.animateTransform [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-By <PSObject>] [-From <PSObject>] [-To <PSObject>] [-Type <PSObject>] [-RequiredFeatures <PSObject>] [-SystemLanguage <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-XlinkHref <PSObject>] [-XlinkType <PSObject>] [-XlinkArcrole <PSObject>] [-XlinkTitle <PSObject>] [-XlinkShow <PSObject>] [-AttributeType <PSObject>] [-AttributeName <PSObject>] [-Begin <PSObject>] [-Dur <PSObject>] [-End <PSObject>] [-Min <PSObject>] [-Max <PSObject>] [-Restart <PSObject>] [-RepeatCount <PSObject>] [-RepeatDur <PSObject>] [-Fill <PSObject>] [-CalcMode <PSObject>] [-Values <PSObject>] [-KeyTimes <PSObject>] [-KeySplines <PSObject>] [-Additive <PSObject>] [-Accumulate <PSObject>] [<CommonParameters>]
 ```
