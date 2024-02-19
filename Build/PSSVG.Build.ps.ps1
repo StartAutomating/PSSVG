@@ -610,13 +610,13 @@ foreach ($svgElement in $svgElements.elements.psobject.properties) {
 }
 
 
-$examplesRoot = Join-Path $PSScriptRoot Examples
+$examplesRoot = Join-Path $pwd Examples
 
 $knownParameterAliases = @{
     'Dur' = 'Duration'
 }
 
-$destFolder  = Join-Path $PSScriptRoot "Commands"
+$destFolder  = Join-Path $pwd "Commands"
 $destFolder  = Join-Path $destFolder "Standard"
 
 if (-not (Test-Path $destFolder)) {
