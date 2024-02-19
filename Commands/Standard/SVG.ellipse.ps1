@@ -85,19 +85,7 @@ $Cx,
 # The y position of the center of the ellipse.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','cy')]
-[Reflection.AssemblyMetaData('SVG.Value', '<length> | <percentage>')]
-[ValidatePattern('(?>|\d+)')]
-[ArgumentCompleter({
-    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
-    $validSet = '<length>','<percentage>'
-    if ($wordToComplete) {        
-        $toComplete = $wordToComplete -replace "^'" -replace "'$"
-        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
-    } else {
-        return @($validSet -replace '^', "'" -replace '$',"'")
-    }
-})]
+[Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("length-percentage")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
@@ -453,7 +441,7 @@ $Color,
 # 
 # When a child element is blended into a background, the value of the `color-interpolation` property on the child determines the type of blending, not the value of the `color-interpolation` on the parent. For gradients which make use of the href or the deprecated xlink:href attribute to reference another gradient, the gradient uses the property's value from the gradient element which is directly referenced by the fill or stroke property. When animating colors, color interpolation is performed according to the value of the `color-interpolation` property on the element being animated.
 # 
-# > **Note:** As a presentation attribute, `color-interpolation` can be used as a CSS property.
+# > **Note:** As a presentation attribute, color-interpolation can be used as a CSS property.
 # 
 # 
 [Parameter(ValueFromPipelineByPropertyName)]
