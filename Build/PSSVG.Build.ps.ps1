@@ -26,6 +26,10 @@
 .LINK
     https://github.com/mdn/content/blob/main/LICENSE.md
 #>
+[ValidatePattern("\s{1,}(?>MDN|Standard)")]
+param()
+
+Push-Location ($PSScriptRoot | Split-Path)
 
 require latest Irregular,PipeScript,PSDevOps,ugit 
 
@@ -922,3 +926,5 @@ if (Test-Path content) {
 }
 
 Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
+
+Pop-Location
