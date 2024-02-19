@@ -72,7 +72,12 @@ function Invoke-SVG {
     .EXAMPLE
         1..100 | %{ $_; $_ } | Invoke-SVG 
     #>
-    [inherit('SVG', Abstract,Dynamic)]
+    [inherit(Command={
+        Import-Module (
+            $pwd | Split-Path | Split-Path | Join-Path -ChildPath "PSSVG.psd1"
+        ) -Force -Global
+        'svg'
+    }, Abstract,Dynamic)]
     [Alias('SVG.Fractal')]    
     param(
     # The command for the fractal.
