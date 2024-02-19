@@ -370,7 +370,7 @@ One or more child elements.  These will be treated as if they were content.
 |`[PSObject]`|false   |named   |true (ByPropertyName)|Child  |
 
 #### **Href**
-The URL to an element/fragment that needs to be duplicated.<br/> _Value type_: [**`<URL>`**](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url) ; _Default value_: none; _Animatable_: **yes**
+The URL to an element/fragment that needs to be duplicated. See [Usage notes](https://developer.mozilla.org#usage_notes) for details on common pitfalls.<br/> _Value type_: [**`<URL>`**](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#url) ; _Default value_: none; _Animatable_: **yes**
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
@@ -575,7 +575,7 @@ The **`color-interpolation`** attribute specifies the color space for gradient i
 > **Note:** For filter effects, the color-interpolation-filters property controls which color space is used.
 The color-interpolation property chooses between color operations occurring in the sRGB color space or in a (light energy linear) linearized RGB color space. Having chosen the appropriate color space, component-wise linear interpolation is used.
 When a child element is blended into a background, the value of the `color-interpolation` property on the child determines the type of blending, not the value of the `color-interpolation` on the parent. For gradients which make use of the href or the deprecated xlink:href attribute to reference another gradient, the gradient uses the property's value from the gradient element which is directly referenced by the fill or stroke property. When animating colors, color interpolation is performed according to the value of the `color-interpolation` property on the element being animated.
-> **Note:** As a presentation attribute, `color-interpolation` can be used as a CSS property.
+> **Note:** As a presentation attribute, color-interpolation can be used as a CSS property.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
