@@ -115,12 +115,12 @@ function Invoke-SVG {
     )
     dynamicParam {
     $baseCommand = 
-        if (-not $script:SVG) {
-            $script:SVG = 
-                $executionContext.SessionState.InvokeCommand.GetCommand('SVG','Alias')
-            $script:SVG
+        if (-not $script:svg) {
+            $script:svg = 
+                $executionContext.SessionState.InvokeCommand.GetCommand('svg','Alias')
+            $script:svg
         } else {
-            $script:SVG
+            $script:svg
         }
     $IncludeParameter = @()
     $ExcludeParameter = @()
