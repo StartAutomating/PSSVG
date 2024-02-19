@@ -26,6 +26,10 @@
 .LINK
     https://github.com/mdn/content/blob/main/LICENSE.md
 #>
+[ValidatePattern("\s{1,}(?>MDN|Standard)")]
+param()
+
+Push-Location ($PSScriptRoot | Split-Path)
 
     
 $ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
@@ -673,13 +677,13 @@ foreach ($svgElement in $svgElements.elements.psobject.properties) {
 }
 
 
-$examplesRoot = Join-Path $PSScriptRoot Examples
+$examplesRoot = Join-Path $pwd Examples
 
 $knownParameterAliases = @{
     'Dur' = 'Duration'
 }
 
-$destFolder  = Join-Path $PSScriptRoot "Commands"
+$destFolder  = Join-Path $pwd "Commands"
 $destFolder  = Join-Path $destFolder "Standard"
 
 if (-not (Test-Path $destFolder)) {
@@ -989,3 +993,5 @@ if (Test-Path content) {
 }
 
 Import-Module .\PSSVG.psd1 -Global -Force -PassThru | Out-Host
+
+Pop-Location
