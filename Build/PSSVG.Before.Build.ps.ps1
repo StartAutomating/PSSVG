@@ -6,10 +6,11 @@
 .NOTES
     This will import PSSVG for later build steps.
 #>
+[Relfection.AssemblyMetaData("Order",-1kb)]
 param()
 
 Push-Location ($PSScriptRoot | Split-Path)
 
-Import-Module .\PSSVG.psd1 -Force -Global
+Import-Module .\PSSVG.psd1 -Force -Global -PassThru | Out-Host
 
 Pop-Location
