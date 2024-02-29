@@ -96,6 +96,11 @@ SVG.Fractal -Command SVG.Octagon -RepeatCount 8 -Parameter @{
 ```PowerShell
 1..100 | %{ $_; $_ } | Invoke-SVG
 ```
+> EXAMPLE 8
+
+```PowerShell
+@(5,90,5,180,5,270,5,0) | %{ $_; $_ } | Invoke-SVG -CoordinateSystem Polar -Viewbox 100 -Fill transparent -stroke black -strokewidth 1%
+```
 
 ---
 
@@ -138,7 +143,7 @@ The coordinate system to use.
 By default, cartesian.    
 Any -Command is likely to return a full SVG element, but may also return a series of points    
 If a series of points is provided, this will determine how they will be interpreted.    
-Note: using Polar coordinates will require that a -ViewBox is provided, and will be based off of the center of that viewbox.
+Note: using a coordinate system will require that a -ViewBox is provided, and will be based off of the center of that viewbox.
 Valid Values:
 
 * Cartesian
@@ -147,6 +152,13 @@ Valid Values:
 |Type      |Required|Position|PipelineInput|
 |----------|--------|--------|-------------|
 |`[String]`|false   |5       |false        |
+
+#### **CurvePoint**
+If set, will interpret each point as a curve, rather than a straight line.
+
+|Type      |Required|Position|PipelineInput        |Aliases    |
+|----------|--------|--------|---------------------|-----------|
+|`[Switch]`|false   |named   |true (ByPropertyName)|CurvePoints|
 
 ---
 
@@ -158,5 +170,5 @@ Because this command can accept a [ScriptBlock] parameter that runs without any 
 
 ### Syntax
 ```PowerShell
-Invoke-SVG [[-Command] <String>] [[-RepeatCount] <Int32>] [[-Parameter] <IDictionary>] [[-Change] <IDictionary>] [[-CoordinateSystem] <String>] [<CommonParameters>]
+Invoke-SVG [[-Command] <String>] [[-RepeatCount] <Int32>] [[-Parameter] <IDictionary>] [[-Change] <IDictionary>] [[-CoordinateSystem] <String>] [-CurvePoint] [<CommonParameters>]
 ```
