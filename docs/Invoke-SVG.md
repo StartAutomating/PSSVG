@@ -160,6 +160,13 @@ If set, will interpret each point as a curve, rather than a straight line.
 |----------|--------|--------|---------------------|-----------|
 |`[Switch]`|false   |named   |true (ByPropertyName)|CurvePoints|
 
+#### **Close**
+If set, will close the path after this element.
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Switch]`|false   |named   |true (ByPropertyName)|
+
 ---
 
 ### Notes
@@ -170,5 +177,5 @@ Because this command can accept a [ScriptBlock] parameter that runs without any 
 
 ### Syntax
 ```PowerShell
-Invoke-SVG [[-Command] <String>] [[-RepeatCount] <Int32>] [[-Parameter] <IDictionary>] [[-Change] <IDictionary>] [[-CoordinateSystem] <String>] [-CurvePoint] [<CommonParameters>]
+Invoke-SVG [[-Command] <String>] [[-RepeatCount] <Int32>] [[-Parameter] <IDictionary>] [[-Change] <IDictionary>] [[-CoordinateSystem] <String>] [-CurvePoint] [-Close] [<CommonParameters>]
 ```
