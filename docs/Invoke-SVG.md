@@ -99,7 +99,7 @@ SVG.Fractal -Command SVG.Octagon -RepeatCount 8 -Parameter @{
 > EXAMPLE 8
 
 ```PowerShell
-@(5,90,5,180,5,270,5,0) | %{ $_; $_ } | Invoke-SVG -CoordinateSystem Polar -Viewbox 100 -Fill transparent -stroke black -strokewidth 1%
+@(5,90,5,180,5,270,5,0) | Invoke-SVG -CoordinateSystem Polar -Viewbox 100 -Fill transparent -stroke black -strokewidth 1%
 ```
 
 ---
