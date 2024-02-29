@@ -120,11 +120,16 @@ function Invoke-SVG {
     [string]
     $CoordinateSystem = 'Cartesian',
 
-    # If set, will interpret each point as a curve, rather than a straight line.    
+    # If set, will interpret each point as a curve, rather than a straight line.
     [vbn()]
     [Alias('CurvePoints')]
     [switch]
-    $CurvePoint
+    $CurvePoint,
+
+    # If set, will close the path after this element.
+    [vbn()]
+    [switch]
+    $Close
     )
 
     end {
@@ -292,7 +297,11 @@ function Invoke-SVG {
                         $centerY + ($pointRadius * [math]::round([math]::cos($pointAngle * [Math]::PI/180),15))
                     }
                 }
-            })
+            }
+            if ($Close) {
+                "Z"
+            }
+            )
             $content = SVG.path -D $contentPath # -Fill transparent -Stroke black
         }
 
