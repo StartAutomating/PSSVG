@@ -71,6 +71,8 @@ function Invoke-SVG {
 
     .EXAMPLE
         1..100 | %{ $_; $_ } | Invoke-SVG 
+    .EXAMPLE
+        @(5,90,5,180,5,270,5,0) | %{ $_; $_ } | Invoke-SVG -CoordinateSystem Polar -Viewbox 100 -Fill transparent -stroke black -strokewidth 1%
     #>
     [inherit(Command={
         Import-Module (
@@ -113,10 +115,16 @@ function Invoke-SVG {
     # By default, cartesian.
     # Any -Command is likely to return a full SVG element, but may also return a series of points
     # If a series of points is provided, this will determine how they will be interpreted.
-    # Note: using Polar coordinates will require that a -ViewBox is provided, and will be based off of the center of that viewbox. 
+    # Note: using a coordinate system will require that a -ViewBox is provided, and will be based off of the center of that viewbox. 
     [ValidateSet('Cartesian', 'Polar')]
     [string]
-    $CoordinateSystem = 'Cartesian'
+    $CoordinateSystem = 'Cartesian',
+
+    # If set, will interpret each point as a curve, rather than a straight line.    
+    [vbn()]
+    [Alias('CurvePoints')]
+    [switch]
+    $CurvePoint
     )
 
     end {
@@ -253,6 +261,8 @@ function Invoke-SVG {
                         $pointY,$pointX = $pointArray[$pointNumber * 2],$pointArray[($pointNumber * 2) + 1]
                         if (-not $pointNumber) {
                             "M"
+                        } elseif ($CurvePoint) {
+                            "T"
                         } else {
                             "L"
                         }
@@ -270,14 +280,16 @@ function Invoke-SVG {
                         # Alas, there is some disagreement on where a unit circle should start and end.
                         # To correct for how polar coordinates start from the top of the circle
                         # we always want to subtract 90 from whatever angle.
-                        $pointAngle += 90;
+                        $pointAngle -= 90
                         if (-not $pointNumber) {
                             "M"
+                        } elseif ($CurvePoint) {
+                            "T"
                         } else {
                             "L"
                         }
-                        $centerX + ($pointRadius * [math]::round([math]::cos($pointAngle * [Math]::PI/180),15))
-                        $centerY + ($pointRadius * [math]::round([math]::sin($pointAngle * [Math]::PI/180),15))
+                        $centerX + ($pointRadius * [math]::round([math]::sin($pointAngle * [Math]::PI/180),15))
+                        $centerY + ($pointRadius * [math]::round([math]::cos($pointAngle * [Math]::PI/180),15))
                     }
                 }
             })
