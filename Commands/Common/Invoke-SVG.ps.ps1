@@ -72,7 +72,7 @@ function Invoke-SVG {
     .EXAMPLE
         1..100 | %{ $_; $_ } | Invoke-SVG 
     .EXAMPLE
-        @(5,90,5,180,5,270,5,0) | %{ $_; $_ } | Invoke-SVG -CoordinateSystem Polar -Viewbox 100 -Fill transparent -stroke black -strokewidth 1%
+        @(5,90,5,180,5,270,5,0) | Invoke-SVG -CoordinateSystem Polar -Viewbox 100 -Fill transparent -stroke black -strokewidth 1%
     #>
     [inherit(Command={
         Import-Module (
@@ -258,7 +258,7 @@ function Invoke-SVG {
             switch ($CoordinateSystem) {
                 Cartesian {
                     for ($pointNumber = 0; ($pointNumber * 2) -lt $pointArray.Length;$pointNumber++) {
-                        $pointY,$pointX = $pointArray[$pointNumber * 2],$pointArray[($pointNumber * 2) + 1]
+                        $pointX, $pointY = $pointArray[$pointNumber * 2],$pointArray[($pointNumber * 2) + 1]
                         if (-not $pointNumber) {
                             "M"
                         } elseif ($CurvePoint) {
