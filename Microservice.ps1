@@ -32,6 +32,17 @@ if ($args) {
     Write-Information "Arguments Passed: $($args | Out-String)"    
 }
 
+filter FrameSVG {
+    $svgIn = $_
+    if ($svgIn -is [string]) {
+        $svgIn = $svgIn -as [xml]
+    }
+    if (-not $svgIn.svg) {
+        return
+    }
+    $svgIn.OuterXml    
+}
+
 if (-not $request) {     
     $response = [Ordered]@{
         ContentType = 'text/plain'
@@ -67,7 +78,7 @@ if ($global:PSSVG_Path_Cache.Contains($cacheKey)) {
         return
     } else {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        return $global:PSSVG_Path_Cache[$cacheKey]        
+        return ($global:PSSVG_Path_Cache[$cacheKey] | FrameSVG)
     }
 }
 if (-not $pssvg) {    
@@ -142,7 +153,7 @@ if ($localPath -match '\.ps1$') {
             if ($localParameterType -is [timespan]) {
                 $localSplat[$paramName] = $localSplat[$paramName] -as [timespan]
                 if ($localSplat[$paramName].Ticks -lt 1000 -and $localSplat[$paramName].Ticks -gt 0) {
-                    [Timespan]::FromMilliseconds((60 * 1000) / $duration.Ticks)
+                    $localSplat[$paramName] = [Timespan]::FromMilliseconds((60 * 1000) / $localSplat[$paramName].Ticks)
                 } elseif ($localSplat[$paramName].TotalSeconds -lt 1) {
                     $localSplat.Remove($paramName)
                 }
@@ -153,13 +164,13 @@ if ($localPath -match '\.ps1$') {
     $psNode.WriteOutput("Running $($request.Url.PathAndQuery) ( $($localPath | Split-Path -Leaf) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
     $svgOut = & $localPath @localSplat
     if ($svgOut -as [xml]) {
-        $global:PSSVG_Path_Cache[$cacheKey] = $svgOut.OuterXml
-        return $svgOut.OuterXml
+        $global:PSSVG_Path_Cache[$cacheKey] = ($svgOut -as [xml]).OuterXml
+        return ($svgOut.OuterXml | FrameSVG)
     }
     elseif ($svgOut -as [IO.FileInfo]) {
         $svgFileInfo = $svgOut
         if ($svgFileInfo.Extension -eq '.svg') {
-            $svgOut = [IO.File]::ReadAllText($svgFileInfo.FullName)
+            $svgOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
             $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
             return $svgOut
         }

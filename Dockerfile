@@ -24,4 +24,4 @@ RUN pwsh -c "Install-Module -Name $InstallModules -Force -AcceptLicense -Scope C
 # Add the modules to the profile
 RUN pwsh -c "Add-Content -Path \$Profile -Value 'Import-Module $InstallModules' -Force"
 
-RUN pwsh -c "Add-Content -Path \$Profile -Value './usr/local/share/powershell/Modules/$ModuleName/MicroService.ps1' -Force"
+RUN pwsh -c "Add-Content -Path \$Profile -Value './usr/local/share/powershell/Modules/$ModuleName/Microservice.ps1' -Force"

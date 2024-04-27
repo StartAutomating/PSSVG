@@ -1,9 +1,12 @@
-
+param(
+[timespan]
+$Duration = '00:00:05'
+)
 svg -ViewBox 0, 0, 100, 100 -Content @(
     svg.defs @(
         svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
             svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate -            
+                svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
             ) -Fill white
         )
         svg.mask (
