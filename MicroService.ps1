@@ -55,9 +55,11 @@ $response.ContentType = 'image/svg+xml'
 $cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
 if ($global:PSSVG_Path_Cache.Contains($cacheKey)) {
     if ($global:PSSVG_Path_Cache[$cacheKey] -is [int]) {
+        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         $response.StatusCode = $global:PSSVG_Path_Cache[$cacheKey]
         return
     } else {
+        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         return $global:PSSVG_Path_Cache[$cacheKey]        
     }
 }
