@@ -14,7 +14,6 @@ if (-not $psNode) {
         $env:PSSVG_ROOT = "$(Get-Module PSSVG | Split-path | Join-Path -ChildPath 'Examples')"
     }
 
-
     $psNode = @(Start-PSNode -Server $serveUrl -Command $MyInvocation.MyCommand.ScriptBlock -ImportModule (
         Get-Module PSSVG
     )) -ne $null
@@ -51,6 +50,14 @@ if (-not $global:PSSVG_Path_Cache) {
     $global:PSSVG_Path_Cache = @{}
 }
 $response.ContentType = 'image/svg+xml'
+
+$orderedQuery = [Ordered]@{}
+if ($request.Url.Query) {
+    $parsedQuery = [Web.HttpUtility]::ParseQueryString($request.Url.Query)
+    foreach ($key in $parsedQuery.Keys) {
+        $orderedQuery[$key] = $parsedQuery[$key]
+    }
+}
 
 $cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
 if ($global:PSSVG_Path_Cache.Contains($cacheKey)) {
@@ -105,16 +112,11 @@ $localPath = $foundPath
 if ($localPath -match '\.ps1$') {
     $queryParameters = 
         if ($request.Url.Query) {                                
-            $parsedQuery = [Web.HttpUtility]::ParseQueryString($request.Url.Query)
-            $orderedQuery = [Ordered]@{}
-            foreach ($key in $parsedQuery.Keys) {
-                $orderedQuery[$key] = $parsedQuery[$key]
-            }
             $orderedQuery
         } else { $null }
     $localScript = $ExecutionContext.SessionState.InvokeCommand.GetCommand($localPath, 'ExternalScript')
     $localCommandMetadata = $localScript -as [Management.Automation.CommandMetaData]
-    $localSplat = [Ordered]@{}
+    $localSplat = [Ordered]@{}    
     foreach ($queryKey in @($queryParameters.Keys)) {
         if (-not $queryKey) { continue }
         
@@ -137,10 +139,18 @@ if ($localPath -match '\.ps1$') {
             if ($localParameterType.IsArray) {
                 $localSplat[$paramName] = $localSplat[$paramName] -split ','
             }
+            if ($localParameterType -is [timespan]) {
+                $localSplat[$paramName] = $localSplat[$paramName] -as [timespan]
+                if ($localSplat[$paramName].Ticks -lt 1000 -and $localSplat[$paramName].Ticks -gt 0) {
+                    [Timespan]::FromMilliseconds((60 * 1000) / $duration.Ticks)
+                } elseif ($localSplat[$paramName].TotalSeconds -lt 1) {
+                    $localSplat.Remove($paramName)
+                }
+            }
         }
         
     }
-    $psNode.WriteOutput("Running $($request.Url.PathAndQuery) $(@($queryParameters.Keys).Length) ( $($localPath | Split-Path -Leaf) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
+    $psNode.WriteOutput("Running $($request.Url.PathAndQuery) ( $($localPath | Split-Path -Leaf) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
     $svgOut = & $localPath @localSplat
     if ($svgOut -as [xml]) {
         $global:PSSVG_Path_Cache[$cacheKey] = $svgOut.OuterXml
