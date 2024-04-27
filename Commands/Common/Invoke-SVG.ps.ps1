@@ -1,3 +1,5 @@
+[ValiatePattern('(?>Invoke-SVG|SVG\.Fractal)')]
+param()
 function Invoke-SVG {
     <#
     .SYNOPSIS
@@ -67,12 +69,7 @@ function Invoke-SVG {
         } -Change @{    
             Radius = '/8/11'
             Rotate = 360/16
-        } -Viewbox 3 -OutputPath .\Fractal8.svg    
-
-    .EXAMPLE
-        1..100 | %{ $_; $_ } | Invoke-SVG 
-    .EXAMPLE
-        @(5,90,5,180,5,270,5,0) | Invoke-SVG -CoordinateSystem Polar -Viewbox 100 -Fill transparent -stroke black -strokewidth 1%
+        } -Viewbox 3 -OutputPath .\Fractal8.svg
     #>
     [inherit(Command={
         Import-Module (
@@ -109,27 +106,7 @@ function Invoke-SVG {
     [vbn()]
     [Alias('Changes')]
     [Collections.IDictionary]
-    $Change,
-
-    # The coordinate system to use.
-    # By default, cartesian.
-    # Any -Command is likely to return a full SVG element, but may also return a series of points
-    # If a series of points is provided, this will determine how they will be interpreted.
-    # Note: using a coordinate system will require that a -ViewBox is provided, and will be based off of the center of that viewbox. 
-    [ValidateSet('Cartesian', 'Polar')]
-    [string]
-    $CoordinateSystem = 'Cartesian',
-
-    # If set, will interpret each point as a curve, rather than a straight line.
-    [vbn()]
-    [Alias('CurvePoints')]
-    [switch]
-    $CurvePoint,
-
-    # If set, will close the path after this element.
-    [vbn()]
-    [switch]
-    $Close
+    $Change    
     )
 
     end {
@@ -141,12 +118,12 @@ function Invoke-SVG {
         if ($MyInvocation.MyCommand.Module.ExportedCommands -and $MyInvocation.MyCommand.Module.ExportedCommands[$command]) {
             $resolvedCmd = $MyInvocation.MyCommand.Module.ExportedCommands[$command]
         }
-        else {
-            # Otherwise, try to make it a scriptblock
+        elseif (-not $request) {
+            # Otherwise, try to make it a scriptblock (as long we're not `$request`ing web content)
             $CommandAsScriptBlock = try { [scriptblock]::Create($Command) } catch { $_ }
             if ($CommandAsScriptBlock -is [scriptblock]) {
                 # and pop it into a temporary function in case we need it.
-                $function:ThisFracal = $resolvedCmd = $CommandAsScriptBlock                    
+                $function:ThisFractal = $resolvedCmd = $CommandAsScriptBlock
             }
         }
 
@@ -247,63 +224,7 @@ function Invoke-SVG {
                     }
                 } 
             }
-        )
-
-        # If the content was a series of numbers, they probably want a polyline 
-        if ($content -as [double[]]) {
-            $viewbox = $svgSplat.viewbox
-            if (-not $viewbox) { Write-Error "Must provide a -Viewbox to use coordinates"; return }
-            $emptySvg = SVG -ViewBox $viewbox
-            $viewLeft, $viewTop, $viewWidth, $viewHeight  = $emptySvg.viewBox -split '\s'
-            $centerX = ($viewWidth - $viewLeft)/2
-            $centerY = ($viewHeight - $viewTop)/2
-                    
-            $pointArray = $content -as [double[]]
-            $contentPath = @(
-            switch ($CoordinateSystem) {
-                Cartesian {
-                    for ($pointNumber = 0; ($pointNumber * 2) -lt $pointArray.Length;$pointNumber++) {
-                        $pointX, $pointY = $pointArray[$pointNumber * 2],$pointArray[($pointNumber * 2) + 1]
-                        if (-not $pointNumber) {
-                            "M"
-                        } elseif ($CurvePoint) {
-                            "T"
-                        } else {
-                            "L"
-                        }
-                        
-                        # In cartesian coordinates, X is already "fine"
-                        $pointX
-                        # But Y needs to be corrected to be relative to the bottom.
-                        ($viewHeight - $pointY)
-                    }
-                }
-                Polar {
-                                                        
-                    for ($pointNumber = 0; ($pointNumber * 2) -lt $pointArray.Length;$pointNumber++) {
-                        $pointRadius,$pointAngle = $pointArray[$pointNumber * 2],$pointArray[($pointNumber * 2) + 1]
-                        # Alas, there is some disagreement on where a unit circle should start and end.
-                        # To correct for how polar coordinates start from the top of the circle
-                        # we always want to subtract 90 from whatever angle.
-                        $pointAngle -= 90
-                        if (-not $pointNumber) {
-                            "M"
-                        } elseif ($CurvePoint) {
-                            "T"
-                        } else {
-                            "L"
-                        }
-                        $centerX + ($pointRadius * [math]::round([math]::sin($pointAngle * [Math]::PI/180),15))
-                        $centerY + ($pointRadius * [math]::round([math]::cos($pointAngle * [Math]::PI/180),15))
-                    }
-                }
-            }
-            if ($Close) {
-                "Z"
-            }
-            )
-            $content = SVG.path -D $contentPath # -Fill transparent -Stroke black
-        }
+        )        
 
         SVG @svgSplat $content
     }
