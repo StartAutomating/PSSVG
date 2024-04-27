@@ -43,7 +43,8 @@ filter FrameSVG {
     $svgIn.OuterXml    
 }
 
-filter InvokeQuerySplat {
+$InvokeQuerySplat {
+    process {
     $cmdIn = $_
     $localCommandMetadata = $cmdIn -as [Management.Automation.CommandMetaData]
     if (-not $localCommandMetadata) { return }
@@ -82,6 +83,7 @@ filter InvokeQuerySplat {
     }
     $psNode.WriteOutput("Running $($request.Url.PathAndQuery) ( $(@($cmdIn -split '[\\/]')[-1]) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
     & $cmdIn @localSplat
+    }
 }
 
 if (-not $request) {     
@@ -167,7 +169,7 @@ if ($localPath -match '\.ps1$') {
         } else { $null }
     $localScript = $ExecutionContext.SessionState.InvokeCommand.GetCommand($localPath, 'ExternalScript')
     
-    $svgOut = $localScript | . InvokeQuerySplat
+    $svgOut = $localScript | . $InvokeQuerySplat
     
     if ($svgOut -as [xml]) {
         $global:PSSVG_Path_Cache[$cacheKey] = ($svgOut -as [xml]).OuterXml
