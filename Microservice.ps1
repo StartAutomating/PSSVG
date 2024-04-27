@@ -46,7 +46,20 @@ filter FrameSVG {
 $InvokeQuerySplat = {
     process {
     $cmdIn = $_
+
+    $orderedQuery = [Ordered]@{}
+    if ($request.Url.Query) {
+        $parsedQuery = [Web.HttpUtility]::ParseQueryString($request.Url.Query)
+        foreach ($key in $parsedQuery.Keys) {
+            $orderedQuery[$key] = $parsedQuery[$key]
+        }
+    }
+    $queryParameters = 
+        if ($request.Url.Query) {
+            $orderedQuery
+        } else { $null }
     $localCommandMetadata = $cmdIn -as [Management.Automation.CommandMetaData]
+    $localSplat = [Ordered]@{}
     if (-not $localCommandMetadata) { return }
     foreach ($queryKey in @($queryParameters.Keys)) {
         if (-not $queryKey) { continue }
@@ -105,13 +118,6 @@ if (-not $global:PSSVG_Path_Cache) {
 }
 $response.ContentType = 'image/svg+xml'
 
-$orderedQuery = [Ordered]@{}
-if ($request.Url.Query) {
-    $parsedQuery = [Web.HttpUtility]::ParseQueryString($request.Url.Query)
-    foreach ($key in $parsedQuery.Keys) {
-        $orderedQuery[$key] = $parsedQuery[$key]
-    }
-}
 
 $cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
 if ($global:PSSVG_Path_Cache.Contains($cacheKey)) {
@@ -162,11 +168,7 @@ if (-not $foundPath) {
 
 $localPath = $foundPath
 
-if ($localPath -match '\.ps1$') {
-    $queryParameters = 
-        if ($request.Url.Query) {                                
-            $orderedQuery
-        } else { $null }
+if ($localPath -match '\.ps1$') {    
     $localScript = $ExecutionContext.SessionState.InvokeCommand.GetCommand($localPath, 'ExternalScript')
     
     $svgOut = $localScript | . $InvokeQuerySplat
