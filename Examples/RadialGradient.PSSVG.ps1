@@ -1,10 +1,21 @@
 #requires -Module PSSVG
+param(
+# The colors in the gradient
+[string[]]
+$Color = @('gold','red'),
+
+# The offsets in the gradient
+[double[]]
+$Offset = @(10,95)
+)
+
 
 svg -Content @(
     svg.defs @(
         svg.radialGradient -Id myGradient -Content @(
-            svg.stop -Offset '10%' -Stopcolor gold
-            svg.stop -Offset '95%' -Stopcolor red
+            for($n = 0; $n -lt $color.Length; $n++) {
+                svg.stop -Offset "$($Offset[$n])%" -StopColor $color[$n]
+            }
         )
     )
     svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35    
