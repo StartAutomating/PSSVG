@@ -43,7 +43,7 @@ filter FrameSVG {
     $svgIn.OuterXml    
 }
 
-$InvokeQuerySplat {
+$InvokeQuerySplat = {
     process {
     $cmdIn = $_
     $localCommandMetadata = $cmdIn -as [Management.Automation.CommandMetaData]
