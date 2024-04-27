@@ -17,7 +17,7 @@ RUN pwsh -c "New-Item -Path \$Profile -ItemType File -Force | Out-Null"
 RUN pwsh -c "Add-Content -Path \$Profile -Value 'Import-Module $ModuleName' -Force"
 
 # InstallModules determines additional modules to install
-ARG InstallModules=PipeScript,PSSVG,ugit
+ARG InstallModules=PipeScript,ugit
 
 # Install additional modules
 RUN pwsh -c "Install-Module -Name $InstallModules -Force -AcceptLicense -Scope CurrentUser"
