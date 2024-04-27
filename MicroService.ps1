@@ -79,7 +79,7 @@ if (Test-Path $localPath) {
     $localMatches = @(Get-Item -Path $localPath) -match '\.(?>pssvg\.ps1|ps1|svg)$'
     if ($localMatches) {
         if ($localMatches.Count -gt 1) {
-            $indexOrReadme = $localMatches -match '(?>home|index|readme)\.'
+            $indexOrReadme = $localMatches -match '(?>default|home|index|readme)\.'
             if ($indexOrReadme) {
                 $foundPath = $indexOrReadme[0]
             } else {
