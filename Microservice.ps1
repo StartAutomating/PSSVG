@@ -43,6 +43,47 @@ filter FrameSVG {
     $svgIn.OuterXml    
 }
 
+filter ToQuerySplat {
+    $cmdIn = $_
+    $localCommandMetadata = $cmdIn -as [Management.Automation.CommandMetaData]
+    if (-not $localCommandMetadata) { return }
+    foreach ($queryKey in @($queryParameters.Keys)) {
+        if (-not $queryKey) { continue }
+        
+        if (-not $localCommandMetadata.Parameters) { continue }
+        $paramName = 
+            if ($localCommandMetadata.Parameters[$queryKey]) {
+                $localSplat[$queryKey] = $queryParameters[$queryKey]
+                $queryKey
+            } else {
+                foreach ($localParameter in $localCommandMetadata.Parameters.Values) {
+                    if ($localParameter.Aliases -contains $queryKey) {
+                        $localSplat[$localParameter.Name] = $queryParameters[$queryKey]
+                        $localParameter.Name
+                    }
+                }
+            }
+
+        if ($paramName) {
+            $localParameterType = $localCommandMetadata.Parameters[$paramName].ParameterType
+            if ($localParameterType.IsArray) {
+                $localSplat[$paramName] = $localSplat[$paramName] -split ','
+            }
+            if ($localParameterType -eq [timespan]) {
+                $localSplat[$paramName] = $localSplat[$paramName] -as [timespan]
+                if ($localSplat[$paramName].Ticks -lt 1000 -and $localSplat[$paramName].Ticks -gt 0) {
+                    $localSplat[$paramName] = [Timespan]::FromMilliseconds((60 * 1000) / $localSplat[$paramName].Ticks)
+                } elseif ($localSplat[$paramName].TotalSeconds -lt 1) {
+                    $localSplat.Remove($paramName)
+                }
+            }
+        }
+        
+    }
+    $psNode.WriteOutput("Running $($request.Url.PathAndQuery) ( $(@($cmdIn -split '[\\/]')[-1]) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
+    & $cmdIn @localSplat
+}
+
 if (-not $request) {     
     $response = [Ordered]@{
         ContentType = 'text/plain'
@@ -108,9 +149,8 @@ if (Test-Path $localPath) {
         } else {
             $foundPath = $localMatches[0].FullName
         }
-        
     }
-}    
+}
 
 if (-not $foundPath) {
     $global:PSSVG_Path_Cache[$cacheKey] = 404 
@@ -126,43 +166,9 @@ if ($localPath -match '\.ps1$') {
             $orderedQuery
         } else { $null }
     $localScript = $ExecutionContext.SessionState.InvokeCommand.GetCommand($localPath, 'ExternalScript')
-    $localCommandMetadata = $localScript -as [Management.Automation.CommandMetaData]
-    $localSplat = [Ordered]@{}    
-    foreach ($queryKey in @($queryParameters.Keys)) {
-        if (-not $queryKey) { continue }
-        
-        if (-not $localCommandMetadata.Parameters) { continue }
-        $paramName = 
-            if ($localCommandMetadata.Parameters[$queryKey]) {
-                $localSplat[$queryKey] = $queryParameters[$queryKey]
-                $queryKey
-            } else {
-                foreach ($localParameter in $localCommandMetadata.Parameters.Values) {
-                    if ($localParameter.Aliases -contains $queryKey) {
-                        $localSplat[$localParameter.Name] = $queryParameters[$queryKey]
-                        $localParameter.Name
-                    }
-                }
-            }
-
-        if ($paramName) {
-            $localParameterType = $localCommandMetadata.Parameters[$paramName].ParameterType
-            if ($localParameterType.IsArray) {
-                $localSplat[$paramName] = $localSplat[$paramName] -split ','
-            }
-            if ($localParameterType -is [timespan]) {
-                $localSplat[$paramName] = $localSplat[$paramName] -as [timespan]
-                if ($localSplat[$paramName].Ticks -lt 1000 -and $localSplat[$paramName].Ticks -gt 0) {
-                    $localSplat[$paramName] = [Timespan]::FromMilliseconds((60 * 1000) / $localSplat[$paramName].Ticks)
-                } elseif ($localSplat[$paramName].TotalSeconds -lt 1) {
-                    $localSplat.Remove($paramName)
-                }
-            }
-        }
-        
-    }
-    $psNode.WriteOutput("Running $($request.Url.PathAndQuery) ( $($localPath | Split-Path -Leaf) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
-    $svgOut = & $localPath @localSplat
+    
+    $svgOut = $localScript | InvokeQuerySplat
+    
     if ($svgOut -as [xml]) {
         $global:PSSVG_Path_Cache[$cacheKey] = ($svgOut -as [xml]).OuterXml
         return ($svgOut.OuterXml | FrameSVG)
