@@ -43,7 +43,7 @@ filter FrameSVG {
     $svgIn.OuterXml    
 }
 
-filter ToQuerySplat {
+filter InvokeQuerySplat {
     $cmdIn = $_
     $localCommandMetadata = $cmdIn -as [Management.Automation.CommandMetaData]
     if (-not $localCommandMetadata) { return }
@@ -167,11 +167,11 @@ if ($localPath -match '\.ps1$') {
         } else { $null }
     $localScript = $ExecutionContext.SessionState.InvokeCommand.GetCommand($localPath, 'ExternalScript')
     
-    $svgOut = $localScript | InvokeQuerySplat
+    $svgOut = $localScript | . InvokeQuerySplat
     
     if ($svgOut -as [xml]) {
         $global:PSSVG_Path_Cache[$cacheKey] = ($svgOut -as [xml]).OuterXml
-        return ($svgOut.OuterXml | FrameSVG)
+        return ($svgOut | FrameSVG)
     }
     elseif ($svgOut -as [IO.FileInfo]) {
         $svgFileInfo = $svgOut

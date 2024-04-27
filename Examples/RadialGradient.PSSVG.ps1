@@ -2,7 +2,7 @@
 param(
 # The colors in the gradient
 [string[]]
-$Color = @('gold','red'),
+$Color = @('#4488ff','#224488'),
 
 # The offsets in the gradient
 [double[]]
