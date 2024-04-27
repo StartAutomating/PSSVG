@@ -1,4 +1,4 @@
-[ValiatePattern('(?>Invoke-SVG|SVG\.Fractal)')]
+[ValidatePattern('(?>Invoke-SVG|SVG\.Fractal)')]
 param()
 function Invoke-SVG {
     <#
