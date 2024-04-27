@@ -8,7 +8,7 @@ ARG InstallAptPackages=git curl ca-certificates libc6 libgcc1
 RUN apt-get update && apt-get install -y $InstallAptPackages && apt-get clean
 
 # Set the module name to the name of the module we are building
-ARG ModuleName=PSSVG
+ENV ModuleName=PSSVG
 # Copy the module into the container
 COPY . ./usr/local/share/powershell/Modules/$ModuleName
 # Create a profile that imports the module, so it is available when the container starts.
