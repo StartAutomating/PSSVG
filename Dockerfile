@@ -24,4 +24,6 @@ RUN pwsh -c "Install-Module -Name $InstallModules -Force -AcceptLicense -Scope C
 # Add the modules to the profile
 RUN pwsh -c "Add-Content -Path \$Profile -Value 'Import-Module $InstallModules' -Force"
 
-ENTRYPOINT [ "/bin/pwsh", "-file", "./usr/local/share/powershell/Modules/$ModuleName/MicroService.ps1" ]
+COPY ./MicroService.ps1 ./usr/MicroService.ps1
+
+ENTRYPOINT [ "/bin/pwsh", "-file", "./usr/MicroService.ps1" ]
