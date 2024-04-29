@@ -1,3 +1,5 @@
+[ValidatePattern("SVG\.Markdown")]
+param()
 function SVG.Markdown
 {
     <#
@@ -39,7 +41,11 @@ function SVG.Markdown
             return $convertedThisMarkdown.Html
         }
         $myParameterCopy.Remove('Markdown')
-        $myParameterCopy.Add('Content', $xhtml)
+        if ($myParameterCopy.Content) {
+            $myParameterCopy.Content = @($myParameterCopy.Content) + $xhtml
+        } else {
+            $myParameterCopy.Add('Content', $xhtml)
+        }
 
         if (-not $myParameterCopy['Width']) {
             $myParameterCopy.Add('Width', '100%')
