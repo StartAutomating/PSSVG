@@ -25,6 +25,16 @@ foreach ($file in Get-ChildItem -Filter *.ps1 -Path $svgCommandsPath -Recurse) {
     elseif ($file.Name -like '*-*.ps1') {
         . $file.FullName
     }
+} 
+
+New-PSDrive -Name $MyModule.Name -PSProvider FileSystem -Scope Global -Root $PSScriptRoot -ErrorAction Ignore
+
+if ($home) {
+    $MyModuleProfileDirectory = Join-Path $home $MyModule.Name
+    if (-not (Test-Path $MyModuleProfileDirectory)) {
+        $null = New-Item -ItemType Directory -Path $MyModuleProfileDirectory -Force
+    }
+    New-PSDrive -Name "My$($MyModule.Name)" -PSProvider FileSystem -Scope Global -Root $MyModuleProfileDirectory -ErrorAction Ignore
 }
 
 Export-ModuleMember -Alias * -Function * -Variable $myModule.Name
