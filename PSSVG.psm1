@@ -4,6 +4,10 @@
     }    
 }
 
+$myModule = $MyInvocation.MyCommand.ScriptBlock.Module
+$ExecutionContext.SessionState.PSVariable.Set($myModule.Name, $myModule)
+$myModule.pstypenames.insert(0, $myModule.Name)
+
 $svgCommandsPath = Join-Path $PSScriptRoot Commands
 
 foreach ($file in Get-ChildItem -Filter *.ps1 -Path $svgCommandsPath -Recurse) {
@@ -23,4 +27,4 @@ foreach ($file in Get-ChildItem -Filter *.ps1 -Path $svgCommandsPath -Recurse) {
     }
 }
 
-Export-ModuleMember -Alias * -Function *
+Export-ModuleMember -Alias * -Function * -Variable $myModule.Name
