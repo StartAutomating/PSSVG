@@ -11,7 +11,7 @@ function SVG.HTML {
         The HTML is wrapped in an XHTML element.
         The XHTML is then passed to SVG.foreignObject to render the SVG.
     #>
-    [inherit('SVG.foreignObject',Abstract,Dynamic)]
+    [Inherit('SVG.foreignObject',Abstract,Dynamic)]
     param(
     # The HTML. For this to work properly, it should be XHTML
     [vbn()]
