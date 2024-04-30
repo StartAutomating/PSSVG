@@ -1,7 +1,7 @@
-[ValidatePattern("SVG\.HTML")]
+[ValidatePattern("SVG\.x?html")]
 param()
 
-function SVG.HTML {
+function SVG.XHTML {
     <#
     .SYNOPSIS
         Embeds HTML in SVG
@@ -12,6 +12,7 @@ function SVG.HTML {
         The XHTML is then passed to SVG.foreignObject to render the SVG.
     #>
     [Inherit('SVG.foreignObject',Abstract,Dynamic)]
+    [Alias('SVG.HTML')]
     param(
     # The HTML. For this to work properly, it should be XHTML
     [vbn()]
