@@ -4,11 +4,12 @@ function SVG.Markdown
 {
     <#
     .SYNOPSIS
-        Converts markdown to SVG
+        Embeds Markdown in SVG
     .DESCRIPTION
-        Converts markdown to SVG.
+        Converts from Markdown to HTML and embeds it into SVG.
     .NOTES
-        The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element. The XHTML is then passed to SVG.foreignObject to render the SVG.
+        The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element.
+        The XHTML is then passed to SVG.foreignObject to render the SVG.
     #>
     [Inherit('SVG.foreignObject',Abstract,Dynamic)]
     param(
