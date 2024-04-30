@@ -1,12 +1,15 @@
+[ValidatePattern("SVG\.Markdown")]
+param()
 function SVG.Markdown {
     <#
     
     .SYNOPSIS    
-        Converts markdown to SVG    
+        Embeds Markdown in SVG    
     .DESCRIPTION    
-        Converts markdown to SVG.    
+        Converts from Markdown to HTML and embeds it into SVG.    
     .NOTES    
-        The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element. The XHTML is then passed to SVG.foreignObject to render the SVG.    
+        The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element.    
+        The XHTML is then passed to SVG.foreignObject to render the SVG.    
     
     #>
         
@@ -76,7 +79,11 @@ function SVG.Markdown {
             return $convertedThisMarkdown.Html
         }
         $myParameterCopy.Remove('Markdown')
-        $myParameterCopy.Add('Content', $xhtml)
+        if ($myParameterCopy.Content) {
+            $myParameterCopy.Content = @($myParameterCopy.Content) + $xhtml
+        } else {
+            $myParameterCopy.Add('Content', $xhtml)
+        }
 
         if (-not $myParameterCopy['Width']) {
             $myParameterCopy.Add('Width', '100%')
