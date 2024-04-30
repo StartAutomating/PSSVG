@@ -2,13 +2,13 @@ SVG.Markdown
 ------------
 
 ### Synopsis
-Converts markdown to SVG
+Embeds Markdown in SVG
 
 ---
 
 ### Description
 
-Converts markdown to SVG.
+Converts from Markdown to HTML and embeds it into SVG.
 
 ---
 
@@ -23,7 +23,8 @@ The markdown.  The YAML header is currently ignored.
 ---
 
 ### Notes
-The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element. The XHTML is then passed to SVG.foreignObject to render the SVG.
+The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element.    
+The XHTML is then passed to SVG.foreignObject to render the SVG.
 
 ---
 
