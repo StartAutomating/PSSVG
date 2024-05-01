@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
-<svg viewBox="0 0 276.879226959953 1848" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 276.879226959953 1881.6" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <text font-size="14" font-family="monospace" fill="#4488ff">
     <a href=".">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Name</tspan>
@@ -152,6 +152,9 @@
     <a href="MorphingConvexPolygon.svg">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">MorphingConvexPolygon.svg</tspan>
     </a>
+    <a href="MorphingRose.PSSVG.ps1">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">MorphingRose.PSSVG.ps1</tspan>
+    </a>
     <a href="MovingGradient.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">MovingGradient.PSSVG.ps1</tspan>
     </a>
@@ -223,6 +226,9 @@
     </a>
     <a href="Rose.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Rose.PSSVG.ps1</tspan>
+    </a>
+    <a href="Rose.svg">
+      <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Rose.svg</tspan>
     </a>
     <a href="Shapes.PSSVG.ps1">
       <tspan x="0" dy="1.2em" font-size="14" xml:space="preserve" font-family="monospace" fill="#4488ff">Shapes.PSSVG.ps1</tspan>
