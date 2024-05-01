@@ -5,6 +5,7 @@ param(
 $BeatsPerMinute = 90
 )
 
+$bpm = $BeatsPerMinute
 $animateDuration = "$([Math]::Round(1/($bpm / 90), 4))s"
 $animateSplat = [Ordered]@{
     Dur = $animateDuration

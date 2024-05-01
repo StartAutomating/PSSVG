@@ -1,7 +1,14 @@
 #requires -Module PSSVG
 
+param(
+    [double]
+    $DistanceY = 0.75,
+
+    [double]
+    $DistanceX = 0
+)
 SVG @(
-    SVG.DropShadow -DistanceY .75
+    SVG.DropShadow -DistanceY $DistanceY  -DistanceX $DistanceX
         
     SVG.text "
 Dropping Shadows

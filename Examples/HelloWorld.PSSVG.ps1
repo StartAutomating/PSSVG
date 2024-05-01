@@ -14,7 +14,7 @@ $Fill = '#4488ff',
 $Class,
 
 [string]
-$FontSize = "3em",
+$FontSize = "30em",
 
 [double]
 $Width = 1920,
