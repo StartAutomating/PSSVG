@@ -11,7 +11,7 @@ if (-not $psNode) {
     })
 
     if (-not $env:PSSVG_ROOT) {
-        $env:PSSVG_ROOT = "$(Get-Module PSSVG | Split-path | Join-Path -ChildPath 'Examples')"
+        $env:PSSVG_ROOT = "$(Get-Module PSSVG | Split-path)"
     }
 
     $psNode = @(Start-PSNode -Server $serveUrl -Command $MyInvocation.MyCommand.ScriptBlock -ImportModule (
@@ -40,7 +40,7 @@ filter FrameSVG {
     if (-not $svgIn.svg) {
         return
     }
-    $svgIn.OuterXml    
+    $svgIn.OuterXml
 }
 
 $InvokeQuerySplat = {
@@ -89,6 +89,37 @@ $InvokeQuerySplat = {
                     $localSplat[$paramName] = [Timespan]::FromMilliseconds((60 * 1000) / $localSplat[$paramName].Ticks)
                 } elseif ($localSplat[$paramName].TotalSeconds -lt 1) {
                     $localSplat.Remove($paramName)
+                }
+            }
+            elseif ($localParameterType -eq [switch]) {
+                $localSplat[$paramName] =$localSplat[$paramName] -notmatch '^(?>\$?false|0|null|)$'
+            }
+            elseif ($localParameterType.GetInterface('IDictionary') -or $localParameterType -eq [PSCustomObject]) {
+                # Convert the query string from a hashtable or a JSON object
+                $localValue = $localSplat[$paramName]
+                if ($localValue -match '^\s{0,}[\{\].+?\:') {
+                    try {                        
+                        $localSplat[$paramName] = $localValue | ConvertFrom-Json -ErrorAction Stop -AsHashtable:$(
+                            $localParameterType.GetInterface('IDictionary') -as [bool]
+                        )
+                    } catch {
+                        # Remove values that are not valid JSON
+                        $localSplat.Remove($paramName)
+                    }
+                } elseif ($localValue -match '\^\s{0,}\@\{') {
+                    try {
+                        $toDataBlock = [ScriptBlock]::Create("data {$localValue}")
+                        # If we could parse it, it's valid PowerShell.
+                        # As as it is only one statement and it is a data block, we can execute it.
+                        if ($ToDataBlock.Ast.EndBlock.Statements.Count -eq 1 -and 
+                            $toDataBlock.Ast.EndBlock.Statements[0] -is [Management.Automation.Language.DataStatementAst]) {
+                            # If we have confirmed that it is a data block, we can execute it.
+                            # Since order may be important, we replace any hashtable creations with an [Ordered] block
+                            & ([ScriptBlock]::Create($localValue -replace '@\{','[Ordered]@{'))
+                        }
+                    } catch {
+                        $localSplat.Remove($paramName)                    
+                    }
                 }
             }
         }
@@ -145,7 +176,7 @@ $foundPath = $null
 
 $localPath = Join-Path $rootLocation "${path}*"
 if (Test-Path $localPath) { 
-    $localMatches = @(Get-Item -Path $localPath) -match '\.(?>pssvg\.ps1|ps1|svg)$'
+    $localMatches = @(Get-Item -Path $localPath) -match '\.(?>pssvg\.ps1|ps1|md|svg)$'
     if ($localMatches) {
         if ($localMatches.Count -gt 1) {
             $indexOrReadme = $localMatches -match '(?>default|home|index|readme)\.'
@@ -190,7 +221,16 @@ if ($localPath -match '\.ps1$') {
     $response.StatusCode = 404
     $response.ContentType = 'text/html'
     return "?"
-} elseif ($localPath -match '\.svg') {
+} 
+elseif ($localPath -match '\.(?>md|markdown)') {
+    $svgOut = SVG -ViewBox 1080 @(
+        $markdownContent = Get-Content -Raw $localPath
+        SVG.Markdown -Markdown $markdownContent
+    )
+    $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
+    return $svgOut
+}
+elseif ($localPath -match '\.svg') {
     $svgOut = [IO.File]::ReadAllText("$localPath")
     $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
     return $svgOut

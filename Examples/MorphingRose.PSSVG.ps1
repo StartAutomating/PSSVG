@@ -25,7 +25,7 @@ $r1, $r2, $null = $radius
 $f1, $f2, $null = $Frequency
 $rot1, $rot2, $null = $Rotate
 $spin1, $spin2, $null = $Spin
-svg -ViewBox 100 -Content @(
+svg -ViewBox ($r1 * 2) -Content @(
 
     $splat = [Ordered]@{Frequency=$f1;CenterX=$r1;CenterY=$r1;Radius=$r1;Stroke='#4488ff';Rotate=$rot1}
     $Splat2 = [Ordered]@{Frequency=$f2;CenterX=$r1;CenterY=$r1;Radius=$r2;Stroke='#4488ff';Rotate=$rot2}
