@@ -27,8 +27,8 @@ SHELL ["/bin/pwsh", "-nologo", "-command"]
 RUN @( \    
     apt-get update && apt-get install -y $env:InstallAptPackages && apt-get clean ; \
     New-Item -Path \$Profile -ItemType File -Force | \
-    Add-Content -Value \"Import-Module $env:ModuleName\" -Force; \
+    Add-Content -Value "Import-Module $env:ModuleName" -Force; \
     Install-Module -Name ($env:InstallModules -split ',') -Force -AcceptLicense -Scope CurrentUser ; \
-    Add-Content -Path \$Profile -Value \"Import-Module $env:InstallModules\" -Force; \
-    Add-Content -Path \$Profile -Value \"./usr/local/share/powershell/Modules/$env:ModuleName/Microservice.ps1\" -Force; \
+    Add-Content -Path \$Profile -Value "Import-Module $env:InstallModules" -Force; \
+    Add-Content -Path \$Profile -Value "./usr/local/share/powershell/Modules/$env:ModuleName/Microservice.ps1" -Force; \
 ) -join ([Environment]::NewLine)
