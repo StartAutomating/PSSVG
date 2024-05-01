@@ -1,3 +1,6 @@
+[ValidatePattern('SVG\.Star')]
+param()
+
 function SVG.Star {
     <#
     
