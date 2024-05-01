@@ -24,4 +24,4 @@ svg -ViewBox $ViewBox -Data $Data -FontSize $FontSize @(
     $MarkdownParameters = [Ordered]@{}
     if ($GoogleFont) { $MarkdownParameters.FontFamily = $GoogleFont}
     SVG.Markdown -Markdown $Markdown @MarkdownParameters
-) -OutputPath (Join-Path $PSScriptRoot .\Markdown.svg)
+) -OutputPath (Join-Path $PSScriptRoot .\MarkdownMessage.svg)

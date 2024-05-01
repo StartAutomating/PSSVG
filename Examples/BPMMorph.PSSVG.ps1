@@ -1,12 +1,17 @@
-$bpm = 70
+param(
+[Alias('BPM')]
+[double]
+$BeatsPerMinute = 70,
 
-$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+[int]
+$scale = 4
+)
+
+$animateDuration = "$([Math]::Round(1/($BeatsPerMinute / 60), 4))s"
 $animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
 }
-
-$Scale = 4
 
 $patternSize = 1/$scale
 

@@ -1,8 +1,10 @@
 #requires -Module PSSVG
-param(    
+param(
+# The colors in the gradient
 [string[]]
 $Color = @('gold','red'),
 
+# The offsets in the gradient
 [double[]]
 $Offset = @(10,95)
 )
@@ -15,5 +17,4 @@ svg -Content @(
         )
     )
     svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-
 ) -viewbox 0,0,100,100 -OutputPath (Join-Path $PSScriptRoot LinearGradient.svg)

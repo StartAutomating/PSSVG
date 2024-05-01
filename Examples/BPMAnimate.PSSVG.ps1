@@ -1,6 +1,11 @@
-$bpm = 90
+#requires -Module PSSVG
+param(
+[Alias('BPM')]
+[double]
+$BeatsPerMinute = 90
+)
 
-$animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
+$animateDuration = "$([Math]::Round(1/($bpm / 90), 4))s"
 $animateSplat = [Ordered]@{
     Dur = $animateDuration
     RepeatDur = "indefinite"
