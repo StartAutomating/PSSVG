@@ -1,3 +1,6 @@
+[ValidatePattern('SVG\.GoogleFont')]
+param()
+
 function SVG.GoogleFont {
     <#
     
