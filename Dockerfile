@@ -25,7 +25,7 @@ SHELL ["/bin/pwsh", "-nologo", "-command"]
 # It keeps the image smaller, and minimizes the number of layers.
 
 RUN @( \    
-    apt-get update && apt-get install -y $InstallAptPackages && apt-get clean ; \
+    apt-get update && apt-get install -y $env:InstallAptPackages && apt-get clean ; \
     New-Item -Path \$Profile -ItemType File -Force | \
     Add-Content -Value \"Import-Module $env:ModuleName\" -Force; \
     Install-Module -Name ($env:InstallModules -split ',') -Force -AcceptLicense -Scope CurrentUser ; \
