@@ -1,27 +1,35 @@
 # Thank you Microsoft!  Thank you PowerShell!  Thank you Docker!
 FROM mcr.microsoft.com/powershell
 
+# Set the module name to the name of the module we are building
+ARG ModuleName=PSSVG
 # InstallAptPackages determines additional packages to install
 ARG InstallAptPackages=git curl ca-certificates libc6 libgcc1
+# InstallModules determines additional modules to install
+ARG InstallModules=PipeScript,ugit
 
 # Install additional packages
 RUN apt-get update && apt-get install -y $InstallAptPackages && apt-get clean
 
-# Set the module name to the name of the module we are building
-ENV ModuleName=PSSVG
 # Copy the module into the container
 COPY . ./usr/local/share/powershell/Modules/$ModuleName
-# Create a profile that imports the module, so it is available when the container starts.
-RUN pwsh -c "New-Item -Path \$Profile -ItemType File -Force | Out-Null"
-# Add the module to the profile
-RUN pwsh -c "Add-Content -Path \$Profile -Value 'Import-Module $ModuleName' -Force"
 
-# InstallModules determines additional modules to install
-ARG InstallModules=PipeScript,ugit
+# Set the shell to PowerShell
+SHELL ["/bin/pwsh", "-nologo", "-command"]
+# Next we will do the following:
+# 1. Create a profile if it does not exist
+# 2. Add the module to the profile
+# 3. Install additional modules
+# 4. Add the additional modules to the profile
+# 5. Add the microservice start to the profile
 
-# Install additional modules
-RUN pwsh -c "Install-Module -Name $InstallModules -Force -AcceptLicense -Scope CurrentUser"
-# Add the modules to the profile
-RUN pwsh -c "Add-Content -Path \$Profile -Value 'Import-Module $InstallModules' -Force"
+# We want to do this in one RUN command:
+# It keeps the image smaller, and minimizes the number of layers.
 
-RUN pwsh -c "Add-Content -Path \$Profile -Value './usr/local/share/powershell/Modules/$ModuleName/Microservice.ps1' -Force"
+RUN @( \    
+    New-Item -Path \$Profile -ItemType File -Force | \
+    Add-Content -Value \"Import-Module $env:ModuleName\" -Force; \
+    Install-Module -Name ($env:InstallModules -split ',') -Force -AcceptLicense -Scope CurrentUser ; \
+    Add-Content -Path \$Profile -Value \"Import-Module $env:InstallModules\" -Force; \
+    Add-Content -Path \$Profile -Value \"./usr/local/share/powershell/Modules/$env:ModuleName/Microservice.ps1\" -Force; \
+) -join ([Environment]::NewLine)
