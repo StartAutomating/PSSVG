@@ -34,11 +34,13 @@ This is the variable `a` in the equation r = a * cos(kθ).
 
 #### **Frequency**
 The frequency of the rose.    
-This is the variable `k` in the equation r = a * cos(kθ).
+This is the variable `k` in the equation r = a * cos(kθ).    
+This is aliased to Angle, k, and SideCount.    
+(while it is not a side count, it allows this function to work well with stars and convex polygons)
 
-|Type      |Required|Position|PipelineInput        |Aliases    |
-|----------|--------|--------|---------------------|-----------|
-|`[Double]`|false   |2       |true (ByPropertyName)|Angle<br/>k|
+|Type      |Required|Position|PipelineInput        |Aliases                  |
+|----------|--------|--------|---------------------|-------------------------|
+|`[Double]`|false   |2       |true (ByPropertyName)|Angle<br/>k<br/>SideCount|
 
 #### **RevolutionCount**
 The number of revolutions to draw.    
@@ -63,33 +65,23 @@ The initial rotation of the rhombus.
 |----------|--------|--------|---------------------|--------|
 |`[Double]`|false   |4       |true (ByPropertyName)|Rotation|
 
-#### **Center**
-The center point.    
-If only one coordinate is provided, it will be duplicated.    
-If more than two coordinates are provided, it will be ignored.    
-If either -CenterX or -CenterY is provided, they will be used instead.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[Double[]]`|false   |5       |true (ByPropertyName)|
-
 #### **CenterX**
 The center X coordinate for the rose.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[Double]`|false   |6       |true (ByPropertyName)|
+|`[Double]`|false   |5       |true (ByPropertyName)|
 
 #### **CenterY**
 The center Y coordinate for the rose.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[Double]`|false   |7       |true (ByPropertyName)|
+|`[Double]`|false   |6       |true (ByPropertyName)|
 
 ---
 
 ### Syntax
 ```PowerShell
-SVG.Rose [[-Radius] <Double>] [[-Frequency] <Double>] [[-RevolutionCount] <Double>] [-Reverse] [[-Rotate] <Double>] [[-Center] <Double[]>] [[-CenterX] <Double>] [[-CenterY] <Double>] [<CommonParameters>]
+SVG.Rose [[-Radius] <Double>] [[-Frequency] <Double>] [[-RevolutionCount] <Double>] [-Reverse] [[-Rotate] <Double>] [[-CenterX] <Double>] [[-CenterY] <Double>] [<CommonParameters>]
 ```
