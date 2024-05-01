@@ -1,3 +1,5 @@
+[ValidatePattern('SVG\.+?Palette')]
+param()
 function SVG.ColorPalette
 {
     <#
@@ -42,9 +44,9 @@ function SVG.ColorPalette
         $null = $PSBoundParameters.Remove('FontName')
         $extraContent = ''
         if ($PaletteName) {
-            $fontUri = 
-                if ($FontName -like 'http*') {
-                    $FontName
+            $PaletteUri = 
+                if ($PaletteName -like 'http*') {
+                    $PaletteName
                 } else {
                     "https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/$($PaletteName -replace '\.css$').css"
                 }
@@ -53,11 +55,13 @@ function SVG.ColorPalette
             }
         }
         elseif ($PSBoundParameters['Content'] -match '^http') {
-            $fontUri = $PSBoundParameters['Content']
+            $paletteUri = $PSBoundParameters['Content']
             $null = $PSBoundParameters.Remove('Content')
+        } elseif ($PSBoundParameters['Content']) {
+            "https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/$($content -replace '\.css$').css"
         }
         $PSBoundParameters['type'] = 'text/css'
-        $stylesheetContent = "@import url('$fontUri')"
+        $stylesheetContent = "@import url('$paletteUri')"
         if ($extraContent) {
             $PSBoundParameters['Content'] = @(@($stylesheetContent) + $extraContent) -join [Environment]::NewLine
         } else {
