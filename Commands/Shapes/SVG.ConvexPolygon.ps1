@@ -1,3 +1,5 @@
+[ValidatePattern('SVG\.ConvexPolygon')]
+param()
 function SVG.ConvexPolygon {
     <#
     
@@ -14,15 +16,16 @@ function SVG.ConvexPolygon {
             
     [CmdletBinding(PositionalBinding=$false)]    
     [Alias('SVG.Pentagon',    
-    'SVG.Hexagon','SVG.Heptagon','SVG.Octagon',    
-    'SVG.Nonagon','SVG.Decagon','SVG.Decagon',    
-    'SVG.Hendecagon', 'SVG.Dodecagon','SVG.Tridecagon',    
-    'SVG.Tetradecagon','SVG.Pentadecagon','SVG.Hexadecagon',    
-    'SVG.Heptadecagon','SVG.Octadecagon','SVG.Enneadecagon',    
-    'SVG.Icosagon','SVG.Icosikaihenagon','SVG.Icosikaidigon',    
-    'SVG.Icositrigon','SVG.Icositetragon','SVG.Icosikaipentagon',    
-    'SVG.Icosikaihexagon','SVG.Icosikaiheptagon','SVG.Icosikaioctagon',    
-    'SVG.Icosikaienneagon','SVG.Triacontagon')]
+        'SVG.Hexagon','SVG.Heptagon','SVG.Octagon',    
+        'SVG.Nonagon','SVG.Decagon','SVG.Decagon',    
+        'SVG.Hendecagon', 'SVG.Dodecagon','SVG.Tridecagon',    
+        'SVG.Tetradecagon','SVG.Pentadecagon','SVG.Hexadecagon',    
+        'SVG.Heptadecagon','SVG.Octadecagon','SVG.Enneadecagon',    
+        'SVG.Icosagon','SVG.Icosikaihenagon','SVG.Icosikaidigon',    
+        'SVG.Icositrigon','SVG.Icositetragon','SVG.Icosikaipentagon',    
+        'SVG.Icosikaihexagon','SVG.Icosikaiheptagon','SVG.Icosikaioctagon',    
+        'SVG.Icosikaienneagon','SVG.Triacontagon'    
+    )]
     param(
     # The number of sides in the polygon    
     # This is also aliased to -PointCount for consistent use with SVG.Star.    
