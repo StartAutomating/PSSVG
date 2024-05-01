@@ -107,8 +107,8 @@ function SVG.Rose {
         function 𝜑 {
         
                     param($radius, $angle)
-                    $radius * [math]::round([math]::cos($angle * $radian),15)
-                    $radius * [math]::round([math]::sin($angle * $radian),15)
+                    $radius * [math]::round([math]::cos($angle * [Math]::PI / 180),15)
+                    $radius * [math]::round([math]::sin($angle * [Math]::PI / 180),15)
                 
         }
 
@@ -140,9 +140,9 @@ function SVG.Rose {
         }
         
         # If only one center is provided, use that.
-        if (-not $CenterX -and $CenterY) {
+        if ((-not $CenterX) -and $CenterY) {
             $CenterX = $CenterY
-        } elseif (-not $CenterY -and $CenterX) {
+        } elseif ((-not $CenterY) -and $CenterX) {
             $CenterY = $CenterX
         }
 
@@ -174,8 +174,8 @@ function SVG.Rose {
                 $roseX, $roseY         = 𝜑 $r $angle
                 
                 # Move the point to the center
-                $CenterY + $deltaY
-                $CenterX + $deltaX
+                $CenterY + $roseX
+                $CenterX + $roseY
             }
         )
         $svgSplat.D = $pathPoints -join ' '
