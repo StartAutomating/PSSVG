@@ -25,7 +25,7 @@ Imports a StyleSheet into SVG.
 ```PowerShell
 SVG @(    
     SVG.Defs @(    
-        SVG.StyleSheet -StyleSheetURI https://4bitcss.com/Konsolas.css    
+        SVG.StyleSheet -StyleSheetURI https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/Jellybeans.css    
     )    
     # When viewed in it's own frame, this rectangle will be Konsolas's version of 'red'    
     # When viewed in an <img> tag, it will be red.    
