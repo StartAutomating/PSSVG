@@ -1,4 +1,5 @@
 #requires -Module PSSVG
+
 param(
 # The radius of the rose.
 [double]
@@ -18,5 +19,5 @@ $Color
 )
 
 SVG -ViewBox ($Radius * 2) @(
-    SVG.Rose -Radius $Radius -Frequency $Frequency -RevolutionCount $RevolutionCount -Stroke $Color -Center $Radius
+    SVG.Rose -Radius $Radius -Frequency $Frequency -RevolutionCount $RevolutionCount -Stroke $Color -CenterX $Radius
 ) -OutputPath .\Rose.svg

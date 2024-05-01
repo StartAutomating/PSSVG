@@ -23,8 +23,10 @@ function SVG.Rose {
 
     # The frequency of the rose.
     # This is the variable `k` in the equation r = a * cos(kθ).
+    # This is aliased to Angle, k, and SideCount.
+    # (while it is not a side count, it allows this function to work well with stars and convex polygons)
     [vbn()]
-    [Alias('Angle','k')]
+    [Alias('Angle','k','SideCount')]
     [double]
     $Frequency = 2,
 
@@ -47,14 +49,6 @@ function SVG.Rose {
     [double]
     $Rotate = 0,
         
-    # The center point.
-    # If only one coordinate is provided, it will be duplicated.
-    # If more than two coordinates are provided, it will be ignored.
-    # If either -CenterX or -CenterY is provided, they will be used instead.
-    [vbn()]
-    [double[]]
-    $Center,
-
     # The center X coordinate for the rose.
     [vbn()]
     [double]
@@ -105,13 +99,11 @@ function SVG.Rose {
             $svgSplat.Fill = 'transparent'
         }
         
-        if ($Center -and -not ($centerX -or $CenterY)) {
-            if ($center.Length -eq 1) {
-                $CenterX = $CenterY = $Center[0]
-            } else {
-                $CenterX = $Center[0]
-                $CenterY = $Center[1]
-            }
+        # If only one center is provided, use that.
+        if (-not $CenterX -and $CenterY) {
+            $CenterX = $CenterY
+        } elseif (-not $CenterY -and $CenterX) {
+            $CenterY = $CenterX
         }
 
         # Determine the number of points to draw

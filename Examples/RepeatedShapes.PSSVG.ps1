@@ -18,13 +18,13 @@ param(
 # The number of sides.  A file will be generated for each unique value provided.
 [int[]]$SideCount  = 3..6,
 # The total rotation of the innermost element,
-$TotalRotation  = 180,
+[float]$TotalRotation  = 180,
 # The total duration of any animations.
 [timespan]$duration = '00:00:03.75',
 # A palette of colors to alternate thru
 [string[]]$Color = @('#112244','#224488',"#4488ff"),
-# The type of the shape. (either Star or ConvexPolygon)
-[ValidateSet("Star", "ConvexPolygon")]
+# The type of the shape. (either Star, ConvexPolygon, or Rose)
+[ValidateSet("Star", "ConvexPolygon", "Rose")]
 [string]
 $ShapeType = 'ConvexPolygon',
 
