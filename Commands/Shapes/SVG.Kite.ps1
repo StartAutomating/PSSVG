@@ -1,3 +1,5 @@
+[ValidatePattern('SVG\.Kite')]
+param()
 function SVG.Kite {
     <#
     
@@ -108,10 +110,6 @@ function SVG.Kite {
     }
     $DynamicParameters
 
-    }
-        begin {
-        
-    
     }
         process {        
         
