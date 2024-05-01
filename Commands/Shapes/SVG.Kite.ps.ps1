@@ -1,3 +1,5 @@
+[ValidatePattern('SVG\.Kite')]
+param()
 function SVG.Kite 
 {
     <#
@@ -73,11 +75,7 @@ function SVG.Kite
     [double]
     $OuterRadius = .5
     )
-
-    begin {
-        
-    }
-
+    
     process {        
         
         $pathData = @(
