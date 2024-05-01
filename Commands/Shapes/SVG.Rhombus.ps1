@@ -1,3 +1,5 @@
+[ValidatePattern('SVG\.Rhombus')]
+param()
 function SVG.Rhombus {
     <#
     
@@ -26,7 +28,7 @@ function SVG.Rhombus {
     
     #>
             
-    [Alias('SVG.Rhombi')]    
+    [Alias('SVG.Rhombi','SVG.Rhombuses')]    
     [CmdletBinding(PositionalBinding=$false)]    
 
     param(
@@ -1688,16 +1690,14 @@ $WritingMode
             $centerX + $Radius * [math]::round([math]::sin($CurrentAngle * [Math]::PI/180),15)
             # Right
             $CurrentAngle += 90
-            "L"            
+
             $centerY + $InRadius * [math]::round([math]::cos($CurrentAngle * [Math]::PI/180),15)
             $centerX + $InRadius * [math]::round([math]::sin($CurrentAngle * [Math]::PI/180),15)
             # Bottom
-            "L"
             $CurrentAngle += 90
             $centerY + $Radius * [math]::round([math]::cos($CurrentAngle * [Math]::PI/180),15)
             $centerX + $Radius * [math]::round([math]::sin($CurrentAngle * [Math]::PI/180),15)
             # Left
-            "L"
             $CurrentAngle += 90
             $centerY + $InRadius * [math]::round([math]::cos($CurrentAngle * [Math]::PI/180),15)
             $centerX + $InRadius * [math]::round([math]::sin($CurrentAngle * [Math]::PI/180),15)
