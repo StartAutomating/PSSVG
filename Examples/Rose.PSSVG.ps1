@@ -24,4 +24,4 @@ $Color = '#4488ff'
 
 SVG -ViewBox ($Radius * 2) @(
     SVG.Rose -Radius $Radius -Frequency $Frequency -RevolutionCount $RevolutionCount -Stroke $Color -CenterX $Radius -Rotate $Rotate
-) -OutputPath .\Rose.svg
+) -OutputPath (Join-Path $PSScriptRoot .\Rose.svg)
