@@ -128,7 +128,7 @@ function SVG.Rose {
                 )
 
                 # Calculate the radius of the rose at this moment
-                $r = $Radius * ([Math]::cos($Frequency * ($stepNumber/$pointCount * $radian)))
+                $r = $Radius * ([Math]::cos($Frequency * $stepNumber * $radian))
                 
                 # Calculate the point of the rose
                 $roseX, $roseY         = 𝜑 $r $angle
