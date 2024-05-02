@@ -4,14 +4,14 @@ if (-not $psNode) {
         if ($PSVersionTable.Platform -eq 'Unix') {
             "http://*:80/"
         } else {
-            "http://localhost:$(Get-Random -Min 1000 -Max 2000)/pssvg/"
+            "http://localhost:$(Get-Random -Min 7000 -Max 8000)/pssvg/"
         }    
     } else {
         $env:PSSVG_URL
     })
 
     if (-not $env:PSSVG_ROOT) {
-        $env:PSSVG_ROOT = "$(Get-Module PSSVG | Split-path)"
+        $env:PSSVG_ROOT = "$(Get-Module PSSVG | Split-path | Join-Path -ChildPath 'Examples')"
     }
 
     $psNode = @(Start-PSNode -Server $serveUrl -Command $MyInvocation.MyCommand.ScriptBlock -ImportModule (
