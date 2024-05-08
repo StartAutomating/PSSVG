@@ -1,4 +1,4 @@
-[ValidatePattern('SVG\.+?Palette')]
+[ValidatePattern('SVG\..+?Palette')]
 param()
 function SVG.ColorPalette
 {
