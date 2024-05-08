@@ -41,7 +41,7 @@ function SVG.ColorPalette
     )
 
     process {
-        $null = $PSBoundParameters.Remove('FontName')
+        $null = $PSBoundParameters.Remove('PaletteName')
         $extraContent = ''
         if ($PaletteName) {
             $PaletteUri = 
