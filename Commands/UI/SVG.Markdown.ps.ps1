@@ -8,7 +8,7 @@ function SVG.Markdown
     .DESCRIPTION
         Converts from Markdown to HTML and embeds it into SVG.
     .NOTES
-        The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element.
+        The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an body element with the XHTML namespace.
         The XHTML is then passed to SVG.foreignObject to render the SVG.
     #>
     [Inherit('SVG.foreignObject',Abstract,Dynamic)]
@@ -37,7 +37,7 @@ function SVG.Markdown
             $Markdown = $Markdown -replace ${?<Markdown_YamlHeader}
         }
         $convertedThisMarkdown = ConvertFrom-Markdown -InputObject $Markdown
-        $xhtml = "<xhtml xmlns='http://www.w3.org/1999/xhtml'>$($convertedThisMarkdown.Html)</xhtml>" -as [xml]
+        $xhtml = "<body class='markdown-svg'>xmlns='http://www.w3.org/1999/xhtml'>$($convertedThisMarkdown.Html)</body>" -as [xml]
         if (-not $xhtml) {
             return $convertedThisMarkdown.Html
         }
