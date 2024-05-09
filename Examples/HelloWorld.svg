@@ -4,5 +4,5 @@
   <defs>
     <style type="text/css">@import url('https://fonts.googleapis.com/css?family=Roboto')</style>
   </defs>
-  <text x="50%" y="50%" font-size="30em" dominant-baseline="middle" text-anchor="middle" fill="#4488ff" class="" font-family="'Roboto', sans-serif">Hello World</text>
+  <text x="50%" y="50%" font-size="24em" dominant-baseline="middle" text-anchor="middle" fill="#4488ff" class="" font-family="'Roboto', sans-serif">Hello World</text>
 </svg>
