@@ -11,9 +11,9 @@ There is a command for every tag of the SVG standard (and then some).
 For example, this script generates the image below it.
 
 ~~~PowerShell
-svg (
-    svg.text -X 50% -Y 50% -Fontsize 36 "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
-) -ViewBox 0,0, 200, 100
+svg @(
+    svg.text -X 50% -Y 50% -Fontsize 3em "Hello World" -DominantBaseline middle -TextAnchor middle -Fill '#4488ff'
+) -ViewBox 200, 100
 ~~~
 
 <div align='center'>
