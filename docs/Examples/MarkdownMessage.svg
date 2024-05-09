@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
 <svg viewBox="0 0 1920 1080" font-size="3em" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-  <foreignObject width="100%" height="100%">
-    <body class="markdown-svg" xmlns="http://www.w3.org/1999/xhtml">
-      <h1 id="hello-world">Hello World</h1>
-    </body>
-  </foreignObject>
+  <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
+  <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+    <style>                
+                body { height: 100%; overflow: auto; font-size: 1.25em;  }
+                body &gt; * { margin: 1em; }
+                table { width: 100%; border-collapse: collapse; }                
+                </style>
+    <foreignObject width="100%" height="100%">
+      <body class="markdown-svg" xmlns="http://www.w3.org/1999/xhtml" data-index="0">
+        <h1 id="hello-world" data-index="1">Hello World</h1>
+      </body>
+    </foreignObject>
+  </svg>
 </svg>
