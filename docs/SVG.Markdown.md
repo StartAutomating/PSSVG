@@ -23,7 +23,7 @@ The markdown.  The YAML header is currently ignored.
 ---
 
 ### Notes
-The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an XHTML element.    
+The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an body element with the XHTML namespace.    
 The XHTML is then passed to SVG.foreignObject to render the SVG.
 
 ---
