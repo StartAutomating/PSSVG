@@ -74,7 +74,7 @@ function SVG.Markdown {
             $Markdown = $Markdown -replace ${?<Markdown_YamlHeader}
         }
         $convertedThisMarkdown = ConvertFrom-Markdown -InputObject $Markdown
-        $xhtml = "<body class='markdown-svg'>xmlns='http://www.w3.org/1999/xhtml'>$($convertedThisMarkdown.Html)</body>" -as [xml]
+        $xhtml = "<body class='markdown-svg' xmlns='http://www.w3.org/1999/xhtml'>$($convertedThisMarkdown.Html)</body>" -as [xml]
         if (-not $xhtml) {
             return $convertedThisMarkdown.Html
         }
