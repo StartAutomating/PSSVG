@@ -6,30 +6,73 @@ function SVG.Markdown {
     .SYNOPSIS    
         Embeds Markdown in SVG    
     .DESCRIPTION    
-        Converts from Markdown to HTML and embeds it into SVG.    
+        Converts from Markdown to HTML and embeds it (and a style) into SVG.    
+        By default:    
+        * Width and Height are set to 100%    
+        * The body style will be set to full height and automatic overflow    
+        * Any direct children of the body will be given a margin of 1em and font-size of 1.25em    
+        * Tables will be made full width    
     .NOTES    
+        In order to provide a better aesthetic experience, certain parameters are set by default:    
+        * Width and Height are set to 100%    
+        * The body style will be set to full height and automatic overflow    
+        * Any direct children of the body will be given a margin of 1em and font-size of 1.25em    
+        * Tables will be made full width and have a border-collapse of collapse    
         The markdown is converted to HTML using ConvertFrom-Markdown, and then wrapped in an body element with the XHTML namespace.    
         The XHTML is then passed to SVG.foreignObject to render the SVG.    
     
     #>
         
     param(
-    # The markdown.  The YAML header is currently ignored.    
+    # The markdown.    
+    # The YAML header is currently ignored.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [string]
-    $Markdown
+    $Markdown,
+
+    # The [Google Font](https://fonts.google.com/) name.    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('GoogleFont')]
+    [string]
+    $FontName,
+
+    # The Google Font name to use for code blocks.    
+    # (this should be a [monospace font](https://fonts.google.com/?classification=Monospace))    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('PreFont','CodeFontName','PreFontName')]
+    [string]
+    $CodeFont,
+
+    # The name of the palette.    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('Palette','ColorScheme','ColorPalette')]
+    [string]
+    $PaletteName,
+
+    <#    
+    The style applied to the markdown.    
+    By default:    
+        
+    * Width and Height are set to 100%    
+    * The body style will be set to full height and automatic overflow, and a font-size of 1.25em    
+    * Any direct children of the body will be given a margin of 1em    
+    * Tables will be made full width and have a border-collapse of collapse    
+    #>    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [PSObject]
+    $Style
     )
     dynamicParam {
     $baseCommand = 
-        if (-not $script:SVGforeignObject) {
-            $script:SVGforeignObject = 
-                $executionContext.SessionState.InvokeCommand.GetCommand('SVG.foreignObject','Function')
-            $script:SVGforeignObject
+        if (-not $script:SVGsvg) {
+            $script:SVGsvg = 
+                $executionContext.SessionState.InvokeCommand.GetCommand('SVG.svg','Function')
+            $script:SVGsvg
         } else {
-            $script:SVGforeignObject
+            $script:SVGsvg
         }
     $IncludeParameter = @()
-    $ExcludeParameter = @()
+    $ExcludeParameter = 'Style'
 
 
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
@@ -63,11 +106,31 @@ function SVG.Markdown {
         (?<YAML>(?:.|\s){0,}?(?=\z|\-{3,} # And anything until at least three dashes is the content
         ))\-{3,}                          # Include the dashes in the match, so that the pointer is correct.
         )', 'IgnorePatternWhitespace,IgnoreCase')
+        $svgForeignObject = $ExecutionContext.SessionState.InvokeCommand.GetCommand('SVG.foreignObject', 'Function')
     
     }
         process {
         if (-not $Markdown) { return }
-        $myParameterCopy = [Ordered]@{} + $PSBoundParameters
+        # Copy the parameters into two splats
+        $svgSplat = [Ordered]@{} + $PSBoundParameters
+        $svgForeignSplat = [Ordered]@{} + $PSBoundParameters
+        
+        # and strip off any parameters that are not applicable to the base command
+        $myCommandMetadata = $MyInvocation.MyCommand
+        $svgCmd = $baseCommand
+        foreach ($parameterName in @($svgSplat.Keys)) {
+            if (-not $svgForeignObject.Parameters[$parameterName]) {
+                $svgForeignSplat.Remove($parameterName)
+            }
+            if (-not $svgCmd.Parameters[$parameterName]) {
+                $svgSplat.Remove($parameterName)
+            }
+            if ($svgForeignSplat[$parameterName]) {
+                $svgSplat.Remove($parameterName)
+            }
+        }        
+                        
+        
         $ThisMarkdownHeader = ${?<Markdown_YamlHeader}.Match($Markdown)
         if ($ThisMarkdownHeader.Success) {
             $YamlHeader = $ThisMarkdownHeader.Groups['YAML'].Value
@@ -78,22 +141,57 @@ function SVG.Markdown {
         if (-not $xhtml) {
             return $convertedThisMarkdown.Html
         }
-        $myParameterCopy.Remove('Markdown')
-        if ($myParameterCopy.Content) {
-            $myParameterCopy.Content = @($myParameterCopy.Content) + $xhtml
+        $allNodesInOrder = @($xhtml.SelectNodes("//*"))
+        $nodeIndex = 0
+        foreach ($node in $allNodesInOrder) {
+            if ($node.SetAttribute) { $node.SetAttribute('data-index', $nodeIndex) }
+            $nodeIndex++
+        }        
+        
+        if ($svgForeignSplat.Content) {
+            $svgForeignSplat.Content = @($svgForeignSplat.Content) + $xhtml
         } else {
-            $myParameterCopy.Add('Content', $xhtml)
+            $svgForeignSplat.Add('Content', $xhtml)
+        }
+        $svgForeignSplat.Remove("Style")
+        if (-not $svgForeignSplat['Width']) {
+            $svgForeignSplat.Add('Width', '100%')
         }
 
-        if (-not $myParameterCopy['Width']) {
-            $myParameterCopy.Add('Width', '100%')
-        }
-
-        if (-not $myParameterCopy['Height']) {
-            $myParameterCopy.Add('Height', '100%')
+        if (-not $svgForeignSplat['Height']) {
+            $svgForeignSplat.Add('Height', '100%')
         }
         
-        SVG.foreignObject @myParameterCopy
+
+        SVG @svgSplat -Content @(
+            if ($FontName) {
+                $fontImport = SVG.GoogleFont -FontName $FontName
+                $fontImport
+            }
+            if ($CodeFont) {
+                $codeFontImport = SVG.GoogleFont -FontName $CodeFont
+                $codeFontImport
+            }
+            if ($PaletteName) {
+                $paletteImport = SVG.Palette -PaletteName $PaletteName
+                $paletteImport
+            }
+            if (-not $style) {
+                $style = "                
+                body { height: 100%; overflow: auto; font-size: 1.25em; $(
+                    if ($fontImport.InnerText -match 'family=(?<family>.+?)''\p{Pe}') { "font-family: '$($matches.family)'"}
+                ) }$(
+                    if ($codeFontImport.InnerText -match 'family=(?<family>.+?)''\p{Pe}') { "
+                code { font-family: '$($matches.family)' }
+                "}
+                )
+                body > * { margin: 1em; }
+                table { width: 100%; border-collapse: collapse; }                
+                "
+            }
+            SVG.style -Content $Style
+            SVG.foreignObject @svgForeignSplat
+        )
     
     }
 }
