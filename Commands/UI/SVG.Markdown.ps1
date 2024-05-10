@@ -126,8 +126,7 @@ function SVG.Markdown {
         $svgSplat = [Ordered]@{} + $PSBoundParameters
         $svgForeignSplat = [Ordered]@{} + $PSBoundParameters
         
-        # and strip off any parameters that are not applicable to the base command
-        $myCommandMetadata = $MyInvocation.MyCommand
+        # and strip off any parameters that are not applicable to the base command        
         $svgCmd = $baseCommand
         foreach ($parameterName in @($svgSplat.Keys)) {
             if (-not $svgForeignObject.Parameters[$parameterName]) {
@@ -156,6 +155,7 @@ function SVG.Markdown {
         $nodeIndex = 0
         foreach ($node in $allNodesInOrder) {
             if ($node.SetAttribute) { $node.SetAttribute('data-index', $nodeIndex) }
+            if ($node.GetAttribute('disabled')) { $node.RemoveAttribute('disabled') }
             $nodeIndex++
         }        
         
