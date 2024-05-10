@@ -34,8 +34,19 @@ function SVG.ColorPalette
     [Alias('SVG.Palette')]
     param(
     # The name of the palette.
-    [Parameter(ValueFromPipelineByPropertyName)]
+    [vbn()]
     [Alias('Palette','ColorScheme','ColorPalette')]
+    [ArgumentCompleter({
+        param ($commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )
+        if (-not $script:4bitcssPaletteList) {
+            $script:4bitcssPaletteList = Invoke-RestMethod -Uri https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/docs/Palette-List.json
+        }
+        if ($wordToComplete) {
+            $script:4bitcssPaletteList -match "$([Regex]::Escape($wordToComplete) -replace '\\\*', '.{0,}')"
+        } else {
+            $script:4bitcssPaletteList 
+        }        
+    })]
     [string]
     $PaletteName
     )
@@ -47,7 +58,7 @@ function SVG.ColorPalette
             $PaletteUri = 
                 if ($PaletteName -like 'http*') {
                     $PaletteName
-                } else {
+                } elseif ($PaletteName) {
                     "https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/$($PaletteName -replace '\.css$').css"
                 }
             if ($PSBoundParameters['Content']) {
@@ -61,6 +72,7 @@ function SVG.ColorPalette
             "https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/$($content -replace '\.css$').css"
         }
         $PSBoundParameters['type'] = 'text/css'
+        if (-not $PaletteUri) { return }
         $stylesheetContent = "@import url('$paletteUri')"
         if ($extraContent) {
             $PSBoundParameters['Content'] = @(@($stylesheetContent) + $extraContent) -join [Environment]::NewLine
