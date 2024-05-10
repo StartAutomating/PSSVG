@@ -47,9 +47,20 @@ function SVG.Markdown
     [string]
     $CodeFont,
     
-    # The name of the palette.
+    # The name of the palette.    
     [vbn()]
     [Alias('Palette','ColorScheme','ColorPalette')]
+    [ArgumentCompleter({
+        param ($commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )
+        if (-not $script:4bitcssPaletteList) {
+            $script:4bitcssPaletteList = Invoke-RestMethod -Uri https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/docs/Palette-List.json
+        }
+        if ($wordToComplete) {
+            $script:4bitcssPaletteList -match "$([Regex]::Escape($wordToComplete) -replace '\\\*', '.{0,}')"
+        } else {
+            $script:4bitcssPaletteList 
+        }        
+    })]
     [string]
     $PaletteName,
 
