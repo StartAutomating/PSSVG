@@ -22,21 +22,37 @@ if (-not $response) {
         Headers=[Ordered]@{}
     }
 }
+# The content type should always be SVG
 $response.ContentType = 'image/svg+xml'
 
-if (-not $pssvg) {    
+# `$PSSVG` should be `$this`
+if ($this -and -not $pssvg)
+{
     $pssvg = $this
 }
+# If not, `$this` should be `$pssvg`
+elseif ($pssvg -and -not $this)
+{
+    $this = $pssvg
+}
 
+# Check to see if the request has been cached.
 $hasCache = $PSSVG.HasCache($request)
+# (we always need to keep track of the key)
 $cacheKey = $hasCache.Key
 
-if ($hasCache.Value) {    
+# If the request has a cached value, return it.
+if ($hasCache.Value) {
+    # If the cached value is an integer, it's a status code
     if ($hasCache -is [int]) {
+        # Make sure we tell them to keep it cached
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        $response.StatusCode = $PSSVG.RequestCache[$cacheKey]
+        # Set the status code        
         $response.StatusCode = $hasCache
-        return
+        
+        # Return the status code by setting the status        
+        $StatusResponse = $PSSVG.Status = $hasCache
+        return $StatusResponse        
     } else {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         return ($hasCache.Value | FrameSVG)
@@ -113,6 +129,3 @@ elseif ($localPath -match '\.svg') {
     $PSSVG.RequestCache[$cacheKey] = $svgOut
     return $svgOut
 }
-
-
-
