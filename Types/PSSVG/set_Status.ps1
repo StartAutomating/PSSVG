@@ -12,16 +12,14 @@
 param($statusValue)
 
 
-if ($statusValue -is [int] -and $statusValue -ge 300) {
-    $StatusCodeHandler = $PSSVG."$statusValue"
-    $statusValue = 
-        if ($StatusCodeHandler -is [ScriptBlock]) {
-            & $StatusCodeHandler
-        } elseif ($StatusCodeHandler -is [xml]) {
-            $StatusCodeHandler.OuterXml
-        } else {
-            $statusValue
-        }
-}
+$StatusCodeHandler = $this."$statusValue"
+$statusValue = 
+    if ($StatusCodeHandler -is [ScriptBlock]) {
+        & $StatusCodeHandler
+    } elseif ($StatusCodeHandler -is [xml]) {
+        $StatusCodeHandler.OuterXml
+    } else {
+        $statusValue
+    }
 
 $this.psobject.properties.add([psnoteproperty]::new('.LastStatus', $statusValue), $true)
