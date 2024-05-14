@@ -24,19 +24,18 @@ if (-not $response) {
 }
 $response.ContentType = 'image/svg+xml'
 
-$cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
-if ($PSSVG.RequestCache -and $PSSVG.RequestCache.Contains($cacheKey)) {
-    if ($PSSVG.RequestCache[$cacheKey] -is [int]) {
-        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        $response.StatusCode = $PSSVG.RequestCache[$cacheKey]
-        return
-    } else {
-        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        return ($PSSVG.RequestCache[$cacheKey] | FrameSVG)
-    }
-}
 if (-not $pssvg) {    
     $pssvg = $this
+}
+
+$hasCache = $PSSVG.HasCache($request)
+if ($hasCache) {
+    if ($hasCache -is [int]) {
+        $response.StatusCode = $hasCache
+        return
+    } else {
+        return ($hasCache | FrameSVG)
+    }    
 }
     
 $rootLocation = 
