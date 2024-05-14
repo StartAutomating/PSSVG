@@ -85,6 +85,8 @@ if ($hasCache.Value) {
         
         # Return the status code by setting the status        
         $PSSVG.Status = $hasCache
+        # If we want the status to be visible, we need to return it as a string
+        $response.ContentType = 'text/html'
         return $PSSVG.Status
     } else {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
@@ -122,6 +124,7 @@ if (-not $foundPath) {
     $PSSVG.RequestCache[$cacheKey] = 404 
     $response.StatusCode = 404
     $pssvg.Status = 404
+    $response.ContentType = 'text/html'
     return $pssvg.Status
 }
 
@@ -225,17 +228,15 @@ if ($this.'.LastStatus') {
 param($statusValue)
 
 
-if ($statusValue -is [int] -and $statusValue -ge 300) {
-    $StatusCodeHandler = $PSSVG."$statusValue"
-    $statusValue = 
-        if ($StatusCodeHandler -is [ScriptBlock]) {
-            &amp; $StatusCodeHandler
-        } elseif ($StatusCodeHandler -is [xml]) {
-            $StatusCodeHandler.OuterXml
-        } else {
-            $statusValue
-        }
-}
+$StatusCodeHandler = $this."$statusValue"
+$statusValue = 
+    if ($StatusCodeHandler -is [ScriptBlock]) {
+        &amp; $StatusCodeHandler
+    } elseif ($StatusCodeHandler -is [xml]) {
+        $StatusCodeHandler.OuterXml
+    } else {
+        $statusValue
+    }
 
 $this.psobject.properties.add([psnoteproperty]::new('.LastStatus', $statusValue), $true)
 
