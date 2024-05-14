@@ -39,7 +39,7 @@ if ($hasCache.Value) {
         return
     } else {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        return ($hasCache | FrameSVG)
+        return ($hasCache.Value | FrameSVG)
     }    
 }
     
