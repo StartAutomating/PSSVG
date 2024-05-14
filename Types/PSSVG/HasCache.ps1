@@ -7,13 +7,14 @@
 param($Request)
 
 $cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
-if ($PSSVG.RequestCache -and $PSSVG.RequestCache.Contains($cacheKey)) {
-    if ($PSSVG.RequestCache[$cacheKey] -is [int] -and $response) {
-        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        $response.StatusCode = $PSSVG.RequestCache[$cacheKey]
-        
-    } elseif ($response) {
-        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"        
+if ($PSSVG.RequestCache -and $PSSVG.RequestCache.Contains($cacheKey)) {            
+    return [PSCustomObject][Ordered]@{
+        Key = $CacheKey
+        Value = $PSSVG.RequestCache[$cacheKey]
     }
-    return $PSSVG.RequestCache[$cacheKey]
+}
+
+return [PSCustomObject][Ordered]@{
+    Key = $CacheKey
+    Value = $null
 }

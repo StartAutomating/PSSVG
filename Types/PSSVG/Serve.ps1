@@ -29,13 +29,18 @@ if (-not $pssvg) {
 }
 
 $hasCache = $PSSVG.HasCache($request)
-if ($hasCache) {
+if ($hasCache.Value) {    
     if ($hasCache -is [int]) {
+        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
+        $response.StatusCode = $PSSVG.RequestCache[$cacheKey]
         $response.StatusCode = $hasCache
         return
     } else {
+        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         return ($hasCache | FrameSVG)
     }    
+} else {
+    $cacheKey = $hasCache.Key
 }
     
 $rootLocation = 
