@@ -15,10 +15,6 @@ if ($request.Url -match '\.ico$') { return }
 # If the path has PSSVG in it, we can remove that
 $path = $request.Url.LocalPath -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
 
-if (-not $global:PSSVG_Path_Cache) {
-    $global:PSSVG_Path_Cache = @{}
-}
-
 # If there's not a response object
 if (-not $response) {
     # create an empty one (for testing purposes, and so this script does not error out)
@@ -29,14 +25,14 @@ if (-not $response) {
 $response.ContentType = 'image/svg+xml'
 
 $cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
-if ($global:PSSVG_Path_Cache.Contains($cacheKey)) {
-    if ($global:PSSVG_Path_Cache[$cacheKey] -is [int]) {
+if ($PSSVG.RequestCache -and $PSSVG.RequestCache.Contains($cacheKey)) {
+    if ($PSSVG.RequestCache[$cacheKey] -is [int]) {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        $response.StatusCode = $global:PSSVG_Path_Cache[$cacheKey]
+        $response.StatusCode = $PSSVG.RequestCache[$cacheKey]
         return
     } else {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        return ($global:PSSVG_Path_Cache[$cacheKey] | FrameSVG)
+        return ($PSSVG.RequestCache[$cacheKey] | FrameSVG)
     }
 }
 if (-not $pssvg) {    
@@ -70,7 +66,7 @@ if (Test-Path $localPath) {
 }
 
 if (-not $foundPath) {
-    $global:PSSVG_Path_Cache[$cacheKey] = 404 
+    $PSSVG.RequestCache[$cacheKey] = 404 
     $response.StatusCode = 404
     return
 }
@@ -83,19 +79,19 @@ if ($localPath -match '\.ps1$') {
     $svgOut = $localScript | . $InvokeQuerySplat
     
     if ($svgOut -as [xml]) {
-        $global:PSSVG_Path_Cache[$cacheKey] = ($svgOut -as [xml]).OuterXml
+        $PSSVG.RequestCache[$cacheKey] = ($svgOut -as [xml]).OuterXml
         return ($svgOut | FrameSVG)
     }
     elseif ($svgOut -as [IO.FileInfo]) {
         $svgFileInfo = $svgOut
         if ($svgFileInfo.Extension -eq '.svg') {
             $svgOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
-            $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
+            $PSSVG.RequestCache[$cacheKey] = $svgOut
             return $svgOut
         }
         return ""
     }
-    $global:PSSVG_Path_Cache[$cacheKey] = 404 
+    $PSSVG.RequestCache[$cacheKey] = 404 
     $response.StatusCode = 404
     $response.ContentType = 'text/html'
     return "?"
@@ -105,12 +101,12 @@ elseif ($localPath -match '\.(?>md|markdown)') {
         $markdownContent = Get-Content -Raw $localPath
         SVG.Markdown -Markdown $markdownContent
     )
-    $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
+    $PSSVG.RequestCache[$cacheKey] = $svgOut
     return $svgOut
 }
 elseif ($localPath -match '\.svg') {
     $svgOut = [IO.File]::ReadAllText("$localPath")
-    $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
+    $PSSVG.RequestCache[$cacheKey] = $svgOut
     return $svgOut
 }
 
