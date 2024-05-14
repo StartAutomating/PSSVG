@@ -51,8 +51,8 @@ if ($hasCache.Value) {
         $response.StatusCode = $hasCache
         
         # Return the status code by setting the status        
-        $StatusResponse = $PSSVG.Status = $hasCache
-        return $StatusResponse        
+        $PSSVG.Status = $hasCache
+        return $PSSVG.Status
     } else {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         return ($hasCache.Value | FrameSVG)
@@ -88,7 +88,8 @@ if (Test-Path $localPath) {
 if (-not $foundPath) {
     $PSSVG.RequestCache[$cacheKey] = 404 
     $response.StatusCode = 404
-    return
+    $pssvg.Status = 404
+    return $pssvg.Status
 }
 
 $localPath = $foundPath
