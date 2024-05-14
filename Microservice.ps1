@@ -1,5 +1,8 @@
 #requires -Module PipeScript, PSSVG
 if (-not $psNode) {
+    # If no node is running, start one
+
+    # If the PSSVG_URL environment variable is not set, we will use a random port
     $serveUrl = $(if (-not $env:PSSVG_URL) {
         if ($PSVersionTable.Platform -eq 'Unix') {
             "http://*:80/"
@@ -10,19 +13,23 @@ if (-not $psNode) {
         $env:PSSVG_URL
     })
 
+    # If the PSSVG_ROOT environment variable is not set, we will use the Examples directory
     if (-not $env:PSSVG_ROOT) {
         $env:PSSVG_ROOT = "$(Get-Module PSSVG | Split-path | Join-Path -ChildPath 'Examples')"
     }
 
-    $psNode = @(Start-PSNode -Server $serveUrl -Command $MyInvocation.MyCommand.ScriptBlock -ImportModule (
-        Get-Module PSSVG
-    )) -ne $null
+    # Start the node, passing the current script block and the PSSVG module
+    $psNode = @(Start-PSNode -Server $serveUrl -Command $MyInvocation.MyCommand.ScriptBlock -ImportModule "PSSVG") -ne $null
     
+    # Output the location of the node being served.
     @{serving=$($psNode.Location)} | ConvertTo-Json -Compress | Out-Host
     
+    # Wait for the node to finish
+    # (If this is running in a headless web server, it should never finish)
     do {
         Wait-Job -Id $psNode.ID -Timeout ([int](Get-Random -Minimum 1067 -Maximum 2971))
-        $psNode | Receive-Job -Keep
+        # Write the output of the node to the host
+        $psNode | Receive-Job | Out-Host
     } while ($psNode.State -eq 'Running')
     
     return
@@ -37,8 +44,8 @@ filter FrameSVG {
     if ($svgIn -is [string]) {
         $svgIn = $svgIn -as [xml]
     }
-    if (-not $svgIn.svg) {
-        return
+    if ($svgIn -and -not $svgIn.svg) {
+        return (SVG @($svgIn)).OuterXml        
     }
     $svgIn.OuterXml
 }
@@ -139,99 +146,4 @@ if (-not $request) {
 }
 
 
-# if ($request.Method -notin 'GET', 'OPTIONS') { return }
-if ($request.Url -match '\.ico$') { return }    
-
-$path = $request.Url.LocalPath -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
-
-if (-not $global:PSSVG_Path_Cache) {
-    $global:PSSVG_Path_Cache = @{}
-}
-$response.ContentType = 'image/svg+xml'
-
-
-$cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
-if ($global:PSSVG_Path_Cache.Contains($cacheKey)) {
-    if ($global:PSSVG_Path_Cache[$cacheKey] -is [int]) {
-        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        $response.StatusCode = $global:PSSVG_Path_Cache[$cacheKey]
-        return
-    } else {
-        $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
-        return ($global:PSSVG_Path_Cache[$cacheKey] | FrameSVG)
-    }
-}
-if (-not $pssvg) {    
-    $pssvg = Get-Module PSSVG
-}
-    
-$rootLocation = 
-    if ($env:PSSVG_ROOT) {
-        $env:PSSVG_ROOT
-    } else {
-        $pssvg | Split-Path
-    }
-
-$foundPath = $null
-
-$localPath = Join-Path $rootLocation "${path}*"
-if (Test-Path $localPath) { 
-    $localMatches = @(Get-Item -Path $localPath) -match '\.(?>pssvg\.ps1|ps1|md|svg)$'
-    if ($localMatches) {
-        if ($localMatches.Count -gt 1) {
-            $indexOrReadme = $localMatches -match '(?>default|home|index|readme)\.'
-            if ($indexOrReadme) {
-                $foundPath = $indexOrReadme[0]
-            } else {
-                $foundPath = $localMatches[0]
-            }
-        } else {
-            $foundPath = $localMatches[0].FullName
-        }
-    }
-}
-
-if (-not $foundPath) {
-    $global:PSSVG_Path_Cache[$cacheKey] = 404 
-    $response.StatusCode = 404
-    return
-}
-
-$localPath = $foundPath
-
-if ($localPath -match '\.ps1$') {    
-    $localScript = $ExecutionContext.SessionState.InvokeCommand.GetCommand($localPath, 'ExternalScript')
-    
-    $svgOut = $localScript | . $InvokeQuerySplat
-    
-    if ($svgOut -as [xml]) {
-        $global:PSSVG_Path_Cache[$cacheKey] = ($svgOut -as [xml]).OuterXml
-        return ($svgOut | FrameSVG)
-    }
-    elseif ($svgOut -as [IO.FileInfo]) {
-        $svgFileInfo = $svgOut
-        if ($svgFileInfo.Extension -eq '.svg') {
-            $svgOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
-            $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
-            return $svgOut
-        }
-        return ""
-    }
-    $global:PSSVG_Path_Cache[$cacheKey] = 404 
-    $response.StatusCode = 404
-    $response.ContentType = 'text/html'
-    return "?"
-} 
-elseif ($localPath -match '\.(?>md|markdown)') {
-    $svgOut = SVG -ViewBox 1080 @(
-        $markdownContent = Get-Content -Raw $localPath
-        SVG.Markdown -Markdown $markdownContent
-    )
-    $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
-    return $svgOut
-}
-elseif ($localPath -match '\.svg') {
-    $svgOut = [IO.File]::ReadAllText("$localPath")
-    $global:PSSVG_Path_Cache[$cacheKey] = $svgOut
-    return $svgOut
-}
+return $PSSVG.Serve($request)
