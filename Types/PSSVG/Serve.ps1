@@ -113,7 +113,7 @@ if ($localPath -match '\.ps1$') {
     $PSSVG.RequestCache[$cacheKey] = 404 
     $response.StatusCode = 404
     $response.ContentType = 'text/html'
-    return "?"
+    return $pssvg.HandleStatus($response.StatusCode)
 } 
 elseif ($localPath -match '\.(?>md|markdown)') {
     $svgOut = SVG -ViewBox 1080 @(
