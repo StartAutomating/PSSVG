@@ -11,8 +11,14 @@
 $StatusHandler = $this."$statusValue"
 if ($StatusHandler -is [ScriptBlock]) {
     &amp; $StatusHandler
-} elseif ($StatusHandler -is [xml]) {
+} 
+elseif ($statusHandler -is [Management.Automation.PSMethodInfo]) {
+    $statusHandler.Invoke()
+}
+elseif ($StatusHandler.OuterXml) {
     $StatusHandler.OuterXml
+} else {
+    $StatusHandler
 }
 
 
@@ -163,7 +169,7 @@ if ($localPath -match '\.ps1$') {
     $PSSVG.RequestCache[$cacheKey] = 404 
     $response.StatusCode = 404
     $response.ContentType = 'text/html'
-    return "?"
+    return $pssvg.HandleStatus($response.StatusCode)
 } 
 elseif ($localPath -match '\.(?&gt;md|markdown)') {
     $svgOut = SVG -ViewBox 1080 @(
