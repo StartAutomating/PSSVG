@@ -12,7 +12,7 @@ $StatusHandler = $this."$statusValue"
 if ($StatusHandler -is [ScriptBlock]) {
     &amp; $StatusHandler
 } elseif ($StatusHandler -is [xml]) {
-    $StatusCodeHandler.OuterXml
+    $StatusHandler.OuterXml
 }
 
 
@@ -208,51 +208,6 @@ if (-not $this.'.PathCache') {
 return $this.'.PathCache'
 
                     </GetScriptBlock>
-      </ScriptProperty>
-      <ScriptProperty>
-        <Name>Status</Name>
-        <GetScriptBlock>
-                        &lt;#
-.SYNOPSIS
-    Gets the status
-.DESCRIPTION
-    Gets the cached status.    
-#&gt;
-if ($this.'.LastStatus') {
-    return $this.'.LastStatus'
-} else {
-    return $null
-}
-
-                    </GetScriptBlock>
-        <SetScriptBlock>
-                        &lt;#
-.SYNOPSIS
-    Sets the status of the request.
-.DESCRIPTION
-    Sets the status of the request.
-
-    If the status is greater than or equal to 300, it will attempt to get the status code handler.
-    If the status code handler is a script block, it will execute the script block. 
-    If it is an XML object, it will return the OuterXml.
-    Otherwise, it will return the status code.
-#&gt;
-param($statusValue)
-
-
-$StatusCodeHandler = $this."$statusValue"
-$statusValue = 
-    if ($StatusCodeHandler -is [ScriptBlock]) {
-        &amp; $StatusCodeHandler
-    } elseif ($StatusCodeHandler -is [xml]) {
-        $StatusCodeHandler.OuterXml
-    } else {
-        $statusValue
-    }
-
-$this.psobject.properties.add([psnoteproperty]::new('.LastStatus', $statusValue), $true)
-
-                    </SetScriptBlock>
       </ScriptProperty>
     </Members>
   </Type>
