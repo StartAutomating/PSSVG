@@ -7,7 +7,7 @@
     This contains the paths that have been requested and their output.
 #>
 param()
-if (-not $this.'.PathCache') {
-    $this.psobject.properties.add([psnoteproperty]::new('.PathCache', [Ordered]@{}), $true)
+if (-not $this.'.RequestCache') {
+    $this.psobject.properties.add([psnoteproperty]::new('.RequestCache', [Ordered]@{}), $true)
 }
-return $this.'.PathCache'
+return $this.'.RequestCache'
