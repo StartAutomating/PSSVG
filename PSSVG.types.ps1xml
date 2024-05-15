@@ -217,11 +217,29 @@ elseif ($localPath -match '\.svg') {
     This contains the paths that have been requested and their output.
 #&gt;
 param()
-if (-not $this.'.PathCache') {
-    $this.psobject.properties.add([psnoteproperty]::new('.PathCache', [Ordered]@{}), $true)
+if (-not $this.'.RequestCache') {
+    $this.psobject.properties.add([psnoteproperty]::new('.RequestCache', [Ordered]@{}), $true)
 }
-return $this.'.PathCache'
+return $this.'.RequestCache'
 
+                    </GetScriptBlock>
+      </ScriptProperty>
+      <ScriptProperty>
+        <Name>RouteCache</Name>
+        <GetScriptBlock>
+                        &lt;#
+.SYNOPSIS
+    Gets the route cache for PSSVG.
+.DESCRIPTION
+    Gets the route cache for PSSVG.
+
+    This contains the routes that have been requested, and their destinations.
+#&gt;
+param()
+if (-not $this.'.RouteCache') {
+    $this.psobject.properties.add([psnoteproperty]::new('.RouteCache', [Ordered]@{}), $true)
+}
+return $this.'.RouteCache'
                     </GetScriptBlock>
       </ScriptProperty>
     </Members>
