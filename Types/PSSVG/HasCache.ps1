@@ -6,8 +6,8 @@
 #>
 param($Request)
 
-$cacheKey = $request.Url.PathAndQuery -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
-if ($PSSVG.RequestCache -and $PSSVG.RequestCache.Contains($cacheKey)) {            
+$cacheKey = $request.Url.PathAndQuery -replace "^/$([Regex]::Escape($this.Name))/" -replace '^/' -replace '/\?','?'
+if ($this.RequestCache -and $this.RequestCache.Contains($cacheKey)) {
     return [PSCustomObject][Ordered]@{
         Key = $CacheKey
         Value = $PSSVG.RequestCache[$cacheKey]
