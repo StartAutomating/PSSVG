@@ -18,6 +18,14 @@ if ($this.RouteCache -and $this.RouteCache.Contains($cacheKey)) {
     }
 }
 
+if ($this.ExportedCommands[$cacheKey]) {
+    $this.RouteCache[$cacheKey] = $this.ExportedCommands[$cacheKey]
+    return [PSCustomObject][Ordered]@{
+        Key = $CacheKey
+        Value = $this.ExportedCommands[$cacheKey]
+    }
+}
+
 # If the path has PSSVG in it, we can remove that
 $path = $cacheKey
 $rootLocation = 

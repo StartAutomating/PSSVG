@@ -65,10 +65,8 @@ if ($hasRoute.Value -is [int]) {
 }
 
 $routedTo = $hasRoute.Value
-    
-$localPath = $routedTo
 
-if ($localPath -match '\.ps1$') {    
+if ($routedTo -is [Management.Automation.CommandInfo]) {
     $localScript = $routedTo
     
     $svgOut = $localScript | . $InvokeQuerySplat
@@ -90,17 +88,25 @@ if ($localPath -match '\.ps1$') {
     $response.StatusCode = 404
     $response.ContentType = 'text/html'
     return $pssvg.HandleStatus($response.StatusCode)
-} 
-elseif ($localPath -match '\.(?>md|markdown)$') {
-    $svgOut = SVG -ViewBox 1080 @(
-        $markdownContent = [IO.File]::ReadAllText($localPath.FullName)
-        SVG.Markdown -Markdown $markdownContent
-    )
-    $This.RequestCache[$cacheKey] = $svgOut
-    return $svgOut
+} elseif ($routedTo -is [IO.FileInfo]) {
+    $localPath = $routedTo.FullName
+ 
+    if ($localPath -match '\.(?>md|markdown)$') {
+        $svgOut = SVG @(
+            $markdownContent = [IO.File]::ReadAllText($localPath.FullName)
+            SVG.Markdown -Markdown $markdownContent
+        )
+        $This.RequestCache[$cacheKey] = $svgOut
+        return $svgOut
+    }
+    elseif ($localPath -match '\.svg$') {
+        $svgOut = [IO.File]::ReadAllText($localPath.FullName)
+        $This.RequestCache[$cacheKey] = $svgOut
+        return $svgOut
+    }
+} else {
+    $PSSVG.RequestCache[$cacheKey] = 404 
+    $response.StatusCode = 404    
+    return $pssvg.HandleStatus($response.StatusCode)
 }
-elseif ($localPath -match '\.svg$') {
-    $svgOut = [IO.File]::ReadAllText($localPath.FullName)
-    $This.RequestCache[$cacheKey] = $svgOut
-    return $svgOut
-}
+    
