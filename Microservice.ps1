@@ -65,8 +65,8 @@ $InvokeQuerySplat = {
         if ($request.Url.Query) {
             $orderedQuery
         } else { $null }
-    $localCommandMetadata = $cmdIn -as [Management.Automation.CommandMetaData]
-    $localSplat = [Ordered]@{}
+    $localCommandMetadata = $cmdIn
+    $localSplat = [Ordered]@{}    
     if (-not $localCommandMetadata) { return }
     foreach ($queryKey in @($queryParameters.Keys)) {
         if (-not $queryKey) { continue }
@@ -132,7 +132,10 @@ $InvokeQuerySplat = {
         }
         
     }
-    $psNode.WriteOutput("Running $($request.Url.PathAndQuery) ( $(@($cmdIn -split '[\\/]')[-1]) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
+    if ($psNode -and $DebugPreference -ne 'SilentlyContinue') {
+        $psNode.WriteOutput("Running $($request.Url.PathAndQuery) ( $(@($cmdIn -split '[\\/]')[-1]) ) [$($localCommandMetadata.Parameters.Keys)] with $($localSplat | Out-String)")
+    }
+    
     & $cmdIn @localSplat
     }
 }
