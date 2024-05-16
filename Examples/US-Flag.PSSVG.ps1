@@ -51,7 +51,7 @@ SVG -ViewBox 1.986,1 -Content @(
             ))"
         }
     
-) -OutputPath (Join-Path $PSScriptRoot .\US-Flag.svg) -PreserveAspectRatio "xMaxYMid", "meet" -Comment @'
+) -OutputPath (Join-Path $PSScriptRoot .\US-Flag.svg) -PreserveAspectRatio "xMidYMid", "meet" -Comment @'
 Hoist (height) of the flag: A = 1.0
 Fly (width) of the flag: B = 1.9[86]
 Hoist (height) of the canton ("union"): C = 0.5385 (A × 7/13, spanning seven stripes)
