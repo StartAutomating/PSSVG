@@ -8,6 +8,9 @@ ARG InstallAptPackages=git curl ca-certificates libc6 libgcc1
 # InstallModules determines additional modules to install
 ARG InstallModules=PipeScript,ugit
 
+# Install packages first, so we can cache the layer.
+RUN apt-get update && apt-get install -y $InstallAptPackages && apt-get clean
+
 # Copy the module into the container
 COPY . ./usr/local/share/powershell/Modules/$ModuleName
 
@@ -24,8 +27,7 @@ SHELL ["/bin/pwsh", "-nologo", "-command"]
 # We want to do this in one RUN command:
 # It keeps the image smaller, and minimizes the number of layers.
 
-RUN @( \    
-    apt-get update && apt-get install -y $env:InstallAptPackages && apt-get clean ; \
+RUN @( \
     New-Item -Path \$Profile -ItemType File -Force | \
     Add-Content -Value "Import-Module $env:ModuleName" -Force; \
     Install-Module -Name ($env:InstallModules -split ',') -Force -AcceptLicense -Scope CurrentUser ; \
