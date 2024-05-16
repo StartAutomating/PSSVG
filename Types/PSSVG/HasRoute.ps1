@@ -19,7 +19,7 @@ if ($this.RouteCache -and $this.RouteCache.Contains($cacheKey)) {
 }
 
 # If the path has PSSVG in it, we can remove that
-$path = $request.Url.LocalPath
+$path = $cacheKey
 $rootLocation = 
     if ($env:PSSVG_ROOT) {
         $env:PSSVG_ROOT
@@ -30,31 +30,32 @@ $rootLocation =
 $foundPath = $null
 
 $localPath = Join-Path $rootLocation "${path}*"
-$foundLocalFile = if (Test-Path $localPath) { 
-    $localMatches = @(Get-Item -Path $localPath) -match '\.(?>pssvg\.ps1|ps1|md|markdown|svg)$'
-    $foundPath = 
-        if ($localMatches) {
-            if ($localMatches.Count -gt 1) {
-                $indexOrReadme = $localMatches -match '(?>default|home|index|readme)\.'
-                if ($indexOrReadme) {
-                    $indexOrReadme[0].FullName
+$foundLocalFile = 
+    if (Test-Path $localPath) { 
+        $localMatches = @(Get-Item -Path $localPath) -match '\.(?>pssvg\.ps1|ps1|md|markdown|svg)$'
+        $foundPath = 
+            if ($localMatches) {
+                if ($localMatches.Count -gt 1) {
+                    $indexOrReadme = $localMatches -match '(?>default|home|index|readme)\.'
+                    if ($indexOrReadme) {
+                        $indexOrReadme[0].FullName
+                    } else {
+                        $localMatches[0].FullName
+                    }
                 } else {
                     $localMatches[0].FullName
                 }
-            } else {
-                $localMatches[0].FullName
             }
+
+
+        if ($foundPath) {
+            $foundPath -as [IO.FileInfo]
         }
-
-
-    if ($foundPath) {
-        $foundPath -as [IO.FileInfo]
     }
-}
 
 
 if ($foundLocalFile) {
-    if ($foundLocalFile -match '.\ps1$') {
+    if ($foundLocalFile -match '\.ps1$') {
         $foundLocalFile = $ExecutionContext.SessionState.InvokeCommand.GetCommand($foundLocalFile.FullName, 'ExternalScript')
     }
     $this.RouteCache[$cacheKey] = $foundLocalFile
