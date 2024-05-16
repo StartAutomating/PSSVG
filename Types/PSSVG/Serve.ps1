@@ -44,56 +44,32 @@ $cacheKey = $hasCache.Key
 # If the request has a cached value, return it.
 if ($hasCache.Value) {
     # If the cached value is an integer, it's a status code
-    if ($hasCache -is [int]) {
+    if ($hasCache.Value -is [int]) {
         # Make sure we tell them to keep it cached
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         # Set the status code        
-        $response.StatusCode = $hasCache
+        $response.StatusCode = $hasCache.Value
         
         # Return any handled result of this status code.
-        return $PSSVG.HandleStatus($hasCache)
+        return $PSSVG.HandleStatus($response.StatusCode)
     } else {
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         return ($hasCache.Value | FrameSVG)
     }    
 }
+
+$hasRoute = $This.HasRoute($request)
+if ($hasRoute.Value -is [int]) {
+    $response.StatusCode = $hasRoute.Value
+    return $This.HandleStatus($response.StatusCode)
+}
+
+$routedTo = $hasRoute.Value
     
-$rootLocation = 
-    if ($env:PSSVG_ROOT) {
-        $env:PSSVG_ROOT
-    } else {
-        $pssvg | Split-Path
-    }
-
-$foundPath = $null
-
-$localPath = Join-Path $rootLocation "${path}*"
-if (Test-Path $localPath) { 
-    $localMatches = @(Get-Item -Path $localPath) -match '\.(?>pssvg\.ps1|ps1|md|markdown|svg)$'
-    if ($localMatches) {
-        if ($localMatches.Count -gt 1) {
-            $indexOrReadme = $localMatches -match '(?>default|home|index|readme)\.'
-            if ($indexOrReadme) {
-                $foundPath = $indexOrReadme[0]
-            } else {
-                $foundPath = $localMatches[0]
-            }
-        } else {
-            $foundPath = $localMatches[0].FullName
-        }
-    }
-}
-
-if (-not $foundPath) {
-    $PSSVG.RequestCache[$cacheKey] = 404 
-    $response.StatusCode = 404
-    return $pssvg.HandleStatus($response.StatusCode)
-}
-
-$localPath = $foundPath
+$localPath = $routedTo
 
 if ($localPath -match '\.ps1$') {    
-    $localScript = $ExecutionContext.SessionState.InvokeCommand.GetCommand($localPath, 'ExternalScript')
+    $localScript = $routedTo
     
     $svgOut = $localScript | . $InvokeQuerySplat
     
@@ -115,16 +91,16 @@ if ($localPath -match '\.ps1$') {
     $response.ContentType = 'text/html'
     return $pssvg.HandleStatus($response.StatusCode)
 } 
-elseif ($localPath -match '\.(?>md|markdown)') {
+elseif ($localPath -match '\.(?>md|markdown)$') {
     $svgOut = SVG -ViewBox 1080 @(
-        $markdownContent = Get-Content -Raw $localPath
+        $markdownContent = [IO.File]::ReadAllText($localPath.FullName)
         SVG.Markdown -Markdown $markdownContent
     )
-    $PSSVG.RequestCache[$cacheKey] = $svgOut
+    $This.RequestCache[$cacheKey] = $svgOut
     return $svgOut
 }
-elseif ($localPath -match '\.svg') {
-    $svgOut = [IO.File]::ReadAllText("$localPath")
-    $PSSVG.RequestCache[$cacheKey] = $svgOut
+elseif ($localPath -match '\.svg$') {
+    $svgOut = [IO.File]::ReadAllText($localPath.FullName)
+    $This.RequestCache[$cacheKey] = $svgOut
     return $svgOut
 }
