@@ -7,7 +7,7 @@ E = F = 0.0538 (C/10, one-tenth of the height of the canton)
 G = H = 0.0633 (D/12, one twelfth of the width of the canton)
 Diameter of star: K = 0.0616 (approximately L × 4/5, four-fifths of the stripe width)
 Width of stripe: L = 0.0769 (A/13, one thirteenth of the flag height) -->
-<svg viewBox="0 0 1.986 1" preserveAspectRatio="True" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1.986 1" preserveAspectRatio="true" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Each Star has a radius of 2/5ths a Bar. -->
     <path fill="white" id="Star" d="M 0 -0.0307692307692308 L -0.0180857000705376 0.0248928305961522 L 0.0292632774244663 -0.00950821521153683 L -0.0292632774244663 -0.00950821521153686 L 0.0180857000705377 0.0248928305961522 L 0 -0.0307692307692308" />
