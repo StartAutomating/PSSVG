@@ -75,7 +75,7 @@ if ($routedTo -is [Management.Automation.CommandInfo]) {
         return ($svgOut | FrameSVG)
     }
     elseif ($svgOut -is [xml.xmlelement]) {
-        $PSSVG.RequestCache[$cacheKey] = SVG -Content $svgOut
+        $PSSVG.RequestCache[$cacheKey] = SVG -Content $svgOut -Width 100% -Height 100%
         return ($PSSVG.RequestCache[$cacheKey] | FrameSVG)
     }
     elseif ($svgOut -as [IO.FileInfo]) {
