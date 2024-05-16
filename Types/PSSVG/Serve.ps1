@@ -66,14 +66,17 @@ if ($hasRoute.Value -is [int]) {
 
 $routedTo = $hasRoute.Value
 
-if ($routedTo -is [Management.Automation.CommandInfo]) {
+if ($routedTo -is [Management.Automation.CommandInfo]) {    
     $localScript = $routedTo
     
-    $svgOut = $localScript | . $InvokeQuerySplat
-    
+    $svgOut = $localScript | . $InvokeQuerySplat       
     if ($svgOut -as [xml]) {
         $PSSVG.RequestCache[$cacheKey] = ($svgOut -as [xml]).OuterXml
         return ($svgOut | FrameSVG)
+    }
+    elseif ($svgOut -is [xml.xmlelement]) {
+        $PSSVG.RequestCache[$cacheKey] = SVG -Content $svgOut
+        return ($PSSVG.RequestCache[$cacheKey] | FrameSVG)
     }
     elseif ($svgOut -as [IO.FileInfo]) {
         $svgFileInfo = $svgOut
