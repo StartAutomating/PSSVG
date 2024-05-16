@@ -131,6 +131,12 @@
                 }                
             }
 
+            # If a value is a switch or a boolean
+            if ($paramValue -is [switch] -or $paramValue -is [bool]) {
+                # then we want to make sure it's lowercase.
+                $paramValue = $paramValue.Tostring().ToLower()
+            }
+
             # Now we refer to the element command and find the actual name of the attribute.
             foreach ($attr in $elementCmd.Parameters[$kv.Key].Attributes) {                
                 if ($attr.Key -eq 'SVG.AttributeName') {
