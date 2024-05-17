@@ -101,10 +101,10 @@ $InvokeQuerySplat = {
             elseif ($localParameterType -eq [switch]) {
                 $localSplat[$paramName] =$localSplat[$paramName] -notmatch '^(?>\$?false|0|null|)$'
             }
-            elseif ($localParameterType.GetInterface('IDictionary') -or $localParameterType -eq [PSCustomObject]) {
+            elseif ($localParameterType.GetInterface('IDictionary') -or $localParameterType -eq [PSObject]) {
                 # Convert the query string from a hashtable or a JSON object
                 $localValue = $localSplat[$paramName]
-                if ($localValue -match '^\s{0,}[\{\].+?\:') {
+                if ($localValue -match '^\s{0,}[\{\]].+?\:') {
                     try {                        
                         $localSplat[$paramName] = $localValue | ConvertFrom-Json -ErrorAction Stop -AsHashtable:$(
                             $localParameterType.GetInterface('IDictionary') -as [bool]
@@ -150,3 +150,11 @@ if (-not $request) {
 
 
 return $PSSVG.Serve($request)
+
+trap {
+    $err = $_
+    if ($psNode) {
+        $psNode.Error.Add($err)
+    }   
+    continue
+}
