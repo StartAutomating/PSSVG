@@ -1,0 +1,159 @@
+function SVG.Arbelos {
+    <#
+    
+    .SYNOPSIS    
+        Creates an arbelos in SVG.    
+    .DESCRIPTION    
+        Creates an arbelos in SVG by drawing a major semicircle, a minor semicircle, and a circle tangent to both.    
+    .EXAMPLE    
+        SVG -Viewbox 200, 100 @(    
+            SVG.Arbelos -Radius 90 -CenterX 100 -CenterY 100    
+        )    
+    .LINK    
+        https://en.wikipedia.org/wiki/Arbelos    
+    
+    #>
+        
+    param(
+    # The radius of the arbelos.    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [double]
+    $Radius,
+
+    # The midpoint of the arbelos.    
+    [Parameter(ValueFromPipelineByPropertyName)]    
+    [double]
+    $Midpoint = 0.25,
+
+    # The center X coordinate for the arbelos.    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('CX')]
+    [double]
+    $CenterX,
+
+    # The center Y coordinate for the arbelos.    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias('CY')]
+    [double]
+    $CenterY,
+
+    # The rotation of the arbelos.    
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [double]
+    $Rotate = 0
+    )
+    dynamicParam {
+    $baseCommand = 
+        if (-not $script:SVGPath) {
+            $script:SVGPath = 
+                $executionContext.SessionState.InvokeCommand.GetCommand('SVG.Path','Function')
+            $script:SVGPath
+        } else {
+            $script:SVGPath
+        }
+    $IncludeParameter = @()
+    $ExcludeParameter = 'D'
+
+
+    $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
+    :nextInputParameter foreach ($paramName in ([Management.Automation.CommandMetaData]$baseCommand).Parameters.Keys) {
+        if ($ExcludeParameter) {
+            foreach ($exclude in $ExcludeParameter) {
+                if ($paramName -like $exclude) { continue nextInputParameter}
+            }
+        }
+        if ($IncludeParameter) {
+            $shouldInclude = 
+                foreach ($include in $IncludeParameter) {
+                    if ($paramName -like $include) { $true;break}
+                }
+            if (-not $shouldInclude) { continue nextInputParameter }
+        }
+        
+        $DynamicParameters.Add($paramName, [Management.Automation.RuntimeDefinedParameter]::new(
+            $baseCommand.Parameters[$paramName].Name,
+            $baseCommand.Parameters[$paramName].ParameterType,
+            $baseCommand.Parameters[$paramName].Attributes
+        ))
+    }
+    $DynamicParameters
+
+    }
+        begin {
+            
+        # Declare this relatively simple function to calculate a polar coordinate.
+        function 𝜑 {
+        
+                    param($radius, $angle)
+                    $radius * [math]::round([math]::cos($angle * [Math]::PI / 180),15)
+                    $radius * [math]::round([math]::sin($angle * [Math]::PI / 180),15)
+                
+        }
+    
+    }
+        process {
+        # Copy the splat to SVG
+        $svgSplat = [Ordered]@{} + $PSBoundParameters
+        
+        # and strip off any parameters that are not SVG's
+        $myCommandMetadata = $MyInvocation.MyCommand -as [Management.Automation.CommandMetaData]
+        $svgCmd = $baseCommand
+        foreach ($parameterName in $myCommandMetadata.Parameters.Keys) {
+            if (-not $svgCmd.Parameters[$parameterName]) {
+                $svgSplat.Remove($parameterName)
+            }
+        }
+
+        # Default to a transparent fill.
+        if (-not $svgSplat.Fill) {
+            $svgSplat.Fill = 'transparent'
+        }
+        # Default to a currentColor stroke.
+        if (-not $svgSplat.Stroke) {
+            $svgSplat.Stroke = 'currentcolor'
+        }
+        
+        # If no center is provided, use the radius.
+        if ((-not $CenterX) -and (-not $CenterY)) {
+            $CenterX = $centerY = $Radius            
+        } elseif ((-not $CenterX) -and $CenterY) {
+            # If one center is provided, use that.
+            $CenterX = $CenterY
+        } elseif ((-not $CenterY) -and $CenterX) {
+            $CenterY = $CenterX
+        }
+
+        $pathPoints = @(
+            # Major semicircle start
+            $startX, $startY = 𝜑 $radius $rotate
+            "M"
+            $centerX + $startX
+            $centerY + $startY
+            
+            # Major semicircle end
+            $endX, $endY = 𝜑 $radius ($rotate + 180)
+            "A $Radius $Radius 0 0 0"
+
+                        
+            $centerX + $endX
+            $centerY + $endY            
+
+            $MidCircleRadius = ($radius * 2 * $Midpoint)
+            "A $MidCircleRadius $MidCircleRadius 0 0 1"
+
+            $midEndX, $midEndY = 𝜑 ($radius * $Midpoint) $rotate
+            $centerX + $midEndX
+            $centerY + $midEndY
+
+            $MidCircleRadius2 = [Math]::Abs($radius * 2 * -$Midpoint)
+            "A $MidCircleRadius2 $MidCircleRadius2 0 0 1"
+
+            $centerX + $startX
+            $centerY + $startY                        
+        )
+
+        svg.path @svgSplat -D ($pathPoints -join ' ')
+    
+    }
+}
+
