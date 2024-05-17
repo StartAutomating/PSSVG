@@ -74,20 +74,8 @@ if ($routedTo -is [Management.Automation.CommandInfo]) {
         $PSSVG.RequestCache[$cacheKey] = ($svgOut -as [xml]).OuterXml
         return ($svgOut | FrameSVG)
     }
-    elseif ($svgOut -is [xml.xmlelement]) {
-        
-        $maxX, $maxY = 0, 0
-        
-        if ($svgOut.svg) {
-            $PSSVG.RequestCache[$cacheKey] = $svgOut
-        } else {
-            $coordinates = [Regex]::Matches($svgOut.OuterXml, '(?<x>[\d\.]+)\s(?<y>[\d\.]+)')
-            foreach ($coordinate in $coordinates) {
-                $maxX = [Math]::Max($maxX, $coordinate.Groups['x'].Value -as [double])
-                $maxY = [Math]::Max($maxY, $coordinate.Groups['y'].Value -as [double])
-            }
-            $PSSVG.RequestCache[$cacheKey] = SVG -Content $svgOut -ViewBox $maxX,$maxY
-        }
+    elseif ($svgOut -is [xml.xmlelement]) {            
+        $PSSVG.RequestCache[$cacheKey] = $svgOut        
         return ($PSSVG.RequestCache[$cacheKey] | FrameSVG)
     }
     elseif ($svgOut -as [IO.FileInfo]) {
