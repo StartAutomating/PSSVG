@@ -1,3 +1,6 @@
+[ValidatePattern('SVG\.Arbelos')]
+param()
+
 function SVG.Arbelos
 {
     <#
