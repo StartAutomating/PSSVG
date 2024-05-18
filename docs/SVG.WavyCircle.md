@@ -20,6 +20,29 @@ SVG @(
     SVG.WavyCircle -Radius 40 -Amplitude 10 -Frequency 8 -CenterX 50 -CenterY 50 -Fill transparent -Stroke black    
 ) -ViewBox 100,100 -OutputPath .\WavyCircle.svg
 ```
+> EXAMPLE 2
+
+```PowerShell
+SVG @(    
+    SVG.defs @(    
+        SVG.marker -id 'Head' -ViewBox 100,100 @(    
+            svg.polygon -Points (@(    
+                "30,0"    
+                "35,0"    
+                "60,50"    
+                "15,100"    
+                "12.5,100"    
+                "55,50"    
+            ) -join ' ') -Fill '#4488ff' -Class 'foreground-fill'    
+        ) -MarkerWidth 75 -MarkerHeight 75 -RefX 50 -RefY 50 -Orient 'auto-start-reverse'    
+    )                
+    $w = SVG.WavyCircle -Radius 90 -Amplitude 10 -Frequency 4.2 -RevolutionCount 8 -CenterX 100 -CenterY 100 -Fill transparent -Stroke black -MarkerStart 'url(#Head)' -MarkerEnd 'url(#Head)' -MarkerMid 'url(#Head)'    
+    $w    
+    SVG.circle -r 1 -Fill red (    
+       SVG.animateMotion -Dur 30s -RepeatCount 'indefinite' -Path $w.D    
+    )    
+) -OutputPath .\OddRevolutions.svg -viewbox 200
+```
 
 ---
 
