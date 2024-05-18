@@ -11,7 +11,7 @@ function SVG.Rose {
             SVG.Rose -Amplitude 50 -Frequency 3 -CenterX 50 -CenterY 50 -RevolutionCount 2 -Fill transparent -Stroke black
         ) -ViewBox 100,100 -OutputPath .\Trifolium.svg
     #>
-    [inherit('SVG.Path',Abstract,Dynamic)]
+    [inherit('SVG.Path',Abstract,Dynamic,ExcludeParameter='D')]
     [Alias('SVG.Trifolium','SVG.Quadrifolium','SVG.Octafolium','SVG.Pentafolium')]
     param(
     # The radius of the rose.
@@ -100,7 +100,10 @@ function SVG.Rose {
         }
         
         # If only one center is provided, use that.
-        if ((-not $CenterX) -and $CenterY) {
+        if (-not $CenterX -and -not $CenterY) {
+            $CenterX = $CenterY = $Radius
+        }
+        elseif ((-not $CenterX) -and $CenterY) {
             $CenterX = $CenterY
         } elseif ((-not $CenterY) -and $CenterX) {
             $CenterY = $CenterX
