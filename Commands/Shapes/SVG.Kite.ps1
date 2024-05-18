@@ -32,7 +32,6 @@ function SVG.Kite {
     
     #>
             
-    [Alias('SVG.Rhombi','SVG.Rhombuses')]    
     [CmdletBinding(PositionalBinding=$false)]
     param(
     # The initial rotation of the rhombus.    
@@ -45,13 +44,13 @@ function SVG.Kite {
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
-    $CenterX = 1,
+    $CenterX,
 
     # The center Y coordinate for the kite.    
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
-    $CenterY = 1,
+    $CenterY,
 
     # The radius of the kite.    
     # This is the distance to either constant side of the kite.    
@@ -112,7 +111,17 @@ function SVG.Kite {
 
     }
         process {        
-        
+        # If no center is provided, use the radius.
+        if (-not $PSBoundParameters.Contains('CenterX') -and -not $PSBoundParameters.Contains('CenterY')) {
+            $CenterX = $CenterY = [Math]::Max($InnerRadius,$OuterRadius, $radius)
+        }
+        # If only center is provided, use that for both.
+        elseif ((-not $CenterX) -and $PSBoundParameters.Contains('CenterY')) {
+            $CenterX = $CenterY
+        } elseif ((-not $CenterY) -and $PSBoundParameters.Contains('CenterX')) {
+            $CenterY = $CenterX
+        }
+
         $pathData = @(
             # We want to start at the top
             $CurrentAngle = $Rotate - 90
