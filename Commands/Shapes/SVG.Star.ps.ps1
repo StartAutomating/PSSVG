@@ -34,13 +34,13 @@ function SVG.Star {
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
-    $CenterX = 1,
+    $CenterX,
 
     # The center Y coordinate for the polygon.
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
-    $CenterY = 1,
+    $CenterY,
 
     # The radius of the polygon.
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -54,6 +54,18 @@ function SVG.Star {
         $anglePerPoint = 360 / $PointCount
         $r = $Radius
         $angle = $Rotate
+
+        # If no center is provided, use the radius.
+        if (-not $CenterX -and -not $CenterY) {
+            $CenterX = $CenterY = $Radius
+        }
+        # If only center is provided, use that for both.
+        elseif ((-not $CenterX) -and $CenterY) {
+            $CenterX = $CenterY
+        } elseif ((-not $CenterY) -and $CenterX) {
+            $CenterY = $CenterX
+        }
+
         $q = 2
         $points = @()
         $vertices = @(
