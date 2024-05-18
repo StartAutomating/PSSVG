@@ -77,13 +77,13 @@ function SVG.Kite
     
     process {        
         # If no center is provided, use the radius.
-        if (-not $PSBoundParameters.Contains('CenterX') -and -not $PSBoundParameters.Contains('CenterY')) {
+        if (-not $PSBoundParameters.ContainsKey('CenterX') -and -not $PSBoundParameters.ContainsKey('CenterY')) {
             $CenterX = $CenterY = [Math]::Max($InnerRadius,$OuterRadius, $radius)
         }
         # If only center is provided, use that for both.
-        elseif ((-not $CenterX) -and $PSBoundParameters.Contains('CenterY')) {
+        elseif ((-not $CenterX) -and $PSBoundParameters.ContainsKey('CenterY')) {
             $CenterX = $CenterY
-        } elseif ((-not $CenterY) -and $PSBoundParameters.Contains('CenterX')) {
+        } elseif ((-not $CenterY) -and $PSBoundParameters.ContainsKey('CenterX')) {
             $CenterY = $CenterX
         }
 
