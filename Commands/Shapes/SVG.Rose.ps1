@@ -71,7 +71,7 @@ function SVG.Rose {
             $script:SVGPath
         }
     $IncludeParameter = @()
-    $ExcludeParameter = @()
+    $ExcludeParameter = 'D'
 
 
     $DynamicParameters = [Management.Automation.RuntimeDefinedParameterDictionary]::new()            
@@ -140,7 +140,10 @@ function SVG.Rose {
         }
         
         # If only one center is provided, use that.
-        if ((-not $CenterX) -and $CenterY) {
+        if (-not $CenterX -and -not $CenterY) {
+            $CenterX = $CenterY = $Radius
+        }
+        elseif ((-not $CenterX) -and $CenterY) {
             $CenterX = $CenterY
         } elseif ((-not $CenterY) -and $CenterX) {
             $CenterY = $CenterX
