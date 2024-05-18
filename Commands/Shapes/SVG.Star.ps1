@@ -94,13 +94,13 @@ function SVG.Star {
         $angle = $Rotate
 
         # If no center is provided, use the radius.
-        if (-not $CenterX -and -not $CenterY) {
+        if (-not $PSBoundParameters['CenterX'] -and -not $PSBoundParameters['CenterY']) {
             $CenterX = $CenterY = $Radius
         }
         # If only center is provided, use that for both.
-        elseif ((-not $CenterX) -and $CenterY) {
+        elseif ((-not $CenterX) -and $PSBoundParameters['CenterY']) {
             $CenterX = $CenterY
-        } elseif ((-not $CenterY) -and $CenterX) {
+        } elseif ((-not $CenterY) -and $PSBoundParameters['CenterX']) {
             $CenterY = $CenterX
         }
 
