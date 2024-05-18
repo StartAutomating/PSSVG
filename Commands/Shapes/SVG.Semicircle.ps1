@@ -101,12 +101,13 @@ function SVG.Semicircle {
         }
         
         # If no center is provided, use the radius.
-        if ((-not $CenterX) -and (-not $CenterY)) {
-            $CenterX = $centerY = $Radius            
-        } elseif ((-not $CenterX) -and $CenterY) {
-            # If one center is provided, use that.
+        if (-not $PSBoundParameters.ContainsKey('CenterX') -and -not $PSBoundParameters.ContainsKey('CenterY')) {
+            $CenterX = $CenterY = $Radius
+        }
+        # If only center is provided, use that for both.
+        elseif ((-not $CenterX) -and $PSBoundParameters.ContainsKey('CenterY')) {
             $CenterX = $CenterY
-        } elseif ((-not $CenterY) -and $CenterX) {
+        } elseif ((-not $CenterY) -and $PSBoundParameters.ContainsKey('CenterX')) {
             $CenterY = $CenterX
         }
 
