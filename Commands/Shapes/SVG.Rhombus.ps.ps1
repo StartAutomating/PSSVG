@@ -42,13 +42,13 @@ function SVG.Rhombus
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
-    $CenterX = 1,
+    $CenterX,
 
     # The center Y coordinate for the rhombus.
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
-    $CenterY = 1,
+    $CenterY,
 
     # The out radius of the rhombus.
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -62,12 +62,18 @@ function SVG.Rhombus
     $InRadius = .5
     )
 
-    begin {
-        
-    }
-
     process {        
-        
+        # If no center is provided, use the radius.
+        if (-not $PSBoundParameters.Contains('CenterX') -and -not $PSBoundParameters.Contains('CenterY')) {
+            $CenterX = $CenterY = $Radius
+        }
+        # If only center is provided, use that for both.
+        elseif ((-not $CenterX) -and $PSBoundParameters.Contains('CenterY')) {
+            $CenterX = $CenterY
+        } elseif ((-not $CenterY) -and $PSBoundParameters.Contains('CenterX')) {
+            $CenterY = $CenterX
+        }
+
         $pathData = @(
             # We want to start at the top
             $CurrentAngle = $Rotate - 90

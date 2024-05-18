@@ -99,13 +99,14 @@ function SVG.Rose {
             $svgSplat.Fill = 'transparent'
         }
         
-        # If only one center is provided, use that.
-        if (-not $CenterX -and -not $CenterY) {
+        # If no center is provided, use the radius.
+        if (-not $PSBoundParameters.Contains('CenterX') -and -not $PSBoundParameters.Contains('CenterY')) {
             $CenterX = $CenterY = $Radius
         }
-        elseif ((-not $CenterX) -and $CenterY) {
+        # If only center is provided, use that for both.
+        elseif ((-not $CenterX) -and $PSBoundParameters.Contains('CenterY')) {
             $CenterX = $CenterY
-        } elseif ((-not $CenterY) -and $CenterX) {
+        } elseif ((-not $CenterY) -and $PSBoundParameters.Contains('CenterX')) {
             $CenterY = $CenterX
         }
 
