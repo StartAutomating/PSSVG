@@ -1,5 +1,6 @@
 [ValidatePattern('SVG\.ConvexPolygon')]
 param()
+
 function SVG.ConvexPolygon {
     <#
     .SYNOPSIS
@@ -64,13 +65,13 @@ function SVG.ConvexPolygon {
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CX')]
     [double]
-    $CenterX = 1,
+    $CenterX,
 
     # The center Y coordinate for the polygon.
     [Parameter(ValueFromPipelineByPropertyName)]
     [Alias('CY')]
     [double]
-    $CenterY = 1,
+    $CenterY,
 
     # The radius of the polygon.
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -103,6 +104,17 @@ function SVG.ConvexPolygon {
         
         # We can construct a regular polygon by creating N points along a unit circle
         $anglePerPoint = 360 / $SideCount
+        # If no center is provided, use the radius.
+        if (-not $PSBoundParameters.ContainsKey('CenterX') -and -not $PSBoundParameters.ContainsKey('CenterY')) {
+            $CenterX = $CenterY = $Radius
+        }
+        # If only center is provided, use that for both.
+        elseif ((-not $CenterX) -and $PSBoundParameters.ContainsKey('CenterY')) {
+            $CenterX = $CenterY
+        } elseif ((-not $CenterY) -and $PSBoundParameters.ContainsKey('CenterX')) {
+            $CenterY = $CenterX
+        }
+
         $r = $Radius
         $angle = $Rotate
         $points = @(
