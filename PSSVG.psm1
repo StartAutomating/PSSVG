@@ -37,4 +37,38 @@ if ($home) {
     New-PSDrive -Name "My$($MyModule.Name)" -PSProvider FileSystem -Scope Global -Root $MyModuleProfileDirectory -ErrorAction Ignore
 }
 
+$myTypeData = Get-TypeData -TypeName $MyModule.Name
+$myMembers  = @($myTypeData.Members.GetEnumerator())
+$KnownVerbs = Get-Verb | Select-Object -ExpandProperty Verb
+
+$myMemberCommands  =
+    [ScriptBlock]::Create(@(foreach ($myMemberInfo in $myMembers) {
+        $myMemberName = $myMemberInfo.Key
+        $myMember = $myMemberInfo.Value
+        if ($myMember -is [Management.Automation.Runspaces.ScriptMethodData]) {            
+            $myFunctionName = 
+                if ($myMemberName -in $KnownVerbs) {
+                    "$($myMemberName)-$($MyModule.Name)"
+                } else {
+                    "$($MyModule.Name).$($myMemberName)"
+                }
+            # Declare My Function
+            "function $myFunctionName { $($myMember.Script) }"
+            if ($myMemberName -in $KnownVerbs) {
+                # Alias it if it's a known verb, so both verb and noun form are available.
+                "Set-Alias -Name '$($myFunctionName -replace '-','.')' -Value '$myFunctionName'"
+            }
+        }
+        elseif ($myMember -is [Management.Automation.Runspaces.AliasPropertyData] -and
+            $myTypeData.Members[$myMember.ReferencedMemberName] -is [Management.Automation.Runspaces.ScriptMethodData]
+        ) {
+            "Set-Alias -Name '$($myMember.Name)' -Value '$($myMember.ReferencedMemberName)'"
+        }
+    }) -join [Environment]::NewLine)
+
+. $myMemberCommands
+# Set a script variable of this, set to the module
+# (so all scripts in this scope default to the correct `$this`)
+$script:this = $myModule
+
 Export-ModuleMember -Alias * -Function * -Variable $myModule.Name
