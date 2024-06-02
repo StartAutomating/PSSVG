@@ -103,8 +103,15 @@ This is not the number of petals, but the number of times the rose is drawn.
 |----------|--------|--------|---------------------|
 |`[Double]`|false   |4       |true (ByPropertyName)|
 
+#### **Iterator**
+The number of degrees to move in each step.
+
+|Type     |Required|Position|PipelineInput        |Aliases              |
+|---------|--------|--------|---------------------|---------------------|
+|`[Int32]`|false   |5       |true (ByPropertyName)|StepEach<br/>EachStep|
+
 #### **Reverse**
-If set, will draw the rose in reverse.
+If set, will draw the equation in reverse.
 
 |Type      |Required|Position|PipelineInput        |Aliases         |
 |----------|--------|--------|---------------------|----------------|
@@ -115,7 +122,7 @@ The initial rotation of the path.
 
 |Type      |Required|Position|PipelineInput        |Aliases |
 |----------|--------|--------|---------------------|--------|
-|`[Double]`|false   |5       |true (ByPropertyName)|Rotation|
+|`[Double]`|false   |6       |true (ByPropertyName)|Rotation|
 
 #### **Equation**
 The equation to draw the polar path.    
@@ -124,11 +131,19 @@ No loops are allowed, no commands are allowed, no assignments are allowed.
 
 |Type           |Required|Position|PipelineInput|Aliases|
 |---------------|--------|--------|-------------|-------|
-|`[ScriptBlock]`|false   |6       |false        |Formula|
+|`[ScriptBlock]`|false   |7       |false        |Formula|
+
+#### **KeepOpen**
+If set, will keep the path open.    
+Otherwise, the path will be closed.
+
+|Type      |Required|Position|PipelineInput|
+|----------|--------|--------|-------------|
+|`[Switch]`|false   |named   |false        |
 
 ---
 
 ### Syntax
 ```PowerShell
-SVG.PolarEquation [[-Radius] <Double>] [[-CenterX] <Double>] [[-CenterY] <Double>] [[-RevolutionCount] <Double>] [-Reverse] [[-Rotate] <Double>] [[-Equation] <ScriptBlock>] [<CommonParameters>]
+SVG.PolarEquation [[-Radius] <Double>] [[-CenterX] <Double>] [[-CenterY] <Double>] [[-RevolutionCount] <Double>] [[-Iterator] <Int32>] [-Reverse] [[-Rotate] <Double>] [[-Equation] <ScriptBlock>] [-KeepOpen] [<CommonParameters>]
 ```
