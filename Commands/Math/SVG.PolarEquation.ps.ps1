@@ -80,8 +80,16 @@ function SVG.PolarEquation
     [vbn()]
     [double]
     $RevolutionCount = 1,
+
+    # The number of degrees to move in each step.
+    [vbn()]
+    [ValidateRange(-360,360)]
+    [ValidateScript({if ($_ -eq 0) { throw "Step cannot be zero." }; $true})]
+    [Alias('StepEach','EachStep')]
+    [int]
+    $Iterator = 1,
     
-    # If set, will draw the rose in reverse.    
+    # If set, will draw the equation in reverse.    
     [vbn()]
     [Alias('CounterClockwise')]
     [switch]
@@ -119,7 +127,12 @@ function SVG.PolarEquation
     )]
     [Alias('Formula')]
     [ScriptBlock]
-    $Equation
+    $Equation,    
+
+    # If set, will keep the path open.
+    # Otherwise, the path will be closed.
+    [switch]
+    $KeepOpen
     )
 
     begin {
@@ -191,16 +204,19 @@ function SVG.PolarEquation
         }
 
         # Determine the number of points to draw
-        $PointCount = (360 * $RevolutionCount) + $(
-            # (if we drew a full circle, we need to add one more point to close the path)
-            if ($RevolutionCount % 360) { 0 } else { 1 }            
-        )
+        $PointCount = 360 * $RevolutionCount
 
         $localEquation = [ScriptBlock]::Create("$Equation")
+        
+        if ($Reverse) {
+            $Iterator *= -1
+        }
+
+        $Skip = $Iterator
 
         # Generate the path points
         $pathPoints = @(            
-            for ($step = $stepNumber = 0; $step -le $PointCount; $step++) {
+            for ($step = $stepNumber = 0; [Math]::Abs($step) -le $PointCount; $step+=$Iterator) {
                 # Move to the first point
                 if ($step -eq 0) {
                     "M"   
@@ -208,9 +224,7 @@ function SVG.PolarEquation
                 # every other point can simply be emitted from here on out.
 
                 # To reverse the rose's direction, we simply reverse the steps per angle.
-                $angle = $Rotate + $(
-                    $step * $(if ($Reverse) { -1 } else { 1 })
-                )
+                $angle = $Rotate + $($step * $Iterator)
                 
                 $angleRadians = $angleRadian = $radians = $stepRadian =  $angle * $radian
 
@@ -224,11 +238,16 @@ function SVG.PolarEquation
                 $CenterY + $momentX
                 $CenterX + $momentY
             }
+
+            # If we're not keeping the path open, close it.
+            if (-not $KeepOpen) {
+                "Z"
+            }
         )
         $svgSplat.D = $pathPoints -join ' '
         $svgSplat.Data = [Ordered]@{PolarEquation = "$Equation"}
         foreach ($parameterName in $myParameterNames) {
-            $svgSplat.Data.$parameterName = $ExecutionContext.SessionState.PSVariable.Get($parameterName).Value
+            $svgSplat.Data.$parameterName = "$($ExecutionContext.SessionState.PSVariable.Get($parameterName).Value)".ToLower()
         }
         SVG.path @svgSplat
     }
