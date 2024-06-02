@@ -17,6 +17,34 @@ By default:
 
 ---
 
+### Examples
+> EXAMPLE 1
+
+```PowerShell
+SVG.Markdown -Markdown '    
+# Hello, World!    
+This is a test of the Markdown to SVG conversion.    
+'
+```
+> EXAMPLE 2
+
+SVG.Markdown -ColorScheme 'Solarized Dark' -Markdown '    
+# Hello, World!    
+It's pretty easy to pick a palette.            
+'
+> EXAMPLE 3
+
+```PowerShell
+$pssvg |     
+    Split-Path |     
+    Join-Path -ChildPath 'README.md' |     
+    Get-Item |    
+    Get-Content -Raw |     
+    SVG.Markdown -ColorScheme 'Solarized Dark' -OutputPath .\README.svg
+```
+
+---
+
 ### Parameters
 #### **Markdown**
 The markdown.    
@@ -41,12 +69,32 @@ The Google Font name to use for code blocks.
 |----------|--------|--------|---------------------|----------------------------------------|
 |`[String]`|false   |3       |true (ByPropertyName)|PreFont<br/>CodeFontName<br/>PreFontName|
 
+#### **AnimateCSS**
+If set, will use the library [animate.css](https://animate.style/)
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Switch]`|false   |named   |true (ByPropertyName)|
+
+#### **AnimationName**
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[String]`|false   |4       |true (ByPropertyName)|
+
+#### **AnimationDuration**
+The animation duration.  By default, two seconds.
+
+|Type        |Required|Position|PipelineInput|
+|------------|--------|--------|-------------|
+|`[TimeSpan]`|false   |5       |false        |
+
 #### **PaletteName**
 The name of the palette.
 
 |Type      |Required|Position|PipelineInput        |Aliases                                 |
 |----------|--------|--------|---------------------|----------------------------------------|
-|`[String]`|false   |4       |true (ByPropertyName)|Palette<br/>ColorScheme<br/>ColorPalette|
+|`[String]`|false   |6       |true (ByPropertyName)|Palette<br/>ColorScheme<br/>ColorPalette|
 
 #### **Style**
 The style applied to the markdown.    
@@ -59,7 +107,7 @@ By default:
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
-|`[PSObject]`|false   |5       |true (ByPropertyName)|
+|`[PSObject]`|false   |7       |true (ByPropertyName)|
 
 ---
 
@@ -76,5 +124,5 @@ The XHTML is then passed to SVG.foreignObject to render the SVG.
 
 ### Syntax
 ```PowerShell
-SVG.Markdown [[-Markdown] <String>] [[-FontName] <String>] [[-CodeFont] <String>] [[-PaletteName] <String>] [[-Style] <PSObject>] [<CommonParameters>]
+SVG.Markdown [[-Markdown] <String>] [[-FontName] <String>] [[-CodeFont] <String>] [-AnimateCSS] [[-AnimationName] <String>] [[-AnimationDuration] <TimeSpan>] [[-PaletteName] <String>] [[-Style] <PSObject>] [<CommonParameters>]
 ```
