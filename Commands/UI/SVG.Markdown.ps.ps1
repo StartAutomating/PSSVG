@@ -14,6 +14,23 @@ function SVG.Markdown
         * Any direct children of the body will be given a margin of 1em and font-size of 1.25em
         * Tables will be made full width
 
+    .EXAMPLE
+        SVG.Markdown -Markdown '
+        # Hello, World!
+        This is a test of the Markdown to SVG conversion.
+        '
+    .EXAMPLE
+        SVG.Markdown -ColorScheme 'Solarized Dark' -Markdown '
+        # Hello, World!
+        It's pretty easy to pick a palette.        
+        '
+    .EXAMPLE
+        $pssvg | 
+            Split-Path | 
+            Join-Path -ChildPath 'README.md' | 
+            Get-Item |
+            Get-Content -Raw | 
+            SVG.Markdown -ColorScheme 'Solarized Dark' -OutputPath .\README.svg
     .NOTES
         In order to provide a better aesthetic experience, certain parameters are set by default:
 
@@ -46,6 +63,33 @@ function SVG.Markdown
     [Alias('PreFont','CodeFontName','PreFontName')]
     [string]
     $CodeFont,
+
+    # If set, will use the library [animate.css](https://animate.style/)
+    [vbn()]
+    [switch]
+    $AnimateCSS,
+
+    [vbn()]
+    [ArgumentCompleter({
+        param ($commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )
+        if (-not $script:AnimateCssList) {
+            $script:AnimateCssList = @([regex]::Matches(
+                (Invoke-RestMethod -Uri 'https://cdn.jsdelivr.net/npm/animate.css@latest/animate.min.css'),
+                '@keyframes\s(?<n>[\w_]+)'
+            ))-as [string[]] -replace '@keyframes\s'
+        }
+        if ($wordToComplete) {
+            $script:AnimateCssList -match "$([Regex]::Escape($wordToComplete) -replace '\\\*', '.{0,}')"
+        } else {
+            $script:AnimateCssList 
+        }        
+    })]
+    [string]
+    $AnimationName = 'fadeIn',
+
+    # The animation duration.  By default, two seconds.
+    [TimeSpan]
+    $AnimationDuration = '00:00:02',
     
     # The name of the palette.    
     [vbn()]
@@ -119,28 +163,33 @@ function SVG.Markdown
         if (-not $xhtml) {
             return $convertedThisMarkdown.Html
         }
+        # We need to add a data-index attribute to each node so that we can style it later
+        # To do this, we need to get all the nodes in order
         $allNodesInOrder = @($xhtml.SelectNodes("//*"))
         $nodeIndex = 0
+        # And then add the data-index attribute to each node
         foreach ($node in $allNodesInOrder) {
             if ($node.SetAttribute) { $node.SetAttribute('data-index', $nodeIndex) }
-            if ($node.GetAttribute('disabled')) { $node.RemoveAttribute('disabled') }
+            # (since we like to be efficient, we also remove the disabled attribute if it exists)
+            # (`ConvertFrom-Markdown` disables checkboxes for whatever reason)
+            if ($node.RemoveAttribute) { $node.RemoveAttribute('disabled') }
             $nodeIndex++
         }        
         
+        # If there was other content, we want that, too
+        $OtherContent = $null
         if ($svgForeignSplat.Content) {
-            $svgForeignSplat.Content = @($svgForeignSplat.Content) + $xhtml
+            $OtherContent = $svgForeignSplat.Content
+            $svgForeignSplat.Content = $xhtml
         } else {
             $svgForeignSplat.Add('Content', $xhtml)
         }
+        # The -Style parameter needs to become it's own element to be properly applied.
         $svgForeignSplat.Remove("Style")
-        if (-not $svgForeignSplat['Width']) {
-            $svgForeignSplat.Add('Width', '100%')
-        }
 
-        if (-not $svgForeignSplat['Height']) {
-            $svgForeignSplat.Add('Height', '100%')
-        }
-        
+        # If we have not specified a width or height, we will set them to 100%
+        if ( -not $svgForeignSplat['Width']  ) { $svgForeignSplat.Add('Width', '100%')  }
+        if ( -not $svgForeignSplat['Height'] ) { $svgForeignSplat.Add('Height', '100%') }
 
         SVG @svgSplat -Content @(
             if ($FontName) {
@@ -155,6 +204,10 @@ function SVG.Markdown
                 $paletteImport = SVG.Palette -PaletteName $PaletteName
                 $paletteImport
             }
+            if ($AnimateCSS) {
+                $animateCSSImport = SVG.Style -Content "@import url('https://cdn.jsdelivr.net/npm/animate.css@latest/animate.min.css')" -Type 'text/css'
+                $animateCSSImport
+            }
             if (-not $style) {
                 $style = "                
                 body { height: 100%; overflow: auto; font-size: 1.25em; $(
@@ -164,8 +217,21 @@ function SVG.Markdown
                 code { font-family: '$($matches.family)' }
                 "}
                 )
+                $(
+                    if ($AnimateCSS) {
+                        "* [data-index] {
+                            --data-index: attr(data-index);
+                            animation-name: $($AnimationName);
+                            animation-duration: $($animationDuration.Totalseconds)s;
+                        }"
+                    }
+                )
                 body > * { margin: 1em; }
-                table { width: 100%; border-collapse: collapse; }                
+                table { width: 100%; border-collapse: collapse; }
+                
+                @media (max-width: 960px) {
+                    body > * { margin: .5em; }
+                }
                 "
             }
             SVG.style -Content $Style
