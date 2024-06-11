@@ -45,7 +45,14 @@
     # Each key or property name will be the name of the event
     # Each value will be the handler.
     [Parameter(ValueFromPipelineByPropertyName)]
+    [PSObject]
     $On,
+
+    # The slot to use for the element.  This is used for templating.
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [Alias("SlotName")]
+    [string]
+    $Slot,
 
     # An output path.
     [Parameter(ValueFromPipelineByPropertyName)]
@@ -205,6 +212,7 @@
                 -not ($content -is [array]) -and
                 -not ($content -is [Xml.XmlElement])
             )
+            # Then we do the following:
         ) {
             # If there were children
             if ($children) {
@@ -212,25 +220,30 @@
                 $elementText += ">"
                 # and the animation
                 $elementText += $(@(foreach ($child in $children) {
+                    # If the child was XML, then we'll use that.
                     if ($child.OuterXml) {
                         $child.OuterXml
-                    } 
+                    }
+                    # If the child was a script block, then we'll run it.
                     elseif ($child -is [scriptblock]) {
                         $scriptOut = if ($null -ne $content) { # (if we had -Content, set $_ first)
                             $this = $_ = $psItem = $content
-                            . ([ScriptBlock]::Create($child))                            
+                            . ([ScriptBlock]::Create($child))
                         } else {
                             . ([ScriptBlock]::Create($child))
                         }
+                        # If the script block returned XML, then we'll use that.
                         foreach ($scriptOutput in $scriptOut) {
                             if ($scriptOutput.OuterXml) {
                                 $scriptOutput.OuterXml
                             } else {
+                                # Otherwise, we'll escape it.
                                 [Security.SecurityElement]::Escape("$scriptOutput")
                             }
                         }
                     }
                     else {
+                        # Otherwise, we'll escape it.
                         [Security.SecurityElement]::Escape("$child")
                     }                    
                 }) -join ([Environment]::NewLine))
@@ -240,39 +253,44 @@
             } else {
                 # ignore -Content and close the element.
                 $elementText += " />"
-            }
-
-            
+            }            
         } else {
+            # Close the opening tag.
+            $elementText += ">"
+            # Check to see if the content should be wrapped in CDATA.
             $isCData = $false
             foreach ($attr in $elementCmd.Parameters.Content.Attributes) {
                 if ($attr.Key -eq 'SVG.IsCData' -and $attr.Value -eq 'true') {
                     $isCData = $true
                 }
-            }
-
-            $elementText += ">"
+            }            
+            
             # If there were children,
             if ($children) {
                 # then children first.
                 $elementText += $(@(foreach ($child in $children) {
+                    # (including any comments they might have)
                     if ($child.Comment) {
                         "<!-- $($child.Comment) -->"
                     }
+                    # If the child was XML, then we'll use that.
                     if ($child.OuterXml) {
                         $child.OuterXml
                     } else {
+                        # otherwise, we'll escape it.
                         [Security.SecurityElement]::Escape("$child")
                     }                    
                 }) -join ([Environment]::NewLine))
             }            
             $elementText +=
+                # now add the content
                 foreach ($pieceOfContent in $Content) {
                     if ($pieceOfContent.Comment) {
                         "<!-- $($pieceOfContent.Comment) -->"
                     }
-                    if ($isCData -and -not 
-                        ($pieceOfContent -as [xml.xmlelement]) -and 
+                    # If it is cData, and not tags, then we'll escape it
+                    if ($isCData -and -not
+                        ($pieceOfContent -as [xml.xmlelement]) -and
                         ($pieceOfContent -notmatch '^\s{0,}\<')
                     ) {
                         [Security.SecurityElement]::Escape("$pieceOfContent")
@@ -291,7 +309,7 @@
 
         # If we have not provided a comment and the element is SVG
         if ((-not $myParams.Comment) -and ($ElementName -eq 'svg')) {
-            $Comment = "Generated with PSSVG $((Get-Module PSSVG).Version) <$((Get-Module PSSVG).ProjectUri)>"
+            $Comment = "Generated with PSSVG $($pssvg.Version) <$($pssvg.ProjectUri)>"
         }
 
         if ($elementXml -and $Comment) {
@@ -318,8 +336,7 @@
                 $o
             } else {
                 $elementText
-            }
-
+            }                
         
         if ($myParams['OutputPath']) {
             $unresolvedOutput = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
