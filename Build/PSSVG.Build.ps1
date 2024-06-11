@@ -703,6 +703,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         Synopsis    = "Creates SVG $($elementKV.Key) elements"
         Description = $elementKV.Value.Description.Trim()
         Link = $docsLink, $mdnLink, 'Write-SVG'
+        NoTranspile = $true
     }
     $relevantExampleFiles = Get-ChildItem -Filter *.ps1 -Path $examplesRoot |
         Select-String "svg.$($elementKv.Key)\s{1,}" | 
@@ -744,6 +745,13 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             '$Content'
         )        
     }
+
+    $parameters['Id'] = @(
+        '# The element identifier.'
+        '[Parameter(ValueFromPipelineByPropertyName)]'        
+        '[string]'
+        '$Id'
+    )
     
     $parameters['Data'] = @(
         "# A dictionary containing data.  This data will be embedded in data- attributes."        
@@ -920,6 +928,10 @@ $OutputPath
             }
         }
 
+        if ($paramCopy.Id) {
+            $attribute.Id = $paramCopy.Id
+        }
+
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
@@ -964,7 +976,7 @@ $OutputPath
 
         if ($slot) {
             $writeSvgSplat.Slot = $slot
-        }
+        }        
 
         . Write-SVG @writeSvgSplat
     }
