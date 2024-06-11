@@ -758,7 +758,16 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
         '# Each key or property name will be the name of the event'
         '# Each value will be the handler.'        
         "[Parameter(ValueFromPipelineByPropertyName)]"
+        "[PSObject]"
         '$On'
+    )
+
+    $parameters['Slot'] = @(
+        '# The slot attribute.'
+        '[Parameter(ValueFromPipelineByPropertyName)]'
+        '[Alias("SlotName")]'
+        '[string]'
+        '$Slot'
     )
 
     $parameters['Attribute'] = @(
@@ -951,6 +960,10 @@ $OutputPath
         if ($on) {
             # put it into the splat.
             $writeSvgSplat.On = $on
+        }
+
+        if ($slot) {
+            $writeSvgSplat.Slot = $slot
         }
 
         . Write-SVG @writeSvgSplat
