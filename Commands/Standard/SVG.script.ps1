@@ -1,5 +1,4 @@
-function SVG.script {
-
+function SVG.script  {
 <#
 .Synopsis
     Creates SVG script elements
@@ -22,6 +21,10 @@ param(
 [Parameter(Position=0,ValueFromPipeline,ValueFromPipelineByPropertyName)]
 [Alias('InputObject','Text', 'InnerText', 'Contents')]
 $Content,
+# The element identifier.
+[Parameter(ValueFromPipelineByPropertyName)]
+[string]
+$Id,
 # A dictionary containing data.  This data will be embedded in data- attributes.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('DataAttribute','DataAttributes')]
@@ -120,6 +123,10 @@ process {
             }
         }
 
+        if ($paramCopy.Id) {
+            $attribute.Id = $paramCopy.Id
+        }
+
         # All commands will call Write-SVG.  Prepare a splat.
         $writeSvgSplat = @{
             ElementName = $elementName
@@ -164,12 +171,11 @@ process {
 
         if ($slot) {
             $writeSvgSplat.Slot = $slot
-        }
+        }        
 
         . Write-SVG @writeSvgSplat
     
 }
-
 
 } 
 
