@@ -77,339 +77,405 @@ $D,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $PathLength,
-# The SystemLanguage attribute.
+# The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SystemLanguage')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','requiredFeatures')]
+[PSObject]
+$RequiredFeatures,
+# The systemLanguage attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/systemLanguage) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','systemLanguage')]
 [PSObject]
 $SystemLanguage,
-# The RequiredExtensions attribute.
+# The requiredExtensions attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredExtensions) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','RequiredExtensions')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','requiredExtensions')]
 [PSObject]
 $RequiredExtensions,
-# The Tabindex attribute.
+# The tabindex attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','tabindex')]
 [PSObject]
 $Tabindex,
-# The Id attribute.
+# The id attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','id')]
 [PSObject]
 $Id,
-# The Style attribute.
+# The style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','style')]
 [PSObject]
 $Style,
-# The Class attribute.
+# The xml:space attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xml:space')]
+[PSObject]
+$Xmlspace,
+# The xml:lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xml:lang')]
+[PSObject]
+$Xmllang,
+# The xml:base attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:base) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xml:base')]
+[PSObject]
+$Xmlbase,
+# The class attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/class) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','class')]
 [PSObject]
 $Class,
-# The Lang attribute.
+# The lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lang) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','lang')]
 [PSObject]
 $Lang,
-# The Clippath attribute.
+# The clip-path attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-path) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Clippath')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','clip-path')]
 [PSObject]
 $Clippath,
-# The Strokeopacity attribute.
+# The stroke-opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-opacity) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Strokeopacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke-opacity')]
 [PSObject]
 $Strokeopacity,
-# The Fontstretch attribute.
+# The font-stretch attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-stretch) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fontstretch')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','font-stretch')]
 [PSObject]
 $Fontstretch,
-# The Baselineshift attribute.
+# The baseline-shift attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/baseline-shift) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Baselineshift')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','baseline-shift')]
 [PSObject]
 $Baselineshift,
-# The Floodcolor attribute.
+# The flood-color attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-color) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Floodcolor')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','flood-color')]
 [PSObject]
 $Floodcolor,
-# The Markerend attribute.
+# The marker-end attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Markerend')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','marker-end')]
 [PSObject]
 $Markerend,
-# The Fontsizeadjust attribute.
+# The font-size-adjust attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-size-adjust) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fontsizeadjust')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','font-size-adjust')]
 [PSObject]
 $Fontsizeadjust,
-# The Colorinterpolationfilters attribute.
+# The color-interpolation-filters attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation-filters) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Colorinterpolationfilters')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','color-interpolation-filters')]
 [PSObject]
 $Colorinterpolationfilters,
-# The Visibility attribute.
+# The visibility attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/visibility) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Visibility')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','visibility')]
 [PSObject]
 $Visibility,
-# The Strokelinecap attribute.
+# The stroke-linecap attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Strokelinecap')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke-linecap')]
 [PSObject]
 $Strokelinecap,
-# The Textrendering attribute.
+# The text-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-rendering) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Textrendering')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','text-rendering')]
 [PSObject]
 $Textrendering,
-# The Fill attribute.
+# The fill attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fill')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','fill')]
 [PSObject]
 $Fill,
-# The Fillrule attribute.
+# The fill-rule attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fillrule')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','fill-rule')]
 [PSObject]
 $Fillrule,
-# The Display attribute.
+# The display attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/display) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Display')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','display')]
 [PSObject]
 $Display,
-# The Stroke attribute.
+# The stroke attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Stroke')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke')]
 [PSObject]
 $Stroke,
-# The Opacity attribute.
+# The opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/opacity) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Opacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','opacity')]
 [PSObject]
 $Opacity,
-# The Transform attribute.
+# The transform attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Transform')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','transform')]
 [PSObject]
 $Transform,
-# The Cursor attribute.
+# The cursor attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cursor) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Cursor')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','cursor')]
 [PSObject]
 $Cursor,
-# The Vectoreffect attribute.
+# The vector-effect attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/vector-effect) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Vectoreffect')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','vector-effect')]
 [PSObject]
 $Vectoreffect,
-# The Strokelinejoin attribute.
+# The stroke-linejoin attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linejoin) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Strokelinejoin')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke-linejoin')]
 [PSObject]
 $Strokelinejoin,
-# The Textanchor attribute.
+# The text-anchor attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Textanchor')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','text-anchor')]
 [PSObject]
 $Textanchor,
-# The Markermid attribute.
+# The marker-mid attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-mid) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Markermid')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','marker-mid')]
 [PSObject]
 $Markermid,
-# The Strokedashoffset attribute.
+# The color-profile attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-profile) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Strokedashoffset')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','color-profile')]
+[PSObject]
+$Colorprofile,
+# The stroke-dashoffset attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dashoffset) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke-dashoffset')]
 [PSObject]
 $Strokedashoffset,
-# The Fontweight attribute.
+# The font-weight attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-weight) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fontweight')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','font-weight')]
 [PSObject]
 $Fontweight,
-# The Transformorigin attribute.
+# The transform-origin attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform-origin) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Transformorigin')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','transform-origin')]
 [PSObject]
 $Transformorigin,
-# The Strokemiterlimit attribute.
+# The stroke-miterlimit attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-miterlimit) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Strokemiterlimit')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke-miterlimit')]
 [PSObject]
 $Strokemiterlimit,
-# The Lightingcolor attribute.
+# The lighting-color attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lighting-color) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Lightingcolor')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','lighting-color')]
 [PSObject]
 $Lightingcolor,
-# The Dominantbaseline attribute.
+# The dominant-baseline attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dominant-baseline) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Dominantbaseline')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','dominant-baseline')]
 [PSObject]
 $Dominantbaseline,
-# The Color attribute.
+# The color attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Color')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','color')]
 [PSObject]
 $Color,
-# The Cliprule attribute.
+# The clip-rule attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Cliprule')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','clip-rule')]
 [PSObject]
 $Cliprule,
-# The Strokedasharray attribute.
+# The stroke-dasharray attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Strokedasharray')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke-dasharray')]
 [PSObject]
 $Strokedasharray,
-# The Direction attribute.
+# The enable-background attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/enable-background) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Direction')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','enable-background')]
+[PSObject]
+$Enablebackground,
+# The direction attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/direction) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','direction')]
 [PSObject]
 $Direction,
-# The Floodopacity attribute.
+# The flood-opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-opacity) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Floodopacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','flood-opacity')]
 [PSObject]
 $Floodopacity,
-# The Fontvariant attribute.
+# The font-variant attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-variant) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fontvariant')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','font-variant')]
 [PSObject]
 $Fontvariant,
-# The Colorinterpolation attribute.
+# The color-interpolation attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Colorinterpolation')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','color-interpolation')]
 [PSObject]
 $Colorinterpolation,
-# The Stopopacity attribute.
+# The stop-opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stop-opacity) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Stopopacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stop-opacity')]
 [PSObject]
 $Stopopacity,
-# The Overflow attribute.
+# The overflow attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/overflow) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Overflow')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','overflow')]
 [PSObject]
 $Overflow,
-# The Strokewidth attribute.
+# The stroke-width attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Strokewidth')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stroke-width')]
 [PSObject]
 $Strokewidth,
-# The Fontfamily attribute.
+# The font-family attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-family) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fontfamily')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','font-family')]
 [PSObject]
 $Fontfamily,
-# The Fontsize attribute.
+# The font-size attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-size) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fontsize')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','font-size')]
 [PSObject]
 $Fontsize,
-# The Filter attribute.
+# The filter attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filter) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Filter')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','filter')]
 [PSObject]
 $Filter,
-# The Fontstyle attribute.
+# The font-style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-style) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fontstyle')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','font-style')]
 [PSObject]
 $Fontstyle,
-# The Textdecoration attribute.
+# The text-decoration attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-decoration) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Textdecoration')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','text-decoration')]
 [PSObject]
 $Textdecoration,
-# The Wordspacing attribute.
+# The kerning attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kerning) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Wordspacing')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','kerning')]
+[PSObject]
+$Kerning,
+# The word-spacing attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/word-spacing) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','word-spacing')]
 [PSObject]
 $Wordspacing,
-# The Writingmode attribute.
+# The glyph-orientation-horizontal attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/glyph-orientation-horizontal) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Writingmode')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','glyph-orientation-horizontal')]
+[PSObject]
+$Glyphorientationhorizontal,
+# The writing-mode attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/writing-mode) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','writing-mode')]
 [PSObject]
 $Writingmode,
-# The Pointerevents attribute.
+# The pointer-events attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointer-events) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Pointerevents')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','pointer-events')]
 [PSObject]
 $Pointerevents,
-# The Imagerendering attribute.
+# The image-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/image-rendering) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Imagerendering')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','image-rendering')]
 [PSObject]
 $Imagerendering,
-# The Letterspacing attribute.
+# The letter-spacing attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/letter-spacing) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Letterspacing')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','letter-spacing')]
 [PSObject]
 $Letterspacing,
-# The Unicodebidi attribute.
+# The glyph-orientation-vertical attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/glyph-orientation-vertical) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Unicodebidi')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','glyph-orientation-vertical')]
+[PSObject]
+$Glyphorientationvertical,
+# The unicode-bidi attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/unicode-bidi) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','unicode-bidi')]
 [PSObject]
 $Unicodebidi,
-# The Alignmentbaseline attribute.
+# The alignment-baseline attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/alignment-baseline) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Alignmentbaseline')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','alignment-baseline')]
 [PSObject]
 $Alignmentbaseline,
-# The Stopcolor attribute.
+# The stop-color attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stop-color) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Stopcolor')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','stop-color')]
 [PSObject]
 $Stopcolor,
-# The Mask attribute.
+# The mask attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/mask) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Mask')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','mask')]
 [PSObject]
 $Mask,
-# The Shaperendering attribute.
+# The shape-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/shape-rendering) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Shaperendering')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','shape-rendering')]
 [PSObject]
 $Shaperendering,
-# The Markerstart attribute.
+# The marker-start attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-start) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Markerstart')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','marker-start')]
 [PSObject]
 $Markerstart,
-# The Fillopacity attribute.
+# The clip attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fillopacity')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','clip')]
+[PSObject]
+$Clip,
+# The fill-opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-opacity) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','fill-opacity')]
 [PSObject]
 $Fillopacity,
-# The Colorrendering attribute.
+# The color-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-rendering) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Colorrendering')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','color-rendering')]
 [PSObject]
 $Colorrendering,
-# The ExternalResourcesRequired attribute.
+# The externalResourcesRequired attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/externalResourcesRequired) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ExternalResourcesRequired')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','externalResourcesRequired')]
 [PSObject]
 $ExternalResourcesRequired,
-# The Path attribute.
+# The path attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/path) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Path')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','path')]
 [PSObject]
 $Path,
-# The Href attribute.
+# The href attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/href) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Href')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','href')]
 [PSObject]
 $Href,
-# The Paintorder attribute.
+# The xlink:href attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:href) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Paintorder')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
+[PSObject]
+$Xlinkhref,
+# The paint-order attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/paint-order) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','paint-order')]
 [PSObject]
 $Paintorder
 )
