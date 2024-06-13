@@ -116,16 +116,96 @@ $Dy,
 [Reflection.AssemblyMetaData('SVG.AttributeName','StdDeviation')]
 [PSObject]
 $StdDeviation,
+# The TtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TtdDeviation')]
+[PSObject]
+$TtdDeviation,
+# The ItdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ItdDeviation')]
+[PSObject]
+$ItdDeviation,
 # The CtdDeviation attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CtdDeviation')]
 [PSObject]
 $CtdDeviation,
-# The ItdDeviation attribute.
+# The LtdDeviation attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ItdDeviation')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LtdDeviation')]
 [PSObject]
-$ItdDeviation
+$LtdDeviation,
+# The FtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FtdDeviation')]
+[PSObject]
+$FtdDeviation,
+# The BtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BtdDeviation')]
+[PSObject]
+$BtdDeviation,
+# The MtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MtdDeviation')]
+[PSObject]
+$MtdDeviation,
+# The VtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VtdDeviation')]
+[PSObject]
+$VtdDeviation,
+# The DtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DtdDeviation')]
+[PSObject]
+$DtdDeviation,
+# The OtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OtdDeviation')]
+[PSObject]
+$OtdDeviation,
+# The WtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WtdDeviation')]
+[PSObject]
+$WtdDeviation,
+# The PtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PtdDeviation')]
+[PSObject]
+$PtdDeviation,
+# The UtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UtdDeviation')]
+[PSObject]
+$UtdDeviation,
+# The AtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AtdDeviation')]
+[PSObject]
+$AtdDeviation,
+# The HtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','HtdDeviation')]
+[PSObject]
+$HtdDeviation,
+# The XtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XtdDeviation')]
+[PSObject]
+$XtdDeviation,
+# The RtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RtdDeviation')]
+[PSObject]
+$RtdDeviation,
+# The YtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','YtdDeviation')]
+[PSObject]
+$YtdDeviation
 )
 
 
