@@ -939,13 +939,15 @@ If nothing was provided, each output will be decorated with it's ElementName.
     )
 
     foreach ($potentiallyMissing in $checkForTheseParameters) {    
+        $potentiallyMissingParameterName = $potentiallyMissing.Substring(0,1).ToUpper() + $potentiallyMissing.Substring(1)
+        $potentiallyMissingParameterName = $potentiallyMissingParameterName -replace '\W'
         if (-not $parameters[$potentiallyMissing]) {
-            if ($attributeFileData[$potentiallyMissing].IsDeprecated) { continue }
-            $potentiallyMissingParameterName = $potentiallyMissing.Substring(0,1).ToUpper() + $potentiallyMissing.Substring(1)
-            $potentiallyMissingParameterName = $potentiallyMissingParameterName -replace '\W'
             $parameters[$potentiallyMissing] = @(
-                "# The $potentiallyMissing attribute."
+                "# The $potentiallyMissing attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/$potentiallyMissing) for more information."
                 "[Parameter(ValueFromPipelineByPropertyName)]"
+                if ($attributeFileData[$potentiallyMissing].IsDeprecated) {
+                    "[Reflection.AssemblyMetaData('SVG.Deprecated',`$true)]"
+                }
                 "[Reflection.AssemblyMetaData('SVG.AttributeName','$potentiallyMissing')]"
                 "[PSObject]"
                 "`$$potentiallyMissingParameterName"
