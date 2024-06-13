@@ -6,103 +6,103 @@ function SVG.rect  {
     The **`<rect>`** element is a [basic SVG shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes) that draws rectangles, defined by their position, width, and height. The rectangles may have their corners rounded.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Animate.PSSVG.ps1
+    ./Animate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimatedShapes.PSSVG.ps1
+    ./AnimatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateMotion.PSSVG.ps1
+    ./AnimateMotion.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMMorph.PSSVG.ps1
+    ./BPMMorph.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMTriangleMorph.PSSVG.ps1
+    ./BPMTriangleMorph.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./CloudAnimation.PSSVG.ps1
+    ./CloudAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Clouds.PSSVG.ps1
+    ./Clouds.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./HexagonPattern.PSSVG.ps1
+    ./HexagonPattern.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./LinearGradientAnimated.PSSVG.ps1
+    ./LinearGradientAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./ManyAnimatedRectangles.PSSVG.ps1
+    ./ManyAnimatedRectangles.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./ManyRectangles.PSSVG.ps1
+    ./ManyRectangles.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingGradient.PSSVG.ps1
+    ./MovingGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Pattern.PSSVG.ps1
+    ./Pattern.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./VerticalLinearGradient.PSSVG.ps1
+    ./VerticalLinearGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.rect
