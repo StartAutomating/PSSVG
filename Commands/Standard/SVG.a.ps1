@@ -7,37 +7,9 @@ function SVG.a  {
     
     SVG's `<a>` element is a container, which means you can create a link around text (like in HTML) but also around any shape.
 .Example
-    $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
-    $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
-    $fileListLines = @($fileListText -split '(?>\r\n|\n)')
-    
-    $fontSize = 14
-    
-    $ln = 0
-    $maxLineLength =0
-    $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
-    
-    svg (
-        svg.text -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
-        foreach ($line in $fileListLines) {
-            $ln++
-            $href =
-                if ($ln -le 2) {
-                    "."
-                } else {
-                    $file = $fileList[$ln - 3]
-                    $file.Name
-                }
-            if ($line.Length -gt $maxLineLength) {
-                $maxLineLength = $line.Length
-            }
-    
-            svg.a -href $href (
-                svg.tspan -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
-            )
-        }
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Index.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.a
 .Link
