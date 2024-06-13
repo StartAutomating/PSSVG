@@ -225,35 +225,101 @@ $EdgeMode,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $KernelUnitLength,
-# 
+# The PreserveAlpha attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','preserveAlpha')]
-[Reflection.AssemblyMetaData('SVG.Default value', 'false')]
-[Reflection.AssemblyMetaData('SVG.Value', 'true | false')]
-[ArgumentCompleter({
-    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
-    $validSet = 'true','false'
-    if ($wordToComplete) {        
-        $toComplete = $wordToComplete -replace "^'" -replace "'$"
-        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
-    } else {
-        return @($validSet -replace '^', "'" -replace '$',"'")
-    }
-})]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PreserveAlpha')]
 [PSObject]
 $PreserveAlpha,
+# The TreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TreserveAlpha')]
+[PSObject]
+$TreserveAlpha,
+# The IreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IreserveAlpha')]
+[PSObject]
+$IreserveAlpha,
+# The SreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SreserveAlpha')]
+[PSObject]
+$SreserveAlpha,
 # The CreserveAlpha attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CreserveAlpha')]
 [PSObject]
 $CreserveAlpha,
-# The SreserveAlpha attribute.
+# The LreserveAlpha attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SreserveAlpha')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LreserveAlpha')]
 [PSObject]
-$SreserveAlpha
+$LreserveAlpha,
+# The FreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FreserveAlpha')]
+[PSObject]
+$FreserveAlpha,
+# The BreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BreserveAlpha')]
+[PSObject]
+$BreserveAlpha,
+# The MreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MreserveAlpha')]
+[PSObject]
+$MreserveAlpha,
+# The VreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VreserveAlpha')]
+[PSObject]
+$VreserveAlpha,
+# The DreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DreserveAlpha')]
+[PSObject]
+$DreserveAlpha,
+# The OreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OreserveAlpha')]
+[PSObject]
+$OreserveAlpha,
+# The WreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WreserveAlpha')]
+[PSObject]
+$WreserveAlpha,
+# The UreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UreserveAlpha')]
+[PSObject]
+$UreserveAlpha,
+# The AreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AreserveAlpha')]
+[PSObject]
+$AreserveAlpha,
+# The HreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','HreserveAlpha')]
+[PSObject]
+$HreserveAlpha,
+# The XreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XreserveAlpha')]
+[PSObject]
+$XreserveAlpha,
+# The RreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RreserveAlpha')]
+[PSObject]
+$RreserveAlpha,
+# The YreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','YreserveAlpha')]
+[PSObject]
+$YreserveAlpha
 )
 
 
