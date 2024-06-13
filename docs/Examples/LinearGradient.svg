@@ -2,7 +2,7 @@
 <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
 <svg viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient>
+    <linearGradient id="myGradient">
       <stop offset="10%" stop-color="gold" />
       <stop offset="95%" stop-color="red" />
     </linearGradient>
