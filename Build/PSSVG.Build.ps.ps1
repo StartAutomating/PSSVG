@@ -31,7 +31,7 @@ param()
 
 Push-Location ($PSScriptRoot | Split-Path)
 
-require latest Irregular,PipeScript,PSDevOps,ugit, EZOut 
+require latest Irregular,PipeScript,PSDevOps,ugit, EZOut, powershell-yaml
 
 # Initialize some collections for us to use:
 
