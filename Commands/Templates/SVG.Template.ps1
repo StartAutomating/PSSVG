@@ -79,10 +79,11 @@ function SVG.Template {
         $propagateToTemplate = 'class','id','lang','style', 'data', 'attribute','slot'
         $elementSplat = [Ordered]@{
             ElementName='template'
+            Attribute = [Ordered]@{}
         }
         foreach ($parameterName in $propagateToTemplate) {
             if ($svgSplat[$parameterName]) {
-                $elementSplat[$parameterName] = $svgSplat[$parameterName]
+                $elementSplat.Attribute[$parameterName] = $svgSplat[$parameterName]
                 $svgSplat.Remove($parameterName)
             }
         }
