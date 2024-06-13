@@ -61,16 +61,23 @@ A dictionary or object containing event handlers.
 Each key or property name will be the name of the event
 Each value will be the handler.
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |7       |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |7       |true (ByPropertyName)|
+
+#### **Slot**
+The slot to use for the element.  This is used for templating.
+
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[String]`|false   |8       |true (ByPropertyName)|SlotName|
 
 #### **OutputPath**
 An output path.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[String]`|false   |8       |true (ByPropertyName)|
+|`[String]`|false   |9       |true (ByPropertyName)|
 
 #### **Decorate**
 If provided, will decorate outputted objects with a typename.
@@ -79,7 +86,7 @@ If nothing was provided, each output will be decorated with it's `-ElementName`.
 
 |Type        |Required|Position|PipelineInput        |Aliases                                                                             |
 |------------|--------|--------|---------------------|------------------------------------------------------------------------------------|
-|`[String[]]`|false   |9       |true (ByPropertyName)|PSTypeName<br/>PSTypeNames<br/>TypeName<br/>TypeNames<br/>Decoration<br/>Decorations|
+|`[String[]]`|false   |10      |true (ByPropertyName)|PSTypeName<br/>PSTypeNames<br/>TypeName<br/>TypeNames<br/>Decoration<br/>Decorations|
 
 ---
 
@@ -90,5 +97,5 @@ While this function can be used directly, it is designed to be the core function
 
 ### Syntax
 ```PowerShell
-Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <Object>] [[-OutputPath] <String>] [[-Decorate] <String[]>] [<CommonParameters>]
+Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <PSObject>] [[-Slot] <String>] [[-OutputPath] <String>] [[-Decorate] <String[]>] [<CommonParameters>]
 ```
