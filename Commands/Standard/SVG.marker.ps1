@@ -208,33 +208,86 @@ $RefX,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $RefY,
-# This attribute defines the bound of the SVG viewport for the current SVG fragment.
+# The ViewBox attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','viewBox')]
-[Reflection.AssemblyMetaData('SVG.Value', '<number>,? <number>,? <number>,? <number>')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ViewBox')]
 [PSObject]
 $ViewBox,
-# The CiewBox attribute.
+# The TiewBox attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','CiewBox')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TiewBox')]
 [PSObject]
-$CiewBox,
+$TiewBox,
+# The IiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IiewBox')]
+[PSObject]
+$IiewBox,
 # The SiewBox attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','SiewBox')]
 [PSObject]
 $SiewBox,
+# The CiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CiewBox')]
+[PSObject]
+$CiewBox,
+# The LiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LiewBox')]
+[PSObject]
+$LiewBox,
+# The FiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FiewBox')]
+[PSObject]
+$FiewBox,
+# The BiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BiewBox')]
+[PSObject]
+$BiewBox,
+# The MiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MiewBox')]
+[PSObject]
+$MiewBox,
+# The DiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DiewBox')]
+[PSObject]
+$DiewBox,
+# The OiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OiewBox')]
+[PSObject]
+$OiewBox,
+# The WiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WiewBox')]
+[PSObject]
+$WiewBox,
+# The PiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PiewBox')]
+[PSObject]
+$PiewBox,
+# The UiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UiewBox')]
+[PSObject]
+$UiewBox,
+# The AiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AiewBox')]
+[PSObject]
+$AiewBox,
 # The EiewBox attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','EiewBox')]
 [PSObject]
-$EiewBox,
-# The TiewBox attribute.
-[Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','TiewBox')]
-[PSObject]
-$TiewBox
+$EiewBox
 )
 
 
