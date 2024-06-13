@@ -63,19 +63,30 @@ function SVG.Template {
         # Return if there is nothing to template.
         if (-not $ContentTotemplate) { return }
 
-         # Create a splat of parameters to pass to the base command.
-         $svgSplat = [Ordered]@{} + $PSBoundParameters
-         $svgCommand = $baseCommand
-         # Remove any of my parameters that are not in the base command.
-         foreach ($parameterName in @($svgSplat.Keys)) {
-             if (-not $svgCommand.Parameters[$parameterName]) {
-                 $svgSplat.Remove($parameterName)
-             }
-         }
-         # and remove `Content` for good measure.
-         $svgSplat.Remove('Content')
+        # Create a splat of parameters to pass to the base command.
+        $svgSplat = [Ordered]@{} + $PSBoundParameters
+        $svgCommand = $baseCommand
+        # Remove any of my parameters that are not in the base command.
+        foreach ($parameterName in @($svgSplat.Keys)) {
+            if (-not $svgCommand.Parameters[$parameterName]) {
+                $svgSplat.Remove($parameterName)
+            }
+        }
+        # and remove `Content` for good measure.
+        $svgSplat.Remove('Content')
+         
+        $propagateToTemplate = 'class','id','lang','style', 'data', 'attribute'
+        $elementSplat = [Ordered]@{
+            ElementName='template'
+        }
+        foreach ($parameterName in $propagateToTemplate) {
+            if ($svgSplat[$parameterName]) {
+                $elementSplat[$parameterName] = $svgSplat[$parameterName]
+                $svgSplat.Remove($parameterName)
+            }
+        }
 
-         Write-SVG -ElementName template -Content @( & $baseCommand @svgSplat)
+        Write-SVG @elementSplat -Content @( & $baseCommand @svgSplat)
     
     }
 }
