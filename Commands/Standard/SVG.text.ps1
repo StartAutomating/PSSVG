@@ -445,16 +445,81 @@ $LengthAdjust,
 [Reflection.AssemblyMetaData('SVG.AttributeName','TextLength')]
 [PSObject]
 $TextLength,
-# The CextLength attribute.
-[Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','CextLength')]
-[PSObject]
-$CextLength,
 # The SextLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','SextLength')]
 [PSObject]
 $SextLength,
+# The RextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RextLength')]
+[PSObject]
+$RextLength,
+# The IextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IextLength')]
+[PSObject]
+$IextLength,
+# The CextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CextLength')]
+[PSObject]
+$CextLength,
+# The LextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LextLength')]
+[PSObject]
+$LextLength,
+# The FextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FextLength')]
+[PSObject]
+$FextLength,
+# The BextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BextLength')]
+[PSObject]
+$BextLength,
+# The MextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MextLength')]
+[PSObject]
+$MextLength,
+# The VextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VextLength')]
+[PSObject]
+$VextLength,
+# The DextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DextLength')]
+[PSObject]
+$DextLength,
+# The OextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OextLength')]
+[PSObject]
+$OextLength,
+# The WextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WextLength')]
+[PSObject]
+$WextLength,
+# The PextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PextLength')]
+[PSObject]
+$PextLength,
+# The UextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UextLength')]
+[PSObject]
+$UextLength,
+# The AextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AextLength')]
+[PSObject]
+$AextLength,
 # The EextLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','EextLength')]
