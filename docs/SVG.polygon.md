@@ -28,49 +28,49 @@ For open shapes, see the `polyline` element.
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./BPMMorph.PSSVG.ps1
+./BPMMorph.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./BPMTriangleMorph.PSSVG.ps1
+./BPMTriangleMorph.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Morphing.PSSVG.ps1
+./Morphing.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternAnimation.PSSVG.ps1
+./PatternAnimation.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 5
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternMask.PSSVG.ps1
+./PatternMask.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 6
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PowerShellChevron.PSSVG.ps1
+./PowerShellChevron.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 7
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StartAutomating.PSSVG.ps1
+./StartAutomating.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
