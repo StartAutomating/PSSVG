@@ -326,12 +326,9 @@ $ViewBox,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Width,
-# This attribute determines the x coordinate shift of the pattern tile.
+# The X attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','x')]
-[Reflection.AssemblyMetaData('SVG.Value', '<length>')]
-[Reflection.AssemblyMetaData('SVG.Default value', '0')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','X')]
 [PSObject]
 $X,
 # This attribute references a template pattern that provides default values for the `<pattern>` attributes.
@@ -348,7 +345,22 @@ $XlinkHref,
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Y
+$Y,
+# The C attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','C')]
+[PSObject]
+$C,
+# The S attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','S')]
+[PSObject]
+$S,
+# The E attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','E')]
+[PSObject]
+$E
 )
 
 
