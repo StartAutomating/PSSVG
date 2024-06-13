@@ -59,51 +59,66 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# The TloodOpacity attribute.
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','TloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$TloodOpacity,
-# The IloodOpacity attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','IloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$IloodOpacity,
-# The SloodOpacity attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$SloodOpacity,
-# The CloodOpacity attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','CloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$CloodOpacity,
-# The LloodOpacity attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','LloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$LloodOpacity,
-# The XloodOpacity attribute.
+$Lang,
+# The Type attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','XloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Type')]
 [PSObject]
-$XloodOpacity,
-# The AloodOpacity attribute.
+$Type,
+# The X attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','AloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','X')]
 [PSObject]
-$AloodOpacity,
-# The YloodOpacity attribute.
+$X,
+# The Amplitude attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','YloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Amplitude')]
 [PSObject]
-$YloodOpacity,
-# The EloodOpacity attribute.
+$Amplitude,
+# The Y attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','EloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Y')]
 [PSObject]
-$EloodOpacity
+$Y,
+# The Exponent attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Exponent')]
+[PSObject]
+$Exponent,
+# The TableValues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TableValues')]
+[PSObject]
+$TableValues,
+# The Intercept attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Intercept')]
+[PSObject]
+$Intercept
 )
 
 
