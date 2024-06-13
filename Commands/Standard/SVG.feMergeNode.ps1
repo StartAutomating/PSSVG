@@ -132,41 +132,60 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# The In attribute.
+# 
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','In')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','in')]
+[Reflection.AssemblyMetaData('SVG.Value', 'SourceGraphic | SourceAlpha | BackgroundImage | BackgroundAlpha | FillPaint | StrokePaint | <filter-primitive-reference>')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'SourceGraphic','SourceAlpha','BackgroundImage','BackgroundAlpha','FillPaint','StrokePaint','<filter-primitive-reference>'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
+[Reflection.AssemblyMetaData('SVG.Default value', 'SourceGraphic for first filter primitive, otherwise result of previous filter primitive')]
+[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $In,
-# The Tn attribute.
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Tn')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$Tn,
-# The Sn attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Sn')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$Sn,
-# The Cn attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Cn')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$Cn,
-# The Ln attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Ln')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$Ln,
-# The Xn attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Xn')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$Xn,
-# The Yn attribute.
+$Lang,
+# The X attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Yn')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','X')]
 [PSObject]
-$Yn
+$X,
+# The Y attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Y')]
+[PSObject]
+$Y
 )
 
 
