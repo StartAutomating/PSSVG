@@ -199,7 +199,22 @@ $Y,
 [Reflection.AssemblyMetaData('SVG.Default value', '120%')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Width
+$Width,
+# The Cidth attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cidth')]
+[PSObject]
+$Cidth,
+# The Sidth attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sidth')]
+[PSObject]
+$Sidth,
+# The Eidth attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eidth')]
+[PSObject]
+$Eidth
 )
 
 
