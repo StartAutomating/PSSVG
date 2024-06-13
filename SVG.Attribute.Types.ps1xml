@@ -146,11 +146,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -462,11 +457,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -514,11 +504,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -563,11 +548,6 @@ You can use this attribute with the following SVG elements:
 - [animateMotion](https://developer.mozilla.org/en-US/web/svg/element/animateMotion)
 - [animateTransform](https://developer.mozilla.org/en-US/web/svg/element/animateTransform)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -674,11 +654,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -812,11 +787,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -874,11 +844,6 @@ You can use this attribute with the following SVG elements:
 - [feSpecularLighting](https://developer.mozilla.org/en-US/web/svg/element/feSpecularLighting)
 - [feTile](https://developer.mozilla.org/en-US/web/svg/element/feTile)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -1225,11 +1190,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -1352,11 +1312,6 @@ The **`y1`** attribute is used to specify the first y-coordinate for drawing an 
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -1466,11 +1421,6 @@ The **`u1`** attribute specifies list of {{Glossary("Unicode")}} characters (ref
 
 If a given Unicode character within the set has multiple corresponding `&lt;glyph&gt;` elements (i.e., there are multiple `&lt;glyph&gt;` elements with the same `unicode` attribute value but different {{SVGAttr("glyph-name")}} values), then all such glyphs are included in the set. Comma is the separator character; thus, to kern a comma, specify the comma as part of a range of Unicode characters or as a glyph name using the {{SVGAttr("g1")}} attribute. The total set of possible first glyphs in the kerning pair is the union of glyphs specified by the `u1` and `g1` attributes.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -1692,11 +1642,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -1830,11 +1775,6 @@ The **`xChannelSelector`** attribute indicates which color channel from {{SVGAtt
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -1877,11 +1817,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -1922,11 +1857,6 @@ You can use this attribute with the following SVG elements:
 
 - [marker](https://developer.mozilla.org/en-US/web/svg/element/marker)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -1993,11 +1923,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -2046,11 +1971,6 @@ Depending on the value of attribute {{SVGAttr("pointer-events")}}, graphics elem
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -2087,11 +2007,6 @@ Depending on the value of attribute {{SVGAttr("pointer-events")}}, graphics elem
 
 The **`x2`** attribute is used to specify the second x-coordinate for drawing an SVG element that requires more than one coordinate. Elements that only need one coordinate use the {{SVGAttr("x")}} attribute instead.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -2148,11 +2063,6 @@ You can use this attribute with the following SVG elements:
 - [script](https://developer.mozilla.org/en-US/web/svg/element/script)
 - [style](https://developer.mozilla.org/en-US/web/svg/element/style)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -2339,11 +2249,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -2712,11 +2617,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -2759,11 +2659,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -2804,11 +2699,6 @@ You can use this attribute with the following SVG elements:
 
 - {{ SVGElement("font-face-name") }}
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -3631,11 +3521,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -3839,11 +3724,6 @@ The **`y2`** attribute is used to specify the second y-coordinate for drawing an
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -3979,11 +3859,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -4027,11 +3902,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4070,11 +3940,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4107,11 +3972,6 @@ You can use this attribute with the following SVG elements:
 
 The **`x`** attribute defines an x-axis coordinate in the user coordinate system.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -4150,11 +4010,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -4270,11 +4125,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -4316,11 +4166,6 @@ You can use this attribute with the following SVG elements:
 - [marker](https://developer.mozilla.org/en-US/web/svg/element/marker)
 - [symbol](https://developer.mozilla.org/en-US/web/svg/element/symbol)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -4366,11 +4211,6 @@ This attribute behaves exactly like the {{ cssxref("cursor","CSS cursor") }} pro
 
 As a presentation attribute, it also can be used as a property directly inside a CSS stylesheet, see {{ cssxref("cursor","CSS cursor") }} for further information.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -4510,11 +4350,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -4557,11 +4392,6 @@ You can use this attribute with the following SVG elements:
 
 - [font](https://developer.mozilla.org/en-US/web/svg/element/font)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -4698,11 +4528,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4739,11 +4564,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -4795,11 +4615,6 @@ You can use this attribute with the following SVG elements:
 - [animateTransform](https://developer.mozilla.org/en-US/web/svg/element/animateTransform)
 - [set](https://developer.mozilla.org/en-US/web/svg/element/set)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -4918,11 +4733,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -4966,11 +4776,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -5007,11 +4812,6 @@ You can use this attribute with the following SVG elements:
 
 - [marker](https://developer.mozilla.org/en-US/web/svg/element/marker)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -5146,11 +4946,6 @@ You can use this attribute with the following SVG elements:
 - [feFuncG](https://developer.mozilla.org/en-US/web/svg/element/feFuncG)
 - [feFuncR](https://developer.mozilla.org/en-US/web/svg/element/feFuncR)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -5329,11 +5124,6 @@ You can use this attribute with the following SVG elements:
 - [linearGradient](https://developer.mozilla.org/en-US/web/svg/element/linearGradient)
 - [radialGradient](https://developer.mozilla.org/en-US/web/svg/element/radialGradient)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -5523,11 +5313,6 @@ The **`vector-effect`** property specifies the vector effect to use when drawing
 
 &gt; **Note:** As a presentation attribute, `vector-effect` can be used as a CSS property.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -5880,11 +5665,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -5921,11 +5701,6 @@ You can use this attribute with the following SVG elements:
 
 The **`width`** attribute defines the horizontal length of an element in the user coordinate system.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -6196,11 +5971,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -6241,11 +6011,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -6490,11 +6255,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -6605,11 +6365,6 @@ You can use this attribute with the following SVG elements:
 - [marker](https://developer.mozilla.org/en-US/web/svg/element/marker)
 - [symbol](https://developer.mozilla.org/en-US/web/svg/element/symbol)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -6726,11 +6481,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -6771,11 +6521,6 @@ You can use this attribute with the following SVG elements:
 
 - [feConvolveMatrix](https://developer.mozilla.org/en-US/web/svg/element/feConvolveMatrix)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -7042,11 +6787,6 @@ You can use this attribute with any SVG element.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -7251,11 +6991,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -7299,11 +7034,6 @@ You can use this attribute with the following SVG elements:
 - [hkern](https://developer.mozilla.org/en-US/web/svg/element/hkern)
 - [vkern](https://developer.mozilla.org/en-US/web/svg/element/vkern)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -7432,11 +7162,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -7477,11 +7202,6 @@ You can use this attribute with the following SVG elements:
 
 - [textPath](https://developer.mozilla.org/en-US/web/svg/element/textPath)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -7792,11 +7512,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -7932,11 +7647,6 @@ As a presentation attribute, it can be applied to any element, but as noted abov
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -7983,11 +7693,6 @@ The use of this information is highly dependent on the type of processing being 
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -8028,11 +7733,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -8142,11 +7842,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -8183,11 +7878,6 @@ You can use this attribute with the following SVG elements:
 
 The **`yChannelSelector`** attribute indicates which color channel from {{SVGAttr("in2")}} to use to displace the pixels in {{SVGAttr("in")}} along the y-axis.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -8234,11 +7924,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -8280,11 +7965,6 @@ You can use this attribute with the following SVG elements:
 - [feConvolveMatrix](https://developer.mozilla.org/en-US/web/svg/element/feConvolveMatrix)
 - [feGaussianBlur](https://developer.mozilla.org/en-US/web/svg/element/feGaussianBlur)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -8350,11 +8030,6 @@ whereas the following fragment of code will not cause an evenodd clipping rule t
 
 As a presentation attribute, it also can be used as a property directly inside a CSS stylesheet
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -8719,11 +8394,6 @@ You can use this attribute with any SVG element.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -8765,11 +8435,6 @@ When an SVG contains a `viewBox` attribute (often in combination with a [`preser
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -8808,11 +8473,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -8871,11 +8531,6 @@ You can use this attribute with the following SVG elements:
 - [switch](https://developer.mozilla.org/en-US/web/svg/element/switch)
 - [symbol](https://developer.mozilla.org/en-US/web/svg/element/symbol)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -8995,11 +8650,6 @@ You can use this attribute with the following SVG elements:
 
 - {{ SVGElement("font-face") }}
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -9224,11 +8874,6 @@ The `unicode` attribute contributes to the process for deciding which glyph(s) a
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -9333,11 +8978,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -9378,11 +9018,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -9700,11 +9335,6 @@ The **`x1`** attribute is used to specify the first x-coordinate for drawing an 
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -9818,11 +9448,6 @@ You can use this attribute with the following SVG elements:
 - [glyph](https://developer.mozilla.org/en-US/web/svg/element/glyph)
 - [missing-glyph](https://developer.mozilla.org/en-US/web/svg/element/missing-glyph)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -10046,11 +9671,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -10101,11 +9721,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -10146,11 +9761,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -10196,11 +9806,6 @@ You can use this attribute with the following SVG elements:
 - [animateTransform](https://developer.mozilla.org/en-US/web/svg/element/animateTransform)
 - [set](https://developer.mozilla.org/en-US/web/svg/element/set)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -10401,11 +10006,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -10526,11 +10126,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -10567,11 +10162,6 @@ You can use this attribute with the following SVG elements:
 
 The **`y`** attribute defines a y-axis coordinate in the user coordinate system.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -10769,11 +10359,6 @@ SVG supports the built-in XML **`xml:space`** attribute to handle whitespace cha
 
 This attribute influences how browsers parse text content and therefore changes the way the {{Glossary("DOM")}} is built. Therefore, changing this attribute's value through the DOM API may have no effect.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -11112,11 +10697,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -11159,11 +10739,6 @@ You can use this attribute with the following SVG elements:
 
 - [font](https://developer.mozilla.org/en-US/web/svg/element/font)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -11446,11 +11021,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -11498,11 +11068,6 @@ There is also a {{SVGAttr("lang")}} attribute (without namespace). If both of th
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -11545,11 +11110,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -11586,11 +11146,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -11633,11 +11188,6 @@ You can use this attribute with the following SVG elements:
 
 - [glyph](https://developer.mozilla.org/en-US/web/svg/element/glyph)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -11897,11 +11447,6 @@ If a \&lt;length&gt; is provided with one of the unit identifiers (e.g. .25em or
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -12101,11 +11646,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -12155,11 +11695,6 @@ You can use this attribute with the following SVG elements:
 - [tref](https://developer.mozilla.org/en-US/web/svg/element/tref)
 - [tspan](https://developer.mozilla.org/en-US/web/svg/element/tspan)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -12292,11 +11827,6 @@ You can use this attribute with the following SVG elements:
 - [tref](https://developer.mozilla.org/en-US/web/svg/element/tref)
 - [tspan](https://developer.mozilla.org/en-US/web/svg/element/tspan)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -12703,11 +12233,6 @@ You can use this attribute with any SVG element.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -12749,11 +12274,6 @@ You can use this attribute with the following SVG elements:
 
 - {{ SVGElement("font-face") }}
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -12863,11 +12383,6 @@ You can use this attribute with the following SVG elements:
 - [animateMotion](https://developer.mozilla.org/en-US/web/svg/element/animateMotion)
 - [animateTransform](https://developer.mozilla.org/en-US/web/svg/element/animateTransform)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -12980,11 +12495,6 @@ You can use this attribute with the following SVG elements:
 
 - [image](https://developer.mozilla.org/en-US/web/svg/element/image)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -13208,11 +12718,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -13253,11 +12758,6 @@ You can use this attribute with the following SVG elements:
 
 - [filter](https://developer.mozilla.org/en-US/web/svg/element/filter)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -13372,11 +12872,6 @@ The **`preserveAspectRatio`** attribute indicates how an element with a viewBox 
 
 The aspect ratio of an SVG image is defined by the {{SVGAttr('viewBox')}} attribute. Therefore, if `viewBox` isn't set, the `preserveAspectRatio` attribute has no effect on SVG's scaling (except in the case of the [image](https://developer.mozilla.org/en-US/web/svg/element/image) element, where `preserveAspectRatio` behaves differently as described below).
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -13511,11 +13006,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -13562,11 +13052,6 @@ An element's class name serves two key roles:
 
 You can use this class to style SVG content using CSS.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -13682,11 +13167,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -13725,11 +13205,6 @@ The **`u2`** attribute specifies list of {{Glossary("Unicode")}} characters (ref
 
 If a given Unicode character within the set has multiple corresponding `&lt;glyph&gt;` elements (i.e., there are multiple `&lt;glyph&gt;` elements with the same `unicode` attribute value but different {{SVGAttr("glyph-name")}} values), then all such glyphs are included in the set. Comma is the separator character; thus, to kern a comma, specify the comma as part of a range of Unicode characters or as a glyph name using the {{SVGAttr("g2")}} attribute. The total set of possible second glyphs in the kerning pair is the union of glyphs specified by the `u2` and `g2` attributes.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -13843,11 +13318,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>elements</Value>
       </NoteProperty>
@@ -13892,11 +13362,6 @@ You can use this attribute with the following SVG elements:
 
 - [glyph](https://developer.mozilla.org/en-US/web/svg/element/glyph)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -14161,11 +13626,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -14424,11 +13884,6 @@ The **`unicode-bidi`** attribute specifies how the accumulation of the backgroun
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -14542,11 +13997,6 @@ You can use this attribute with the following SVG elements:
 - [hkern](https://developer.mozilla.org/en-US/web/svg/element/hkern)
 - [vkern](https://developer.mozilla.org/en-US/web/svg/element/vkern)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -14697,11 +14147,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Group</Name>
         <Value>global_attributes</Value>
       </NoteProperty>
@@ -14746,11 +14191,6 @@ You can use this attribute with the following SVG elements:
 
 - [font-face](https://developer.mozilla.org/en-US/web/svg/element/font-face)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -14895,11 +14335,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -14939,11 +14374,6 @@ You can use this attribute with the following SVG elements:
 - [hkern](https://developer.mozilla.org/en-US/web/svg/element/hkern)
 - [vkern](https://developer.mozilla.org/en-US/web/svg/element/vkern)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -14986,11 +14416,6 @@ You can use this attribute with the following SVG elements:
 
 - [filter](https://developer.mozilla.org/en-US/web/svg/element/filter)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -15041,11 +14466,6 @@ You can use this attribute with the following SVG elements:
 
 - [stop](https://developer.mozilla.org/en-US/web/svg/element/stop)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Group</Name>
@@ -15254,11 +14674,6 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -15291,11 +14706,6 @@ You can use this attribute with the following SVG elements:
 
 The **`z`** attribute defines the location along the z-axis for a light source in the coordinate system established by the {{SVGAttr("primitiveUnits")}} attribute on the [filter](https://developer.mozilla.org/en-US/web/svg/element/filter) element, assuming that, in the initial coordinate system, the positive z-axis comes out towards the person viewing the content and assuming that one unit along the z-axis equals one unit in x and y.
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -15335,11 +14745,6 @@ You can use this attribute with the following SVG elements:
 
 - {{ SVGElement("font-face") }}
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -15629,11 +15034,6 @@ You can use this attribute with the following SVG elements:
 
 - [svg](https://developer.mozilla.org/en-US/web/svg/element/svg)
 </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Example</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
