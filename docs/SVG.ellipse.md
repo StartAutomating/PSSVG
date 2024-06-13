@@ -28,7 +28,7 @@ The **`<ellipse>`** element is an SVG basic shape, used to create ellipses based
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./AnimatedShapes.PSSVG.ps1
+./AnimatedShapes.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

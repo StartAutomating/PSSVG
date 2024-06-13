@@ -26,126 +26,126 @@ The `animateTransform` element animates a transformation attribute on its target
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./AnimateMotion.PSSVG.ps1
+./AnimateMotion.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./MorphingRose.PSSVG.ps1
+./MorphingRose.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternAnimation.PSSVG.ps1
+./PatternAnimation.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternAnimation.PSSVG.ps1
+./PatternAnimation.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 5
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternMask.PSSVG.ps1
+./PatternMask.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 6
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./RepeatedShapes.PSSVG.ps1
+./RepeatedShapes.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 7
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./SpinningSpiral.PSSVG.ps1
+./SpinningSpiral.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 8
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 9
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 10
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 11
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 12
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 13
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 14
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./SweepCircle.PSSVG.ps1
+./SweepCircle.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 15
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-Flag.PSSVG.ps1
+./US-Flag.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 16
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-Flag.PSSVG.ps1
+./US-Flag.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 17
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-FlagAnimated.PSSVG.ps1
+./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 18
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-FlagAnimated.PSSVG.ps1
+./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

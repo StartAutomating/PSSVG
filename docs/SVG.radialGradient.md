@@ -28,21 +28,21 @@ The **`<radialGradient>`** element lets authors define radial gradients that can
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternMask.PSSVG.ps1
+./PatternMask.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./RadialGradient.PSSVG.ps1
+./RadialGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./RadialGradientAnimated.PSSVG.ps1
+./RadialGradientAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

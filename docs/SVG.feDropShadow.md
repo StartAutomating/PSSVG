@@ -28,7 +28,7 @@ The SVG **`<feDropShadow>`** filter primitive creates a drop shadow of the input
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./MovingShadows.PSSVG.ps1
+./MovingShadows.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

@@ -27,42 +27,42 @@ The effect is the same as if the nodes were deeply cloned into a non-exposed DOM
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PowerShellChevron.PSSVG.ps1
+./PowerShellChevron.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StartAutomating.PSSVG.ps1
+./StartAutomating.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-Flag.PSSVG.ps1
+./US-Flag.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-Flag.PSSVG.ps1
+./US-Flag.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 5
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-FlagAnimated.PSSVG.ps1
+./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 6
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-FlagAnimated.PSSVG.ps1
+./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

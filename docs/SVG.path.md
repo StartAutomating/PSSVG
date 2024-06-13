@@ -26,7 +26,7 @@ The **`<path>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./AnimateMotion.PSSVG.ps1
+./AnimateMotion.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

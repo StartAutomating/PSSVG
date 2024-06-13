@@ -26,14 +26,14 @@ The **`<feMerge>`** SVG element allows filter effects to be applied concurrently
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Embossed.PSSVG.ps1
+./Embossed.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./MovingShadows.PSSVG.ps1
+./MovingShadows.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

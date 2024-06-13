@@ -28,14 +28,14 @@ The SVG **`<animateMotion>`** element provides a way to define how an element mo
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./AnimateMotion.PSSVG.ps1
+./AnimateMotion.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./AnimateMotion.PSSVG.ps1
+./AnimateMotion.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 

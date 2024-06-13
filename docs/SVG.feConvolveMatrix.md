@@ -60,7 +60,7 @@ Let's focus on the color value at the second row and second column of the image 
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Embossed.PSSVG.ps1
+./Embossed.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
