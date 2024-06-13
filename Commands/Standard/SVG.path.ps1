@@ -81,33 +81,96 @@ $Children,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $D,
-# This attribute lets authors specify the total length for the path, in user units.
+# The PathLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','pathLength')]
-[Reflection.AssemblyMetaData('SVG.Value', '<number>')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PathLength')]
 [PSObject]
 $PathLength,
-# The CathLength attribute.
-[Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','CathLength')]
-[PSObject]
-$CathLength,
 # The SathLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','SathLength')]
 [PSObject]
 $SathLength,
+# The RathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RathLength')]
+[PSObject]
+$RathLength,
+# The TathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TathLength')]
+[PSObject]
+$TathLength,
+# The IathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IathLength')]
+[PSObject]
+$IathLength,
+# The CathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CathLength')]
+[PSObject]
+$CathLength,
+# The LathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LathLength')]
+[PSObject]
+$LathLength,
+# The FathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FathLength')]
+[PSObject]
+$FathLength,
+# The BathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BathLength')]
+[PSObject]
+$BathLength,
+# The MathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MathLength')]
+[PSObject]
+$MathLength,
+# The VathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VathLength')]
+[PSObject]
+$VathLength,
+# The DathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DathLength')]
+[PSObject]
+$DathLength,
+# The OathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OathLength')]
+[PSObject]
+$OathLength,
+# The WathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WathLength')]
+[PSObject]
+$WathLength,
+# The UathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UathLength')]
+[PSObject]
+$UathLength,
+# The AathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AathLength')]
+[PSObject]
+$AathLength,
 # The EathLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','EathLength')]
 [PSObject]
 $EathLength,
-# The TathLength attribute.
+# The HathLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','TathLength')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','HathLength')]
 [PSObject]
-$TathLength
+$HathLength
 )
 
 
