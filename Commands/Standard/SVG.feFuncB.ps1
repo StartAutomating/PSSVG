@@ -58,7 +58,52 @@ $Decorate,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
 [Management.Automation.PSObject]
-$Children
+$Children,
+# The TloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TloodOpacity')]
+[PSObject]
+$TloodOpacity,
+# The IloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IloodOpacity')]
+[PSObject]
+$IloodOpacity,
+# The SloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SloodOpacity')]
+[PSObject]
+$SloodOpacity,
+# The CloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CloodOpacity')]
+[PSObject]
+$CloodOpacity,
+# The LloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LloodOpacity')]
+[PSObject]
+$LloodOpacity,
+# The XloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XloodOpacity')]
+[PSObject]
+$XloodOpacity,
+# The AloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AloodOpacity')]
+[PSObject]
+$AloodOpacity,
+# The YloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','YloodOpacity')]
+[PSObject]
+$YloodOpacity,
+# The EloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','EloodOpacity')]
+[PSObject]
+$EloodOpacity
 )
 
 
