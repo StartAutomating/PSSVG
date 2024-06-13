@@ -72,16 +72,96 @@ $FloodColor,
 [Reflection.AssemblyMetaData('SVG.AttributeName','FloodOpacity')]
 [PSObject]
 $FloodOpacity,
+# The TloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TloodOpacity')]
+[PSObject]
+$TloodOpacity,
+# The IloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IloodOpacity')]
+[PSObject]
+$IloodOpacity,
+# The SloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SloodOpacity')]
+[PSObject]
+$SloodOpacity,
 # The CloodOpacity attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CloodOpacity')]
 [PSObject]
 $CloodOpacity,
-# The SloodOpacity attribute.
+# The LloodOpacity attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SloodOpacity')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LloodOpacity')]
 [PSObject]
-$SloodOpacity
+$LloodOpacity,
+# The BloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BloodOpacity')]
+[PSObject]
+$BloodOpacity,
+# The MloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MloodOpacity')]
+[PSObject]
+$MloodOpacity,
+# The VloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VloodOpacity')]
+[PSObject]
+$VloodOpacity,
+# The DloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DloodOpacity')]
+[PSObject]
+$DloodOpacity,
+# The OloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OloodOpacity')]
+[PSObject]
+$OloodOpacity,
+# The WloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WloodOpacity')]
+[PSObject]
+$WloodOpacity,
+# The PloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PloodOpacity')]
+[PSObject]
+$PloodOpacity,
+# The UloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UloodOpacity')]
+[PSObject]
+$UloodOpacity,
+# The AloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AloodOpacity')]
+[PSObject]
+$AloodOpacity,
+# The HloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','HloodOpacity')]
+[PSObject]
+$HloodOpacity,
+# The XloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XloodOpacity')]
+[PSObject]
+$XloodOpacity,
+# The RloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RloodOpacity')]
+[PSObject]
+$RloodOpacity,
+# The YloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','YloodOpacity')]
+[PSObject]
+$YloodOpacity
 )
 
 
