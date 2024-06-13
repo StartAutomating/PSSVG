@@ -8,31 +8,31 @@ function SVG.pattern  {
     The `<pattern>` is referenced by the `fill` and/or `stroke` attributes on other [graphics elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes) to fill or stroke those elements with the referenced pattern.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMMorph.PSSVG.ps1
+    ./BPMMorph.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMTriangleMorph.PSSVG.ps1
+    ./BPMTriangleMorph.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./HexagonPattern.PSSVG.ps1
+    ./HexagonPattern.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Pattern.PSSVG.ps1
+    ./Pattern.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./PatternAnimation.PSSVG.ps1
+    ./PatternAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./PatternMask.PSSVG.ps1
+    ./PatternMask.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.pattern
