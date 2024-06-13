@@ -11,6 +11,7 @@ function SVG.Template
         While templates are not _technically_ SVG elements, they're very useful when combined with SVGs.
     #>
     [inherit('SVG.svg',Dynamic,Abstract)]
+    [CmdletBinding()]
     param()
 
     end {
