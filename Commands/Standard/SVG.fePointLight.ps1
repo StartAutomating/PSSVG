@@ -83,31 +83,55 @@ $Y,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Z,
-# The Tabindex attribute.
+# The tabindex attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','tabindex')]
 [PSObject]
 $Tabindex,
-# The Id attribute.
+# The id attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','id')]
 [PSObject]
 $Id,
-# The Style attribute.
+# The style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','style')]
 [PSObject]
 $Style,
-# The Class attribute.
+# The xml:space attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xml:space')]
+[PSObject]
+$Xmlspace,
+# The xml:lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xml:lang')]
+[PSObject]
+$Xmllang,
+# The xml:base attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:base) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xml:base')]
+[PSObject]
+$Xmlbase,
+# The class attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/class) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','class')]
 [PSObject]
 $Class,
-# The Lang attribute.
+# The lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lang) for more information.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','lang')]
 [PSObject]
-$Lang
+$Lang,
+# The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures) for more information.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.Deprecated',$true)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','requiredFeatures')]
+[PSObject]
+$RequiredFeatures
 )
 
 
