@@ -144,7 +144,17 @@ $StdDeviation,
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$EdgeMode
+$EdgeMode,
+# The CdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CdgeMode')]
+[PSObject]
+$CdgeMode,
+# The SdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SdgeMode')]
+[PSObject]
+$SdgeMode
 )
 
 
