@@ -7,19 +7,13 @@ function SVG.marker  {
     
     Markers can be attached to shapes using the `marker-start`, `marker-mid`, and `marker-end` properties.
 .Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Stars.PSSVG.ps1
+    Pop-Location
 .Example
-    foreach ($n in 5..12) {
-    
-    
-    svg -ViewBox 2,2 @(
-        svg.Star -PointCount $n  -Fill 'transparent' -Stroke '#4488ff' -StrokeWidth 0.01
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Stars.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.marker
 .Link
