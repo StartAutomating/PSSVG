@@ -14,6 +14,11 @@
     [string]
     $ElementName,
 
+    # The identifier of the element
+    [Parameter(ValueFromPipelineByPropertyName)]
+    [string]
+    $Id,
+
     # A dictionary of attributes.
     [Parameter(ValueFromPipelineByPropertyName)]
     [Collections.IDictionary]
@@ -94,7 +99,11 @@
                     "$($prop.Name):$($kv.Value)"
                 }) -join ';'
             }
-        }        
+        }
+        
+        if ($Slot) {
+            $Attribute['slot'] = $Slot
+        }
 
         # Keep track of which attributes are bound.
         $boundAttributes = @()
