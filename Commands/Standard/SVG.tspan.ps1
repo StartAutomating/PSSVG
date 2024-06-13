@@ -8,27 +8,27 @@ function SVG.tspan  {
     > **Note:** the `<tspan>` element does not wrap by default, to make this happen it needs to be styled with the `white-space` CSS property.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Index.PSSVG.ps1
+    ./Index.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StartAutomating.PSSVG.ps1
+    ./StartAutomating.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StartAutomating.PSSVG.ps1
+    ./StartAutomating.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.tspan
