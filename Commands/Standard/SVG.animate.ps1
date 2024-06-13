@@ -2141,86 +2141,166 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# The SlinkHref attribute.
+# The SystemLanguage attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SystemLanguage')]
 [PSObject]
-$SlinkHref,
-# The RlinkHref attribute.
+$SystemLanguage,
+# The RequiredExtensions attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','RlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RequiredExtensions')]
 [PSObject]
-$RlinkHref,
-# The TlinkHref attribute.
+$RequiredExtensions,
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','TlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$TlinkHref,
-# The IlinkHref attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','IlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$IlinkHref,
-# The ClinkHref attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ClinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$ClinkHref,
-# The LlinkHref attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','LlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$LlinkHref,
-# The XlinkHref attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','XlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$XlinkHref,
-# The BlinkHref attribute.
+$Lang,
+# The Xlinkrole attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','BlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkrole')]
 [PSObject]
-$BlinkHref,
-# The AlinkHref attribute.
+$Xlinkrole,
+# The Xlinkactuate attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','AlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkactuate')]
 [PSObject]
-$AlinkHref,
-# The ElinkHref attribute.
+$Xlinkactuate,
+# The Begin attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Begin')]
 [PSObject]
-$ElinkHref,
-# The FlinkHref attribute.
+$Begin,
+# The CalcMode attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','FlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CalcMode')]
 [PSObject]
-$FlinkHref,
-# The DlinkHref attribute.
+$CalcMode,
+# The Additive attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','DlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Additive')]
 [PSObject]
-$DlinkHref,
-# The HlinkHref attribute.
+$Additive,
+# The ExternalResourcesRequired attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','HlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ExternalResourcesRequired')]
 [PSObject]
-$HlinkHref,
-# The KlinkHref attribute.
+$ExternalResourcesRequired,
+# The AttributeName attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','KlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AttributeName')]
 [PSObject]
-$KlinkHref,
-# The MlinkHref attribute.
+$AttributeName,
+# The From attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','MlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','From')]
 [PSObject]
-$MlinkHref,
-# The VlinkHref attribute.
+$From,
+# The To attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','VlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','To')]
 [PSObject]
-$VlinkHref
+$To,
+# The Dur attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Dur')]
+[PSObject]
+$Dur,
+# The RepeatCount attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RepeatCount')]
+[PSObject]
+$RepeatCount,
+# The Accumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Accumulate')]
+[PSObject]
+$Accumulate,
+# The By attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','By')]
+[PSObject]
+$By,
+# The Fill attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fill')]
+[PSObject]
+$Fill,
+# The RepeatDur attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RepeatDur')]
+[PSObject]
+$RepeatDur,
+# The Href attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Href')]
+[PSObject]
+$Href,
+# The KeySplines attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','KeySplines')]
+[PSObject]
+$KeySplines,
+# The Colorinterpolation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Colorinterpolation')]
+[PSObject]
+$Colorinterpolation,
+# The End attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','End')]
+[PSObject]
+$End,
+# The Min attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Min')]
+[PSObject]
+$Min,
+# The Restart attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Restart')]
+[PSObject]
+$Restart,
+# The KeyPoints attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','KeyPoints')]
+[PSObject]
+$KeyPoints,
+# The Values attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Values')]
+[PSObject]
+$Values,
+# The Max attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Max')]
+[PSObject]
+$Max,
+# The KeyTimes attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','KeyTimes')]
+[PSObject]
+$KeyTimes
 )
 
 
