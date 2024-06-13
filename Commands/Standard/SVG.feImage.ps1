@@ -72,13 +72,26 @@ $Crossorigin,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $PreserveAspectRatio,
-# 
+# The XlinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
-[Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XlinkHref')]
 [PSObject]
-$XlinkHref
+$XlinkHref,
+# The ClinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ClinkHref')]
+[PSObject]
+$ClinkHref,
+# The SlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SlinkHref')]
+[PSObject]
+$SlinkHref,
+# The ElinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[PSObject]
+$ElinkHref
 )
 
 
