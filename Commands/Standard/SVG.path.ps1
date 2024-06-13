@@ -6,7 +6,7 @@ function SVG.path  {
     The **`<path>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element is the generic element to define a shape. All the basic shapes can be created with a path element.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateMotion.PSSVG.ps1
+    ./AnimateMotion.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.path
