@@ -71,16 +71,81 @@ $ClipPathUnits,
 [Reflection.AssemblyMetaData('SVG.AttributeName','SlipPathUnits')]
 [PSObject]
 $SlipPathUnits,
-# The ElipPathUnits attribute.
+# The RlipPathUnits attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ElipPathUnits')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RlipPathUnits')]
 [PSObject]
-$ElipPathUnits,
+$RlipPathUnits,
 # The TlipPathUnits attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','TlipPathUnits')]
 [PSObject]
-$TlipPathUnits
+$TlipPathUnits,
+# The IlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IlipPathUnits')]
+[PSObject]
+$IlipPathUnits,
+# The LlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LlipPathUnits')]
+[PSObject]
+$LlipPathUnits,
+# The FlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FlipPathUnits')]
+[PSObject]
+$FlipPathUnits,
+# The BlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BlipPathUnits')]
+[PSObject]
+$BlipPathUnits,
+# The MlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MlipPathUnits')]
+[PSObject]
+$MlipPathUnits,
+# The VlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VlipPathUnits')]
+[PSObject]
+$VlipPathUnits,
+# The DlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DlipPathUnits')]
+[PSObject]
+$DlipPathUnits,
+# The OlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OlipPathUnits')]
+[PSObject]
+$OlipPathUnits,
+# The WlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WlipPathUnits')]
+[PSObject]
+$WlipPathUnits,
+# The PlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PlipPathUnits')]
+[PSObject]
+$PlipPathUnits,
+# The UlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UlipPathUnits')]
+[PSObject]
+$UlipPathUnits,
+# The AlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AlipPathUnits')]
+[PSObject]
+$AlipPathUnits,
+# The ElipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElipPathUnits')]
+[PSObject]
+$ElipPathUnits
 )
 
 
