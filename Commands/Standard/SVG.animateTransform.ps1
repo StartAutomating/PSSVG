@@ -588,86 +588,166 @@ $From,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
 $To,
-# The Type attribute.
+# 
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Type')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','type')]
+[Reflection.AssemblyMetaData('SVG.Categories', 'None')]
+[Reflection.AssemblyMetaData('SVG.Value', 'translate | scale | rotate | skewX | skewY')]
+[ArgumentCompleter({
+    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
+
+    $validSet = 'translate','scale','rotate','skewX','skewY'
+    if ($wordToComplete) {        
+        $toComplete = $wordToComplete -replace "^'" -replace "'$"
+        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
+    } else {
+        return @($validSet -replace '^', "'" -replace '$',"'")
+    }
+})]
+[Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition)')]
 [PSObject]
 $Type,
-# The Sype attribute.
+# The SystemLanguage attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Sype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SystemLanguage')]
 [PSObject]
-$Sype,
-# The Rype attribute.
+$SystemLanguage,
+# The RequiredExtensions attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Rype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RequiredExtensions')]
 [PSObject]
-$Rype,
-# The Iype attribute.
+$RequiredExtensions,
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Iype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$Iype,
-# The Cype attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Cype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$Cype,
-# The Lype attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Lype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$Lype,
-# The Xype attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Xype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$Xype,
-# The Bype attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Bype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$Bype,
-# The Aype attribute.
+$Lang,
+# The Xlinkrole attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Aype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkrole')]
 [PSObject]
-$Aype,
-# The Eype attribute.
+$Xlinkrole,
+# The Xlinkactuate attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Eype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkactuate')]
 [PSObject]
-$Eype,
-# The Dype attribute.
+$Xlinkactuate,
+# The Begin attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Dype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Begin')]
 [PSObject]
-$Dype,
-# The Fype attribute.
+$Begin,
+# The CalcMode attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Fype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CalcMode')]
 [PSObject]
-$Fype,
-# The Hype attribute.
+$CalcMode,
+# The Additive attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Hype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Additive')]
 [PSObject]
-$Hype,
-# The Kype attribute.
+$Additive,
+# The ExternalResourcesRequired attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Kype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ExternalResourcesRequired')]
 [PSObject]
-$Kype,
-# The Mype attribute.
+$ExternalResourcesRequired,
+# The Accumulate attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Mype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Accumulate')]
 [PSObject]
-$Mype,
-# The Vype attribute.
+$Accumulate,
+# The Dur attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Vype')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Dur')]
 [PSObject]
-$Vype
+$Dur,
+# The Fill attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fill')]
+[PSObject]
+$Fill,
+# The RepeatDur attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RepeatDur')]
+[PSObject]
+$RepeatDur,
+# The Href attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Href')]
+[PSObject]
+$Href,
+# The AttributeName attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AttributeName')]
+[PSObject]
+$AttributeName,
+# The KeySplines attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','KeySplines')]
+[PSObject]
+$KeySplines,
+# The End attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','End')]
+[PSObject]
+$End,
+# The Min attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Min')]
+[PSObject]
+$Min,
+# The Restart attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Restart')]
+[PSObject]
+$Restart,
+# The KeyPoints attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','KeyPoints')]
+[PSObject]
+$KeyPoints,
+# The RepeatCount attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RepeatCount')]
+[PSObject]
+$RepeatCount,
+# The Values attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Values')]
+[PSObject]
+$Values,
+# The Max attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Max')]
+[PSObject]
+$Max,
+# The KeyTimes attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','KeyTimes')]
+[PSObject]
+$KeyTimes
 )
 
 
