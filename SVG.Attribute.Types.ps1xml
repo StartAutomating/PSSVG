@@ -944,11 +944,6 @@ svg {
     <Name>SVG.Attribute.tabindex</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Category</Name>
         <Value>Coreattributes</Value>
       </NoteProperty>
@@ -3884,11 +3879,6 @@ You can use this attribute with the following SVG elements:
     <Name>SVG.Attribute.overline-thickness</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Description</Name>
         <Value>
 
@@ -4188,11 +4178,6 @@ You can use this attribute with the following SVG elements:
   <Type>
     <Name>SVG.Attribute.cursor</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Category</Name>
         <Value>Presentationattributes</Value>
@@ -4757,11 +4742,6 @@ You can use this attribute with the following SVG elements:
   <Type>
     <Name>SVG.Attribute.underline-thickness</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Description</Name>
         <Value>
@@ -6765,11 +6745,6 @@ svg {
     <Name>SVG.Attribute.transform-origin</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Category</Name>
         <Value>Presentationattributes</Value>
       </NoteProperty>
@@ -7625,11 +7600,6 @@ text {
     <Name>SVG.Attribute.color</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Category</Name>
         <Value>Presentationattributes</Value>
       </NoteProperty>
@@ -7988,11 +7958,6 @@ You can use this attribute with the following SVG elements:
     <Name>SVG.Attribute.clip-rule</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Category</Name>
         <Value>Presentationattributes</Value>
       </NoteProperty>
@@ -8118,11 +8083,6 @@ svg {
   <Type>
     <Name>SVG.Attribute.id</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Category</Name>
         <Value>Coreattributes</Value>
@@ -8369,11 +8329,6 @@ svg {
   <Type>
     <Name>SVG.Attribute.data-*</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Description</Name>
         <Value>
@@ -8633,11 +8588,6 @@ svg {
   <Type>
     <Name>SVG.Attribute.underline-position</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Description</Name>
         <Value>
@@ -10339,11 +10289,6 @@ svg {
     <Name>SVG.Attribute.xml:space</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Category</Name>
         <Value>Coreattributes</Value>
       </NoteProperty>
@@ -11045,11 +10990,6 @@ You can use this attribute with the following SVG elements:
   <Type>
     <Name>SVG.Attribute.xml:lang</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Category</Name>
         <Value>Coreattributes</Value>
@@ -12213,11 +12153,6 @@ svg {
     <Name>SVG.Attribute.xml:base</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Category</Name>
         <Value>Coreattributes</Value>
       </NoteProperty>
@@ -12257,11 +12192,6 @@ You can use this attribute with any SVG element.
   <Type>
     <Name>SVG.Attribute.strikethrough-thickness</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Description</Name>
         <Value>
@@ -13026,11 +12956,6 @@ You can use this attribute with the following SVG elements:
   <Type>
     <Name>SVG.Attribute.class</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Category</Name>
         <Value>Coreattributes</Value>
@@ -14656,11 +14581,6 @@ svg {
     <Name>SVG.Attribute.overline-position</Name>
     <Members>
       <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Description</Name>
         <Value>
 
@@ -14728,11 +14648,6 @@ The **`z`** attribute defines the location along the z-axis for a light source i
   <Type>
     <Name>SVG.Attribute.strikethrough-position</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Description</Name>
         <Value>
@@ -14855,11 +14770,6 @@ svg {
   <Type>
     <Name>SVG.Attribute.clip</Name>
     <Members>
-      <NoteProperty>
-        <Name>AppliesTo</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
       <NoteProperty>
         <Name>Category</Name>
         <Value>Presentationattributes</Value>
