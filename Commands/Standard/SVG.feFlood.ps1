@@ -67,14 +67,21 @@ $Children,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $FloodColor,
-# 
+# The FloodOpacity attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','flood-opacity')]
-[Reflection.AssemblyMetaData('SVG.Value', '<alpha-value>')]
-[Reflection.AssemblyMetaData('SVG.Initial value', '1')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FloodOpacity')]
 [PSObject]
-$FloodOpacity
+$FloodOpacity,
+# The CloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CloodOpacity')]
+[PSObject]
+$CloodOpacity,
+# The SloodOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SloodOpacity')]
+[PSObject]
+$SloodOpacity
 )
 
 
