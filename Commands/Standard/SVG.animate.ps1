@@ -6,239 +6,239 @@ function SVG.animate  {
     The SVG **`<animate>`** element provides a way to animate an attribute of an element over time.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Animate.PSSVG.ps1
+    ./Animate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Animate.PSSVG.ps1
+    ./Animate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateColor.PSSVG.ps1
+    ./AnimateColor.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateColor.PSSVG.ps1
+    ./AnimateColor.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateColor.PSSVG.ps1
+    ./AnimateColor.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimatedShapes.PSSVG.ps1
+    ./AnimatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimatedShapes.PSSVG.ps1
+    ./AnimatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimatedShapes.PSSVG.ps1
+    ./AnimatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimatedShapes.PSSVG.ps1
+    ./AnimatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimatedShapes.PSSVG.ps1
+    ./AnimatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMAnimate.PSSVG.ps1
+    ./BPMAnimate.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMMorph.PSSVG.ps1
+    ./BPMMorph.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./BPMTriangleMorph.PSSVG.ps1
+    ./BPMTriangleMorph.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./CloudAnimation.PSSVG.ps1
+    ./CloudAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./CloudAnimation.PSSVG.ps1
+    ./CloudAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./CloudAnimation.PSSVG.ps1
+    ./CloudAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./FadeIn.PSSVG.ps1
+    ./FadeIn.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./LinearGradientAnimated.PSSVG.ps1
+    ./LinearGradientAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./LinearGradientAnimated.PSSVG.ps1
+    ./LinearGradientAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./ManyAnimatedRectangles.PSSVG.ps1
+    ./ManyAnimatedRectangles.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./ManyAnimatedRectangles.PSSVG.ps1
+    ./ManyAnimatedRectangles.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Morphing.PSSVG.ps1
+    ./Morphing.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MorphingConvexPolygon.PSSVG.ps1
+    ./MorphingConvexPolygon.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MorphingRose.PSSVG.ps1
+    ./MorphingRose.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingGradient.PSSVG.ps1
+    ./MovingGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingGradient.PSSVG.ps1
+    ./MovingGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingGradient.PSSVG.ps1
+    ./MovingGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingGradient.PSSVG.ps1
+    ./MovingGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingShadows.PSSVG.ps1
+    ./MovingShadows.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingShadows.PSSVG.ps1
+    ./MovingShadows.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./RadialGradientAnimated.PSSVG.ps1
+    ./RadialGradientAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./RepeatedShapes.PSSVG.ps1
+    ./RepeatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./ViewBoxAnimation.PSSVG.ps1
+    ./ViewBoxAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.animate
