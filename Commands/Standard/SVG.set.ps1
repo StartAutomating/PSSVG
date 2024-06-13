@@ -69,7 +69,12 @@ $Children,
 [Reflection.AssemblyMetaData('SVG.Value', '<value>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
-$To
+$To,
+# The Eo attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eo')]
+[PSObject]
+$Eo
 )
 
 
