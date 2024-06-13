@@ -26,7 +26,7 @@ The **`<mask>`** element defines an alpha mask for compositing the current objec
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternMask.PSSVG.ps1
+./PatternMask.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
