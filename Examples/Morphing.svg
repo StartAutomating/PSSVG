@@ -2,6 +2,6 @@
 <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
 <svg viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <polygon points="25,50 50,75 75,50 50,25" fill="#4488ff">
-    <animate attributeName="points" values="25,50 50,75 75,50 50,25;0,0 0,100 100,100, 100,0; 25,50 50,75 75,50 50,25" dur="2s" repeatCount="indefinite" attributeType="XML" />
+    <animate attributeName="points" values="25,50 50,75 75,50 50,25;0,0 0,100 100,100, 100,0; 25,50 50,75 75,50 50,25" dur="2s" id="morph1" repeatCount="indefinite" attributeType="XML" />
   </polygon>
 </svg>
