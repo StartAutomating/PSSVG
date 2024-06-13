@@ -62,7 +62,32 @@ $Decorate,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
 [Management.Automation.PSObject]
-$Children
+$Children,
+# The C attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','C')]
+[PSObject]
+$C,
+# The S attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','S')]
+[PSObject]
+$S,
+# The E attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','E')]
+[PSObject]
+$E,
+# The T attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','T')]
+[PSObject]
+$T,
+# The A attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','A')]
+[PSObject]
+$A
 )
 
 
