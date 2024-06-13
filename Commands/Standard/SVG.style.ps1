@@ -78,11 +78,31 @@ $Type,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Media,
-# This attribute is the title of the style sheet which can be used to switch between [alternate style sheets](https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets).
+# The Title attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','title')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Title')]
 [PSObject]
-$Title
+$Title,
+# The Iitle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Iitle')]
+[PSObject]
+$Iitle,
+# The Sitle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sitle')]
+[PSObject]
+$Sitle,
+# The Citle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Citle')]
+[PSObject]
+$Citle,
+# The Litle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Litle')]
+[PSObject]
+$Litle
 )
 
 
