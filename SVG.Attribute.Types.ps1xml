@@ -151,11 +151,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -472,11 +467,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -580,11 +570,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -651,11 +636,6 @@ svg {
   --&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -897,11 +877,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -1382,11 +1357,6 @@ The **`y1`** attribute is used to specify the first y-coordinate for drawing an 
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -1653,11 +1623,6 @@ svg {
     style="filter: url(#diffuseLighting2); transform: translateX(220px);" /&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -2129,11 +2094,6 @@ The **`x2`** attribute is used to specify the second x-coordinate for drawing an
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -2191,11 +2151,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -2711,11 +2666,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -2857,11 +2807,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -3393,11 +3338,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -3904,11 +3844,6 @@ The **`y2`** attribute is used to specify the second y-coordinate for drawing an
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4097,11 +4032,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4145,11 +4075,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4185,11 +4110,6 @@ The **`x`** attribute defines an x-axis coordinate in the user coordinate system
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -4312,11 +4232,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4404,11 +4319,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -4793,11 +4703,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4897,11 +4802,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -4976,11 +4876,6 @@ svg {
     style="filter: url(#diffuseLighting2); transform: translateX(220px);" /&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -5072,11 +4967,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -5263,11 +5153,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -5342,11 +5227,6 @@ line {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -5410,11 +5290,6 @@ svg {
   &lt;/text&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -5608,11 +5483,6 @@ svg {
   &lt;/rect&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -6058,11 +5928,6 @@ The **`width`** attribute defines the horizontal length of an element in the use
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -6124,11 +5989,6 @@ svg {
   &lt;/rect&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -6752,11 +6612,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -7354,11 +7209,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -7703,11 +7553,6 @@ svg {
   &lt;text x="0" y="65" filter="url(#dilate)"&gt;Fat text&lt;/text&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -8442,11 +8287,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -8581,11 +8421,6 @@ svg {
   &lt;rect x="205" y="5" width="90" height="90" fill="url(#myGradient)" /&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -8935,11 +8770,6 @@ When an SVG contains a `viewBox` attribute (often in combination with a [`preser
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -9168,11 +8998,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -9466,11 +9291,6 @@ svg {
   &lt;rect x="220" y="120" width="60" height="60" rx="150" ry="15" /&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -9885,11 +9705,6 @@ The **`x1`** attribute is used to specify the first x-coordinate for drawing an 
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -9963,11 +9778,6 @@ svg {
   &lt;rect x="220" y="120" width="60" height="60" fill="url(#myGradient100)" /&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -10093,11 +9903,6 @@ svg {
   &lt;/circle&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -10394,11 +10199,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -10774,11 +10574,6 @@ The **`y`** attribute defines a y-axis coordinate in the user coordinate system.
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -10862,11 +10657,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -10936,11 +10726,6 @@ svg {
   &lt;/circle&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -11133,11 +10918,6 @@ svg {
   &lt;use clip-path="url(#myClip2)" href="#r4" fill="red" /&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -11770,11 +11550,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -11943,11 +11718,6 @@ line {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -12083,11 +11853,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -12201,11 +11966,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -12295,11 +12055,6 @@ document.getElementById("restart").addEventListener("click", (evt) =&gt; {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -12347,11 +12102,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -13006,11 +12756,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -13125,11 +12870,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -13194,11 +12934,6 @@ svg {
   &lt;/rect&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -13424,11 +13159,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -13649,11 +13379,6 @@ The aspect ratio of an SVG image is defined by the {{SVGAttr('viewBox')}} attrib
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -13791,11 +13516,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -13922,11 +13642,6 @@ svg {
   &lt;/circle&gt;
 &lt;/svg&gt;
 ```</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Header</Name>
@@ -14669,11 +14384,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -14941,11 +14651,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -15150,11 +14855,6 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -15196,11 +14896,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -15564,11 +15259,6 @@ You can use this attribute with the following SVG elements:
         </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>Header</Name>
         <Value>System.Collections.Hashtable</Value>
       </NoteProperty>
@@ -15604,11 +15294,6 @@ The **`z`** attribute defines the location along the z-axis for a light source i
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -15653,11 +15338,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
@@ -15952,11 +15632,6 @@ You can use this attribute with the following SVG elements:
       </NoteProperty>
       <NoteProperty>
         <Name>Example</Name>
-        <Value>
-        </Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Group</Name>
         <Value>
         </Value>
       </NoteProperty>
