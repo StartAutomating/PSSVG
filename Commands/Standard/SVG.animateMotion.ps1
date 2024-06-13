@@ -8,11 +8,11 @@ function SVG.animateMotion  {
     > **Note:** To reuse an existing path, it will be necessary to use an `mpath` element inside the `<animateMotion>` element instead of the `path` attribute.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateMotion.PSSVG.ps1
+    ./AnimateMotion.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateMotion.PSSVG.ps1
+    ./AnimateMotion.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.animateMotion
