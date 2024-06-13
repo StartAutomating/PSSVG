@@ -92,7 +92,12 @@ $PreserveAspectRatio,
 [Reflection.AssemblyMetaData('SVG.Default value', 'magnify')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
-$ZoomAndPan
+$ZoomAndPan,
+# The EoomAndPan attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','EoomAndPan')]
+[PSObject]
+$EoomAndPan
 )
 
 
