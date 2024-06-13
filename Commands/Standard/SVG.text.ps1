@@ -9,288 +9,49 @@ function SVG.text  {
     
     > **Note:** the `<text>` element does not wrap by default, to make this happen it needs to be styled with the `white-space` CSS property.
 .Example
-    param(
-        [double]
-        $DistanceY = 0.75,
-    
-        [double]
-        $DistanceX = 0
-    )
-    SVG @(
-        SVG.DropShadow -DistanceY $DistanceY  -DistanceX $DistanceX
-    
-        SVG.text "
-    Dropping Shadows
-    " -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
-    
-    ) -ViewBox 0,0,300,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./DropShadow.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The message to emboss
-    [string]
-    $Message = "Embossed",
-    
-    # The fill color of the text
-    [string]
-    $Fill = '#4488ff',
-    
-    # The css classes to apply to the image
-    [string[]]
-    $Class,
-    
-    # The font size of the text
-    [string]
-    $FontSize = "26em",
-    
-    # The embossing level
-    [int]
-    $Emboss = 5
-    )
-    svg @(
-        svg.filter -id embossed @(
-            svg.feConvolveMatrix -KernelMatrix "
-            $Emboss 0 0
-            0 0 0
-            0 0 -$($Emboss * -1)
-    "
-            svg.feMerge @(
-                svg.feMergeNode
-                svg.feMergeNode -In 'SourceGraphic'
-            )
-        )
-    
-        svg.text "
-    Embossed
-    " -TextAnchor middle -DominantBaseline middle -Fill $Fill -FontSize $FontSize -X 50% -Y 50% -Filter 'url(#embossed)'
-    ) -Class $class -ViewBox 0,0,300,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Embossed.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The Message to display
-    [string]
-    $Message = "Fading in",
-    
-    # The fill color of the text
-    [string]
-    $Fill = '#4488ff',
-    
-    # One or more CSS classes to apply to the text
-    [string[]]
-    $Class,
-    
-    # The font size of the text
-    [string]
-    $FontSize = "26em",
-    
-    # The duration of the animation.
-    [Timespan]
-    $Duration = "00:00:02",
-    
-    [string]
-    $RepeatCount = 'indefinite'
-    )
-    
-    svg -ViewBox 0,0,1920,1080 -Content (
-        svg.g -Content @(
-            svg.text -Y "50%" -X "50%" -DominantBaseline middle -TextAnchor middle -Text $Message -Fill $fill -Class $Class -fontSize $FontSize
-    
-            # If you only want to fade in once, remove the -RepeatCount
-            svg.animate -Values '0;1' -AttributeName opacity -Begin '0s' -End "$($Duration.TotalSeconds)" -Dur "$($duration.TotalSeconds)s" -RepeatCount $RepeatCount
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./FadeIn.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [string]
-    $Message = "Hello World",
-    
-    [string]
-    $GoogleFont = "Roboto",
-    
-    [string]
-    $Fill = '#4488ff',
-    
-    [string[]]
-    $Class,
-    
-    [string]
-    $FontSize = "24em",
-    
-    [double]
-    $Width = 1920,
-    
-    [double]
-    $Height = 1080
-    )
-    
-    svg @(
-        svg.defs @(
-            SVG.GoogleFont -FontName $GoogleFont
-        )
-        svg.text -X 50% -Y 50% -Fontsize $FontSize $Message -DominantBaseline middle -TextAnchor middle -Fill $Fill -Class $Class -FontFamily "'$GoogleFont', sans-serif"
-    ) -ViewBox 0,0, 1920, 1080
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./HelloWorld.PSSVG.ps1
+    Pop-Location
 .Example
-    $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
-    $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
-    $fileListLines = @($fileListText -split '(?>\r\n|\n)')
-    
-    $fontSize = 14
-    
-    $ln = 0
-    $maxLineLength =0
-    $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
-    
-    svg (
-        svg.text -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
-        foreach ($line in $fileListLines) {
-            $ln++
-            $href =
-                if ($ln -le 2) {
-                    "."
-                } else {
-                    $file = $fileList[$ln - 3]
-                    $file.Name
-                }
-            if ($line.Length -gt $maxLineLength) {
-                $maxLineLength = $line.Length
-            }
-    
-            svg.a -href $href (
-                svg.tspan -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
-            )
-        }
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Index.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [string]
-    $Fill = '#4488ff',
-    
-    [string[]]
-    $Class,
-    
-    [timespan]
-    $Duration = '00:00:02.5',
-    
-    [double[]]
-    $ShadowX = @(0.5, -.5, 0.5),
-    
-    [double[]]
-    $ShadowY = @(0.75, -.75, 0.75)
-    )
-    
-    svg @(
-        svg.filter -id dropShadow @(
-            svg.feDropShadow -dx $ShadowX[0] -dy $ShadowY[0] -StdDeviation 0 @(
-                svg.animate -AttributeName dx -Values $($ShadowX -join ';') -Dur $Duration -RepeatCount 'indefinite'
-                svg.animate -AttributeName dY -Values $($Shadowy -join ';') -Dur $Duration -RepeatCount 'indefinite'
-            )
-            svg.feMerge @(
-                svg.feMergeNode
-                svg.feMergeNode -In 'SourceGraphic'
-            )
-        )
-    
-        svg.text "
-    Moving Shadows
-    " -TextAnchor middle -DominantBaseline middle -Fill $fill -Class $Class -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
-    ) -ViewBox 0,0,300,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./MovingShadows.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -viewBox 300, 100 -Content @(
-        svg.symbol -Id psChevron -Content @(
-            svg.polygon -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
-        svg.text @(
-            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
-            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
-        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
-        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StartAutomating.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -viewBox 300, 100 -Content @(
-        svg.symbol -Id psChevron -Content @(
-            svg.polygon -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
-        svg.text @(
-            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
-            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
-        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
-        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StartAutomating.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-    
-        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-            svg.tspan -Content "STOP" -Id stop
-            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    
-        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "USING" -Id using
-            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    
-        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "GIFS" -Id gif
-            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    ) -ViewBox 200,200
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StopUsingGIFs.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-    
-        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-            svg.tspan -Content "STOP" -Id stop
-            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    
-        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "USING" -Id using
-            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    
-        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "GIFS" -Id gif
-            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    ) -ViewBox 200,200
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StopUsingGIFs.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-    
-        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-            svg.tspan -Content "STOP" -Id stop
-            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    
-        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "USING" -Id using
-            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    
-        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "GIFS" -Id gif
-            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    ) -ViewBox 200,200
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StopUsingGIFs.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.text
 .Link
