@@ -299,14 +299,16 @@ $Offset,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $StopColor,
-# This attribute defines the opacity of the gradient stop. It can be used as a CSS property.
+# The StopOpacity attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','stop-opacity')]
-[Reflection.AssemblyMetaData('SVG.Value', '<opacity-value>')]
-[Reflection.AssemblyMetaData('SVG.Default value', '1')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','StopOpacity')]
 [PSObject]
-$StopOpacity
+$StopOpacity,
+# The CtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CtopOpacity')]
+[PSObject]
+$CtopOpacity
 )
 
 
