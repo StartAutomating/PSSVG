@@ -74,8 +74,9 @@ function SVG.Template {
         }
         # and remove `Content` for good measure.
         $svgSplat.Remove('Content')
+        $svgSplat.Content = $ContentTotemplate
          
-        $propagateToTemplate = 'class','id','lang','style', 'data', 'attribute'
+        $propagateToTemplate = 'class','id','lang','style', 'data', 'attribute','slot'
         $elementSplat = [Ordered]@{
             ElementName='template'
         }
