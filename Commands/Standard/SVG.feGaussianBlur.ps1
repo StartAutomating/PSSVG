@@ -6,15 +6,15 @@ function SVG.feGaussianBlur  {
     The **`<feGaussianBlur>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filter primitive blurs the input image by the amount specified in `stdDeviation`, which defines the bell-curve.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Blur.PSSVG.ps1
+    ./Blur.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./CloudAnimation.PSSVG.ps1
+    ./CloudAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Clouds.PSSVG.ps1
+    ./Clouds.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.feGaussianBlur
