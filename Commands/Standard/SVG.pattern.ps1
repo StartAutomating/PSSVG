@@ -7,186 +7,33 @@ function SVG.pattern  {
     
     The `<pattern>` is referenced by the `fill` and/or `stroke` attributes on other [graphics elements](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes) to fill or stroke those elements with the referenced pattern.
 .Example
-    param(
-    [Alias('BPM')]
-    [double]
-    $BeatsPerMinute = 90
-    )
-    
-    $bpm = $BeatsPerMinute
-    $animateDuration = "$([Math]::Round(1/($bpm / 90), 4))s"
-    $animateSplat = [Ordered]@{
-        Dur = $animateDuration
-        RepeatDur = "indefinite"
-    }
-    
-    $Color = "#4488ff"
-    
-    SVG -ViewBox 200, 200 -Fill black @(
-        SVG.pattern -Width .5 -Height .5 @(
-            SVG.rect -Width 0 -Height 0 -X 25 -Y 25 @(
-                SVG.animate -AttributeName width -Values '0;50' @animateSplat
-                SVG.animate -AttributeName height -Values '0;50' @animateSplat
-                SVG.animate -AttributeName x -Values '25;0' @animateSplat
-                SVG.animate -AttributeName y -Values '25;0' @animateSplat
-                SVG.animate -AttributeName opacity -From 0 -To 1 @animateSplat
-                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
-            ) -Fill $color -Id TopLeft
-    
-            SVG.rect -Width 0 -Height 0 -X 75 -Y 25 @(
-                SVG.animate -AttributeName width -Values '50;0' @animateSplat
-                SVG.animate -AttributeName height -Values '50;0' @animateSplat
-                SVG.animate -AttributeName x -Values '50;75' @animateSplat
-                SVG.animate -AttributeName y -From 0 -To 25 @animateSplat
-                SVG.animate -AttributeName opacity -From 1 -To 0 @animateSplat
-                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
-            ) -Fill $Color -Id TopRight
-    
-            SVG.rect -Width 0 -Height 0 -X 75 -Y 75 @(
-                SVG.animate -AttributeName width -Values '0;50' @animateSplat
-                SVG.animate -AttributeName height -Values '0;50' @animateSplat
-                SVG.animate -AttributeName x -Values '75;50' @animateSplat
-                SVG.animate -AttributeName y -Values '75;50' @animateSplat
-                SVG.animate -AttributeName opacity -From 0 -To 1 @animateSplat
-                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
-            ) -Fill $color -Id BottomRight
-    
-            SVG.rect -Width 0 -Height 0 -X 25 -Y 75 @(
-                SVG.animate -AttributeName width -Values '50;0' @animateSplat
-                SVG.animate -AttributeName height -Values '50;0' @animateSplat
-                SVG.animate -AttributeName y -Values '50;75' @animateSplat
-                SVG.animate -AttributeName x -From 0 -To 25 @animateSplat
-                SVG.animate -AttributeName opacity -From 1 -To 0 @animateSplat
-                SVG.animate -AttributeName rx -Values "0;5;0" @animateSplat
-            ) -Fill $Color -Id TopRight
-        ) -id fillPattern
-        SVG.rect -Width 200 -Height 200 -Fill "url(#fillPattern)" -X 0 -Y 0
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./BPMAnimate.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [Alias('BPM')]
-    [double]
-    $BeatsPerMinute = 70,
-    
-    [int]
-    $scale = 4
-    )
-    
-    $animateDuration = "$([Math]::Round(1/($BeatsPerMinute / 60), 4))s"
-    $animateSplat = [Ordered]@{
-        Dur = $animateDuration
-        RepeatDur = "indefinite"
-    }
-    
-    $patternSize = 1/$scale
-    
-    $Color = "#4488ff"
-    
-    SVG -ViewBox 800, 800 @(
-        SVG.pattern -Width $patternSize -Height $patternSize @(
-            SVG.polygon -Points "10,10, 10,90, 50,50, 90,10 90,90" @(
-                SVG.animate -AttributeName points -to "0,0 100,0 100,100, 0,100 0,0" -AttributeType XML @animateSplat
-            )  -Fill $color -Stroke $color
-        ) -id fillPattern
-        SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./BPMMorph.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The number of beats per minute
-    [double]
-    $BeatsPerMinute = 128,
-    
-    # The number repetitions of the pattern
-    [ValidateRange(1,16)]
-    [int]
-    $Scale = 6
-    )
-    
-    $bpm = $BeatsPerMinute
-    
-    $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = [Ordered]@{
-        Dur = $animateDuration
-        RepeatDur = "indefinite"
-    }
-    
-    $patternSize = 1/$scale
-    
-    $Color = "#4488ff"
-    
-    SVG -ViewBox 800, 800 @(
-        SVG.pattern -Width $patternSize -Height $patternSize @(
-            SVG.polygon -Points "0,0, 100,100, 0,100" @(
-                SVG.animate -AttributeName points -to "100,100 0,0 100,0" -AttributeType XML @animateSplat
-            )  -Fill $color -Stroke $color
-        ) -id fillPattern
-        SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)"
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./BPMTriangleMorph.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The scale of the pattern
-    [double]
-    $Scale = 0.75
-    )
-    SVG -Content @(
-        SVG.defs -Content @(
-    
-            SVG.pattern -id 'HexagonPattern' -patternUnits 'userSpaceOnUse' -width '174' -height '200' -patternTransform "scale($Scale)" -Content @(
-                SVG.Hexagon -CenterX 87 -CenterY 100 -Radius 100 -Fill transparent -Stroke '#4488ff' -Comment "A hexagon with a" -Class 'foreground-fill'
-            ) -Comment "A faint hexagon Pattern, rendered 4x at a base scale of 174 by 200"
-        )
-        $hugeSize = 20000
-    
-        SVG.rect -width "$hugeSize%" -height "$hugeSize%" -fill 'url(#HexagonPattern)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./HexagonPattern.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.defs @(
-            svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
-                svg.circle -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
-                svg.line -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-                svg.line -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-            )
-        )
-        svg.rect -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
-    ) -ViewBox 0,0,50,50
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Pattern.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -ViewBox 0, 0, 250, 200 -Content @(
-        svg.defs (
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill '#4488ff'
-            )
-        )
-        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternAnimation.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [timespan]
-    $Duration = '00:00:05'
-    )
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternMask.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.pattern
 .Link
