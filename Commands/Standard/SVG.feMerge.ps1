@@ -131,7 +131,17 @@ $Decorate,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
 [Management.Automation.PSObject]
-$Children
+$Children,
+# The ClinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ClinkHref')]
+[PSObject]
+$ClinkHref,
+# The SlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SlinkHref')]
+[PSObject]
+$SlinkHref
 )
 
 
