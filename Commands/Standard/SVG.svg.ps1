@@ -171,6 +171,21 @@ $X,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Y,
+# The C attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','C')]
+[PSObject]
+$C,
+# The S attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','S')]
+[PSObject]
+$S,
+# The E attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','E')]
+[PSObject]
+$E,
 # The output path.
 # If provided, will return a file, rather than an element.
 [Parameter(ValueFromPipelineByPropertyName)]
