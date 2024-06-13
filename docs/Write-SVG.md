@@ -20,19 +20,26 @@ The name of the SVG element.
 |----------|--------|--------|-------------|
 |`[String]`|true    |1       |false        |
 
+#### **Id**
+The identifier of the element
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[String]`|false   |2       |true (ByPropertyName)|
+
 #### **Attribute**
 A dictionary of attributes.
 
 |Type           |Required|Position|PipelineInput        |
 |---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |2       |true (ByPropertyName)|
+|`[IDictionary]`|false   |3       |true (ByPropertyName)|
 
 #### **Data**
 A dictionary of data.
 
 |Type           |Required|Position|PipelineInput        |
 |---------------|--------|--------|---------------------|
-|`[IDictionary]`|false   |3       |true (ByPropertyName)|
+|`[IDictionary]`|false   |4       |true (ByPropertyName)|
 
 #### **Content**
 An object containing content.
@@ -40,21 +47,21 @@ If this content is XML, it will be added as a child element.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
-|`[PSObject]`|false   |4       |true (ByPropertyName)|
+|`[PSObject]`|false   |5       |true (ByPropertyName)|
 
 #### **Children**
 One or more child elements.  These will be treated as if they were content.
 
 |Type      |Required|Position|PipelineInput        |Aliases|
 |----------|--------|--------|---------------------|-------|
-|`[Object]`|false   |5       |true (ByPropertyName)|Child  |
+|`[Object]`|false   |6       |true (ByPropertyName)|Child  |
 
 #### **Comment**
 A comment that will appear before the element.
 
 |Type      |Required|Position|PipelineInput        |Aliases |
 |----------|--------|--------|---------------------|--------|
-|`[String]`|false   |6       |true (ByPropertyName)|Comments|
+|`[String]`|false   |7       |true (ByPropertyName)|Comments|
 
 #### **On**
 A dictionary or object containing event handlers.
@@ -63,21 +70,21 @@ Each value will be the handler.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
-|`[PSObject]`|false   |7       |true (ByPropertyName)|
+|`[PSObject]`|false   |8       |true (ByPropertyName)|
 
 #### **Slot**
 The slot to use for the element.  This is used for templating.
 
 |Type      |Required|Position|PipelineInput        |Aliases |
 |----------|--------|--------|---------------------|--------|
-|`[String]`|false   |8       |true (ByPropertyName)|SlotName|
+|`[String]`|false   |9       |true (ByPropertyName)|SlotName|
 
 #### **OutputPath**
 An output path.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[String]`|false   |9       |true (ByPropertyName)|
+|`[String]`|false   |10      |true (ByPropertyName)|
 
 #### **Decorate**
 If provided, will decorate outputted objects with a typename.
@@ -86,7 +93,7 @@ If nothing was provided, each output will be decorated with it's `-ElementName`.
 
 |Type        |Required|Position|PipelineInput        |Aliases                                                                             |
 |------------|--------|--------|---------------------|------------------------------------------------------------------------------------|
-|`[String[]]`|false   |10      |true (ByPropertyName)|PSTypeName<br/>PSTypeNames<br/>TypeName<br/>TypeNames<br/>Decoration<br/>Decorations|
+|`[String[]]`|false   |11      |true (ByPropertyName)|PSTypeName<br/>PSTypeNames<br/>TypeName<br/>TypeNames<br/>Decoration<br/>Decorations|
 
 ---
 
@@ -97,5 +104,5 @@ While this function can be used directly, it is designed to be the core function
 
 ### Syntax
 ```PowerShell
-Write-SVG [-ElementName] <String> [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <PSObject>] [[-Slot] <String>] [[-OutputPath] <String>] [[-Decorate] <String[]>] [<CommonParameters>]
+Write-SVG [-ElementName] <String> [[-Id] <String>] [[-Attribute] <IDictionary>] [[-Data] <IDictionary>] [[-Content] <PSObject>] [[-Children] <Object>] [[-Comment] <String>] [[-On] <PSObject>] [[-Slot] <String>] [[-OutputPath] <String>] [[-Decorate] <String[]>] [<CommonParameters>]
 ```
