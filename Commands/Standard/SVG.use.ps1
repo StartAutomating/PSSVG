@@ -7,27 +7,27 @@ function SVG.use  {
     The effect is the same as if the nodes were deeply cloned into a non-exposed DOM, then pasted where the `use` element is, much like cloned [template elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template).
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./PowerShellChevron.PSSVG.ps1
+    ./PowerShellChevron.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StartAutomating.PSSVG.ps1
+    ./StartAutomating.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.use
