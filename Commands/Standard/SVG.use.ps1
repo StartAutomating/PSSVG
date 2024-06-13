@@ -438,31 +438,96 @@ $Width,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Height,
-# The Ceight attribute.
-[Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Ceight')]
-[PSObject]
-$Ceight,
 # The Seight attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Seight')]
 [PSObject]
 $Seight,
-# The Eeight attribute.
+# The Reight attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Eeight')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Reight')]
 [PSObject]
-$Eeight,
+$Reight,
 # The Teight attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Teight')]
 [PSObject]
 $Teight,
+# The Ieight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ieight')]
+[PSObject]
+$Ieight,
+# The Ceight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ceight')]
+[PSObject]
+$Ceight,
+# The Leight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Leight')]
+[PSObject]
+$Leight,
+# The Feight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Feight')]
+[PSObject]
+$Feight,
+# The Beight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Beight')]
+[PSObject]
+$Beight,
+# The Meight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Meight')]
+[PSObject]
+$Meight,
+# The Veight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Veight')]
+[PSObject]
+$Veight,
+# The Deight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Deight')]
+[PSObject]
+$Deight,
+# The Oeight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Oeight')]
+[PSObject]
+$Oeight,
+# The Weight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Weight')]
+[PSObject]
+$Weight,
+# The Peight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Peight')]
+[PSObject]
+$Peight,
+# The Ueight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ueight')]
+[PSObject]
+$Ueight,
+# The Aeight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Aeight')]
+[PSObject]
+$Aeight,
 # The Xeight attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Xeight')]
 [PSObject]
-$Xeight
+$Xeight,
+# The Eeight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eeight')]
+[PSObject]
+$Eeight
 )
 
 
