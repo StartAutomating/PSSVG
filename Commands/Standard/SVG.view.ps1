@@ -93,36 +93,36 @@ $PreserveAspectRatio,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
 $ZoomAndPan,
-# The ToomAndPan attribute.
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ToomAndPan')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$ToomAndPan,
-# The IoomAndPan attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','IoomAndPan')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$IoomAndPan,
-# The SoomAndPan attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SoomAndPan')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$SoomAndPan,
-# The CoomAndPan attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','CoomAndPan')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$CoomAndPan,
-# The LoomAndPan attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','LoomAndPan')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$LoomAndPan,
-# The EoomAndPan attribute.
+$Lang,
+# The ExternalResourcesRequired attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','EoomAndPan')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ExternalResourcesRequired')]
 [PSObject]
-$EoomAndPan
+$ExternalResourcesRequired
 )
 
 
