@@ -135,36 +135,96 @@ $PreserveAspectRatio,
 [Reflection.AssemblyMetaData('SVG.AttributeName','crossorigin')]
 [PSObject]
 $Crossorigin,
-# 
+# The Decoding attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','decoding')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Decoding')]
 [PSObject]
 $Decoding,
-# The Cecoding attribute.
-[Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Cecoding')]
-[PSObject]
-$Cecoding,
 # The Secoding attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Secoding')]
 [PSObject]
 $Secoding,
-# The Eecoding attribute.
+# The Recoding attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Eecoding')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Recoding')]
 [PSObject]
-$Eecoding,
+$Recoding,
 # The Tecoding attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Tecoding')]
 [PSObject]
 $Tecoding,
+# The Iecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Iecoding')]
+[PSObject]
+$Iecoding,
+# The Cecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cecoding')]
+[PSObject]
+$Cecoding,
+# The Lecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lecoding')]
+[PSObject]
+$Lecoding,
 # The Xecoding attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Xecoding')]
 [PSObject]
-$Xecoding
+$Xecoding,
+# The Fecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fecoding')]
+[PSObject]
+$Fecoding,
+# The Becoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Becoding')]
+[PSObject]
+$Becoding,
+# The Mecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Mecoding')]
+[PSObject]
+$Mecoding,
+# The Vecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Vecoding')]
+[PSObject]
+$Vecoding,
+# The Oecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Oecoding')]
+[PSObject]
+$Oecoding,
+# The Wecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Wecoding')]
+[PSObject]
+$Wecoding,
+# The Pecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Pecoding')]
+[PSObject]
+$Pecoding,
+# The Uecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Uecoding')]
+[PSObject]
+$Uecoding,
+# The Aecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Aecoding')]
+[PSObject]
+$Aecoding,
+# The Eecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eecoding')]
+[PSObject]
+$Eecoding
 )
 
 
