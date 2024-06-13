@@ -127,7 +127,17 @@ $Type,
 [Reflection.AssemblyMetaData('SVG.Default value', 'If type="matrix", identity matrix,if type="saturate", 1, resulting in identity matrix,if type="hueRotate", 0, resulting in identity matrix')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Values
+$Values,
+# The Calues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Calues')]
+[PSObject]
+$Calues,
+# The Salues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Salues')]
+[PSObject]
+$Salues
 )
 
 
