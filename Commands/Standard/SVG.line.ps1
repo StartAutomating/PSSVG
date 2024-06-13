@@ -6,15 +6,15 @@ function SVG.line  {
     The **`<line>`** element is an SVG basic shape used to create a line connecting two points.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Pattern.PSSVG.ps1
+    ./Pattern.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Pattern.PSSVG.ps1
+    ./Pattern.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./SweepCircle.PSSVG.ps1
+    ./SweepCircle.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.line
