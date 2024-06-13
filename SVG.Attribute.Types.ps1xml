@@ -102,20 +102,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>clip-path</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Clippath</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -146,16 +142,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>in2</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>In2</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -249,20 +245,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stitchTiles</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>StitchTiles</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -332,20 +324,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke-opacity</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strokeopacity</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -415,20 +403,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>patternUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PatternUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -457,16 +441,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>method</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Method</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -504,20 +488,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>font-stretch</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fontstretch</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -550,16 +530,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>accumulate</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Accumulate</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -618,16 +598,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>points</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Points</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -656,20 +636,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>unicode-range</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Unicoderange</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -735,20 +711,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>specularConstant</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>SpecularConstant</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -787,20 +759,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>baseline-shift</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Baselineshift</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -846,16 +814,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>in</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>In</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -919,20 +887,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>dur</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Dur</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -978,20 +942,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>tabindex</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Tabindex</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1055,20 +1015,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>flood-color</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Floodcolor</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1143,20 +1099,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>marker-end</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Markerend</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1185,20 +1137,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>fr</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fr</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1269,20 +1217,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>font-size-adjust</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fontsizeadjust</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1307,16 +1251,16 @@ The **`y1`** attribute is used to specify the first y-coordinate for drawing an 
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>y1</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Y1</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1378,20 +1322,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>preserveAlpha</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PreserveAlpha</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1418,20 +1358,16 @@ If a given Unicode character within the set has multiple corresponding `&lt;glyp
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>u1</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>U1</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1490,20 +1426,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>order</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Order</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1570,16 +1502,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>surfaceScale</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>SurfaceScale</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1637,20 +1569,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>color-interpolation-filters</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Colorinterpolationfilters</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1732,20 +1660,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>k1</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>K1</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1770,20 +1694,16 @@ The **`xChannelSelector`** attribute indicates which color channel from {{SVGAtt
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xChannelSelector</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>XChannelSelector</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1812,20 +1732,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>vert-origin-x</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Vertoriginx</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1854,20 +1770,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>markerHeight</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>MarkerHeight</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1918,20 +1830,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xlink:type</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xlinktype</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -1966,20 +1874,16 @@ Depending on the value of attribute {{SVGAttr("pointer-events")}}, graphics elem
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>visibility</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Visibility</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2004,16 +1908,16 @@ The **`x2`** attribute is used to specify the second x-coordinate for drawing an
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>x2</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>X2</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2060,16 +1964,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>type</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Type</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2138,20 +2042,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke-linecap</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strokelinecap</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2202,20 +2102,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>text-rendering</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Textrendering</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2246,20 +2142,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>descent</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Descent</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2320,20 +2212,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>pointsAtY</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PointsAtY</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2383,20 +2271,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>by</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>By</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2478,20 +2362,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>k3</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>K3</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2566,16 +2446,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>height</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Height</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2612,20 +2492,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>version</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Version</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2654,20 +2530,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>x-height</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xheight</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2696,16 +2568,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>name</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Name</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2789,20 +2661,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>fill</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fill</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2891,20 +2759,16 @@ text {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>requiredFeatures</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>RequiredFeatures</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -2975,20 +2839,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>fill-rule</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fillrule</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3062,20 +2922,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>display</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Display</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3146,20 +3002,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Stroke</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3223,16 +3075,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>repeatDur</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>RepeatDur</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3310,20 +3162,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>limitingConeAngle</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>LimitingConeAngle</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3384,20 +3232,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>pointsAtZ</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PointsAtZ</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3472,20 +3316,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>fx</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fx</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3516,20 +3356,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>horiz-adv-x</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Horizadvx</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3610,20 +3446,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>opacity</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Opacity</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3681,20 +3513,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>d</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>D</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3719,16 +3547,16 @@ The **`y2`** attribute is used to specify the second y-coordinate for drawing an
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>y2</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Y2</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3788,20 +3616,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>lengthAdjust</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>LengthAdjust</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3854,20 +3678,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xlink:arcrole</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xlinkarcrole</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3892,16 +3712,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>overline-thickness</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Overlinethickness</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3930,16 +3750,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>rotate</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Rotate</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -3964,16 +3784,16 @@ The **`x`** attribute defines an x-axis coordinate in the user coordinate system
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>x</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>X</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4002,20 +3822,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>accent-height</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Accentheight</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4077,16 +3893,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>transform</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Transform</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4115,20 +3931,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>arabic-form</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Arabicform</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4158,16 +3970,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>refY</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>RefY</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4198,20 +4010,16 @@ As a presentation attribute, it also can be used as a property directly inside a
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>cursor</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Cursor</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4293,20 +4101,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>k2</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>K2</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4335,20 +4139,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>hanging</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Hanging</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4379,20 +4179,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>horiz-origin-y</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Horizoriginy</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4470,20 +4266,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>patternContentUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PatternContentUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4513,16 +4305,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>gradientUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>GradientUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4551,20 +4343,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>v-ideographic</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Videographic</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4602,16 +4390,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>begin</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Begin</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4678,16 +4466,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>specularExponent</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>SpecularExponent</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4718,20 +4506,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>cap-height</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Capheight</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4756,16 +4540,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>underline-thickness</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Underlinethickness</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4794,20 +4578,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>markerUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>MarkerUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4883,20 +4663,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>mode</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Mode</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -4928,16 +4704,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>amplitude</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Amplitude</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5002,16 +4778,16 @@ line {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>dx</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Dx</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5067,16 +4843,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>path</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Path</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5106,20 +4882,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>spreadMethod</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>SpreadMethod</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5184,20 +4956,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>href</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Href</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5255,16 +5023,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>attributeType</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>AttributeType</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5295,20 +5063,16 @@ The **`vector-effect`** property specifies the vector effect to use when drawing
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>vector-effect</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Vectoreffect</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5434,20 +5198,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke-linejoin</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strokelinejoin</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5525,20 +5285,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>text-anchor</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Textanchor</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5603,20 +5359,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>startOffset</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>StartOffset</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5645,20 +5397,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>string</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>String</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5683,16 +5431,16 @@ The **`width`** attribute defines the horizontal length of an element in the use
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>width</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Width</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5746,16 +5494,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>attributeName</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>AttributeName</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5823,20 +5571,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>diffuseConstant</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>DiffuseConstant</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5903,20 +5647,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>marker-mid</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Markermid</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5951,20 +5691,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>color-profile</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Colorprofile</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -5993,20 +5729,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>v-alphabetic</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Valphabetic</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6116,20 +5848,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke-dashoffset</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strokedashoffset</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6189,20 +5917,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>elevation</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Elevation</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6235,20 +5959,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xlink:show</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xlinkshow</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6304,20 +6024,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>media</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Media</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6347,16 +6063,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>refX</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>RefX</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6419,20 +6135,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>scale</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Scale</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6461,20 +6173,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>v-mathematical</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Vmathematical</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6503,20 +6211,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>bias</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Bias</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6577,20 +6281,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>pointsAtX</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PointsAtX</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6653,20 +6353,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>zoomAndPan</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>ZoomAndPan</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6720,20 +6416,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>font-weight</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fontweight</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6762,20 +6454,16 @@ You can use this attribute with any SVG element.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>transform-origin</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Transformorigin</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6837,20 +6525,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>kernelMatrix</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>KernelMatrix</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6924,16 +6608,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>result</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Result</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -6966,20 +6650,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>radius</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Radius</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7011,20 +6691,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>k</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>K</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7095,20 +6771,16 @@ text {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>side</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Side</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7137,20 +6809,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>ideographic</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ideographic</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7179,20 +6847,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>spacing</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Spacing</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7250,16 +6914,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>operator</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Operator</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7361,20 +7025,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke-miterlimit</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strokemiterlimit</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7445,20 +7105,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>lighting-color</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Lightingcolor</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7487,20 +7143,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>vert-origin-y</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Vertoriginy</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7575,20 +7227,16 @@ text {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>dominant-baseline</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Dominantbaseline</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7617,20 +7265,16 @@ As a presentation attribute, it can be applied to any element, but as noted abov
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>color</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Color</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7663,20 +7307,16 @@ The use of this information is highly dependent on the type of processing being 
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xlink:title</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xlinktitle</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7705,20 +7345,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>mathematical</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Mathematical</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7768,20 +7404,16 @@ Allowed values:
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>decoding</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Decoding</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7812,20 +7444,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>panose-1</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Panose1</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7850,20 +7478,16 @@ The **`yChannelSelector`** attribute indicates which color channel from {{SVGAtt
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>yChannelSelector</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>YChannelSelector</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7894,20 +7518,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>units-per-em</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Unitsperem</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7937,16 +7557,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>edgeMode</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>EdgeMode</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -7997,20 +7617,16 @@ As a presentation attribute, it also can be used as a property directly inside a
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>clip-rule</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Cliprule</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8063,16 +7679,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>cx</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Cx</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8120,20 +7736,16 @@ You can use this attribute with any SVG element.
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>id</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Id</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8211,20 +7823,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>maskUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>MaskUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8305,20 +7913,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke-dasharray</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strokedasharray</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8349,20 +7953,16 @@ You can use this attribute with any SVG element.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>data-*</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Data</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8390,16 +7990,16 @@ When an SVG contains a `viewBox` attribute (often in combination with a [`preser
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>viewBox</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>ViewBox</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8430,20 +8030,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>alphabetic</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Alphabetic</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8488,20 +8084,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>enable-background</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Enablebackground</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8564,20 +8156,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>direction</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Direction</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8602,16 +8190,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>underline-position</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Underlineposition</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8692,20 +8280,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>orient</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Orient</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8780,20 +8364,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>flood-opacity</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Floodopacity</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8824,20 +8404,16 @@ The `unicode` attribute contributes to the process for deciding which glyph(s) a
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>unicode</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Unicode</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8888,16 +8464,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>rx</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Rx</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8928,20 +8504,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>ascent</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ascent</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -8970,20 +8542,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>slope</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Slope</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9030,20 +8598,16 @@ It follows the same processing rules as the HTML attribute [`crossorigin`](/en-U
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>SVG attribute: crossorigin</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>SVGattributecrossorigin</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9107,20 +8671,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stdDeviation</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>StdDeviation</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9174,20 +8734,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>font-variant</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fontvariant</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9247,20 +8803,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>numOctaves</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>NumOctaves</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9285,16 +8837,16 @@ The **`x1`** attribute is used to specify the first x-coordinate for drawing an 
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>x1</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>X1</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9360,16 +8912,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>r</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>R</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9400,20 +8952,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>vert-adv-y</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Vertadvy</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9480,16 +9028,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>keySplines</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>KeySplines</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9540,20 +9088,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>style</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Style</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9621,20 +9165,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>color-interpolation</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Colorinterpolation</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9671,20 +9211,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stop-opacity</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Stopopacity</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9713,20 +9249,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>v-hanging</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Vhanging</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9758,16 +9290,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>end</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>End</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9833,20 +9365,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>maskContentUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>MaskContentUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9914,20 +9442,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>overflow</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Overflow</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -9956,20 +9480,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>markerWidth</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>MarkerWidth</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10034,20 +9554,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stroke-width</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strokewidth</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10076,20 +9592,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>targetX</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>TargetX</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10114,16 +9626,16 @@ The **`y`** attribute defines a y-axis coordinate in the user coordinate system.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>y</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Y</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10197,16 +9709,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>pathLength</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PathLength</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10268,16 +9780,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>min</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Min</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10306,20 +9818,16 @@ This attribute influences how browsers parse text content and therefore changes 
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xml:space</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xmlspace</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10373,20 +9881,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>font-family</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fontfamily</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10450,16 +9954,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>clipPathUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>ClipPathUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10529,20 +10033,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xlink:href</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xlinkhref</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10596,20 +10096,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>font-size</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fontsize</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10642,20 +10138,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stemv</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Stemv</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10686,20 +10178,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>horiz-origin-x</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Horizoriginx</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10751,20 +10239,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>filter</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Filter</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10818,20 +10302,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>font-style</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fontstyle</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10889,20 +10369,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>text-decoration</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Textdecoration</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -10966,20 +10442,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>systemLanguage</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>SystemLanguage</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11008,20 +10480,16 @@ There is also a {{SVGAttr("lang")}} attribute (without namespace). If both of th
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xml:lang</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xmllang</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11050,16 +10518,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>origin</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Origin</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11088,20 +10556,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>bbox</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Bbox</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11130,20 +10594,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>orientation</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Orientation</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11208,16 +10668,16 @@ line {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>dy</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Dy</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11277,20 +10737,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>kerning</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Kerning</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11343,16 +10799,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>cy</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Cy</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11387,20 +10843,16 @@ If a \&lt;length&gt; is provided with one of the unit identifiers (e.g. .25em or
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>word-spacing</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Wordspacing</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11451,16 +10903,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>ry</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ry</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11540,16 +10992,16 @@ document.getElementById("restart").addEventListener("click", (evt) =&gt; {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>restart</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Restart</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11586,16 +11038,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>calcMode</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>CalcMode</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11637,20 +11089,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>glyph-orientation-horizontal</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Glyphorientationhorizontal</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11718,20 +11166,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>keyPoints</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>KeyPoints</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11769,20 +11213,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>writing-mode</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Writingmode</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11881,20 +11321,16 @@ window.addEventListener("mouseup", (e) =&gt; {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>pointer-events</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Pointerevents</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -11958,20 +11394,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>repeatCount</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>RepeatCount</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12053,20 +11485,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>k4</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>K4</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12128,20 +11556,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>divisor</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Divisor</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12168,20 +11592,16 @@ You can use this attribute with any SVG element.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>xml:base</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xmlbase</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12206,16 +11626,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>strikethrough-thickness</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strikethroughthickness</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12265,20 +11685,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>from</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>From</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12315,16 +11731,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>additive</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Additive</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12381,16 +11797,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>to</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>To</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12427,20 +11843,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>image-rendering</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Imagerendering</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12497,20 +11909,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>baseFrequency</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>BaseFrequency</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12599,16 +12007,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>exponent</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Exponent</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12648,20 +12056,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>paint-order</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Paintorder</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12690,20 +12094,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>primitiveUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PrimitiveUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12764,20 +12164,16 @@ text {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>target</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Target</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12804,16 +12200,16 @@ The aspect ratio of an SVG image is defined by the {{SVGAttr('viewBox')}} attrib
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>preserveAspectRatio</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PreserveAspectRatio</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12891,20 +12287,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>gradientTransform</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>GradientTransform</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12936,16 +12328,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>values</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Values</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -12979,20 +12371,16 @@ You can use this class to style SVG content using CSS.
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>class</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Class</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13054,16 +12442,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>max</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Max</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13092,20 +12480,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>targetY</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>TargetY</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13132,20 +12516,16 @@ If a given Unicode character within the set has multiple corresponding `&lt;glyp
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>u2</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>U2</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13201,20 +12581,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>patternTransform</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>PatternTransform</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13243,20 +12619,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>widths</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Widths</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13289,20 +12661,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>glyph-name</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Glyphname</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13362,20 +12730,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>azimuth</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Azimuth</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13433,20 +12797,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>letter-spacing</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Letterspacing</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13496,20 +12856,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>textLength</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>TextLength</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13551,20 +12907,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>glyph-orientation-vertical</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Glyphorientationvertical</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13639,20 +12991,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>fy</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fy</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13695,20 +13043,16 @@ You can use this attribute with any SVG element.
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>lang</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Lang</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13769,16 +13113,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>keyTimes</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>KeyTimes</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13809,20 +13153,16 @@ The **`unicode-bidi`** attribute specifies how the accumulation of the backgroun
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>unicode-bidi</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Unicodebidi</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13879,20 +13219,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>seed</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Seed</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -13924,20 +13260,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>g1</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>G1</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14026,16 +13358,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>tableValues</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>TableValues</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14072,20 +13404,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>alignment-baseline</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Alignmentbaseline</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14118,20 +13446,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stemh</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Stemh</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14220,16 +13544,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>intercept</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Intercept</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14260,16 +13584,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>kernelUnitLength</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>KernelUnitLength</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14301,20 +13625,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>g2</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>G2</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14343,20 +13663,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>elements</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>filterUnits</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>FilterUnits</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14393,20 +13709,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>stop-color</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Stopcolor</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14486,20 +13798,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>mask</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Mask</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14556,20 +13864,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>shape-rendering</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Shaperendering</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14594,16 +13898,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>overline-position</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Overlineposition</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14628,16 +13932,16 @@ The **`z`** attribute defines the location along the z-axis for a light source i
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>z</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Z</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14662,16 +13966,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>strikethrough-position</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Strikethroughposition</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14746,20 +14050,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>marker-start</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Markerstart</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14818,20 +14118,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>clip</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Clip</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14900,20 +14196,16 @@ svg {
 ```</Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Group</Name>
-        <Value>global_attributes</Value>
-      </NoteProperty>
-      <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>False</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>fill-opacity</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Fillopacity</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14946,16 +14238,16 @@ You can use this attribute with the following SVG elements:
 </Value>
       </NoteProperty>
       <NoteProperty>
-        <Name>Header</Name>
-        <Value>System.Collections.Hashtable</Value>
-      </NoteProperty>
-      <NoteProperty>
         <Name>IsDeprecated</Name>
         <Value>True</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>Name</Name>
         <Value>baseProfile</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>BaseProfile</Value>
       </NoteProperty>
       <NoteProperty>
         <Name>PSTypeName</Name>
@@ -14974,6 +14266,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>requiredExtensions</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>RequiredExtensions</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -14986,6 +14282,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>xlink:role</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xlinkrole</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15000,6 +14300,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>xlink:actuate</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Xlinkactuate</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15012,6 +14316,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>color-rendering</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Colorrendering</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15026,6 +14334,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onabort</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onabort</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15038,6 +14350,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onactivate</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onactivate</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15052,6 +14368,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onbegin</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onbegin</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15064,6 +14384,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>oncancel</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Oncancel</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15078,6 +14402,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>oncanplay</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Oncanplay</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15090,6 +14418,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>oncanplaythrough</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Oncanplaythrough</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15104,6 +14436,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onchange</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onchange</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15116,6 +14452,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onclick</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onclick</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15130,6 +14470,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onclose</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onclose</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15142,6 +14486,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>oncuechange</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Oncuechange</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15156,6 +14504,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>ondblclick</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondblclick</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15168,6 +14520,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>ondrag</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondrag</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15182,6 +14538,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>ondragend</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondragend</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15194,6 +14554,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>ondragenter</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondragenter</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15208,6 +14572,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>ondragleave</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondragleave</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15220,6 +14588,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>ondragover</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondragover</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15234,6 +14606,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>ondragstart</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondragstart</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15246,6 +14622,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>ondrop</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondrop</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15260,6 +14640,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>ondurationchange</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ondurationchange</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15272,6 +14656,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onemptied</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onemptied</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15286,6 +14674,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onend</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onend</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15298,6 +14690,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onended</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onended</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15312,6 +14708,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onerror</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onerror</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15324,6 +14724,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onfocus</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onfocus</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15338,6 +14742,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onfocusin</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onfocusin</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15350,6 +14758,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onfocusout</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onfocusout</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15364,6 +14776,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>oninput</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Oninput</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15376,6 +14792,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>oninvalid</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Oninvalid</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15390,6 +14810,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onkeydown</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onkeydown</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15402,6 +14826,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onkeypress</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onkeypress</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15416,6 +14844,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onkeyup</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onkeyup</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15428,6 +14860,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onload</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onload</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15442,6 +14878,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onloadeddata</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onloadeddata</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15454,6 +14894,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onloadedmetadata</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onloadedmetadata</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15468,6 +14912,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onloadstart</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onloadstart</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15480,6 +14928,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onmousedown</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmousedown</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15494,6 +14946,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onmouseenter</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmouseenter</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15506,6 +14962,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onmouseleave</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmouseleave</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15520,6 +14980,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onmousemove</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmousemove</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15532,6 +14996,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onmouseout</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmouseout</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15546,6 +15014,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onmouseover</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmouseover</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15558,6 +15030,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onmouseup</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmouseup</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15572,6 +15048,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onmousewheel</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onmousewheel</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15584,6 +15064,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onpause</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onpause</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15598,6 +15082,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onplay</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onplay</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15610,6 +15098,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onplaying</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onplaying</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15624,6 +15116,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onprogress</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onprogress</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15636,6 +15132,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onratechange</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onratechange</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15650,6 +15150,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onrepeat</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onrepeat</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15662,6 +15166,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onreset</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onreset</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15676,6 +15184,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onresize</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onresize</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15688,6 +15200,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onscroll</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onscroll</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15702,6 +15218,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onseeked</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onseeked</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15714,6 +15234,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onseeking</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onseeking</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15728,6 +15252,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onselect</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onselect</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15740,6 +15268,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onshow</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onshow</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15754,6 +15286,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onstalled</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onstalled</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15766,6 +15302,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onsubmit</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onsubmit</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15780,6 +15320,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onsuspend</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onsuspend</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15792,6 +15336,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>ontimeupdate</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ontimeupdate</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15806,6 +15354,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>ontoggle</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Ontoggle</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15818,6 +15370,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onunload</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onunload</Value>
       </NoteProperty>
     </Members>
   </Type>
@@ -15832,6 +15388,10 @@ You can use this attribute with the following SVG elements:
         <Name>Name</Name>
         <Value>onvolumechange</Value>
       </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onvolumechange</Value>
+      </NoteProperty>
     </Members>
   </Type>
   <Type>
@@ -15844,6 +15404,10 @@ You can use this attribute with the following SVG elements:
       <NoteProperty>
         <Name>Name</Name>
         <Value>onwaiting</Value>
+      </NoteProperty>
+      <NoteProperty>
+        <Name>ParameterName</Name>
+        <Value>Onwaiting</Value>
       </NoteProperty>
     </Members>
   </Type>
