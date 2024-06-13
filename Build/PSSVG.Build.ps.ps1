@@ -941,7 +941,7 @@ If nothing was provided, each output will be decorated with it's ElementName.
     foreach ($potentiallyMissing in $checkForTheseParameters) {    
         if (-not $parameters[$potentiallyMissing]) {
             if ($attributeFileData[$potentiallyMissing].IsDeprecated) { continue }
-            $potentiallyMissing = $potentiallyMissing.Substring(0,1).ToUpper() + $paramName.Substring(1)
+            $potentiallyMissing = $potentiallyMissing.Substring(0,1).ToUpper() + $potentiallyMissing.Substring(1)
             $potentiallyMissing = $potentiallyMissing -replace '\W'
             $parameters[$potentiallyMissing] = @(
                 "# The $potentiallyMissing attribute."
