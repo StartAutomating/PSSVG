@@ -437,7 +437,32 @@ $Width,
 [Reflection.AssemblyMetaData('SVG.Default value', 'auto (treated as 0)')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Height
+$Height,
+# The Ceight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ceight')]
+[PSObject]
+$Ceight,
+# The Seight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Seight')]
+[PSObject]
+$Seight,
+# The Eeight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eeight')]
+[PSObject]
+$Eeight,
+# The Teight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Teight')]
+[PSObject]
+$Teight,
+# The Xeight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xeight')]
+[PSObject]
+$Xeight
 )
 
 
