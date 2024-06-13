@@ -32,7 +32,7 @@ param()
 Push-Location ($PSScriptRoot | Split-Path)
 
     
-$ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit') {
+$ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript','PSDevOps','ugit','EZOut','powershell-yaml') {
     $requireLatest = $false
     $ModuleLoader  = $null
 
@@ -90,7 +90,7 @@ $ImportedRequirements = foreach ($moduleRequirement in 'Irregular','PipeScript',
             $foundModuleRequirement
         }
     }
-} 
+}
 
 # Initialize some collections for us to use:
 
@@ -161,13 +161,124 @@ if ($lastFileUpdate -ge $myLastChange -and $lastFileUpdate -ge $mdnLastChange ) 
     return
 }
 
-$clonedMDN = git clone https://github.com/mdn/content.git --depth 1 --progress
-if ($clonedMDN) {
-    "Cloned MDN" | Out-Host
+# Next, we need to get the content from the Mozilla Developer Network
+$mdnContentPath = Join-Path $pwd content
+# If we don't have the content, get it.
+if (-not (Test-Path $mdnContentPath)) {
+    $gitOutput = @(
+        # use ugit to clone -Nothing
+        git clone https://github.com/mdn/content.git  -Nothing
+        Push-Location $mdnContentPath
+        # and then use a sparse-checkout to get only the SVG-related content.
+        git sparse-checkout set -FileFilter "files/en-us/web/svg/**/**.md", "files/jsondata/**.json"
+        # checkout the content, and we're set.
+        git checkout
+        Pop-Location
+    )
 }
 
-$mdnContentRoot  = Join-Path $pwd content
-$mdnContentsRoot = Join-Path $mdnContentRoot 'contents'
+$mdnContentRoot = $mdnContentPath
+
+# From here on in, there are essentially two ways we have to go:
+
+# We have to get as much information about attributes as possible
+# Then we have to get as much information about elements as possible
+
+# This information will have to be combined to create the final functions.
+
+# Let's start off by getting all of the attributes.
+$attributeFiles = Get-ChildItem $mdnContentRoot -Recurse -Filter *.md |
+    Where-Object { $_.Directory.Parent.Name -eq 'attribute' -and $_.Name -eq 'index.md'}
+
+# We need to pick out a fair amount of information from each attribute file.
+$attributeFileData = [Ordered]@{}
+$deprecatedPattern = '\{\{deprecated.+?\}\}'
+$svgElementPattern = '\{\{SVGElement\([''"](?<e>[^''"]+)[''"]\)\}\}'
+foreach ($attrFile in $attributeFiles) {
+    # Get the content of the file
+    $attrFileContents = Get-Content -LiteralPath $attrFile.FullName -Raw
+    # Extract the YAML header
+    $attrFileHeader = $attrFileContents | ?<Markdown_YAMLHeader> -Extract | Select-Object -ExpandProperty Yaml | ConvertFrom-Yaml
+    # Remove the YAML header
+    $attrFileContents = $attrFileContents | ?<Markdown_YAMLHeader> -Remove
+
+    $null, $attrTable, $null  = $attrFileContents | ?<HTML_StartOrEndTag> -Tag table -Split
+    $null, $attrFileGroup, $null = $attrFileHeader.'browser-compat' -split '\.'
+    $attrHeadings = $attrFileContents | ?<Markdown_Heading>
+    $description, $otherHeadings = $attrFileContents | ?<Markdown_Heading> -Split
+    $isDeprecated = $false
+    if ($description -match $deprecatedPattern) {
+        $isDeprecated = $true
+        $description = $description -replace $deprecatedPattern
+    }
+
+    $AppliesTo = @(
+        foreach ($match in [regex]::Matches($attrFileContents, $svgElementPattern)) { 
+            $match.Groups["e"].Value
+        }
+    )
+    $description = $description -replace $svgElementPattern, '[${e}](https://developer.mozilla.org/en-US/web/svg/element/${e})'
+    
+    $headingIndex = 0
+    $attributeHeadings = [Ordered]@{}
+    foreach ($attrHeading in $attrHeadings) {
+        $attrHeadingName = $attrHeading.Groups["HeadingName"].Value -replace '^\s{0,}' -replace '\s{0,}$'
+        $attributeHeadings[$attrHeadingName] = $otherHeadings[$headingIndex]        
+    }
+    $attrCodeBlocks  = @(if ($attributeHeadings['Example']) { 
+        $attributeHeadings['Example'] | ?<Markdown_CodeBlock> -Language '(?>html|css|svg|js|javascript)'
+    })
+    $noteproperties = [Ordered]@{
+        PSTypeName = 'SVG.Attribute'
+        Name = $attrFileHeader.title
+        Description = $description
+        Header = $attrFileHeader
+        Group = $attrFileGroup
+        AppliesTo = $AppliesTo
+        Example = $attrCodeBlocks -join [Environment]::NewLine
+        IsDeprecated = $isDeprecated
+    }
+    $attributeFileData[$attrFileHeader.title] = $noteproperties
+}
+
+
+$attributeIndex = Get-ChildItem $mdnContentRoot -Recurse -Filter *.md | 
+    Where-Object { $_.Directory.Name -eq 'attribute' -and $_.Name -eq 'index.md'} | 
+    Select-Object -First 1
+
+$null, $svgAttributesByCategory = 
+    Get-Content $attributeIndex -Raw | 
+        ?<Markdown_YAMLHeader> -Remove | 
+        ?<Markdown_Heading> -HeadingName "SVG attributes by category" -HeadingLevel 2 -Split
+
+$svgAttributesByCategory = $svgAttributesByCategory -replace '\{\{SVGAttr\([''"](?<a>[^''"]+)[''"]\)\}\}', '**`$1`**' -split '(?>\r\n|\n)'
+    
+$categoryPattern = [Regex]::new('(?m)^\s{0,}[\p{P}-[\>\{\}]]+\s{0,}(?<n>[\w\s]+)$')
+$attributeNamePattern = [regex]::new('\*{2}`(?<n>[^`]+)`\*{2}')
+$blankLine = [Regex]::new('^\s{0,}$','Multiline')   
+
+$currentCategoryName = ''
+$currentCategoryStack = [Collections.Stack]::new()
+$attributesByCategory = [Ordered]@{}
+switch -regex ($svgAttributesByCategory) {
+    $categoryPattern {
+        $currentCategoryName = $matches.n.Trim() -replace '\s'
+    }
+    $attributeNamePattern {
+        $script:under = $_
+        $attributeName = $matches.n.Trim() 
+        if (-not $attributeFileData[$attributeName]) {
+            $attributeFileData[$attributeName] = [Ordered]@{
+                Name = $attribtueName
+                Category = $currentCategoryName
+            }
+        } else {
+            $attributeFileData[$attributeName].Category = $currentCategoryName
+        }        
+    }
+}
+
+# $attributeFileData = [PSCustomObject]$attributeFileData
 
 # If we don't know the list of elements
 if (-not $svgElements) {
@@ -744,14 +855,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             "[Alias('InputObject','Text', 'InnerText', 'Contents')]"
             '$Content'
         )        
-    }
-
-    $parameters['Id'] = @(
-        '# The element identifier.'
-        '[Parameter(ValueFromPipelineByPropertyName)]'        
-        '[string]'
-        '$Id'
-    )
+    }    
     
     $parameters['Data'] = @(
         "# A dictionary containing data.  This data will be embedded in data- attributes."        
@@ -874,6 +978,43 @@ If nothing was provided, each output will be decorated with it's ElementName.
             "[PSObject]"
             "`$$paramName"
         )
+    }
+
+    # Last chance for missing parameters... cross-reference the list of attribute file data.
+    $elementName = ($elementKv.Key)
+    $elementData = $svgElements.($elementKv.Key)
+    $checkForTheseParameters = @(
+        foreach ($NameOrGroup in $elementData.attributes) {
+            if ($NameOrGroup -match "'") {
+                # Name
+                $NameOrGroup -replace "'", "''"
+            } else {
+                # Group
+                foreach ($attrFileInfo in @($attributeFileData.Values)) {
+                    if ($attrFileInfo.Category -eq $NameOrGroup) {
+                        $attrFileInfo.Name
+                    }
+                }
+            }
+        }
+
+        foreach ($attrFileInfo in @($attributeFileData.Values)) {
+            if ($attrFileInfo.AppliesTo -contains $elementName) {
+                $attrFileInfo.Name
+            }
+        }
+    )
+
+    foreach ($potentiallyMissing in $checkForTheseParameters) {
+        if (-not $parameters[$potentiallyMissing]) {
+            $potentiallyMissing= @(
+                "# The $potentiallyMissing attribute."
+                "[Parameter(ValueFromPipelineByPropertyName)]"
+                "[Reflection.AssemblyMetaData('SVG.AttributeName','$attrName')]"
+                "[PSObject]"
+                "`$$potentiallyMissing"
+            )
+        }
     }
     
     $newPipeScriptSplat.parameter = $parameters
