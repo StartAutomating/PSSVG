@@ -192,24 +192,9 @@ $SpreadMethod,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $X1,
-# This attribute defines the x coordinate of the ending point of the vector gradient along which the linear gradient is drawn.
+# The X2 attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','x2')]
-[Reflection.AssemblyMetaData('SVG.Value', '<length> | <percentage> | <number>')]
-[ValidatePattern('(?>|\d+)')]
-[ArgumentCompleter({
-    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
-    $validSet = '<length>','<percentage>','<number>'
-    if ($wordToComplete) {        
-        $toComplete = $wordToComplete -replace "^'" -replace "'$"
-        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
-    } else {
-        return @($validSet -replace '^', "'" -replace '$',"'")
-    }
-})]
-[Reflection.AssemblyMetaData('SVG.Default value', '100%')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','X2')]
 [PSObject]
 $X2,
 # An [\<IRI>](https://developer.mozilla.org/en-US/docs/Web/SVG/Content_type#iri) reference to another `<linearGradient>` element that will be used as a template.
@@ -258,7 +243,22 @@ $Y1,
 [Reflection.AssemblyMetaData('SVG.Default value', '0%')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Y2
+$Y2,
+# The C2 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','C2')]
+[PSObject]
+$C2,
+# The S2 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','S2')]
+[PSObject]
+$S2,
+# The E2 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','E2')]
+[PSObject]
+$E2
 )
 
 
