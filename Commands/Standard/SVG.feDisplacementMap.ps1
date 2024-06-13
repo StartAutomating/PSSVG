@@ -147,7 +147,17 @@ $XChannelSelector,
 [Reflection.AssemblyMetaData('SVG.Default value', 'A')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$YChannelSelector
+$YChannelSelector,
+# The CChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CChannelSelector')]
+[PSObject]
+$CChannelSelector,
+# The SChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SChannelSelector')]
+[PSObject]
+$SChannelSelector
 )
 
 
