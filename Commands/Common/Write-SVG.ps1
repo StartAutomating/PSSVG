@@ -107,6 +107,7 @@
         if ($Slot) {
             $Attribute['slot'] = $Slot
         }
+        $attributeParameters = 'id', 'slot'
 
         # Keep track of which attributes are bound.
         $boundAttributes = @()
@@ -115,8 +116,8 @@
         $elementText = "<$elementName "
         # Next, walk over the attributes of the command
         :nextParameter foreach ($kv in $Attribute.GetEnumerator()) {
-            # skip any parameters from Write-SVG.
-            if ($myCmd.Parameters[$kv.Key]) { continue }
+            # skip any parameters from Write-SVG (that are not attributes).
+            if ($myCmd.Parameters[$kv.Key] -and $kv.Key -notin $attributeParameters) { continue }
             $paramValue = $kv.Value
             $paramName  = $kv.Key
             # The only attribute we treat that specially is -Viewbox.
