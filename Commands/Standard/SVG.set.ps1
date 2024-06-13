@@ -63,18 +63,81 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# This attribute defines the value to be applied to the target attribute for the duration of the animation. The value must match the requirements of the target attribute.
+# The To attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','to')]
-[Reflection.AssemblyMetaData('SVG.Value', '<value>')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','To')]
 [PSObject]
 $To,
+# The So attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','So')]
+[PSObject]
+$So,
+# The Ro attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ro')]
+[PSObject]
+$Ro,
+# The Io attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Io')]
+[PSObject]
+$Io,
+# The Co attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Co')]
+[PSObject]
+$Co,
+# The Lo attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lo')]
+[PSObject]
+$Lo,
+# The Xo attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xo')]
+[PSObject]
+$Xo,
+# The Bo attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Bo')]
+[PSObject]
+$Bo,
 # The Eo attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Eo')]
 [PSObject]
-$Eo
+$Eo,
+# The Do attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Do')]
+[PSObject]
+$Do,
+# The Fo attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fo')]
+[PSObject]
+$Fo,
+# The Ho attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ho')]
+[PSObject]
+$Ho,
+# The Ao attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ao')]
+[PSObject]
+$Ao,
+# The Mo attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Mo')]
+[PSObject]
+$Mo,
+# The Ko attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ko')]
+[PSObject]
+$Ko
 )
 
 
