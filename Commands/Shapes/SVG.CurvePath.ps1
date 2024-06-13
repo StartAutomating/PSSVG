@@ -1,3 +1,6 @@
+[ValidatePattern('SVG\.CurvePath')]
+param()
+
 function SVG.CurvePath {
     <#
     
@@ -11,10 +14,10 @@ function SVG.CurvePath {
         ) -OutputPath .\Curve.svg    
     .EXAMPLE    
         svg -Viewbox 100 (        
-            svg.CurvePath -Start 50 -End 10 -Angle 45 -Multiquadratic |    
-                svg.CurvePath -End 10 -Angle -45 -Multiquadratic |    
-                svg.CurvePath -End 20 -Angle 50 -Multiquadratic |    
-                svg.CurvePath -End 20 -Angle -50 -Stroke '#4488ff' -Fill transparent -Multiquadratic    
+            svg.CurvePath -Start 50 -End 10 -Angle 45 |    
+                svg.CurvePath -End 10 -Angle -45  |    
+                svg.CurvePath -End 20 -Angle 50  |    
+                svg.CurvePath -End 20 -Angle -50 -Stroke '#4488ff' -Fill transparent    
         ) -OutputPath .\ZigZagCurvePath.svg    
     .LINK    
         SVG.Path    
