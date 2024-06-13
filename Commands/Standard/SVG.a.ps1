@@ -149,13 +149,31 @@ $Target,
 [Reflection.AssemblyMetaData('SVG.AttributeName','[`type`](/en-US/docs/Web/HTML/Element/a#type)')]
 [PSObject]
 $Type,
-# The URL or URL fragment that the hyperlink points to. May be required for backwards compatibility for older browsers.
+# The XlinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
-[Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XlinkHref')]
 [PSObject]
-$XlinkHref
+$XlinkHref,
+# The ClinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ClinkHref')]
+[PSObject]
+$ClinkHref,
+# The SlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SlinkHref')]
+[PSObject]
+$SlinkHref,
+# The ElinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[PSObject]
+$ElinkHref,
+# The TlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TlinkHref')]
+[PSObject]
+$TlinkHref
 )
 
 
