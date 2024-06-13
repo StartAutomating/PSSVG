@@ -8,7 +8,7 @@ function SVG.feDropShadow  {
     > **Note:** The drop shadow color and opacity can be changed by using the `flood-color` and `flood-opacity` presentation attributes.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingShadows.PSSVG.ps1
+    ./MovingShadows.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.feDropShadow
