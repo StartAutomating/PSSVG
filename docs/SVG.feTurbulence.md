@@ -26,14 +26,14 @@ The **`<feTurbulence>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./CloudAnimation.PSSVG.ps1
+./CloudAnimation.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Clouds.PSSVG.ps1
+./Clouds.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
