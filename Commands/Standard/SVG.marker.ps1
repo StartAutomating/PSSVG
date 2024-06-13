@@ -8,11 +8,11 @@ function SVG.marker  {
     Markers can be attached to shapes using the `marker-start`, `marker-mid`, and `marker-end` properties.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.marker
