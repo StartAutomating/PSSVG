@@ -139,91 +139,331 @@ $X,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Y,
-# The S attribute.
+# The SystemLanguage attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','S')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SystemLanguage')]
 [PSObject]
-$S,
-# The R attribute.
+$SystemLanguage,
+# The RequiredExtensions attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','R')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RequiredExtensions')]
 [PSObject]
-$R,
-# The T attribute.
+$RequiredExtensions,
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','T')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$T,
-# The I attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','I')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$I,
-# The C attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','C')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$C,
-# The L attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','L')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$L,
-# The F attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','F')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$F,
-# The B attribute.
+$Lang,
+# The Clippath attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','B')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Clippath')]
 [PSObject]
-$B,
-# The M attribute.
+$Clippath,
+# The Strokeopacity attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','M')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Strokeopacity')]
 [PSObject]
-$M,
-# The V attribute.
+$Strokeopacity,
+# The Fontstretch attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','V')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fontstretch')]
 [PSObject]
-$V,
+$Fontstretch,
+# The Baselineshift attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Baselineshift')]
+[PSObject]
+$Baselineshift,
+# The Floodcolor attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Floodcolor')]
+[PSObject]
+$Floodcolor,
+# The Markerend attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Markerend')]
+[PSObject]
+$Markerend,
+# The Fontsizeadjust attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fontsizeadjust')]
+[PSObject]
+$Fontsizeadjust,
+# The Colorinterpolationfilters attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Colorinterpolationfilters')]
+[PSObject]
+$Colorinterpolationfilters,
+# The Visibility attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Visibility')]
+[PSObject]
+$Visibility,
+# The Strokelinecap attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Strokelinecap')]
+[PSObject]
+$Strokelinecap,
+# The Textrendering attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Textrendering')]
+[PSObject]
+$Textrendering,
+# The Fill attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fill')]
+[PSObject]
+$Fill,
+# The Fillrule attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fillrule')]
+[PSObject]
+$Fillrule,
+# The Display attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Display')]
+[PSObject]
+$Display,
+# The Stroke attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Stroke')]
+[PSObject]
+$Stroke,
+# The Opacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Opacity')]
+[PSObject]
+$Opacity,
 # The D attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','D')]
 [PSObject]
 $D,
-# The O attribute.
+# The Transform attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','O')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Transform')]
 [PSObject]
-$O,
-# The W attribute.
+$Transform,
+# The Cursor attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','W')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cursor')]
 [PSObject]
-$W,
-# The P attribute.
+$Cursor,
+# The Vectoreffect attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','P')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Vectoreffect')]
 [PSObject]
-$P,
-# The U attribute.
+$Vectoreffect,
+# The Strokelinejoin attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','U')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Strokelinejoin')]
 [PSObject]
-$U,
-# The A attribute.
+$Strokelinejoin,
+# The Textanchor attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','A')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Textanchor')]
 [PSObject]
-$A,
-# The E attribute.
+$Textanchor,
+# The Markermid attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','E')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Markermid')]
 [PSObject]
-$E
+$Markermid,
+# The Strokedashoffset attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Strokedashoffset')]
+[PSObject]
+$Strokedashoffset,
+# The Fontweight attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fontweight')]
+[PSObject]
+$Fontweight,
+# The Transformorigin attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Transformorigin')]
+[PSObject]
+$Transformorigin,
+# The Strokemiterlimit attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Strokemiterlimit')]
+[PSObject]
+$Strokemiterlimit,
+# The Lightingcolor attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lightingcolor')]
+[PSObject]
+$Lightingcolor,
+# The Dominantbaseline attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Dominantbaseline')]
+[PSObject]
+$Dominantbaseline,
+# The Color attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Color')]
+[PSObject]
+$Color,
+# The Cliprule attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cliprule')]
+[PSObject]
+$Cliprule,
+# The Strokedasharray attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Strokedasharray')]
+[PSObject]
+$Strokedasharray,
+# The Direction attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Direction')]
+[PSObject]
+$Direction,
+# The Floodopacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Floodopacity')]
+[PSObject]
+$Floodopacity,
+# The Fontvariant attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fontvariant')]
+[PSObject]
+$Fontvariant,
+# The Colorinterpolation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Colorinterpolation')]
+[PSObject]
+$Colorinterpolation,
+# The Stopopacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Stopopacity')]
+[PSObject]
+$Stopopacity,
+# The Overflow attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Overflow')]
+[PSObject]
+$Overflow,
+# The Strokewidth attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Strokewidth')]
+[PSObject]
+$Strokewidth,
+# The Fontfamily attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fontfamily')]
+[PSObject]
+$Fontfamily,
+# The Fontsize attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fontsize')]
+[PSObject]
+$Fontsize,
+# The Filter attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Filter')]
+[PSObject]
+$Filter,
+# The Fontstyle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fontstyle')]
+[PSObject]
+$Fontstyle,
+# The Textdecoration attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Textdecoration')]
+[PSObject]
+$Textdecoration,
+# The Wordspacing attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Wordspacing')]
+[PSObject]
+$Wordspacing,
+# The Writingmode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Writingmode')]
+[PSObject]
+$Writingmode,
+# The Pointerevents attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Pointerevents')]
+[PSObject]
+$Pointerevents,
+# The Imagerendering attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Imagerendering')]
+[PSObject]
+$Imagerendering,
+# The Letterspacing attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Letterspacing')]
+[PSObject]
+$Letterspacing,
+# The Unicodebidi attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Unicodebidi')]
+[PSObject]
+$Unicodebidi,
+# The Alignmentbaseline attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Alignmentbaseline')]
+[PSObject]
+$Alignmentbaseline,
+# The Stopcolor attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Stopcolor')]
+[PSObject]
+$Stopcolor,
+# The Mask attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Mask')]
+[PSObject]
+$Mask,
+# The Shaperendering attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Shaperendering')]
+[PSObject]
+$Shaperendering,
+# The Markerstart attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Markerstart')]
+[PSObject]
+$Markerstart,
+# The Fillopacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fillopacity')]
+[PSObject]
+$Fillopacity,
+# The Colorrendering attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Colorrendering')]
+[PSObject]
+$Colorrendering,
+# The ExternalResourcesRequired attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ExternalResourcesRequired')]
+[PSObject]
+$ExternalResourcesRequired
 )
 
 
