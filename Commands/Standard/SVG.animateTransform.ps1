@@ -6,75 +6,75 @@ function SVG.animateTransform  {
     The `animateTransform` element animates a transformation attribute on its target element, thereby allowing animations to control translation, scaling, rotation, and/or skewing.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./AnimateMotion.PSSVG.ps1
+    ./AnimateMotion.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MorphingRose.PSSVG.ps1
+    ./MorphingRose.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./PatternAnimation.PSSVG.ps1
+    ./PatternAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./PatternAnimation.PSSVG.ps1
+    ./PatternAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./PatternMask.PSSVG.ps1
+    ./PatternMask.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./RepeatedShapes.PSSVG.ps1
+    ./RepeatedShapes.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./SpinningSpiral.PSSVG.ps1
+    ./SpinningSpiral.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Stars.PSSVG.ps1
+    ./Stars.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./SweepCircle.PSSVG.ps1
+    ./SweepCircle.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.animateTransform
