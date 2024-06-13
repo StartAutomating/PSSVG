@@ -7,135 +7,29 @@ function SVG.tspan  {
     
     > **Note:** the `<tspan>` element does not wrap by default, to make this happen it needs to be styled with the `white-space` CSS property.
 .Example
-    $fileList      = @(Get-ChildItem -Path $PSScriptRoot)
-    $fileListText  = $fileList | Select-Object Name | Out-String -Width 1kb
-    $fileListLines = @($fileListText -split '(?>\r\n|\n)')
-    
-    $fontSize = 14
-    
-    $ln = 0
-    $maxLineLength =0
-    $goldenRatio   = (1 + [Math]::Sqrt(5)) / 2
-    
-    svg (
-        svg.text -Fontsize $fontSize -FontFamily monospace -Fill '#4488ff' @(
-        foreach ($line in $fileListLines) {
-            $ln++
-            $href =
-                if ($ln -le 2) {
-                    "."
-                } else {
-                    $file = $fileList[$ln - 3]
-                    $file.Name
-                }
-            if ($line.Length -gt $maxLineLength) {
-                $maxLineLength = $line.Length
-            }
-    
-            svg.a -href $href (
-                svg.tspan -X 0 -DY 1.2em -Fontsize $fontSize $fileListLines[$ln] -Xmlspace preserve -Fontfamily monospace -Fill '#4488ff'
-            )
-        }
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Index.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -viewBox 300, 100 -Content @(
-        svg.symbol -Id psChevron -Content @(
-            svg.polygon -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
-        svg.text @(
-            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
-            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
-        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
-        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StartAutomating.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -viewBox 300, 100 -Content @(
-        svg.symbol -Id psChevron -Content @(
-            svg.polygon -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
-        svg.text @(
-            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
-            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
-        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
-        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StartAutomating.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-    
-        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-            svg.tspan -Content "STOP" -Id stop
-            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    
-        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "USING" -Id using
-            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    
-        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "GIFS" -Id gif
-            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    ) -ViewBox 200,200
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StopUsingGIFs.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-    
-        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-            svg.tspan -Content "STOP" -Id stop
-            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    
-        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "USING" -Id using
-            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    
-        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "GIFS" -Id gif
-            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    ) -ViewBox 200,200
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StopUsingGIFs.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.ConvexPolygon -SideCount 8 -Rotate (360/16) -Fill '#dd0000' -Stroke white -CenterX 100 -CenterY 100 -Radius 100
-    
-        svg.text -X 50% -Y 50% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 64 -FontFamily sans-serif -Fill white @(
-            svg.tspan -Content "STOP" -Id stop
-            svg.animate -Values '64;66;64' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    
-        svg.text -X 50% -Y 65% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 12 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "USING" -Id using
-            svg.animate -Values '12;13;12' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-    
-        )
-    
-        svg.text -X 50% -Y 80% -DominantBaseline 'middle' -TextAnchor 'middle' -FontSize 32 -FontFamily sans-serif -Fill white -Content @(
-            svg.tspan -Content "GIFS" -Id gif
-            svg.animate -Values '28;30;28' -Dur 5s -AttributeName font-size -RepeatDur 'indefinite'
-        )
-    ) -ViewBox 200,200
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StopUsingGIFs.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.tspan
 .Link
