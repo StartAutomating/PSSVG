@@ -74,7 +74,11 @@ function SVG.Slot {
         }
         foreach ($parameterName in $propagateToslot) {
             if ($svgSplat[$parameterName]) {
-                $elementSplat.Attribute[$parameterName] = $svgSplat[$parameterName]
+                if ($parameterName -eq 'data') {
+                    $elementSplat.Data = $svgSplat[$parameterName]
+                } else {
+                    $elementSplat.Attribute[$parameterName] = $svgSplat[$parameterName]
+                }                
                 $svgSplat.Remove($parameterName)
             }
         }
@@ -90,9 +94,10 @@ function SVG.Slot {
         $svgSplat.Remove('Content')
         if ($ContentToslot) {
             $svgSplat.Content = $ContentToslot
-        }
+            $elementSplat.Content = @( & $baseCommand @svgSplat)
+        }        
         
-        Write-SVG @elementSplat -Content @( & $baseCommand @svgSplat)
+        Write-SVG @elementSplat
     
     }
 }
