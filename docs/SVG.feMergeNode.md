@@ -25,40 +25,16 @@ The `feMergeNode` takes the result of another filter to be processed by its pare
 > EXAMPLE 1
 
 ```PowerShell
-svg @(
-    svg.filter -id embossed @(
-        svg.feConvolveMatrix -KernelMatrix '
-        5 0 0
-        0 0 0
-        0 0 -5
-'
-        svg.feMerge @(
-            svg.feMergeNode
-            svg.feMergeNode -In 'SourceGraphic'
-        )
-    )
-svg.text "
-Embossed
-" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#embossed)'
-) -ViewBox 0,0,300,100
+Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+./Embossed.PSSVG.ps1
+Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
-svg @(
-    svg.filter -id dropShadow @(
-        svg.feDropShadow -dx 0.5 -dy 0.75 -StdDeviation 0 @(
-            svg.animate -AttributeName dx -Values '.5;-.5;.5' -Dur 1s -RepeatCount 'indefinite'
-        )
-        svg.feMerge @(
-            svg.feMergeNode
-            svg.feMergeNode -In 'SourceGraphic'
-        )
-    )
-svg.text "
-Moving Shadows
-" -TextAnchor middle -DominantBaseline middle -Fill '#4488ff' -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
-) -ViewBox 0,0,300,100
+Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+./MovingShadows.PSSVG.ps1
+Pop-Location
 ```
 
 ---
@@ -83,9 +59,16 @@ A dictionary or object containing event handlers.
 Each key or property name will be the name of the event
 Each value will be the handler.
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Object]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Slot**
+The slot attribute.
+
+|Type      |Required|Position|PipelineInput        |Aliases |
+|----------|--------|--------|---------------------|--------|
+|`[String]`|false   |named   |true (ByPropertyName)|SlotName|
 
 #### **Attribute**
 A dictionary of attributes.  This can set any attribute not exposed in other parameters.
@@ -123,55 +106,78 @@ One or more child elements.  These will be treated as if they were content.
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
+#### **Tabindex**
+The tabindex attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex) for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
 #### **Id**
-The **`id`** attribute assigns a unique name to an element.
-You can use this attribute with any SVG element.
+The id attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id) for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Style**
+The style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Xmlspace**
+The xml:space attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space) for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Xmllang**
+The xml:lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang) for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Xmlbase**
+The xml:base attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:base) for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Class**
+The class attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/class) for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Lang**
-The **`lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
-There is also an xml:lang attribute (with namespace). If both of them are defined, the one with namespace is used and the one without is ignored.
-In SVG 1.1 there was a `lang` attribute defined with a different meaning and only applying to glyph elements. That attribute specified a list of languages according to {{RFC(5646, "Tags for Identifying Languages (also known as BCP 47)")}}. The glyph was meant to be used if the `xml:lang` attribute exactly matched one of the languages given in the value of this parameter, or if the `xml:lang` attribute exactly equaled a prefix of one of the languages given in the value of this parameter such that the first tag character following the prefix was "-".
-You can use this attribute with any SVG element.
+The lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lang) for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Tabindex**
-The **`tabindex`** attribute allows you to control whether an element is focusable and to define the relative order of the element for the purposes of sequential focus navigation.
-You can use this attribute with any SVG element.
+#### **RequiredFeatures**
+The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures) for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **XmlBase**
-The **`xml:base`** attribute specifies a base IRI other than the base IRI of the document or external entity.
-You can use this attribute with any SVG element.
+#### **X**
+The x attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/x) for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **XmlLang**
-The **`xml:lang`** attribute specifies the primary language used in contents and attributes containing text content of particular elements.
-It is a universal attribute allowed in all XML dialects to mark up the natural human language that an element contains.
-There is also a lang attribute (without namespace). If both of them are defined, the one with namespace is used and the one without is ignored.
-You can use this attribute with any SVG element.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **XmlSpace**
-SVG supports the built-in XML **`xml:space`** attribute to handle whitespace characters inside elements. Child elements inside an element may also have an `xml:space` attribute that overrides the parent's one.
-> **Note:** Instead of using the `xml:space` attribute, use the white-space CSS property.
-This attribute influences how browsers parse text content and therefore changes the way the DOM is built. Therefore, changing this attribute's value through the DOM API may have no effect.
-You can use this attribute with any SVG element.
+#### **Y**
+The y attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/y) for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
@@ -186,5 +192,5 @@ You can use this attribute with any SVG element.
 
 ### Syntax
 ```PowerShell
-SVG.feMergeNode [[-Content] <Object>] [-Data <IDictionary>] [-On <Object>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-In <PSObject>] [-Id <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-XmlBase <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [<CommonParameters>]
+SVG.feMergeNode [[-Content] <Object>] [-Data <IDictionary>] [-On <PSObject>] [-Slot <String>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-In <PSObject>] [-Tabindex <PSObject>] [-Id <PSObject>] [-Style <PSObject>] [-Xmlspace <PSObject>] [-Xmllang <PSObject>] [-Xmlbase <PSObject>] [-Class <PSObject>] [-Lang <PSObject>] [-RequiredFeatures <PSObject>] [-X <PSObject>] [-Y <PSObject>] [<CommonParameters>]
 ```
