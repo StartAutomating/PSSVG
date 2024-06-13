@@ -8,7 +8,7 @@ function SVG.a  {
     SVG's `<a>` element is a container, which means you can create a link around text (like in HTML) but also around any shape.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Index.PSSVG.ps1
+    ./Index.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.a
