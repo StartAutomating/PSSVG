@@ -446,7 +446,17 @@ $Additive,
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
-$Accumulate
+$Accumulate,
+# The Eccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eccumulate')]
+[PSObject]
+$Eccumulate,
+# The Occumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Occumulate')]
+[PSObject]
+$Occumulate
 )
 
 
