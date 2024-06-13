@@ -6,11 +6,11 @@ function SVG.feMergeNode  {
     The `feMergeNode` takes the result of another filter to be processed by its parent `feMerge`.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Embossed.PSSVG.ps1
+    ./Embossed.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingShadows.PSSVG.ps1
+    ./MovingShadows.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.feMergeNode
