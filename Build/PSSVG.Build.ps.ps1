@@ -941,7 +941,7 @@ If nothing was provided, each output will be decorated with it's ElementName.
     foreach ($potentiallyMissing in $checkForTheseParameters) {    
         $potentiallyMissingParameterName = $potentiallyMissing.Substring(0,1).ToUpper() + $potentiallyMissing.Substring(1)
         $potentiallyMissingParameterName = $potentiallyMissingParameterName -replace '\W'
-        if (-not $parameters[$potentiallyMissing]) {
+        if (-not $parameters[$potentiallyMissingParameterName]) {
             $parameters[$potentiallyMissing] = @(
                 "# The $potentiallyMissing attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/$potentiallyMissing) for more information."
                 "[Parameter(ValueFromPipelineByPropertyName)]"
