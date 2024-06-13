@@ -110,54 +110,101 @@ $In2,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Scale,
-# 
+# The XChannelSelector attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','xChannelSelector')]
-[Reflection.AssemblyMetaData('SVG.Value', 'R | G | B | A')]
-[ArgumentCompleter({
-    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
-    $validSet = 'R','G','B','A'
-    if ($wordToComplete) {        
-        $toComplete = $wordToComplete -replace "^'" -replace "'$"
-        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
-    } else {
-        return @($validSet -replace '^', "'" -replace '$',"'")
-    }
-})]
-[Reflection.AssemblyMetaData('SVG.Default value', 'A')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XChannelSelector')]
 [PSObject]
 $XChannelSelector,
-# 
+# The YChannelSelector attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','yChannelSelector')]
-[Reflection.AssemblyMetaData('SVG.Value', 'R | G | B | A')]
-[ArgumentCompleter({
-    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
-    $validSet = 'R','G','B','A'
-    if ($wordToComplete) {        
-        $toComplete = $wordToComplete -replace "^'" -replace "'$"
-        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
-    } else {
-        return @($validSet -replace '^', "'" -replace '$',"'")
-    }
-})]
-[Reflection.AssemblyMetaData('SVG.Default value', 'A')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','YChannelSelector')]
 [PSObject]
 $YChannelSelector,
+# The TChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TChannelSelector')]
+[PSObject]
+$TChannelSelector,
+# The IChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IChannelSelector')]
+[PSObject]
+$IChannelSelector,
+# The SChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SChannelSelector')]
+[PSObject]
+$SChannelSelector,
 # The CChannelSelector attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CChannelSelector')]
 [PSObject]
 $CChannelSelector,
-# The SChannelSelector attribute.
+# The LChannelSelector attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SChannelSelector')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LChannelSelector')]
 [PSObject]
-$SChannelSelector
+$LChannelSelector,
+# The FChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FChannelSelector')]
+[PSObject]
+$FChannelSelector,
+# The BChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BChannelSelector')]
+[PSObject]
+$BChannelSelector,
+# The MChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MChannelSelector')]
+[PSObject]
+$MChannelSelector,
+# The VChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VChannelSelector')]
+[PSObject]
+$VChannelSelector,
+# The DChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DChannelSelector')]
+[PSObject]
+$DChannelSelector,
+# The OChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OChannelSelector')]
+[PSObject]
+$OChannelSelector,
+# The WChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WChannelSelector')]
+[PSObject]
+$WChannelSelector,
+# The PChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PChannelSelector')]
+[PSObject]
+$PChannelSelector,
+# The UChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UChannelSelector')]
+[PSObject]
+$UChannelSelector,
+# The AChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AChannelSelector')]
+[PSObject]
+$AChannelSelector,
+# The HChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','HChannelSelector')]
+[PSObject]
+$HChannelSelector,
+# The RChannelSelector attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RChannelSelector')]
+[PSObject]
+$RChannelSelector
 )
 
 
