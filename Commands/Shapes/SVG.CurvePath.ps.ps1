@@ -1,68 +1,72 @@
-function SVG.ArcPath
+[ValidatePattern('SVG\.CurvePath')]
+param()
+
+function SVG.CurvePath
 {
     <#
     .SYNOPSIS
-        Draws an SVG arc.
+        Draws an SVG curve.
     .DESCRIPTION
-        Draws an SVG arc path.
+        Draws an SVG curve path.
     .EXAMPLE
-        svg -Viewbox 100 (
-            svg.ArcPath -Start 50 -End 75 -Radius 25 -Large
-        ) -OutputPath .\arc-1.svg
+        svg -Viewbox 50 @(
+            svg.CurvePath -Start 10 -ControlPoint 15,5,20,40  -End 30 -fill transparent -stroke black
+        ) -OutputPath .\Curve.svg
     .EXAMPLE
         svg -Viewbox 100 (    
-            svg.ArcPath -Start 50 -Radius 10 -End 10 -Angle 45  |
-                svg.ArcPath -End 10 -Radius 20 -Angle -45  |
-                svg.ArcPath -End 20 -Radius 30 -Angle 50  |
-                svg.ArcPath -End 20 -Radius 40 -Angle -50 -Stroke '#4488ff' -Fill transparent
-        ) -OutputPath .\ZigZagArcPath.svg
+            svg.CurvePath -Start 50 -End 10 -Angle 45 |
+                svg.CurvePath -End 10 -Angle -45  |
+                svg.CurvePath -End 20 -Angle 50  |
+                svg.CurvePath -End 20 -Angle -50 -Stroke '#4488ff' -Fill transparent
+        ) -OutputPath .\ZigZagCurvePath.svg
     .LINK
         SVG.Path
     #>    
     [inherit('SVG.path', Dynamic, Abstract)]
-    [Alias('SVG.ArcedPath','=<SVG.ArcedPath>')]
+    [Alias('SVG.CurvedPath','=<SVG.CurvedPath>')]
     param(
-    # The Starting point of the arc.
+    # One or two control points.
+    # If two control points are provided, it will be assumed to be a Bezier curve.
+    # If only one control point is provided, it will be assumed to be a Quadratic curve.    
+    [vbn()]
+    [double[]]
+    $ControlPoint,
+
+    # The start point of the curve.
     # If only one value is provided, it will be used as the X and Y coordinate.
     [vbn()]
     [double[]]
     $Start,
 
-    # The radius of the arc.
+    # The end point of the curve.
     # If only one value is provided, it will be used as the X and Y coordinate.
-    [vbn()]
-    [double[]]
-    $Radius,
-
-    # The Arc Rotation along the X axis.
-    [vbn()]
-    [Alias('XAxisRotation')]
-    $ArcRotation = 0,
-
-    # If set, the arc will be considered a "Large arc"
-    [vbn()]
-    [Alias('IsLargeArc','LargeArc')]
-    [switch]
-    $Large,
-
-    # If set, the arc will sweep the circle.
-    [vbn()]
-    [switch]
-    $Sweep,
-
-    # The end point of the arc.
-    # If only one value is provided without an `-Angle`, it will be used as the X and Y coordinate.
-    # If only one value is provided an an `-Angle` is provided, a single value will be treated as a `-Distance`.
     [vbn()]
     [Alias('Distance')]
     [double[]]
     $End,
-    
+
     # An optional angle.
     # If an `-Angle` is provided and `-End` is a single number, it will be treated as a `-Distance`.
     [vbn()]
     [double]
     $Angle,
+
+    # If set, will attempt to draw a smooth bezier curve.
+    [vbn()]
+    [switch]
+    $Smooth,
+
+    # If set, will draw a multi-quadratic line.
+    # This can only be used if preceeded by another curve.
+    [vbn()]
+    [switch]
+    $MultiQuadratic,
+
+    # If set, will draw a quadratic bezier curve.
+    # This is the default, as it only requires a single control point.
+    [vbn()]
+    [switch]
+    $Quadratic,
 
     # If set, will close the path after this element.
     [vbn()]
@@ -75,10 +79,21 @@ function SVG.ArcPath
         if ($PSBoundParameters.D) {
             $existingPath = $PSBoundParameters.D + ' '
         }
+
         if ($_ -eq $PSBoundParameters.Content) {
             $null = $PSBoundParameters.Remove('Content')
         }
-        $arcPath = @(
+        
+        if ($ControlPoint.Length -eq 1) {
+            $ControlPoint = $ControlPoint[0], $ControlPoint[0]
+        }
+
+        if ($ControlPoint.Length -gt 4) {
+            Write-Error "Up to two control points can be provided"
+            return
+        }
+
+        $curvePath = @(
             if ($psBoundParameters.Keys -eq 'Start') {
                 "M"
                 if ($start.Length -gt 2) {
@@ -97,20 +112,24 @@ function SVG.ArcPath
                 $startPoint = @($_.D -split '\s' -match '[\d\.]+')[-1..-2] -as [double[]]
             }
 
-            "A"
-            if ($Radius.Length -gt 2) {
-                Write-Error "-Radius can only contain one or two values"
-                return
-            } elseif ($Radius.Length -eq 2) {
-                $Radius[0],$Radius[1]
-            } elseif ($Radius.Length -eq 1) {
-                $Radius[0],$Radius[0]
+            if ($ControlPoint.Length -ge 4) {
+                "C" # Bezier curves have 2 control points
             } else {
-                1,1
+                if ($Smooth) {
+                    "S"
+                }
+                elseif ($Quadratic) {
+                    "Q"
+                } else {
+                    "T"
+                } 
             }
-            $ArcRotation
-            if ($Large) { 1 } else { 0 }
-            if ($Sweep) { 1 } else { 0 }
+            
+            for ($cpIndex =0 ; $cpIndex -lt $ControlPoint.Length; $cpIndex+=2 ) {
+                $ControlPoint[$cpIndex]
+                $ControlPoint[$cpIndex + 1]
+                ","
+            }            
             if ($end.Length -gt 2) {
                 Write-Error "-End can only contain one or two values."
                 return
@@ -130,17 +149,17 @@ function SVG.ArcPath
                     }                    
                 } else {
                     $End[0],$end[0]
-                }                
+                }
             } else {
                 0, 0
             }
-
+            
             if ($Close) {
                 "Z"
             }
         ) -join ' '
         
-        $PSBoundParameters['D'] = $existingPath + $arcPath
+        $PSBoundParameters['D'] = $existingPath + $curvePath
         $baseSplat = [Ordered]@{}
         foreach ($k in $PSBoundParameters.Keys) {
             if ($baseCommand.Parameters[$k]) {
