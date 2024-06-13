@@ -6,23 +6,23 @@ function SVG.filter  {
     The **`<filter>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element defines a custom filter effect by grouping atomic filter primitives. It is never rendered itself, but must be used by the `filter` attribute on SVG elements, or the `filter` `CSS` property for SVG/HTML elements.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Blur.PSSVG.ps1
+    ./Blur.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./CloudAnimation.PSSVG.ps1
+    ./CloudAnimation.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Clouds.PSSVG.ps1
+    ./Clouds.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Embossed.PSSVG.ps1
+    ./Embossed.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingShadows.PSSVG.ps1
+    ./MovingShadows.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.filter
