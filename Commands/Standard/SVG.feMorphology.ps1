@@ -104,7 +104,17 @@ $Operator,
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Radius
+$Radius,
+# The Cadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cadius')]
+[PSObject]
+$Cadius,
+# The Sadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sadius')]
+[PSObject]
+$Sadius
 )
 
 
