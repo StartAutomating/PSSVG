@@ -82,13 +82,16 @@ $Href,
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition) : scriptSVG 1.1 (2nd Edition) : style')]
 [PSObject]
 $Type,
-# The URL to the script to load.
+# The XlinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
-[Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XlinkHref')]
 [PSObject]
-$XlinkHref
+$XlinkHref,
+# The ElinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[PSObject]
+$ElinkHref
 )
 
 
