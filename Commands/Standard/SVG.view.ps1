@@ -93,6 +93,31 @@ $PreserveAspectRatio,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
 $ZoomAndPan,
+# The ToomAndPan attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ToomAndPan')]
+[PSObject]
+$ToomAndPan,
+# The IoomAndPan attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IoomAndPan')]
+[PSObject]
+$IoomAndPan,
+# The SoomAndPan attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SoomAndPan')]
+[PSObject]
+$SoomAndPan,
+# The CoomAndPan attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CoomAndPan')]
+[PSObject]
+$CoomAndPan,
+# The LoomAndPan attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LoomAndPan')]
+[PSObject]
+$LoomAndPan,
 # The EoomAndPan attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','EoomAndPan')]
