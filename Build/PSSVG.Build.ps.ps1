@@ -223,7 +223,10 @@ switch -regex ($svgAttributesByCategory) {
 @(foreach ($kvp in $attributeFileData.GetEnumerator()) {
     $noteProps = [Ordered]@{} + $kvp.Value
     foreach ($key in @($noteProps.Keys)) {
-        if ($null -eq $noteProps[$key] -or $noteProps[$key] -match '^\s{0,}$') {
+        if ($null -eq $noteProps[$key] -or 
+            $noteProps[$key] -match '^\s{0,}$' -or
+            $noteProps[$Key].Length -eq 0
+        ) {
             $noteProps.Remove($key)
         }
     }
