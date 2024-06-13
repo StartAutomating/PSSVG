@@ -28,98 +28,98 @@ Graphical objects can be referenced from anywhere, however, defining these objec
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./HelloWorld.PSSVG.ps1
+./HelloWorld.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./HexagonPattern.PSSVG.ps1
+./HexagonPattern.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./LinearGradient.PSSVG.ps1
+./LinearGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./LinearGradientAnimated.PSSVG.ps1
+./LinearGradientAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 5
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./MovingGradient.PSSVG.ps1
+./MovingGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 6
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Pattern.PSSVG.ps1
+./Pattern.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 7
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternAnimation.PSSVG.ps1
+./PatternAnimation.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 8
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PatternMask.PSSVG.ps1
+./PatternMask.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 9
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./RadialGradient.PSSVG.ps1
+./RadialGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 10
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./RadialGradientAnimated.PSSVG.ps1
+./RadialGradientAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 11
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 12
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-Flag.PSSVG.ps1
+./US-Flag.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 13
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-FlagAnimated.PSSVG.ps1
+./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 14
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./VerticalLinearGradient.PSSVG.ps1
+./VerticalLinearGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
