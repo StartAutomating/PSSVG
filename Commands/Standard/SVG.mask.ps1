@@ -6,7 +6,7 @@ function SVG.mask  {
     The **`<mask>`** element defines an alpha mask for compositing the current object into the background. A mask is used/referenced using the `mask` property.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./PatternMask.PSSVG.ps1
+    ./PatternMask.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.mask
