@@ -447,6 +447,41 @@ $Additive,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
 $Accumulate,
+# The Sccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sccumulate')]
+[PSObject]
+$Sccumulate,
+# The Rccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Rccumulate')]
+[PSObject]
+$Rccumulate,
+# The Tccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tccumulate')]
+[PSObject]
+$Tccumulate,
+# The Iccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Iccumulate')]
+[PSObject]
+$Iccumulate,
+# The Cccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cccumulate')]
+[PSObject]
+$Cccumulate,
+# The Lccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lccumulate')]
+[PSObject]
+$Lccumulate,
+# The Xccumulate attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xccumulate')]
+[PSObject]
+$Xccumulate,
 # The Eccumulate attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Eccumulate')]
