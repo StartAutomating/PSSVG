@@ -101,6 +101,9 @@
             }
         }
         
+        if ($id) {
+            $Attribute['id'] = $Id
+        }
         if ($Slot) {
             $Attribute['slot'] = $Slot
         }
