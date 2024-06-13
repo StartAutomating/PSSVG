@@ -6,11 +6,11 @@ function SVG.feMerge  {
     The **`<feMerge>`** SVG element allows filter effects to be applied concurrently instead of sequentially. This is achieved by other filters storing their output via the `result` attribute and then accessing it in a `feMergeNode` child.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Embossed.PSSVG.ps1
+    ./Embossed.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingShadows.PSSVG.ps1
+    ./MovingShadows.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.feMerge
