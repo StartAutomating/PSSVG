@@ -116,31 +116,44 @@ $PointsAtZ,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $SpecularExponent,
-# The LimitingConeAngle attribute.
+# 
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','LimitingConeAngle')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','limitingConeAngle')]
+[Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}}')]
+[Reflection.AssemblyMetaData('SVG.Default value', '0')]
+[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $LimitingConeAngle,
-# The TimitingConeAngle attribute.
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','TimitingConeAngle')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$TimitingConeAngle,
-# The IimitingConeAngle attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','IimitingConeAngle')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$IimitingConeAngle,
-# The SimitingConeAngle attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SimitingConeAngle')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$SimitingConeAngle,
-# The CimitingConeAngle attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','CimitingConeAngle')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$CimitingConeAngle
+$Class,
+# The Lang attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
+[PSObject]
+$Lang,
+# The Colorinterpolationfilters attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Colorinterpolationfilters')]
+[PSObject]
+$Colorinterpolationfilters
 )
 
 
