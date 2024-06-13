@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
 <svg viewBox="0 0 800 800" style="background-color:black" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-  <pattern width="0.166666666666667" height="0.166666666666667" id="fillPattern">
+  <pattern width="0.166666666666667" height="0.166666666666667">
     <polygon points="0,0, 100,100, 0,100" fill="#4488ff" stroke="#4488ff">
       <animate attributeName="points" to="100,100 0,0 100,0" attributeType="XML" dur="0.4688s" repeatDur="indefinite" />
     </polygon>
