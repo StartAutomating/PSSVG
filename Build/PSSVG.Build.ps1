@@ -990,23 +990,24 @@ If nothing was provided, each output will be decorated with it's ElementName.
                 $NameOrGroup -replace "'"
             } else {
                 # Group
-                foreach ($attrFileInfo in @($attributeFileData.Values)) {
-                    if ($attrFileInfo.Category -eq $NameOrGroup) {
-                        $attrFileInfo.Name
+                foreach ($attrKv in @($attributeFileData.GetEnumerator())) {
+                    if ($attrKv.Value.Category -eq $NameOrGroup) {
+                        $attrKv.Key
                     }
                 }
             }
         }
 
-        foreach ($attrFileInfo in @($attributeFileData.Values)) {
-            if ($attrFileInfo.AppliesTo -contains $elementName) {
-                $attrFileInfo.Name
+        foreach ($attrKv in @($attributeFileData.GetEnumerator())) {
+            if ($attrKv.Value.AppliesTo -contains $elementName) {
+                $attrKv.Key
             }
         }
     )
 
-    foreach ($potentiallyMissing in $checkForTheseParameters) {
+    foreach ($potentiallyMissing in $checkForTheseParameters) {    
         if (-not $parameters[$potentiallyMissing]) {
+            if ($attributeFileData[$potentiallyMissing].IsDeprecated) { continue }
             $potentiallyMissing = $potentiallyMissing.Substring(0,1).ToUpper() + $paramName.Substring(1)
             $potentiallyMissing = $potentiallyMissing -replace '\W'
             $parameters[$potentiallyMissing] = @(
