@@ -61,25 +61,26 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# Defines the coordinate system for the contents of the `<clipPath>` element.
+# The ClipPathUnits attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','clipPathUnits')]
-[Reflection.AssemblyMetaData('SVG.Value', 'userSpaceOnUse | objectBoundingBox')]
-[ArgumentCompleter({
-    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
-    $validSet = 'userSpaceOnUse','objectBoundingBox'
-    if ($wordToComplete) {        
-        $toComplete = $wordToComplete -replace "^'" -replace "'$"
-        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
-    } else {
-        return @($validSet -replace '^', "'" -replace '$',"'")
-    }
-})]
-[Reflection.AssemblyMetaData('SVG.Default value', 'userSpaceOnUse')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ClipPathUnits')]
 [PSObject]
-$ClipPathUnits
+$ClipPathUnits,
+# The SlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SlipPathUnits')]
+[PSObject]
+$SlipPathUnits,
+# The ElipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElipPathUnits')]
+[PSObject]
+$ElipPathUnits,
+# The TlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TlipPathUnits')]
+[PSObject]
+$TlipPathUnits
 )
 
 
