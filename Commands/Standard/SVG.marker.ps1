@@ -214,7 +214,27 @@ $RefY,
 [Reflection.AssemblyMetaData('SVG.Value', '<number>,? <number>,? <number>,? <number>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$ViewBox
+$ViewBox,
+# The CiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CiewBox')]
+[PSObject]
+$CiewBox,
+# The SiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SiewBox')]
+[PSObject]
+$SiewBox,
+# The EiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','EiewBox')]
+[PSObject]
+$EiewBox,
+# The TiewBox attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TiewBox')]
+[PSObject]
+$TiewBox
 )
 
 
