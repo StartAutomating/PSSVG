@@ -28,42 +28,42 @@ The SVG **`<tspan>`** element defines a subtext within a `text` element or anoth
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Index.PSSVG.ps1
+./Index.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StartAutomating.PSSVG.ps1
+./StartAutomating.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StartAutomating.PSSVG.ps1
+./StartAutomating.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StopUsingGIFs.PSSVG.ps1
+./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 5
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StopUsingGIFs.PSSVG.ps1
+./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 6
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StopUsingGIFs.PSSVG.ps1
+./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
