@@ -138,16 +138,101 @@ $K3,
 [Reflection.AssemblyMetaData('SVG.AttributeName','k4')]
 [PSObject]
 $K4,
+# The T4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','T4')]
+[PSObject]
+$T4,
+# The I4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','I4')]
+[PSObject]
+$I4,
+# The S4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','S4')]
+[PSObject]
+$S4,
 # The C4 attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','C4')]
 [PSObject]
 $C4,
-# The S4 attribute.
+# The L4 attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','S4')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','L4')]
 [PSObject]
-$S4
+$L4,
+# The F4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','F4')]
+[PSObject]
+$F4,
+# The B4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','B4')]
+[PSObject]
+$B4,
+# The M4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','M4')]
+[PSObject]
+$M4,
+# The V4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','V4')]
+[PSObject]
+$V4,
+# The D4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','D4')]
+[PSObject]
+$D4,
+# The O4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','O4')]
+[PSObject]
+$O4,
+# The W4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','W4')]
+[PSObject]
+$W4,
+# The P4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','P4')]
+[PSObject]
+$P4,
+# The U4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','U4')]
+[PSObject]
+$U4,
+# The A4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','A4')]
+[PSObject]
+$A4,
+# The H4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','H4')]
+[PSObject]
+$H4,
+# The X4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','X4')]
+[PSObject]
+$X4,
+# The R4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','R4')]
+[PSObject]
+$R4,
+# The Y4 attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Y4')]
+[PSObject]
+$Y4
 )
 
 
