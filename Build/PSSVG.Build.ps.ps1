@@ -222,7 +222,7 @@ switch -regex ($svgAttributesByCategory) {
 # $attributeFileData = [PSCustomObject]$attributeFileData
 @(foreach ($kvp in $attributeFileData.GetEnumerator()) {
     $noteProps = [Ordered]@{} + $kvp.Value
-    foreach ($key in $noteProps.Keys) {
+    foreach ($key in @($noteProps.Keys)) {
         if ($null -eq $noteProps[$key]) {
             $noteProps.Remove($key)
         }
