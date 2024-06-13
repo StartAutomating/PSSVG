@@ -137,7 +137,17 @@ $In2,
 [Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Mode
+$Mode,
+# The Code attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Code')]
+[PSObject]
+$Code,
+# The Sode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sode')]
+[PSObject]
+$Sode
 )
 
 
