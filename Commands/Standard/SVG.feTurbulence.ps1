@@ -5,38 +5,13 @@ function SVG.feTurbulence  {
 .Description
     The **`<feTurbulence>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) filter primitive creates an image using the [Perlin turbulence function](https://developer.mozilla.orghttps://en.wikipedia.org/wiki/Perlin_noise). It allows the synthesis of artificial textures like clouds or marble. The resulting image will fill the entire filter primitive subregion.
 .Example
-    $AnimationTimeframe = [Ordered]@{
-        Dur = '2s'
-        RepeatCount = 'indefinite'
-    }
-    
-    SVG -viewBox 1920,1080 -Content @(
-        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            SVG.feTurbulence -baseFrequency '0.025' @(
-                SVG.animate -AttributeName numOctaves -Values '1;6;12' @AnimationTimeframe
-                SVG.animate -AttributeName seed -Values '0;5;0' @AnimationTimeframe
-            ) -NumOctaves 4 -Type fractalNoise
-            SVG.feGaussianBlur -stdDeviation 0.9 @(
-                SVG.animate -AttributeName stdDeviation -Values '1.1;3.3;1.1' @AnimationTimeframe
-            )
-            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
-        )
-        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .4
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./CloudAnimation.PSSVG.ps1
+    Pop-Location
 .Example
-    #.SYNOPSIS
-    #    Generates clouds using SVG
-    #.DESCRIPTION
-    #    Generates a cloud effect using fractal noise and blending modes.
-    
-    SVG -viewBox 1920, 1080 -Content @(
-        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            SVG.feTurbulence -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
-            SVG.feGaussianBlur -stdDeviation 0.9
-            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
-        )
-        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Clouds.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.feTurbulence
 .Link
