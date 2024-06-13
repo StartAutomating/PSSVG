@@ -139,7 +139,32 @@ $Crossorigin,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','decoding')]
 [PSObject]
-$Decoding
+$Decoding,
+# The Cecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cecoding')]
+[PSObject]
+$Cecoding,
+# The Secoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Secoding')]
+[PSObject]
+$Secoding,
+# The Eecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eecoding')]
+[PSObject]
+$Eecoding,
+# The Tecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tecoding')]
+[PSObject]
+$Tecoding,
+# The Xecoding attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xecoding')]
+[PSObject]
+$Xecoding
 )
 
 
