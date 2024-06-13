@@ -232,8 +232,6 @@ foreach ($attrFile in $attributeFiles) {
         PSTypeName = 'SVG.Attribute'
         Name = $attrFileHeader.title
         Description = $description
-        Header = $attrFileHeader
-        Group = $attrFileGroup
         AppliesTo = $AppliesTo
         Example = $attrCodeBlocks -join [Environment]::NewLine
         IsDeprecated = $isDeprecated
@@ -280,6 +278,8 @@ switch -regex ($svgAttributesByCategory) {
 
 # $attributeFileData = [PSCustomObject]$attributeFileData
 @(foreach ($kvp in $attributeFileData.GetEnumerator()) {
+    $attributeParameterName = $kvp.Key.Substring(0,1).ToUpper() + $kvp.Key.Substring(1)
+    $attributeParameterName = $attributeParameterName -replace '\W'
     $noteProps = [Ordered]@{} + $kvp.Value
     foreach ($key in @($noteProps.Keys)) {
         if ($null -eq $noteProps[$key] -or 
@@ -289,6 +289,7 @@ switch -regex ($svgAttributesByCategory) {
             $noteProps.Remove($key)
         }
     }
+    $noteProps['ParameterName'] = $attributeParameterName
     Write-TypeView -TypeName "SVG.Attribute.$($kvp.Key)" -NoteProperty $noteProps
 }) | Out-TypeData -OutputPath (Join-Path $pwd "SVG.Attribute.Types.ps1xml")
 
