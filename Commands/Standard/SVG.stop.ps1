@@ -5,220 +5,57 @@ function SVG.stop  {
 .Description
     The SVG **`<stop>`** element defines a color and its position to use on a gradient. This element is always a child of a `linearGradient` or `radialGradient` element.
 .Example
-    param(
-    # The colors in the gradient
-    [string[]]
-    $Color = @('gold','red'),
-    
-    # The offsets in the gradient
-    [double[]]
-    $Offset = @(10,95)
-    )
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                for($n = 0; $n -lt $color.Length; $n++) {
-                    svg.stop -Offset "$($Offset[$n])%" -StopColor $color[$n]
-                }
-            )
-        )
-        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -viewbox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./LinearGradient.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                svg.stop -Stopcolor gold @(
-                    svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-                )
-                svg.stop -Stopcolor red @(
-                    svg.animate -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
-                )
-            )
-        )
-        svg.rect -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
-    ) -ViewBox '0 0 100 100'
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./LinearGradientAnimated.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                svg.stop -Stopcolor gold @(
-                    svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-                )
-                svg.stop -Stopcolor red @(
-                    svg.animate -AttributeName offset -Values '100;0;100' -Dur 5s -RepeatCount indefinite
-                )
-            )
-        )
-        svg.rect -Fill 'url(#myGradient)' -x 0 -Y 0 -Width 100 -Height 100
-    ) -ViewBox '0 0 100 100'
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./LinearGradientAnimated.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                svg.stop -Offset '10%' -Stopcolor transparent
-                svg.stop -Offset '95%' -Stopcolor '#4488ff'
-                svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-                svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-                svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-                svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-            ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-    
-    
-        )
-        svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-    ) -viewbox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./MovingGradient.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                svg.stop -Offset '10%' -Stopcolor transparent
-                svg.stop -Offset '95%' -Stopcolor '#4488ff'
-                svg.animate -AttributeName y1 -From 0 -To 1 -Id animateY1 -Fill freeze -Dur '3s'
-                svg.animate -AttributeName y2 -Dur "3s" -From 1 -to 0 -Id 'animateY2' -Fill freeze -Begin 'animateY1.end'
-                svg.animate -AttributeName x1 -Values '1;0' -Dur '3s' -Begin 'animateY2.end' -Fill freeze -Id animateX1
-                svg.animate -AttributeName x2 -Values '0;1' -Dur '3s' -Begin 'animateX1.end' -Fill freeze
-            ) -X1 100% -X2 0 -Y1 0% -Y2 100%
-    
-    
-        )
-        svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-    ) -viewbox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./MovingGradient.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [timespan]
-    $Duration = '00:00:05'
-    )
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternMask.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [timespan]
-    $Duration = '00:00:05'
-    )
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternMask.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [timespan]
-    $Duration = '00:00:05'
-    )
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternMask.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The colors in the gradient
-    [string[]]
-    $Color = @('#4488ff','#224488'),
-    
-    # The offsets in the gradient
-    [double[]]
-    $Offset = @(10,95)
-    )
-    
-    
-    svg -Content @(
-        svg.defs @(
-            svg.radialGradient -Id myGradient -Content @(
-                for($n = 0; $n -lt $color.Length; $n++) {
-                    svg.stop -Offset "$($Offset[$n])%" -StopColor $color[$n]
-                }
-            )
-        )
-        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -ViewBox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./RadialGradient.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.radialGradient -Id myGradient -Content @(
-                svg.stop -Offset '1%' -Stopcolor gold @(
-                    svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-                )
-                svg.stop -Offset '100%' -Stopcolor red
-            )
-        )
-        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -ViewBox '0 0 100 100'
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./RadialGradientAnimated.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.radialGradient -Id myGradient -Content @(
-                svg.stop -Offset '1%' -Stopcolor gold @(
-                    svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-                )
-                svg.stop -Offset '100%' -Stopcolor red
-            )
-        )
-        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -ViewBox '0 0 100 100'
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./RadialGradientAnimated.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                svg.stop -Offset '10%' -Stopcolor gold
-                svg.stop -Offset '95%' -Stopcolor red
-            ) -X1 0 -X2 0 -Y1 0% -Y2 100%
-        )
-        svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-    ) -viewbox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./VerticalLinearGradient.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                svg.stop -Offset '10%' -Stopcolor gold
-                svg.stop -Offset '95%' -Stopcolor red
-            ) -X1 0 -X2 0 -Y1 0% -Y2 100%
-        )
-        svg.rect -Fill 'url(#myGradient)' -Width 100 -Height 100
-    ) -viewbox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./VerticalLinearGradient.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.stop
 .Link
