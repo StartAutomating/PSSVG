@@ -30,14 +30,14 @@ Text in a `<title>` element is not rendered as part of the graphic, but browsers
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-Flag.PSSVG.ps1
+./US-Flag.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./US-FlagAnimated.PSSVG.ps1
+./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
