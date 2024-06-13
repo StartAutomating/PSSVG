@@ -1,3 +1,6 @@
+[ValidatePattern('SVG\.LinePath')]
+param()
+
 function SVG.LinePath {
     <#
     
