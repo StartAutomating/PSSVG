@@ -63,16 +63,31 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
+# The TlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TlipPathUnits')]
+[PSObject]
+$TlipPathUnits,
+# The IlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IlipPathUnits')]
+[PSObject]
+$IlipPathUnits,
+# The SlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SlipPathUnits')]
+[PSObject]
+$SlipPathUnits,
 # The ClipPathUnits attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','ClipPathUnits')]
 [PSObject]
 $ClipPathUnits,
-# The SlipPathUnits attribute.
+# The LlipPathUnits attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SlipPathUnits')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LlipPathUnits')]
 [PSObject]
-$SlipPathUnits
+$LlipPathUnits
 )
 
 
