@@ -154,7 +154,17 @@ $StitchTiles,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition)')]
 [PSObject]
-$Type
+$Type,
+# The Cype attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cype')]
+[PSObject]
+$Cype,
+# The Sype attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sype')]
+[PSObject]
+$Sype
 )
 
 
