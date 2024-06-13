@@ -6,19 +6,19 @@ function SVG.linearGradient  {
     The **`<linearGradient>`** element lets authors define linear gradients to apply to other SVG elements.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./LinearGradient.PSSVG.ps1
+    ./LinearGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./LinearGradientAnimated.PSSVG.ps1
+    ./LinearGradientAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingGradient.PSSVG.ps1
+    ./MovingGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./VerticalLinearGradient.PSSVG.ps1
+    ./VerticalLinearGradient.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.linearGradient
