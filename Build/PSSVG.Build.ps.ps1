@@ -221,7 +221,13 @@ switch -regex ($svgAttributesByCategory) {
 
 # $attributeFileData = [PSCustomObject]$attributeFileData
 @(foreach ($kvp in $attributeFileData.GetEnumerator()) {
-    Write-TypeView -TypeName "SVG.Attribute.$($kvp.Key)" -NoteProperty $kvp.Value
+    $noteProps = [Ordered]@{} + $kvp.Value
+    foreach ($key in $noteProps.Keys) {
+        if ($null -eq $noteProps[$key]) {
+            $noteProps.Remove($key)
+        }
+    }
+    Write-TypeView -TypeName "SVG.Attribute.$($kvp.Key)" -NoteProperty $noteProps
 }) | Out-TypeData -OutputPath (Join-Path $pwd "SVG.Attribute.Types.ps1xml")
 
 
