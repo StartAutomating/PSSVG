@@ -116,14 +116,31 @@ $PointsAtZ,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $SpecularExponent,
-# 
+# The LimitingConeAngle attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','limitingConeAngle')]
-[Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("number")}}')]
-[Reflection.AssemblyMetaData('SVG.Default value', '0')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LimitingConeAngle')]
 [PSObject]
-$LimitingConeAngle
+$LimitingConeAngle,
+# The TimitingConeAngle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TimitingConeAngle')]
+[PSObject]
+$TimitingConeAngle,
+# The IimitingConeAngle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IimitingConeAngle')]
+[PSObject]
+$IimitingConeAngle,
+# The SimitingConeAngle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SimitingConeAngle')]
+[PSObject]
+$SimitingConeAngle,
+# The CimitingConeAngle attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CimitingConeAngle')]
+[PSObject]
+$CimitingConeAngle
 )
 
 
