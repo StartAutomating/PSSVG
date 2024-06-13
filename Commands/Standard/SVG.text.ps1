@@ -440,28 +440,26 @@ $Rotate,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $LengthAdjust,
-# A width that the text should be scaled to fit.
+# The TextLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','textLength')]
-[Reflection.AssemblyMetaData('SVG.Value', '
-        {{cssxref("length-percentage")}} |
-        {{cssxref("number")}}
-      ')]
-[ValidatePattern('(?>|\d+)')]
-[ArgumentCompleter({
-    param ( $commandName,$parameterName,$wordToComplete,$commandAst,$fakeBoundParameters )    
-
-    $validSet = '<length-percentage>','<number>'
-    if ($wordToComplete) {        
-        $toComplete = $wordToComplete -replace "^'" -replace "'$"
-        return @($validSet -like "$toComplete*" -replace '^', "'" -replace '$',"'")
-    } else {
-        return @($validSet -replace '^', "'" -replace '$',"'")
-    }
-})]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TextLength')]
 [PSObject]
-$TextLength
+$TextLength,
+# The CextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CextLength')]
+[PSObject]
+$CextLength,
+# The SextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SextLength')]
+[PSObject]
+$SextLength,
+# The EextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','EextLength')]
+[PSObject]
+$EextLength
 )
 
 
