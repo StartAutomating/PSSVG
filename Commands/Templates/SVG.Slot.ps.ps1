@@ -25,9 +25,7 @@ function SVG.Slot
         if (-not $ContentToslot) {
             # If no content is piped in, check the parameter.
             $ContentToslot = $PSBoundParameters['Content']
-        }
-        # Return if there is nothing to slot.
-        return if -not $ContentToslot
+        }        
 
         # Create a splat of parameters to pass to the base command.
         $svgSplat = [Ordered]@{} + $PSBoundParameters
@@ -53,8 +51,10 @@ function SVG.Slot
         }
         # and remove `Content` for good measure.
         $svgSplat.Remove('Content')
-        $svgSplat.Content = $ContentToslot                
-
+        if ($ContentToslot) {
+            $svgSplat.Content = $ContentToslot
+        }
+        
         Write-SVG @elementSplat -Content @( & $baseCommand @svgSplat)
     }
 }
