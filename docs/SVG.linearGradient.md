@@ -26,28 +26,28 @@ The **`<linearGradient>`** element lets authors define linear gradients to apply
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./LinearGradient.PSSVG.ps1
+./LinearGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./LinearGradientAnimated.PSSVG.ps1
+./LinearGradientAnimated.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./MovingGradient.PSSVG.ps1
+./MovingGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./VerticalLinearGradient.PSSVG.ps1
+./VerticalLinearGradient.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
