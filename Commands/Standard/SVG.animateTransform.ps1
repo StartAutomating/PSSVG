@@ -608,11 +608,16 @@ $To,
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition)')]
 [PSObject]
 $Type,
-# The values attribute.
+# The Eype attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','type')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Eype')]
 [PSObject]
-$values
+$Eype,
+# The Vype attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Vype')]
+[PSObject]
+$Vype
 )
 
 
