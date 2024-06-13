@@ -7,142 +7,33 @@ function SVG.polygon  {
     
     For open shapes, see the `polyline` element.
 .Example
-    param(
-    [Alias('BPM')]
-    [double]
-    $BeatsPerMinute = 70,
-    
-    [int]
-    $scale = 4
-    )
-    
-    $animateDuration = "$([Math]::Round(1/($BeatsPerMinute / 60), 4))s"
-    $animateSplat = [Ordered]@{
-        Dur = $animateDuration
-        RepeatDur = "indefinite"
-    }
-    
-    $patternSize = 1/$scale
-    
-    $Color = "#4488ff"
-    
-    SVG -ViewBox 800, 800 @(
-        SVG.pattern -Width $patternSize -Height $patternSize @(
-            SVG.polygon -Points "10,10, 10,90, 50,50, 90,10 90,90" @(
-                SVG.animate -AttributeName points -to "0,0 100,0 100,100, 0,100 0,0" -AttributeType XML @animateSplat
-            )  -Fill $color -Stroke $color
-        ) -id fillPattern
-        SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)" -X 0 -Y 0
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./BPMMorph.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The number of beats per minute
-    [double]
-    $BeatsPerMinute = 128,
-    
-    # The number repetitions of the pattern
-    [ValidateRange(1,16)]
-    [int]
-    $Scale = 6
-    )
-    
-    $bpm = $BeatsPerMinute
-    
-    $animateDuration = "$([Math]::Round(1/($bpm / 60), 4))s"
-    $animateSplat = [Ordered]@{
-        Dur = $animateDuration
-        RepeatDur = "indefinite"
-    }
-    
-    $patternSize = 1/$scale
-    
-    $Color = "#4488ff"
-    
-    SVG -ViewBox 800, 800 @(
-        SVG.pattern -Width $patternSize -Height $patternSize @(
-            SVG.polygon -Points "0,0, 100,100, 0,100" @(
-                SVG.animate -AttributeName points -to "100,100 0,0 100,0" -AttributeType XML @animateSplat
-            )  -Fill $color -Stroke $color
-        ) -id fillPattern
-        SVG.rect -Width 800 -Height 800 -Fill "url(#fillPattern)"
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./BPMTriangleMorph.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.polygon -Points "25,50 50,75 75,50 50,25" -Fill '#4488ff' @(
-            svg.animate -AttributeName points -Values "25,50 50,75 75,50 50,25;0,0 0,100 100,100, 100,0; 25,50 50,75 75,50 50,25" -Dur 2s -Id morph1 -RepeatCount 'indefinite' -AttributeType XML
-        )
-    ) -ViewBox 100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Morphing.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -ViewBox 0, 0, 250, 200 -Content @(
-        svg.defs (
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill '#4488ff'
-            )
-        )
-        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternAnimation.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [timespan]
-    $Duration = '00:00:05'
-    )
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternMask.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -ViewBox 100,100 -Content @(
-        svg.symbol -Id psChevron -Content @(
-            svg.polygon -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-    
-        svg.use -Href '#psChevron' -Fill '#4488ff'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PowerShellChevron.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -viewBox 300, 100 -Content @(
-        svg.symbol -Id psChevron -Content @(
-            svg.polygon -Points (@(
-                "40,20"
-                "45,20"
-                "60,50"
-                "35,80"
-                "32.5,80"
-                "55,50"
-            ) -join ' ')
-        ) -ViewBox 100, 100
-        svg.use -Href '#psChevron' -Fill '#4488ff' -X -7.5%
-        svg.text @(
-            svg.tspan -Content 'Start' -LetterSpacing .15em -AlignmentBaseline 'middle'
-            svg.tspan -Content 'Automating' -LetterSpacing .2em -AlignmentBaseline 'middle' -Dx 0.5em
-        ) -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 27.5% -Y 50% -Fill '#4488ff'
-        # svg.text -Content 'Automating' -FontFamily 'monospace' -AlignmentBaseline 'middle' -X 45% -Y 55% -Fill '#4488ff' -LetterSpacing .1em
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./StartAutomating.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.polygon
 .Link
