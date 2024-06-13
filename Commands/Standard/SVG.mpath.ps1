@@ -59,13 +59,16 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# 
+# The XlinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
-[Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XlinkHref')]
 [PSObject]
-$XlinkHref
+$XlinkHref,
+# The ElinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[PSObject]
+$ElinkHref
 )
 
 
