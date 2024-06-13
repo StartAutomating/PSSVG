@@ -5,260 +5,69 @@ function SVG.circle  {
 .Description
     The **`<circle>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element is an [SVG basic shape](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes), used to draw circles based on a center point and a radius.
 .Example
-    param(
-    # The fill color of the circle
-    [string[]]$Fill = @('red','orange','yellow','green','blue','indigo','violet','red'),
-    # The stroke color of the circle
-    [string[]]$Stroke = @('orange','yellow','green','blue','indigo','violet','red','orange'),
-    
-    # The duration of the animation.
-    [Timespan]
-    $Duration = "00:00:10",
-    
-    # The stroke thickness of the circle
-    [int[]]
-    $strokeThickness = @(1,2,3,4,5,6,7,8,9,10)
-    )
-    
-    SVG -Content @(
-        SVG.circle -cx 50 -cy 50 -r 50 -Fill red @(
-            SVG.animate -AttributeName fill -dur $($Duration.TotalSeconds) -Values ($Fill -join ';') -RepeatCount indefinite
-            SVG.animate -AttributeName stroke -dur $($Duration.TotalSeconds) -Values ($Stroke -join ';') -RepeatCount indefinite
-            SVG.animate -AttributeName stroke-thickness -Dur $($Duration.TotalSeconds) -Values ($strokeThickness -join ';') -RepeatCount indefinite
-        ) -Stroke orange
-    )  -ViewBox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./AnimateColor.PSSVG.ps1
+    Pop-Location
 .Example
-    SVG @(
-        $animationSettings = [Ordered]@{
-            Dur  = '2s'
-            RepeatCount = 'indefinite'
-        }
-        SVG.circle -CX 25 -CY 25 -r 10 -Fill '#4488ff' @(
-            SVG.animate -values '1;10;1' -AttributeName r @animationSettings
-        )
-        SVG.rect -X 0 -Y 50 -Width 50 -Height 50 -Fill '#4488ff' @(
-            SVG.animate -values '0;50;0' -AttributeName width @animationSettings
-            SVG.animate -values '50;0;50' -AttributeName height @animationSettings
-        )
-        SVG.ellipse -Cx 25 -Cy 100 -Rx 10 -Ry 5 -Fill '#4488ff' @(
-            SVG.animate -values '10;1;10' -AttributeName rx @animationSettings
-            SVG.animate -values '5;10;5' -AttributeName ry @animationSettings
-        )
-    ) -ViewBox 0, 0, 100, 150
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./AnimatedShapes.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [string]$AnimationPath = "M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-    )
-    
-    SVG -viewBox "0 0 200 100" @(
-        SVG.path -d $AnimationPath -Fill none -Stroke lightgrey
-        SVG.circle -r 5 -Fill red (
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $AnimationPath
-        )
-        SVG.rect -Width 2 -Height 2 -X -1 -Y -1 -Fill blue @(
-            SVG.animateMotion -Dur 10s -RepeatCount 'indefinite' -Path $AnimationPath
-            SVG.animateTransform -AttributeName transform -From "0 0 0"  -To "360 0 0" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./AnimateMotion.PSSVG.ps1
+    Pop-Location
 .Example
-    SVG @(
-        SVG.filter (
-            SVG.feGaussianBlur -In 'SourceGraphic' -StdDeviation 5
-        ) -id blurMe
-    
-        SVG.circle -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
-    ) -ViewBox 100, 100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Blur.PSSVG.ps1
+    Pop-Location
 .Example
-    SVG -ViewBox 0,0,200,200 @(
-        SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
-        SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
-        SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Circles.PSSVG.ps1
+    Pop-Location
 .Example
-    SVG -ViewBox 0,0,200,200 @(
-        SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
-        SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
-        SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Circles.PSSVG.ps1
+    Pop-Location
 .Example
-    SVG -ViewBox 0,0,200,200 @(
-        SVG.circle -Fill "red" -Cx 100 -Cy 50 -r 5
-        SVG.circle -Fill "green" -cx 100 -cy 100 -r 10
-        SVG.circle -Fill "blue" -cx 100 -cy 150 -Stroke "cyan" -Strokewidth 1 -r 20
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Circles.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The colors in the gradient
-    [string[]]
-    $Color = @('gold','red'),
-    
-    # The offsets in the gradient
-    [double[]]
-    $Offset = @(10,95)
-    )
-    svg -Content @(
-        svg.defs @(
-            svg.LinearGradient -Id myGradient -Content @(
-                for($n = 0; $n -lt $color.Length; $n++) {
-                    svg.stop -Offset "$($Offset[$n])%" -StopColor $color[$n]
-                }
-            )
-        )
-        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -viewbox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./LinearGradient.PSSVG.ps1
+    Pop-Location
 .Example
-    svg @(
-        svg.defs @(
-            svg.pattern -Id 'SimplePattern' -Width .1 -Height .1 -Content @(
-                svg.circle -Cx 2.5 -Cy 2.5 -R .5 -Fill '#4488ff'
-                svg.line -X1 0 -x2 5 -y1 2.5 -Y2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-                svg.line -Y1 0 -Y2 5 -X1 2.5 -X2 2.5 -Stroke '#4488ff' -StrokeWidth .1
-            )
-        )
-        svg.rect -Fill 'url(#SimplePattern)' -Width 50 -Height 50 -Opacity .3
-    ) -ViewBox 0,0,50,50
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Pattern.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -ViewBox 0, 0, 250, 200 -Content @(
-        svg.defs (
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill '#4488ff'
-            )
-        )
-        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternAnimation.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -ViewBox 0, 0, 250, 200 -Content @(
-        svg.defs (
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill '#4488ff'
-            )
-        )
-        svg.circle -cx 50 -cy 100 -r 50 -Fill 'url(#star)'
-        svg.circle -cx 180 -cy 100 -r 50 -Fill 'none' -StrokeWidth 20 -Stroke 'url(#star)' -Content @(
-            svg.animateTransform -AttributeName transform -From "0 180 100"  -To "360 180 100" -dur "5s" -RepeatCount indefinite -AttributeType xml -type rotate
-        )
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternAnimation.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [timespan]
-    $Duration = '00:00:05'
-    )
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternMask.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [timespan]
-    $Duration = '00:00:05'
-    )
-    svg -ViewBox 0, 0, 100, 100 -Content @(
-        svg.defs @(
-            svg.pattern -id star -ViewBox 0,0, 10, 10 -Width 10% -Height 10% @(
-                svg.polygon -Points "0,0", "2,5", "0,10", "5,8", "10,10","8,5", "10,0", "5,2" @(
-                    svg.animateTransform -AttributeName transform -From "0 5 5"  -To "360 5 5" -dur "$($Duration.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-                ) -Fill white
-            )
-            svg.mask (
-                svg.circle -Fill 'url(#star)' -r 50 -cx 50 -cy 50
-            ) -Id myMask
-            svg.radialGradient @(
-                svg.stop -Offset '25%' -StopColor 'red'
-                svg.stop -Offset '50%' -StopColor 'green'
-                svg.stop -Offset '75%' -StopColor 'blue'
-            ) -id myGradient
-        )
-        svg.circle -cx 50 -cy 50 -r 50 -Fill 'url(#myGradient)' -Mask 'url(#myMask)'
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./PatternMask.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The colors in the gradient
-    [string[]]
-    $Color = @('#4488ff','#224488'),
-    
-    # The offsets in the gradient
-    [double[]]
-    $Offset = @(10,95)
-    )
-    
-    
-    svg -Content @(
-        svg.defs @(
-            svg.radialGradient -Id myGradient -Content @(
-                for($n = 0; $n -lt $color.Length; $n++) {
-                    svg.stop -Offset "$($Offset[$n])%" -StopColor $color[$n]
-                }
-            )
-        )
-        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -ViewBox 0,0,100,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./RadialGradient.PSSVG.ps1
+    Pop-Location
 .Example
-    svg -Content @(
-        svg.defs @(
-            svg.radialGradient -Id myGradient -Content @(
-                svg.stop -Offset '1%' -Stopcolor gold @(
-                    svg.animate -AttributeName offset -Values '.1;.99;.1' -Dur 5s -RepeatCount indefinite
-                )
-                svg.stop -Offset '100%' -Stopcolor red
-            )
-        )
-        svg.circle -Fill 'url(#myGradient)' -Cx 50 -Cy 50 -R 35
-    ) -ViewBox '0 0 100 100'
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./RadialGradientAnimated.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The radius of the circle
-    [alias('r')]
-    [double]
-    $Radius = 35,
-    
-    # The center of the circle
-    [alias('c')]
-    [double]
-    $Center = 50,
-    
-    # The color of the circle
-    [alias('f')]
-    [string]
-    $Fill = 'transparent',
-    
-    # The color of the stroke
-    [alias('s')]
-    [string]
-    $Stroke = '#4488ff',
-    
-    # The duration of the animation.
-    [Timespan]
-    [Alias('D','Duration','P','Period')]
-    $RotateEvery = "00:00:01.5"
-    )
-    
-    svg -ViewBox 0,0, ($center * 2), ($center * 2) @(
-        svg.circle -Fill $fill -Stroke $Stroke -Cx $center -Cy $center -R $Radius
-        svg.line -Stroke $Stroke -X1 $center -x2 ($center + $radius) -Y1 $center -Y2 $center @(
-            svg.animatetransform -AttributeName transform -From "0 $center $center"  -To "360 $center $center" -dur "$($RotateEvery.TotalSeconds)s" -RepeatCount indefinite -AttributeType xml -type rotate
-        ) -Opacity 0.8
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./SweepCircle.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.circle
 .Link
