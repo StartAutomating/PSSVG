@@ -67,15 +67,15 @@ function SVG.Slot {
         # Create a splat of parameters to pass to the base command.
         $svgSplat = [Ordered]@{} + $PSBoundParameters
 
-        $propagateToslot = 'class','id','lang','style', 'data', 'attribute','slot','name'
+        $propagateToslot = 'class','id','lang','style', 'data', 'attribute','slot','name','outputPath'
         $elementSplat = [Ordered]@{
             ElementName='slot'
             Attribute = [Ordered]@{}
         }
         foreach ($parameterName in $propagateToslot) {
             if ($svgSplat[$parameterName]) {
-                if ($parameterName -eq 'data') {
-                    $elementSplat.Data = $svgSplat[$parameterName]
+                if ($parameterName -in 'data','outputPath') {
+                    $elementSplat[$parameterName] = $svgSplat[$parameterName]
                 } else {
                     $elementSplat.Attribute[$parameterName] = $svgSplat[$parameterName]
                 }                
