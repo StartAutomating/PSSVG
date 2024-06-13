@@ -188,16 +188,31 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
+# The TextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TextLength')]
+[PSObject]
+$TextLength,
+# The IextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IextLength')]
+[PSObject]
+$IextLength,
+# The SextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SextLength')]
+[PSObject]
+$SextLength,
 # The CextLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CextLength')]
 [PSObject]
 $CextLength,
-# The SextLength attribute.
+# The LextLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SextLength')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LextLength')]
 [PSObject]
-$SextLength
+$LextLength
 )
 
 
