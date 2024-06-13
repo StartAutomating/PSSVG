@@ -758,7 +758,7 @@ foreach ($elementKV in $svgElementData.GetEnumerator()) {
             foreach ($exampleFile in $relevantExampleFiles) {                
                 $exampleContent = @(
                     "Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location"
-                    "$(./$($exampleFile | Split-Path -Leaf))"
+                    "./$($($exampleFile | Split-Path -Leaf))"
                     "Pop-Location"                    
                 ) -join [Environment]::NewLine
                 $exampleContent
