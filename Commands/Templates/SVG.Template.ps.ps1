@@ -37,18 +37,27 @@ function SVG.Template
         $svgSplat.Remove('Content')
         $svgSplat.Content = $ContentTotemplate
          
-        $propagateToTemplate = 'class','id','lang','style', 'data', 'attribute','slot'
+        $propagateToTemplate = 'class','id','lang','style', 'data', 'attribute','slot','outputPath'
         $elementSplat = [Ordered]@{
             ElementName='template'
             Attribute = [Ordered]@{}
         }
         foreach ($parameterName in $propagateToTemplate) {
             if ($svgSplat[$parameterName]) {
-                $elementSplat.Attribute[$parameterName] = $svgSplat[$parameterName]
+                if ($parameterName -in 'data','outputPath') {
+                    $elementSplat[$parameterName] = $svgSplat[$parameterName]
+                } else {
+                    $elementSplat.Attribute[$parameterName] = $svgSplat[$parameterName]
+                }
                 $svgSplat.Remove($parameterName)
             }
         }
 
-        Write-SVG @elementSplat -Content @( & $baseCommand @svgSplat)
+        if ($ContentToslot) {
+            $svgSplat.Content = $ContentToslot
+            $elementSplat.Content = @( & $baseCommand @svgSplat)
+        }
+
+        Write-SVG @elementSplat
     }
 }
