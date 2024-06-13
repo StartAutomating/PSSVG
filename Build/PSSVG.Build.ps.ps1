@@ -940,7 +940,7 @@ If nothing was provided, each output will be decorated with it's ElementName.
 
     foreach ($potentiallyMissing in $checkForTheseParameters) {
         if (-not $parameters[$potentiallyMissing]) {
-            $potentiallyMissing= @(
+            $parameters[$potentiallyMissing] = @(
                 "# The $potentiallyMissing attribute."
                 "[Parameter(ValueFromPipelineByPropertyName)]"
                 "[Reflection.AssemblyMetaData('SVG.AttributeName','$attrName')]"
