@@ -2,7 +2,7 @@
 <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
 <svg viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="myGradient">
+    <radialGradient>
       <stop offset="1%" stop-color="gold">
         <animate attributeName="offset" values=".1;.99;.1" dur="5s" repeatCount="indefinite" />
       </stop>
