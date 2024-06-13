@@ -97,24 +97,101 @@ $In,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Operator,
-# 
+# The Radius attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','radius')]
-[Reflection.AssemblyMetaData('SVG.Value', '<number-optional-number>')]
-[Reflection.AssemblyMetaData('SVG.Default value', '0')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Radius')]
 [PSObject]
 $Radius,
+# The Tadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tadius')]
+[PSObject]
+$Tadius,
+# The Iadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Iadius')]
+[PSObject]
+$Iadius,
+# The Sadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sadius')]
+[PSObject]
+$Sadius,
 # The Cadius attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Cadius')]
 [PSObject]
 $Cadius,
-# The Sadius attribute.
+# The Ladius attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Sadius')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ladius')]
 [PSObject]
-$Sadius
+$Ladius,
+# The Fadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fadius')]
+[PSObject]
+$Fadius,
+# The Badius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Badius')]
+[PSObject]
+$Badius,
+# The Madius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Madius')]
+[PSObject]
+$Madius,
+# The Vadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Vadius')]
+[PSObject]
+$Vadius,
+# The Dadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Dadius')]
+[PSObject]
+$Dadius,
+# The Oadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Oadius')]
+[PSObject]
+$Oadius,
+# The Wadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Wadius')]
+[PSObject]
+$Wadius,
+# The Padius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Padius')]
+[PSObject]
+$Padius,
+# The Uadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Uadius')]
+[PSObject]
+$Uadius,
+# The Aadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Aadius')]
+[PSObject]
+$Aadius,
+# The Hadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Hadius')]
+[PSObject]
+$Hadius,
+# The Xadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xadius')]
+[PSObject]
+$Xadius,
+# The Yadius attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Yadius')]
+[PSObject]
+$Yadius
 )
 
 
