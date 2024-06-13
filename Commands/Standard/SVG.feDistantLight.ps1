@@ -74,7 +74,32 @@ $Azimuth,
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Elevation
+$Elevation,
+# The Tlevation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tlevation')]
+[PSObject]
+$Tlevation,
+# The Ilevation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ilevation')]
+[PSObject]
+$Ilevation,
+# The Slevation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Slevation')]
+[PSObject]
+$Slevation,
+# The Clevation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Clevation')]
+[PSObject]
+$Clevation,
+# The Llevation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Llevation')]
+[PSObject]
+$Llevation
 )
 
 
