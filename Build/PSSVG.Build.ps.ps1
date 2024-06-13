@@ -210,7 +210,7 @@ switch -regex ($svgAttributesByCategory) {
         $attributeName = $matches.n.Trim() 
         if (-not $attributeFileData[$attributeName]) {
             $attributeFileData[$attributeName] = [Ordered]@{
-                Name = $attribtueName
+                Name = $attributeName
                 Category = $currentCategoryName
             }
         } else {
@@ -220,6 +220,10 @@ switch -regex ($svgAttributesByCategory) {
 }
 
 # $attributeFileData = [PSCustomObject]$attributeFileData
+@(foreach ($kvp in $attributeFileData.GetEnumerator()) {
+    Write-TypeView -TypeName "SVG.Attribute.$($kvp.Key)" -NoteProperty $kvp.Value
+}) | Out-TypeData -OutputPath (Join-Path $pwd "SVG.Attribute.Types.ps1xml")
+
 
 # If we don't know the list of elements
 if (-not $svgElements) {
