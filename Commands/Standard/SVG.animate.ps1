@@ -2141,11 +2141,41 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# The values attribute.
+# The ElinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
 [PSObject]
-$values
+$ElinkHref,
+# The AlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AlinkHref')]
+[PSObject]
+$AlinkHref,
+# The FlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FlinkHref')]
+[PSObject]
+$FlinkHref,
+# The TlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TlinkHref')]
+[PSObject]
+$TlinkHref,
+# The DlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DlinkHref')]
+[PSObject]
+$DlinkHref,
+# The RlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RlinkHref')]
+[PSObject]
+$RlinkHref,
+# The VlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VlinkHref')]
+[PSObject]
+$VlinkHref
 )
 
 
