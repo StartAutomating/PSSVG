@@ -59,46 +59,58 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# The XlinkHref attribute.
+# 
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','XlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
+[Reflection.AssemblyMetaData('SVG.Value', '<iri>')]
+[Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
 $XlinkHref,
-# The TlinkHref attribute.
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','TlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$TlinkHref,
-# The IlinkHref attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','IlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$IlinkHref,
-# The SlinkHref attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$SlinkHref,
-# The ClinkHref attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ClinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$ClinkHref,
-# The LlinkHref attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','LlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$LlinkHref,
-# The ElinkHref attribute.
+$Lang,
+# The Xlinkrole attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkrole')]
 [PSObject]
-$ElinkHref,
-# The HlinkHref attribute.
+$Xlinkrole,
+# The Xlinkactuate attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','HlinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkactuate')]
 [PSObject]
-$HlinkHref
+$Xlinkactuate,
+# The ExternalResourcesRequired attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ExternalResourcesRequired')]
+[PSObject]
+$ExternalResourcesRequired,
+# The Href attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Href')]
+[PSObject]
+$Href
 )
 
 
