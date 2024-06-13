@@ -30,77 +30,77 @@ If text is included in SVG not inside of a `<text>` element, it is not rendered.
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./DropShadow.PSSVG.ps1
+./DropShadow.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Embossed.PSSVG.ps1
+./Embossed.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./FadeIn.PSSVG.ps1
+./FadeIn.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./HelloWorld.PSSVG.ps1
+./HelloWorld.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 5
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Index.PSSVG.ps1
+./Index.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 6
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./MovingShadows.PSSVG.ps1
+./MovingShadows.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 7
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StartAutomating.PSSVG.ps1
+./StartAutomating.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 8
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StartAutomating.PSSVG.ps1
+./StartAutomating.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 9
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StopUsingGIFs.PSSVG.ps1
+./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 10
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StopUsingGIFs.PSSVG.ps1
+./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 11
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StopUsingGIFs.PSSVG.ps1
+./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
