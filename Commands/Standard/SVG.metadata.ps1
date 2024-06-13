@@ -59,31 +59,31 @@ $Decorate,
 [Alias('Child')]
 [Management.Automation.PSObject]
 $Children,
-# The Tidth attribute.
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Tidth')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$Tidth,
-# The Iidth attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Iidth')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$Iidth,
-# The Sidth attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Sidth')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$Sidth,
-# The Cidth attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Cidth')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$Cidth,
-# The Lidth attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Lidth')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$Lidth
+$Lang
 )
 
 
