@@ -119,25 +119,101 @@ $In,
 [Reflection.AssemblyMetaData('SVG.AttributeName','type')]
 [PSObject]
 $Type,
-# Values include `SourceGraphic`, `SourceAlpha`, `BackgroundImage`, `BackgroundAlpha`, `FillPaint`, `StrokePaint`, or a reference to another filter primitive.
-# Values include `matrix`, `saturate`, `hueRotate`, and `luminanceToAlpha`.
+# The Values attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','values')]
-[Reflection.AssemblyMetaData('SVG.Value', '<list-of-numbers>')]
-[Reflection.AssemblyMetaData('SVG.Default value', 'If type="matrix", identity matrix,if type="saturate", 1, resulting in identity matrix,if type="hueRotate", 0, resulting in identity matrix')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Values')]
 [PSObject]
 $Values,
+# The Talues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Talues')]
+[PSObject]
+$Talues,
+# The Ialues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ialues')]
+[PSObject]
+$Ialues,
+# The Salues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Salues')]
+[PSObject]
+$Salues,
 # The Calues attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Calues')]
 [PSObject]
 $Calues,
-# The Salues attribute.
+# The Lalues attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Salues')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lalues')]
 [PSObject]
-$Salues
+$Lalues,
+# The Falues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Falues')]
+[PSObject]
+$Falues,
+# The Balues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Balues')]
+[PSObject]
+$Balues,
+# The Malues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Malues')]
+[PSObject]
+$Malues,
+# The Dalues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Dalues')]
+[PSObject]
+$Dalues,
+# The Oalues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Oalues')]
+[PSObject]
+$Oalues,
+# The Walues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Walues')]
+[PSObject]
+$Walues,
+# The Palues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Palues')]
+[PSObject]
+$Palues,
+# The Ualues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ualues')]
+[PSObject]
+$Ualues,
+# The Aalues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Aalues')]
+[PSObject]
+$Aalues,
+# The Halues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Halues')]
+[PSObject]
+$Halues,
+# The Xalues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xalues')]
+[PSObject]
+$Xalues,
+# The Ralues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Ralues')]
+[PSObject]
+$Ralues,
+# The Yalues attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Yalues')]
+[PSObject]
+$Yalues
 )
 
 
