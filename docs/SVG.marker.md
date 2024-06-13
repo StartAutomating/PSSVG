@@ -28,14 +28,14 @@ Markers can be attached to shapes using the `marker-start`, `marker-mid`, and `m
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Stars.PSSVG.ps1
+./Stars.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
