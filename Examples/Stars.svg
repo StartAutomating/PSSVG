@@ -2,12 +2,12 @@
 <!-- Generated with PSSVG 0.2.10 <https://github.com/StartAutomating/PSSVG> -->
 <svg viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <marker markerHeight="5" markerWidth="5" viewBox="0 0 10 10" refX="5" refY="5" id="marker1">
+    <marker markerHeight="5" markerWidth="5" viewBox="0 0 10 10" refX="5" refY="5">
       <path fill="#4488ff" d="M 5 10 L 9.33012701892219 7.5 L 9.33012701892219 2.5 L 5 0 L 0.66987298107781 2.5 L 0.669872981077805 7.5 L 5 10 M 7.5 9.33012701892219 L 10 5 L 7.5 0.669872981077805 L 2.5 0.669872981077805 L 0 5 L 2.5 9.33012701892219 L 7.5 9.33012701892219">
         <animateTransform attributeName="transform" from="360 5 5" to="0 5 5" dur="8s" repeatCount="indefinite" attributeType="xml" type="rotate" />
       </path>
     </marker>
-    <marker markerHeight="2.5" markerWidth="2.5" viewBox="0 0 10 10" refX="5" refY="5" id="marker2">
+    <marker markerHeight="2.5" markerWidth="2.5" viewBox="0 0 10 10" refX="5" refY="5">
       <path fill="#4488ff" d="M 5 10 L 9.75528258147577 6.54508497187473 L 7.93892626146237 0.954915028125265 L 2.06107373853763 0.95491502812526 L 0.24471741852423 6.54508497187473 L 5 10 M 7.93892626146237 9.04508497187474 L 9.75528258147577 3.45491502812526 L 5 0 L 0.24471741852423 3.45491502812526 L 2.06107373853763 9.04508497187473 L 7.93892626146237 9.04508497187474">
         <animateTransform attributeName="transform" from="0 5 5" to="360 5 5" dur="8s" repeatCount="indefinite" attributeType="xml" type="rotate" />
       </path>
