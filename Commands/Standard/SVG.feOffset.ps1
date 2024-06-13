@@ -93,7 +93,17 @@ $Dx,
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$Dy
+$Dy,
+# The Cy attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Cy')]
+[PSObject]
+$Cy,
+# The Sy attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sy')]
+[PSObject]
+$Sy
 )
 
 
