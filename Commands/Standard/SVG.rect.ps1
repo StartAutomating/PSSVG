@@ -1083,7 +1083,27 @@ $Ry,
 [Reflection.AssemblyMetaData('SVG.Value', '<number>')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$PathLength
+$PathLength,
+# The CathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CathLength')]
+[PSObject]
+$CathLength,
+# The SathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SathLength')]
+[PSObject]
+$SathLength,
+# The EathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','EathLength')]
+[PSObject]
+$EathLength,
+# The TathLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TathLength')]
+[PSObject]
+$TathLength
 )
 
 
