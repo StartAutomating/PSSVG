@@ -2140,7 +2140,12 @@ $Decorate,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
 [Management.Automation.PSObject]
-$Children
+$Children,
+# The values attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','xlink:href')]
+[PSObject]
+$values
 )
 
 
