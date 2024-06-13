@@ -28,7 +28,7 @@ Transformations applied to the `<g>` element are performed on its child elements
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./FadeIn.PSSVG.ps1
+./FadeIn.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
