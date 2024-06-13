@@ -607,7 +607,12 @@ $To,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [Reflection.AssemblyMetaData('SVG.Normative document', 'SVG 1.1 (2nd Edition)')]
 [PSObject]
-$Type
+$Type,
+# The values attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','type')]
+[PSObject]
+$values
 )
 
 
