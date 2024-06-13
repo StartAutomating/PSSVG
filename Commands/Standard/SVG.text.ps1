@@ -10,47 +10,47 @@ function SVG.text  {
     > **Note:** the `<text>` element does not wrap by default, to make this happen it needs to be styled with the `white-space` CSS property.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./DropShadow.PSSVG.ps1
+    ./DropShadow.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Embossed.PSSVG.ps1
+    ./Embossed.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./FadeIn.PSSVG.ps1
+    ./FadeIn.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./HelloWorld.PSSVG.ps1
+    ./HelloWorld.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./Index.PSSVG.ps1
+    ./Index.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./MovingShadows.PSSVG.ps1
+    ./MovingShadows.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StartAutomating.PSSVG.ps1
+    ./StartAutomating.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StartAutomating.PSSVG.ps1
+    ./StartAutomating.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./StopUsingGIFs.PSSVG.ps1
+    ./StopUsingGIFs.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.text
