@@ -187,7 +187,17 @@ $Decorate,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
 [Management.Automation.PSObject]
-$Children
+$Children,
+# The CextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CextLength')]
+[PSObject]
+$CextLength,
+# The SextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SextLength')]
+[PSObject]
+$SextLength
 )
 
 
