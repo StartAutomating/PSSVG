@@ -111,14 +111,21 @@ $Dx,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Dy,
-# This attribute defines the standard deviation for the blur operation in the drop shadow.
+# The StdDeviation attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','stdDeviation')]
-[Reflection.AssemblyMetaData('SVG.Value', '<number-optional-number>')]
-[Reflection.AssemblyMetaData('SVG.Default value', '0')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','StdDeviation')]
 [PSObject]
-$StdDeviation
+$StdDeviation,
+# The CtdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CtdDeviation')]
+[PSObject]
+$CtdDeviation,
+# The ItdDeviation attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ItdDeviation')]
+[PSObject]
+$ItdDeviation
 )
 
 
