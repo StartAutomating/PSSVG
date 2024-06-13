@@ -10,11 +10,11 @@ function SVG.title  {
     > **Note:** For backward compatibility with SVG 1.1, `<title>` elements should be the first child element of their parent.
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-Flag.PSSVG.ps1
+    ./US-Flag.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Example
     Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-    ./US-FlagAnimated.PSSVG.ps1
+    ./US-FlagAnimated.PSSVG.ps1 | Invoke-Item
     Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.title
