@@ -60,9 +60,7 @@ function SVG.Template {
             # If no content is piped in, check the parameter.
             $ContentTotemplate = $PSBoundParameters['Content']
         }
-        # Return if there is nothing to template.
-        if (-not $ContentTotemplate) { return }
-
+        
         # Create a splat of parameters to pass to the base command.
         $svgSplat = [Ordered]@{} + $PSBoundParameters
         $svgCommand = $baseCommand
