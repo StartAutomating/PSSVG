@@ -167,7 +167,22 @@ $X,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','y')]
 [PSObject]
-$Y
+$Y,
+# The C attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','C')]
+[PSObject]
+$C,
+# The S attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','S')]
+[PSObject]
+$S,
+# The E attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','E')]
+[PSObject]
+$E
 )
 
 
