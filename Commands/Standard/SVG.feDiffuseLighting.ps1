@@ -103,7 +103,17 @@ $DiffuseConstant,
 [Reflection.AssemblyMetaData('SVG.Default value', 'Pixel in offscreen bitmap')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$KernelUnitLength
+$KernelUnitLength,
+# The CernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CernelUnitLength')]
+[PSObject]
+$CernelUnitLength,
+# The SernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SernelUnitLength')]
+[PSObject]
+$SernelUnitLength
 )
 
 
