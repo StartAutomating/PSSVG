@@ -112,16 +112,101 @@ $SpecularExponent,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $KernelUnitLength,
+# The TernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TernelUnitLength')]
+[PSObject]
+$TernelUnitLength,
+# The IernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IernelUnitLength')]
+[PSObject]
+$IernelUnitLength,
+# The SernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SernelUnitLength')]
+[PSObject]
+$SernelUnitLength,
 # The CernelUnitLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CernelUnitLength')]
 [PSObject]
 $CernelUnitLength,
-# The SernelUnitLength attribute.
+# The LernelUnitLength attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SernelUnitLength')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LernelUnitLength')]
 [PSObject]
-$SernelUnitLength
+$LernelUnitLength,
+# The FernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FernelUnitLength')]
+[PSObject]
+$FernelUnitLength,
+# The BernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BernelUnitLength')]
+[PSObject]
+$BernelUnitLength,
+# The MernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MernelUnitLength')]
+[PSObject]
+$MernelUnitLength,
+# The VernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VernelUnitLength')]
+[PSObject]
+$VernelUnitLength,
+# The DernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DernelUnitLength')]
+[PSObject]
+$DernelUnitLength,
+# The OernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OernelUnitLength')]
+[PSObject]
+$OernelUnitLength,
+# The WernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WernelUnitLength')]
+[PSObject]
+$WernelUnitLength,
+# The PernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PernelUnitLength')]
+[PSObject]
+$PernelUnitLength,
+# The UernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UernelUnitLength')]
+[PSObject]
+$UernelUnitLength,
+# The AernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AernelUnitLength')]
+[PSObject]
+$AernelUnitLength,
+# The HernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','HernelUnitLength')]
+[PSObject]
+$HernelUnitLength,
+# The XernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XernelUnitLength')]
+[PSObject]
+$XernelUnitLength,
+# The RernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RernelUnitLength')]
+[PSObject]
+$RernelUnitLength,
+# The YernelUnitLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','YernelUnitLength')]
+[PSObject]
+$YernelUnitLength
 )
 
 
