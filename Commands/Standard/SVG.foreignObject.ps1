@@ -139,26 +139,91 @@ $X,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $Y,
-# The C attribute.
-[Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','C')]
-[PSObject]
-$C,
 # The S attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','S')]
 [PSObject]
 $S,
-# The E attribute.
+# The R attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','E')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','R')]
 [PSObject]
-$E,
+$R,
 # The T attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','T')]
 [PSObject]
-$T
+$T,
+# The I attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','I')]
+[PSObject]
+$I,
+# The C attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','C')]
+[PSObject]
+$C,
+# The L attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','L')]
+[PSObject]
+$L,
+# The F attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','F')]
+[PSObject]
+$F,
+# The B attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','B')]
+[PSObject]
+$B,
+# The M attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','M')]
+[PSObject]
+$M,
+# The V attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','V')]
+[PSObject]
+$V,
+# The D attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','D')]
+[PSObject]
+$D,
+# The O attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','O')]
+[PSObject]
+$O,
+# The W attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','W')]
+[PSObject]
+$W,
+# The P attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','P')]
+[PSObject]
+$P,
+# The U attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','U')]
+[PSObject]
+$U,
+# The A attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','A')]
+[PSObject]
+$A,
+# The E attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','E')]
+[PSObject]
+$E
 )
 
 
