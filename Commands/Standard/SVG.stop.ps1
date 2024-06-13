@@ -304,11 +304,76 @@ $StopColor,
 [Reflection.AssemblyMetaData('SVG.AttributeName','StopOpacity')]
 [PSObject]
 $StopOpacity,
+# The TtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TtopOpacity')]
+[PSObject]
+$TtopOpacity,
+# The ItopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ItopOpacity')]
+[PSObject]
+$ItopOpacity,
 # The CtopOpacity attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CtopOpacity')]
 [PSObject]
-$CtopOpacity
+$CtopOpacity,
+# The LtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LtopOpacity')]
+[PSObject]
+$LtopOpacity,
+# The FtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FtopOpacity')]
+[PSObject]
+$FtopOpacity,
+# The BtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BtopOpacity')]
+[PSObject]
+$BtopOpacity,
+# The MtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MtopOpacity')]
+[PSObject]
+$MtopOpacity,
+# The VtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VtopOpacity')]
+[PSObject]
+$VtopOpacity,
+# The DtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DtopOpacity')]
+[PSObject]
+$DtopOpacity,
+# The OtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OtopOpacity')]
+[PSObject]
+$OtopOpacity,
+# The WtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WtopOpacity')]
+[PSObject]
+$WtopOpacity,
+# The PtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PtopOpacity')]
+[PSObject]
+$PtopOpacity,
+# The UtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UtopOpacity')]
+[PSObject]
+$UtopOpacity,
+# The AtopOpacity attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AtopOpacity')]
+[PSObject]
+$AtopOpacity
 )
 
 
