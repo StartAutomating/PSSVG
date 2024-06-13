@@ -381,7 +381,27 @@ $Decorate,
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('Child')]
 [Management.Automation.PSObject]
-$Children
+$Children,
+# The ClipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ClipPathUnits')]
+[PSObject]
+$ClipPathUnits,
+# The SlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SlipPathUnits')]
+[PSObject]
+$SlipPathUnits,
+# The ElipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElipPathUnits')]
+[PSObject]
+$ElipPathUnits,
+# The TlipPathUnits attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TlipPathUnits')]
+[PSObject]
+$TlipPathUnits
 )
 
 
