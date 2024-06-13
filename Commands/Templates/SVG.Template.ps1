@@ -10,7 +10,8 @@ function SVG.Template {
         While templates are not _technically_ SVG elements, they're very useful when combined with SVGs.    
     
     #>
-        
+            
+    [CmdletBinding()]
     param(
     
     )
