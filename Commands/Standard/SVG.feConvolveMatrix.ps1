@@ -243,7 +243,17 @@ $KernelUnitLength,
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$PreserveAlpha
+$PreserveAlpha,
+# The CreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CreserveAlpha')]
+[PSObject]
+$CreserveAlpha,
+# The SreserveAlpha attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SreserveAlpha')]
+[PSObject]
+$SreserveAlpha
 )
 
 
