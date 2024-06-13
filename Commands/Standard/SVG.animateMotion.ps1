@@ -447,51 +447,61 @@ $Additive,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'False')]
 [PSObject]
 $Accumulate,
-# The Sccumulate attribute.
+# The SystemLanguage attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Sccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SystemLanguage')]
 [PSObject]
-$Sccumulate,
-# The Rccumulate attribute.
+$SystemLanguage,
+# The RequiredExtensions attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Rccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RequiredExtensions')]
 [PSObject]
-$Rccumulate,
-# The Tccumulate attribute.
+$RequiredExtensions,
+# The Tabindex attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Tccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tabindex')]
 [PSObject]
-$Tccumulate,
-# The Iccumulate attribute.
+$Tabindex,
+# The Id attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Iccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Id')]
 [PSObject]
-$Iccumulate,
-# The Cccumulate attribute.
+$Id,
+# The Style attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Cccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Style')]
 [PSObject]
-$Cccumulate,
-# The Lccumulate attribute.
+$Style,
+# The Class attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Lccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Class')]
 [PSObject]
-$Lccumulate,
-# The Xccumulate attribute.
+$Class,
+# The Lang attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Xccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lang')]
 [PSObject]
-$Xccumulate,
-# The Eccumulate attribute.
+$Lang,
+# The Xlinkrole attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Eccumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkrole')]
 [PSObject]
-$Eccumulate,
-# The Occumulate attribute.
+$Xlinkrole,
+# The Xlinkactuate attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Occumulate')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xlinkactuate')]
 [PSObject]
-$Occumulate
+$Xlinkactuate,
+# The ExternalResourcesRequired attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ExternalResourcesRequired')]
+[PSObject]
+$ExternalResourcesRequired,
+# The Origin attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Origin')]
+[PSObject]
+$Origin
 )
 
 
