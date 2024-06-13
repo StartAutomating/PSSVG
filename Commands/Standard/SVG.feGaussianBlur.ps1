@@ -145,16 +145,101 @@ $StdDeviation,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $EdgeMode,
+# The TdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','TdgeMode')]
+[PSObject]
+$TdgeMode,
+# The IdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IdgeMode')]
+[PSObject]
+$IdgeMode,
+# The SdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SdgeMode')]
+[PSObject]
+$SdgeMode,
 # The CdgeMode attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','CdgeMode')]
 [PSObject]
 $CdgeMode,
-# The SdgeMode attribute.
+# The LdgeMode attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','SdgeMode')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LdgeMode')]
 [PSObject]
-$SdgeMode
+$LdgeMode,
+# The FdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FdgeMode')]
+[PSObject]
+$FdgeMode,
+# The BdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BdgeMode')]
+[PSObject]
+$BdgeMode,
+# The MdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MdgeMode')]
+[PSObject]
+$MdgeMode,
+# The VdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VdgeMode')]
+[PSObject]
+$VdgeMode,
+# The DdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DdgeMode')]
+[PSObject]
+$DdgeMode,
+# The OdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OdgeMode')]
+[PSObject]
+$OdgeMode,
+# The WdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WdgeMode')]
+[PSObject]
+$WdgeMode,
+# The PdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PdgeMode')]
+[PSObject]
+$PdgeMode,
+# The UdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UdgeMode')]
+[PSObject]
+$UdgeMode,
+# The AdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AdgeMode')]
+[PSObject]
+$AdgeMode,
+# The HdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','HdgeMode')]
+[PSObject]
+$HdgeMode,
+# The XdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XdgeMode')]
+[PSObject]
+$XdgeMode,
+# The RdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RdgeMode')]
+[PSObject]
+$RdgeMode,
+# The YdgeMode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','YdgeMode')]
+[PSObject]
+$YdgeMode
 )
 
 
