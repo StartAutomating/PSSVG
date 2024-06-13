@@ -28,7 +28,7 @@ SVG's `<a>` element is a container, which means you can create a link around tex
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Index.PSSVG.ps1
+./Index.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
