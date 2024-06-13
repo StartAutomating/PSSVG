@@ -26,35 +26,35 @@ The **`<filter>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) eleme
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Blur.PSSVG.ps1
+./Blur.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./CloudAnimation.PSSVG.ps1
+./CloudAnimation.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 3
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Clouds.PSSVG.ps1
+./Clouds.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 4
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./Embossed.PSSVG.ps1
+./Embossed.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 5
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./MovingShadows.PSSVG.ps1
+./MovingShadows.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
