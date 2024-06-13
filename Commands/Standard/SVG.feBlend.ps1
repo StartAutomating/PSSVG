@@ -130,24 +130,101 @@ $In,
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
 $In2,
-# 
+# The Mode attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','mode')]
-[Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("blend-mode")}}')]
-[Reflection.AssemblyMetaData('SVG.Default value', 'normal')]
-[Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Mode')]
 [PSObject]
 $Mode,
+# The Tode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Tode')]
+[PSObject]
+$Tode,
+# The Iode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Iode')]
+[PSObject]
+$Iode,
+# The Sode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Sode')]
+[PSObject]
+$Sode,
 # The Code attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','Code')]
 [PSObject]
 $Code,
-# The Sode attribute.
+# The Lode attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','Sode')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Lode')]
 [PSObject]
-$Sode
+$Lode,
+# The Fode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Fode')]
+[PSObject]
+$Fode,
+# The Bode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Bode')]
+[PSObject]
+$Bode,
+# The Vode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Vode')]
+[PSObject]
+$Vode,
+# The Dode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Dode')]
+[PSObject]
+$Dode,
+# The Oode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Oode')]
+[PSObject]
+$Oode,
+# The Wode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Wode')]
+[PSObject]
+$Wode,
+# The Pode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Pode')]
+[PSObject]
+$Pode,
+# The Uode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Uode')]
+[PSObject]
+$Uode,
+# The Aode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Aode')]
+[PSObject]
+$Aode,
+# The Hode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Hode')]
+[PSObject]
+$Hode,
+# The Xode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Xode')]
+[PSObject]
+$Xode,
+# The Rode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Rode')]
+[PSObject]
+$Rode,
+# The Yode attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','Yode')]
+[PSObject]
+$Yode
 )
 
 
