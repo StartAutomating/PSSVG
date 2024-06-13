@@ -5,119 +5,25 @@ function SVG.filter  {
 .Description
     The **`<filter>`** [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) element defines a custom filter effect by grouping atomic filter primitives. It is never rendered itself, but must be used by the `filter` attribute on SVG elements, or the `filter` `CSS` property for SVG/HTML elements.
 .Example
-    SVG @(
-        SVG.filter (
-            SVG.feGaussianBlur -In 'SourceGraphic' -StdDeviation 5
-        ) -id blurMe
-    
-        SVG.circle -Fill '#4488ff' -Filter 'url(#blurMe)' -R 50 -Cx 50 -Cy 50
-    ) -ViewBox 100, 100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Blur.PSSVG.ps1
+    Pop-Location
 .Example
-    $AnimationTimeframe = [Ordered]@{
-        Dur = '2s'
-        RepeatCount = 'indefinite'
-    }
-    
-    SVG -viewBox 1920,1080 -Content @(
-        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            SVG.feTurbulence -baseFrequency '0.025' @(
-                SVG.animate -AttributeName numOctaves -Values '1;6;12' @AnimationTimeframe
-                SVG.animate -AttributeName seed -Values '0;5;0' @AnimationTimeframe
-            ) -NumOctaves 4 -Type fractalNoise
-            SVG.feGaussianBlur -stdDeviation 0.9 @(
-                SVG.animate -AttributeName stdDeviation -Values '1.1;3.3;1.1' @AnimationTimeframe
-            )
-            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
-        )
-        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .4
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./CloudAnimation.PSSVG.ps1
+    Pop-Location
 .Example
-    #.SYNOPSIS
-    #    Generates clouds using SVG
-    #.DESCRIPTION
-    #    Generates a cloud effect using fractal noise and blending modes.
-    
-    SVG -viewBox 1920, 1080 -Content @(
-        SVG.filter -id 'noise1' -x '0' -y '0' -width '100%' -height '100%' -Content @(
-            SVG.feTurbulence -baseFrequency '0.025' -Type 'fractalNoise' -NumOctaves 4
-            SVG.feGaussianBlur -stdDeviation 0.9
-            SVG.feBlend -In 'SourceGraphic' -Mode color-burn
-        )
-        SVG.rect -x '0' -y '0' -width 100% -height 100% -style 'filter: url(#noise1);' -Fill '#4488ff' -Opacity .2
-    )
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Clouds.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    # The message to emboss
-    [string]
-    $Message = "Embossed",
-    
-    # The fill color of the text
-    [string]
-    $Fill = '#4488ff',
-    
-    # The css classes to apply to the image
-    [string[]]
-    $Class,
-    
-    # The font size of the text
-    [string]
-    $FontSize = "26em",
-    
-    # The embossing level
-    [int]
-    $Emboss = 5
-    )
-    svg @(
-        svg.filter -id embossed @(
-            svg.feConvolveMatrix -KernelMatrix "
-            $Emboss 0 0
-            0 0 0
-            0 0 -$($Emboss * -1)
-    "
-            svg.feMerge @(
-                svg.feMergeNode
-                svg.feMergeNode -In 'SourceGraphic'
-            )
-        )
-    
-        svg.text "
-    Embossed
-    " -TextAnchor middle -DominantBaseline middle -Fill $Fill -FontSize $FontSize -X 50% -Y 50% -Filter 'url(#embossed)'
-    ) -Class $class -ViewBox 0,0,300,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./Embossed.PSSVG.ps1
+    Pop-Location
 .Example
-    param(
-    [string]
-    $Fill = '#4488ff',
-    
-    [string[]]
-    $Class,
-    
-    [timespan]
-    $Duration = '00:00:02.5',
-    
-    [double[]]
-    $ShadowX = @(0.5, -.5, 0.5),
-    
-    [double[]]
-    $ShadowY = @(0.75, -.75, 0.75)
-    )
-    
-    svg @(
-        svg.filter -id dropShadow @(
-            svg.feDropShadow -dx $ShadowX[0] -dy $ShadowY[0] -StdDeviation 0 @(
-                svg.animate -AttributeName dx -Values $($ShadowX -join ';') -Dur $Duration -RepeatCount 'indefinite'
-                svg.animate -AttributeName dY -Values $($Shadowy -join ';') -Dur $Duration -RepeatCount 'indefinite'
-            )
-            svg.feMerge @(
-                svg.feMergeNode
-                svg.feMergeNode -In 'SourceGraphic'
-            )
-        )
-    
-        svg.text "
-    Moving Shadows
-    " -TextAnchor middle -DominantBaseline middle -Fill $fill -Class $Class -FontSize 16 -X 50% -Y 50% -Filter 'url(#dropShadow)'
-    ) -ViewBox 0,0,300,100
+    Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
+    ./MovingShadows.PSSVG.ps1
+    Pop-Location
 .Link
     https://pssvg.start-automating.com/SVG.filter
 .Link
