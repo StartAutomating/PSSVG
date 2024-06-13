@@ -915,12 +915,12 @@ If nothing was provided, each output will be decorated with it's ElementName.
 
     # Last chance for missing parameters... cross-reference the list of attribute file data.
     $elementName = ($elementKv.Key)
-    $elementData = $svgElements.($elementKv.Key)
+    $elementData = $svgElements.elements.$elementName
     $checkForTheseParameters = @(
         foreach ($NameOrGroup in $elementData.attributes) {
             if ($NameOrGroup -match "'") {
                 # Name
-                $NameOrGroup -replace "'", "''"
+                $NameOrGroup -replace "'"
             } else {
                 # Group
                 foreach ($attrFileInfo in @($attributeFileData.Values)) {
