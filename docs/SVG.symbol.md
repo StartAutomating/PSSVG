@@ -28,14 +28,14 @@ The use of `<symbol>` elements for graphics that are used multiple times in the 
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./PowerShellChevron.PSSVG.ps1
+./PowerShellChevron.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 > EXAMPLE 2
 
 ```PowerShell
 Get-Module PSSVG | Split-Path | Join-Path -ChildPath Examples | Push-Location
-./StartAutomating.PSSVG.ps1
+./StartAutomating.PSSVG.ps1 | Invoke-Item
 Pop-Location
 ```
 
