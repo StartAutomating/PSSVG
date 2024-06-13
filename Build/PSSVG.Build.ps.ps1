@@ -118,6 +118,8 @@ if (-not (Test-Path $mdnContentPath)) {
     )
 }
 
+$mdnContentRoot = $mdnContentPath
+
 # From here on in, there are essentially two ways we have to go:
 
 # We have to get as much information about attributes as possible
