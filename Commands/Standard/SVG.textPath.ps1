@@ -181,7 +181,27 @@ $StartOffset,
 })]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
 [PSObject]
-$TextLength
+$TextLength,
+# The CextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','CextLength')]
+[PSObject]
+$CextLength,
+# The SextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','SextLength')]
+[PSObject]
+$SextLength,
+# The EextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','EextLength')]
+[PSObject]
+$EextLength,
+# The XextLength attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','XextLength')]
+[PSObject]
+$XextLength
 )
 
 
