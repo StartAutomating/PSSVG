@@ -154,26 +154,91 @@ $Type,
 [Reflection.AssemblyMetaData('SVG.AttributeName','XlinkHref')]
 [PSObject]
 $XlinkHref,
-# The ClinkHref attribute.
-[Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ClinkHref')]
-[PSObject]
-$ClinkHref,
 # The SlinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','SlinkHref')]
 [PSObject]
 $SlinkHref,
-# The ElinkHref attribute.
+# The RlinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
-[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[Reflection.AssemblyMetaData('SVG.AttributeName','RlinkHref')]
 [PSObject]
-$ElinkHref,
+$RlinkHref,
 # The TlinkHref attribute.
 [Parameter(ValueFromPipelineByPropertyName)]
 [Reflection.AssemblyMetaData('SVG.AttributeName','TlinkHref')]
 [PSObject]
-$TlinkHref
+$TlinkHref,
+# The IlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','IlinkHref')]
+[PSObject]
+$IlinkHref,
+# The ClinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ClinkHref')]
+[PSObject]
+$ClinkHref,
+# The LlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','LlinkHref')]
+[PSObject]
+$LlinkHref,
+# The FlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','FlinkHref')]
+[PSObject]
+$FlinkHref,
+# The BlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','BlinkHref')]
+[PSObject]
+$BlinkHref,
+# The MlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','MlinkHref')]
+[PSObject]
+$MlinkHref,
+# The VlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','VlinkHref')]
+[PSObject]
+$VlinkHref,
+# The DlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','DlinkHref')]
+[PSObject]
+$DlinkHref,
+# The OlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','OlinkHref')]
+[PSObject]
+$OlinkHref,
+# The WlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','WlinkHref')]
+[PSObject]
+$WlinkHref,
+# The PlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','PlinkHref')]
+[PSObject]
+$PlinkHref,
+# The UlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','UlinkHref')]
+[PSObject]
+$UlinkHref,
+# The AlinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','AlinkHref')]
+[PSObject]
+$AlinkHref,
+# The ElinkHref attribute.
+[Parameter(ValueFromPipelineByPropertyName)]
+[Reflection.AssemblyMetaData('SVG.AttributeName','ElinkHref')]
+[PSObject]
+$ElinkHref
 )
 
 
