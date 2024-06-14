@@ -358,10 +358,10 @@ if (($resolvedRequest -is [Collections.IDictionary]) -and
     return $this.HandleStatus($response.StatusCode)
 }
 elseif ($resolvedRequest -is [IO.FileInfo]) {
-    $svgFileInfo = $cmdOut
+    $svgFileInfo = $resolvedRequest
     if ($svgFileInfo.Extension -eq '.svg') {
-        $cmdOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
-        $this.RequestCache[$cacheKey] = $cmdOut
+        $toCache = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
+        $this.RequestCache[$cacheKey] = $toCache
         return $cmdOut
     }
     return ""
