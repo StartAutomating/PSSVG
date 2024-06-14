@@ -5,15 +5,14 @@
     Serves a single request to PSSVG.
 #>
 param(
+# The request to serve
+[PSObject]
 $Request
 )
 
 # If the request is for an icon, return nothing.
 # (every request comes with one for .favicon.ico, because legacy)
 if ($request.Url -match '\.ico$') { return }
-
-# If the path has PSSVG in it, we can remove that
-$path = $request.Url.LocalPath -replace '^/pssvg/' -replace '^/' -replace '/\?','?'
 
 # If there's not a response object
 if (-not $response) {
@@ -25,19 +24,8 @@ if (-not $response) {
 # The content type should always be SVG
 $response.ContentType = 'image/svg+xml'
 
-# `$PSSVG` should be `$this`
-if ($this -and -not $pssvg)
-{
-    $pssvg = $this
-}
-# If not, `$this` should be `$pssvg`
-elseif ($pssvg -and -not $this)
-{
-    $this = $pssvg
-}
-
 # Check to see if the request has been cached.
-$hasCache = $PSSVG.HasCache($request)
+$hasCache = $this.HasCache($request)
 # (we always need to keep track of the key)
 $cacheKey = $hasCache.Key
 
@@ -51,65 +39,61 @@ if ($hasCache.Value) {
         $response.StatusCode = $hasCache.Value
         
         # Return any handled result of this status code.
-        return $PSSVG.HandleStatus($response.StatusCode)
+        return $this.HandleStatus($response.StatusCode)
     } else {
+        # If it's not a status code, it's an SVG, and we can tell them to keep it cached
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
+        # Return the SVG
         return ($hasCache.Value | FrameSVG)
     }    
 }
 
-$hasRoute = $This.HasRoute($request)
-if ($hasRoute.Value -is [int]) {
-    $response.StatusCode = $hasRoute.Value
-    return $This.HandleStatus($response.StatusCode)
-}
-
-$routedTo = $hasRoute.Value
-
-if ($routedTo -is [Management.Automation.CommandInfo]) {    
-    $localScript = $routedTo
-    
-    $svgOut = $localScript | . $InvokeQuerySplat       
-    if ($svgOut -as [xml]) {
-        $PSSVG.RequestCache[$cacheKey] = ($svgOut -as [xml]).OuterXml
-        return ($svgOut | FrameSVG)
+$resolvedRequest = $this.Resolve($request)
+if (($resolvedRequest -is [Collections.IDictionary]) -and 
+    $resolvedRequest.psobject.properties['Command']) {
+    $commandToRun = $resolvedRequest.Command
+    $cmdOut = & $commandToRun @resolvedRequest
+    if ($cmdOut -as [xml]) {
+        $this.RequestCache[$cacheKey] = ($cmdOut -as [xml]).OuterXml
+        return ($cmdOut | FrameSVG)
     }
-    elseif ($svgOut -is [xml.xmlelement]) {            
-        $PSSVG.RequestCache[$cacheKey] = $svgOut        
-        return ($PSSVG.RequestCache[$cacheKey] | FrameSVG)
+    elseif ($cmdOut -is [xml.xmlelement]) {            
+        $this.RequestCache[$cacheKey] = $cmdOut        
+        return ($this.RequestCache[$cacheKey] | FrameSVG)
     }
-    elseif ($svgOut -as [IO.FileInfo]) {
-        $svgFileInfo = $svgOut
+    elseif ($cmdOut -as [IO.FileInfo]) {
+        $svgFileInfo = $cmdOut
         if ($svgFileInfo.Extension -eq '.svg') {
-            $svgOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
-            $PSSVG.RequestCache[$cacheKey] = $svgOut
-            return $svgOut
+            $cmdOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
+            $this.RequestCache[$cacheKey] = $cmdOut
+            return $cmdOut
         }
         return ""
     }
-    $PSSVG.RequestCache[$cacheKey] = 404 
+    $this.RequestCache[$cacheKey] = 404 
     $response.StatusCode = 404
     $response.ContentType = 'text/html'
-    return $pssvg.HandleStatus($response.StatusCode)
-} elseif ($routedTo -is [IO.FileInfo]) {
-    $localPath = $routedTo.FullName
- 
-    if ($localPath -match '\.(?>md|markdown)$') {
-        $svgOut = SVG @(
-            $markdownContent = [IO.File]::ReadAllText($localPath.FullName)
-            SVG.Markdown -Markdown $markdownContent
-        )
-        $This.RequestCache[$cacheKey] = $svgOut
-        return $svgOut
-    }
-    elseif ($localPath -match '\.svg$') {
-        $svgOut = [IO.File]::ReadAllText($localPath.FullName)
-        $This.RequestCache[$cacheKey] = $svgOut
-        return $svgOut
-    }
-} else {
-    $PSSVG.RequestCache[$cacheKey] = 404 
-    $response.StatusCode = 404    
-    return $pssvg.HandleStatus($response.StatusCode)
+    return $this.HandleStatus($response.StatusCode)
 }
+elseif ($resolvedRequest -is [IO.FileInfo]) {
+    $svgFileInfo = $cmdOut
+    if ($svgFileInfo.Extension -eq '.svg') {
+        $cmdOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
+        $this.RequestCache[$cacheKey] = $cmdOut
+        return $cmdOut
+    }
+    return ""
+}
+elseif ($resolvedRequest -is [int]) {
+    $this.RequestCache[$cacheKey] = $resolvedRequest
+    $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
+    # Set the status code        
+    $response.StatusCode = $hasCache.Value
     
+    # Return any handled result of this status code.
+    return $This.HandleStatus($response.StatusCode)
+} else {
+    $this.RequestCache[$cacheKey] = 404 
+    $response.StatusCode = 404    
+    return $this.HandleStatus($response.StatusCode)
+}
