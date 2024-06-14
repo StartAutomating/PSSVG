@@ -364,6 +364,14 @@ elseif ($resolvedRequest -is [IO.FileInfo]) {
         $this.RequestCache[$cacheKey] = $toCache
         return $toCache
     }
+    elseif ($svgFileInfo.Extension -in '.md', '.markdown') {
+        $toCache = SVG @(
+            $markdownContent = [IO.File]::ReadAllText($svgFileInfo.FullName)
+            SVG.Markdown -Markdown $markdownContent
+        )
+        $this.RequestCache[$cacheKey] = $toCache
+        return $toCache
+    }
     return ""
 }
 elseif ($resolvedRequest -is [int]) {
