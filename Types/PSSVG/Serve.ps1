@@ -80,7 +80,7 @@ elseif ($resolvedRequest -is [IO.FileInfo]) {
     if ($svgFileInfo.Extension -eq '.svg') {
         $toCache = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
         $this.RequestCache[$cacheKey] = $toCache
-        return $cmdOut
+        return $toCache
     }
     return ""
 }
