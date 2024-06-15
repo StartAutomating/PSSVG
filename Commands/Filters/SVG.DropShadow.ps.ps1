@@ -1,3 +1,5 @@
+[ValidatePattern('SVG\.DropShadow')]
+param()
 function SVG.DropShadow
 {
     <#
@@ -27,10 +29,10 @@ function SVG.DropShadow
 
     process {
         $DropShadow = @(            
-            =<svg.feDropShadow> -dx $DistanceX -dy $DistanceY -StdDeviation $StandardDeviation
-            =<svg.feMerge> @(
-                =<svg.feMergeNode>
-                =<svg.feMergeNode> -In 'SourceGraphic'
+            svg.feDropShadow -dx $DistanceX -dy $DistanceY -StdDeviation $StandardDeviation
+            svg.feMerge @(
+                svg.feMergeNode
+                svg.feMergeNode -In 'SourceGraphic'
             )            
         )
         if ($PSBoundParameters['Content']) {
@@ -43,6 +45,7 @@ function SVG.DropShadow
         }
         $null = $PSBoundParameters.Remove('DistanceX')
         $null = $PSBoundParameters.Remove('DistanceY')
+        $null = $PSBoundParameters.Remove('StandardDeviation')
         SVG.filter @PSBoundParameters
     }
 }
