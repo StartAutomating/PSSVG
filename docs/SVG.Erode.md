@@ -37,9 +37,9 @@ SVG -ViewBox 200 @(
 ### Parameters
 #### **Erosion**
 
-|Type      |Required|Position|PipelineInput        |Aliases    |
-|----------|--------|--------|---------------------|-----------|
-|`[Double]`|false   |1       |true (ByPropertyName)|Erode<br/>E|
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Double]`|false   |1       |true (ByPropertyName)|Erode  |
 
 ---
 
