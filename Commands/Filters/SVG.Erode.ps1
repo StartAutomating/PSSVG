@@ -70,6 +70,7 @@ function SVG.Erode {
         begin {
         $animationElements = 'animate','set','animateTransform','animateMotion'
         $defaultId = 'erode'
+        $notFilterParameters = 'Erosion'
     
     }
         process {
@@ -111,7 +112,9 @@ function SVG.Erode {
             $filterSplat['ID'] = $defaultId
         }
         # Remove parameters from the splat that don't apply to filter.
-        $null = $filterSplat.Remove('saturation')
+        foreach ($notFilterParameter in $notFilterParameters) {
+            $null = $filterSplat.Remove($notFilterParameter)
+        }
 
         if ($content -and 
             $content.LocalName -ne 'filter' -and 
