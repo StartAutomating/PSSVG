@@ -26,19 +26,67 @@ function SVG.Erode
     [Alias('SVG.Erosion')]
     param(
     [vbn()]
-    [Alias('Erode','E')]
+    [Alias('Erode')]
     [double]
     $Erosion = 1
     )
+
+    begin {
+        $animationElements = 'animate','set','animateTransform','animateMotion'
+        $defaultId = 'erode'
+    }
+
     process {
-        $ErosionFilter = @(            
-            SVG.feMorphology -Operator 'erode' -Radius $Erosion -In 'SourceGraphic' -Content $PSBoundParameters['Content']
-        )        
-        $PSBoundParameters['Content'] = $ErosionFilter        
-        if (-not $PSBoundParameters['ID']) {
-            $PSBoundParameters['ID'] = 'erode'
-        }        
-        $null = $PSBoundParameters.Remove('erosion')
-        SVG.filter @PSBoundParameters
+        # Create the splat for the filter and filter entry
+        $feSplat = [Ordered]@{operator='erode';Radius=$Erosion}
+        $filterSplat = [Ordered]@{} + $PSBoundParameters
+
+        # Check if we have any content
+        $content = $PSBoundParameters['Content']
+        if ($content.LocalName) {
+            # If it's not a filter
+            if ($content.LocalName -ne 'filter') {
+                # Set the input to SourceGraphic
+                $feSplat['In'] = 'SourceGraphic'
+                # If it's an animation element, set the content to the animation element
+                if ($content.LocalName -in $animationElements) {
+                    $feSplat['Content'] = $content
+                }
+                
+            }
+        } else {
+            # If there was no content, set the input to SourceGraphic
+            $feSplat['In'] = 'SourceGraphic'
+        }
+
+        # Create the saturation filter (using [feMorhology](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feMorhology))
+        $newFilter = SVG.feMorphology @feSplat
+        
+        $filterSplat['Content'] =
+            # If the content is a filter, add the filter to the content
+            if ($content.LocalName -eq 'Filter') {
+                @($content.childNodes) + $newFilter
+            } else {
+                $newFilter
+            }
+        
+        # If there's no ID, set it to $defaultId
+        if (-not $filterSplat['ID']) {
+            $filterSplat['ID'] = $defaultId
+        }
+        # Remove parameters from the splat that don't apply to filter.
+        $null = $filterSplat.Remove('saturation')
+
+        if ($content -and 
+            $content.LocalName -ne 'filter' -and 
+            $content.LocalName -notin $animationElements) {
+            SVG.defs @(SVG.filter @filterSplat)
+            if ($content.setAttribute) {
+                $content.setAttribute('style',"filter:url('#$($filterSplat['ID'])')")
+            }
+            $content
+        } else {
+            SVG.filter @filterSplat
+        }
     }
 }
