@@ -25,7 +25,7 @@ This controls how Dilated an image should be.
 SVG -ViewBox 200 @(    
     SVG.Defs @(    
         SVG.Dilate -Content @(    
-            SVG.Animate -AttributeName 'radius' -values '0;40;0' -dur '4s' -repeatCount 'indefinite'    
+            SVG.Animate -AttributeName 'radius' -values '0;21;0' -dur '4.2s' -repeatCount 'indefinite'    
         )    
     )    
     SVG.Circle -R 100 -CX 100 -CY 100 -Fill '#4488ff' -Filter 'url(#Dilate)'    
@@ -36,6 +36,7 @@ SVG -ViewBox 200 @(
 
 ### Parameters
 #### **Dilation**
+The amount to dilate the image.
 
 |Type      |Required|Position|PipelineInput        |Aliases|
 |----------|--------|--------|---------------------|-------|
