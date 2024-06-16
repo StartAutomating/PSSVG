@@ -62,6 +62,7 @@ function SVG.HueRotate {
     }
         begin {
         $animationElements = 'animate','set','animateTransform','animateMotion'
+        $defaultId = 'hueRotate'
     
     }
         process {
@@ -89,7 +90,7 @@ function SVG.HueRotate {
 
         # Create the saturation filter (using [feColorMatrix](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feColorMatrix))
         $newFilter = SVG.feColorMatrix @feSplat
-        
+
         $filterSplat['Content'] =
             # If the content is a filter, add the filter to the content
             if ($content.LocalName -eq 'Filter') {
