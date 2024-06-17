@@ -11,20 +11,20 @@
 		$script:4bitcssPaletteList = Invoke-RestMethod -Uri https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/docs/Palette-List.json
 	}
 	Show-PSSVG -Content @(
-		SVG -Viewbox 200 @(
+		$randomRoseMorph = SVG -Viewbox 200 @(
 			@(
-				$k = (Get-Random -Minimum 1 -Maximum 8)
-				$r = ((Get-Random -Minimum 5 -Maximum 20) * 5)
+				$k = (Get-Random -Minimum 2 -Maximum 14)
+				$r = ((Get-Random -Minimum 5 -Maximum 50) * 5)
 				$rose1 = SVG.Rose -Frequency $k -Radius $r -Stroke currentColor
 				$rose1
-				SVG.Rose -Frequency ($k * (Get-Random -Min 1 -Max 2)) -Rotate (Get-Random -Min 0 -Max 360) -Radius ($r * 1.25) -CenterX $r -CenterY $r  -Stroke currentColor
+				SVG.Rose -Frequency ($k * (Get-Random -Min 1 -Max 2)) -Rotate (Get-Random -Min 0 -Max 360) -Radius ($r * 1.25) -CenterX 100 -CenterY 100  -Stroke currentColor
 				$rose1
 			) | SVG.Morph -dur 1.68 -repeatCount indefinite
-		)		
+		) -Width 100% -Height 100%		
 	) -PaletteName (
 		$script:4bitcssPaletteList | Get-Random
 	) -CopyCount $(
-		Get-Random -Minimum 2 -Maximum 8
+		Get-Random -Minimum 2 -Maximum 9
 	) -RowCount $(
 		Get-Random -Minimum 1 -Maximum 3
 	) -ColumnCount (
@@ -65,7 +65,7 @@
     )  > 8.html
 .EXAMPLE
 	$bpm = 128
-	.\Show.ps1 -Content @(
+	Show-PSSVG -Content @(
         SVG -ViewBox 200 @(
 			@(
 				# Because any polar equation uses an equal number of points, we can morph between them.
@@ -101,6 +101,7 @@
 		else if ((beatCount % 2) == 0) { document.getElementById('random').click();}
 	" > b12.html
 #>
+[ValidatePattern('\p{P}Show')]
 [Alias('Show.SVG','SVG.Show')]
 param(
 # The content to show.  This should be any number of SVG elements.
@@ -143,6 +144,12 @@ $RowCount,
 [vbn()]
 [int]
 $ColumnCount,
+
+# If set, will overlap multiple content items in 2d or 3d.  
+# By default, multiple content items will be interleaved.
+[vbn()]
+[switch]
+$Overlap,
 
 # The name of the palette.
 [vbn()]
@@ -193,7 +200,7 @@ $CopyCount3D = 0,
 
 # The spatial property map for the 3D scene.
 # This maps the data properties to the spatial properties.
-# Values can be provided as a dictionary or object, or a string in the format `DataProperty=SpatialProperty`.
+# Values can be provided as a dictionary or object.
 [vbn()]
 [Alias('SpatialProperties','SpatialPropertyMap','SpatialPropertiesMap')]
 [PSObject]
@@ -322,35 +329,6 @@ $TableColumnCount = 0,
 [vbn()]
 [string[]]
 $OnSelect,
-
-# The data property to use for the row of the table.
-# This will control the item's layout in a 3D table.
-[vbn()]
-[string]
-$DataPropertyForRow,
-
-# The data property to use for the column of the table.
-# This will control the item's  layout in a 3D table.
-[vbn()]
-[string]
-$DataPropertyForColumn,
-
-# The data property to use for the latitude of a table item.
-# This will control the item's  layout in a 3D sphere.
-[vbn()]
-[string]
-$DataPropertyForLatitude,
-
-# The data property to use for the longitude of a table item.
-# This will control the item's layout in a 3D sphere.
-[vbn()]
-[string]
-$DataPropertyForLongitude,
-
-# The data property to use for the link of a table item.
-[vbn()]
-[string]
-$DataPropertyForLink,
 
 # The base URL for the links.
 [vbn()]
@@ -498,7 +476,13 @@ begin {
         "   <body>"
         "   <div id='container-2d' $(if ($In3D) {"style='display:none'"})>"
         "   <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>"
-        if (-not $RowCount -and -not $ColumnCount) {
+		
+		$originalCopyCount = $CopyCount
+        if ($CopyCount -lt $contentToshow.Length -and -not $Overlap) {
+			$CopyCount = $contentToshow.Length
+		}
+		
+		if (-not $RowCount -and -not $ColumnCount) {
             $copyCountSquareRoot = [int][math]::Ceiling([math]::Sqrt($copyCount))
             $RowCount = $ColumnCount = $copyCountSquareRoot
         }
@@ -508,42 +492,50 @@ begin {
         elseif (-not $RowCount) {
             $RowCount = [int][math]::Ceiling($CopyCount / $ColumnCount)
         }
-        $shapeNumber = 1
+		$symbolNumber = 1
+		foreach ($contentItem in $contentToshow) {
+			$symbolSplat = [Ordered]@{
+				id = "symbol-$symbolNumber"
+				content = if ($contentItem.OuterXml) { $contentItem.OuterXml -replace '\<\?xml.+?\?\>'} else { $contentItem }
+			}
+			$symbolNumber++
+			if ($ColumnCount -or $RowCount) {
+				$symbolSplat.width = "$([Math]::Round((100 / $ColumnCount),10))%"
+				$symbolSplat.height = "$([Math]::Round((100 / $RowCount),10))%"
+			}
+			(SVG.symbol @symbolSplat).OuterXml
+		}
+
+        $shapeNumber = 1		
+		foreach ($n in 1..$copyCount) {
+			$svgAttributes = if ($copyCount -gt 1) {
+				$copyProperty = ($n - 1) % $ColumnCount
+				$copyRow    = [math]::Floor(($n - 1) / $ColumnCount)
+				$svgSplat = [Ordered]@{
+					X = "$([Math]::Round(($copyProperty * 100 / $ColumnCount), 10))%"
+					Y = "$([Math]::Round(($copyRow * 100 / $RowCount), 10))%"
+				}
+				@(foreach ($key in $svgSplat.Keys) { "$key='$($svgSplat[$key])'" }) -join ' '
+			}
+			if ($overlap) {
+				if ($n -eq 1) {
+					"<svg id='shape$shapeNumber' $svgAttributes>$($contentToShow.OuterXml)</svg>"
+				} else {
+					"<use href='#shape-$shapeNumber' $svgAttributes/>"
+				}
+			} else {
+				$contentIndex = ($n - 1) % $contentToShow.Length
+				"<use href='#symbol-$($contentIndex + 1)' $svgAttributes />"
+			}
+		}
         foreach ($content in $contentToshow) {
-            foreach ($n in 1..$copyCount) {    
-                if ($content.OuterXml) {
-                    if ($copyCount -gt 1) {
-                        $copyProperty = ($n - 1) % $ColumnCount
-                        $copyRow    = [math]::Floor(($n - 1) / $ColumnCount)
-                        $svgSplat = [Ordered]@{
-                            X = "$($copyProperty * 100 / $ColumnCount)%"
-                            Y = "$($copyRow * 100 / $RowCount)%"
-                            width = "$(100 / $ColumnCount)%"
-                            height = "$(100 / $RowCount)%"
-                        }						
-                        $svgAttributes = @(foreach ($key in $svgSplat.Keys) { "$key='$($svgSplat[$key])'" }) -join ' '
-                        if ($n -eq 1) {
-                            "<svg id='shape$shapeNumber' $svgAttributes>"
-                            $Content.OuterXml
-                            "</svg>"
-                        } else {
-                            "<use xlink:href='#shape$shapeNumber' $svgAttributes />"
-                        }
-                    } else {
-                        $content.OuterXml
-                    }                
-                } else {
-                    $content
-                }
-            }
             $shapeNumber = $shapeNumber + 1
         }
         "   </svg>"    
         "   </div>"
-        if ($in3d) {            
+        if ($in3d) {
             "   <style>"
-            @"
-			
+            "
 #menu-3d-views {
     position: fixed;
     bottom: 1%;
@@ -571,7 +563,7 @@ button {
 	overflow: hidden;
 	display: float;
 }
-"@
+"
             "   </style>"
 			'
             <menu id="menu-3d-views">
@@ -636,7 +628,21 @@ button {
 				if ($TableRowCount) { $TableRowCount } else { 0 }
 			);
 
-			const totalItemCount = $(if ($CopyCount3D) { $CopyCount3D } else { 'tableRows.length'});
+			const svgSymbols = [];
+			var containerChildren = document.getElementById('container-2d').childNodes;
+			for ( let containerChildIndex = 0; containerChildIndex < containerChildren.length; containerChildIndex++ ) {
+                    for (let grandChildIndex = 0; grandChildIndex < containerChildren[containerChildIndex].childNodes.length; grandChildIndex++ ) {
+                    var containerChild = containerChildren[containerChildIndex].childNodes[grandChildIndex];
+                    if (containerChild.nodeName == 'symbol') {
+                        svgSymbols.push(containerChild);
+                    }
+                }
+            }
+    
+			let totalItemCount = $(if ($CopyCount3D) { $CopyCount3D } elseif ($originalCopyCount -gt 1) { $originalCopyCount } else { 'tableRows.length'});
+			if (totalItemCount == 0) {
+				totalItemCount = svgSymbols.length;
+			}
 
 			if (tableColumnCount == 0 && tableRowCount == 0) {
 				tableColumnCount = Math.ceil(Math.sqrt(totalItemCount));
@@ -680,14 +686,33 @@ button {
 
 				scene = new THREE.Scene();
 
-				// table
 				for ( let i = 0; i < totalItemCount; i++ ) {					
 					const element = document.createElement( 'div' );										
-					var svgChildren = document.getElementById('container-2d').childNodes;
-					for (let j = 0; j < svgChildren.length; j++) {
-						var svgClone = svgChildren[j].cloneNode(true)						
-						element.appendChild(svgClone);
+					$(if ($Overlap){
+					"					
+					for (let j = 0; j < svgSymbols.length; j++) {
+						var svgElements = svgSymbols[j].getElementsByTagName('svg');
+						for (let k = 0; k < svgElements.length; k++) {
+							var svgClone = svgElements[k].cloneNode(true);
+							svgClone.style.width = '100%' // CellWidth + 'px';
+							svgClone.style.height = '100%' // CellHeight + 'px';
+							element.appendChild(svgClone);
+						}
 					}
+					"
+					} else {
+					"
+					var svgElements = svgSymbols[i % svgSymbols.length].getElementsByTagName('svg');
+					for (let k = 0; k < svgSymbols[i % svgSymbols.length].childNodes.length; k++) {
+						if (svgElements.length > 0) {
+							var svgClone = svgElements[0].cloneNode(true);
+							svgClone.style.width = '100%' // CellWidth + 'px';
+							svgClone.style.height = '100%' // CellHeight + 'px';
+							element.appendChild(svgClone);	
+						}											
+					}					
+					"
+					})
 					
 					var tableIndex = 0;
 					var tableItem = null;
@@ -1032,6 +1057,8 @@ end {
     }
     # Return if there is nothing to show.
     return if -not $contentToshow
+	# Ensure the content is an array.
+	$contentToshow = @($contentToshow)
 
 	if ($PSBoundParameters['View3D']) {
 		$in3d = $true
