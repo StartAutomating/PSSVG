@@ -151,7 +151,12 @@ function SVG.Markdown
                 $svgSplat.Remove($parameterName)
             }
         }        
-                        
+        
+        if (Test-Path $Markdown -ErrorAction Ignore) {
+            if ($markdown -match '\.md$' -or $markdown -match '\.markdown$') {
+                $Markdown = Get-Content -Path $Markdown -Raw
+            }
+        }
         
         $ThisMarkdownHeader = ${?<Markdown_YamlHeader}.Match($Markdown)
         if ($ThisMarkdownHeader.Success) {
