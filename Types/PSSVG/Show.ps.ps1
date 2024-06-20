@@ -20,7 +20,8 @@
 				SVG.Rose -Frequency ($k * (Get-Random -Min 1 -Max 2)) -Rotate (Get-Random -Min 0 -Max 360) -Radius ($r * 1.25) -CenterX 100 -CenterY 100  -Stroke currentColor
 				$rose1
 			) | SVG.Morph -dur 1.68 -repeatCount indefinite
-		) -Width 100% -Height 100%		
+		) -Width 100% -Height 100%
+		$randomRoseMorph
 	) -PaletteName (
 		$script:4bitcssPaletteList | Get-Random
 	) -CopyCount $(
@@ -794,9 +795,7 @@ button {
 
                 let cubeRadius = $CubeRadius;				
 				let cubeMultiple = $itemMultiple;
-				for (let cubeMultiplier = 1; multiplier < totalItemCount; multiplier+=cubeMultiple) {
-					cubeRadius += cubeRadius;
-				}
+				
                 const cubeSize = $(if ($cubeSize) { "$cubeSize;" } else { "Math.ceil(Math.cbrt(objects.length));"});
 				for ( let i = 0; i < objects.length; i ++ ) {
 
