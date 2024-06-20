@@ -325,6 +325,19 @@ $TableRowCount = 0,
 [int]
 $TableColumnCount = 0,
 
+# The number of items it takes to grow the radius of the space for items.
+[Parameter(ValueFromPipelineByPropertyName)]
+[int]
+$ItemMultiple = 256,
+
+[Parameter(ValueFromPipelineByPropertyName)]
+[double]
+$GrowthFactor = 1.618,
+
+[Parameter(ValueFromPipelineByPropertyName)]
+[string]
+$Viewport = 'width=device-width',
+
 # The scripts to run when an item is selected.
 [Parameter(ValueFromPipelineByPropertyName)]
 [string[]]
@@ -363,6 +376,7 @@ $No3DViewMenu
 )
 
 begin {
+	$CopySvg = $ExecutionContext.SessionState.InvokeCommand.GetCommand('Copy-SVG', 'Function')
     function html {
     
             "<!DOCTYPE html>"
@@ -378,6 +392,7 @@ begin {
             if ($Title){ 
                 "       <title>$Title</title>"
             }
+    		"<meta name='viewport' content='$Viewport' />"
             if ($Metadata) {
                 foreach ($metadataObject in $metadata) {
     				if ($metadataObject.OuterXml) {
@@ -479,64 +494,20 @@ begin {
     filter body {
     		
             "   <body>"
-            "   <div id='container-2d' $(if ($In3D) {"style='display:none'"})>"
-            "   <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>"
-    		
+            "   <div id='container-2d' $(if ($In3D) {"style='display:none'"})>"        
+    			
     		$originalCopyCount = $CopyCount
             if ($CopyCount -lt $contentToshow.Length -and -not $Overlap) {
     			$CopyCount = $contentToshow.Length
     		}
-    		
-    		if (-not $RowCount -and -not $ColumnCount) {
-                $copyCountSquareRoot = [int][math]::Ceiling([math]::Sqrt($copyCount))
-                $RowCount = $ColumnCount = $copyCountSquareRoot
-            }
-            elseif (-not $ColumnCount) {
-                $ColumnCount = [int][math]::Ceiling($CopyCount / $RowCount)
-            }
-            elseif (-not $RowCount) {
-                $RowCount = [int][math]::Ceiling($CopyCount / $ColumnCount)
-            }
-    		$symbolNumber = 1
-    		foreach ($contentItem in $contentToshow) {
-    			$symbolSplat = [Ordered]@{
-    				id = "symbol-$symbolNumber"
-    				content = if ($contentItem.OuterXml) { $contentItem.OuterXml -replace '\<\?xml.+?\?\>'} else { $contentItem }
-    			}
-    			$symbolNumber++
-    			if ($ColumnCount -or $RowCount) {
-    				$symbolSplat.width = "$([Math]::Round((100 / $ColumnCount),10))%"
-    				$symbolSplat.height = "$([Math]::Round((100 / $RowCount),10))%"
-    			}
-    			(SVG.symbol @symbolSplat).OuterXml
-    		}
-    
-            $shapeNumber = 1		
-    		foreach ($n in 1..$copyCount) {
-    			$svgAttributes = if ($copyCount -gt 1) {
-    				$copyProperty = ($n - 1) % $ColumnCount
-    				$copyRow    = [math]::Floor(($n - 1) / $ColumnCount)
-    				$svgSplat = [Ordered]@{
-    					X = "$([Math]::Round(($copyProperty * 100 / $ColumnCount), 10))%"
-    					Y = "$([Math]::Round(($copyRow * 100 / $RowCount), 10))%"
-    				}
-    				@(foreach ($key in $svgSplat.Keys) { "$key='$($svgSplat[$key])'" }) -join ' '
-    			}
-    			if ($overlap) {
-    				if ($n -eq 1) {
-    					"<svg id='shape$shapeNumber' $svgAttributes>$($contentToShow.OuterXml)</svg>"
-    				} else {
-    					"<use href='#shape-$shapeNumber' $svgAttributes/>"
-    				}
-    			} else {
-    				$contentIndex = ($n - 1) % $contentToShow.Length
-    				"<use href='#symbol-$($contentIndex + 1)' $svgAttributes />"
+    		$copyParameters = [Ordered]@{}
+    		foreach ($parameterName in $myParams.Keys) {
+    			if ($CopySvg.Parameters[$parameterName]) {
+    				$copyParameters[$parameterName] = $myParams[$parameterName]
     			}
     		}
-            foreach ($content in $contentToshow) {
-                $shapeNumber = $shapeNumber + 1
-            }
-            "   </svg>"    
+    		$copyParameters.Remove('Content')
+    		($ContentToShow | Copy-SVG @copyParameters).OuterXml -replace '\?<\?xml.*\?>'
             "   </div>"
             if ($in3d) {
                 "   <style>"
@@ -767,6 +738,7 @@ begin {
 
 				const vector = new THREE.Vector3();
 				
+				let sphereRadius = $SphereRadius;
 
 				for ( let i = 0, l = objects.length; i < l; i ++ ) {
 
@@ -786,11 +758,12 @@ begin {
 
 					const object = new THREE.Object3D();
 
-					object.position.setFromSphericalCoords( $SphereRadius, phi, theta );
+					object.position.setFromSphericalCoords( sphereRadius, phi, theta );
 
 					vector.copy( object.position ).multiplyScalar( $SphereScale );
 
 					object.lookAt( vector );
+					
 
 					targets.sphere.push( object );										
 					const bubbleObject = new THREE.Object3D();
@@ -824,7 +797,11 @@ begin {
 
 				// cube
 
-                const cubeRadius = $CubeRadius;
+                let cubeRadius = $CubeRadius;				
+				let cubeMultiple = $itemMultiple;
+				for (let cubeMultiplier = 1; multiplier < totalItemCount; multiplier+=cubeMultiple) {
+					cubeRadius += cubeRadius;
+				}
                 const cubeSize = $(if ($cubeSize) { "$cubeSize;" } else { "Math.ceil(Math.cbrt(objects.length));"});
 				for ( let i = 0; i < objects.length; i ++ ) {
 
@@ -888,6 +865,7 @@ begin {
 									window.location.href = tableItem[spatialPropertyMap['href']];
 								}								
 							} else {
+								event.preventDefault();
 								event.srcElement.dispatchEvent(new MouseEvent('click', { 'view': window, 'bubbles': true, 'cancelable': true }));
 							}														
 						}
@@ -1065,6 +1043,8 @@ end {
     if (-not $contentToshow) { return }
 	# Ensure the content is an array.
 	$contentToshow = @($contentToshow)
+
+	$myParams = [Ordered]@{} + $PSBoundParameters
 
 	if ($PSBoundParameters['View3D']) {
 		$in3d = $true
