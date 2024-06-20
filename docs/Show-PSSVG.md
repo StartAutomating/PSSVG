@@ -406,47 +406,66 @@ The number of columns in the 3d table.
 |---------|--------|--------|---------------------|
 |`[Int32]`|false   |36      |true (ByPropertyName)|
 
+#### **ItemMultiple**
+The number of items it takes to grow the radius of the space for items.
+
+|Type     |Required|Position|PipelineInput        |
+|---------|--------|--------|---------------------|
+|`[Int32]`|false   |37      |true (ByPropertyName)|
+
+#### **GrowthFactor**
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[Double]`|false   |38      |true (ByPropertyName)|
+
+#### **Viewport**
+
+|Type      |Required|Position|PipelineInput        |
+|----------|--------|--------|---------------------|
+|`[String]`|false   |39      |true (ByPropertyName)|
+
 #### **OnSelect**
 The scripts to run when an item is selected.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
-|`[String[]]`|false   |37      |true (ByPropertyName)|
+|`[String[]]`|false   |40      |true (ByPropertyName)|
 
 #### **BaseUrl**
 The base URL for the links.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[String]`|false   |38      |true (ByPropertyName)|
+|`[String]`|false   |41      |true (ByPropertyName)|
 
 #### **InitialRandomness**
 The initial randomness of the 3D scene.
 
 |Type      |Required|Position|PipelineInput        |
 |----------|--------|--------|---------------------|
-|`[Double]`|false   |39      |true (ByPropertyName)|
+|`[Double]`|false   |42      |true (ByPropertyName)|
 
 #### **BeatPerMinute**
 The beats per minute of the 3d scene.
 
 |Type      |Required|Position|PipelineInput        |Aliases               |
 |----------|--------|--------|---------------------|----------------------|
-|`[Double]`|false   |40      |true (ByPropertyName)|BeatsPerMinute<br/>BPM|
+|`[Double]`|false   |43      |true (ByPropertyName)|BeatsPerMinute<br/>BPM|
 
 #### **OnBeat**
 One or more scripts to run on every beat.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
-|`[String[]]`|false   |41      |true (ByPropertyName)|
+|`[String[]]`|false   |44      |true (ByPropertyName)|
 
 #### **TransitionTime**
 The duration of the transition between views.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
-|`[TimeSpan]`|false   |42      |true (ByPropertyName)|
+|`[TimeSpan]`|false   |45      |true (ByPropertyName)|
 
 #### **No3DViewMenu**
 If set, will not render the 3d view menu.
@@ -459,5 +478,5 @@ If set, will not render the 3d view menu.
 
 ### Syntax
 ```PowerShell
-Show-PSSVG [[-Content] <PSObject[]>] [[-Metadata] <PSObject[]>] [[-DataRow] <PSObject[]>] [[-Title] <String>] [[-CopyCount] <Int32>] [[-RowCount] <Int32>] [[-ColumnCount] <Int32>] [-Overlap] [[-PaletteName] <String>] [[-FontName] <String>] [[-CodeFont] <String>] [-In3D] [[-View3D] <String>] [[-CopyCount3D] <Int32>] [[-SpatialProperty] <PSObject>] [[-CameraX] <Double>] [[-CameraY] <Double>] [[-CameraZ] <Double>] [[-Near] <Double>] [[-Far] <Double>] [[-OrbitSpeed] <Double>] [[-OrbitNear] <Double>] [[-OrbitFar] <Double>] [[-FieldOfView] <Double>] [[-SphereRadius] <Double>] [[-SphereScale] <Double>] [[-CubeRadius] <Double>] [[-HelixRadius] <Double>] [[-HelixScaleX] <Double>] [[-HelixScaleY] <Double>] [[-HelixScaleZ] <Double>] [[-HelixPitch] <Double>] [[-CellWidth] <Double>] [[-CellHeight] <Double>] [[-TableWidth] <Double>] [[-TableHeight] <Double>] [[-TableRowCount] <Int32>] [[-TableColumnCount] <Int32>] [[-OnSelect] <String[]>] [[-BaseUrl] <String>] [[-InitialRandomness] <Double>] [[-BeatPerMinute] <Double>] [[-OnBeat] <String[]>] [[-TransitionTime] <TimeSpan>] [-No3DViewMenu] [<CommonParameters>]
+Show-PSSVG [[-Content] <PSObject[]>] [[-Metadata] <PSObject[]>] [[-DataRow] <PSObject[]>] [[-Title] <String>] [[-CopyCount] <Int32>] [[-RowCount] <Int32>] [[-ColumnCount] <Int32>] [-Overlap] [[-PaletteName] <String>] [[-FontName] <String>] [[-CodeFont] <String>] [-In3D] [[-View3D] <String>] [[-CopyCount3D] <Int32>] [[-SpatialProperty] <PSObject>] [[-CameraX] <Double>] [[-CameraY] <Double>] [[-CameraZ] <Double>] [[-Near] <Double>] [[-Far] <Double>] [[-OrbitSpeed] <Double>] [[-OrbitNear] <Double>] [[-OrbitFar] <Double>] [[-FieldOfView] <Double>] [[-SphereRadius] <Double>] [[-SphereScale] <Double>] [[-CubeRadius] <Double>] [[-HelixRadius] <Double>] [[-HelixScaleX] <Double>] [[-HelixScaleY] <Double>] [[-HelixScaleZ] <Double>] [[-HelixPitch] <Double>] [[-CellWidth] <Double>] [[-CellHeight] <Double>] [[-TableWidth] <Double>] [[-TableHeight] <Double>] [[-TableRowCount] <Int32>] [[-TableColumnCount] <Int32>] [[-ItemMultiple] <Int32>] [[-GrowthFactor] <Double>] [[-Viewport] <String>] [[-OnSelect] <String[]>] [[-BaseUrl] <String>] [[-InitialRandomness] <Double>] [[-BeatPerMinute] <Double>] [[-OnBeat] <String[]>] [[-TransitionTime] <TimeSpan>] [-No3DViewMenu] [<CommonParameters>]
 ```
