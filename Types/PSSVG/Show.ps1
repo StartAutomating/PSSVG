@@ -41,7 +41,7 @@
 	Show-PSSVG -Content @(
         SVG -Viewbox 200 @(
             @(
-                $k = (Get-Random -Minimum 1 -Maximum 12)
+                $k = (Get-Random -Minimum 2 -Maximum 12)
                 $r = ((Get-Random -Minimum 5 -Maximum 20) * 5)
                 $rose1 = SVG.Rose -Frequency $k -Radius $r -Stroke currentColor
                 $rose1
@@ -103,7 +103,7 @@
 	" > b12.html
 #>
 [ValidatePattern('\p{P}Show')]
-[Alias('Show.SVG','SVG.Show')]
+[Alias('Show.SVG','SVG.Show','Show-SVG')]
 param(
 # The content to show.  This should be any number of SVG elements.
 [Parameter(ValueFromPipeline)]
@@ -1032,6 +1032,8 @@ begin {
 }
 
 end {
+	$myCmd = $MyInvocation.MyCommand
+	
     # Anything piped in is content to show.
     $contentToshow = @($input)
     if (-not $contentToshow) {
