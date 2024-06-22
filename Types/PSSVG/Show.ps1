@@ -498,6 +498,8 @@ begin {
     		$svgCopies = ($ContentToShow | Copy-SVG @copyParameters).OuterXml -replace '\?<\?xml.*\?>'
     		if ($prefersSvg) {
     			return $svgCopies
+    		} else {
+    			$svgCopies
     		}
             "   </div>"
             if ($in3d) {
