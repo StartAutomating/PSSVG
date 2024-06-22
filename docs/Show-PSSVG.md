@@ -60,7 +60,7 @@ Show-PSSVG -Content @(
 Show-PSSVG -Content @(
        SVG -Viewbox 200 @(
            @(
-               $k = (Get-Random -Minimum 1 -Maximum 12)
+               $k = (Get-Random -Minimum 2 -Maximum 12)
                $r = ((Get-Random -Minimum 5 -Maximum 20) * 5)
                $rose1 = SVG.Rose -Frequency $k -Radius $r -Stroke currentColor
                $rose1
