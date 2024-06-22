@@ -184,11 +184,13 @@ $CodeFont,
 
 # If set, will render a 3D scene containing each of the SVG elements.
 [vbn()]
+[Alias('3d')]
 [switch]
 $In3D,
 
 # The default 3d view of the items.
 [vbn()]
+[Alias('3dView')]
 [string]
 $View3D = 'table',
 
@@ -196,6 +198,7 @@ $View3D = 'table',
 # If this is not provided, it will be the number of items in the table.
 # If this is provided, the table will be repeated as necessary.
 [vbn()]
+[Alias('3dCount','3dCopies','3dCopyCount')]
 [int]
 $CopyCount3D = 0,
 
@@ -942,7 +945,7 @@ button {
 					transform( targets.random, $($TransitionTime.TotalMilliseconds) );
 				});
 
-				transform( targets.$($View3D), $($TransitionTime.TotalMilliseconds) );				
+				transform( targets.$($View3D.ToLower()), $($TransitionTime.TotalMilliseconds) );				
 
 				window.addEventListener( 'resize', onWindowResize );
 			}
