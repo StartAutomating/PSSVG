@@ -134,12 +134,20 @@ function Copy-SVG {
         $symbols = @(            
             $symbolNumber = 1
             foreach ($contentItem in $ContentToCopy) {
+
+                # If they provided a string, we need to convert it to an XML element.
+                if ($ContentItem -is [string]) {
+                    $ContentItemAsXml = $contentItem -as [xml]
+                    if ($ContentItemAsXml) {
+                        $contentItem = $ContentItemAsXml
+                    }
+                }                    
+
                 # If they directly provided an element without points, we need to determine a viewbox.
                 # (this is potentially error prone and a bit slower, so please provide a viewbox)
                 $pointProperties = @(
-                    $contentItem.d
-                    $contentItem.points
-                    $contentItem.points
+                    $contentItem.d                    
+                    $contentItem.points                                        
                 ) -split '[\D-[\.]]+' -notmatch '^\s{0,}$'
                 # If we have points, we need to determine the maximum point.
                 if ($pointProperties) {
@@ -156,8 +164,7 @@ function Copy-SVG {
                     # If they provided an XML string, just use that (minus the XML declaration)
                     $contentItem = 
                         $contentItem.OuterXml -replace '\<\?xml.+?\?\>'
-                }
-                                                
+                }                               
                 $symbolSplat = [Ordered]@{
                     id = "symbol-$symbolNumber"
                     content = $contentItem                        
