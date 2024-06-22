@@ -326,27 +326,29 @@ if ($hasCache.Value) {
         # If it's not a status code, it's an SVG, and we can tell them to keep it cached
         $response.Headers["Cache-Control"] = "public, max-age=$(60 * 60 * 24 * 7)"
         # Return the SVG
-        return ($hasCache.Value | FrameSVG)
+        $showSplat = $this.Resolve($request, $this.ExportedCommands['Show-SVG'])
+        return ($hasCache.Value | Show-SVG @showSplat)
     }    
 }
 
 $resolvedRequest = $this.Resolve($request)
+$showSplat = $this.Resolve($request, $this.ExportedCommands['Show-SVG'])
 if (($resolvedRequest -is [Collections.IDictionary]) -and 
     $resolvedRequest.psobject.properties['Command']) {
     $commandToRun = $resolvedRequest.Command
     $cmdOut = &amp; $commandToRun @resolvedRequest
     if ($cmdOut -as [xml]) {
-        $this.RequestCache[$cacheKey] = ($cmdOut -as [xml]).OuterXml
-        return ($cmdOut | FrameSVG)
+        $this.RequestCache[$cacheKey] = ($cmdOut -as [xml]).OuterXml        
+        return ($cmdOut | Show-SVG @showSplat)
     }
     elseif ($cmdOut -is [xml.xmlelement]) {            
         $this.RequestCache[$cacheKey] = $cmdOut        
-        return ($this.RequestCache[$cacheKey] | FrameSVG)
+        return ($this.RequestCache[$cacheKey] | Show-SVG @showSplat)
     }
     elseif ($cmdOut -as [IO.FileInfo]) {
         $svgFileInfo = $cmdOut
         if ($svgFileInfo.Extension -eq '.svg') {
-            $cmdOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | FrameSVG
+            $cmdOut = [IO.File]::ReadAllText($svgFileInfo.FullName) | Show-SVG @showSplat
             $this.RequestCache[$cacheKey] = $cmdOut
             return $cmdOut
         }
