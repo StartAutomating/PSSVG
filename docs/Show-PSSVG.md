@@ -468,6 +468,12 @@ The duration of the transition between views.
 |------------|--------|--------|---------------------|
 |`[TimeSpan]`|false   |45      |true (ByPropertyName)|
 
+#### **AcceptType**
+
+|Type        |Required|Position|PipelineInput        |Aliases                                     |
+|------------|--------|--------|---------------------|--------------------------------------------|
+|`[String[]]`|false   |46      |true (ByPropertyName)|ContentType<br/>ContentTypes<br/>AcceptTypes|
+
 #### **No3DViewMenu**
 If set, will not render the 3d view menu.
 
@@ -479,5 +485,5 @@ If set, will not render the 3d view menu.
 
 ### Syntax
 ```PowerShell
-Show-PSSVG [[-Content] <PSObject[]>] [[-Metadata] <PSObject[]>] [[-DataRow] <PSObject[]>] [[-Title] <String>] [[-CopyCount] <Int32>] [[-RowCount] <Int32>] [[-ColumnCount] <Int32>] [-Overlap] [[-PaletteName] <String>] [[-FontName] <String>] [[-CodeFont] <String>] [-In3D] [[-View3D] <String>] [[-CopyCount3D] <Int32>] [[-SpatialProperty] <PSObject>] [[-CameraX] <Double>] [[-CameraY] <Double>] [[-CameraZ] <Double>] [[-Near] <Double>] [[-Far] <Double>] [[-OrbitSpeed] <Double>] [[-OrbitNear] <Double>] [[-OrbitFar] <Double>] [[-FieldOfView] <Double>] [[-SphereRadius] <Double>] [[-SphereScale] <Double>] [[-CubeRadius] <Double>] [[-HelixRadius] <Double>] [[-HelixScaleX] <Double>] [[-HelixScaleY] <Double>] [[-HelixScaleZ] <Double>] [[-HelixPitch] <Double>] [[-CellWidth] <Double>] [[-CellHeight] <Double>] [[-TableWidth] <Double>] [[-TableHeight] <Double>] [[-TableRowCount] <Int32>] [[-TableColumnCount] <Int32>] [[-ItemMultiple] <Int32>] [[-GrowthFactor] <Double>] [[-Viewport] <String>] [[-OnSelect] <String[]>] [[-BaseUrl] <String>] [[-InitialRandomness] <Double>] [[-BeatPerMinute] <Double>] [[-OnBeat] <String[]>] [[-TransitionTime] <TimeSpan>] [-No3DViewMenu] [<CommonParameters>]
+Show-PSSVG [[-Content] <PSObject[]>] [[-Metadata] <PSObject[]>] [[-DataRow] <PSObject[]>] [[-Title] <String>] [[-CopyCount] <Int32>] [[-RowCount] <Int32>] [[-ColumnCount] <Int32>] [-Overlap] [[-PaletteName] <String>] [[-FontName] <String>] [[-CodeFont] <String>] [-In3D] [[-View3D] <String>] [[-CopyCount3D] <Int32>] [[-SpatialProperty] <PSObject>] [[-CameraX] <Double>] [[-CameraY] <Double>] [[-CameraZ] <Double>] [[-Near] <Double>] [[-Far] <Double>] [[-OrbitSpeed] <Double>] [[-OrbitNear] <Double>] [[-OrbitFar] <Double>] [[-FieldOfView] <Double>] [[-SphereRadius] <Double>] [[-SphereScale] <Double>] [[-CubeRadius] <Double>] [[-HelixRadius] <Double>] [[-HelixScaleX] <Double>] [[-HelixScaleY] <Double>] [[-HelixScaleZ] <Double>] [[-HelixPitch] <Double>] [[-CellWidth] <Double>] [[-CellHeight] <Double>] [[-TableWidth] <Double>] [[-TableHeight] <Double>] [[-TableRowCount] <Int32>] [[-TableColumnCount] <Int32>] [[-ItemMultiple] <Int32>] [[-GrowthFactor] <Double>] [[-Viewport] <String>] [[-OnSelect] <String[]>] [[-BaseUrl] <String>] [[-InitialRandomness] <Double>] [[-BeatPerMinute] <Double>] [[-OnBeat] <String[]>] [[-TransitionTime] <TimeSpan>] [[-AcceptType] <String[]>] [-No3DViewMenu] [<CommonParameters>]
 ```
