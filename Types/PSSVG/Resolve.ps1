@@ -50,9 +50,9 @@ filter ToSplat {
                 }
             }
 
-        # If we have said we will not serve this parameter, remove it.
+        # If we have said we will not serve this parameter, continue.
         if ($this.DoNotServe -match "^\p{P}?$paramName") {
-            $localSplat.Remove($paramName)
+            continue
         }
 
         if ($paramName) {            
@@ -115,7 +115,7 @@ filter ToSplat {
 
 # If a commands were provided, use that instead.
 if ($Command) {
-    return $Command | ToSplat
+    return $Command | . ToSplat
 }
 
 # If the request is for an icon, return nothing.
@@ -130,7 +130,7 @@ if ($hasRoute.Value -is [int]) {
 $routedTo = $hasRoute.Value
 
 if ($routedTo -is [Management.Automation.CommandInfo]) {    
-    return $routedTo | ToSplat
+    return $routedTo | . ToSplat
 } else {
     return $routedTo
 }
