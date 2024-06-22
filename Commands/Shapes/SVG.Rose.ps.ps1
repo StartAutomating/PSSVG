@@ -88,15 +88,21 @@ function SVG.Rose {
         # and strip off any parameters that are not SVG's
         $myCommandMetadata = $MyInvocation.MyCommand -as [Management.Automation.CommandMetaData]
         $svgCmd = $baseCommand
-        foreach ($parameterName in $myCommandMetadata.Parameters.Keys) {
+        foreach ($parameterName in @($svgSplat.Keys)) {
             if (-not $svgCmd.Parameters[$parameterName]) {
                 $svgSplat.Remove($parameterName)
             }
         }
+        
 
         # Default to a transparent fill.
         if (-not $svgSplat.Fill) {
             $svgSplat.Fill = 'transparent'
+        }
+
+        # Default to a currentColor stroke.
+        if (-not $svgSplat.Stroke) {
+            $svgSplat.Stroke = 'currentColor'
         }
         
         # If no center is provided, use the radius.
@@ -115,7 +121,6 @@ function SVG.Rose {
             # (if we drew a full circle, we need to add one more point to close the path)
             if ($RevolutionCount % 360) { 0 } else { 1 }            
         )
-
         
         # Generate the path points
         $pathPoints = @(            
