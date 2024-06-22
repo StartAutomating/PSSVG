@@ -370,6 +370,11 @@ $OnBeat,
 [timespan]
 $TransitionTime = $([timespan]::FromSeconds(1.67)),
 
+[Parameter(ValueFromPipelineByPropertyName)]
+[Alias('ContentType','ContentTypes','AcceptTypes')]
+[string[]]
+$AcceptType = $(if ($request.AcceptTypes) { $request.AcceptTypes -split ';'} else { 'text/html','image/svg+xml' }),
+
 # If set, will not render the 3d view menu.
 [Parameter(ValueFromPipelineByPropertyName)]
 [switch]
@@ -409,29 +414,9 @@ begin {
             }
             if ($PaletteName) {
                 '<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/.css" id="4bitcss" />' -replace '\.css', "$PaletteName.css"
-            } else {
-    			'<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/4bit.css" id="4bitcss" />'
-    		}
-    		"<script>
-    			var urlSearchParams = new URLSearchParams(window.location.search);
-    			var queryPalette = null;
-    			if (urlSearchParams.has('palette')) {
-    				queryPalette = urlSearchParams.get('palette');    				
-    			}				
-    			else if (urlSearchParams.has('Palette')) {
-    				queryPalette = urlSearchParams.get('Palette');					
-    			}
-    			if (queryPalette != null) {
-    				var link = document.getElementById('4bitcss');
-    				if (link) {
-    					link.href = 'https://cdn.jsdelivr.net/gh/2bitdesigns/4bitcss@latest/css/' + queryPalette + '.css';
-    				}
-    			}
-    		</script>"
-    
+            }
     		if ($CodeFont) {
     			"<link type='text/css' rel='stylesheet' href='https://fonts.googleapis.com/css?family=$CodeFont' id='codefont' />"
-    
     		}
     		if ($FontName) {
     			"<link type='text/css' rel='stylesheet' href='https://fonts.googleapis.com/css?family=$FontName' id='fontname' />"
@@ -455,7 +440,7 @@ begin {
                     "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
                     "three/addons/": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/"
                     }
-                }    
+                }
             </script>    
             '
             }
@@ -490,12 +475,14 @@ begin {
     		
             "   </head>"        
         
-    }	
+    }
 
     filter body {
-    		
-            "   <body>"
-            "   <div id='container-2d' $(if ($In3D) {"style='display:none'"})>"        
+    
+    		if (-not $prefersSvg) {
+    			"   <body>"
+    			"   <div id='container-2d' $(if ($In3D) {"style='display:none'"})>"
+    		}        
     			
     		$originalCopyCount = $CopyCount
             if ($CopyCount -lt $contentToshow.Length -and -not $Overlap) {
@@ -508,7 +495,10 @@ begin {
     			}
     		}
     		$copyParameters.Remove('Content')
-    		($ContentToShow | Copy-SVG @copyParameters).OuterXml -replace '\?<\?xml.*\?>'
+    		$svgCopies = ($ContentToShow | Copy-SVG @copyParameters).OuterXml -replace '\?<\?xml.*\?>'
+    		if ($prefersSvg) {
+    			return $svgCopies
+    		}
             "   </div>"
             if ($in3d) {
                 "   <style>"
@@ -1050,14 +1040,23 @@ end {
 	if ($PSBoundParameters['View3D']) {
 		$in3d = $true
 	}
+
+	$prefersSvg = $AcceptType.Length -ge 1 -and $AcceptType[0] -eq 'image/svg+xml'
     
-    $htmlOut = @(
-		. head
-		. body
-	) | 
-		. html
+    $mainContent = 
+		@(
+			if (-not $prefersSvg) {
+				. head
+			}			
+			. body
+		)
 
-    $htmlOut -join [Environment]::NewLine
+	if (-not $prefersSvg) {
+		if ($response -and $response.ContentType -ne 'text/html') {
+			$response.ContentType = 'text/html'
+		}
+		($mainContent | . html) -join [Environment]::NewLine
+	} else {
+		$mainContent
+	}
 }
-
-
