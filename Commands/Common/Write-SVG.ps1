@@ -312,7 +312,11 @@
                         $pieceOfContent.Outerxml
                     }
                     else {
-                        "$pieceOfContent"
+                        if ($pieceOfContent -match '\.(?>gif|png|jpe?g|svg)$') {
+                            "<image href='$pieceOfContent' width='100%' height='100%' />"
+                        } else {
+                            "$pieceOfContent"
+                        }
                     }
                 }
             $elementText += "</$elementName>"                    
