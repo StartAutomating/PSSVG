@@ -214,25 +214,25 @@ The Google Font name to use for code blocks.
 #### **In3D**
 If set, will render a 3D scene containing each of the SVG elements.
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[Switch]`|false   |named   |true (ByPropertyName)|
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[Switch]`|false   |named   |true (ByPropertyName)|3d     |
 
 #### **View3D**
 The default 3d view of the items.
 
-|Type      |Required|Position|PipelineInput        |
-|----------|--------|--------|---------------------|
-|`[String]`|false   |11      |true (ByPropertyName)|
+|Type      |Required|Position|PipelineInput        |Aliases|
+|----------|--------|--------|---------------------|-------|
+|`[String]`|false   |11      |true (ByPropertyName)|3dView |
 
 #### **CopyCount3D**
 The number of copies of each item to show in the 3D scene.
 If this is not provided, it will be the number of items in the table.
 If this is provided, the table will be repeated as necessary.
 
-|Type     |Required|Position|PipelineInput        |
-|---------|--------|--------|---------------------|
-|`[Int32]`|false   |12      |true (ByPropertyName)|
+|Type     |Required|Position|PipelineInput        |Aliases                             |
+|---------|--------|--------|---------------------|------------------------------------|
+|`[Int32]`|false   |12      |true (ByPropertyName)|3dCount<br/>3dCopies<br/>3dCopyCount|
 
 #### **SpatialProperty**
 The spatial property map for the 3D scene.
