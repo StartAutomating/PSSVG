@@ -371,8 +371,10 @@ $OnBeat,
 # The duration of the transition between views.
 [Parameter(ValueFromPipelineByPropertyName)]
 [timespan]
-$TransitionTime = $([timespan]::FromSeconds(1.67)),
+$TransitionTime = $([timespan]::FromSeconds(0.26)),
 
+# The list of acceptable content types.
+# If the first item is SVG, will prefer SVG over HTML (and will not render in 3d)
 [Parameter(ValueFromPipelineByPropertyName)]
 [Alias('ContentType','ContentTypes','AcceptTypes')]
 [string[]]
