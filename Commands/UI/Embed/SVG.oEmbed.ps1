@@ -65,6 +65,11 @@ function SVG.oEmbed {
         filter oEmbedContent {
         
                     $oEmbedInfo = $script:oEmbedCache[$EmbedUrl]
+                    # Sometimes oEmbed returns XML, sometimes it returns JSON.  We need to handle both.
+                    if ($oEmbedInfo -is [xml] -and $oEmbedInfo.oEmbed) {
+                        $oEmbedInfo = $oEmbedInfo.oEmbed # (this is pretty easy, just set the variable to the oEmbed node)
+                    }
+        
                     $htmlAsXml = $oEmbedInfo.Html -as [xml]
                     if (-not $htmlAsXml -and $oEmbedInfo.html) {
                         # If the HTML is not valid XML, we need to fix it.
@@ -82,25 +87,31 @@ function SVG.oEmbed {
                         $altAtribute['alt'] = $oEmbedInfo.title
                     }
             
-                    if ($oEmbedInfo.thumbnail_url) {
+                    # There is some disagreement in implementations on the name of the thumbnail URL.
+                    if ($oEmbedInfo.thumbnail_url -or $oEmbedInfo.'thumbnail-url') {
+                        # just pick the first one if either are found.
+                        $thumbUrl = @($oEmbedInfo.thumbnail_url,$oEmbedInfo.'thumbnail-url' -ne $null)[0]
                         # If the HTML is still not valid XML, we'll just use the thumbnail.                        
                         return SVG.a -Href $EmbedUrl -Attribute $altAtribute -Content @(
-                            SVG.image -Href $oEmbedInfo.thumbnail_url -Width $svgSplat['Width'] -Height $svgSplat['Height'] -Attribute $altAtribute
+                            SVG.image -Href $thumbUrl -Width $svgSplat['Width'] -Height $svgSplat['Height'] -Attribute $altAtribute
                         )        
                     }
             
+                    # If there is no thumbnail, we'll just use the URL.
                     if ($oEmbedInfo.url) {                
+                        # If the URL is an image, we'll just use the image.
                         if ($oEmbedInfo.url -match '\.(?>gif|jpe?g|a?png|svg)$') {                
                             return SVG.a -Href $EmbedUrl -Attribute $altAtribute -Content @(
                                 SVG.image -Href $oEmbedInfo.url  -Width $svgSplat['Width'] -Height $svgSplat['Height'] -Attribute $altAtribute
                             )                
                         }
                         
+                        # If the URL is not an image, we'll just use the title.
                         if ($oEmbedInfo.title) {                
                             return SVG.a -Href $EmbedUrl -Attribute $altAtribute -Content @(
                                 SVG.text -Content $oEmbedInfo.title -X 50% -Y 50% -TextAnchor middle -DominantBaseline middle
                             )            
-                        }            
+                        }
                     }
                 
         }
