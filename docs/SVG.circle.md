@@ -201,16 +201,16 @@ One or more child elements.  These will be treated as if they were content.
 #### **Cx**
 The x-axis coordinate of the center of the circle.
 
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |Aliases|
+|------------|--------|--------|---------------------|-------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|CenterX|
 
 #### **Cy**
 The y-axis coordinate of the center of the circle.
 
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
+|Type        |Required|Position|PipelineInput        |Aliases|
+|------------|--------|--------|---------------------|-------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|CenterY|
 
 #### **R**
 The radius of the circle. A value lower or equal to zero disables rendering of the circle.
