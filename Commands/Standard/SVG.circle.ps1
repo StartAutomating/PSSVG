@@ -129,6 +129,7 @@ $Children,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("length-percentage")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Alias('CenterX')]
 [PSObject]
 $Cx,
 # The y-axis coordinate of the center of the circle.
@@ -137,6 +138,7 @@ $Cx,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("length-percentage")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', '0')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Alias('CenterY')]
 [PSObject]
 $Cy,
 # The radius of the circle. A value lower or equal to zero disables rendering of the circle.
