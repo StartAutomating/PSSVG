@@ -82,113 +82,106 @@ One or more child elements.  These will be treated as if they were content.
 |------------|--------|--------|---------------------|-------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|Child  |
 
+#### **Lang**
+The lang attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
 #### **Tabindex**
-The tabindex attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Id**
-The id attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Style**
-The style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmlspace**
-The xml:space attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmllang**
-The xml:lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmlbase**
-The xml:base attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:base) for more information.
+The tabindex attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Class**
-The class attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/class) for more information.
+The class attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Lang**
-The lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lang) for more information.
+#### **Id**
+The id attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **XmlLang**
+The xml:lang attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **XmlSpace**
+The xml:space attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Style**
+The style attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Type**
-The type attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **RequiredFeatures**
-The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **X**
-The x attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/x) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Amplitude**
-The amplitude attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/amplitude) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Y**
-The y attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/y) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Exponent**
-The exponent attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/exponent) for more information.
+The type attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **TableValues**
-The tableValues attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tableValues) for more information.
+The tableValues attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Amplitude**
+The amplitude attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Exponent**
+The exponent attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **RequiredFeatures**
+The requiredFeatures attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Intercept**
-The intercept attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/intercept) for more information.
+The intercept attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **X**
+The x attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Y**
+The y attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
@@ -203,5 +196,5 @@ The intercept attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web
 
 ### Syntax
 ```PowerShell
-SVG.feFuncG [[-Content] <Object>] [-Data <IDictionary>] [-On <PSObject>] [-Slot <String>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-Tabindex <PSObject>] [-Id <PSObject>] [-Style <PSObject>] [-Xmlspace <PSObject>] [-Xmllang <PSObject>] [-Xmlbase <PSObject>] [-Class <PSObject>] [-Lang <PSObject>] [-Type <PSObject>] [-RequiredFeatures <PSObject>] [-X <PSObject>] [-Amplitude <PSObject>] [-Y <PSObject>] [-Exponent <PSObject>] [-TableValues <PSObject>] [-Intercept <PSObject>] [<CommonParameters>]
+SVG.feFuncG [[-Content] <Object>] [-Data <IDictionary>] [-On <PSObject>] [-Slot <String>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-Class <PSObject>] [-Id <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-Style <PSObject>] [-Type <PSObject>] [-TableValues <PSObject>] [-Amplitude <PSObject>] [-Exponent <PSObject>] [-RequiredFeatures <PSObject>] [-Intercept <PSObject>] [-X <PSObject>] [-Y <PSObject>] [<CommonParameters>]
 ```
