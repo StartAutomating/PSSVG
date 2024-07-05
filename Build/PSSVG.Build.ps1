@@ -294,6 +294,7 @@ switch -regex ($svgAttributesByCategory) {
 }) | Out-TypeData -OutputPath (Join-Path $pwd "SVG.Attribute.Types.ps1xml")
 
 
+
 # If we don't know the list of elements
 if (-not $svgElements) {
     # we can go to the repo and get the JSON.
@@ -311,6 +312,18 @@ $replaceMDNContent = "\{\{\s{0,}(?>$(@('Glossary', 'cssxref', 'domxref', 'HTTPMe
         '["''](?<s>[^"'']+)["'']\)\s{0,}\}\}'
 
 
+filter AttributeName=>ParameterName {
+
+    $attrName = $_
+    $attrName = $attrName.Substring(0,1).ToUpper() + $attrName.Substring(1)
+    [regex]::Replace($attrName, '\W(?<w>\w+)', {
+        param($match)
+        $match.Groups['w'].Value.Substring(0,1).ToUpper() + 
+            $match.Groups['w'].Value.Substring(1)
+    })
+
+}
+                
 function ConvertSVGMetadataToParameterAttribute {
 
     param([Parameter(ValueFromPipeline,Position=0)][string]$EdiValue)
@@ -1019,17 +1032,20 @@ If nothing was provided, each output will be decorated with it's ElementName.
         }
     )
 
+    # Add any missing parameters.
     foreach ($potentiallyMissing in $checkForTheseParameters) {    
-        $potentiallyMissingParameterName = $potentiallyMissing.Substring(0,1).ToUpper() + $potentiallyMissing.Substring(1)
-        $potentiallyMissingParameterName = $potentiallyMissingParameterName -replace '\W'
+        $potentiallyMissingParameterName = $potentiallyMissing | AttributeName=>ParameterName
         if (-not $parameters[$potentiallyMissingParameterName]) {
             $parameters[$potentiallyMissing] = @(
-                "# The $potentiallyMissing attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/$potentiallyMissing) for more information."
+                "# The $potentiallyMissing attribute.  See [MDN]($svgAttributeLink) for more information."
                 "[Parameter(ValueFromPipelineByPropertyName)]"
                 if ($attributeFileData[$potentiallyMissing].IsDeprecated) {
                     "[Reflection.AssemblyMetaData('SVG.Deprecated',`$true)]"
-                }
+                }                
                 "[Reflection.AssemblyMetaData('SVG.AttributeName','$potentiallyMissing')]"
+                if ($knownParameterAliases[$potentiallyMissingParameterName]) {
+                    "[Alias('$($knownParameterAliases[$potentiallyMissingParameterName] -replace "'", "''" -join "','")')]"
+                }
                 "[PSObject]"
                 "`$$potentiallyMissingParameterName"
             )
