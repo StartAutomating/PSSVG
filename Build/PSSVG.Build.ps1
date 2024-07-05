@@ -819,6 +819,8 @@ $examplesRoot = Join-Path $pwd Examples
 
 $knownParameterAliases = @{
     'Dur' = 'Duration'
+    'Cx'  = 'CenterX'
+    'Cy'  = 'CenterY'
 }
 
 $destFolder  = Join-Path $pwd "Commands"
