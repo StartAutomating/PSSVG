@@ -198,491 +198,463 @@ This attribute defines the opacity of the gradient stop. It can be used as a CSS
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
+#### **Lang**
+The lang attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
 #### **Tabindex**
-The tabindex attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Id**
-The id attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Style**
-The style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmlspace**
-The xml:space attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmllang**
-The xml:lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmlbase**
-The xml:base attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:base) for more information.
+The tabindex attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Class**
-The class attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/class) for more information.
+The class attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Lang**
-The lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lang) for more information.
+#### **Id**
+The id attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Clippath**
-The clip-path attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-path) for more information.
+#### **XmlLang**
+The xml:lang attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Strokeopacity**
-The stroke-opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-opacity) for more information.
+#### **XmlSpace**
+The xml:space attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Fontstretch**
-The font-stretch attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-stretch) for more information.
+#### **Style**
+The style attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Baselineshift**
-The baseline-shift attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/baseline-shift) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Floodcolor**
-The flood-color attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-color) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Markerend**
-The marker-end attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-end) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Fontsizeadjust**
-The font-size-adjust attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-size-adjust) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Colorinterpolationfilters**
-The color-interpolation-filters attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation-filters) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Visibility**
-The visibility attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/visibility) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Strokelinecap**
-The stroke-linecap attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linecap) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Textrendering**
-The text-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-rendering) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Fill**
-The fill attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Fillrule**
-The fill-rule attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Display**
-The display attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/display) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Stroke**
-The stroke attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Opacity**
-The opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/opacity) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **D**
-The d attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Transform**
-The transform attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform) for more information.
+#### **FontFamily**
+The font-family attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Cursor**
-The cursor attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cursor) for more information.
+The cursor attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Vectoreffect**
-The vector-effect attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/vector-effect) for more information.
+#### **StrokeMiterlimit**
+The stroke-miterlimit attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Strokelinejoin**
-The stroke-linejoin attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-linejoin) for more information.
+#### **FontSize**
+The font-size attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Textanchor**
-The text-anchor attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-anchor) for more information.
+#### **MarkerEnd**
+The marker-end attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Markermid**
-The marker-mid attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-mid) for more information.
+#### **StrokeDasharray**
+The stroke-dasharray attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Colorprofile**
-The color-profile attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-profile) for more information.
+#### **GlyphOrientationVertical**
+The glyph-orientation-vertical attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Strokedashoffset**
-The stroke-dashoffset attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dashoffset) for more information.
+#### **VectorEffect**
+The vector-effect attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Fontweight**
-The font-weight attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-weight) for more information.
+#### **ImageRendering**
+The image-rendering attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Transformorigin**
-The transform-origin attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform-origin) for more information.
+#### **Visibility**
+The visibility attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Strokemiterlimit**
-The stroke-miterlimit attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-miterlimit) for more information.
+#### **ShapeRendering**
+The shape-rendering attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Lightingcolor**
-The lighting-color attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lighting-color) for more information.
+#### **GlyphOrientationHorizontal**
+The glyph-orientation-horizontal attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Dominantbaseline**
-The dominant-baseline attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dominant-baseline) for more information.
+#### **LightingColor**
+The lighting-color attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Color**
-The color attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color) for more information.
+#### **WordSpacing**
+The word-spacing attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Cliprule**
-The clip-rule attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule) for more information.
+#### **FloodColor**
+The flood-color attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Strokedasharray**
-The stroke-dasharray attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray) for more information.
+#### **ClipPath**
+The clip-path attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Enablebackground**
-The enable-background attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/enable-background) for more information.
+#### **LetterSpacing**
+The letter-spacing attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Direction**
-The direction attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/direction) for more information.
+#### **BaselineShift**
+The baseline-shift attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Floodopacity**
-The flood-opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-opacity) for more information.
+#### **FloodOpacity**
+The flood-opacity attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Fontvariant**
-The font-variant attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-variant) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Colorinterpolation**
-The color-interpolation attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Overflow**
-The overflow attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/overflow) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Strokewidth**
-The stroke-width attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-width) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Fontfamily**
-The font-family attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-family) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Fontsize**
-The font-size attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-size) for more information.
+#### **FontStyle**
+The font-style attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Filter**
-The filter attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filter) for more information.
+The filter attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Fontstyle**
-The font-style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-style) for more information.
+#### **DominantBaseline**
+The dominant-baseline attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Textdecoration**
-The text-decoration attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/text-decoration) for more information.
+#### **PointerEvents**
+The pointer-events attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Kerning**
-The kerning attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kerning) for more information.
+#### **StrokeOpacity**
+The stroke-opacity attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Wordspacing**
-The word-spacing attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/word-spacing) for more information.
+#### **StrokeWidth**
+The stroke-width attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Glyphorientationhorizontal**
-The glyph-orientation-horizontal attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/glyph-orientation-horizontal) for more information.
+#### **TextDecoration**
+The text-decoration attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Writingmode**
-The writing-mode attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/writing-mode) for more information.
+#### **D**
+The d attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Pointerevents**
-The pointer-events attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointer-events) for more information.
+#### **StrokeLinecap**
+The stroke-linecap attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Imagerendering**
-The image-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/image-rendering) for more information.
+#### **ColorInterpolationFilters**
+The color-interpolation-filters attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Letterspacing**
-The letter-spacing attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/letter-spacing) for more information.
+#### **StrokeLinejoin**
+The stroke-linejoin attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Glyphorientationvertical**
-The glyph-orientation-vertical attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/glyph-orientation-vertical) for more information.
+#### **Direction**
+The direction attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Unicodebidi**
-The unicode-bidi attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/unicode-bidi) for more information.
+#### **MarkerStart**
+The marker-start attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Alignmentbaseline**
-The alignment-baseline attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/alignment-baseline) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Mask**
-The mask attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/mask) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Shaperendering**
-The shape-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/shape-rendering) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Markerstart**
-The marker-start attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/marker-start) for more information.
+#### **TextRendering**
+The text-rendering attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Clip**
-The clip attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip) for more information.
+The clip attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Fillopacity**
-The fill-opacity attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-opacity) for more information.
+#### **FillOpacity**
+The fill-opacity attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Colorrendering**
-The color-rendering attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-rendering) for more information.
+#### **Color**
+The color attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **FontStretch**
+The font-stretch attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **FontWeight**
+The font-weight attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **FontSizeAdjust**
+The font-size-adjust attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **WritingMode**
+The writing-mode attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Overflow**
+The overflow attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **TextAnchor**
+The text-anchor attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **ClipRule**
+The clip-rule attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **FontVariant**
+The font-variant attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **ColorInterpolation**
+The color-interpolation attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **TransformOrigin**
+The transform-origin attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Fill**
+The fill attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Transform**
+The transform attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **UnicodeBidi**
+The unicode-bidi attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **FillRule**
+The fill-rule attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **MarkerMid**
+The marker-mid attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **AlignmentBaseline**
+The alignment-baseline attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Mask**
+The mask attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **StrokeDashoffset**
+The stroke-dashoffset attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Stroke**
+The stroke attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Display**
+The display attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **Opacity**
+The opacity attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **ColorRendering**
+The color-rendering attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **RequiredFeatures**
-The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures) for more information.
+The requiredFeatures attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
@@ -697,5 +669,5 @@ The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/d
 
 ### Syntax
 ```PowerShell
-SVG.stop [[-Content] <Object>] [-Data <IDictionary>] [-On <PSObject>] [-Slot <String>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-Offset <PSObject>] [-StopColor <PSObject>] [-StopOpacity <PSObject>] [-Tabindex <PSObject>] [-Id <PSObject>] [-Style <PSObject>] [-Xmlspace <PSObject>] [-Xmllang <PSObject>] [-Xmlbase <PSObject>] [-Class <PSObject>] [-Lang <PSObject>] [-Clippath <PSObject>] [-Strokeopacity <PSObject>] [-Fontstretch <PSObject>] [-Baselineshift <PSObject>] [-Floodcolor <PSObject>] [-Markerend <PSObject>] [-Fontsizeadjust <PSObject>] [-Colorinterpolationfilters <PSObject>] [-Visibility <PSObject>] [-Strokelinecap <PSObject>] [-Textrendering <PSObject>] [-Fill <PSObject>] [-Fillrule <PSObject>] [-Display <PSObject>] [-Stroke <PSObject>] [-Opacity <PSObject>] [-D <PSObject>] [-Transform <PSObject>] [-Cursor <PSObject>] [-Vectoreffect <PSObject>] [-Strokelinejoin <PSObject>] [-Textanchor <PSObject>] [-Markermid <PSObject>] [-Colorprofile <PSObject>] [-Strokedashoffset <PSObject>] [-Fontweight <PSObject>] [-Transformorigin <PSObject>] [-Strokemiterlimit <PSObject>] [-Lightingcolor <PSObject>] [-Dominantbaseline <PSObject>] [-Color <PSObject>] [-Cliprule <PSObject>] [-Strokedasharray <PSObject>] [-Enablebackground <PSObject>] [-Direction <PSObject>] [-Floodopacity <PSObject>] [-Fontvariant <PSObject>] [-Colorinterpolation <PSObject>] [-Overflow <PSObject>] [-Strokewidth <PSObject>] [-Fontfamily <PSObject>] [-Fontsize <PSObject>] [-Filter <PSObject>] [-Fontstyle <PSObject>] [-Textdecoration <PSObject>] [-Kerning <PSObject>] [-Wordspacing <PSObject>] [-Glyphorientationhorizontal <PSObject>] [-Writingmode <PSObject>] [-Pointerevents <PSObject>] [-Imagerendering <PSObject>] [-Letterspacing <PSObject>] [-Glyphorientationvertical <PSObject>] [-Unicodebidi <PSObject>] [-Alignmentbaseline <PSObject>] [-Mask <PSObject>] [-Shaperendering <PSObject>] [-Markerstart <PSObject>] [-Clip <PSObject>] [-Fillopacity <PSObject>] [-Colorrendering <PSObject>] [-RequiredFeatures <PSObject>] [<CommonParameters>]
+SVG.stop [[-Content] <Object>] [-Data <IDictionary>] [-On <PSObject>] [-Slot <String>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-Offset <PSObject>] [-StopColor <PSObject>] [-StopOpacity <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-Class <PSObject>] [-Id <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-Style <PSObject>] [-FontFamily <PSObject>] [-Cursor <PSObject>] [-StrokeMiterlimit <PSObject>] [-FontSize <PSObject>] [-MarkerEnd <PSObject>] [-StrokeDasharray <PSObject>] [-GlyphOrientationVertical <PSObject>] [-VectorEffect <PSObject>] [-ImageRendering <PSObject>] [-Visibility <PSObject>] [-ShapeRendering <PSObject>] [-GlyphOrientationHorizontal <PSObject>] [-LightingColor <PSObject>] [-WordSpacing <PSObject>] [-FloodColor <PSObject>] [-ClipPath <PSObject>] [-LetterSpacing <PSObject>] [-BaselineShift <PSObject>] [-FloodOpacity <PSObject>] [-FontStyle <PSObject>] [-Filter <PSObject>] [-DominantBaseline <PSObject>] [-PointerEvents <PSObject>] [-StrokeOpacity <PSObject>] [-StrokeWidth <PSObject>] [-TextDecoration <PSObject>] [-D <PSObject>] [-StrokeLinecap <PSObject>] [-ColorInterpolationFilters <PSObject>] [-StrokeLinejoin <PSObject>] [-Direction <PSObject>] [-MarkerStart <PSObject>] [-TextRendering <PSObject>] [-Clip <PSObject>] [-FillOpacity <PSObject>] [-Color <PSObject>] [-FontStretch <PSObject>] [-FontWeight <PSObject>] [-FontSizeAdjust <PSObject>] [-WritingMode <PSObject>] [-Overflow <PSObject>] [-TextAnchor <PSObject>] [-ClipRule <PSObject>] [-FontVariant <PSObject>] [-ColorInterpolation <PSObject>] [-TransformOrigin <PSObject>] [-Fill <PSObject>] [-Transform <PSObject>] [-UnicodeBidi <PSObject>] [-FillRule <PSObject>] [-MarkerMid <PSObject>] [-AlignmentBaseline <PSObject>] [-Mask <PSObject>] [-StrokeDashoffset <PSObject>] [-Stroke <PSObject>] [-Display <PSObject>] [-Opacity <PSObject>] [-ColorRendering <PSObject>] [-RequiredFeatures <PSObject>] [<CommonParameters>]
 ```

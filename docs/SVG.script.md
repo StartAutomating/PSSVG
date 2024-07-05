@@ -112,113 +112,106 @@ The URL to the script to load.
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
+#### **Lang**
+The lang attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
 #### **Tabindex**
-The tabindex attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/tabindex) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Id**
-The id attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/id) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Style**
-The style attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmlspace**
-The xml:space attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:space) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmllang**
-The xml:lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang) for more information.
-
-|Type        |Required|Position|PipelineInput        |
-|------------|--------|--------|---------------------|
-|`[PSObject]`|false   |named   |true (ByPropertyName)|
-
-#### **Xmlbase**
-The xml:base attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:base) for more information.
+The tabindex attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **Class**
-The class attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/class) for more information.
+The class attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Lang**
-The lang attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lang) for more information.
+#### **Id**
+The id attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Xlinktype**
-The xlink:type attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:type) for more information.
+#### **XmlLang**
+The xml:lang attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Xlinkarcrole**
-The xlink:arcrole attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:arcrole) for more information.
+#### **XmlSpace**
+The xml:space attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Xlinkshow**
-The xlink:show attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:show) for more information.
+#### **Style**
+The style attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Xlinktitle**
-The xlink:title attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:title) for more information.
+#### **XlinkType**
+The xlink:type attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Xlinkrole**
-The xlink:role attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:role) for more information.
+#### **XlinkTitle**
+The xlink:title attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
-#### **Xlinkactuate**
-The xlink:actuate attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:actuate) for more information.
+#### **XlinkShow**
+The xlink:show attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **XlinkArcrole**
+The xlink:arcrole attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **XlinkRole**
+The xlink:role attribute.  See [MDN]() for more information.
+
+|Type        |Required|Position|PipelineInput        |
+|------------|--------|--------|---------------------|
+|`[PSObject]`|false   |named   |true (ByPropertyName)|
+
+#### **XlinkActuate**
+The xlink:actuate attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **ExternalResourcesRequired**
-The externalResourcesRequired attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/externalResourcesRequired) for more information.
+The externalResourcesRequired attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
 |`[PSObject]`|false   |named   |true (ByPropertyName)|
 
 #### **RequiredFeatures**
-The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures) for more information.
+The requiredFeatures attribute.  See [MDN]() for more information.
 
 |Type        |Required|Position|PipelineInput        |
 |------------|--------|--------|---------------------|
@@ -233,5 +226,5 @@ The requiredFeatures attribute.  See [MDN](https://developer.mozilla.org/en-US/d
 
 ### Syntax
 ```PowerShell
-SVG.script [[-Content] <Object>] [-Data <IDictionary>] [-On <PSObject>] [-Slot <String>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-Crossorigin <PSObject>] [-Href <PSObject>] [-Type <PSObject>] [-XlinkHref <PSObject>] [-Tabindex <PSObject>] [-Id <PSObject>] [-Style <PSObject>] [-Xmlspace <PSObject>] [-Xmllang <PSObject>] [-Xmlbase <PSObject>] [-Class <PSObject>] [-Lang <PSObject>] [-Xlinktype <PSObject>] [-Xlinkarcrole <PSObject>] [-Xlinkshow <PSObject>] [-Xlinktitle <PSObject>] [-Xlinkrole <PSObject>] [-Xlinkactuate <PSObject>] [-ExternalResourcesRequired <PSObject>] [-RequiredFeatures <PSObject>] [<CommonParameters>]
+SVG.script [[-Content] <Object>] [-Data <IDictionary>] [-On <PSObject>] [-Slot <String>] [-Attribute <IDictionary>] [-Comment <String>] [-Decorate <String>] [-Children <PSObject>] [-Crossorigin <PSObject>] [-Href <PSObject>] [-Type <PSObject>] [-XlinkHref <PSObject>] [-Lang <PSObject>] [-Tabindex <PSObject>] [-Class <PSObject>] [-Id <PSObject>] [-XmlLang <PSObject>] [-XmlSpace <PSObject>] [-Style <PSObject>] [-XlinkType <PSObject>] [-XlinkTitle <PSObject>] [-XlinkShow <PSObject>] [-XlinkArcrole <PSObject>] [-XlinkRole <PSObject>] [-XlinkActuate <PSObject>] [-ExternalResourcesRequired <PSObject>] [-RequiredFeatures <PSObject>] [<CommonParameters>]
 ```
