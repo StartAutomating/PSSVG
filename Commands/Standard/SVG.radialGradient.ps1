@@ -79,6 +79,7 @@ $Children,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("length-percentage")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', '50%')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Alias('CenterX')]
 [PSObject]
 $Cx,
 # This attribute defines the y coordinate of the end circle of the radial gradient.
@@ -87,6 +88,7 @@ $Cx,
 [Reflection.AssemblyMetaData('SVG.Value', '{{cssxref("length-percentage")}}')]
 [Reflection.AssemblyMetaData('SVG.Default value', '50%')]
 [Reflection.AssemblyMetaData('SVG.Animatable', 'True')]
+[Alias('CenterY')]
 [PSObject]
 $Cy,
 # This attribute defines the radius of the start circle of the radial gradient. The gradient will be drawn such that the 0% {{SVGElement('stop','gradient stop')}} is mapped to the perimeter of the start circle.
