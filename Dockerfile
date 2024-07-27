@@ -32,5 +32,7 @@ RUN @( \
     Add-Content -Value "Import-Module $env:ModuleName" -Force; \
     Install-Module -Name ($env:InstallModules -split ',') -Force -AcceptLicense -Scope CurrentUser ; \
     Add-Content -Path \$Profile -Value "Import-Module $env:InstallModules" -Force; \
-    Add-Content -Path \$Profile -Value "./usr/local/share/powershell/Modules/$env:ModuleName/Microservice.ps1" -Force; \
+    Add-Content -Path \$Profile -Value "Push-Location './usr/local/share/powershell/Modules/$env:ModuleName/'" -Force; \
+    Add-Content -Path \$Profile -Value "if (Test-Path ./Microservice.ps1) { ./Microservice.ps1 }" -Force; \    
+    Get-ChildItem -Path "./usr/local/share/powershell/Modules/" -Directory -Force | Where-Object Name -eq '.git' | Remove-Item -Recurse -Force; \
 ) -join ([Environment]::NewLine)
