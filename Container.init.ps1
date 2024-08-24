@@ -41,8 +41,12 @@ param(
 )
 )
 
-# The path to the module destination. 
-$moduleDestination = "$(@($env:PSModulePath -split '[;:]')[0])/$ModuleName"
+
+# Get the root module directory
+$rootModuleDirectory = @($env:PSModulePath -split '[;:]')[0]
+
+# Determine the path to the module destination. 
+$moduleDestination = "$rootModuleDirectory/$ModuleName"
 # Copy the module to the destination
 # (this is being used instead of the COPY statement in Docker, to avoid additional layers).
 Copy-Item -Path "$psScriptRoot" -Destination $moduleDestination -Recurse -Force
@@ -70,7 +74,7 @@ Add-Content -Path $Profile -Value "Get-Module $ModuleName | Split-Path | Push-Lo
 Add-Content -Path $Profile -Value "if (Test-Path ./Microservice.ps1) { ./Microservice.ps1 }" -Force
 
 # Remove the .git directories from any modules
-Get-ChildItem -Path "/usr/local/share/powershell/Modules/" -Directory -Force -Recurse |
+Get-ChildItem -Path $rootModuleDirectory -Directory -Force -Recurse |
     Where-Object Name -eq '.git' |
     Remove-Item -Recurse -Force
 
